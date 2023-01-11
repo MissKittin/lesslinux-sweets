@@ -7,3 +7,4 @@ If you are the author and you do not want this repository to be publicly availab
 * `antibot3-20151109-00.tar.bz2` https://distfiles.lesslinux.org/antibot3-20151109-00.tar.bz2
 * `hacker-launcher-20211017-00.tar.bz2` https://distfiles.lesslinux.org/hacker-launcher-20211017-00.tar.bz2
 * `lesslinux-engelmann-forensic-20171029-00.tar.bz2` https://distfiles.lesslinux.org/lesslinux-engelmann-forensic-20171029-00.tar.bz2
+* `lesslinux-notfall4-20220204-00.tar.bz2` https://distfiles.lesslinux.org/lesslinux-notfall4-20220204-00.tar.bz2
