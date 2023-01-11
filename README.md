@@ -9,3 +9,4 @@ If you are the author and you do not want this repository to be publicly availab
 * `lesslinux-engelmann-forensic-20171029-00.tar.bz2` https://distfiles.lesslinux.org/lesslinux-engelmann-forensic-20171029-00.tar.bz2
 * `lesslinux-notfall4-20220204-00.tar.bz2` https://distfiles.lesslinux.org/lesslinux-notfall4-20220204-00.tar.bz2
 * `rescuetool-20111125-00.tar.bz2` https://distfiles.lesslinux.org/rescuetool-20111125-00.tar.bz2
+* `xconfgui-20180905-00.tar.bz2` https://distfiles.lesslinux.org/xconfgui-20180905-00.tar.bz2
