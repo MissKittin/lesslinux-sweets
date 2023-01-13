@@ -10,3 +10,4 @@ If you are the author and you do not want this repository to be publicly availab
 * `lesslinux-notfall4-20220204-00.tar.bz2` https://distfiles.lesslinux.org/lesslinux-notfall4-20220204-00.tar.bz2
 * `rescuetool-20111125-00.tar.bz2` https://distfiles.lesslinux.org/rescuetool-20111125-00.tar.bz2
 * `xconfgui-20180905-00.tar.bz2` https://distfiles.lesslinux.org/xconfgui-20180905-00.tar.bz2
+* `lesslinux-drivetools-20190629-00.tar.bz2` https://distfiles.lesslinux.org/lesslinux-drivetools-20190629-00.tar.bz2
