@@ -12,3 +12,4 @@ If you are the author and you do not want this repository to be publicly availab
 * `xconfgui-20180905-00.tar.bz2` https://distfiles.lesslinux.org/xconfgui-20180905-00.tar.bz2
 * `lesslinux-drivetools-20190629-00.tar.bz2` https://distfiles.lesslinux.org/lesslinux-drivetools-20190629-00.tar.bz2
 * `avgfree-20180410-00.tar.bz2` https://distfiles.lesslinux.org/avgfree-20180410-00.tar.bz2
+* `avira-skel-20111124-00.tar.bz2` https://distfiles.lesslinux.org/avira-skel-20111124-00.tar.bz2
