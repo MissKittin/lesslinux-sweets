@@ -14,3 +14,4 @@ If you are the author and you do not want this repository to be publicly availab
 * `avgfree-20180410-00.tar.bz2` https://distfiles.lesslinux.org/avgfree-20180410-00.tar.bz2
 * `avira-skel-20111124-00.tar.bz2` https://distfiles.lesslinux.org/avira-skel-20111124-00.tar.bz2
 * `cobi-chromiumos-installer-20140305-00.tar.bz2` https://distfiles.lesslinux.org/cobi-chromiumos-installer-20140305-00.tar.bz2
+* `cobi-tarnmailer-20131112-02.tar.bz2` https://distfiles.lesslinux.org/cobi-tarnmailer-20131112-02.tar.bz2
