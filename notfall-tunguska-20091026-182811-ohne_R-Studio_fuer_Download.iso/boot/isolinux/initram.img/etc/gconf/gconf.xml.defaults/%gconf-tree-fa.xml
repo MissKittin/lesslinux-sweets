@@ -1,0 +1,1163 @@
+<?xml version="1.0"?>
+<gconf>
+	<dir name="schemas">
+		<dir name="apps">
+			<dir name="gnome-system-log">
+				<entry name="logfiles">
+					<local_schema short_desc="پرونده‌‌های ثبتی که هنگام راه‌اندازی باز می‌شوند">
+						<longdesc>فهرستی از پرونده‌های ثبتی که هنگام راه‌اندازی باز می‌شوند. فهرست پیش‌فرض با خواندن  /etc/syslog.conf ایجاد می‌شود.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="width">
+					<local_schema short_desc="عرض پنجرهٔ اصلی به نقطه">
+						<longdesc>عرض پنجرهٔ اصلی نمایش‌گر ثبت را به نقطه مشخص کنید.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="height">
+					<local_schema short_desc="بلندای پنجرهٔ اصلی به مقیاس نقطه‌ای">
+						<longdesc>طول پنجرهٔ اصلی نمایش‌گر ثبت را در مقیاس نقطه‌ای مشخص کنید.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="fontsize">
+					<local_schema short_desc="اندازهٔ قلم استفاده شده برای نمایش ثبت وقایع">
+						<longdesc>اندازهٔ قلم با عرض ثابت استفاده شده برای نمایش ثبت وقایع در شکل درختی اصلی را مشخص کنید. گزینهٔ پیش‌فرض همان اندازهٔ قلم پایانه است.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="logfile">
+					<local_schema short_desc="پرونده‌ٔ ثبتی که هنگام راه‌اندازی باز می‌شود">
+						<longdesc>var/adm/messages یا /var/log/messages است.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="gnome-search-tool">
+				<entry name="default_window_maximized">
+					<local_schema short_desc="بزرگی پنجره در حالت پیش‌فرض">
+						<longdesc>این کلید معین می‌کند که پنجرهٔ ابزار جستجو به بزرگ‌ترین حالت بازشود یا نه.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default_window_height">
+					<local_schema short_desc="طول پنجره در حالت پیش‌فرض">
+						<longdesc>این کلید ارتفاع پنجره را مشخص می‌کند، و از آن برای یادآوری اندازهٔ ابزار جستجو در بین نشست‌ها استفاده می‌شود. تنظیم مقدار آن به ۱- باعث می‌شود ابزار جستجو با ارتفاع پیش‌فرض ظاهر شود.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default_window_width">
+					<local_schema short_desc="عرض پنجره به طور پیش‌فر_ض">
+						<longdesc>این کلید عرض پنجره را مشخص می‌کند، و از آن برای یادآوری اندازهٔ ابزار جستجو در بین نشست‌ها استفاده می‌شود. تنظیم مقدار آن به ۱- باعث می‌شود ابزار جستجو با عرض پیش‌فرض ظاهر شود.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="columns_order">
+					<local_schema short_desc="ترتیب ستون‌های نتایج جستجو">
+						<longdesc>این کلید ترتیب ستون‌ها را در نتایج جستجو مشخص می‌کند. کاربر نباید این کلید را تغییر دهد.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="quick_search_second_scan_excluded_paths">
+					<local_schema short_desc="مسیرهای مستثنی از پویش دوم جستجوی سریع ">
+						<longdesc>این کلید مسیرهایی را که ابزار جستجو هنگام انجام یک جستجوی سریع از دومین پویش مستثنی می‌کند، مشخص می‌کند. پویش دوم برای جستجوی پرونده‌ها از قرمان find استفاده می‌کند. فایدهٔ پویش دوم پیدا کردن پرونده‌هایی است که نمایه‌سازی نشده‌اند. نویسه‌های عام «*» و «?» پشتیبانی می‌شوند. مقدار پیش‌فرض  / است. </longdesc>
+					</local_schema>
+				</entry>
+				<entry name="disable_quick_search_second_scan">
+					<local_schema short_desc="از کار انداختن پویش دوم جستجوی سریع">
+						<longdesc>این کلید معین می‌کند که ابزار جستجو پس از انجام یک جستجوی سریع فرمان find را از کار بیندازد یا نه.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="quick_search_excluded_paths">
+					<local_schema short_desc="مسیرهای مستثنی جستجوی سریع  ">
+						<longdesc>این کلید مسیرهایی را که ابزار جستجو در جستجوی سریع مستثنی خواهد کرد، مشخص می‌کند. نویسه‌های عام «*» و «?» پشتیبانی می‌شوند. مقادیر پیش فرض ‎/mnt/*‎، /media/*‎، /dev/*‎، /tmp/*، ‎/proc/*‎ و ‎/var/*‎ هستند.media/*، /dev/*، /tmp/*، /proc/*، و /var/*.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="disable_quick_search">
+					<local_schema short_desc="از کار انداختن جستجوی سریع">
+						<longdesc>این کلید معین می‌کند که ابزار جستجو پس از انجام یک جستجوی سریع فرمان locate را از کار بیندازد یا نه.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="show_additional_options">
+					<local_schema short_desc="نمایش گزینه‌های اضافی ">
+						<longdesc>این کلید معین می‌کند که گزینه‌ٔ جستجوی «انتخاب گزینه‌های بیشتر» هنگام آغاز ابزار جستجو باز شده باشد یا نه.</longdesc>
+					</local_schema>
+				</entry>
+				<dir name="select">
+					<entry name="follow_symbolic_links">
+						<local_schema short_desc="انتخاب گزینه‌ٔ جستجوی «پی‌گیری پیوندهای نمادی»">
+							<longdesc>این کلید معین می‌کند که گزینهٔ جستجوی «پی‌گیری پیوند‌های نمادی» هنگام آغاز ابزار جستجو انتخاب شده باشد یا نه.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_hidden_files_and_folders">
+						<local_schema short_desc="انتخاب گزینهٔ جستجوی «نمایش پرونده‌ها و پوشه‌های مخفی»">
+							<longdesc>این کلید معین می‌کند که گزینه‌ٔ جستجوی «نشان دادن پرونده‌ها و پوشه‌های مخفی» در هنگام آغاز ابزار جستجو انتخاب شده باشد یا نه.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name_matches_regular_expression">
+						<local_schema short_desc="انتخاب گزینهٔ جستجوی «مطابقت نام با عبارت باقاعده»">
+							<longdesc>این کلید معین می‌کند که گزینه‌ٔ جستجوی «مطابقت نام با عبارت باقاعده» هنگام آغاز ابزار جستجو انتخاب شده باشد یا نه.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name_does_not_contain">
+						<local_schema short_desc="انتخاب گزینه‌ٔ جستجوی «نام بدون»">
+							<longdesc>این کلید معین می‌کند که گزینه‌ٔ جستجوی «نام بدون» هنگام آغاز ابزار جستجو انتخاب شده باشد یا نه.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="owner_is_unrecognized">
+						<local_schema short_desc="انتخاب گزینه‌ٔ جستجوی «مالک ناشناخته است»">
+							<longdesc>این کلید معین می‌کند که گزینه‌ٔ جستجوی «مالک ناشناخته» هنگام آغاز ابزار جستجو انتخاب شده باشد یا نه.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="owned_by_group">
+						<local_schema short_desc="انتخاب گزینه‌ٔ جستجوی «در تملک گروه»">
+							<longdesc>این کلید معین می‌کند که گزینه‌ٔ جستجوی «در تملک گروه» هنگام آغاز ابزار جستجو انتخاب شده باشد یا نه.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="owned_by_user">
+						<local_schema short_desc="انتخاب گزینهٔ جستجوی «در تملک کاربر»">
+							<longdesc>این کلید معین می‌کند که گزینه‌ٔ جستجوی «در تملک کاربر» هنگام آغاز ابزار جستجو انتخاب شده باشد یا نه.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="file_is_empty">
+						<local_schema short_desc="انتخاب گزینه‌ٔ جستجوی «پرونده خالی است»">
+							<longdesc>این کلید معین می‌کند که گزینهٔ جستجوی «پرونده‌ٔ خالی» هنگام آغاز ابزار جستجو انتخاب شده باشد یا نه.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size_at_most">
+						<local_schema short_desc="انتخاب گزینه‌ٔ جستجوی «حداکثر اندازه»">
+							<longdesc>این کلید معین می‌کند که گزینه‌ٔ جستجوی «حداکثر اندازه» هنگام آغاز ابزار جستجو انتخاب شده باشد یا نه.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size_at_least">
+						<local_schema short_desc="انتخاب گزینه‌ٔ جستجوی «حداقل اندازه»">
+							<longdesc>این کلید معین می‌کند که گزینه‌ٔ جستجوی «حداقل اندازه» هنگام آغاز ابزار جستجو انتخاب شده باشد یا نه.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="date_modified_more_than">
+						<local_schema short_desc="انتخاب گزینه‌ٔ جستجو‌ی «تاریخ تغییر بعد از»">
+							<longdesc>این کلید معین می‌کند که گزینه‌ٔ جستجوی «زمان تغییر بعد از» هنگام آغاز ابزار جستجو انتخاب شده باشد یا نه.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="date_modified_less_than">
+						<local_schema short_desc="انتخاب گزینه‌ٔ جستجوی «تاریخ تغییر قبل از»">
+							<longdesc>این کلید معین می‌کند که گزینه‌ٔ جستجوی «زمان تغییر قبل از» هنگام آغاز ابزار جستجو انتخاب شده باشد یا نه.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="contains_the_text">
+						<local_schema short_desc="انتخاب گزینهٔ جستجوی «حاوی متن»">
+							<longdesc>این کلید معین می‌کند گزینه‌ٔ جستجوی «حاوی متن» هنگام آغاز ابزار جستجو انتخاب شده باشد یا نه.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnome-screenshot">
+				<entry name="border_effect">
+					<local_schema short_desc="جلوهٔ کناره">
+					</local_schema>
+				</entry>
+				<entry name="include_border">
+					<local_schema short_desc="گنجاندن کناره">
+						<longdesc>گنجاندن کنارهٔ مدیر پنجره در عکس صفحه</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="last_save_directory">
+					<local_schema short_desc="شاخهٔ عکس صفحه">
+						<longdesc>شاخه‌ای که آخرین عکس صفحه در آن ذخیره شده است.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="gnome-dictionary">
+				<entry name="sidebar-width">
+					<local_schema short_desc="عرض نوار کناری">
+						<longdesc>این کلید عرض نوار کناری را مشخص می‌کند و از آن برای یادآوری تنظیمات در بین نشست‌ها استفاده می‌شود.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="sidebar-page">
+					<local_schema short_desc="صفحهٔ نوار کناری که نمایش داده می‌شود">
+						<longdesc>این کلید مشخص می‌کند که کدام صفحهٔ نوار کناری باید نمایش داده شود و از آن برای یادآوریتنظیمات در بین نشست‌ها استفاده می‌شود.. مقدار آن می‌تواند «speller» و یا «databases»  باشد.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="statusbar-visible">
+					<local_schema short_desc="آیا نوار وضعیت باید قابل رویت باشد یا نه">
+						<longdesc>این کلید مشخص می‌کند که آیا نوار وضعیت باید قابل رویت باشد یا نه و از آن برای یادآوری وضعیت نوار وضعیت در بین نشست‌ها استفاده می‌شود. تنظیم آن به مقدار صحیح باعث می‌شود نوار وضعیت همیشه نمایان باشد.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="sidebar-visible">
+					<local_schema short_desc="آیا نوار کناری باید قابل رویت باشد یا نه">
+						<longdesc>این کلید مشخص می‌کند که آیا نوار کناری قابل رویت باشد یا نه و از آن برای یادآوری وضعیت نوار کناری در بین نشست‌ها استفاده می‌شود. تنظیم آن به مقدار صحیح باعث می‌شود نوار کناری همیشه نمایان باشد.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="window-is-maximized">
+					<local_schema short_desc="آیا پنجرهٔ برنامه باید بزرگ باشد یا نه">
+						<longdesc>این کلید مشخص می‌کند که آیا پنجره باید بزرگ‌ترین اندازهٔ خود باشد یا نه و از آن برای یادآوری وضعیت پنجرهٔ لغت‌نامه در بین نشست‌ها استفاده می‌شود. تنظیم آن به مقدار صحیح باعث می‌شود پنجره همیشه بزرگ ظاهر شود.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default-window-height">
+					<local_schema short_desc="طول پنجرهٔ برنامه در حالت پیش‌فرض">
+						<longdesc>این کلید بلندی پنجره را  مشخص می‌کند و از آن برای یادآوری اندازهٔ پنجرهٔ لغت‌نامه در بین نشست‌ها استفاده می‌شود. تنظیم آن به مقدار ۱- باعث می‌شود ارتفاع پنجرهٔ لغت‌نامه متناسب با اندازهٔ قلم استفاده شده باشد.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default-window-width">
+					<local_schema short_desc="عرض پنجرهٔ برنامه در حالت پیش‌فرض">
+						<longdesc>این کلید عرض پنجره را  مشخص می‌کند و از آن برای یادآوری اندازهٔ پنجرهٔ لغت‌نامه در بین نشست‌ها استفاده می‌شود. تنظیم آن به مقدار ۱- باعث می‌شود عرض پنجرهٔ لغت‌نامه متناسب با اندازهٔ قلم استفاده شده باشد.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="source-name">
+					<local_schema short_desc="نام منبع لغت‌نامهٔ استفاده شده">
+						<longdesc>نام منبع لغت‌نامهٔ استفاده شده برای دریافت معانی کلمات.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="print-font">
+					<local_schema short_desc="قلم مورد استفاده برای چاپ">
+						<longdesc>قلم مورد استفاده برای چاپ معانی.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="strategy">
+					<local_schema short_desc="راهکار جستجوی مورد استفاده در حالت پیش‌فرض">
+						<longdesc> نام راهکار جستجو به طور پیش‌فرض در صورت موجود بودن، برای استفاده در منبع لغت‌نامه. راهکار پیش‌فرض «دقیق» است، که به معنی تطبیق با فقط همان کلمات وارد شده است.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="database">
+					<local_schema short_desc="پایگاه دادهٔ مورد استفاده در حالت پیش‌فرض">
+						<longdesc>نام پایگاه‌داده یا پایگاه فرادادهٔ پیش‌فرض که در منبع لغت‌نامه استفاده می‌شود. علامت تعجب «!» به این معنی است که همه‌ٔ پایگاه‌های دادهٔ موجود در منبع لغت‌نامه باید جستجو شوند</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="smart">
+					<local_schema short_desc="استفاده از جستجوی هوشمند (منسوخ شده) ">
+						<longdesc>مشخص کنید که می‌خواهید از جستجوی هوشمند استفاده کنید یا نه. فعال بودن این کلید بسته به آن است که کارگزار لغت‌نامه از این گزینه پشتیبانی ‌کند یا نه. گزینهٔ پیش‌فرض گزینهٔ «صحیح» است. این کلید منسوخ شده است و دیگر از آن استفاده نمی‌شود.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="port">
+					<local_schema short_desc="درگاه استفاده شده برای اتصال به کارگزار (منسوخ شده)">
+						<longdesc>شماره‌ٔ درگاه مورد استفاده برای اتصال. شمارهٔ درگاه در حالت پیش‌فرض ۲۶۲۸ است. این کلید منسوخ شده و دیگر از آن استفاده نمی‌شود.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="server">
+					<local_schema short_desc="کارگزار لغت‌نامه (منسوخ شده)">
+						<longdesc>کارگزار لغت‌نامه‌ای که باید به آن متصل شد. کارگزار پیش‌فرض dict.org است. برای دیدن جزئیات دربارهٔ کارگزار‌های دیگر به http://www.dict.org مراجعه کنید. این کلیدمنسوخ شده است و دیگر از آن استفاده نمی‌شود.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="baobab">
+				<dir name="properties">
+					<entry name="enable_home_monitor">
+						<local_schema short_desc="به کار انداختن پایش شاخهٔ آغازه">
+							<longdesc>آیا تغییرات شاخهٔ آغازه پایش شوند یا نه.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="ui">
+					<entry name="statusbar_visible">
+						<local_schema short_desc="نوار وضعیت قابل رویت است">
+							<longdesc>آیا نوار وضعیت در پایین صفحهٔ اصلی دیده شود یا نه.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_visible">
+						<local_schema short_desc="نوار ابزار قابل رویت است">
+							<longdesc>آیا نوار ابزار در پنجرهٔ اصلی دیده شود یا نه.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="window_list_applet">
+				<dir name="prefs">
+					<entry name="maximum_size">
+						<local_schema short_desc="حداکثر اندازه‌ی فهرست پنجره‌ها">
+						</local_schema>
+					</entry>
+					<entry name="minimum_size">
+						<local_schema short_desc="حداقل اندازه‌ی فهرست پنجره‌ها">
+						</local_schema>
+					</entry>
+					<entry name="move_unminimized_windows">
+						<local_schema short_desc="انتقال پنجره‌ها به فضای کاری فعلی هنگامی که حداقل می‌شوند">
+							<longdesc>اگر درست باشد، موقع ناحداقل کردن یک پنجره، آن را به فضای کاری فعلی منتقل می‌کند. در غیر این صورت، فضای کاری را به فضای حاوی پنجره تعویض خواهد کرد.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="group_windows">
+						<local_schema short_desc="زمان گروه شدن پنجره‌ها">
+							<longdesc>تصمیم می‌گیرد که کی پنجره‌های متعلق به یک برنامه را در فهرست پنجره‌ها گروه کند. مقادیر ممکن عبارتند از «هیچ‌وقت»، «خودکار» و «همیشه».</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_all_workspaces">
+						<local_schema short_desc="نمایش پنجره‌های همه‌ی فضاهای کاری">
+							<longdesc>اگر درست باشد، فهرست پنجره‌ها، پنجره‌های همه‌ی فضاهای کاری را نشان خواهد داد. در غیر این صورت فقط پنجره‌های فضای کاری فعلی را نمایش می‌دهد.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="workspace_switcher_applet">
+				<dir name="prefs">
+					<entry name="num_rows">
+						<local_schema short_desc="ردیف‌های تعویش‌کننده‌ی فضای کاری">
+							<longdesc>این کلید مشخص می‌کند تعویض‌کننده‌ی فضای کاری، فضاهای کاری را در چند ردیف (برای طرح‌های افقی) یا ستون (برای طرح‌های عمودی) نشان می‌دهد. این کلید فقط در صورتی کار می‌کند که display_all_workspaces درست باشد.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_all_workspaces">
+						<local_schema short_desc="نمایش همه‌ی فضاهای کاری">
+							<longdesc>اگر درست باشد، تعویض‌کننده‌ی فضای کاری همه‌ی فضاهای کاری را نشان خواهد داد. در غیر این صورت فقط فضای کاری فعلی را نشان می‌دهد.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_workspace_names">
+						<local_schema short_desc="نمایش نام فضاهای کاری">
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="fish_applet">
+				<dir name="prefs">
+					<entry name="rotate">
+						<local_schema short_desc="دوران در تابلوهای عمودی">
+							<longdesc>اگر درست باشد، پویانمایی ماهی در تابلوهای عمودی به صورت دوران یافته نمایش داده می‌شود.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="speed">
+						<local_schema short_desc="مکث در هر چارچوب">
+							<longdesc>این کلید تعداد ثانیه‌هایی را مشخص می‌کند که هر چارچوب نمایش داده خواهد شد.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="frames">
+						<local_schema short_desc="چارچوب در پویانمایی ماهی">
+							<longdesc>این کلید تعداد چارچوب‌هایی را مشخص می‌کند که در پویانمایی ماهی نمایش داده خواهند شد.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="command">
+						<local_schema short_desc="فرمانی که با کلیک کردن اجرا می‌شود">
+							<longdesc>این کلید فرمانی را مشخص می‌کند که وقتی روی ماهی کلیک می‌شود اجرا خواهد شد.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="image">
+						<local_schema short_desc="نقشه‌ی نقطه‌ای پویانمایی ماهی">
+							<longdesc>این کلید نام پرونده‌ی نقشه‌نقطه‌ای را که برای پویانمایی نمایش داده شده در برنامک ماهی به کار می‌رود به طور نسبی به شاخه‌ی نقشه‌نقطه‌ای‌ها مشخص می‌کند.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name">
+						<local_schema short_desc="نام ماهی">
+							<longdesc>ماهی بدون اسم به درد نمی‌خورد. با اسم گذاشتن ماهی‌تان را زنده کنید.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="clock_applet">
+				<dir name="prefs">
+					<entry name="speed_unit">
+						<local_schema short_desc="واحد سرعت">
+							<longdesc>واحدی که برای نمایش سرعت باد استفاده می‌شود.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="temperature_unit">
+						<local_schema short_desc="واحد دما">
+							<longdesc>واحدی که برای نمایش دما استفاده می‌شود.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="cities">
+						<local_schema short_desc="فهرست مکان‌ها">
+						</local_schema>
+					</entry>
+					<entry name="internet_time">
+						<local_schema short_desc="استفاده از وقت اینترنتی">
+							<longdesc>در گنوم ۲٫۶ استفاده از این کلید منسوخ شده و به جای آن از کلید «قالب» استفاده می‌شود. شِما برای سازگاری با نسخه‌های قدیمی‌تر حفظ شده است.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="unix_time">
+						<local_schema short_desc="استفاده از وقت یونیکسی">
+							<longdesc>در گنوم ۲٫۶ استفاده از این کلید منسوخ شده و به جای آن از کلید «قالب» استفاده می‌شود. شِما برای سازگاری با نسخه‌های قدیمی‌تر حفظ شده است.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hour_format">
+						<local_schema short_desc="قالب ساعت">
+							<longdesc>در گنوم ۲٫۶ استفاده از این کلید منسوخ شده و به جای آن از کلید «قالب» استفاده می‌شود. شِما برای سازگاری با نسخه‌های قدیمی‌تر حفظ شده است.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_week_numbers">
+						<local_schema short_desc="نمایش عدد هفته‌ها در تقویم">
+							<longdesc>اگر درست باشد، عدد هفته‌ها در تقویم نمایش داده می‌شود.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="config_tool">
+						<local_schema short_desc="ابزار پیکربندی زمان">
+						</local_schema>
+					</entry>
+					<entry name="gmt_time">
+						<local_schema short_desc="استفاده از UTC">
+							<longdesc>اگر درست باشد، وقت در منطقه‌ی زمانی هماهنگ جهانی نمایش داده می‌شود.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_temperature">
+						<local_schema short_desc="نمایش دما در ساعت">
+							<longdesc>اگر درست باشد، دما در کنار شمایل آب‌وهوا نمایش داده می‌شود.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_weather">
+						<local_schema short_desc="نمایش آب‌وهوا در ساعت">
+							<longdesc>اگر درست باشد، شمایلی برای آب‌وهوا نمایش داده می‌شود.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_tooltip">
+						<local_schema short_desc="نمایش تاریخ در راهنمای آنی">
+							<longdesc>اگر درست باشد، وقتی نشان‌گر روی ساعت رفت، تاریخ در یک راهنمای آنی نمایش داده می‌شود.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_date">
+						<local_schema short_desc="نمایش تاریخ در ساعت">
+							<longdesc>اگر درست باشد، علاوه بر زمان، تاریخ هم در وقت نمایش داده می‌شود.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_seconds">
+						<local_schema short_desc="نمایش وقت با ثانیه">
+							<longdesc>اگر درست باشد، ثانیه در وقت نمایش داده می‌شود.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="custom_format">
+						<local_schema short_desc="قالب سفارشی ساعت">
+						</local_schema>
+					</entry>
+					<entry name="format">
+						<local_schema short_desc="قالب ساعت">
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="panel">
+				<dir name="objects">
+					<entry name="action_type">
+						<local_schema short_desc="نوع کلید کنشی">
+							<longdesc>نوع عملی که این دکمه نماینده‌ی آن است. مقادیر ممکن عبارتند از «قفل»، «خروج از سیستم»، «اجرا»، «جست و جو» و «عکس از صفحه‌ی نمایش». این کلید فقط در صورتی کار می‌کند که کلید ،object_type ‏«action-applet» باشد.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="launcher_location">
+						<local_schema short_desc="مکان راه‌انداز">
+							<longdesc>مکان پرونده‌ی .desktop که راه‌انداز را توصیف میکند. این کلید زمانی به کار می‌رود که کلید ،object_type ‏«launcher-object» باشد.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menu_path">
+						<local_schema short_desc="مسیر محتویات منو">
+							<longdesc>مسیری که محتویات منو از آنجا ساخته می‌شود. این کلید فقط در صورتی کار می‌کند که کلید use_menu_path درست و کلید ،object_type ‏«menu-object» باشد.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_menu_path">
+						<local_schema short_desc="استفاده از مسیر سفارشی برای محتویات منو">
+							<longdesc>اگر درست باشد، کلید menu_path به عنوان مسیری که محتویات منو باید از آنجا ساخته شوند به کار خواهد رفت. اگر غلط باشد، کلید menu_path نادیده گرفته می‌شود. این کلید تنها در صورتی کار می‌کند که کلید object_type، «menu-object» باشد.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="custom_icon">
+						<local_schema short_desc="شمایل مورد استفاده برای دکمه‌ی شیء">
+							<longdesc>مکان پرونده‌ی تصویری مورد استفاده به عنوان شمایل دکمه‌ی شیء. این کلید فقط در صورتی کار می‌کند که کلید ،object_type ‏«drawer-object» یا ‏«menu-object»، و کلید use_custom_icon درست باشد.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_custom_icon">
+						<local_schema short_desc="استفاده از شنایل سفارشی برای دکمه‌ی شیء">
+							<longdesc>اگر درست باشد، کلید custom_icon به عنوان شمایلی سفارشی برای دکمه به کار خواهد رفت. اگر غلط باشد، کلید coustom_iconنادیده گرفته می‌شود. این کلید تنها در صورتی کار خواهد کرد که کلید object_type ‏«menu-object» یا ‏«drawer-object» باشد.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="tooltip">
+						<local_schema short_desc="راهنمای آنی نمایش داده شده برای کشو یا منو">
+							<longdesc>متنی که برای این کشو یا این منو در یک راهنمای آنی نمایش داده می‌شود. این کلید تنها زمانی کار می‌کند که کلید ،object_type ‏«menu-object» یا ‏«drawer-object» باشد</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="attached_toplevel_id">
+						<local_schema short_desc="تابلوی متصل به کشو">
+							<longdesc>شناسه‌ی تابلوی متصل به این کشو. این کلید فقط در صورتی کار می‌کند که کلید object_type، ‏‏«drawer-object» باشد.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="bonobo_iid">
+						<local_schema>
+							<longdesc>شناسه‌ی پیاده‌سازی بونوبو از برنامک - مثلاً «OAFIID:GNOME_ClockApplet». این کلید زمانی کار می‌کند که کلید ،object_type ‏«bonobo-applet» باشد.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="locked">
+						<local_schema short_desc="قفل کردن شیء به تابلو">
+							<longdesc>اگر درست باشد، کاربران نمی‌توانند بدون اول باز کردن قفل شیء با استفاده از «باز کردن قفل» شیء منو، برنامک را حرکت دهند.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="panel_right_stick">
+						<local_schema short_desc="تفسیر موقعیت به صورت نسبی از لبه‌ی پایین/راست">
+							<longdesc>اگر درست باشد، موقعیت شیء به طور نسبی از لبه‌ی راست (یا اگر عمودی باشد از لبه‌ی پایین) تابلو تفسیر می‌شود. </longdesc>
+						</local_schema>
+					</entry>
+					<entry name="position">
+						<local_schema short_desc="موقعیت شیء در تابلو">
+							<longdesc>موقعیت این شیء تابلو. موقعیت با تعداد نقطه‌ها از لبه‌ی چپ (یا اگر عمودی باشد لبه‌ی بالای) تابلو مشخص می‌شود.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toplevel_id">
+						<local_schema short_desc="شیء موجود در تابلوی سطح بالا">
+							<longdesc>شناسه‌ی تابلوی سطح بالایی که حاوی این شیء است.‏</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="object_type">
+						<local_schema short_desc="نوع شیء تابلو">
+							<longdesc>نوع این شیء تابلو. مقادیر ممکن ‏«drawer-object»، ‏«menu-object»، ‏«launcher-object»، ‏«bonobo-applet»، ‏«action-applet» و ‏«menu-bar» هستند.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="toplevels">
+					<entry name="animation_speed">
+						<local_schema short_desc="سرعت پویانمایی">
+							<longdesc>سرعت پویانمایی تابلو. مقادیر ممکن عبارتند از «آهسته»، «متوسط» و «سریع». این کلید تنها در صورتی کار می‌کند که کلید enable_animations درست باشد.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_hide_size">
+						<local_schema short_desc="نقطه‌های مرئی هنگام مخفی شدن">
+							<longdesc>تعداد نقطه‌های مرئی را هنگامی که تابلو به طور خودکار در گوشه مخفی می‌شود مشخص می‌کند. این کلید تنها در صورتی کار خواهد کرد که کلید auto_hide درست باشد.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="unhide_delay">
+						<local_schema short_desc="تأخیر مخفی شدن خودکار تابلو">
+							<longdesc>تعداد میلی‌ثانیه‌های تأخیر پس از آن که نشان‌گر وارد فضای تابلو می‌شود تا این که تابلو دوباره به طور خودکار نمایش داده شود را مشخص می‌کند. این کلید تنها در صورتی کار خواهد کرد که کلید auto_hide درست باشد.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hide_delay">
+						<local_schema short_desc="تأخیر مخفی شدن خودکار تابلو">
+							<longdesc>تعداد میلی‌ثانیه‌های تأخیر پس از آن که نشان‌گر فضای تابلو می‌شود تا این که تابلو به طور خودکار مخفی شود را مشخص می‌کند. این کلید تنها در صورتی کار خواهد کرد که کلید auto_hide درست باشد.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_arrows">
+						<local_schema short_desc="به کار انداختن پیکان‌ها روی دکمه‌های مخفی کردن">
+							<longdesc>اگر درست باشد، روی دکمه‌های مخفی کردن پیکان‌هایی قرار داده خواهد شد. این کلید تنها زمانی کار می‌کند که کلید enable_buttons درست باشد.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_buttons">
+						<local_schema short_desc="به کار انداختن دکمه‌های مخفی کردن">
+							<longdesc>اگر درست باشد، دکمه‌ها در هر دو طرف تابلو که می‌تواند برای انتقال تابلو به گوشه‌های صفحه‌ی نمایش مورد استفاده قرار بگیرد، قرار خواهند گرفت، و فقط یک دکمه نشان داده خواهد شد.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="به کار انداختن پویانمایی‌ها">
+							<longdesc>اگر درست باشد، مخفی شدن و از حالت مخفی درآمدن این تابلو به جای این که بلافاصله رخ دهد، پویانمایی خواهد شد.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_hide">
+						<local_schema short_desc="مخفی کردن  خودکار تابلو در گوشه">
+							<longdesc>اگر درست باشد، وقتی نشان‌گر فضای تابلو را ترک می‌کند، تابلو به طور خودکار در یک گوشه‌ی صفحه‌ی نمایش مخفی می‌شود. بردن نشان‌گر به همان گوشه سبب دوباره ظاهر شدن تابلو خواهد شد.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="y_centered">
+						<local_schema short_desc="تنظیم وسط تابلو روی محور y">
+						</local_schema>
+					</entry>
+					<entry name="x_centered">
+						<local_schema short_desc="تنظیم وسط تابلو روی محور x">
+						</local_schema>
+					</entry>
+					<entry name="y">
+						<local_schema short_desc="مختصات Y تابلو">
+							<longdesc>مکان تابلو در امتداد محور y. این کلید تنها در حالت گسترش یافته کار می‌کند. در حالت گسترش یافته این کلید نادیده گرفته می‌شود و تابلو در لبه‌ای از صفحه‌ی نمایش که کلید orientation مشخص می‌کند قرار داده می‌شود.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="x">
+						<local_schema short_desc="مختصات X تابلو">
+							<longdesc>مکان تابلو در امتداد محور x. این کلید تنها در حالت غیر گسترش یافته کار می‌کند. در حالت گسترش یافته این کلید نادیده گرفته می‌شود و تابلو در لبه‌ای از صفحه‌ی نمایش که کلید orientation مشخص می‌کند قرار داده می‌شود.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size">
+						<local_schema short_desc="اندازه‌ی تابلو">
+							<longdesc>ارتفاع (برای تابلوهای عمودی عرض) تابلو. تابلو در هنگام اجرا شدن یک اندازه‌ی حداقل بر اساس اندازه‌ی قلم و دیگر ویژگی‌ها معین خواهد کرد. اندازه‌ی حداکثر به اندازه‌ی ربع ارتفاع (یا عرض) صفحه ثابت است.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="orientation">
+						<local_schema short_desc="جهت تابلو">
+							<longdesc>جهت تابلو. مقادیر ممکن عبارتند از «بالا»، «پایین»، «چپ»، «راست». در حالت گسترش یافته کلید مشخص می‌کند تابلو در کدام لبه‌ی صفحه قرار دارد. در حالت گسترش نیافته، تفاوت میان «بالا» و «پایین» اهمیت چندانی ندارد ـ هر دو مشخص می‌کنند که این تابلو افقی است ـ ولی باز هم راهنمایی کارآمدی درباره‌ی طرز رفتار بعضی اشیاء تابلو ارائه می‌کند. به عنوان مثال، در یک تابلوی «بالا» یک دکمه‌ی منو، منوی خود را زیر تابلو باز خواهد کرد، در حالی که در یک تابلوی «پایین» منو بالای تابلو باز خواهد شد.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand">
+						<local_schema short_desc="گسترش تا اشغال سراسر عرض صفحه‌ی نمایش">
+							<longdesc>اگر درست باشد، تابلو سراسر عرض (یا اگر تابلو عمودی باشد، ارتفاع) صفحه‌ی نمایش را اشغال خواهد کرد. در این حالت فقط می‌توان تابلو را در یک لبه‌ی صفحه قرار داد. اگر نادرست باشد، تابلو فقط به قدری بزرگ خواهد بود که برنامک‌ها، راه‌انداز‌ها و دکمه‌ها روی آن جا شوند.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="monitor">
+						<local_schema short_desc="نمایشگر سینه‌رامایی‌که تابلو در آن نمایش داده شده است">
+							<longdesc>در برپاسازی سینه‌راما، شما می‌توانید روی هر نمایشگر تابلوهای جداگانه داشته باشید. این کلید نمایشگری را که هم اکنون تابلو روی آن نمایش داده می‌شود را مشخص می‌کند.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="screen">
+						<local_schema short_desc="صفحه‌ی نمایش X که تابلو روی آن نمایش داده می‌شود">
+							<longdesc>با برپاسازی چند صفحه‌ای، می‌توانید روی تک تک صفحه‌های نمایش تابلو داشته باشید. این کلید صفحه‌ی فعلی را که تابلو روی آن نمایش داده می‌شود، مشخص می‌کند.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name">
+						<local_schema short_desc="نامی برای شناسایی تابلو">
+							<longdesc>نامی قابل خواندن برای انسان است که می‌توانید برای شناسایی تابلوها به کار ببرید. فایده‌ی اصلی آن به کار رفتن به شکل عنوان پنجره‌ی تابلو است که موقع ناوش بین تابلوها به درد می‌خورد.</longdesc>
+						</local_schema>
+					</entry>
+					<dir name="background">
+						<entry name="rotate">
+							<local_schema short_desc="دوران تصویر در تابلوهای عمودی">
+								<longdesc>اگر درست باشد، وقتی جهت تابلو عمودی باشد تصویر پس‌زمینه دوران داده خواهد شد.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="stretch">
+							<local_schema short_desc="کش آوردن تصویر به اندازه‌ی تابلو">
+								<longdesc>اگر درست باشد، تصویر به ابعاد تابلو کوچک یا بزرگ خواهد شد. نسبت‌های تصویر حفظ نخواهد شد.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="fit">
+							<local_schema short_desc="جا کردن تصویر در تابلو">
+								<longdesc>اگر درست باشد، تصویر (با حفظ نسبت‌ها) به اندازه‌ی ارتفاع تابلو (اگر افقی باشد) کوچک یا بزرگ خواهد شد.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="image">
+							<local_schema short_desc="تصویر پس‌زمینه">
+								<longdesc>پرونده‌ای را که باید برای تصویر پس‌زمینه به کار رود مشخص می‌کند. اگر تصویر حاوی یک کانال آلفا باشد با تصویر پس‌زمینه‌ی رومیزی ترکیب خواهد شد.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="opacity">
+							<local_schema short_desc="شفافیت رنگ پس‌زمینه">
+								<longdesc>شفافیت قالب رنگ پس‌زمینه را مشخص می‌کند. اگر رنگ کاملاْ مات نباشد (مقداری کمتر از ۶۵۵۳۵)، رنگ با تصویر پس‌زمینه‌ی رومیزی ترکیب می‌شود.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="color">
+							<local_schema short_desc="رنگ پس‌زمینه">
+								<longdesc>رنگ پس‌زمینه‌ی تابلو را در قالب #RGB مشخص می‌کند.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="type">
+							<local_schema short_desc="نوع پس‌زمینه">
+								<longdesc>کدام نوع از پس‌زمینه باید برای این تابلو استفاده شود. مقادیر ممکن عبارتند از «gtk» - ویجت پس‌زمینه‌ی پیش‌فرض GTK+‎ استفاده خواهد شد، «رنگ» - کلید color برای رنگ پس‌زمینه استفاده خواهد شد یا «تصویر» - تصویر مشخص شده در کلید image برای پس‌زمینه به کار خواهد رفت.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="general">
+					<entry name="profiles_migrated">
+						<local_schema short_desc="شرح‌حال‌های پیکربندی قدیمی کوچ داده شدند">
+							<longdesc>یک پرچم بولی برای مشخص کردن این‌که پیکربندی قبلی کاربر در ‎/apps/panel/‎profiles/default در یک مکان جدید در ‎/apps/panel نسخه‌برداری شده است.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="object_id_list">
+						<local_schema short_desc="فهرست شناسه‌ی اشیاء تابلو">
+							<longdesc>فهرستی از شناسه‌های اشیاء تابلو. هر شناسه‌ یک شی‌ء تابلوی جداگانه را مشخص می‌کند. تنظیمات هر کدام از این شیء‌ها در ‎/apps/panel/objects/$(id)‎ نگهداری می‌شود.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="applet_id_list">
+						<local_schema short_desc="فهرست شناسه‌ی برنامک‌های تابلو">
+							<longdesc>فهرستی از شناسه‌های برنامک‌های تابلو. هر شناسه‌ یک برنامک‌ تابلوی جداگانه را مشخص می‌کند. تنظیمات هر کدام از این برنامک‌ها در ‎/apps/panel/applets/$(id)‎ نگهداری می‌شود.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toplevel_id_list">
+						<local_schema short_desc="فهرست شناسه‌ی تابلو">
+							<longdesc>فهرستی از شناسه‌های تابلو. هر شناسه‌ یک تابلوی‌ سطح بالای جداگانه را مشخص می‌کند. تنظیمات هر کدام از این تابلو‌ها در ‎/apps/panel/toplevels/$(id)‎ نگهداری می‌شود.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_autocompletion">
+						<local_schema short_desc="به کار انداختن تکمیل خودکار در محاوره‌ی «اجرای برنامه»‏">
+							<longdesc>اگر درست باشد، تکمیل خودکار در محاوره‌ی «اجرای برنامه» قابل دسترسی می‌شود.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_program_list">
+						<local_schema short_desc="باز شدن فهرست برنامه‌ها در محاوره‌ی «اجرای برنامه»‏">
+							<longdesc>اگر درست باشد، وقتی محاوره‌ی «اجرای برنامه» باز می‌شود، فهرست «برنامه‌های شناخته شده» در آن باز می‌شود. این کلید فقط وقتی کار می‌کند که کلید enable_program_list درست باشد.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_program_list">
+						<local_schema short_desc="به کار انداختن فهرست برنامه‌ها در محاوره‌ی «اجرای برنامه»‏">
+							<longdesc>اگر درست باشد، فهرست «برنامه‌های شناخته‌شده» در محاوره‌ی «اجرای برنامه» قابل دسترسی می‌شود. این که فهرست هنگام نشان دادن محاوره باز شود یا نه با کلید show_program_list کنترل می‌شود.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="global">
+					<entry name="disable_force_quit">
+						<local_schema short_desc="از کار انداختن ترک اجباری">
+							<longdesc>اگر درست باشد، تابلو با حذف دسترسی به دکمه‌ی ترک اجباری به کاربر اجازه نمی‌دهد که برنامه‌ای را وادار به ترک کند.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_log_out">
+						<local_schema short_desc="از کار انداختن خروج از سیستم">
+							<longdesc>اگر درست باشد، تابلو با حذف دسترسی به ورودی خروج از سیستم منو، به کاربران اجازه نخواهد داد که از سیستم خارج شوند.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_lock_screen">
+						<local_schema short_desc="منسوخ شده">
+						</local_schema>
+					</entry>
+					<entry name="locked_down">
+						<local_schema short_desc="قفل کردن کامل تابلو">
+							<longdesc>اگر درست باشد، تابلو اجازه‌ی هیچ تغییری را در پیکربندی تابلو نخواهد داد. با این حال ممکن است لازم باشد تک تک برنامه‌ها جداگانه قفل شوند. برای اثر کردن، تابلو باید دوباره راه‌اندازی شود.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="highlight_launchers_on_mouseover">
+						<local_schema short_desc="پررنگ کردن راه‌اندازها وقتی موشی از روی آنها رد می‌شود">
+							<longdesc>اگر درست باشد، راه‌اندازها وقتی کاربر نشان‌گر را روی آنها حرکت می‌دهد پررنگ می‌شوند.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="confirm_panel_remove">
+						<local_schema short_desc="تصدیق حذف تابلو">
+							<longdesc>اگر درست باشد، اگر کاربر بخواهد تابلویی را حذف کند محاوره‌ای برای تصدیق نشان داده می‌شود.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="drawer_autoclose">
+						<local_schema short_desc="بستن خودکار کشو">
+							<longdesc>اگر درست باشد، کشوها وقتی کاربر روی راه‌اندازی در آنها کلیک کند به طور خودکار بسته خواهند شد.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="window_screenshot_key">
+						<local_schema short_desc="منسوخ شده">
+						</local_schema>
+					</entry>
+					<entry name="screenshot_key">
+						<local_schema short_desc="منسوخ شده">
+						</local_schema>
+					</entry>
+					<entry name="run_key">
+						<local_schema short_desc="منسوخ شده">
+						</local_schema>
+					</entry>
+					<entry name="menu_key">
+						<local_schema short_desc="منسوخ شده">
+						</local_schema>
+					</entry>
+					<entry name="enable_key_bindings">
+						<local_schema short_desc="منسوخ شده">
+						</local_schema>
+					</entry>
+					<entry name="panel_hide_delay">
+						<local_schema short_desc="منسوخ شده">
+						</local_schema>
+					</entry>
+					<entry name="panel_animation_speed">
+						<local_schema short_desc="منسوخ شده">
+						</local_schema>
+					</entry>
+					<entry name="panel_show_delay">
+						<local_schema short_desc="منسوخ شده">
+						</local_schema>
+					</entry>
+					<entry name="panel_minimized_size">
+						<local_schema short_desc="منسوخ شده">
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="به کار انداختن پویانمایی‌ها">
+						</local_schema>
+					</entry>
+					<entry name="keep_menus_in_memory">
+						<local_schema short_desc="منسوخ شده">
+						</local_schema>
+					</entry>
+					<entry name="tooltips_enabled">
+						<local_schema short_desc="به کار انداختن راهنمای آنی">
+							<longdesc>اگر درست باشد، راهنمای آنی برای اشیاء در پنجره نشان داده می‌شود.‏</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gweather">
+				<dir name="prefs">
+					<entry name="radar">
+						<local_schema short_desc="نشانی اینترنتی نقشه‌ی رادار">
+							<longdesc>نشانی اینترنتی سفارشی‌ای که نقشه‌ی رادار از آنجا گرفته می‌شود.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_custom_radar_url">
+						<local_schema short_desc="استفاده از نشانی اینترنتی سفارشی برای نقشه‌ی رادار">
+							<longdesc>اگر «درست» باشد، یک نقشه‌ی رادار از مکان مشخص شده توسط کلید «رادار» گرفته شود.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="coordinates">
+						<local_schema>
+						</local_schema>
+					</entry>
+					<entry name="location4">
+						<local_schema>
+						</local_schema>
+					</entry>
+					<entry name="location3">
+						<local_schema>
+						</local_schema>
+					</entry>
+					<entry name="location2">
+						<local_schema>
+						</local_schema>
+					</entry>
+					<entry name="location1">
+						<local_schema>
+						</local_schema>
+					</entry>
+					<entry name="location0">
+						<local_schema>
+						</local_schema>
+					</entry>
+					<entry name="enable_radar_map">
+						<local_schema short_desc="نمایش نقشه‌ی رادار">
+							<longdesc>در هر به‌هنگام‌سازی یک نقشه‌ی رادار گرفته شود.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_detailed_forecast">
+						<local_schema short_desc="دیگر استفاده نمی‌شود">
+						</local_schema>
+					</entry>
+					<entry name="temperature_unit">
+						<local_schema short_desc="واحد دما">
+							<longdesc>واحدی که برای دما استفاده می‌شود.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="speed_unit">
+						<local_schema short_desc="واحد سرعت">
+							<longdesc>واحدی که برای سرعت باد استفاده می‌شود.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="pressure_unit">
+						<local_schema short_desc="واحد فشار">
+							<longdesc>واحدی که برای فشار استفاده می‌شود.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="distance_unit">
+						<local_schema short_desc="واحد فاصله">
+							<longdesc>واحدی که برای دید استفاده می‌شود.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_metric">
+						<local_schema short_desc="استفاده از واحدهای متریک">
+							<longdesc>استفاده از واحدهای متریک به جای واحدهای انگلیسی.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_update_interval">
+						<local_schema short_desc="بازه‌ی به‌هنگام‌سازی">
+							<longdesc>بازه‌ی مابین به‌هنگام‌سازی‌های خودکار، بر حسب ثانیه</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_update">
+						<local_schema short_desc="به‌هنگام‌سازی خودکار داده‌ها">
+							<longdesc>تعیین می‌کند که برنامک به طور خودکار آمار آب و هوا را به‌هنگام بکند یا نه.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="evince">
+				<entry name="override_restrictions">
+					<local_schema short_desc="نادیده گرفتن محدودیت‌های نوشتار">
+						<longdesc>نادیده گرفتن محدودیت‌های نوشتار، مثل محدودیت نسخه‌برداری یا چاپ.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+		</dir>
+		<dir name="desktop">
+			<dir name="gnome">
+				<dir name="interface">
+					<entry name="file_chooser_backend">
+						<local_schema short_desc="پیمانه برای GtkFileChooser">
+						</local_schema>
+					</entry>
+					<entry name="status_bar_meter_on_right">
+						<local_schema short_desc="نوار وضعیت در راست">
+						</local_schema>
+					</entry>
+					<entry name="use_custom_font">
+						<local_schema short_desc="استفاده از قلم سفارشی">
+							<longdesc>این که آیا در برنامه‌های gtk+ از قلم سفارشی استفاده بشود یا نه.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="monospace_font_name">
+						<local_schema short_desc="قلم تک عرض">
+							<longdesc>نام قلم تک‌ عرض برای استفاده در مکان‌هایی مانند پایانه‌ها</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk-im-status-style">
+						<local_schema short_desc="سبک وضعیت GTK IM">
+							<longdesc>نام روش ورودی GTK+، سبک وضعیت که توسط gtk+ استفاده می‌شود.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk-im-preedit-style">
+						<local_schema short_desc="سبک GTK IM Preedit">
+							<longdesc>نام روش ورودی GTK+، سبک پیش‌ویرایش که توسط gtk+ استفاده می‌شود.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="font_name">
+						<local_schema short_desc="قلم پیش‌فرض">
+							<longdesc>نام قلم پیش‌فرض که توسط gtk+ استفاده می‌شود.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk_key_theme">
+						<local_schema short_desc="تم Gtk+">
+							<longdesc>اسم مبنا برای تم پیش‌فرضی که  gtk+ استفاده می‌کند.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk_theme">
+						<local_schema short_desc="تم Gtk+">
+							<longdesc>اسم مبنا برای تم پیش‌فرضی که  gtk+ استفاده می‌کند.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="icon_theme">
+						<local_schema short_desc="تم شمایل">
+							<longdesc>تم شمایل مورد استفاده‌ی تابلو، ناتیلوس و غیره.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="cursor_blink_time">
+						<local_schema short_desc="زمان چشمک زدن مکان‌نما">
+						</local_schema>
+					</entry>
+					<entry name="cursor_blink">
+						<local_schema short_desc="چشمک زدن مکان‌نما">
+						</local_schema>
+					</entry>
+					<entry name="toolbar_icons_size">
+						<local_schema short_desc="اندازه‌ی شمایل نوار ابزار">
+						</local_schema>
+					</entry>
+					<entry name="toolbar_detachable">
+						<local_schema short_desc="نوار ابزار جداشدنی">
+						</local_schema>
+					</entry>
+					<entry name="menubar_detachable">
+						<local_schema short_desc="نوار منوی جداشدنی">
+						</local_schema>
+					</entry>
+					<entry name="menus_have_icons">
+						<local_schema short_desc="منوها شمایل دارند">
+						</local_schema>
+					</entry>
+					<entry name="toolbar_style">
+						<local_schema short_desc="سبک نوار ابزار">
+						</local_schema>
+					</entry>
+					<entry name="can_change_accels">
+						<local_schema short_desc="می‌تواند شتاب‌ده‌ها را عوض کند">
+						</local_schema>
+					</entry>
+					<entry name="menus_have_tearoff">
+						<local_schema short_desc="منوها آژدار دارند">
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="به کار انداختن پویانمایی‌ها">
+							<longdesc>این که آیا پویانمایی نمایش داده بشود یا نه. توجه: این یک کلید سراسری است، رفتار مدیر پنجره‌ها، تابلو و غیره را تغییر می‌دهد.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="accessibility">
+						<local_schema short_desc="به کار انداختن دسترسی‌پذیری">
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="background">
+					<entry name="color_shading_type">
+						<local_schema short_desc="نوع پرده‌ی رنگ">
+						</local_schema>
+					</entry>
+					<entry name="secondary_color">
+						<local_schema short_desc="رنگ‌ فرعی ">
+							<longdesc>رنگ راست یا پایین برای وقتی شیب‌ها رسم می‌شوند، برای رنگ یکدست استفاده نمی‌شود.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="primary_color">
+						<local_schema short_desc="رنگ اصلی">
+							<longdesc>رنگ چپ یا بالا وقتی با شیب‌ها کشیده می‌شود، یا رنگ یکدست.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="picture_opacity">
+						<local_schema short_desc="کدری عکس">
+						</local_schema>
+					</entry>
+					<entry name="picture_filename">
+						<local_schema short_desc="نام پرونده‌ی عکس">
+						</local_schema>
+					</entry>
+					<entry name="picture_options">
+						<local_schema short_desc="گزینه‌های عکس">
+						</local_schema>
+					</entry>
+					<entry name="draw_background">
+						<local_schema short_desc="رسم پس‌زمینه‌ی رومیزی">
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="typing_break">
+					<entry name="enabled">
+						<local_schema short_desc="این که آیا قفل صفحه کلید به کار انداخته شود یا نه.">
+							<longdesc>این که آیا قفل صفحه کلید به کار انداخته شود یا نه.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="allow_postpone">
+						<local_schema short_desc="اجازه‌ی تعویق استراحت‌ها">
+							<longdesc>این که آیا بشود صفحه‌ی استراحت تایپ را به تعویق انداخت یا نه.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="break_time">
+						<local_schema short_desc="زمان استراحت">
+							<longdesc>تعداد دقایقی که استراحت تایپ ادامه می‌یابد.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="type_time">
+						<local_schema short_desc="زمان تایپ">
+							<longdesc>تعداد دقایق زمان تایپ کردن قبل از شروع حالت استراحت.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="sound">
+					<entry name="event_sounds">
+						<local_schema short_desc="صدا برای رویدادها">
+							<longdesc>این که آیا برای رویدادهای کاربر صدا پخش بشود یا نه.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_esd">
+						<local_schema short_desc="به کار انداختن ESD">
+							<longdesc>به کار انداختن راه‌اندازی کارگزار صوت</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="peripherals">
+					<dir name="keyboard">
+						<entry name="bell_custom_file">
+							<local_schema short_desc="نام پرونده‌ی ‌زنگ سفارشی صفحه‌کلید">
+							</local_schema>
+						</entry>
+						<entry name="bell_mode">
+							<local_schema>
+								<longdesc>مقادیر ممکن عبارتند از «روشن»، «خاموش» و «سفارشی».</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="mouse">
+						<entry name="cursor_size">
+							<local_schema short_desc="اندازه‌ی مکان‌نما">
+							</local_schema>
+						</entry>
+						<entry name="cursor_theme">
+							<local_schema short_desc="تم مکان‌نما">
+							</local_schema>
+						</entry>
+						<entry name="cursor_font">
+							<local_schema short_desc="قلم مکان‌نما">
+								<longdesc>نام قلم مکان‌نما. اگر تنظیم نشده باشد، قلم پیش‌فرض استفاده می‌شود. این مقدار فقط در شروع هر نشست به کارگزار X رد می‌شود، بنابراین، تغییر آن در میانه‌ی نشست تا زمان ورود بعدی شما به سیستم اثری ندارد.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="locate_pointer">
+							<local_schema short_desc="تعیین مکان اشاره‌گر">
+							</local_schema>
+						</entry>
+						<entry name="double_click">
+							<local_schema short_desc="زمان دوبار کلیک ">
+							</local_schema>
+						</entry>
+						<entry name="drag_threshold">
+							<local_schema short_desc="آستانه‌ی کشیدن">
+							</local_schema>
+						</entry>
+						<entry name="motion_threshold">
+							<local_schema short_desc="آستانه‌ی حرکت">
+								<longdesc>فاصله‌ای (به نقطه) که اشاره‌گر باید حرکت کند تا آنکه حرکت شتابدار موشی فعال شود. مقدار پیش‌فرض سیستم ۱- است.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="motion_acceleration">
+							<local_schema short_desc="تک کلیک">
+								<longdesc>ضرب‌کننده‌ی شتابدهنده برای حرکت موشی. پیش‌فرض سیستم ۱- است.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="single_click">
+							<local_schema short_desc="تک کلیک">
+							</local_schema>
+						</entry>
+						<entry name="left_handed">
+							<local_schema short_desc="جهت دکمه‌ی موشی">
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="lockdown">
+					<entry name="disable_print_setup">
+						<local_schema short_desc="از کار انداختن برپاسازی چاپ">
+							<longdesc>جلوگیری از تغییر تنظیمات چاپ توسط کاربر. برای مثال، ممکن است دسترسی به محاوره‌ی «برپاسازی چاپ» را در تمام برنامه‌ها از کار بیاندازد.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_printing">
+						<local_schema short_desc="از کار انداختن چاپ">
+							<longdesc>جلوگیری از چاپ توسط کاربر. برای مثال، ممکن است دسترسی به محاوره‌ی «چاپ» را در تمام برنامه‌ها از کار بیاندازد.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_save_to_disk">
+						<local_schema short_desc="از کار انداختن ذخیره‌ی پرونده‌ها در دیسک">
+							<longdesc>جلوگیری از ذخیره‌ی پرونده‌ها در دیسک توسط کاربر. برای مثال، ممکن است دسترسی به محاوره‌ی «ذخیره به نام» را در تمام برنامه‌ها از کار بیاندازد.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_command_line">
+						<local_schema short_desc="از کار انداختن خط فرمان">
+							<longdesc>جلوگیری از دسترسی کاربر به پایانه یا مشخص کردن خط فرمان برای اجرا. برای مثال، ممکن است دسترسی به محاوره‌ی «اجرای برنامه» در تابلو را از کار بیاندازد.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="file-views">
+					<entry name="icon_theme">
+						<local_schema short_desc="تم شمایل پرونده">
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="accessibility">
+					<dir name="startup">
+						<entry name="exec_ats">
+							<local_schema short_desc="برنامه‌های فن‌آوری کمکی راه‌اندازی">
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="keyboard">
+						<entry name="stickykeys_two_key_off">
+							<local_schema>
+								<longdesc>از کار افتادن اگر دو کلید همزمان فشار داده شود.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bouncekeys_delay">
+							<local_schema short_desc="بازه‌ی حداقل به میلی‌ثانیه">
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="thumbnailers">
+					<dir name="application@x-gzpdf">
+						<entry name="command">
+							<local_schema short_desc="فرمان مسطوره برای نوشتارهای PDF">
+								<longdesc>فرمان معتبر به همراه آرگومان‌هایی برای نوشتار PDF. برای اطلاعات بیشتر مستندات مسطوره‌ساز ناتیلوس را ببینید.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="به کار انداختن مسطوره‌سازی برای نوشتارهای PDF">
+								<longdesc>دو گزینهٔ بولی ممکن است، درست مسطوره‌سازی را به کار می‌اندازد و نادرست ایجاد مسطوره‌های جدید را قطع می‌کند</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@x-bzpdf">
+						<entry name="command">
+							<local_schema short_desc="فرمان مسطوره برای نوشتارهای PDF">
+								<longdesc>فرمان معتبر به همراه آرگومان‌هایی برای نوشتار PDF. برای اطلاعات بیشتر مستندات مسطوره‌ساز ناتیلوس را ببینید.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="به کار انداختن مسطوره‌سازی برای نوشتارهای PDF">
+								<longdesc>دو گزینهٔ بولی ممکن است، درست مسطوره‌سازی را به کار می‌اندازد و نادرست ایجاد مسطوره‌های جدید را قطع می‌کند</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@pdf">
+						<entry name="command">
+							<local_schema short_desc="فرمان مسطوره برای نوشتارهای PDF">
+								<longdesc>فرمان معتبر به همراه آرگومان‌هایی برای نوشتار PDF. برای اطلاعات بیشتر مستندات مسطوره‌ساز ناتیلوس را ببینید.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="به کار انداختن مسطوره‌سازی برای نوشتارهای PDF">
+								<longdesc>دو گزینهٔ بولی ممکن است، درست مسطوره‌سازی را به کار می‌اندازد و نادرست ایجاد مسطوره‌های جدید را قطع می‌کند</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="applications">
+					<dir name="browser">
+						<entry name="nremote">
+							<local_schema short_desc="مرورگر دوردست را می‌فهمد">
+							</local_schema>
+						</entry>
+						<entry name="needs_term">
+							<local_schema short_desc="مرورگر به پایانه نیاز دارد">
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="مرورگر پیش‌فرض">
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="terminal">
+						<entry name="exec_arg">
+							<local_schema short_desc="آرگومان‌های Exec">
+								<longdesc>آرگومان استفاده شده برای اجرای برنامه‌ها در پایانه تعریف شده با کلید «exec».</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="برنامه‌ی پایانه">
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+			</dir>
+		</dir>
+	</dir>
+</gconf>

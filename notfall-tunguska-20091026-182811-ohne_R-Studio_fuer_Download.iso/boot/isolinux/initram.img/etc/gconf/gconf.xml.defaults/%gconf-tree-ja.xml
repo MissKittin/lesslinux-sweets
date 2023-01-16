@@ -1,0 +1,2104 @@
+<?xml version="1.0"?>
+<gconf>
+	<dir name="schemas">
+		<dir name="apps">
+			<dir name="gnome-system-log">
+				<entry name="logfiles">
+					<local_schema short_desc="起動時に開くログ・ファイル">
+						<longdesc>起動時に開くロ・グファイルの並びを指定して下さい。デフォルト値は /etc/syslog.conf の内容から作成します。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="width">
+					<local_schema short_desc="メイン・ウィンドウの幅 (ピクセル単位)">
+						<longdesc>ログ・ビューアのメイン・ウィンドウの幅をピクセル単位で指定して下さい。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="height">
+					<local_schema short_desc="メイン・ウィンドウの高さ (ピクセル単位)">
+						<longdesc>ログ・ビューアのメイン・ウィンドウの高さをピクセル単位で指定して下さい。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="fontsize">
+					<local_schema short_desc="ログを表示する際に使用するフォントのサイズ">
+						<longdesc>ログをメイン・ウィンドウのツリーに表示する時に使用する固定幅のフォント・サイズを指定して下さい。デフォルト値は GNOME 端末で設定したフォント・サイズです。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="logfile">
+					<local_schema short_desc="起動時に開くログ・ファイル">
+						<longdesc>起動時に表示するログ・ファイルを指定して下さい。デフォルトは /var/adm/message または /var/log/message のどちらかで、ご利用のオペレーティング・システムに依存します。</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="gnome-search-tool">
+				<entry name="default_window_maximized">
+					<local_schema short_desc="ウィンドウの最大化">
+						<longdesc>検索ツールを最大化した状態で起動するかどうかです。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default_window_height">
+					<local_schema short_desc="ウィンドウの高さ (デフォルト)">
+						<longdesc>ウィンドウの高さを定義します。このキーは複数のセッションで検索ツールの大きさを保存しておく際に使用します。-1 にすると、デフォルトの高さを使用します。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default_window_width">
+					<local_schema short_desc="ウィンドウの幅 (デフォルト)">
+						<longdesc>ウィンドウの幅を定義します。このキーは複数のセッションで検索ツールの大きさを保存しておく際に使用します。-1 にすると、デフォルトの幅を使用します。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="columns_order">
+					<local_schema short_desc="検索結果にある項目の順番">
+						<longdesc>このキーは検索結果にある項目の順番を定義します (ユーザはこのキーを変更しないで下さい)。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="quick_search_second_scan_excluded_paths">
+					<local_schema short_desc="クィック検索の二回目のスキャンで除外するパス">
+						<longdesc>クィック検索を実施する際に二度目のスキャンで対象外にするパスを指定します。二度目のスキャンはコマンド `find` を使ってファイルを検索するために実施します。スキャンを二回実施する目的は、未だインデックス化されていないファイルを検索するためです。サポートしているワイルドカードは &apos;*&apos; と &apos;?&apos; です。デフォルト値: /</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="disable_quick_search_second_scan">
+					<local_schema short_desc="クイック検索の二回目のスキャンを無効にする">
+						<longdesc>クィック検索を実施した後に、コマンド `find` を利用した二度目のスキャンを実施しないかどうかを選択します。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="quick_search_excluded_paths">
+					<local_schema short_desc="クィック検索で除外するパス">
+						<longdesc>クィック検索で対象外とするパスを指定します。サポートしているワイルドカードは &apos;*&apos; と &apos;?&apos; です。デフォルト値: /mnt/*、/media/*、/dev/*、/tmp/*、/proc/*、/var/*</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="disable_quick_search">
+					<local_schema short_desc="クイック検索を無効にする">
+						<longdesc>簡易ファイル名検索を実施した後に、コマンド `locate` を利用したスキャンを実施しないかどうかを選択します。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="show_additional_options">
+					<local_schema short_desc="追加オプションを表示するかどうか">
+						<longdesc>検索オプション &quot;追加オプションの選択&quot; を有効にして検索ツールを起動するかどうかを選択します。</longdesc>
+					</local_schema>
+				</entry>
+				<dir name="select">
+					<entry name="follow_symbolic_links">
+						<local_schema short_desc="検索オプション &quot;シンボリック・リンクを追跡する&quot; の選択可否">
+							<longdesc>検索オプション &quot;シンボリック・リンクを追跡する&quot; を有効にして、検索ツールを起動するかどうかを選択します。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_hidden_files_and_folders">
+						<local_schema short_desc="検索オプション &quot;隠しファイル/フォルダを表示する&quot; の選択可否">
+							<longdesc>検索オプション &quot;隠しファイル/フォルダを表示する&quot; を有効にして、検索ツールを起動するかどうかを選択します。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name_matches_regular_expression">
+						<local_schema short_desc="検索オプション &quot;名前が次の正規表現に一致する&quot; の選択可否">
+							<longdesc>検索オプション &quot;名前が次の正規表現に一致する&quot; を有効にして、検索ツールを起動するかどうかを選択します。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name_does_not_contain">
+						<local_schema short_desc="検索オプション &quot;次の名前を含まない&quot; の選択可否">
+							<longdesc>検索オプション &quot;次の名前を含まない&quot; を有効にして、検索ツールを起動するかどうかを選択します。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="owner_is_unrecognized">
+						<local_schema short_desc="検索オプション &quot;所有者が不明である&quot; の選択可否">
+							<longdesc>検索オプション &quot;所有者が不明である&quot; を有効にして、検索ツールを起動するかどうかを選択します。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="owned_by_group">
+						<local_schema short_desc="検索オプション &quot;次のグループが所有する&quot; の選択可否">
+							<longdesc>検索オプション &quot;次のグループが所有する&quot; を有効にして、検索ツールを起動するかどうかを選択します。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="owned_by_user">
+						<local_schema short_desc="検索オプション &quot;次のユーザが所有する&quot; の選択可否">
+							<longdesc>検索オプション &quot;次のユーザが所有する&quot; を有効にして、検索ツールを起動するかどうかを選択します。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="file_is_empty">
+						<local_schema short_desc="検索オプション &quot;ファイルが空である&quot; の選択可否">
+							<longdesc>検索オプション &quot;ファイルが空である&quot; を有効にして、検索ツールを起動するかどうかを選択します。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size_at_most">
+						<local_schema short_desc="検索オプション &quot;次のサイズよりも大きい&quot; の選択可否">
+							<longdesc>検索オプション &quot;次のサイズよりも大きい&quot; を有効にして、検索ツールを起動するかどうかを選択します。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size_at_least">
+						<local_schema short_desc="検索オプション &quot;次のサイズよりも小さい&quot; の選択可否">
+							<longdesc>検索オプション &quot;次のサイズよりも小さい&quot; を有効にして、検索ツールを起動するかどうかを選択します。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="date_modified_more_than">
+						<local_schema short_desc="検索オプション &quot;次の日数より後に変更した&quot; の選択可否">
+							<longdesc>検索オプション &quot;次の日数より後に変更した&quot; を有効にして、検索ツールを起動するかどうかを選択します。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="date_modified_less_than">
+						<local_schema short_desc="検索オプション &quot;次の日数より前に変更した&quot; の選択可否">
+							<longdesc>検索オプション &quot;次の日数より前に変更した&quot; を有効にして、検索ツールを起動するかどうかを選択します。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="contains_the_text">
+						<local_schema short_desc="検索オプション &quot;次の文字列を含む&quot; の選択可否">
+							<longdesc>検索オプション &quot;次の文字列を含む&quot; を有効にして、検索ツールを起動するかどうかを選択します。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnome-screenshot">
+				<entry name="border_effect">
+					<local_schema short_desc="追加する画像効果">
+						<longdesc>画像の境界の外側に適用する効果です。選択可能な値: &quot;shadow&quot;、&quot;none&quot;、&quot;border&quot;</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="include_pointer">
+					<local_schema short_desc="マウスのポインタを含めるかどうか">
+						<longdesc>スクリーンショットにマウスのポインタを含めるかどうかです。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="include_border">
+					<local_schema short_desc="ウィンドウの境界線を含めるかどうか">
+						<longdesc>スクリーンショットにウィンドウ・マネージャの境界線を含めるかどうかです。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="last_save_directory">
+					<local_schema short_desc="スクリーンショットのフォルダ">
+						<longdesc>最後にスクリーンショットを保存したフォルダです。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="delay">
+					<local_schema short_desc="撮影までの待機時間">
+						<longdesc>スクリーンショットを撮るまでに待機する時間 (単位は秒) です。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="take_window_shot">
+					<local_schema short_desc="【廃止】ウィンドウだけスクリーンショットを撮るかどうか">
+						<longdesc>【このキーは廃止になり、最新版では適用されなくなりました】デスクトップ全体ではなく、現在フォーカスが当たっているウィンドウのスクリーンショットを撮ります。</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="gnome-dictionary">
+				<entry name="sidebar-width">
+					<local_schema short_desc="サイドバーの幅">
+						<longdesc>このキーはサイドバーの幅を定義し、複数のセッションで保存しておく際に使用します。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="sidebar-page">
+					<local_schema short_desc="表示するサイドバーのページ">
+						<longdesc>このキーはサイドバーのページを表示するかどうかを定義し、複数のセッションで設定を保存しておく際に使用します。指定可能な値: &quot;speller&quot; または &quot;database&quot;</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="statusbar-visible">
+					<local_schema short_desc="ステータスバーの表示可否">
+						<longdesc>このキーはステータスバーを表示可能にするかどうかを定義し、複数のセッションでステータスバーの状態を保存しておく際に使用します。TRUE にすると、常にステータスバーが表示されます。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="sidebar-visible">
+					<local_schema short_desc="サイドバーの表示可否">
+						<longdesc>このキーはサイドバーを表示可能にするかどうかを定義し、複数のセッションでサイドバーの状態を保存しておく際に使用します。TRUE にすると、常にサイドバーが表示されます。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="window-is-maximized">
+					<local_schema short_desc="アプリケーションのウィンドウを最大化して起動するかどうか">
+						<longdesc>このキーは、起動時にウィンドウを最大化するかどうかを定義し、複数のセッションで辞書ウィンドウの状態を保存しておく際に使用します。TRUE にすると、起動時のウィンドウは常に最大化された状態で表示します。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default-window-height">
+					<local_schema short_desc="ウィンドウのデフォルトの高さ">
+						<longdesc>このキーはウィンドウの高さを定義し、複数のセッションで辞書ウィンドウの大きさを保存しておく際に使用します。-1 にすると、フォントの大きさに合せて高さを調節します。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default-window-width">
+					<local_schema short_desc="ウィンドウのデフォルトの幅">
+						<longdesc>このキーはウィンドウの幅を定義し、複数のセッションで辞書ウィンドウの大きさを保存しておく際に使用します。-1 にすると、フォントの大きさに合せて幅を調節します。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="source-name">
+					<local_schema short_desc="使用する辞書サーバの名前">
+						<longdesc>単語の意味を取得する際に使用する辞書サーバの名前です。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="print-font">
+					<local_schema short_desc="印刷時に使用するフォント">
+						<longdesc>印刷時に使用するフォントの定義です。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="strategy">
+					<local_schema short_desc="デフォルトで使用する検索ルール">
+						<longdesc>辞書サーバで使用するデフォルトの検索ルールです。デフォルトのルールは &apos;exact&apos; で、単語全体にマッチするものを検索します。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="database">
+					<local_schema short_desc="デフォルトで使用するデータベース">
+						<longdesc>辞書で使用するデフォルトの個人用データベースまたは個人用メタ・データベースの名前です。感嘆符 (&quot;!&quot;) にすると、辞書にある全てのデータベースを検索対象にします。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="smart">
+					<local_schema short_desc="スマート検索を有効にする【廃止】">
+						<longdesc>スマート検索を行うかどうか指定します。このキーは辞書サーバがこのオプションをサポートしているかどうかに依存します。デフォルトは TRUE です。【このキーは廃止になったので、もう使用しません】</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="port">
+					<local_schema short_desc="サーバに接続するボート番号 【廃止】">
+						<longdesc>接続するポート番号です。デフォルトのポート番号は 2628 です。【このキーは廃止になったので、もう使用しません】</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="server">
+					<local_schema short_desc="辞書サーバ 【廃止】">
+						<longdesc>接続する辞書サーバです。デフォルトのサーバは dict.org です。他のサーバについて詳細は http://www.dict.org/ を参照して下さい。【このキーは廃止になったので、もう使用できません】</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="baobab">
+				<dir name="properties">
+					<entry name="skip_scan_uri_list">
+						<local_schema short_desc="対象外のパーティション">
+							<longdesc>スキャンを実行しないパーティションの URI を要素とするリストです。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_home_monitor">
+						<local_schema short_desc="ホーム・フォルダを監視する">
+							<longdesc>ホーム・フォルダの変更を監視するかどうかです。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="ui">
+					<entry name="baobab_subfoldertips_visible">
+						<local_schema short_desc="ツールチップの中にサブフォルダを表示するかどうか">
+							<longdesc>選択したフォルダにあるサブフォルダをツールチップの中に表示するかどうかです。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="statusbar_visible">
+						<local_schema short_desc="ステータスバーの表示可否">
+							<longdesc>メイン・ウィンドウの下にステータスバーを表示するかどうかです。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_visible">
+						<local_schema short_desc="ツールバーの表示可否">
+							<longdesc>メイン・ウィンドウにツールバーを表示するかどうかです。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="window_list_applet">
+				<dir name="prefs">
+					<entry name="maximum_size">
+						<local_schema short_desc="ウィンドウ一覧のサイズ (最大値)">
+							<longdesc>このキーの使用は GNOME 2.20 で廃止になりました (このスキーマは古いバージョンと互換性を維持するためだけに残されています)。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="minimum_size">
+						<local_schema short_desc="ウィンドウ一覧のサイズ (最小値)">
+							<longdesc>このキーの使用は GNOME 2.20 で廃止になりました (このスキーマは古いバージョンと互換性を維持するためだけに残されています)。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="move_unminimized_windows">
+						<local_schema short_desc="最小化から復元する際に現在のワークスペースへ移動する">
+							<longdesc>TRUE にすると、最小化から復元する際にそのウィンドウを現在のワークスペースに移動して表示します。それ以外は、ウィンドウがあったワークスペースに表示します。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="group_windows">
+						<local_schema short_desc="ウインドウをグループ化する時">
+							<longdesc>ウィンドウ一覧にある同じアプリをいつグループ化するかを指定します。指定可能な値: &quot;never&quot;, &quot;auto&quot;, &quot;always&quot;</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_all_workspaces">
+						<local_schema short_desc="全てのワークスペースのウインドウを表示する">
+							<longdesc>TRUE にすると、ウィンドウ一覧に全てのワークスペースのウィンドウを表示します。それ以外は、現在のワークスペースにあるウィンドウのみ表示します。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="workspace_switcher_applet">
+				<dir name="prefs">
+					<entry name="num_rows">
+						<local_schema short_desc="ワークスペース切り替え器の桁数">
+							<longdesc>このキーは全てのワークスペースを表示する際に、ワークスペースが (縦方向に) 何行、(横方向) 何列あるかを指定します。このキーは display_all_workspaces が TRUE の場合にのみ有効になります。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_all_workspaces">
+						<local_schema short_desc="全てのワークスペースを表示する">
+							<longdesc>TRUE にすると、ワークスペース切り替え器は全てのワークスペースを表示します。それ以外は、現在のワークスペースだけを表示します。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_workspace_names">
+						<local_schema short_desc="ワークスペース名を表示する">
+							<longdesc>TRUE にすると、ワークスペース切り替え器の中にあるワークスペースの名前を表示します。それ以外は、ワークスペースの内容 (ウィンドウ) を表示します。この設定は、使用しているウィンドウ・マネージャが Metacity の場合にのみ有効です。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="fish_applet">
+				<dir name="prefs">
+					<entry name="rotate">
+						<local_schema short_desc="パネルが縦向きの場合は回転する">
+							<longdesc>TRUE にすると、パネルが縦向きになった際におさかな君のアニメーションも一緒に回転させます。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="speed">
+						<local_schema short_desc="フレーム毎のポーズ">
+							<longdesc>このキーは各フレームを表示する時間 (秒) を指定します。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="frames">
+						<local_schema short_desc="アニメーションのフレーム数">
+							<longdesc>このキーはおさかな君をアニメーションする際のフレーム数を指定します。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="command">
+						<local_schema short_desc="クリックされた時に実行するコマンド">
+							<longdesc>このキーはおさかな君をクリックした際に実行するコマンドを指定します。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="image">
+						<local_schema short_desc="おさかな君のアニメーション画像">
+							<longdesc>このキーはおさかな君アプレットでアニメーションする際に使用する ($datadir/pixmaps フォルダ下の) 画像ファイルを指定します。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name">
+						<local_schema short_desc="おさかな君の名前">
+							<longdesc>名前のない &quot;おさかな君&quot; はちょっとさえない魚です。名前を付けて命を吹きこみましょう！</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="clock_applet">
+				<dir name="prefs">
+					<entry name="speed_unit">
+						<local_schema short_desc="風速の単位">
+							<longdesc>表示する風力に適用する単位です。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="temperature_unit">
+						<local_schema short_desc="気温の単位">
+							<longdesc>表示する気温に適用する単位です。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="cities">
+						<local_schema short_desc="表示する場所">
+							<longdesc>カレンダ・ウィンドウに表示する場所のリストです。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="internet_time">
+						<local_schema short_desc="インターネット時間を使用する">
+							<longdesc>このキーは &apos;format&apos; キーの利用に対応して GNOME 2.6 で廃止されました。このスキーマ古いバージョンとの互換性のために残されています。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="unix_time">
+						<local_schema short_desc="UNIX 時間を使用する">
+							<longdesc>このキーは &apos;format&apos; キーの利用に対応して GNOME 2.6 で廃止されました。このスキーマ古いバージョンとの互換性のために残されています。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hour_format">
+						<local_schema short_desc="&quot;時&quot; の書式">
+							<longdesc>このキーは &apos;format&apos; キーの利用に対応して GNOME 2.6 で廃止されました。このスキーマ古いバージョンとの互換性のために残されています。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_locations">
+						<local_schema short_desc="場所の一覧を展開して表示する">
+							<longdesc>TRUE にすると、カレンダ・ウィンドウの中に場所の一覧を展開して表示します。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_weather">
+						<local_schema short_desc="天気の情報を表示する">
+							<longdesc>TRUE にすると、カレンダの中に天気の情報を表示します。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_tasks">
+						<local_schema short_desc="タスクの一覧を表示する">
+							<longdesc>TRUE にすると、カレンダの中にタスクの一覧を表示します。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_birthdays">
+						<local_schema short_desc="誕生日の一覧を表示する">
+							<longdesc>TRUE にすると、カレンダ・ウィンドウの中に誕生日の一覧を表示します。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_appointments">
+						<local_schema short_desc="予定の一覧を表示する">
+							<longdesc>TRUE にすると、カレンダ・ウィンドウの中に予定の一覧を表示します。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_week_numbers">
+						<local_schema short_desc="カレンダに週番号を表示する">
+							<longdesc>TRUE にすると、カレンダに週番号を表示します。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="config_tool">
+						<local_schema short_desc="時刻設定ツール">
+							<longdesc>このキーは GNOME 2.22 で非推奨とされ、内蔵の時間設定ツールで置きかえられました。このスキーマは古いバージョンとの互換性のために残されています。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gmt_time">
+						<local_schema short_desc="UTC 時間を使用する">
+							<longdesc>TRUE にすると、グリニッジ標準時で時刻を表示します。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_temperature">
+						<local_schema short_desc="時計に気温を表示する">
+							<longdesc>TRUE にすると、天気を表すアイコンの隣に気温を示します。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_weather">
+						<local_schema short_desc="時計に天気を表示する">
+							<longdesc>TRUE にすると、天気を表すアイコンを表示します。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_tooltip">
+						<local_schema short_desc="ツールチップに日付を表示する">
+							<longdesc>TRUE にすると、マウス・カーソルが時計の上にのった際にツールチップで日付を表示します</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_date">
+						<local_schema short_desc="時計に日付を表示する">
+							<longdesc>TRUE にすると、時刻に加えて時計に日付を表示します。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_seconds">
+						<local_schema short_desc="時刻を秒で表記する">
+							<longdesc>TRUE にすると、時刻に秒を追加して表示します。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="custom_format">
+						<local_schema short_desc="カスタマイズした時計の書式">
+							<longdesc>このキーは時計アプレットで format キーが &quot;custom&quot; にセットされている時に使用する時刻の書式を指定します。特定の書式を指定するには strftime() 関数で利用できる書式指定子を利用できます。詳細は strftime() 関数のマニュアルを参照して下さい。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="format">
+						<local_schema short_desc="&quot;時&quot; の書式">
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="panel">
+				<dir name="objects">
+					<entry name="action_type">
+						<local_schema short_desc="アクション・ボタンの種類">
+							<longdesc>このボタンに付与されたアクションの種類です。このキーは、object_type が &quot;action-applet&quot; の場合にのみ利用できます。指定可能な値: &quot;lock&quot;, &quot;logout&quot;, &quot;run&quot;, &quot;search&quot;, &quot;screenshot&quot;</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="launcher_location">
+						<local_schema short_desc="ランチャの配置">
+							<longdesc>ランチャの詳細を記述した .desktop ファイルの格納場所です。このキーは、object_type キーが &quot;launcher-object&quot; の場合にのみ有効になります。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menu_path">
+						<local_schema short_desc="メニュー内容のパス">
+							<longdesc>メニューを構成するものを格納する場所 (パス名) です。このキーは use_menu_path キーが TRUE で、かつ object_type キーが &quot;menu-object&quot; の場合にのみ有効になります。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_menu_path">
+						<local_schema short_desc="メニューの内容にカスタム・パスを使用する">
+							<longdesc>TRUE にすると、メニューの内容を構成するエントリのパスとして menu_path キーを使用します。TRUE でない場合は、menu_path キーが無視されます。このキーは、object_type キーが &quot;menu-object&quot; の場合にのみ有効になります。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="custom_icon">
+						<local_schema short_desc="オブジェクトのボタンに使用するアイコン">
+							<longdesc>オブジェクトのボタンに表示するアイコンの画像ファイルの格納場所です。このキーは、object_type キーが &quot;drawer-object&quot; まはた &quot;menu-object&quot;  で、かつ use_custom_icon が TRUE の場合にのみ有効になります。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_custom_icon">
+						<local_schema short_desc="オブジェクトのボタンにカスタム・アイコンを使用する">
+							<longdesc>TRUE にすると、ボタンのカスタム・アイコンとして custom_icon キーを使用します。TRUE でない場合は、custom_icon キーが無視されます。このキーは、object_type キーが &quot;menu-object&quot; または &quot;drawer-objet&quot; の場合にのみ有効になります。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="tooltip">
+						<local_schema short_desc="引き出し/メニューにツールチップを表示する">
+							<longdesc>この引き出しまたはこのメニューのツールチップの中に表示する文字列です。このキーは、object_type キーが &quot;drawer-object&quot; または &quot;menu-object&quot; の場合にのみ有効になります。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="attached_toplevel_id">
+						<local_schema short_desc="パネルを引き出しに結合する">
+							<longdesc>この引き出しを配置するパネルの識別子です。このキーは、object_type キーが &quot;drawer-object&quot; の場合にのみ有効になります。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="bonobo_iid">
+						<local_schema short_desc="アプレット Bonobo IID">
+							<longdesc>アプレットの Bonobo インプリメンテーション ID (例: &quot;OAFIID:GNOME_ClockApplet&quot;) です。このキーは、object_type キーが &quot;bonobo-applet&quot; の場合にのみ有効になります。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="locked">
+						<local_schema short_desc="オブジェクトをパネルに固定する">
+							<longdesc>TRUE にすると、メニューから &quot;ロック解除&quot; を選択してロックを解除しない限り、アプレットを移動できません。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="panel_right_stick">
+						<local_schema short_desc="下端/右端からの相対位置で解釈する">
+							<longdesc>TRUE にすると、オブジェクトの位置はパネルの右端 (または縦向きの場合は下端) からの相対位置で解釈されます。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="position">
+						<local_schema short_desc="パネル上のオブジェクトの位置">
+							<longdesc>このパネル・オブジェクトを配置する位置です。配置する位置はパネルの左端 (または縦向きの場合は上端) からのピクセル数で指定します。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toplevel_id">
+						<local_schema short_desc="トップレベル・パネルが格納するオブジェクト">
+							<longdesc>このオブジェクトを格納するトップレベル・パネルの識別子です。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="object_type">
+						<local_schema short_desc="パネル・オブジェクトの種類">
+							<longdesc>このパネル・オブジェクトの種類です。指定可能な値: &quot;drawer-object&quot;, &quot;menu-object&quot;, &quot;launcher-object&quot;, &quot;bonobo-applet&quot;, &quot;action-applet&quot;, &quot;menu-bar&quot;</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="toplevels">
+					<entry name="animation_speed">
+						<local_schema short_desc="アニメーションの速度">
+							<longdesc>パネルをアニメーションさせる際の速度です。このキーは enable_animations が TRUE の場合にのみ機能します。指定可能な値: &quot;slow&quot;, &quot;medium&quot;, &quot;fast&quot;</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_hide_size">
+						<local_schema short_desc="パネルを隠した際に表示するピクセル数">
+							<longdesc>パネルが自動的にスクリーンの端に隠れた際に表示する部分のピクセル値を指定します。このキーは auto_hide キーが TRUE の場合にのみ有効になります。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="unhide_delay">
+						<local_schema short_desc="パネルが自動的に戻るまでの遅延時間">
+							<longdesc>マウス・カーソルがパネルの領域に入ったあとに、自動的にパネルが再表示されるまでの遅延時間をミリ秒で指定します。このキーは auto_hide キーが TRUE の場合にのみ有効になります。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hide_delay">
+						<local_schema short_desc="パネルが自動的に隠れるまでの遅延時間">
+							<longdesc>マウス・カーソルがパネルの領域から離れたあと、自動的にパネルが隠れるまでの遅延時間をミリ秒で指定します。このキーは auto_hide キーが TRUE の場合にのみ有効になります。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_arrows">
+						<local_schema short_desc="隠すボタンに矢印をつける">
+							<longdesc>TRUT にすると、隠すボタンに矢印が付与されます。このキーは enable_buttons キーが TRUE の場合にのみ有効になります。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_buttons">
+						<local_schema short_desc="隠すボタンを有効にする">
+							<longdesc>TRUE にすると、パネルの両端にボタンを配置します。このボタンはスクリーンの端に向かってパネルを移動し、ボタンのみ残して表示させる場合に使用します。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="アニメーションを有効にする">
+							<longdesc>TRUE にすると、このパネルの隠すボタンと戻すボタンの動作にアニメーションの効果を与えます。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_hide">
+						<local_schema short_desc="自動的にパネルを端に隠す">
+							<longdesc>TRUE にすると、マウス・カーソルがパネルから離れた際に、パネルが自動的にスクリーンの端に隠れます。マウス・カーソルを端に移動すると、パネルが再び表示されます。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="y_centered">
+						<local_schema short_desc="Ｙ軸の中央に配置する">
+							<longdesc>TRUE にすると、y と y_bottom キーの設定を無視して、スクリーンのＹ軸の中央にパネルが配置されます。パネルのサイズが変更されると、その位置を保持します (つまり、パネルは両端から延びていきます)。TRUE でない場合、パネルの位置は y と y_buttom キーの設定に従って配置されます。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="x_centered">
+						<local_schema short_desc="Ｘ軸の中央に配置する">
+							<longdesc>TRUE にすると、x と x_right キーの設定を無視して、スクリーンのＸ軸の中央にパネルが配置されます。パネルのサイズが変更されると、その位置を保持します (つまり、パネルは両端から延びていきます)。TRUE でない場合、パネルの位置は x と x_right キーの設定に従って配置されます。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="y_bottom">
+						<local_schema short_desc="パネルのＹ座標 (画面の下からカウントする)">
+							<longdesc>Ｙ軸に沿ったパネルの位置で、スクリーンの下側からカウントします。-1 にすると、このキーの値を無視して y キーの値を使用します。0 より大きな値にすると、y キーの値を無視します。このキーはパネルを広げないモードでのみ有効になります。このキーはパネルを広げたモードでは無視され、パネルはその向きにが示すスクリーンの端に配置されます。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="x_right">
+						<local_schema short_desc="パネルのＸ座標 (画面の右からカウントする)">
+							<longdesc>Ｘ軸に沿ったパネルの位置で、スクリーンの右側からカウントします。-1 にすると、このキーの値を無視して x キーの値を使用します。0 より大きな値にすると、x キーの値を無視します。このキーはパネルを広げないモードでのみ有効になります。このキーはパネルを広げたモードでは無視され、パネルはその向きにが示すスクリーンの端に配置されます。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="y">
+						<local_schema short_desc="パネルのＹ軸方向の座標">
+							<longdesc>Ｙ軸に沿ったパネルの位置です。このキーはパネルを広げないモードでのみ有効になります。このキーはパネルを広げたモードでは無視され、パネルはその向きにが示すスクリーンの端に配置されます。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="x">
+						<local_schema short_desc="パネルのＸ軸方向の座標">
+							<longdesc>Ｘ軸に沿ったパネルの位置です。このキーはパネルを広げないモードでのみ有効になります。このキーはパネルを広げたモードでは無視され、パネルはその向きにが示すスクリーンの端に配置されます。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size">
+						<local_schema short_desc="パネルのサイズ">
+							<longdesc>パネルの高さ (パネルが縦向きの場合は幅) です。パネルはフォントサイズや他のアイコンに基づいた最小サイズをリアルタイムに決定します。最大サイズはスクリーンの高さの 1/4 固定になっています。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="orientation">
+						<local_schema short_desc="パネルの向き">
+							<longdesc>このパネルを配置する向きです (指定可能な値: &quot;top&quot;, &quot;bottom&quot;, &quot;left&quot;, &quot;right&quot;)。パネルを広げたモードの場合、このキーはパネルをスクリーンのどの端に配置するかを指定します。パネルを広げないモードでは、&quot;top&quot; と &quot;bottom&quot; の違いは重要ではありません …どちらも水平なパネルであることを示します。しかしパネル上のオブジェクトの振る舞いを規定する有用なヒントにはなります。例えば、&quot;top&quot; パネルでは、メニューはパネルの下側に向かってポップアップします。逆に &quot;bottom&quot; パネルのメニューはパネルの上側に向かってポップアップします。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand">
+						<local_schema short_desc="パネルをスクリーンの幅一杯に広げる">
+							<longdesc>TRUE にすると、パネルがスクリーンの幅 (パネルが縦向きの場合は高さ) 一杯に延びます。このモードでは、パネルはスクリーンの端にしか配置することができません。False にすると、パネルはその上にあるアプレット、ランチャ、ボタンの数に合わせた大きさになります。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="monitor">
+						<local_schema short_desc="パネルを表示する Xinerama のモニタ">
+							<longdesc>Xinerama 機能では、別々のモニタにパネルを配置することができます。このキーはパネルが表示されている現在のモニタを示します。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="screen">
+						<local_schema short_desc="パネルを表示するＸスクリーン">
+							<longdesc>マルチ・スクリーン設定で、別々のスクリーンにパネルを配置することが可能です。このキーはパネルが表示されている現在のスクリーンを示します。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name">
+						<local_schema short_desc="パネルを識別するための名前">
+							<longdesc>これはパネルを識別するのに使用する可読な名前です。その主な目的は、複数のパネルの間でナビゲートする際に便利なパネル・ウィンドウのタイトルとして保持することにあります。</longdesc>
+						</local_schema>
+					</entry>
+					<dir name="background">
+						<entry name="rotate">
+							<local_schema short_desc="パネルが縦向きの時は画像も回転する">
+								<longdesc>TRUE にすると、パネルが縦向きになった際に背景の画像も一緒に回転させます。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="stretch">
+							<local_schema short_desc="画像をパネルのサイズに合わせる">
+								<longdesc>TRUE にすると、画像がパネルの大きさに合わせてサイズが調整されます。画像のアスペクト比 (縦横比) は無視します。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="fit">
+							<local_schema short_desc="画像をパネルにフィットさせる">
+								<longdesc>TRUE にすると、(パネルの向きが水平方向の場合) パネルの高さに合わせて画像のサイズを調整します。画像のアスペクト比 (縦横比) は保持します。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="image">
+							<local_schema short_desc="背景の画像">
+								<longdesc>背景の画像に使用するファイルを指定します。その画像がαチャンネルをもっている場合、デスクトップの背景画像に合成されます。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="opacity">
+							<local_schema short_desc="背景色の透明度">
+								<longdesc>背景の透明度のフォーマットを指定します。色が完全に不透明 (65535 より小さい値) の場合、その色は背景の画像と合成されます。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="color">
+							<local_schema short_desc="背景色">
+								<longdesc>パネルの背景色を #RGB フォーマットで指定します。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="type">
+							<local_schema short_desc="背景の種類">
+								<longdesc>このパネルに適用する背景の種類です。指定可能な値: &quot;gtk&quot; (デフォルトの GTK+ ウィジットの背景を使用する), &quot;color&quot; (背景に指定した色を使用する), &quot;image&quot; (背景に指定した画像を使用する)</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="general">
+					<entry name="profiles_migrated">
+						<local_schema short_desc="古いプロファイル設定の統合">
+							<longdesc>以前使用していた /apps/panel/profiles/default の設定を新しい場所 /apps/panel へコピーするかどうかを示す論理値フラグです。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="object_id_list">
+						<local_schema short_desc="パネル・オブジェクト ID のリスト">
+							<longdesc>パネル・オブジェクト ID の並びです。各 ID は個々のパネル・オブジェクト (例: ランチャ、アクション・ボタンやメニューボタン、メニューバー) を表します。これらのオブジェクトの設定はそれぞれ /apps/panel/objects/$(id) に格納されます。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="applet_id_list">
+						<local_schema short_desc="パネル・アプレット ID のリスト">
+							<longdesc>パネル・アプレット ID の並びです。各 ID は個々のパネル・アプレットを示します。これらのパネル・アプレットの設定はそれぞれ /apps/panel/applets/$(id) に格納されます。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toplevel_id_list">
+						<local_schema short_desc="パネル ID のリスト">
+							<longdesc>パネル ID の並びです。各 ID は個々のトップレベル・パネルを示します。これらのパネルの設定はそれぞれ /apps/panel/toplevels/$(id) に格納されます。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_autocompletion">
+						<local_schema short_desc="&quot;プログラムの実行&quot; ダイアログで自動補完を有効にする">
+							<longdesc>TRUE にすると、&quot;プログラムの実行&quot; ダイアログで入力の自動補完を有効にします。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_program_list">
+						<local_schema short_desc="&quot;プログラムの実行&quot; ダイアログ上のプログラム一覧を展開する">
+							<longdesc>TRUE にすると、&quot;プログラムの実行&quot; ダイアログが開いた際に、&quot;既存のアプリケーション&quot; の一覧がこのダイアログの中に表示されます。このキーは enable_program_list が TRUE の場合にのみ有効になります。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_program_list">
+						<local_schema short_desc="&quot;プログラムの実行&quot; ダイアログ上のプログラム一覧を有効にする">
+							<longdesc>TRUE にすると、&quot;プログラムの実行&quot; ダイアログの中に表示される &quot;既存のアプリケーション&quot; の一覧を利用できます。ダイアログが表示された際に一覧があるかないかは show_program_list キーで制御することができます。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="global">
+					<entry name="disable_force_quit">
+						<local_schema short_desc="アプリの強制終了の無効">
+							<longdesc>TRUE にすると、ユーザは &quot;アプリの強制終了&quot; ボタンにアクセスできなくなるので、アプリケーションを強制的に終了することができなくなります。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_log_out">
+						<local_schema short_desc="ログアウトの無効">
+							<longdesc>TRUE にすると、ユーザは &quot;ログアウト&quot; メニューにアクセスできなくなるので、ログアウトできなくなります。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_lock_screen">
+						<local_schema short_desc="破棄されたスキーマ">
+							<longdesc>このキーは適切なロックダウンを実装できないため、非推奨となりました。/desktop/gnome/lockdown/disable_lock_screen キーを代わりに使ってください。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disabled_applets">
+						<local_schema short_desc="読み込みを無効にするアプレット IID">
+							<longdesc>パネルが無視するアプレット IID のリストです。これを利用すると、特定のアプレットの読み込みやメニューへの表示を無効にできます。例えば、ミニ・コマンダー・アプレットを無効にするには、このリストに &apos;OAFIID:GNOME_MiniCommanderApplet&apos; を追加します。パネルはこの設定を有効にするため、再起動します。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="locked_down">
+						<local_schema short_desc="完全にパネルをロックする">
+							<longdesc>TRUE にすると、パネルは設定を変更できなくします。ただし、それぞれのアプレットは個別にロックする必要があります。パネルはこの設定を有効にするために、再起動しなければなりません。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="highlight_launchers_on_mouseover">
+						<local_schema short_desc="マウスが上にのったランチャを強調表示する">
+							<longdesc>TRUE にすると、ユーザがランチャの上にマウス・カーソルを移動した際にランチャを強調表示します。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="confirm_panel_remove">
+						<local_schema short_desc="パネル削除時に確認する">
+							<longdesc>TRUE にすると、ユーザがパネルを削除しようとした際に確認ダイアログが表示されます。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="drawer_autoclose">
+						<local_schema short_desc="引き出しを自動的に閉じる">
+							<longdesc>TRUE にすると、ユーザがランチャの引き出しをクリックした際に引き出しを自動的に閉じます。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="window_screenshot_key">
+						<local_schema short_desc="破棄されたスキーマ">
+						</local_schema>
+					</entry>
+					<entry name="screenshot_key">
+						<local_schema short_desc="破棄されたスキーマ">
+						</local_schema>
+					</entry>
+					<entry name="run_key">
+						<local_schema short_desc="破棄されたスキーマ">
+						</local_schema>
+					</entry>
+					<entry name="menu_key">
+						<local_schema short_desc="破棄されたスキーマ">
+						</local_schema>
+					</entry>
+					<entry name="enable_key_bindings">
+						<local_schema short_desc="破棄されたスキーマ">
+						</local_schema>
+					</entry>
+					<entry name="panel_hide_delay">
+						<local_schema short_desc="破棄されたスキーマ">
+						</local_schema>
+					</entry>
+					<entry name="panel_animation_speed">
+						<local_schema short_desc="破棄されたスキーマ">
+						</local_schema>
+					</entry>
+					<entry name="panel_show_delay">
+						<local_schema short_desc="破棄されたスキーマ">
+						</local_schema>
+					</entry>
+					<entry name="panel_minimized_size">
+						<local_schema short_desc="破棄されたスキーマ">
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="アニメーションを有効にする">
+						</local_schema>
+					</entry>
+					<entry name="keep_menus_in_memory">
+						<local_schema short_desc="破棄されたスキーマ">
+						</local_schema>
+					</entry>
+					<entry name="tooltips_enabled">
+						<local_schema short_desc="ツールチップを有効にする">
+							<longdesc>TRUE にすると、パネルにあるオブジェクトのツールチップが表示されます。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gweather">
+				<dir name="prefs">
+					<entry name="radar">
+						<local_schema short_desc="レーダー・マップの URL">
+							<longdesc>レーダー・マップを取得する URL です。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_custom_radar_url">
+						<local_schema short_desc="レーダー・マップの URL をカスタマイズする">
+							<longdesc>TRUE にすると、&quot;radar&quot; キーで指定した場所のレーダー・マップを取得します。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="coordinates">
+						<local_schema short_desc="場所の座標">
+						</local_schema>
+					</entry>
+					<entry name="location4">
+						<local_schema short_desc="都市の天気">
+						</local_schema>
+					</entry>
+					<entry name="location3">
+						<local_schema short_desc="レーダーの場所">
+						</local_schema>
+					</entry>
+					<entry name="location2">
+						<local_schema short_desc="ゾーン">
+						</local_schema>
+					</entry>
+					<entry name="location1">
+						<local_schema short_desc="近隣都市">
+						</local_schema>
+					</entry>
+					<entry name="location0">
+						<local_schema short_desc="都市情報">
+						</local_schema>
+					</entry>
+					<entry name="enable_radar_map">
+						<local_schema short_desc="レーダー・マップの表示">
+							<longdesc>更新時にレーダー・マップを同期します。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_detailed_forecast">
+						<local_schema short_desc="未使用">
+						</local_schema>
+					</entry>
+					<entry name="temperature_unit">
+						<local_schema short_desc="気温の単位">
+							<longdesc>使用する気温の単位です。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="speed_unit">
+						<local_schema short_desc="風速の単位">
+							<longdesc>使用する風速の単位です。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="pressure_unit">
+						<local_schema short_desc="気圧の単位">
+							<longdesc>使用する気圧の単位です。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="distance_unit">
+						<local_schema short_desc="距離の単位">
+							<longdesc>使用する視界の単位です。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_metric">
+						<local_schema short_desc="メートル表記を使用する">
+							<longdesc>英国単位のかわりにメートル表記を使用します。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_update_interval">
+						<local_schema short_desc="更新間隔">
+							<longdesc>自動的に更新する間隔 (秒単位) です。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_update">
+						<local_schema short_desc="自動的にデータを更新する">
+							<longdesc>天気の統計情報を自動的に更新するかどうかを決定します</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnome-keyring">
+				<dir name="daemon-components">
+					<entry name="pkcs11">
+						<local_schema short_desc="PKCS#11 コンポーネントを有効にするかどうか">
+							<longdesc>このオプションは gnome-keyring デーモンの PKCS#11 コンポーネントを有効にします。gnome-keyring デーモンを起動した時 (すなわちユーザがログインしている場合) にのみ効果があります。ここで設定した内容はコマンドラインから上書きすることができます。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="ssh">
+						<local_schema short_desc="SSH エージェントを有効にするかどうか">
+							<longdesc>このオプションは gnome-keyring デーモンの SSH コンポーネントを有効にします。gnome-keyring デーモンを起動した時 (すなわちユーザがログインしている場合) にのみ効果があります。ここで設定した内容はコマンドラインから上書きすることができます。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="brasero">
+				<dir name="filter">
+					<entry name="notify">
+						<local_schema short_desc="ファイルをフィルタしたら通知するかどうか">
+							<longdesc>ファイルをフィルタしたら Brasero で通知するかどうかです。TRUE にすると、フィルタした旨を通知するメッセージを表示します。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="broken_sym">
+						<local_schema short_desc="リンク切れのシンボリック・リンクをBraseroがフィルタするかどうか">
+							<longdesc>リンクが切れたシンボリックリンクを Brasero でフィルタするかどうか。TRUE にするとリンク切れのシンボリック・リンクを無視します。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="replace_sym">
+						<local_schema short_desc="シンボリック・リンクを実態で置き換える">
+							<longdesc>シンボリックリンクをそれが指している実際のファイルで置き換えるかどうか。TRUE にするとシンボリック・リンクを実際のファイルで置き換えます。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hidden">
+						<local_schema short_desc="隠しファイルをフィルタするかどうか">
+							<longdesc>隠しファイルを Brasero でフィルタするかどうかです。TRUE にすると隠しファイルを無視します。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="display">
+					<entry name="video_height">
+						<local_schema short_desc="動画プレビューの高さ">
+							<longdesc>動画をプレビューする際のデフォルトの高さです。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="video_width">
+						<local_schema short_desc="動画プレビューの幅">
+							<longdesc>動画をプレビューする際のデフォルトの幅です。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="image_height">
+						<local_schema short_desc="画像プレビューの高さ">
+							<longdesc>画像をプレビューする際のデフォルトの高さです。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="image_width">
+						<local_schema short_desc="画像プレビューの幅">
+							<longdesc>画像をプレビューする際のデフォルトの幅です。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="viewer">
+						<local_schema short_desc="ファイルのプレビューを有効にするかどうか">
+							<longdesc>ファイルをプレビューするかどうかです。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="layout">
+						<local_schema short_desc="ユーザ・インタフェースの配置">
+							<longdesc>プロジェクトのペインを配置する場所を指定します。指定可能な値: 0 = 右側、1 = 左側、2 = 上側、3 = 下側</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="video_pane">
+						<local_schema short_desc="動画プロジェクトを表示するペイン">
+							<longdesc>楽曲プロジェクトで表示するペインの種類です。指定可能な値: &quot;Chooser&quot;、&quot;Search&quot;、&quot;Playlist&quot;</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="data_pane">
+						<local_schema short_desc="データ・プロジェクトを表示するペイン">
+							<longdesc>データ・プロジェクトで表示するペインの種類です。指定可能な値: &quot;Chooser&quot;、&quot;Search&quot;、&quot;Playlist&quot;</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="audio_pane">
+						<local_schema short_desc="楽曲プロジェクトを表示するペイン">
+							<longdesc>楽曲プロジェクトで表示するペインの種類です。指定可能な値: &quot;Chooser&quot;、&quot;Search&quot;、&quot;Playlist&quot;</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="sidepane">
+						<local_schema short_desc="サイド・ペインを表示するかどうか">
+							<longdesc>ウィンドウのサイド・ペインを表示するかどうかです。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="config">
+					<entry name="raw_flag">
+						<local_schema short_desc="cdrdao で &quot;--driver generic-mmc-raw&quot; フラグを使用するかどうか">
+							<longdesc>cdrecord コマンドで &quot;--driver generic-mmc-raw&quot; フラグを使用するかどうかです。いくつかのドライブ/設定の問題を回避するためだけに有効にするようにして下さい。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="minbuf_value">
+						<local_schema short_desc="cdrecord コマンドで &quot;-immed&quot; フラグを使用するかどうか">
+							<longdesc>cdrecord コマンドで &quot;-immed&quot; フラグを使用するかどうか</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="dao_flag">
+						<local_schema short_desc="growisofs で &quot;-use-the-force-luke=dao&quot; フラグを使用するかどうか">
+							<longdesc>growisofs コマンドで &quot;-use-the-force-luke=dao&quot; フラグを使用するかどうかです。いくつかのドライブ/設定の問題を回避するためだけに有効にするようにして下さい。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="immed_flag">
+						<local_schema short_desc="cdrecord コマンドの &quot;-immed&quot; フラグを有効にするかどうか">
+							<longdesc>cdrecord コマンドで &quot;-immed&quot; フラグを使用するかどうかです。いくつかのドライブ/設定の問題を回避するためだけに有効にするようにして下さい。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="plugins">
+						<local_schema short_desc="使用する追加プラグインのリスト">
+							<longdesc>ディスクの書き込みで使用する追加のプラグインをリスト形式で指定します。何も指定しないと、全てのプラグインを読み込みます。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="engine-group">
+						<local_schema short_desc="お気に入りの書き込みエンジン">
+							<longdesc>インストールされているお気に入りの書き込みエンジンの名前をリスト形式で指定します。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="evince">
+				<entry name="override_restrictions">
+					<local_schema short_desc="ドキュメントの制限を上書きします">
+						<longdesc>コピーや印刷を制限するようなドキュメントの制限を上書きします</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="gnome-settings">
+				<dir name="gnumeric">
+					<entry name="toolbar_style">
+						<local_schema short_desc="ツールバーのスタイル">
+							<longdesc>ツールバースタイルです。有効な値はboth, both_horiz, icon, textです</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnumeric">
+				<dir name="plugin">
+					<dir name="latex">
+						<entry name="use-utf8">
+							<local_schema short_desc="LaTeXのエクスポートでUTF-8を使う">
+								<longdesc>この設定では、作成するLaTeXファイルでUTF-8(unicode)を使うかISO-8859-1(Latin1)を使うかを決定します。UTF-8ファイルを使うにはucs LaTeXパッケージをインストールしておく必要があります。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="cut-and-paste">
+					<entry name="prefer-clipboard">
+						<local_schema short_desc="PRIMARYセレクションよりもクリップボードを優先する">
+							<longdesc>TRUEにすると、GnumericはレガシーなPRIMARYセレクションよりもモダンなクリップボードセレクションを優先します。もしXtermやEmacsなど、PRIMARYセレクションのみをセットするような古めのアプリケーションを扱いたいときは、FALSEにしてください。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="core">
+					<dir name="sort">
+						<dir name="default">
+							<entry name="ascending">
+								<local_schema short_desc="昇順">
+								</local_schema>
+							</entry>
+							<entry name="retain-formats">
+								<local_schema short_desc="フォーマットを保護したままソート">
+									<longdesc>このオプションを設定すると、ツールバーのソートボタンがソート中にセルフォーマットを保護したり、ソートダイアログにある「フォーマットを保護したままソート」チェックボックスの初期状態を決定したりします。</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="by-case">
+								<local_schema short_desc="大文字と小文字を区別する">
+									<longdesc>このオプションを設定するとツールバーのソートボタンが大文字小文字を区別したソートをするようになったりソートダイアログにある「大文字小文字を区別する」チェックボックスの初期状態を決定したりします。</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+					</dir>
+					<dir name="file">
+						<dir name="save">
+							<entry name="def-overwrite">
+								<local_schema short_desc="デフォルトでファイルに上書きする">
+									<longdesc>すでに存在するファイルを上書きする前に、Gnumericは警告ダイアログを表示します。このオプションをセットすると、 そのダイアログの上書きボタンをデフォルトボタンにします。</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="single_sheet">
+								<local_schema short_desc="シングルシートフォーマットにエクスポートするときは警告する">
+								</local_schema>
+							</entry>
+						</dir>
+					</dir>
+					<dir name="xml">
+						<entry name="compression-level">
+							<local_schema short_desc="デフォルトのGnumericファイル圧縮レベル">
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="gui">
+						<dir name="window">
+							<entry name="zoom">
+								<local_schema short_desc="デフォルトの拡大率">
+									<longdesc>新規ワークブックでの最初の拡大倍率です。</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="y">
+								<local_schema short_desc="デフォルトのウィンドウ垂直サイズ">
+								</local_schema>
+							</entry>
+							<entry name="x">
+								<local_schema short_desc="デフォルトのウィンドウ水平サイズ">
+								</local_schema>
+							</entry>
+						</dir>
+						<dir name="editing">
+							<entry name="transitionkeys">
+								<local_schema short_desc="キーの変換">
+								</local_schema>
+							</entry>
+							<entry name="livescrolling">
+								<local_schema short_desc="ライブスクローリング">
+									<longdesc>この項目はライブ(遅延ありに対して)スクローリングを実行するかどうかを決定します。</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="autocomplete">
+								<local_schema short_desc="オートコンプリート">
+									<longdesc>この項目は自動的に補完するかどうかを設定します。</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+						<dir name="screen">
+							<entry name="verticaldpi">
+								<local_schema short_desc="垂直方向DPI">
+									<longdesc>垂直方向のスクリーン解像度です。</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="horizontaldpi">
+								<local_schema short_desc="水平方向DPI">
+									<longdesc>水平方向のスクリーン解像度です。</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+					</dir>
+					<dir name="workbook">
+						<entry name="n-sheet">
+							<local_schema short_desc="デフォルトのシート数">
+								<longdesc>新規ワークブックで最初に作成するシートの数です。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="defaultfont">
+						<entry name="italic">
+							<local_schema short_desc="デフォルトフォントはイタリックです。">
+							</local_schema>
+						</entry>
+						<entry name="bold">
+							<local_schema short_desc="デフォルトフォントはボールドです">
+							</local_schema>
+						</entry>
+						<entry name="name">
+							<local_schema short_desc="デフォルトのフォント名">
+							</local_schema>
+						</entry>
+						<entry name="size">
+							<local_schema short_desc="デフォルトのフォントサイズ">
+								<longdesc>新規ワークブックのデフォルトフォントサイズです。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="undo">
+					<entry name="max_descriptor_width">
+						<local_schema short_desc="「元に戻す」記述の長さ">
+						</local_schema>
+					</entry>
+					<entry name="maxnum">
+						<local_schema short_desc="「元に戻す」ことのできるアイテムの数">
+						</local_schema>
+					</entry>
+					<entry name="size">
+						<local_schema short_desc="「元に戻す」の最大サイズ">
+						</local_schema>
+					</entry>
+					<entry name="show_sheet_name">
+						<local_schema short_desc="シートの名前を元に戻す操作の一覧に表示する">
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="printsetup">
+					<entry name="hf-right">
+						<local_schema>
+							<longdesc>この値を変更するには、印刷設定ダイアログを使ってください。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hf-middle">
+						<local_schema>
+							<longdesc>この値を変更するには、印刷設定ダイアログを使ってください。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hf-left">
+						<local_schema>
+							<longdesc>この値を変更するには、印刷設定ダイアログを使ってください。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hf-font-italic">
+						<local_schema short_desc="ヘッダ/フッタのフォントはデフォルトではイタリックです。">
+						</local_schema>
+					</entry>
+					<entry name="hf-font-bold">
+						<local_schema short_desc="ヘッダ/フッタのフォントはデフォルトではボールドです。">
+						</local_schema>
+					</entry>
+					<entry name="hf-font-name">
+						<local_schema>
+						</local_schema>
+					</entry>
+					<entry name="hf-font-size">
+						<local_schema>
+							<longdesc>ヘッダとフッタのデフォルトフォントサイズです。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="footer">
+						<local_schema short_desc="ページフッタ">
+							<longdesc>新規ドキュメントのデフォルトのページフッタはページセットアップダイアログで変更することができます。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="header">
+						<local_schema short_desc="ページヘッダ">
+							<longdesc>新規ドキュメントのデフォルトのページヘッダはページセットアップダイアログで変更することができます。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="autoformat">
+					<entry name="usr-dir">
+						<local_schema>
+							<longdesc>ユーザごとの自動書式テンプレートのメインディレクトリです。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="sys-dir">
+						<local_schema short_desc="自動フォーマットのシステムディレクトリ">
+							<longdesc>このディレクトリにはプレインストールされた自動書式テンプレートがあります。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="plugins">
+					<entry name="file-states">
+						<local_schema short_desc="プラグインファイルの状態のリスト">
+							<longdesc>このリストにはすべてのプラグインファイルの状態が含まれます。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="known">
+						<local_schema short_desc="既知のプラグインのリスト">
+						</local_schema>
+					</entry>
+					<entry name="active">
+						<local_schema short_desc="有効なプラグインの一覧です。">
+						</local_schema>
+					</entry>
+					<entry name="activate-new">
+						<local_schema short_desc="プラグインを有効にする">
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="autocorrect">
+					<entry name="first-letter-list">
+						<local_schema>
+							<longdesc>自動訂正エンジンはこのリストにある単語の最初の文字を訂正しません。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="functionselector">
+					<entry name="num-of-recent">
+						<local_schema short_desc="最近使った関数リストの最大長さ">
+							<longdesc>関数セレクタは最近使われた関数をリストで覚えています。これはそのリストの最大長です。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="recentfunctions">
+						<local_schema short_desc="最近使った関数のリスト">
+							<longdesc>関数セレクタは最近使われた関数をリストで覚えています。これはそのリストです。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+		</dir>
+		<dir name="desktop">
+			<dir name="gnome">
+				<dir name="interface">
+					<entry name="show_unicode_menu">
+						<local_schema short_desc="&apos;Unicode 制御文字の挿入&apos; メニューを表示する">
+							<longdesc>入力エントリとテキスト・ビューのコンテキスト・メニューで制御文字を挿入するメニュー項目を提供するかどうかです。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_input_method_menu">
+						<local_schema short_desc="&apos;入力メソッド&apos; のメニューを表示する">
+							<longdesc>入力エントリとテキスト・ビューのコンテキスト・メニューで入力メソッドを切り替えるメニュー項目を提供するかどうかです。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menubar_accel">
+						<local_schema short_desc="メニューバーのアクセラレータ">
+							<longdesc>メニューバーを開くキーボード・ショートカットです。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="file_chooser_backend">
+						<local_schema short_desc="GtkFileChooser のモジュール">
+							<longdesc>GtkFileChooser ウィジェットのファイルシステム・モデルとして使用するモジュールです。設定可能な値: &quot;gio&quot;、&quot;gnome-vfs&quot;、&quot;gtk+&quot;</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="status_bar_meter_on_right">
+						<local_schema short_desc="ステータス・バーを右側に表示する">
+							<longdesc>右側にステータス・バーのメータを表示するかどうかです。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_custom_font">
+						<local_schema short_desc="カスタム・フォントを使用する">
+							<longdesc>GTK+ アプリケーションでカスタム・フォントを使用するかどうかです。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="monospace_font_name">
+						<local_schema short_desc="等幅フォント">
+							<longdesc>端末などで使用する等幅 (固定幅) フォントの名前です。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="document_font_name">
+						<local_schema short_desc="ドキュメントのフォント">
+							<longdesc>ドキュメントで使用するデフォルトのフォント名です。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk-im-module">
+						<local_schema short_desc="GTK IM のモジュール名">
+							<longdesc>GTK+ が使用する GTK+ 入力メソッドのモジュール名です。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk-im-status-style">
+						<local_schema short_desc="GTK IM ステータス形式">
+							<longdesc>GTK+ が使用する GTK+ IM ステータス形式の名前です。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk-im-preedit-style">
+						<local_schema short_desc="GTK IM プレエディット形式">
+							<longdesc>GTK+ が使用する GTK+ IM プレエディット形式の名前です。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="font_name">
+						<local_schema short_desc="デフォルトのフォント">
+							<longdesc>GTK+ が使用するデフォルトのフォント名です。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk_key_theme">
+						<local_schema short_desc="GTK+ テーマ">
+							<longdesc>GTK+ が使用するデフォルトのテーマの名前 (basename) です。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk_theme">
+						<local_schema short_desc="GTK+ テーマ">
+							<longdesc>GTK+ が使用するデフォルトのテーマの名前 (basename) です。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="icon_theme">
+						<local_schema short_desc="アイコンのテーマ">
+							<longdesc>パネルや Nautilus などで使用するアイコンのテーマです。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="cursor_blink_time">
+						<local_schema short_desc="カーソルの点滅間隔">
+							<longdesc>カーソルが点滅する間隔です (ミリ秒単位)。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="cursor_blink">
+						<local_schema short_desc="カーソルを点滅するかどうか">
+							<longdesc>カーソルを点滅させるかどうかです。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_icons_size">
+						<local_schema short_desc="ツールバーのアイコンのサイズ">
+							<longdesc>ツールバーに表示するアイコンの大きさです。設定可能な値: &quot;small-toolbar&quot; または &quot;large-toolbar&quot;</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_detachable">
+						<local_schema short_desc="ツールバーを取り外せるようにする">
+							<longdesc>ツールバーを取り外して移動できるようにするかどうかです。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menubar_detachable">
+						<local_schema short_desc="メニューバーを取り外せるようにする">
+							<longdesc>メニューバーを取り外して移動できるようにするかどうかです。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="buttons_have_icons">
+						<local_schema short_desc="ボタンにアイコンを表示するかどうか">
+							<longdesc>ボタンにラベルとアイコンの両方を表示するかどうかです。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menus_have_icons">
+						<local_schema short_desc="メニューにアイコンを表示する">
+							<longdesc>メニュー項目の隣にアイコンを表示するかどうかです。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_style">
+						<local_schema short_desc="ツールバーの形式">
+							<longdesc>ツールバーのスタイルです。設定可能な値: &quot;both&quot;、&quot;both_horiz&quot;、&quot;icons&quot;、&quot;text&quot;</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="can_change_accels">
+						<local_schema short_desc="アクセラレーション・キーを変更できるようにする">
+							<longdesc>メニューアイテムを利用可能な状態にして、新しいアクセラレータを直接入力し登録することができるかどうかです。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menus_have_tearoff">
+						<local_schema short_desc="メニューに可動メニューを表示する">
+							<longdesc>メニューを切り離せるようにするかどうかです。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="アニメーションを有効にする">
+							<longdesc>アニメーションを有効にするかどうかを設定します。[注意] これはグローバルな設定なので、ウィンドウ・マネージャやパネルなどの挙動に影響します。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="accessibility">
+						<local_schema short_desc="アクセシビリティを有効にする">
+							<longdesc>アプリケーションにアクセシビリティをサポートさせるかどうかです。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="background">
+					<entry name="color_shading_type">
+						<local_schema short_desc="色調の変化">
+							<longdesc>背景の色調をどのように変化させるか設定します。設定可能な値: &quot;horizontal-gradient&quot;、&quot;vertical-gradient&quot;、&quot;solid&quot;</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="secondary_color">
+						<local_schema short_desc="二番目の色">
+							<longdesc>グラデーション時の右側もしくは下側の色、あるいは単色時の色です。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="primary_color">
+						<local_schema short_desc="一番目の色">
+							<longdesc>グラデーション時の左側もしくは上側の色、あるいは単色時の色です。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="picture_opacity">
+						<local_schema short_desc="画像の透明度">
+							<longdesc>背景の画像に適用する透明度です。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="picture_filename">
+						<local_schema short_desc="画像のファイル名">
+							<longdesc>背景の画像に使用するファイルです。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="picture_options">
+						<local_schema short_desc="画像のオプション">
+							<longdesc>wallpaper_filename で指定した画像をどのように描画するか設定します。設定可能な値: &quot;none&quot;、&quot;wallpaper&quot;、&quot;centered&quot;、&quot;scaled&quot;、&quot;stretched&quot;、&quot;zoom&quot;</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="draw_background">
+						<local_schema short_desc="デスクトップの背景を描画する">
+							<longdesc>GNOME にデスクトップの背景を描画させるかどうかです。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="thumbnail_cache">
+					<entry name="maximum_size">
+						<local_schema>
+							<longdesc>キャッシュの中に格納しておくサムネイルの最大サイズ (Mバイト単位) で、キャッシュのクリアを無効にする場合は -1 を指定します。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="maximum_age">
+						<local_schema>
+							<longdesc>キャッシュの中に格納しておくサムネイルの最大寿命 (日単位) で、キャッシュのクリアを無効にする場合は -1 を指定します。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="typing_break">
+					<entry name="enabled">
+						<local_schema short_desc="キーボードのロックを有効にする">
+							<longdesc>キーボードのロックを有効にするかどうかです。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="allow_postpone">
+						<local_schema short_desc="一休みする時間を延長できるようにする">
+							<longdesc>一休みする時間を延長できるかどうかです。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="break_time">
+						<local_schema short_desc="一休みする時間">
+							<longdesc>一休みする時間 (分) を指定します。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="type_time">
+						<local_schema short_desc="一休み前のキーボード入力時間">
+							<longdesc>一休みの警告を出すまでの時間 (分) を指定します。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="sound">
+					<entry name="input_feedback_sounds">
+						<local_schema short_desc="入力フィードバックとしてのサウンド効果">
+							<longdesc>入力イベントでサウンドを演奏するかどうかです。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="theme_name">
+						<local_schema short_desc="サウンド・テーマの名前">
+							<longdesc>イベント毎に演奏する XDG のサウンド・テーマです。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="event_sounds">
+						<local_schema short_desc="イベント発生時にサウンドを鳴らす">
+							<longdesc>ユーザのイベントでサウンドを演奏するかどうかです。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_esd">
+						<local_schema short_desc="ESD を有効にする">
+							<longdesc>サウンド・サーバを起動します。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="default_mixer_tracks">
+						<local_schema short_desc="デフォルトのミキサ・トラック">
+							<longdesc>マルチメディア・キーの割り当てで使用するデフォルトのミキサ・トラックです。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="default_mixer_device">
+						<local_schema short_desc="デフォルトのミキサ用デバイス">
+							<longdesc>マルチメディア・キーの割り当てで使用するデフォルトのミキサ用デバイスです。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="peripherals">
+					<dir name="keyboard">
+						<entry name="remember_numlock_state">
+							<local_schema short_desc="NumLock キーの状態を保存する">
+								<longdesc>TRUE にすると、GNOME ライブラリで NumLock キーの LED の状態をセッション毎に記憶します。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bell_custom_file">
+							<local_schema short_desc="キーボード・ベルのファイル名">
+								<longdesc>キーボード・ベルの音として利用するファイル名です。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bell_mode">
+							<local_schema>
+								<longdesc>ベル音のモードです。設定可能な値: &quot;on&quot;、&quot;off&quot;、&quot;custom&quot;</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="mouse">
+						<entry name="cursor_size">
+							<local_schema short_desc="カーソルのサイズ">
+								<longdesc>cursor_theme で参照するカーソルの大きさです。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="cursor_theme">
+							<local_schema short_desc="カーソルのテーマ">
+								<longdesc>使用するカーソル・テーマの名前です。Xcursor をサポートしているＸサーバ (例えば、XFree86 バージョン 4.3 以降) でのみ利用できます。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="cursor_font">
+							<local_schema short_desc="カーソルのフォント">
+								<longdesc>カーソルのフォント名を設定します。ファイル名を指定していない場合はデフォルトのフォントを使用します。この値は各セッションの起動時にＸサーバへ引き渡されるので、セッション中に値を変更しても次回ログインするまで何の効果もありません。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="locate_pointer">
+							<local_schema short_desc="ポインタの位置を表示する">
+								<longdesc>Ctrl キーを押下して離した時にポインタの現在位置を強調表示するかどうかです。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="double_click">
+							<local_schema short_desc="ダブル・クリックの間隔">
+								<longdesc>ダブル・クリックの長さです。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="drag_threshold">
+							<local_schema short_desc="ドラッグのしきい値">
+								<longdesc>ドラッグが開始されるまでの距離です。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="motion_threshold">
+							<local_schema short_desc="移動時のしきい値">
+								<longdesc>マウスの動きが加速されるまでのマウスポインタが動く距離を指定します。システムのデフォルト値は -1 です。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="motion_acceleration">
+							<local_schema short_desc="シングル・クリック">
+								<longdesc>マウスの動きを加速させる値を設定します。システムのデフォルト値は -1 です。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="single_click">
+							<local_schema short_desc="シングル・クリック">
+								<longdesc>シングル・クリックでアイコンを開くかどうかです。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="left_handed">
+							<local_schema short_desc="マウス・ボタンの向き">
+								<longdesc>左利き用のマウスのためにマウスの左ボタンと右ボタンを入れ替えるかどうかです。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="lockdown">
+					<entry name="disable_application_handlers">
+						<local_schema short_desc="URL と MIME 型のハンドラを無効にする">
+							<longdesc>URL または MIME 型に対応したハンドラのアプリケーションを起動しないようにします。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_lock_screen">
+						<local_schema short_desc="画面のロックを利用不可にする">
+							<longdesc>画面をロックできないようにします。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_user_switching">
+						<local_schema short_desc="アカウントの切り換えを不可にする">
+							<longdesc>ユーザが使用しているセッションが有効な間は他のアカウントへ切り換えることができないようにします</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_print_setup">
+						<local_schema short_desc="印刷設定を利用不可にする">
+							<longdesc>ユーザによる印刷設定の変更を不可にします。たとえば、これは全てのアプリケーションが提供する &quot;印刷設定&quot; ダイアログへのアクセスを利用できなくします。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_printing">
+						<local_schema short_desc="印刷機能を利用不可にする">
+							<longdesc>ユーザからの印刷実行を不可にします。たとえば、全てのアプリケーションが提供する &quot;印刷&quot; ダイアログへのアクセスを利用できなくします。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_save_to_disk">
+						<local_schema short_desc="ファイル保存の機能を利用不可にする">
+							<longdesc>ユーザによるファイルの保存を不可にします。たとえば、全てのアプリケーションが提供する &quot;別名で保存&quot; ダイアログへのアクセスを利用できなくします。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_command_line">
+						<local_schema short_desc="コマンドラインを利用不可にする">
+							<longdesc>ユーザからの端末のアクセス、または実行コマンド・ラインの指定を利用不可にします。たとえば、これはパネルの &quot;アプリケーションの実行&quot; ダイアログへのアクセスを利用できなくします。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="file-views">
+					<entry name="icon_theme">
+						<local_schema short_desc="ファイル・アイコンのテーマ">
+							<longdesc>ファイルのアイコンに適用するテーマです。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="accessibility">
+					<dir name="startup">
+						<entry name="exec_ats">
+							<local_schema short_desc="支援技術のアプリケーションを起動する">
+								<longdesc>GNOME デスクトップにログインした後に起動する支援技術 (Assistive Technology) アプリケーションの並びです。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="keyboard">
+						<entry name="stickykeys_modifier_beep">
+							<local_schema>
+								<longdesc>修飾キーが押されたらビープ音を鳴らします。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="stickykeys_two_key_off">
+							<local_schema>
+								<longdesc>同時に二つのキーを押下したら無効にします。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="slowkeys_delay">
+							<local_schema short_desc="最小の間隔 (ミリ秒単位)">
+								<longdesc>@deley ミリ秒間押下し続けていないキーを無視します。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="mousekeys_init_delay">
+							<local_schema short_desc="初期の遅延 (ミリ秒単位)">
+								<longdesc>マウス・キーでマウスが移動するまでにどれくらい遅延するかです (ミリ秒単位)。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="mousekeys_accel_time">
+							<local_schema short_desc="加速するまでにどれくらい遅延するかです (ミリ秒単位)。">
+								<longdesc>速さが０から最大値になるまでどれくらい遅延するかです (ミリ秒単位)。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="mousekeys_max_speed">
+							<local_schema short_desc="単位秒あたりのピクセル数">
+								<longdesc>最高速度の時にどれくらい移動させるかです (ピクセル/秒)。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bouncekeys_delay">
+							<local_schema short_desc="最小の間隔 (ミリ秒単位)">
+								<longdesc>@delay ミリ秒内に同じキーが複数回押されても無視します。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="thumbnailers">
+					<entry name="disable_all">
+						<local_schema short_desc="サムネイル表示する外部のプログラムを全て無効にする">
+							<longdesc>TRUE にすると、サムネイル表示する外部プログラムを (外部プログラムの有効/無効に関わらず) 全て無効にします。</longdesc>
+						</local_schema>
+					</entry>
+					<dir name="application@x-gzpdf">
+						<entry name="command">
+							<local_schema short_desc="PDF ドキュメントのサムネイル表示コマンド">
+								<longdesc>PDF ドキュメントをサムネイル表示するための妥当なコマンドと引数です。詳細は Nautilus のサムネイル関連のドキュメントを参照して下さい。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="PDF ドキュメントのサムネイル表示">
+								<longdesc>論理型のオプションが利用可能で、TRUE にするとサムネイル表示になります。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@x-bzpdf">
+						<entry name="command">
+							<local_schema short_desc="PDF ドキュメントのサムネイル表示コマンド">
+								<longdesc>PDF ドキュメントをサムネイル表示するための妥当なコマンドと引数です。詳細は Nautilus のサムネイル関連のドキュメントを参照して下さい。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="PDF ドキュメントのサムネイル表示">
+								<longdesc>論理型のオプションが利用可能で、TRUE にするとサムネイル表示になります。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@pdf">
+						<entry name="command">
+							<local_schema short_desc="PDF ドキュメントのサムネイル表示コマンド">
+								<longdesc>PDF ドキュメントをサムネイル表示するための妥当なコマンドと引数です。詳細は Nautilus のサムネイル関連のドキュメントを参照して下さい。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="PDF ドキュメントのサムネイル表示">
+								<longdesc>論理型のオプションが利用可能で、TRUE にするとサムネイル表示になります。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="url-handlers">
+					<dir name="h323">
+						<entry name="needs_terminal">
+							<local_schema short_desc="端末でプログラムを実行するかどうか">
+								<longdesc>この種類の URL を処理するコマンドを端末内で実行する場合は TRUE にします。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="&quot;h323&quot; の URL の処理">
+								<longdesc>&quot;h323&quot; の URL を処理する際に使用するコマンドです (任意)。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="指定したコマンドで &quot;h323&quot; の URL を処理するかどうか">
+								<longdesc>&quot;h323&quot; の URL を処理するキー &quot;command&quot; にコマンドを指定する場合は TRUE にします。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="callto">
+						<entry name="needs_terminal">
+							<local_schema short_desc="端末でプログラムを実行するかどうか">
+								<longdesc>この種類の URL を処理するコマンドを端末内で実行する場合は TRUE にします。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="URL &quot;callto&quot; の 処理">
+								<longdesc>&quot;callto&quot; の URL を処理する際に使用するコマンドです (任意)。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="指定したコマンドで URL &quot;callto&quot; を処理するかどうか">
+								<longdesc>URL &quot;callto&quot; を処理するキー &quot;command&quot; にコマンドを指定する場合は TRUE にします。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="aim">
+						<entry name="needs_terminal">
+							<local_schema short_desc="端末でプログラムを実行するかどうか">
+								<longdesc>この種類の URL を処理するコマンドを端末内で実行する場合は TRUE にします。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="URL &quot;aim&quot; の 処理">
+								<longdesc>&quot;aim&quot; の URL を処理する際に使用するコマンドです (任意)。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="指定したコマンドで URL &quot;aim&quot; を処理するかどうか">
+								<longdesc>URL &quot;aim&quot; を処理するキー &quot;command&quot; にコマンドを指定する場合は TRUE にします。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="mailto">
+						<entry name="needs_terminal">
+							<local_schema short_desc="端末でプログラムを実行するかどうか">
+								<longdesc>この種類の URL を処理するコマンドを端末内で実行する場合は TRUE にします。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="URL &quot;mailto&quot; の 処理">
+								<longdesc>&quot;mailto&quot; の URL を処理する際に使用するコマンドです (任意)。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="指定したコマンドで URL &quot;mailto&quot; を処理するかどうか">
+								<longdesc>URL &quot;mailto&quot; を処理するキー &quot;command&quot; にコマンドを指定する場合は TRUE にします。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="https">
+						<entry name="needs_terminal">
+							<local_schema short_desc="端末でプログラムを実行するかどうか">
+								<longdesc>この種類の URL を処理するコマンドを端末内で実行する場合は TRUE にします。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="URL &quot;https&quot; の 処理">
+								<longdesc>&quot;https&quot; の URL を処理する際に使用するコマンドです (任意)。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="指定したコマンドで URL &quot;https&quot; を処理するかどうか">
+								<longdesc>URL &quot;https&quot; を処理するキー &quot;command&quot; にコマンドを指定する場合は TRUE にします。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="http">
+						<entry name="needs_terminal">
+							<local_schema short_desc="端末でプログラムを実行するかどうか">
+								<longdesc>この種類の URL を処理するコマンドを端末内で実行する場合は TRUE にします。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="URL &quot;http&quot; の 処理">
+								<longdesc>&quot;http&quot; の URL を処理する際に使用するコマンドです (任意)。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="指定したコマンドで URL &quot;http&quot; を処理するかどうか">
+								<longdesc>URL &quot;http&quot; を処理するキー &quot;command&quot; にコマンドを指定する場合は TRUE にします。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="man">
+						<entry name="needs_terminal">
+							<local_schema short_desc="端末でプログラムを実行するかどうか">
+								<longdesc>この種類の URL を処理するコマンドを端末内で実行する場合は TRUE にします。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="URL &quot;man&quot; の 処理">
+								<longdesc>&quot;man&quot; の URL を処理する際に使用するコマンドです (任意)。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="指定したコマンドで URL &quot;man&quot; を処理するかどうか">
+								<longdesc>URL &quot;man&quot; を処理するキー &quot;command&quot; にコマンドを指定する場合は TRUE にします。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="info">
+						<entry name="needs_terminal">
+							<local_schema short_desc="端末でプログラムを実行するかどうか">
+								<longdesc>この種類の URL を処理するコマンドを端末内で実行する場合は TRUE にします。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="URL &quot;info&quot; の 処理">
+								<longdesc>&quot;info&quot; の URL を処理する際に使用するコマンドです (任意)。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="指定したコマンドで URL &quot;info&quot; を処理するかどうか">
+								<longdesc>URL &quot;info&quot; を処理するキー &quot;command&quot; にコマンドを指定する場合は TRUE にします。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="ghelp">
+						<entry name="needs_terminal">
+							<local_schema short_desc="端末でプログラムを実行するかどうか">
+								<longdesc>この種類の URL を処理するコマンドを端末内で実行する場合は TRUE にします。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="URL &quot;ghelp&quot; の 処理">
+								<longdesc>&quot;ghelp&quot; の URL を処理する際に使用するコマンドです (任意)。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="指定したコマンドで URL &quot;ghelp&quot; を処理するかどうか">
+								<longdesc>URL &quot;ghelp&quot; を処理するキー &quot;command&quot; にコマンドを指定する場合は TRUE にします。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="trash">
+						<entry name="needs_terminal">
+							<local_schema short_desc="端末でプログラムを実行するかどうか">
+								<longdesc>この種類の URL を処理するコマンドを端末内で実行する場合は TRUE にします。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="URL &quot;trash&quot; の 処理">
+								<longdesc>&quot;trash&quot; の URL を処理する際に使用するコマンドです (任意)。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="指定したコマンドで URL &quot;trash&quot; を処理するかどうか">
+								<longdesc>URL &quot;trash&quot; を処理するキー &quot;command&quot; にコマンドを指定する場合は TRUE にします。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="applications">
+					<dir name="tasks">
+						<entry name="needs_term">
+							<local_schema short_desc="タスクを端末から起動する">
+								<longdesc>デフォルトのタスク管理アプリケーションを実行するのに端末が必要かどうかです。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="デフォルトのタスク">
+								<longdesc>デフォルトのタスク管理アプリケーションです</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="calendar">
+						<entry name="needs_term">
+							<local_schema short_desc="カレンダを端末から起動する">
+								<longdesc>デフォルトのカレンダ・アプリケーションを実行するのに端末が必要かどうかです。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="デフォルトのカレンダ">
+								<longdesc>デフォルトのカレンダ・アプリケーションです。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="window_manager">
+						<entry name="workspace_names">
+							<local_schema short_desc="ワークスペースの名前 (破棄の予定)">
+								<longdesc>ウィンドウマネージャの最初のワークスペースの名前のリストです (このキーは GNOME 2.12 から破棄される予定です)。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="number_of_workspaces">
+							<local_schema short_desc="ワークスペースの数 (破棄の予定)">
+								<longdesc>ウィンドウ・マネージャが使用するワークスペースの数です (このキーは GNOME 2.12 から破棄される予定です)</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="current">
+							<local_schema short_desc="ユーザ指定のウィンドウ・マネージャ (破棄の予定)">
+								<longdesc>最初に起動してみるウィンドウ・マネージャです (このキーは GNOME 2.12 から破棄される予定です)。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="default">
+							<local_schema short_desc="代替のウィンドウ・マネージャ (破棄の予定)">
+								<longdesc>指定したウィンドウ・マネージャが見つからなかった場合の代替のウィンドウ・マネージャです (このキーは GNOME 2.12 から破棄される予定です)。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="browser">
+						<entry name="nremote">
+							<local_schema short_desc="ブラウザはリモートを理解する">
+								<longdesc>デフォルトのブラウザが Netscape リモートを理解するかどうかです。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="needs_term">
+							<local_schema short_desc="ブラウザを端末から起動する">
+								<longdesc>デフォルトのブラウザを実行するのに端末が必要かどうかです。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="デフォルトのブラウザ">
+								<longdesc>全ての URL で利用するデフォルトのブラウザです。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="at">
+						<dir name="mobility">
+							<entry name="startup">
+								<local_schema short_desc="移動性支援技術をサポートしたアプリケーションを起動する">
+									<longdesc>ログインしたら移動性支援技術 (Mobility Assistive Technology) をサポートするアプリケーションを優先して起動するかどうかです。</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="exec">
+								<local_schema short_desc="起動する移動性支援技術のアプリケーション">
+									<longdesc>ログインやメニュー、あるいはコマンドラインで利用する移動性支援技術 (Mobility Assistive Technology) をサポートしたアプリケーションです。</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+						<dir name="visual">
+							<entry name="startup">
+								<local_schema short_desc="視覚支援技術をサポートしたアプリケーションを起動する">
+									<longdesc>ログインしたら視覚支援技術 (Visual Assistive Technology) をサポートするアプリケーションを優先して起動するかどうかです。</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="exec">
+								<local_schema short_desc="起動する視覚支援技術のアプリケーション">
+									<longdesc>ログインやメニュー、あるいはコマンドラインで利用する視覚支援技術 (Visual Assistive Technology) をサポートしたアプリケーションです。</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+					</dir>
+					<dir name="component_viewer">
+						<entry name="exec">
+							<local_schema short_desc="デフォルトのコンポーネント・ビューア・アプリケーション">
+								<longdesc>コンポーネントが必要となるファイルを閲覧するためのアプリケーションです。%s はファイルの URI で、パラメータ %c はコポーネントの IID でそれぞれ置き換えられます。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="terminal">
+						<entry name="exec_arg">
+							<local_schema short_desc="実行時の引数">
+								<longdesc>&apos;exec&apos; キーで定義された、端末でプログラムを実行するために利用する引数です。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="端末アプリケーション">
+								<longdesc>端末から起動する必要のあるアプリケーションから利用される端末プログラムです。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+			</dir>
+		</dir>
+		<dir name="system">
+			<dir name="dns_sd">
+				<entry name="extra_domains">
+					<local_schema short_desc="DNS-SD サービスで検索する追加ドメイン">
+						<longdesc>コンマ (,) で区切った DNS-SD のリストで、&quot;network:///&quot; の中に表示されます。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="display_local">
+					<local_schema short_desc="ローカルの DNS-SD サービスの表示方法">
+						<longdesc>設定可能な値: &quot;merged&quot;、&quot;separate&quot;、&quot;disabled&quot;</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="smb">
+				<entry name="workgroup">
+					<local_schema short_desc="SMB ワークグループ">
+						<longdesc>ユーザが所属する Windows ネットワーク・グループまたはドメインです。新しいワークグループを認識するには、ユーザがそのグループにログインしてログアウトする必要があります。</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="proxy">
+				<entry name="autoconfig_url">
+					<local_schema short_desc="自動プロキシ設定の URL">
+						<longdesc>プロキシの設定値を提供する URL です。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="socks_port">
+					<local_schema short_desc="SOCKS プロキシのポート番号">
+						<longdesc>プロキシとして利用する、&quot;/system/proxy/socks_host&quot; で定義されたマシンのポート番号です。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="socks_host">
+					<local_schema short_desc="SOCKS プロキシのホスト名">
+						<longdesc>SOCKS プロキシとして利用するマシンの名前です。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="ftp_port">
+					<local_schema short_desc="FTP プロキシのポート番号">
+						<longdesc>プロキシとして利用する、&quot;/system/proxy/ftp_host&quot; で定義されたマシンのポート番号です。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="ftp_host">
+					<local_schema short_desc="FTP プロキシのホスト名">
+						<longdesc>FTP プロキシとして利用するマシンの名前です。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="secure_port">
+					<local_schema short_desc="セキュア HTTP プロキシのポート番号">
+						<longdesc>プロキシとして利用する、&quot;/system/proxy/secure_host&quot; で定義されたマシンのポート番号です。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="secure_host">
+					<local_schema short_desc="セキュア HTTP プロキシのホスト名">
+						<longdesc>セキュア HTTP のプロキシとして利用するマシンの名前です。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="mode">
+					<local_schema short_desc="プロキシ設定モード">
+						<longdesc>プロキシ設定モードを選択します (利用可能な値: &quot;none&quot;, &quot;manual&quot;, &quot;auto&quot;)。</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="http_proxy">
+				<entry name="ignore_hosts">
+					<local_schema short_desc="プロキシではないホスト名">
+						<longdesc>このキーには、(アクティブな場合は) プロキシ経由ではなく直接接続される多くのホストが含まれています。ホスト名、ドメイン (*.foo.com のように先頭にワイルド・カードが使われます)、IP ホスト・アドレス (IPv4 と IPv6 の両方)、ネット・マスクが併記されたネットワーク・アドレス (192.168.0.0/24のような値) といった値になります。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="authentication_password">
+					<local_schema short_desc="HTTP プロキシのパスワード">
+						<longdesc>HTTP プロキシを利用するときに認証として引き渡すパスワードです。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="authentication_user">
+					<local_schema short_desc="HTTP プロキシのユーザ名">
+						<longdesc>HTTP プロキシを利用するときに認証として引き渡すユーザ名です。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="use_authentication">
+					<local_schema short_desc="認証プロキシ・サーバへの接続">
+						<longdesc>TRUE の場合、プロキシ・サーバへの接続で認証が要求されます。ユーザ名/パスワードの組み合わせは &quot;/system/http_proxy/authentication_user&quot; と &quot;/system/http_proxy/authentication_password&quot; で定義されます。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="port">
+					<local_schema short_desc="HTTP プロキシのポート番号">
+						<longdesc>プロキシとして利用する、&quot;/system/http_proxy/host&quot; で定義されたマシンのポート番号です。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="host">
+					<local_schema short_desc="HTTP プロキシのホスト名">
+						<longdesc>HTTP のプロキシとして利用するマシンの名前です。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="use_http_proxy">
+					<local_schema short_desc="HTTP プロキシの使用">
+						<longdesc>インターネットへ HTTP アクセスするときにプロキシの設定を有効にします。</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+		</dir>
+	</dir>
+</gconf>

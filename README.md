@@ -24,6 +24,7 @@ If you are the author and you do not want this repository to be publicly availab
 * `skype_xtractor_v.0.1.8.8.zip` https://distfiles.lesslinux.org/skype_xtractor_v.0.1.8.8.zip
 * `virusfrontend-20190104.tar.bz2` https://distfiles.lesslinux.org/virusfrontend-20190104.tar.bz2
 * `lesslinux-search-and-rescue-uluru-20190720-112947.iso` https://download.lesslinux.org/incoming/lesslinux-search-and-rescue-uluru-20190720-112947.iso
+* `notfall-tunguska-20091026-182811-ohne_R-Studio_fuer_Download.iso` https://download.lesslinux.org/testing/cbrescue/notfall-tunguska-20091026-182811-ohne_R-Studio_fuer_Download.iso
 
 # Scripts
 * `1570_clamav.xml` https://github.com/mschlenker/lesslinux-builder/blob/master/scripts/stage03/1570_clamav.xml

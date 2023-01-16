@@ -1,0 +1,2061 @@
+<?xml version="1.0"?>
+<gconf>
+	<dir name="schemas">
+		<dir name="apps">
+			<dir name="gnome-system-log">
+				<entry name="logfiles">
+					<local_schema short_desc="启动时打开的日志文件">
+						<longdesc>指定在程序启动时要打开的日志文件。默认列表将会通过读取 /etc/syslog.conf 创建。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="width">
+					<local_schema short_desc="主窗口的宽度，以像素计">
+						<longdesc>指定日志查看器主窗口的宽度，以像素计。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="height">
+					<local_schema short_desc="主窗口的高度，以像素计">
+						<longdesc>指定日志查看器主窗口的高度，以像素计。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="fontsize">
+					<local_schema short_desc="用于显示日志的字体大小">
+						<longdesc>指定用于在主树视图中显示日志的等宽字体大小。默认值来自于默认终端字体大小。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="logfile">
+					<local_schema short_desc="启动时打开的日志文件">
+						<longdesc>指定在程序启动时显示的日志文件。根据您的操作系统不同，默认是 /var/adm/messages 或者 /var/log/messages。</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="gnome-search-tool">
+				<entry name="look_in_folder">
+					<local_schema short_desc="搜索文件夹">
+						<longdesc>这关键码定义widget“查找文件夹”的默认值。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default_window_maximized">
+					<local_schema short_desc="默认窗口最大化">
+						<longdesc>此键决定了是否禁止搜索工具是否以最大化状态启动。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default_window_height">
+					<local_schema short_desc="默认窗口高度">
+						<longdesc>此键定义了窗口高度，用于在不同的会话间记忆搜索工具的大小。将其设置为 -1 将使得搜索工具使用默认高度。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default_window_width">
+					<local_schema short_desc="默认窗口宽度">
+						<longdesc>此键定义了窗口宽度，用于在不同的会话间记忆搜索工具的大小。将其设置为 -1 将使得搜索工具使用默认宽度。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="columns_order">
+					<local_schema short_desc="搜索结果列顺序">
+						<longdesc>此键定义了搜索结果中各列的顺序。此键不应该由用户自行修改。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="quick_search_second_scan_excluded_paths">
+					<local_schema short_desc="快速搜索第二次扫描排除的路径">
+						<longdesc>此键定义了执行快速搜索时第二遍扫描被排除的路径。第二遍扫描使用 find 命令来搜索文件。第二遍扫描的目的是查找没有加入索引的文件。支持通配符“*”和“?”。默认值为 /。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="disable_quick_search_second_scan">
+					<local_schema short_desc="禁用快速搜索第二次扫描">
+						<longdesc>此键决定了是否禁止搜索工具在执行快速搜索后使用 find 命令。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="quick_search_excluded_paths">
+					<local_schema short_desc="快速搜索排除的路径">
+						<longdesc>此键定义了执行快速搜索时被排除的路径。支持通配符“*”和“?”。默认值为 /mnt/*、/media/*、/dev/*、/tmp/*、/proc/* 和 /var/*。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="disable_quick_search">
+					<local_schema short_desc="禁用快速搜索">
+						<longdesc>此键决定了是否禁止搜索工具在执行简单的文件名搜索时使用 locate 命令。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="show_additional_options">
+					<local_schema short_desc="选择额外选项">
+						<longdesc>此键决定了搜索工具启动时是否展开“选择更多选项”节。</longdesc>
+					</local_schema>
+				</entry>
+				<dir name="select">
+					<entry name="exclude_other_filesystems">
+						<local_schema short_desc="选择搜索选项“排除其它文件系统”">
+							<longdesc>此键决定了搜索工具启动时是否选中“排除其它文件夹系统”搜索选项。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="follow_symbolic_links">
+						<local_schema short_desc="选择搜索选项“跟随符号连接”">
+							<longdesc>此键决定了搜索工具启动时是否选中“跟随符号链接”搜索选项。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_hidden_files_and_folders">
+						<local_schema short_desc="选择搜索选项“显示隐藏文件和文件夹”">
+							<longdesc>此键决定了搜索工具启动时是否选中“显示隐藏文件和文件夹”搜索选项。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name_matches_regular_expression">
+						<local_schema short_desc="选择搜索选项“名称匹配正则表达式”">
+							<longdesc>此键决定了搜索工具启动时是否选中“名称匹配正则表达式”搜索选项。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name_does_not_contain">
+						<local_schema short_desc="选择搜索选项“名称不包含”">
+							<longdesc>此键决定了搜索工具启动时是否选中“名称不包含”搜索选项。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="owner_is_unrecognized">
+						<local_schema short_desc="选择搜索选项“未知的所属用户”">
+							<longdesc>此键决定了搜索工具启动时是否选中“属主无法识别”搜索选项。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="owned_by_group">
+						<local_schema short_desc="选择搜索选项“文件所属组”">
+							<longdesc>此键决定了搜索工具启动时是否选中“由组所有”搜索选项。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="owned_by_user">
+						<local_schema short_desc="选择搜索选项“文件所属用户”">
+							<longdesc>此键决定了搜索工具启动时是否选中“由用户所有”搜索选项。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="file_is_empty">
+						<local_schema short_desc="选择搜索选项“文件为空”">
+							<longdesc>此键决定了搜索工具启动时是否选中“文件为空”搜索选项。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size_at_most">
+						<local_schema short_desc="搜索选项“大小最多为”">
+							<longdesc>此键决定了搜索工具启动时是否选中“大小至多为”搜索选项。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size_at_least">
+						<local_schema short_desc="选择搜索选项“大小最少为”">
+							<longdesc>此键决定了搜索工具启动时是否选中“大小至少为”搜索选项。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="date_modified_more_than">
+						<local_schema short_desc="选择搜索选项“修改日期多于”">
+							<longdesc>此键决定了搜索工具启动时是否选中“修改日期晚于”搜索选项。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="date_modified_less_than">
+						<local_schema short_desc="选择搜索选项“修改日期少于”">
+							<longdesc>此键决定了搜索工具启动时是否选中“修改日期早于”搜索选项。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="contains_the_text">
+						<local_schema short_desc="选择搜索选项“包含文字”">
+							<longdesc>此键决定了搜索工具启动时是否选中“包含文字”搜索选项。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnome-screenshot">
+				<entry name="border_effect">
+					<local_schema short_desc="边框效果">
+						<longdesc>在边框上添加的特效，可供选择的值包括“shadow”、“none”和“border”。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="include_pointer">
+					<local_schema short_desc="包含指针">
+						<longdesc>在抓图中包含鼠标指针</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="include_border">
+					<local_schema short_desc="包含边框">
+						<longdesc>在抓图中包含窗口管理器边框</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="last_save_directory">
+					<local_schema short_desc="抓图目录">
+						<longdesc>上次用于保存屏幕抓图的目录。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="delay">
+					<local_schema short_desc="抓图延迟">
+						<longdesc>抓图前等候的秒数。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="take_window_shot">
+					<local_schema short_desc="窗口特定屏幕截图(推荐)">
+						<longdesc>只抓取当前窗口，而不是整个桌面。这个关键码已失效不能再使用。</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="gnome-dictionary">
+				<entry name="sidebar-width">
+					<local_schema short_desc="侧边栏宽度">
+						<longdesc>此键定义了侧边栏的宽度，并且还用来在不同的会话间记忆侧边栏的设置。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="sidebar-page">
+					<local_schema short_desc="要显示的侧边拦名称">
+						<longdesc>此键定义了应该显示哪页侧边栏，并且还用来在不同的会话间记忆侧边栏的设置。这里的值可以是“speller”或者“database”。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="statusbar-visible">
+					<local_schema short_desc="状态栏是否可见">
+						<longdesc>此键定义了状态栏是否可见，以及是否在不同的会话间记忆状态栏的状态。将其设置为 TRUE 将使得状态栏总是显示。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="sidebar-visible">
+					<local_schema short_desc="侧边栏是否可见">
+						<longdesc>此键定义了侧边栏是否可见，以及是否在不同的会话间记忆侧边栏的状态。将其设置为 TRUE 将使得侧边栏总是显示。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="window-is-maximized">
+					<local_schema short_desc="应用程序窗口是否应最大化">
+						<longdesc>此键定义了窗口是否应最大化，用于在不同的会话间记忆字典窗口的状态。将其设置为 TRUE 将使得字典窗口以最大化显示。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default-window-height">
+					<local_schema short_desc="应用程序窗口的默认高度">
+						<longdesc>此键定义了窗口高度，用于在不同的会话间记忆字典窗口的大小。将其设置为 -1 将使得字典窗口使用基于字体大小的高度。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default-window-width">
+					<local_schema short_desc="应用程序窗口的默认宽度">
+						<longdesc>此键定义了窗口宽度，用于在不同的会话间记忆字典窗口的大小。将其设置为 -1 将使得字典窗口使用基于字体大小的宽度。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="source-name">
+					<local_schema short_desc="所使用的字典源名称">
+						<longdesc>用于获取单词定义的字典源名称</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="print-font">
+					<local_schema short_desc="打印时所使用的字体">
+						<longdesc>打印定义时所使用的字体。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="strategy">
+					<local_schema short_desc="要使用的默认搜索策略">
+						<longdesc>字典源上要使用的默认搜索策略。默认的策略是“exact”，即精确匹配单词。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="database">
+					<local_schema short_desc="要使用的默认数据库">
+						<longdesc>在字典服务器上使用的独立数据库或元数据库名称。叹号(“!”)表示字典程序应该在给定服务器的所有数据库中搜索</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="smart">
+					<local_schema short_desc="使用智能查阅(已弃用)">
+						<longdesc>指定是否使用智能搜索。该关键字倚赖于字典服务器是否支持该选项。默认为真。此键已经被弃用。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="port">
+					<local_schema short_desc="连接服务器所使用的端口(已弃用)">
+						<longdesc>要连接的端口号。默认端口号为 2628。此键已被弃用。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="server">
+					<local_schema short_desc="字典服务器(已弃用)">
+						<longdesc>要连接的字典服务器。默认服务器为 dict.org。关于其它服务器的详情参见 http://www.dict.org。此键已被弃用。</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="baobab">
+				<dir name="properties">
+					<entry name="skip_scan_uri_list">
+						<local_schema short_desc="排除的分区 URI">
+							<longdesc>列出要在扫描中排除的分区 URI。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_home_monitor">
+						<local_schema short_desc="启用主目录的监视">
+							<longdesc>是否应该监视对主目录的任何更改。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="ui">
+					<entry name="baobab_subfoldertips_visible">
+						<local_schema short_desc="子文件夹工具提示可见">
+							<longdesc>是否绘制选中文件夹的子文件夹工具提示。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="statusbar_visible">
+						<local_schema short_desc="状态栏可见">
+							<longdesc>主窗口底部的状态栏是否可见。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_visible">
+						<local_schema short_desc="工具栏可见">
+							<longdesc>主窗口中的工具栏是否可见。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="window_list_applet">
+				<dir name="prefs">
+					<entry name="maximum_size">
+						<local_schema short_desc="窗口列表的最大大小">
+							<longdesc>在 GNOME 2.20 中不推荐使用此键。此大纲仅为与旧版本兼容而保留。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="minimum_size">
+						<local_schema short_desc="窗口列表的最小大小">
+							<longdesc>在 GNOME 2.20 中不推荐使用此键。此大纲仅为与旧版本兼容而保留。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="move_unminimized_windows">
+						<local_schema short_desc="解除窗口最小化时将窗口移动到当前工作区">
+							<longdesc>如果为 true，则在解除窗口最小化的时候将其放入当前工作区。否则切换到窗口所在的工作区。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="group_windows">
+						<local_schema short_desc="何时对窗口编组">
+							<longdesc>决定何时在窗口列表中将同一个应用程序的窗口编组。可供选择的值有“从不”、“自动”和“总是”。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_all_workspaces">
+						<local_schema short_desc="显示所有工作区中的窗口">
+							<longdesc>如果为 true，则窗口列表将显示所有工作区的窗口，否则只显示当前工作区中的窗口。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="workspace_switcher_applet">
+				<dir name="prefs">
+					<entry name="num_rows">
+						<local_schema short_desc="工作区切换器中的行数">
+							<longdesc>决定了工作区切换器将使用多少行(水平布局)或列(垂直布局)来显示工作区。此设置仅当显示所有工作区为 true 时生效。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_all_workspaces">
+						<local_schema short_desc="显示所有工作区">
+							<longdesc>如果为 true，则工作区切换器将显示所有工作区，否则只显示当前工作区。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_workspace_names">
+						<local_schema short_desc="显示工作区名称">
+							<longdesc>如果为 true，则在工作区切换器中显示工作区的名称，否则显示工作区中的窗口。此设置仅当使用 Metacity 窗口管理器时才生效。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="fish_applet">
+				<dir name="prefs">
+					<entry name="rotate">
+						<local_schema short_desc="在垂直面板上作相应旋转">
+							<longdesc>如果为 true，则会在面板为垂直面板时旋转小鱼的动画。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="speed">
+						<local_schema short_desc="每帧暂停">
+							<longdesc>此处指定了每帧动画显示的秒数。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="frames">
+						<local_schema short_desc="小鱼动画的帧数">
+							<longdesc>此处指定了小鱼动画显示的帧数。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="command">
+						<local_schema short_desc="点击时执行的命令">
+							<longdesc>此处指定了点击小鱼后尝试执行的命令。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="image">
+						<local_schema short_desc="小鱼的动画位图">
+							<longdesc>此处指定的位图文件名，会被用来显示与该位图目录相关的小鱼的动画。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name">
+						<local_schema short_desc="小鱼的名字">
+							<longdesc>没有名字的鱼是非常傻的鱼。为赋予它生命，请给它命名。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="clock_applet">
+				<dir name="prefs">
+					<entry name="speed_unit">
+						<local_schema short_desc="速度单位">
+							<longdesc>显示风速时使用的单位</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="temperature_unit">
+						<local_schema short_desc="温度单位">
+							<longdesc>显示温度时使用的单位</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="cities">
+						<local_schema short_desc="位置列表">
+							<longdesc>在日历窗口中显示的位置列表。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="internet_time">
+						<local_schema short_desc="使用 Internet 时间">
+							<longdesc>在 GNOME 2.6 中不推荐使用此键，而应该使用“format”键。此大纲仅为与旧版本兼容而保留。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="unix_time">
+						<local_schema short_desc="使用 UNIX 时间">
+							<longdesc>在 GNOME 2.6 中不推荐使用此键，而应该使用“format”键。此大纲仅为与旧版本兼容而保留。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hour_format">
+						<local_schema short_desc="小时格式">
+							<longdesc>在 GNOME 2.6 中不推荐使用此键，而应该使用“format”键。此大纲仅为与旧版本兼容而保留。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_locations">
+						<local_schema short_desc="展开位置任务列表">
+							<longdesc>如果为 true，则在日历窗口中展开位置列表。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_weather">
+						<local_schema short_desc="展开气象信息列表">
+							<longdesc>如果为 true，则在日历中展开气象信息列表。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_tasks">
+						<local_schema short_desc="展开任务列表">
+							<longdesc>如果为 true，则在日历窗口中展开任务列表。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_birthdays">
+						<local_schema short_desc="展开生日列表">
+							<longdesc>如果为 true，则在日历窗口中展开生日列表。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_appointments">
+						<local_schema short_desc="展开约会列表">
+							<longdesc>如果为 true，则在日历中展开约会列表。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_week_numbers">
+						<local_schema short_desc="在日历中显示周序号">
+							<longdesc>如果为 true，则在日历中显示周序号。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="config_tool">
+						<local_schema short_desc="时间配置工具">
+						</local_schema>
+					</entry>
+					<entry name="gmt_time">
+						<local_schema short_desc="使用 UTC">
+							<longdesc>如果为 true，则显示 UTC 时区的时间。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_temperature">
+						<local_schema short_desc="在时钟上显示温度">
+							<longdesc>如果为 true，则在天气图标旁显示温度。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_weather">
+						<local_schema short_desc="在时钟上显示天气">
+							<longdesc>如果为 true，则显示天气图标。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_tooltip">
+						<local_schema short_desc="在提示中显示日期">
+							<longdesc>如果为 true，则当鼠标在时钟上停留时在工具提示中显示日期。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_date">
+						<local_schema short_desc="在时钟上显示日期">
+							<longdesc>如果为 true，则在时钟上除了显示时间外，还要显示日期。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_seconds">
+						<local_schema short_desc="显示带秒的时间">
+							<longdesc>如果为 true，则显示时间时显示秒数。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="custom_format">
+						<local_schema short_desc="时钟的自定义格式">
+							<longdesc>当 format 键设为“custom”时，此键指定了时钟小程序要使用的格式。您可以使用 strftime() 明白的格式符来获取特定格式。详细说明可参见 strftime() 的手册。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="format">
+						<local_schema short_desc="小时格式">
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="panel">
+				<dir name="objects">
+					<entry name="action_type">
+						<local_schema short_desc="动作按钮类型">
+							<longdesc>该按钮代表的动作类型。可供选择的值有“锁定”、“注销”、“运行”、“搜索”和“抓图”。该设置只在对象类型为“动作小程序”的时候才有效。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="launcher_location">
+						<local_schema short_desc="启动器位置">
+							<longdesc>描述启动器的 .desktop 文件的位置。该设置只在对象类型为“启动器对象”时才有效。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menu_path">
+						<local_schema short_desc="菜单环境路径">
+							<longdesc>从此创建菜单内容的路径。该设置只在 use_menu_path 为 true 并且对象类型为“菜单对象”时才有效。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_menu_path">
+						<local_schema short_desc="使用菜单内容的自定义路径">
+							<longdesc>如果为 true，菜单路径设置就被用作需创建菜单内容的路径。如果为 false，则忽略菜单路径设置。该设置只在对象类型为“菜单对象”时才有效。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="custom_icon">
+						<local_schema short_desc="用于对象按钮的图标">
+							<longdesc>用作对象按钮图标的图像文件的位置。该设置只在对象类型为“抽屉对象”或“菜单对象”并且 use_custom_icon 为 true 时才有效。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_custom_icon">
+						<local_schema short_desc="使用对象按钮的自定义图标">
+							<longdesc>如果为 true，则定制图标设置就被用作按钮的定制图标。如果为 false，则忽略定制图标设置。该设置只在对象类型为“菜单对象”或“抽屉对象”时才有效。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="tooltip">
+						<local_schema short_desc="抽屉或菜单的工具提示">
+							<longdesc>在此抽屉或菜单的工具提示中显示的文本。该设置只有在对象类型为“抽屉对象”或“菜单对象”时才有效。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="attached_toplevel_id">
+						<local_schema short_desc="附着于抽屉的面板">
+							<longdesc>附着于该抽屉的面板的标识。该设置只在对象类型为“抽屉对象”的时候才有效。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="bonobo_iid">
+						<local_schema short_desc="小程序 Bonobo IID">
+							<longdesc>小程序的 Bonobo 实现 ID - 例如 “OAFIID:GNOME_ClockApplet”。该设置只在对象类型为“bonobo 小程序”的时候才有效。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="locked">
+						<local_schema short_desc="将对象锁定在面板中">
+							<longdesc>如果为 true，则用户在使用“取消锁定”菜单项取消对象的锁定之前，无法移动小程序。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="panel_right_stick">
+						<local_schema short_desc="把位置解释为相对于底/右边">
+							<longdesc>如果为 true，则对象的位置被解释为相对于面板的右边(垂直面板则为底边)。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="position">
+						<local_schema short_desc="对象在面板中的位置">
+							<longdesc>该面板对象的位置。位置是相对于面板左边(垂直面板是顶边)的像素数。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toplevel_id">
+						<local_schema short_desc="含有对象的顶层面板">
+							<longdesc>含有该对象的顶层面板的标识。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="object_type">
+						<local_schema short_desc="面板对象类型">
+							<longdesc>该面板对象的类型。可供选择的值有“抽屉对象”、“菜单对象”、“启动器对象”、“bonobo 小程序”、“动作小程序”和“菜单栏”。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="toplevels">
+					<entry name="animation_speed">
+						<local_schema short_desc="动画速度">
+							<longdesc>面板动画的速度。可供选择的值有：“慢”、“中”、“快”。该首选项只在启用动画为 true 时才有效。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_hide_size">
+						<local_schema short_desc="面板隐藏时的可见像素">
+							<longdesc>指定当面板自动隐藏到角落时可见的像素数。该首选项只在自动隐藏为 true 时有效。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="unhide_delay">
+						<local_schema short_desc="面板自动取消隐藏延迟">
+							<longdesc>指定指针进入面板区域后，面板自动重新显示前延迟的毫秒数。该首选项只在自动隐藏为 true 时才有效。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hide_delay">
+						<local_schema short_desc="面板自动隐藏延迟">
+							<longdesc>指定指针离开面板区域后，面板自动隐藏前延迟的毫秒数。该首选项只在自动隐藏为 true 时才有效。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_arrows">
+						<local_schema short_desc="启用隐藏按钮上的箭头">
+							<longdesc>如果为 true，则在隐藏按钮上显示箭头。该首选项只在启用按钮为 true 时才有意义。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_buttons">
+						<local_schema short_desc="启用隐藏按钮">
+							<longdesc>如果为 true，按钮将被置于按钮可能被隐藏的屏幕的每个边缘，隐藏后只显示一个按钮。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="启用动画">
+							<longdesc>如果为 true，此面板的隐藏和显示就表现为动画而不是在瞬间完成。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_hide">
+						<local_schema short_desc="将面板自动隐藏到角落">
+							<longdesc>如果为 true，当指针离开面板区域时，面板将自动隐藏到屏幕的角落中。把指针移动到角落将导致面板重新出现。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="y_centered">
+						<local_schema short_desc="将面板在 Y 方向居中">
+							<longdesc>如果为 true，则忽略 y 和 y_bottom 设置并将面板置于屏幕 y 轴的中央。面板改变大小时将保持位置 - 即面板将同时向两个方向扩展。如果为 false，则由 y 与 y_bottom 设置决定面板的位置。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="x_centered">
+						<local_schema short_desc="将面板在 X 方向居中">
+							<longdesc>如果为 true，则忽略 x 和 x_right 设置并将面板置于屏幕 x 轴的中央。面板改变大小时将保持位置 - 即面板将同时向两个方向扩展。如果为 false，则由 x 与 x_right 设置决定面板的位置。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="y_bottom">
+						<local_schema short_desc="面板的 Y 坐标，从屏幕底部计">
+							<longdesc>面板在 Y 轴上的位置，从屏幕的底端开始。如果设置为-1，该值将被忽略而 y 键的值将被使用。该值只在非扩展模式下有意义。在扩展模式下忽略该值并将面板置于面板方向指定的屏幕边缘。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="x_right">
+						<local_schema short_desc="面板的 Y 坐标，从屏幕右侧计">
+							<longdesc>面板在 X 轴上的位置，从屏幕的右端开始。如果设置为-1，该值将被忽略而 x 键的值将被使用。该值只在非扩展模式下有意义。在扩展模式下忽略该值并将面板置于由面板方向指定的屏幕边缘。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="y">
+						<local_schema short_desc="面板的 Y 坐标">
+							<longdesc>面板在 Y 轴上的位置。该值只在非扩展模式下有意义。在扩展模式下忽略该值并将面板置于面板方向指定的屏幕边缘。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="x">
+						<local_schema short_desc="面板的 X 坐标">
+							<longdesc>面板在 X 轴上的位置。该值只在非扩展模式下有意义。在扩展模式下忽略该值并将面板置于由面板方向指定的屏幕边缘。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size">
+						<local_schema short_desc="面板大小">
+							<longdesc>面板高度 (垂直面板的宽度)。面板将在运行时根据字体大小和其它指示器确定最小尺寸。最大尺寸固定为屏幕高度 (或宽度) 的四分之一。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="orientation">
+						<local_schema short_desc="面板方向">
+							<longdesc>面板的方向。可供选择的值有：“顶”、“底”、“左”、“右”。在扩展模式下该值指定了面板所在的屏幕边缘。在非扩展模式下“顶”和“底”的区别就不重要了 - 都表示这是水平面板 - 但仍然给出有用的提示以便某些面板对象确定其行为。例如，在“顶”面板中菜单按钮将在面板下方弹出它的菜单，而“底”面板的菜单将在面板上方弹出菜单。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand">
+						<local_schema short_desc="扩展以占据整个屏幕的宽度">
+							<longdesc>如果为 true，则面板将占据整个屏幕的宽度 (如果是垂直面板则是高度)。此时面板只能置于屏幕边缘。如果为 false，则面板只具有能够容纳面板中所有小程序、启动器、按钮的最小空间。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="monitor">
+						<local_schema short_desc="显示面板的 Xinerama 监视器">
+							<longdesc>在 Xinerama 设置中，您可能在每个独立的监视器上都有面板。此处指明面板显示的当前监视器。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="screen">
+						<local_schema short_desc="显示面板的 X 屏幕">
+							<longdesc>在多屏幕设置中，您可能在每个独立的屏幕上都有面板。此处指明了面板显示的当前屏幕。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name">
+						<local_schema short_desc="用于标识该面板的名称">
+							<longdesc>这是您可以用于识别面板的友好名字。它的主要目的是在面板间切换是作为面板的窗口标题。</longdesc>
+						</local_schema>
+					</entry>
+					<dir name="background">
+						<entry name="rotate">
+							<local_schema short_desc="在垂直面板上旋转图像">
+								<longdesc>如果为 true，则在面板为垂直面板时旋转背景图像。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="stretch">
+							<local_schema short_desc="将图像拉伸到面板">
+								<longdesc>如果为 true，则图像将被缩放到面板尺寸。不保持图像原来的宽高比。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="fit">
+							<local_schema short_desc="缩放图像以匹配面板">
+								<longdesc>如果为 true，则图像将被缩放 (保持图像原本的宽高比) 到面板高度 (水平面板)。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="image">
+							<local_schema short_desc="背景图像">
+								<longdesc>指定用作背景图像的文件。如果图像含有 alpha 通道它就会组合到桌面背景图像中。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="opacity">
+							<local_schema short_desc="背景颜色不透明">
+								<longdesc>指定背景颜色格式的不透明度。如果颜色不是完全不透明的(值小于 65535)则色彩将与桌面背景图像组合。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="color">
+							<local_schema short_desc="背景颜色">
+								<longdesc>以 #RGB 格式指定面板的背景颜色。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="type">
+							<local_schema short_desc="背景类型">
+								<longdesc>此面板的背景类型。可供选择的值有：“gtk”使用默认的 GTK+ 构件背景，“颜色”将颜色首选项作为背景颜色，“图像”将图像首选项指定的图像作为背景。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="general">
+					<entry name="profiles_migrated">
+						<local_schema short_desc="旧的配置文件已迁移">
+							<longdesc>一个布尔型标志，表明用户在 /apps/panel/profiles/default 中先前的配置是否已经复制到 /apps/panel。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="object_id_list">
+						<local_schema short_desc="面板对象 ID 列表">
+							<longdesc>面板对象 ID 列表。每个 ID 都标明了一个独立的面板对象 (例如启动器、动作按钮或菜单按钮/菜单栏)。关于这些小程序的设置保存在 /apps/panel/objects/$(id) 之中。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="applet_id_list">
+						<local_schema short_desc="面板小程序 ID 列表">
+							<longdesc>面板小程序 ID 列表。每个 ID 都标明了一个独立的面板小程序。关于这些小程序的设置保存在 /apps/panel/applets/$(id) 之中。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toplevel_id_list">
+						<local_schema short_desc="面板 ID 列表">
+							<longdesc>面板 ID 的列表。每个 ID 都标明了一个独立的顶层面板。关于这些面板的设置保存在 /apps/panel/toplevels/$(id) 之中。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_autocompletion">
+						<local_schema short_desc="启用“运行应用程序”对话框中的自动补全">
+							<longdesc>如果为 true，则启用“运行应用程序”对话框中的自动补全功能。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_program_list">
+						<local_schema short_desc="扩展“运行应用程序”对话框中的程序列表">
+							<longdesc>如果为 true，则在打开“运行应用程序”对话框时其中的“已知的应用程序”列表处于展开状态。这一设置只在 enable_program_list 为 true 时才生效。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_program_list">
+						<local_schema short_desc="启用“运行应用程序”对话框中的程序列表">
+							<longdesc>如果为 true，则“运行应用程序”对话框中的“已知的应用程序”列表就处于可用状态。当对话框打开时列表是否展开是由设置 show_program_list 来控制的。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="global">
+					<entry name="disable_force_quit">
+						<local_schema short_desc="禁止强制退出">
+							<longdesc>如果为 true，面板将会删除对强制退出按钮的访问，以禁止用户强制关闭应用程序。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_log_out">
+						<local_schema short_desc="禁止注销">
+							<longdesc>如果为 true，面板将会删除对注销屏幕菜单项的访问，以禁止用户注销。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_lock_screen">
+						<local_schema short_desc="不再使用">
+						</local_schema>
+					</entry>
+					<entry name="disabled_applets">
+						<local_schema short_desc="禁止装入的小程序的 IID">
+							<longdesc>列出了面板将忽略的小程序 IID。这样，您就可以禁止装入特定的小程序，或者不将这些小程序显示在菜单中。例如，要禁用 mini-commander 小程序，只需在此列表中添加“OAFIID:GNOME_MiniCommanderApplet”。要让此设置生效，必须重新启动面板。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="locked_down">
+						<local_schema short_desc="整个面板锁定">
+							<longdesc>如果为 true，面板将不允对面板的配置进行任何更改。但是，可能需要对单个小程序进行分别锁定。要让此设置生效，必须重新启动面板。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="highlight_launchers_on_mouseover">
+						<local_schema short_desc="鼠标悬停时突出显示启动器">
+							<longdesc>如果为 true，当用户将鼠标指针指向启动器时会突出显示该启动器。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="confirm_panel_remove">
+						<local_schema short_desc="确认面板删除">
+							<longdesc>如果为 true，当用户想要删除面板时将请求确认。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="drawer_autoclose">
+						<local_schema short_desc="自动关闭抽屉">
+							<longdesc>如果为 true，当用户单击抽屉中的启动器时会自动关闭抽屉。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="window_screenshot_key">
+						<local_schema short_desc="不再使用">
+						</local_schema>
+					</entry>
+					<entry name="screenshot_key">
+						<local_schema short_desc="不再使用">
+						</local_schema>
+					</entry>
+					<entry name="run_key">
+						<local_schema short_desc="不再使用">
+						</local_schema>
+					</entry>
+					<entry name="menu_key">
+						<local_schema short_desc="不再使用">
+						</local_schema>
+					</entry>
+					<entry name="enable_key_bindings">
+						<local_schema short_desc="不再使用">
+						</local_schema>
+					</entry>
+					<entry name="panel_hide_delay">
+						<local_schema short_desc="不再使用">
+						</local_schema>
+					</entry>
+					<entry name="panel_animation_speed">
+						<local_schema short_desc="不再使用">
+						</local_schema>
+					</entry>
+					<entry name="panel_show_delay">
+						<local_schema short_desc="不再使用">
+						</local_schema>
+					</entry>
+					<entry name="panel_minimized_size">
+						<local_schema short_desc="不再使用">
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="启用动画">
+						</local_schema>
+					</entry>
+					<entry name="keep_menus_in_memory">
+						<local_schema short_desc="不再使用">
+						</local_schema>
+					</entry>
+					<entry name="tooltips_enabled">
+						<local_schema short_desc="启用工具提示">
+							<longdesc>如果为 true，会显示面板中对象的工具提示。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gweather">
+				<dir name="prefs">
+					<entry name="radar">
+						<local_schema short_desc="雷达图的 URL">
+							<longdesc>收取雷达图的自定义 URL。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_custom_radar_url">
+						<local_schema short_desc="对雷达图使用自定义地址">
+							<longdesc>如果为 true，则从“radar”键中指定的位置取回雷达图。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="coordinates">
+						<local_schema short_desc="位置坐标">
+						</local_schema>
+					</entry>
+					<entry name="location4">
+						<local_schema short_desc="城市天气">
+						</local_schema>
+					</entry>
+					<entry name="location3">
+						<local_schema short_desc="雷达位置">
+						</local_schema>
+					</entry>
+					<entry name="location2">
+						<local_schema short_desc="区域位置">
+						</local_schema>
+					</entry>
+					<entry name="location1">
+						<local_schema short_desc="临近城市">
+						</local_schema>
+					</entry>
+					<entry name="location0">
+						<local_schema short_desc="天气位置信息">
+						</local_schema>
+					</entry>
+					<entry name="enable_radar_map">
+						<local_schema short_desc="显示雷达图">
+							<longdesc>每次更新时取回雷达图。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_detailed_forecast">
+						<local_schema short_desc="不再使用">
+						</local_schema>
+					</entry>
+					<entry name="temperature_unit">
+						<local_schema short_desc="温度单位">
+							<longdesc>要使用的压力单位。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="speed_unit">
+						<local_schema short_desc="速度单位">
+							<longdesc>要使用的风速单位。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="pressure_unit">
+						<local_schema short_desc="气压单位">
+							<longdesc>要使用的压力单位。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="distance_unit">
+						<local_schema short_desc="距离单位">
+							<longdesc>要使用的能见度单位。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_metric">
+						<local_schema short_desc="使用公制单位">
+							<longdesc>使用公制单位，而不是英制单位。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_update_interval">
+						<local_schema short_desc="更新间隔">
+							<longdesc>自动更新的间隔，以秒计。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_update">
+						<local_schema short_desc="自动更新数据">
+							<longdesc>决定小程序是否自动更新天气统计。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnome-keyring">
+				<dir name="daemon-components">
+					<entry name="pkcs11">
+						<local_schema short_desc="是否启用 gnome-keyring PKCS#11 组件">
+							<longdesc>此选项启用 gnome-keyring 守护进程的 PKCS#11 组件。它仅在 gnome-keyring-daemon 启动时生效(即用户登入时)。当一些特定的命令行参数传给守护进程时，此设定可以被覆盖。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="ssh">
+						<local_schema short_desc="是否启用 gnome-keyring SSH 代理">
+							<longdesc>此选项启用 gnome-keyring 守护进程的 SSH 代理。它仅在 gnome-keyring-daemon 启动时生效(即用户登入时)。当一些特定的命令行参数传给守护进程时，此设定可以被覆盖。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="brasero">
+				<dir name="filter">
+					<entry name="notify">
+						<local_schema short_desc="当文件被过滤时，是否要 brasero 进行通知">
+							<longdesc>当文件被过滤时，是否要 brasero 进行通知。设置为真(true)， brasero 将显示通知。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="replace_sym">
+						<local_schema short_desc="将符号链接替换为其目标">
+							<longdesc>是否让brasero将项目中的符号链接替换为其目标文件。设置为真(true)，brasero将替换符号链接。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hidden">
+						<local_schema short_desc="是否要 brasero 过滤隐藏文件">
+							<longdesc>是否要 brasero 过滤隐藏文件。设置为真(true)，brasero 将过滤隐藏文件。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="display">
+					<entry name="video_height">
+						<local_schema short_desc="视频预览的高度">
+							<longdesc>预览视频的默认高度。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="video_width">
+						<local_schema short_desc="视频预览的宽度">
+							<longdesc>预览视频的默认宽度。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="image_height">
+						<local_schema short_desc="图片预览的高度">
+							<longdesc>预览图片的默认高度。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="image_width">
+						<local_schema short_desc="图像预览的宽度">
+							<longdesc>预览图片的默认宽度。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="viewer">
+						<local_schema short_desc="启用文件预览">
+							<longdesc>是否显示文件预览。设置为真(true)则启用。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="layout">
+						<local_schema short_desc="用户界面布局">
+							<longdesc>该键会设定项目视窗的显示位置(0=在右侧，1=在左侧，2=在顶部，3=在底部)</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="video_pane">
+						<local_schema>
+							<longdesc>显示音频项目的视窗，应为下列之一： &quot;Chooser&quot;，&quot;Search&quot; 或 &quot;Playlist&quot;。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="data_pane">
+						<local_schema>
+							<longdesc>显示数据项目的视窗。应为下列之一：&quot;Chooser&quot; 或 &quot;Search&quot;。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="audio_pane">
+						<local_schema>
+							<longdesc>显示音频项目的视窗。应为下列之一：&quot;Chooser&quot;，&quot;Search&quot; 或 &quot;Playlist&quot;。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="sidepane">
+						<local_schema short_desc="启用侧边栏">
+							<longdesc>是否显示侧边视窗。设置为真(true)则启用。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="config">
+					<entry name="raw_flag">
+						<local_schema short_desc="是否使用 cdrdao 的 &quot;--driver generic-mmc-raw&quot;标记">
+							<longdesc>是否使用 cdrecord 的 &quot;--driver generic-mmc-raw&quot; 标记。(设为 True 时) 请小心使用，因为它仅是为一些光驱/设置而采取的临时补救措施。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="minbuf_value">
+						<local_schema short_desc="和 cdrecord 的 &quot;-immed&quot; 标记一起使用">
+							<longdesc>和 cdrecord 的 &quot;-immed&quot; 标记一起使用</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="dao_flag">
+						<local_schema short_desc="是否使用 growisofs 的 &quot;-use-the-force-luke=dao&quot; 标记">
+							<longdesc>是否使用 cdrecord 的 &quot;-use-the-force-luke=dao&quot; 标记。(设为 True 时) 请小心使用，因为它仅是为一些光驱/设置而采取的临时补救措施。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="immed_flag">
+						<local_schema short_desc="在 cdrecord 中啟用 &quot;-immed&quot; 標記">
+							<longdesc>是否使用 cdrecord 的 &quot;-immed&quot; 标记。(设为真时) 请小心使用，因为它仅是为一些光驱/设置而采取的临时补救措施。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="plugins">
+						<local_schema short_desc="将使用的额外插件的白名单">
+							<longdesc>包含 Brasero 将用于刻录盘片的额外插件的清单。如设定为 NULL，Brasero 将全部加载。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="engine-group">
+						<local_schema short_desc="首选刻录引擎">
+							<longdesc>包含已安装的偏好刻录引擎名字。如果可以即会使用。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="evince">
+				<entry name="override_restrictions">
+					<local_schema short_desc="忽略文档限制">
+						<longdesc>忽略文档限制，比如限制复制或打印。</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="gnome-settings">
+				<dir name="gnumeric">
+					<entry name="toolbar_style">
+						<local_schema short_desc="工具栏样式">
+							<longdesc>工具栏样式。有效值为二者、二者垂直、图标和文字</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnumeric">
+				<dir name="core">
+					<dir name="sort">
+						<dir name="dialog">
+							<entry name="max-initial-clauses">
+								<local_schema short_desc="自动语句的数目">
+								</local_schema>
+							</entry>
+						</dir>
+						<dir name="default">
+							<entry name="ascending">
+								<local_schema short_desc="升序排序">
+								</local_schema>
+							</entry>
+							<entry name="by-case">
+								<local_schema short_desc="排序区分大小写">
+								</local_schema>
+							</entry>
+						</dir>
+					</dir>
+					<dir name="file">
+						<dir name="save">
+							<entry name="def-overwrite">
+								<local_schema short_desc="默认覆盖文件">
+								</local_schema>
+							</entry>
+							<entry name="single_sheet">
+								<local_schema>
+									<longdesc>某些文件格式只包含一张工作表。此变量决定了只保存有多张工作表的工作簿时是否要警告用户。</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+					</dir>
+					<dir name="xml">
+						<entry name="compression-level">
+							<local_schema short_desc="Gnumeric 文件的默认压缩级别">
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="gui">
+						<dir name="window">
+							<entry name="zoom">
+								<local_schema short_desc="默认缩放比例">
+								</local_schema>
+							</entry>
+							<entry name="y">
+								<local_schema short_desc="默认垂直窗口大小">
+								</local_schema>
+							</entry>
+							<entry name="x">
+								<local_schema short_desc="默认水平窗口大小">
+								</local_schema>
+							</entry>
+						</dir>
+						<dir name="editing">
+							<entry name="livescrolling">
+								<local_schema short_desc="实时滚动">
+								</local_schema>
+							</entry>
+							<entry name="autocomplete">
+								<local_schema short_desc="自动完成">
+								</local_schema>
+							</entry>
+						</dir>
+						<dir name="screen">
+							<entry name="verticaldpi">
+								<local_schema short_desc="垂直 DPI">
+									<longdesc>垂直方向的屏幕分辨率。</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="horizontaldpi">
+								<local_schema short_desc="水平 DPI">
+									<longdesc>水平方向的屏幕分辨率。</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+					</dir>
+					<dir name="workbook">
+						<entry name="n-sheet">
+							<local_schema short_desc="工作表的默认数目">
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="defaultfont">
+						<entry name="italic">
+							<local_schema short_desc="默认字体为斜体。">
+							</local_schema>
+						</entry>
+						<entry name="bold">
+							<local_schema short_desc="默认字体为粗体。">
+							</local_schema>
+						</entry>
+						<entry name="name">
+							<local_schema short_desc="默认字体名">
+							</local_schema>
+						</entry>
+						<entry name="size">
+							<local_schema short_desc="默认字体大小">
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="undo">
+					<entry name="maxnum">
+						<local_schema short_desc="撤消项目的数目">
+						</local_schema>
+					</entry>
+					<entry name="size">
+						<local_schema short_desc="最大的撤消次数">
+						</local_schema>
+					</entry>
+					<entry name="show_sheet_name">
+						<local_schema short_desc="在撤消列表中显示工作表名">
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="printsetup">
+					<entry name="across-then-down">
+						<local_schema short_desc="默认打印方向">
+						</local_schema>
+					</entry>
+					<entry name="footer">
+						<local_schema short_desc="页脚">
+						</local_schema>
+					</entry>
+					<entry name="header">
+						<local_schema short_desc="页眉">
+						</local_schema>
+					</entry>
+					<entry name="all-sheets">
+						<local_schema short_desc="将打印设置应用到所有工作表">
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="autoformat">
+					<entry name="usr-dir">
+						<local_schema short_desc="使用目录自动套用格式">
+						</local_schema>
+					</entry>
+					<entry name="sys-dir">
+						<local_schema short_desc="自动套用格式的系统目录">
+						</local_schema>
+					</entry>
+					<entry name="extra-dirs">
+						<local_schema short_desc="额外的自动套用格式目录列表。">
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="plugins">
+					<entry name="extra-dirs">
+						<local_schema short_desc="额外的插件目录列表。">
+						</local_schema>
+					</entry>
+					<entry name="file-states">
+						<local_schema short_desc="插件文件状态的列表。">
+						</local_schema>
+					</entry>
+					<entry name="known">
+						<local_schema short_desc="已知插件的列表。">
+						</local_schema>
+					</entry>
+					<entry name="active">
+						<local_schema short_desc="激活插件列表。">
+						</local_schema>
+					</entry>
+					<entry name="activate-new">
+						<local_schema short_desc="激活新插件">
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="autocorrect">
+					<entry name="replace">
+						<local_schema short_desc="自动更正替换">
+							<longdesc>自动更正替换</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="names-of-days">
+						<local_schema short_desc="自动更正星期的名字">
+							<longdesc>自动更正星期的名字</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="first-letter">
+						<local_schema short_desc="自动更正首字母">
+							<longdesc>自动更正首字母</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="functionselector">
+					<entry name="recentfunctions">
+						<local_schema short_desc="最近使用的函数列表。">
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+		</dir>
+		<dir name="desktop">
+			<dir name="gnome">
+				<dir name="interface">
+					<entry name="show_unicode_menu">
+						<local_schema short_desc="显示“Unicode 控制字符”菜单">
+							<longdesc>输入框和文本视图中的快捷菜单是否应提供插入控制字符的选项。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_input_method_menu">
+						<local_schema short_desc="显示“输入法”菜单">
+							<longdesc>输入框和文本视图中的快捷菜单是否应提供更改输入法的选项。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menubar_accel">
+						<local_schema short_desc="菜单栏加速键">
+							<longdesc>打开菜单栏的键盘快捷键。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="file_chooser_backend">
+						<local_schema short_desc="GtkFileChooser 的模块">
+							<longdesc>GtkFileChooser 部件所用的文件系统模型的模块。可供选择的值是“gio”、“gnome-vfs”和“gtk+”。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="status_bar_meter_on_right">
+						<local_schema short_desc="状态栏位于右边">
+							<longdesc>是否在右边显示状态栏指示。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_custom_font">
+						<local_schema short_desc="使用自定义字体">
+							<longdesc>是否在 gtk+ 程序中使用自定义字体。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="monospace_font_name">
+						<local_schema short_desc="等距字体">
+							<longdesc>类似终端程序等位置中所用的等距(固定宽度)字体。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="document_font_name">
+						<local_schema short_desc="文档字体">
+							<longdesc>读取文档所使用的默认字体的名称。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk-im-module">
+						<local_schema short_desc="GTK IM 模块">
+							<longdesc>GTK+ 使用的输入法模块的名称。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk-im-status-style">
+						<local_schema short_desc="GTK IM 状态风格">
+							<longdesc>gtk+ 使用的 GTK+ 输入法状态风格的名称。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk-im-preedit-style">
+						<local_schema short_desc="GTK IM 预编辑风格">
+							<longdesc>gtk+ 使用的 GTK+ 输入法预编辑风格的名称。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="font_name">
+						<local_schema short_desc="默认字体">
+							<longdesc>gtk+ 使用的默认字体的名称。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk_key_theme">
+						<local_schema short_desc="Gtk+ 主题">
+							<longdesc>gtk+ 使用的默认主题的基本名称。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk_theme">
+						<local_schema short_desc="Gtk+ 主题">
+							<longdesc>gtk+ 使用的默认主题的基本名称。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="icon_theme">
+						<local_schema short_desc="图标主题">
+							<longdesc>用于面板、Nautilus 等的图标主题。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="cursor_blink_time">
+						<local_schema short_desc="光标闪烁时间">
+							<longdesc>光标闪烁周期的长度，单位为毫秒。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="cursor_blink">
+						<local_schema short_desc="光标闪烁">
+							<longdesc>光标是否应该闪烁。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_icons_size">
+						<local_schema short_desc="工具栏图标大小">
+							<longdesc>工具栏图标的大小，“小号工具栏”或者“大号工具栏”。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_detachable">
+						<local_schema short_desc="工具栏可分离">
+							<longdesc>用户是否能分离工具栏并四处移动它们。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menubar_detachable">
+						<local_schema short_desc="菜单栏可分离">
+							<longdesc>用户是否能分离菜单栏并四处移动它们。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="buttons_have_icons">
+						<local_schema short_desc="按钮上有图标">
+							<longdesc>是否在按钮文本旁边显示图标。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menus_have_icons">
+						<local_schema short_desc="菜单上使用图标">
+							<longdesc>是否在菜单上菜单项的旁边显示图标。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_style">
+						<local_schema short_desc="工具栏风格">
+							<longdesc>工具栏风格。有效的值是“都有”，“都有(水平)”，“图表”和“文本”。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="can_change_accels">
+						<local_schema short_desc="能改变加速键">
+							<longdesc>当指针指向激活菜单项时，用户是否能动态地输入新的加速键。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menus_have_tearoff">
+						<local_schema short_desc="菜单具有分离条">
+							<longdesc>菜单是否应该有分离条。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="启用动画">
+							<longdesc>是否应该显示动画。注意：这是一个全局的设置，它将改变窗口管理器、面板等的行为。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="accessibility">
+						<local_schema short_desc="启用辅助工具">
+							<longdesc>应用程序是否应该有辅助访问支持。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="background">
+					<entry name="color_shading_type">
+						<local_schema short_desc="颜色渐变类型">
+							<longdesc>如何渐变背景颜色。可用的值有“水平渐变”，“垂直渐变”和“纯色”。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="secondary_color">
+						<local_schema short_desc="次要颜色">
+							<longdesc>绘制渐变带时的右边或下边颜色，绘制纯色时不使用。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="primary_color">
+						<local_schema short_desc="主要颜色">
+							<longdesc>绘制渐变带时左边或上边的颜色，或者是绘制的纯色。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="picture_opacity">
+						<local_schema short_desc="图片不透明度">
+							<longdesc>绘制背景图片的不透明度。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="picture_filename">
+						<local_schema short_desc="图片文件名">
+							<longdesc>用作背景图片的文件。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="picture_options">
+						<local_schema short_desc="图片选项">
+							<longdesc>决定如何显示墙纸文件名指定的图片。可用的值有：“none”, “wallpaper”, “centered”, “scaled”, “stretched”和“zoom”。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="draw_background">
+						<local_schema short_desc="绘制桌面背景">
+							<longdesc>让 GNOME 绘制桌面背景。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="thumbnail_cache">
+					<entry name="maximum_size">
+						<local_schema>
+							<longdesc>缓存缩略图的最大大小，以 mb 为单位。设定为-1以禁用自动清除。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="maximum_age">
+						<local_schema>
+							<longdesc>缓存缩略图的最长寿命，以天为单位。设定为-1以禁用自动清除。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="typing_break">
+					<entry name="enabled">
+						<local_schema short_desc="是否允许键盘锁定">
+							<longdesc>是否允许键盘锁定。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="allow_postpone">
+						<local_schema short_desc="允许推迟间断">
+							<longdesc>是否可推迟打字间断屏幕。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="break_time">
+						<local_schema short_desc="间断时间">
+							<longdesc>打字间断应该持续的分钟数。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="type_time">
+						<local_schema short_desc="打字时间">
+							<longdesc>间断模式开始前的最少打字时间。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="sound">
+					<entry name="input_feedback_sounds">
+						<local_schema short_desc="输入反馈声音">
+							<longdesc>是否在输入事件发生时播放声音。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="theme_name">
+						<local_schema short_desc="声音主题名称">
+							<longdesc>用于事件声音的 XDG 声音主题。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="event_sounds">
+						<local_schema short_desc="事件的声音">
+							<longdesc>是否在用户事件发生时播放声音。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_esd">
+						<local_schema short_desc="启用 ESD">
+							<longdesc>在启动时启用声音服务器。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="default_mixer_tracks">
+						<local_schema short_desc="默认混音器音轨">
+							<longdesc>多媒体按键绑定所使用的默认混音器音轨。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="default_mixer_device">
+						<local_schema short_desc="默认混音器设备">
+							<longdesc>多媒体按键绑定所使用的默认混音器设备。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="peripherals">
+					<dir name="keyboard">
+						<entry name="remember_numlock_state">
+							<local_schema short_desc="记住 NumLock 状态">
+								<longdesc>设定为 true 时，GNOME 将在不同会话间记住 NumLock 灯的状态。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bell_custom_file">
+							<local_schema short_desc="自定义键盘铃声文件名">
+								<longdesc>要播放的响铃声音的文件名。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bell_mode">
+							<local_schema>
+								<longdesc>可用的值是“on”，“off”和“custom”。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="mouse">
+						<entry name="cursor_size">
+							<local_schema short_desc="光标大小">
+								<longdesc>cursor_theme 引用的光标大小。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="cursor_theme">
+							<local_schema short_desc="光标主题">
+								<longdesc>光标主题名称。仅适用于支持 Xcursor 的 Xserver，比如 XFree86 4.3 或更新版本。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="cursor_font">
+							<local_schema short_desc="光标字体">
+								<longdesc>光标字体的名称。如果未设置，则使用默认的字体。此设置只有在每次会话开始前传送给 X 服务器，因此在会话当中改变它不会有用，要等到您下次登录后才会起作用。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="locate_pointer">
+							<local_schema short_desc="定位指针">
+								<longdesc>当键按下和放开时突出显示指针的当前位置。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="double_click">
+							<local_schema short_desc="双击时间">
+								<longdesc>鼠标双击的时间长度。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="drag_threshold">
+							<local_schema short_desc="拖放阈值">
+								<longdesc>判断拖放开始的距离。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="motion_threshold">
+							<local_schema short_desc="运动阈值">
+								<longdesc>启动鼠标运动加速前鼠标必须移动的像素点数。系统默认的值是 -1。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="motion_acceleration">
+							<local_schema short_desc="单击">
+								<longdesc>鼠标运动的加速倍数。系统的默认值是 -1。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="single_click">
+							<local_schema short_desc="单击">
+								<longdesc>单击以打开图标。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="left_handed">
+							<local_schema short_desc="鼠标按钮方向">
+								<longdesc>为左手鼠标交换左右鼠标按钮。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="lockdown">
+					<entry name="disable_application_handlers">
+						<local_schema short_desc="禁用 URL 和 MIME 类型处理器">
+							<longdesc>阻止运行任何 URL 或 MIME 类型处理程序。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_lock_screen">
+						<local_schema short_desc="禁止锁定屏幕">
+							<longdesc>禁止用户锁定自己的屏幕。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_user_switching">
+						<local_schema short_desc="禁用用户切换">
+							<longdesc>禁止用户在本人会话活动时切换到另外一个账户。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_print_setup">
+						<local_schema short_desc="禁用打印设置">
+							<longdesc>避免用户修改打印设置。例如，这将禁止访问全部应用程序的“打印设置”对话框。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_printing">
+						<local_schema short_desc="禁用打印">
+							<longdesc>避免用户进行打印。例如，这将禁止访问全部应用程序的“打印”对话框。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_save_to_disk">
+						<local_schema short_desc="禁止将文件保存到磁盘">
+							<longdesc>避免用户将文件保存到磁盘。例如，这将禁止访问全部应用程序的“另存为”对话框。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_command_line">
+						<local_schema short_desc="禁用命令行">
+							<longdesc>避免用户表单访问终端或指定要执行的命令行。例如，这将禁止访问面板的“运行应用程序”对话框。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="file-views">
+					<entry name="icon_theme">
+						<local_schema short_desc="文件图标主题">
+							<longdesc>用于显示文件图标的主题。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="accessibility">
+					<dir name="startup">
+						<entry name="exec_ats">
+							<local_schema short_desc="启动辅助技术应用程序">
+								<longdesc>登录 GNOME 桌面时启动的辅助技术应用程序列表。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="keyboard">
+						<entry name="stickykeys_modifier_beep">
+							<local_schema>
+								<longdesc>按下修改键时响铃。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="stickykeys_two_key_off">
+							<local_schema>
+								<longdesc>如果两个键同时按下则禁用。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="slowkeys_delay">
+							<local_schema short_desc="最小间隔毫秒数">
+								<longdesc>除非按住 @delay 毫秒不放，否则不接受按键输入。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="mousekeys_init_delay">
+							<local_schema short_desc="初始延迟毫秒数">
+								<longdesc>在鼠标移动键起作用前等待多少毫秒。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="mousekeys_accel_time">
+							<local_schema short_desc="经过多少毫秒后开始加速">
+								<longdesc>在多少毫秒内从 0 增长到最大速度。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="mousekeys_max_speed">
+							<local_schema short_desc="每秒像素点">
+								<longdesc>最大速度时每秒钟移动多少个像素点。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bouncekeys_delay">
+							<local_schema short_desc="最小间隔毫秒数">
+								<longdesc>忽略在 @delay 毫秒内多次按下的“同一个”键。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="thumbnailers">
+					<entry name="disable_all">
+						<local_schema short_desc="禁用所有外部缩略图程序">
+							<longdesc>设为 true 可禁用所有外部缩略图程序，而不管这些程序自身是启用还是禁用。</longdesc>
+						</local_schema>
+					</entry>
+					<dir name="application@x-gzpdf">
+						<entry name="command">
+							<local_schema short_desc="PDF 文档的缩略图命令">
+								<longdesc>生成 PDF 文档缩略图的有效命令及参数。请参看 nautilus 的缩略图生成文档中的更多信息。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="启用 PDF 文档的缩略图">
+								<longdesc>布尔值选项，TRUE 代表允许缩略图，FALSE 代表禁止创建新缩略图</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@x-bzpdf">
+						<entry name="command">
+							<local_schema short_desc="PDF 文档的缩略图命令">
+								<longdesc>生成 PDF 文档缩略图的有效命令及参数。请参看 nautilus 的缩略图生成文档中的更多信息。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="启用 PDF 文档的缩略图">
+								<longdesc>布尔值选项，TRUE 代表允许缩略图，FALSE 代表禁止创建新缩略图</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@pdf">
+						<entry name="command">
+							<local_schema short_desc="PDF 文档的缩略图命令">
+								<longdesc>生成 PDF 文档缩略图的有效命令及参数。请参看 nautilus 的缩略图生成文档中的更多信息。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="启用 PDF 文档的缩略图">
+								<longdesc>布尔值选项，TRUE 代表允许缩略图，FALSE 代表禁止创建新缩略图</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="url-handlers">
+					<dir name="h323">
+						<entry name="needs_terminal">
+							<local_schema short_desc="在终端运行命令">
+								<longdesc>True 代表要处理此 URL 的程序应该在终端中运行。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="处理“H323”URLs 的程序">
+								<longdesc>若启用的话，用于处理“H323”URLs 的命令。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="指定的命令是否应处理“h323”URLs">
+								<longdesc>设为 true 可在“command”键中指定一个程序来处理“h323”URLs。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="callto">
+						<entry name="needs_terminal">
+							<local_schema short_desc="在终端运行命令">
+								<longdesc>True 代表要处理此 URL 的程序应该在终端中运行。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="处理“callto”URLs 的程序">
+								<longdesc>若启用的话，用于处理“callto”URLs 的命令。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="指定的命令是否应处理“callto”URLs">
+								<longdesc>设为 true 可在“command”键中指定一个程序来处理“callto”URLs。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="aim">
+						<entry name="needs_terminal">
+							<local_schema short_desc="在终端运行命令">
+								<longdesc>True 代表要处理此 URL 的程序应该在终端中运行。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="处理“aim”URLs 的程序">
+								<longdesc>若启用的话，用于处理“aim”URLs 的命令。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="指定的命令是否应处理“aim”URLs">
+								<longdesc>设为 true 可在“command”键中指定一个程序来处理“aim”URLs。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="mailto">
+						<entry name="needs_terminal">
+							<local_schema short_desc="在终端运行命令">
+								<longdesc>True 代表要处理此 URL 的程序应该在终端中运行。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="处理“mailto”URLs 的程序">
+								<longdesc>若启用的话，用于处理“mailto”URLs 的命令。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="指定的命令是否应处理“mailto”URLs">
+								<longdesc>设为 true 可在“command”键中指定一个程序来处理“mailto”URLs。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="https">
+						<entry name="needs_terminal">
+							<local_schema short_desc="在终端运行命令">
+								<longdesc>True 代表要处理此 URL 的程序应该在终端中运行。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="处理“https”URLs 的程序">
+								<longdesc>若启用的话，用于处理“https”URLs 的命令。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="指定的命令是否应处理“https”URLs">
+								<longdesc>设为 true 可在“command”键中指定一个程序来处理“https”URLs。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="http">
+						<entry name="needs_terminal">
+							<local_schema short_desc="在终端运行命令">
+								<longdesc>True 代表要处理此 URL 的程序应该在终端中运行。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="处理“http”URLs 的程序">
+								<longdesc>若启用的话，用于处理“http”URLs 的命令。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="指定的命令是否应处理“http”URLs">
+								<longdesc>设为 true 可在“command”键中指定一个程序来处理“http”URLs。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="man">
+						<entry name="needs_terminal">
+							<local_schema short_desc="在终端运行命令">
+								<longdesc>True 代表要处理此 URL 的程序应该在终端中运行。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="处理“man”URLs 的程序">
+								<longdesc>若启用的话，用于处理“man”URLs 的命令。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="指定的命令是否应处理“man”URLs">
+								<longdesc>设为 true 可在“command”键中指定一个程序来处理“man”URLs。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="info">
+						<entry name="needs_terminal">
+							<local_schema short_desc="在终端运行命令">
+								<longdesc>True 代表要处理此 URL 的程序应该在终端中运行。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="处理“info”URLs 的程序">
+								<longdesc>若启用的话，用于处理“info”URLs 的命令。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="指定的命令是否应处理“info”URLs">
+								<longdesc>设为 true 可在“command”键中指定一个程序来处理“info”URLs。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="ghelp">
+						<entry name="needs_terminal">
+							<local_schema short_desc="在终端运行命令">
+								<longdesc>True 代表要处理此 URL 的程序应该在终端中运行。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="处理“ghelp”URLs 的程序">
+								<longdesc>若启用的话，用于处理“ghelp”URLs 的命令。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="指定的命令是否应处理“ghelp”URLs">
+								<longdesc>设为 true 可在“command”键中指定一个程序来处理“ghelp”URLs。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="trash">
+						<entry name="needs_terminal">
+							<local_schema short_desc="在终端运行命令">
+								<longdesc>True 代表要处理此 URL 的程序应该在终端中运行。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="处理“trash”URLs 的程序">
+								<longdesc>若启用的话，用于处理“trash”URLs 的命令。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="指定的命令是否应处理“trash”URLs">
+								<longdesc>设为 true 可在“command”键中指定一个程序来处理“trash”URLs。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="applications">
+					<dir name="tasks">
+						<entry name="needs_term">
+							<local_schema short_desc="任务需要终端">
+								<longdesc>默认的任务应用程序是否需要终端来运行。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="默认任务">
+								<longdesc>默认任务应用程序</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="calendar">
+						<entry name="needs_term">
+							<local_schema short_desc="日历需要终端">
+								<longdesc>默认的日历应用程序是否需要终端来运行。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="默认日历">
+								<longdesc>终端日历应用程序</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="window_manager">
+						<entry name="workspace_names">
+							<local_schema short_desc="工作区名称(不推荐)">
+								<longdesc>第一个窗口管理器工作区名称的列表。此键自 GNOME 2.12 之后不再推荐使用。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="number_of_workspaces">
+							<local_schema short_desc="工作区数目(不推荐)">
+								<longdesc>窗口管理器应该使用的工作区数目。此键自 GNOME 2.12 之后不再推荐使用。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="current">
+							<local_schema short_desc="用户窗口管理器(不推荐)">
+								<longdesc>首先尝试的窗口管理器。此键自 GNOME 2.12 之后不再推荐使用。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="default">
+							<local_schema short_desc="默认窗口管理器(不推荐)">
+								<longdesc>用户窗口管理器无法找到时使用的默认窗口管理器。此键自 GNOME 2.12 之后不再推荐使用。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="browser">
+						<entry name="nremote">
+							<local_schema short_desc="浏览器理解远程命令">
+								<longdesc>默认的浏览器是否理解 netscape 远程控制命令。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="needs_term">
+							<local_schema short_desc="浏览器需要终端">
+								<longdesc>默认的浏览器是否需要终端来运行。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="默认浏览器">
+								<longdesc>全部 URL 的默认浏览器。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="at">
+						<dir name="mobility">
+							<entry name="startup">
+								<local_schema short_desc="启动首选的行动辅助技术应用程序">
+									<longdesc>GNOME 将要在登录时启动的首选移动辅助技术应用程序。</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="exec">
+								<local_schema short_desc="首选的行动辅助技术应用程序">
+									<longdesc>为登录、菜单或命令行使用的首选移动辅助技术应用程序。</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+						<dir name="visual">
+							<entry name="startup">
+								<local_schema short_desc="启动首选的视觉辅助技术应用程序">
+									<longdesc>GNOME 将要在登录时启动的首选视觉辅助技术应用程序。</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="exec">
+								<local_schema short_desc="首选的视觉辅助技术应用程序">
+									<longdesc>为登录、菜单或命令行使用的首选视觉辅助技术应用程序。</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+					</dir>
+					<dir name="component_viewer">
+						<entry name="exec">
+							<local_schema short_desc="默认组件查看器应用程序">
+								<longdesc>该应用程序用于查看需要组件才能查看的文件。参数 %s 将被替换为文件的 URI，参数 %c 将被替换为组件 IID。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="terminal">
+						<entry name="exec_arg">
+							<local_schema short_desc="执行参数">
+								<longdesc>在“执行”键定义的终端里执行程序的参数。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="终端应用程序">
+								<longdesc>当启动需要终端的应用程序时使用的终端程序。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+			</dir>
+		</dir>
+		<dir name="system">
+			<dir name="dns_sd">
+				<entry name="extra_domains">
+					<local_schema short_desc="DNS-SD 服务应查阅的额外域">
+						<longdesc>以逗号分隔的 DNS-SD 域列表，这些域将出现在“network:///”位置中。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="display_local">
+					<local_schema short_desc="如何显示本地 DNS-SD 服务">
+						<longdesc>可供选择的值有“merged”、“separate”和“disabled”。</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="smb">
+				<entry name="workgroup">
+					<local_schema short_desc="SMB 工作组">
+						<longdesc>用户所属的 Windows 网络工作组或域。为了让新工作组完全生效，用户可能需要注销并再次登录。</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="proxy">
+				<entry name="autoconfig_url">
+					<local_schema short_desc="自动代理配置 URL">
+						<longdesc>提供代理配置值的 URL。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="socks_port">
+					<local_schema short_desc="SOCKS 代理端口">
+						<longdesc>您使用的代理服务器的端口号定义在“/system/proxy/socks_host”中。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="socks_host">
+					<local_schema short_desc="SOCKS 代理主机名">
+						<longdesc>代理套接字的机器名。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="ftp_port">
+					<local_schema short_desc="FTP 代理端口">
+						<longdesc>您使用的代理服务器的端口号定义在“/system/proxy/ftp_host”中。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="ftp_host">
+					<local_schema short_desc="FTP 代理主机名">
+						<longdesc>代理 FTP 的机器名。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="secure_port">
+					<local_schema short_desc="安全 HTTP 代理端口">
+						<longdesc>您使用的代理服务器的端口号定义在“/system/proxy/secure_host”中。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="secure_host">
+					<local_schema short_desc="安全 HTTP 代理主机名">
+						<longdesc>代理安全 HTTP 的机器名。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="mode">
+					<local_schema short_desc="代理配置模式">
+						<longdesc>选择代理配置模式。支持的值为“无”、“手动”、“自动”。</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="http_proxy">
+				<entry name="ignore_hosts">
+					<local_schema short_desc="非代理服务器">
+						<longdesc>此键中定义的主机列表将不通过代理(如果有设定)而直接联接。其值可以是主机名、域名(支持通配符开头的形式如 *.foo.com)、IP 主机地址(既可 IPv4 亦可 IPv6)以及跟随网络掩码的网络地址(例如 192.168.0.0/24)。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="authentication_password">
+					<local_schema short_desc="HTTP 代理密码">
+						<longdesc>用于 HTTP 代理认证的密码。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="authentication_user">
+					<local_schema short_desc="HTTP 代理用户名">
+						<longdesc>用于 HTTP 代理认证的用户名。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="use_authentication">
+					<local_schema short_desc="认证代理服务器连接">
+						<longdesc>若为真，则对代理服务器的连接需要身份验证。用户名/密码组合由“/system/http_proxy/authentication_user”和“/system/http_proxy/authentication_password”定义。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="port">
+					<local_schema short_desc="HTTP 代理端口">
+						<longdesc>您使用的代理服务器的端口号定义在“/system/http_proxy/host”中。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="host">
+					<local_schema short_desc="HTTP 代理主机名">
+						<longdesc>代理 HTTP 的机器名。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="use_http_proxy">
+					<local_schema short_desc="使用 HTTP 代理">
+						<longdesc>访问 Internet 上的 HTTP 时启用代理服务器设置。</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+		</dir>
+	</dir>
+</gconf>

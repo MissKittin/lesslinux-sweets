@@ -1,0 +1,952 @@
+<?xml version="1.0"?>
+<gconf>
+	<dir name="schemas">
+		<dir name="apps">
+			<dir name="gnome-system-log">
+				<entry name="logfiles">
+					<local_schema short_desc="Fajły časopisu, jakija treba adčynić pry ŭruchamleńni">
+						<longdesc>Akreślaje śpis fajłaŭ časopisu, jakija treba adčynić pry ŭruchamleńni. Zmoŭčany śpis stvarajecca zhodna z /etc/syslog.conf.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="width">
+					<local_schema short_desc="Šyrynia hałoŭnaha vakna ŭ pikselach">
+						<longdesc>Akreślaje šyryniu hałoŭnaha vakna prahladalnika časopisaŭ u pikselach.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="height">
+					<local_schema short_desc="Vyšynia hałoŭnaha vakna ŭ pikselach">
+						<longdesc>Akreślaje vyšyniu hałoŭnaha vakna prahladalnika časopisaŭ u pikselach.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="fontsize">
+					<local_schema short_desc="Pamier šryftu, jakim pakazvać časopis">
+						<longdesc>Akreślaje pamier šryftu źmiennaj šyryni dla pakazu časopisu ŭ hałoŭnym drevie. Zmoŭčanaja vartaść biarecca sa zmoŭčanaha pamieru šryftu terminału.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="logfile">
+					<local_schema short_desc="Fajł časopisu, jaki treba adčynić pry ŭruchamleńni">
+						<longdesc>Akreślaje fajł časopisu, jaki treba pakazvać pry ŭruchamleńni. Zmoŭčanym źjaŭlajecca albo /var/adm/messages, albo /var/log/messages, u zaležnaści ad tvajoj aperacyjnaj systemy.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="gnome-search-tool">
+				<entry name="default_window_maximized">
+					<local_schema short_desc="Zmoŭčana maksymalizavanaje vakno">
+						<longdesc>Hety kluč akreślaje, ci ŭruchamlajecca prahrama pošuku maksymalizavanaj.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default_window_height">
+					<local_schema short_desc="Zmoŭčanaja vyšynia vakna">
+						<longdesc>Hety kluč akreślaje vyšyniu vakna i vykarystoŭvajecca, kab zapomnić pamier prahramy pošuku pamiž sesijami. Vartaść -1 aznačaje vykarystańnie zmoŭčanaj vyšyni prahramy pošuku.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default_window_width">
+					<local_schema short_desc="Zmoŭčanaja šyrynia vakna">
+						<longdesc>Hety kluč akreślaje šyryniu vakna i vykarystoŭvajecca, kab zapomnić pamier prahramy pošuku pamiž sesijami. Vartaść -1 aznačaje vykarystańnie zmoŭčanaj šyryni prahramy pošuku.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="columns_order">
+					<local_schema short_desc="Paradak kalonaŭ z vynikami pošuku">
+						<longdesc>Hety kluč akreślaje paradak kalon dla vynikaŭ pošuku. Karystalnik nie pavinny źmianiać hety kluč.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="quick_search_second_scan_excluded_paths">
+					<local_schema short_desc="Ściežki nie dla druhoha skanavańnia dla chutkaha pošuku">
+						<longdesc>Hety kluč akreślaje ściežki, vyklučanyja prahramaj sa śpisu dla druhoha skanavańnia chutkaha pošuku. Druhoje skanavańnie vykarystoŭvaje zahad &quot;find&quot; dla pošuku fajłaŭ. Zadačaj druhoha skanavańnia źjaŭlajecca pošuk jašče nie zindeksavanych fajłaŭ. Padtrymvajucca šablonnyja znaki &quot;*&quot; i &quot;?&quot;. Zmoŭčanaja vartaść &quot;/&quot;.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="disable_quick_search_second_scan">
+					<local_schema short_desc="Vykluč druhoje skanavańnie dla chutkaha pošuku">
+						<longdesc>Hety kluč akreślaje, ci prahrama pošuku nia budzie vykarystoŭvać zahadu &quot;find&quot; paśla chutkaha pošuku.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="quick_search_excluded_paths">
+					<local_schema short_desc="Ściežki nie dla chutkaha pošuku">
+						<longdesc>Hety kluč akreślaje ściežki, vyklučanyja prahramaj z chutkaha pošuku. Padtrymvajucca šablonnyja znaki &quot;*&quot; i &quot;?&quot;. Zmoŭčanaja vartaść /mnt/*, /media/*, /dev/*, /tmp/*, /proc/*, and /var/*.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="disable_quick_search">
+					<local_schema short_desc="Vykluč chutki pošuk">
+						<longdesc>Hety kluč akreślaje, ci prahrama pošuku nia budzie vykarystoŭvać zahadu &quot;locate&quot; dla prostaha pošuku pavodle nazvy fajłu.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="show_additional_options">
+					<local_schema short_desc="Pakažy dadatkovyja opcyi">
+						<longdesc>Hety kluč akreślaje, ci razhornutaja sekcyja &quot;Abiary bolš opcyj&quot; pry ŭruchamleńni prahramy pošuku.</longdesc>
+					</local_schema>
+				</entry>
+				<dir name="select">
+					<entry name="follow_symbolic_links">
+						<local_schema short_desc="Abiary opcyju pošuku &quot;Pierachodź pa symbalnych spasyłkach&quot;">
+							<longdesc>Hety kluč akreślaje, ci ŭklučanaja opcyja pošuku &quot;Pierachodź pa symbalnych spasyłkach&quot; pry ŭruchamleńni prahramy pošuku.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_hidden_files_and_folders">
+						<local_schema short_desc="Abiary opcyju pošuku &quot;Pakazvaj schavanyja fajły j katalohi&quot;">
+							<longdesc>Hety kluč akreślaje, ci ŭklučanaja opcyja pošuku &quot;Pakažy schavanyja fajły j katalohi&quot; pry ŭruchamleńni prahramy pošuku.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name_matches_regular_expression">
+						<local_schema short_desc="Abiary opcyju pošuku &quot;Nazva adpaviadaje rehularnamu vyrazu&quot;">
+							<longdesc>Hety kluč akreślaje, ci ŭklučanaja opcyja pošuku &quot;Nazva adpaviadaje rehularnamu vyrazu&quot; pry ŭruchamleńni prahramy pošuku.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name_does_not_contain">
+						<local_schema short_desc="Abiary opcyju pošuku &quot;Nazva nia ŭtrymlivaje&quot;">
+							<longdesc>Hety kluč akreślaje, ci ŭklučanaja opcyja pošuku &quot;Nazva nia ŭtrymlivaje&quot; pry ŭruchamleńni prahramy pošuku.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="owner_is_unrecognized">
+						<local_schema short_desc="Abiary opcyju pošuku &quot;Ułaśnik nie raspaznany&quot;">
+							<longdesc>Hety kluč akreślaje, ci ŭklučanaja opcyja pošuku &quot;Uładalnik nie raspaznany&quot; pry ŭruchamleńni prahramy pošuku.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="owned_by_group">
+						<local_schema short_desc="Abiary opcyju pošuku &quot;Naležyć hrupie&quot;">
+							<longdesc>Hety kluč akreślaje, ci ŭklučanaja opcyja pošuku &quot;Naležyć hrupie&quot; pry ŭruchamleńni prahramy pošuku.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="owned_by_user">
+						<local_schema short_desc="Abiary opcyju pošuku &quot;Naležyć karystalniku&quot;">
+							<longdesc>Hety kluč akreślaje, ci ŭklučanaja opcyja pošuku &quot;Naležyć karystalniku&quot; pry ŭruchamleńni prahramy pošuku.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="file_is_empty">
+						<local_schema short_desc="Abiary opcyju pošuku &quot;Pusty fajł&quot;">
+							<longdesc>Hety kluč akreślaje, ci ŭklučanaja opcyja pošuku &quot;Pusty fajł&quot; pry ŭruchamleńni prahramy pošuku.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size_at_most">
+						<local_schema short_desc="Abiary opcyju pošuku &quot;Pamieram nia bolš&quot;">
+							<longdesc>Hety kluč akreślaje, ci ŭklučanaja opcyja pošuku &quot;Pamieram nia bolš&quot; pry ŭruchamleńni prahramy pošuku.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size_at_least">
+						<local_schema short_desc="Abiary opcyju pošuku &quot;Pamieram jak mienš&quot;">
+							<longdesc>Hety kluč akreślaje, ci ŭklučanaja opcyja pošuku &quot;Pamieram jak mienš&quot; pry ŭruchamleńni prahramy pošuku.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="date_modified_more_than">
+						<local_schema short_desc="Abiary opcyju pošuku &quot;Madyfikavany paźniej za&quot;">
+							<longdesc>Hety kluč akreślaje, ci ŭklučanaja opcyja pošuku &quot;Madyfikavany paźniej za&quot; pry ŭruchamleńni prahramy pošuku.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="date_modified_less_than">
+						<local_schema short_desc="Abiary opcyju pošuku &quot;Madyfikavany raniej za&quot;">
+							<longdesc>Hety kluč akreślaje, ci ŭklučanaja opcyja pošuku &quot;Madyfikavany raniej za&quot; pry ŭruchamleńni prahramy pošuku.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="contains_the_text">
+						<local_schema short_desc="Abiary opcyju pošuku &quot;Utrymlivaje tekst&quot;">
+							<longdesc>Hety kluč akreślaje, ci ŭklučanaja opcyja pošuku &quot;Utrymlivaje tekst&quot; pry ŭruchamleńni prahramy pošuku.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnome-screenshot">
+				<entry name="border_effect">
+					<local_schema short_desc="Efekt abrysu">
+						<longdesc>Efekt dla vonkavaj častki abrysu. Mahčymyja vartaści: &quot;shadow&quot; (cień), &quot;none&quot; (biez efektaŭ) i &quot;border&quot; (abrys).</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="include_pointer">
+					<local_schema short_desc="Ułučy kursor">
+						<longdesc>Ułučy kursor u zdymak</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="include_border">
+					<local_schema short_desc="Ułučy abrys">
+						<longdesc>Ułučy ŭ zdymak ekranu abrysy ad kiraŭnika voknaŭ</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="last_save_directory">
+					<local_schema short_desc="Kataloh dla zdymkaŭ">
+						<longdesc>Kataloh, dzie byŭ zapisany apošni zdymak.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="delay">
+					<local_schema short_desc="Čas ustrymańnia dla zdymkaŭ">
+						<longdesc>Kolki sekundaŭ čakać da zdymańnia ekranu.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="gnome-dictionary">
+				<entry name="sidebar-width">
+					<local_schema short_desc="Šyrynia bakavoj paneli">
+						<longdesc>Hety kluč akreślaje šyryniu bakavoj paneli i vykarystoŭvajecca, kab zapaminać hetuju naładu pamiž sesijami.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="sidebar-page">
+					<local_schema short_desc="Pakazvanaja staronka bakavoj paneli">
+						<longdesc>Hety kluč akreślaje, jakuju staronku bakavoj paneli treba pakazvać, i vykarystoŭvajecca, kab zapaminać hetuju naładu pamiž sesijami. Mahčymyja vartaści: &quot;speller&quot; (pravapis) i &quot;databases&quot; (bazy źviestak).</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="statusbar-visible">
+					<local_schema short_desc="Ci pavinna być bačnaj panel statusu">
+						<longdesc>Hety kluč akreślaje, ci pavinna być bačnaj panel statusu i vykarystoŭvajecca, kab zapaminać stan paneli statusu pamiž sesijami. Vartaść PRAŬDA značyć, što panel statusu budzie pakazvacca zaŭsioudy.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="sidebar-visible">
+					<local_schema short_desc="Ci pavinna być bačnaj bakavaja panel">
+						<longdesc>Hety kluč akreślaje, ci pavinna być bačnaj bakavaja panel i vykarystoŭvajecca, kab zapaminać stan bakavoj paneli pamiž sesijami. Vartaść PRAŬDA značyć, što bakavaja panel budzie pakazvacca zaŭsioudy.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="window-is-maximized">
+					<local_schema short_desc="Ci maksymalizavać vakno aplikacyi">
+						<longdesc>Hety kluč akreślaje, ci pavinna być maksymalizavanym vakno i vykarystoŭvajecca, kab zapaminać stan vakna słoŭnika pamiž sesijami. Vartaść PRAŬDA značyć, što vakno budzie zaŭsiody źjaŭlacca maksymalizavanym.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default-window-height">
+					<local_schema short_desc="Zmoŭčanaja vyšynia vakna aplikacyi">
+						<longdesc>Hety kluč akreślaje vyšyniu vakna i vykarystoŭvajecca, kab zapaminać hetuju naładu pamiž sesijami.  Vartaść -1 akreślaje vyšyniu vakna, jakaja zaležyć ad pamieraŭ šryftu.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default-window-width">
+					<local_schema short_desc="Zmoŭčanaja šyrynia vakna aplikacyi">
+						<longdesc>Hety kluč akreślaje šyryniu vakna i vykarystoŭvajecca, kab zapaminać hetuju naładu pamiž sesijami.  Vartaść -1 akreślaje šyryniu vakna, jakaja zaležyć ad pamieraŭ šryftu.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="source-name">
+					<local_schema short_desc="Nazva vykarystanaj słoŭnikavaj krynicy">
+						<longdesc>Nazva słoŭnikavaj krynicy dla atrymańnia aznačeńniaŭ słovaŭ.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="print-font">
+					<local_schema short_desc="Šryft dziela drukavańnia">
+						<longdesc>Šryft dziela drukavańnia aznačeńnia.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="strategy">
+					<local_schema short_desc="Vykarystanaja zmoŭčanaja stratehija pošuku">
+						<longdesc>Kali jość, nazva zmoŭčanaj stratehii dla słoŭnikavaj krynicy. Zmoŭčanaj stratehijaj źjaŭlajecca &quot;exact&quot;, heta značyć dakładnaje adpaviadańnie słovaŭ.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="database">
+					<local_schema short_desc="Vykarystanaja zmoŭčanaja baza źviestak">
+						<longdesc>Nazva zmoŭčanaj asabistaj bazy źviestak ci meta-bazy, dla słoŭnikavaj krynicy. Kličnik (&quot;!&quot;) značyć, što treba šukać va ŭsich bazach źviestak z słoŭnikavaj krynicy</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="smart">
+					<local_schema short_desc="Vykarystaj razumny pošuk (sastareły)">
+						<longdesc>Akreśl, ci vykarystoŭvać razumny pošuk. Hety kluč zaležyć ad taho, ci padtrymvaje słoŭnikavy server hetuju opcyju. Zmoŭčanaja vartaść - PRAŬDA. Hety kluč sastareły i bolš nie vykarystoŭvajecca.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="port">
+					<local_schema short_desc="Port dziela spałučeńnia z serveram (sastareły)">
+						<longdesc>Numar portu dla spałučeńnia. Zmoŭčany port - 2628. Hety kluč sastareły i bolš nie vykarystoŭvajecca.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="server">
+					<local_schema short_desc="Słoŭnikavy server (sastareły)">
+						<longdesc>Słoŭnikavy server dla spałučeńnia. Zmoŭčanym serveram źjaŭlajecca dict.org. Hladzi na http://www.dict.org źviestki ab inšych serverach. Hety kluč sastareły i bolš nie vykarystoŭvajecca.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="baobab">
+				<dir name="properties">
+					<entry name="skip_scan_uri_list">
+						<local_schema short_desc="Adrasy vyklučanych partycyjaŭ">
+							<longdesc>Śpis adrasoŭ partycyjaŭ, jakija nia treba skanavać.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_home_monitor">
+						<local_schema short_desc="Uklučy nazirańnie za chatnim kataloham">
+							<longdesc>Ci nazirać za kožnaj źmienaj u chatnim katalohu.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="ui">
+					<entry name="baobab_subfoldertips_visible">
+						<local_schema short_desc="Padkazki dla padkatalohaŭ bačnyja">
+							<longdesc>Ci pisać padkazki dla padkatalohaŭ z zaznačanaha katalohu.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="statusbar_visible">
+						<local_schema short_desc="Panel statusu bačnaja">
+							<longdesc>Ci pavinna być bačnaj panel statusu ŭnizie hałoŭnaha vakna.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_visible">
+						<local_schema short_desc="Panel pryładździa bačnaja">
+							<longdesc>Ci pavinna być bačnaj panel pryładździa ŭ hałoŭnym aknie.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="window_list_applet">
+				<dir name="prefs">
+					<entry name="maximum_size">
+						<local_schema short_desc="Maksymalny pamier śpisu voknaŭ">
+							<longdesc>Užyvańnie hetaha kluča sastarełaje ŭ GNOME 2.20. Schiema była zachavanaja dla zhodnaści z papiarednimi versijami.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="minimum_size">
+						<local_schema short_desc="Minimalny pamier śpisu voknaŭ">
+							<longdesc>Užyvańnie hetaha kluča sastarełaje ŭ GNOME 2.20. Schiema była zachavanaja dla zhodnaści z papiarednimi versijami.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="move_unminimized_windows">
+						<local_schema short_desc="Viartańnie voknaŭ na dziejnym rabočym abšary">
+							<longdesc>Akreślivaje, ci padčas viartańnia vakno pieranosicca na dziejny rabočy abšar. U advarotnym vypadku budzie źmienieny rabočy abšar vakna.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="group_windows">
+						<local_schema short_desc="Kali hrupavać vokny">
+							<longdesc>Akreślivaje, kali ŭ śpisie zadańniaŭ vokny adnoj i toj ža aplikacyi pavinny być hrupavanyja. Pravilnyja vartaści: &quot;never&quot; (nikoli), &quot;auto&quot; (aŭtamatyčna) i &quot;always&quot; (zaŭždy).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_all_workspaces">
+						<local_schema short_desc="Pakazvaj vokny z usich rabočych abšaraŭ">
+							<longdesc>Akreślivaje, ci śpis zadańniaŭ pakazvaje vokny z usich rabočych abšaraŭ. U advarotnym vypadku buduć pakazanyja tolki vokny ź dziejnaha abšaru.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="workspace_switcher_applet">
+				<dir name="prefs">
+					<entry name="num_rows">
+						<local_schema short_desc="Kolkaść radkoŭ u pieraklučalniku rabočych abšaraŭ">
+							<longdesc>Hetaja vartaść akreślivaje, kolki radkoŭ (dla haryzantalnaj kampazycyi) albo kalon (u vypadku vertykalnaj kampazycyi) budzie mieć u sabie pieraklučalnik rabočych abšaraŭ. Hetaja opcyja vykarystoŭvajecca, tolki kali abranaje display_all_workspaces.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_all_workspaces">
+						<local_schema short_desc="Pakazvaj usie rabočyja abšary">
+							<longdesc>Kali ŭklučyć, buduć bačnyja ŭsie rabočyja abšary, u advarotnym vypadku  budzie bačny tolki dziejny abšar.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_workspace_names">
+						<local_schema short_desc="Pakazvaj nazvy rabočych abšaraŭ">
+							<longdesc>Kali ŭklučyć, to pieraklučalnik rabočych abšaraŭ budzie pakazvać ichnija nazvy. Inakš jon budzie pakazvać vokny z hetych abšaraŭ. Hetaja nałada pracuje, tolki kali tvaim kiraŭnikom voknaŭ źjaŭlajecca Metacity.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="fish_applet">
+				<dir name="prefs">
+					<entry name="rotate">
+						<local_schema short_desc="Pieravaročvańnie pry vertykalnym pałažeńni paneli">
+							<longdesc>Akreślivaje, ci animacyja rybki budzie pieraviernutaja, kali panel maje vertykalnuju aryjentacyju.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="speed">
+						<local_schema short_desc="Čas čakańnia pamiž kadrami">
+							<longdesc>Akreślivaje, kolki sekundaŭ pakazvać kožny kadar.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="frames">
+						<local_schema short_desc="Kolkaść kadraŭ u animacyi rybki">
+							<longdesc>Akreślivaje kolkaść kadraŭ, pakazvanych pry animacyi rybki.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="command">
+						<local_schema short_desc="Zahad, jaki vykonvajecca paśla kliku">
+							<longdesc>Akreślivaje, jaki zahad budzie vykanany, kali kliknuć rybku.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="image">
+						<local_schema short_desc="Piksmapa z animacyjaj rybki">
+							<longdesc>Opcyja akreślivaje nazvu (adnosna katalohu ź piksmapami) fajłu piksmapy z animacyjaj apletu rybki.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name">
+						<local_schema short_desc="Imia rybki">
+							<longdesc>Rybka biez imia - heta vielmi hłupaja rybka. Viarni rybcy sens žyćcia, daŭšy joj imia.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="clock_applet">
+				<dir name="prefs">
+					<entry name="speed_unit">
+						<local_schema short_desc="Adzinki chutkaści">
+							<longdesc>Adzinki vymiareńnia chutkaści vietru.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="temperature_unit">
+						<local_schema short_desc="Adzinki temperatury">
+							<longdesc>Adzinki vymiareńnia temperatury.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="cities">
+						<local_schema short_desc="Śpis pałažeńniaŭ">
+							<longdesc>Śpis pałažeńniaŭ, pakazvanych u vaknie kalandara.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="internet_time">
+						<local_schema short_desc="Užyćcio internetnaha času">
+							<longdesc>Užyvańnie hetaha kluča sastarełaje ŭ GNOME 2.6 ad času pajaŭleńnia kluča &quot;format&quot;. Schiema była zachavanaja dla zhodnaści z papiarednimi versijami.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="unix_time">
+						<local_schema short_desc="Uniksavy čas">
+							<longdesc>Užyvańnie hetaha kluča sastarełaje ŭ GNOME 2.6 ad času pajaŭleńnia kluča &quot;format&quot;. Schiema była zachavanaja dla zhodnaści z papiarednimi versijami.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hour_format">
+						<local_schema short_desc="Farmat hadzin">
+							<longdesc>Užyvańnie hetaha kluča sastarełaje ŭ GNOME 2.6 ad času pajaŭleńnia kluča &quot;format&quot;. Schiema była zachavanaja dla zhodnaści z papiarednimi versijami.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_locations">
+						<local_schema short_desc="Razharni śpis pałažeńniaŭ">
+							<longdesc>Akreślivaje, ci razhortvać śpis pałažeńniaŭ u kalandarnym aknie.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_weather">
+						<local_schema short_desc="Razharni śpis sa źviestkami ab nadvorji">
+							<longdesc>Akreślivaje, ci razhortvać śpis źviestak ab nadvorji ŭ kalandarnym aknie.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_tasks">
+						<local_schema short_desc="Razharni śpis zadač">
+							<longdesc>Akreślivaje, ci razhortvać śpis zadačaŭ u kalandarnym aknie.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_birthdays">
+						<local_schema short_desc="Razharni śpis dnioŭ naradžeńniaŭ">
+							<longdesc>Akreślivaje, ci razhortvać śpis dzion narodzinaŭ u kalandarnym aknie.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_appointments">
+						<local_schema short_desc="Razharni śpis terminaŭ">
+							<longdesc>Akreślivaje, ci razhortvać śpis terminaŭ u kalandarnym aknie.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_week_numbers">
+						<local_schema short_desc="Pakazvaj numary tydniaŭ u kalandary">
+							<longdesc>Kali PRAŬDA, pakazvaje numary tydniaŭ u kalandary.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="config_tool">
+						<local_schema short_desc="Pryłada kanfihuracyi času">
+						</local_schema>
+					</entry>
+					<entry name="gmt_time">
+						<local_schema short_desc="Čas UTC">
+							<longdesc>Akreślivaje, ci pakazvać čas UTC.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_temperature">
+						<local_schema short_desc="Pakazvaj temperaturu ŭ hadzińniku">
+							<longdesc>Kali PRAŬDA, pakazvaje temperaturu kala ikony nadvorja.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_weather">
+						<local_schema short_desc="Pakazvaj nadvorje ŭ hadzińniku">
+							<longdesc>Akreślivaje, ci pakazvać ikonu nadvorja.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_tooltip">
+						<local_schema short_desc="Pakazvaj datu ŭ padkazcy">
+							<longdesc>Akreślivaje, ci pakazvać datu ŭ padkazcy, kali kursor myšy znachodzicca nad hadzińnikam.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_date">
+						<local_schema short_desc="Pakazvaj datu ŭ hadzińniku">
+							<longdesc>Akreślivaje, ci pakazvać u hadzińniku datu pobač z časam.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_seconds">
+						<local_schema short_desc="Pakazvaj čas z sekundami">
+							<longdesc>Akreślivaje, ci pakazvać sekundy.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="custom_format">
+						<local_schema short_desc="Ułasny farmat hadzińnika">
+							<longdesc>Hety kluč akreślivaje farmat času, užyvany apletam hadzińnika, kali kluč farmatu akreśleny jak &quot;custom&quot; (ułasny). Kab atrymać akreśleny farmat, možna ŭžyvać parametry, zrazumiełyja dla funkcyi strftime(). Hladzi dadatkovyja źviestki ŭ dapamožniku pa strftime().</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="format">
+						<local_schema short_desc="Farmat hadzin">
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="panel">
+				<dir name="objects">
+					<entry name="action_type">
+						<local_schema short_desc="Typ knopki aperacyi">
+							<longdesc>Typ dziejańnia, źviazanaha z hetaj knopkaj. Mahčymyja vartaści - heta &quot;lock&quot; (zablakuj), &quot;logout&quot; (vyjdzi), &quot;run&quot; (uruchom), &quot;search&quot; (znajdzi) i &quot;screenshot&quot; (zdymak ekranu). Hetaja opcyja maje sens tolki dla abjektaŭ typu &quot;action-applet&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="launcher_location">
+						<local_schema short_desc="Pałažeńnie aktyvatara">
+							<longdesc>Pałažeńńie fajłu .desktop, jaki apisvaje aktyvatar. Hetaja opcyja maje sens tolki dla abjektaŭ typu &quot;launcher-object&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menu_path">
+						<local_schema short_desc="Ściežka źmieściva menu">
+							<longdesc>Ściežka, na padstavie jakoj kanstrujujuć menu. Hetaja opcyja maje sens, tolki kali &quot;use_menu_path&quot; abranaja, a typam abjektu źjaŭlajecca &quot;menu-object&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_menu_path">
+						<local_schema short_desc="Užyćcio ŭłasnaj ściežki dla elementaŭ menu">
+							<longdesc>Kali hetaja opcyja ŭklučanaja, opcyja menu_path maje ściežku, jakaja akreślivaje źmieściva menu. U advarotnym vypadku menu_path ihnarujecca. Hetaja opcyja maje sens tolki dla abjektaŭ typu &quot;menu-object&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="custom_icon">
+						<local_schema short_desc="Ikona knopki abjektu">
+							<longdesc>Pałažeńnie fajłu vyjavy, u jakoj znachodzicca ikona knopki abjektu. Hetaja opcyja maje sens, tolki kali typam abjektu źjaŭlajecca &quot;drawer-object&quot; albo &quot;menu-object&quot;, a opcyja &quot;use_custom_icon&quot; aktyŭnaja.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_custom_icon">
+						<local_schema short_desc="Užyćcio ŭłasnaj ikony dla knopki abjektu">
+							<longdesc>Kali hetaja opcyja ŭklučanaja, opcyja custom_icon pakazvaje ikonu knopki. U advarotnym vypadku custom_icon ihnarujecca. Hetaja opcyja maje sens tolki dla abjektaŭ typu &quot;menu-object&quot; albo &quot;drawer-object&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="tooltip">
+						<local_schema short_desc="Padkazka, pakazanaja dla šuflady albo menu">
+							<longdesc>Tekst pakazvać u padkazcy dla hetaj šuflady albo menu. Hetaja opcyja maje sens, tolki kali typam abjektu źjaŭlajecca &quot;drawer-object&quot; albo &quot;menu-object&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="attached_toplevel_id">
+						<local_schema short_desc="Panel paviazanaja z šufladaj">
+							<longdesc>Identyfikatar paneli, paviazany z hetaj šufladaj. Hetki vybar maje sens tolki dla abjektaŭ typu &quot;drawer-object&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="bonobo_iid">
+						<local_schema short_desc="IID apletu bonobo">
+							<longdesc>Identyfikatar implementacyi Bonobo apletu – napr. &quot;OAFIID:GNOME_ClockApplet&quot;. Taki vybar maje sens, tolki kali typam abjektu źjaŭlajecca &quot;bonobo-applet&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="locked">
+						<local_schema short_desc="Zablakuj abjekt na paneli">
+							<longdesc>Kali hetaja opcyja ŭklučanaja, karystalnik nia moža pierasunuć aplet, pakul nie adblakuje jaho pry dapamozie zahadu &quot;Adblakuj&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="panel_right_stick">
+						<local_schema short_desc="Akreśleńnie pazycyi adnosna nižniaha/pravaha kraju">
+							<longdesc>Kali hetaja opcyja ŭklučanaja, pazycyja abjektu ŭstaloŭvajecca adnosna pravaha (albo nižniaha, kali vertykalnaja) kraju paneli.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="position">
+						<local_schema short_desc="Pazycyja abjektu na paneli">
+							<longdesc>Pazycyja hetaha abjektu paneli. Pazycyja vyražanaja ŭ kolkaści pikselaŭ ad levaha (albo vierchniaha, u vypadku vertykalnaj) kraju paneli.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toplevel_id">
+						<local_schema short_desc="Hałoŭnaja panel, jakaja maje tekst">
+							<longdesc>Identyfikatar baćkoŭskaj paneli z hetym abjektam.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="object_type">
+						<local_schema short_desc="Typ abjektu paneli">
+							<longdesc>Typ hetaha abjektu paneli. Jość niekalki mahčymaściaŭ – &quot;drawer-object&quot; (šuflada), &quot;menu-object&quot; (menu), &quot;launcher-object&quot; (aktyvatar), &quot;bonobo-applet&quot; (aplet bonobo), &quot;action-applet&quot; dy &quot;menu-bar&quot; (panel menu).</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="toplevels">
+					<entry name="animation_speed">
+						<local_schema short_desc="Chutkaść animacyi">
+							<longdesc>Chutkaść animacyi paneli. Dapuščalnyja vartaści: &quot;slow&quot; (pavoli), &quot;medium&quot; (siarednie) i &quot;fast&quot; (chutka). Hetaja opcyja maje značeńnie tolki ŭ vypadku aktyŭnaj opcyi enable_animations.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_hide_size">
+						<local_schema short_desc="Bačnaja kolkaść pikselaŭ schavanaj paneli">
+							<longdesc>Akreślivaje kolkaść bačnych pikselaŭ paneli paśla aŭtamatyčnaha schavańnia ŭ kucie ekranu. Hetuju funkcyju vykarystoŭvajuć tolki ŭ vypadku aktyŭnaj źmiennaj auto_hide.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="unhide_delay">
+						<local_schema short_desc="Spaźnieńnie pajaŭleńnia paneli">
+							<longdesc>Akreślivaje kolkaść milisekundaŭ spaźnieńnia ad pieranosu kursora na abšar paneli, pierš čym panel aŭtamatyčna pajavicca. Hetuju funkcyju vykarystoŭvajuć tolki ŭ vypadku aktyŭnaj źmiennaj auto_hide.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hide_delay">
+						<local_schema short_desc="Spaźnieńnie chavańnia paneli">
+							<longdesc>Akreślivaje kolkaść milisekundaŭ spaźnieńnia ad pieranosu kursora z paneli, pierš čym panel aŭtamatyčna schavajecca. Hetuju funkcyju vykarystoŭvajuć tolki ŭ vypadku aktyŭnaj źmiennaj auto_hide.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_arrows">
+						<local_schema short_desc="Strełki na knopkach chavańnia">
+							<longdesc>Kali ŭklučyć hetuju opcyju, buduć pakazanyja strełki na knopkach chavańnia. Hetaja opcyja maje sens tolki z opcyjaj enable_buttons.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_buttons">
+						<local_schema short_desc="Knopki chavańnia">
+							<longdesc>Kali ŭklučyć hetuju opcyju, abapał paneli buduć raźmieščanyja knopki, jakija možna vykarystać, kab pierasunuć panel da bierahu ekranu tak, što budzie bačnaja tolki knopka.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="Uklučy animacyju">
+							<longdesc>Kali ŭklučyć hetuju opcyju, chavańnie j pakazvańnie hetaj paneli budzie animavanym zamiest imhniennaha źnikańnia j pajaŭleńnia.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_hide">
+						<local_schema short_desc="Aŭtamatyčna chavaj panel u kut ekranu">
+							<longdesc>Kali ŭklučyć hetuju opcyju, panel budzie aŭtamatyčna schavanaja ŭ kucie ekranu, kali kursor myšy pakinie jaje abšar. Pieranos kursora ŭ hety kut znoŭ pakaža panel.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="y_centered">
+						<local_schema short_desc="Centravańnie paneli pa vertykali">
+							<longdesc>Kali ŭklučyć hetuju opcyju, kaardynaty y i y_bottom ihnarujucca, i panel raspałahajecca vertykalna ŭ centry ekranu. Kali pamier paneli budzie źmianiacca, pazycyja zastaniecca niaźmiennaj – napr. panel pašyrycca pa abodvuch bakoch. Kali hetaja opcyja vyklučanaja, kaardynaty y i y_bottom akreślivuć pałažeńnie paneli.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="x_centered">
+						<local_schema short_desc="Centravańnie paneli pa haryzantali">
+							<longdesc>Kali ŭklučyć hetuju opcyju, kaardynaty x i x_right ihnarujucca, i panel raspałahajecca haryzantalna ŭ centry ekranu. Kali pamier paneli budzie źmianiacca, pazycyja zastaniecca niaźmiennaj – napr. panel pašyrycca pa abodvuch bakoch. Kali hetaja opcyja vyklučanaja, kaardynaty x i x_right akreślivuć pałažeńnie paneli.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="y_bottom">
+						<local_schema short_desc="Kaardynata paneli ŭzdoŭž vosi Y, pačynajučy ad nižniaha bierahu ekranu">
+							<longdesc>Pałažeńnie paneli ŭzdoŭž vosi y, pačynajučy ad pravaha bierahu ekranu. Kali hety kluč maje vartaść -1, jon ihnarujecca, a zamiest jaho vykarystoŭvajecca kluč x. Kali vartaść bolšaja za 0, tady kluč x ihnarujecca. Hety kluč maje značeńnie tolki ŭ nierazhornutym režymie. U razhornutym režymie hetaja opcyja ihnarujecca, a panel źmiaščajecca pa baku ekranu, akreślenym opcyjaj aryjentacyi.režymie. U razhornutym hetaja opcyja ihnarujecca, a panel źmiaščajecca pa baku ekranu, akreślenym opcyjaj aryjentacyi.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="x_right">
+						<local_schema short_desc="Kaardynata paneli ŭzdoŭž vosi X, pačynajučy ad pravaha bierahu ekranu">
+							<longdesc>Pałažeńnie paneli ŭzdoŭž vosi x, pačynajučy ad pravaha bierahu ekranu. Kali hety kluč maje vartaść -1, jon ihnarujecca, a zamiest jaho vykarystoŭvajecca kluč x. Kali vartaść bolšaja za 0, tady kluč x ihnarujecca. Hety kluč maje značeńnie tolki ŭ nierazhornutym režymie. U razhornutym režymie hetaja opcyja ihnarujecca, a panel źmiaščajecca pa baku ekranu, akreślenym opcyjaj aryjentacyi.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="y">
+						<local_schema short_desc="Kaardynata Y pałažeńnia paneli">
+							<longdesc>Pałažeńnie paneli ŭzdoŭž vosi y. Hety kluč maje značeńnie ŭ nierazhornutym režymie. U razhornutym hetaja opcyja ihnarujecca, a panel źmiaščajecca pa baku ekranu, akreślenym opcyjaj aryjentacyi.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="x">
+						<local_schema short_desc="Kaardynata X pałažeńnia paneli">
+							<longdesc>Pałažeńnie paneli ŭzdoŭž vosi x. Hety kluč maje značeńnie ŭ poŭnaekrannym režymie. U razhornutym režymie hetaja opcyja ihnarujecca, a panel źmiaščajecca pa baku ekranu, akreślenym opcyjaj aryjentacyi.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size">
+						<local_schema short_desc="Pamier paneli">
+							<longdesc>Vyšynia (šyrynia dla vertykalnaj) paneli. Padčas pracy panel akreślić minimalny pamier na padstavie pamieru šryftu i inšych pakaźnikaŭ. Maksymalny pamier abmiežavany da čverci vyšyni (albo šyryni) ekranu.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="orientation">
+						<local_schema short_desc="Aryjentacyja paneli">
+							<longdesc>Pałažeńnie paneli. Dapuščalnyja vartaści: &quot;top&quot; (vierch), &quot;bottom&quot; (niz), &quot;left&quot; (levy), &quot;right&quot; (pravy). U razhornutym režymie hetaja opcyja akreślivaje, pa jakim baku ekranu znachodzicca panel. U nierazhornutym režymie roźnica pamiž &quot;top&quot; (vierch) i &quot;bottom&quot; (niz) maje mienšaje značeńnie – abiedźvie akreślivajuć, što heta haryzantalnaja panel – ale nadalej dajuć karysnuju infarmacyju, jak častka abjektaŭ na paneli pavinna siabie pavodzić. Naprykład, na vierchniaj paneli menu budzie razhortvacca ŭniz, a na nižniaj – uvierch.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand">
+						<local_schema short_desc="Razhortvańnie na ŭsioj šyryni ekranu">
+							<longdesc>Kali ŭklučyć hetuju opcyju, panel zojmie ŭsiu šyryniu ekranu (albo vyšyniu, kali jana vertykalnaja). Takaja panel moža być źmieščanaja tolki la bierahu ekranu. Kali hetaja opcyja vyklučanaja, panel budzie tolki takaja, kab źmiaścilisia ŭsie elementy.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="monitor">
+						<local_schema short_desc="Manitor Xinerama, na jakim pakazanaja hetaja panel">
+							<longdesc>U kanfihuracyi Xinerama možna mieć paneli na kožnym asobnym manitory. Hety kluč akreślivaje dziejny manitor, na jakim pakazanaja panel.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="screen">
+						<local_schema short_desc="Ekran X Window, na jakim pakazanaja hetaja panel">
+							<longdesc>U šmatekrannych kanfihuracyjach mohuć isnavać paneli na kožnym ekranie asobna. Hetaja opcyja akreślivaje dziejny ekran, na jakim pakazanaja panel.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name">
+						<local_schema short_desc="Nazva, kab identyfikavać panel">
+							<longdesc>Čytelnaja dla čałavieka nazva identyfikacyi paneli. U asnoŭnym jaje vykarystoŭvajuć pry padačy jaje jak nazvy vakna paneli, što prydatna padčas pieraklučeńnia pamiž panelami.</longdesc>
+						</local_schema>
+					</entry>
+					<dir name="background">
+						<entry name="rotate">
+							<local_schema short_desc="Ratacyja vyjavaŭ pry vertykalnym raspałažeńni paneli">
+								<longdesc>Kali ŭklučyć hetuju opcyju, fonavaja vyjava budzie abarotnaj, kali panel maje vertykalnuju aryjentacyju.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="stretch">
+							<local_schema short_desc="Raściahvańnie vyjavy da pamieraŭ paneli">
+								<longdesc>Kali ŭklučyć hetuju opcyju, pamiery vyjavy buduć źmienienyja da pamieraŭ paneli. Praporcyi vyjavy nia buduć zachavanyja.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="fit">
+							<local_schema short_desc="Dastasavańnie vyjavy da pamieraŭ paneli">
+								<longdesc>Kali ŭklučyć hetuju opcyju, pamiery vyjavy buduć źmienienyja (z zachavańniem praporcyjaŭ) da vyšyni paneli (kali jana haryzantalnaja).</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="image">
+							<local_schema short_desc="Fonavaja vyjava">
+								<longdesc>Akreślivaje fajł, užyvany ŭ jakaści fonavaj vyjavy. Kali vyjava maje kanał alfa, jon budzie nakładzieny na fonavuju vyjavu stała.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="opacity">
+							<local_schema short_desc="Nieprazrystaść fonu">
+								<longdesc>Akreślivaje nieprazrystaść farmatu koleru fonu. Kali koler nia całkam nieprazrysty (vartaść mienšaja za 65535), jon budzie nakładzieny na fonavuju vyjavu stała.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="color">
+							<local_schema short_desc="Koler fonu">
+								<longdesc>Akreślivaje koler fonu paneli ŭ farmacie #RGB.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="type">
+							<local_schema short_desc="Typ fonu">
+								<longdesc>Akreślivaje typ fonu, užytaha ŭ hetaj paneli. Dapuščalnyja vartaści dla fonu: &quot;gtk&quot; – zmoŭčany fon widgetu GTK+, &quot;color&quot; (koler) – koler, akreśleny opcyjaj color, &quot;image&quot; (vyjava) – vyjava, akreślenaja opcyjaj image.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="general">
+					<entry name="profiles_migrated">
+						<local_schema short_desc="Pieraniesienaja papiaredniaja kanfihuracyja profilaŭ">
+							<longdesc>Lahičny ściažok, jaki pakazvaje, ci papiaredniaja kanfihuracyja karystalnika z /apps/panel/profiles/default była skapijavanaja na novaje miesca /apps/panel.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="object_id_list">
+						<local_schema short_desc="Śpis identyfikataraŭ (ID) abjektaŭ paneli">
+							<longdesc>Śpis identyfikataraŭ (ID) abjektaŭ paneli. Kožny identyfikatar  paviazany z paasobnym abjektam paneli (napr. aktyvataram, knopkaj zahadu albo menu). Nałady dla kožnaha z hetych abjektaŭ zachoŭvajucca ŭ /apps/panel/objects/$(id).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="applet_id_list">
+						<local_schema short_desc="Śpis identyfikataraŭ (ID) apletaŭ paneli">
+							<longdesc>Śpis identyfikataraŭ (ID) apletaŭ paneli. Kožny identyfikatar źviazany z paasobnym apletam paneli. Nałady kožnaha ź ich zachoŭvajucca ŭ /apps/panel/applets/$(id).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toplevel_id_list">
+						<local_schema short_desc="Śpis identyfikataraŭ (ID) paneli">
+							<longdesc>Śpis identyfikataraŭ (ID) paneli. Kožny identyfikatar akreślivaje paasobnuju baćkoŭskuju panel. Nałady kožnaj z hetych panelaŭ zachoŭvajucca ŭ /apps/panel/toplevels/$(id).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_autocompletion">
+						<local_schema short_desc="Aŭtazapaŭnieńnie ŭ vaknie &quot;Uruchom prahramu&quot;">
+							<longdesc>Kali praŭda, u vaknie &quot;Uruchom prahramu&quot; budzie dastupnaje aŭtazapaŭnieńnie.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_program_list">
+						<local_schema short_desc="Razhortvaj śpis prahramaŭ u vaknie &quot;Uruchom prahramu&quot;">
+							<longdesc>Kali opcyja aktyŭnaja, śpis &quot;Viadomyja aplikacyi&quot; razhornuty, kali pakazanaje vakno &quot;Uruchom prahramu&quot;. Hetaja opcyja maje značeńnie, tolki kali abrać enable_program_list.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_program_list">
+						<local_schema short_desc="Pakazvaj śpis prahramaŭ u vaknie &quot;Uruchom prahramu&quot;">
+							<longdesc>Kali opcyja aktyŭnaja, śpis &quot;Viadomyja aplikacyi&quot; dastupny ŭ vaknie &quot;Uruchom prahramu&quot;. Ci razhornuty śpis padčas vyśviatleńnia vakna, akreślivaje opcyja show_program_list.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="global">
+					<entry name="disable_force_quit">
+						<local_schema short_desc="Blakuj gvałtoŭny vychad">
+							<longdesc>Kali abrana, panel nie dazvolić karystalniku gvałtoŭna zakončyć aplikacyju, vydaliŭšy knopku gvałtoŭnaha zakančeńnia.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_log_out">
+						<local_schema short_desc="Blakuj vychad">
+							<longdesc>Kali abrana, panel nie dazvolić karystalniku vyjści, vydaliŭšy dostup da adpaviednaha elementu menu.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_lock_screen">
+						<local_schema short_desc="Sastarełaje">
+						</local_schema>
+					</entry>
+					<entry name="disabled_applets">
+						<local_schema short_desc="Identyfikatary apletaŭ, jakija nia buduć zahružacca">
+							<longdesc>Śpis identyfikataraŭ apletaŭ, ihnaravanych panellu. Hetkim čynam možna vyklučyć zahruzku niekatorych apletaŭ albo pakazvać ich u menu. Naprykład, kab vyklučyć aplet mini-commander, dadaj u hety śpis łancužok &apos;OAFIID:GNOME_MiniCommanderApplet&apos;. Panel musić być uruchomlenaja znoŭ, kab prymianić źmieny.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="locked_down">
+						<local_schema short_desc="Poŭnaja blakada paneli">
+							<longdesc>Kali abrać, panel nia budzie dazvalać uvodzić nijakich źmienaŭ u kanfihuracyi. Adnak paasobnyja aplety mohuć i tak vymahać blakady. Panel musić buć uruchomlenaja znoŭ, kab pajavilisia źmieny.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="highlight_launchers_on_mouseover">
+						<local_schema short_desc="Padśviatlaj aktyvatary pry najeździe na ich myšy">
+							<longdesc>Akreślivaje, ci aktyvatar budzie padśvietleny paśla źmiaščeńnia nad im kursora.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="confirm_panel_remove">
+						<local_schema short_desc="Paćvierdžańnie vydaleńnia paneli">
+							<longdesc>Akreślivaje, ci pakazvać vakno z pytańniem adnosna namieru vydaleńnia paneli.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="drawer_autoclose">
+						<local_schema short_desc="Aŭtamatyčna začyniaj šufladu">
+							<longdesc>Akreślivaje, ci šuflada budzie aŭtamatyčna začyniacca, kali kliknuć aktyvatar na joj.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="window_screenshot_key">
+						<local_schema short_desc="Sastarełaje">
+						</local_schema>
+					</entry>
+					<entry name="screenshot_key">
+						<local_schema short_desc="Sastarełaje">
+						</local_schema>
+					</entry>
+					<entry name="run_key">
+						<local_schema short_desc="Sastarełaje">
+						</local_schema>
+					</entry>
+					<entry name="menu_key">
+						<local_schema short_desc="Sastarełaje">
+						</local_schema>
+					</entry>
+					<entry name="enable_key_bindings">
+						<local_schema short_desc="Sastarełaje">
+						</local_schema>
+					</entry>
+					<entry name="panel_hide_delay">
+						<local_schema short_desc="Sastarełaje">
+						</local_schema>
+					</entry>
+					<entry name="panel_animation_speed">
+						<local_schema short_desc="Sastarełaje">
+						</local_schema>
+					</entry>
+					<entry name="panel_show_delay">
+						<local_schema short_desc="Sastarełaje">
+						</local_schema>
+					</entry>
+					<entry name="panel_minimized_size">
+						<local_schema short_desc="Sastarełaje">
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="Uklučy animacyju">
+						</local_schema>
+					</entry>
+					<entry name="keep_menus_in_memory">
+						<local_schema short_desc="Sastarełaje">
+						</local_schema>
+					</entry>
+					<entry name="tooltips_enabled">
+						<local_schema short_desc="Uklučy padkazki">
+							<longdesc>Akreślivaje, ci pajaŭlajucca padkazki dla abjektaŭ paneli.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gweather">
+				<dir name="prefs">
+					<entry name="radar">
+						<local_schema short_desc="Adras URL radarnaj mapy">
+							<longdesc>Vykarystańnie ŭłasnaha adrasu URL, adkul zahružajecca radarnaja mapa.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_custom_radar_url">
+						<local_schema short_desc="Vykarystańnie ŭłasnaha adrasu URL radarnaj mapy">
+							<longdesc>Akreślivaje, ci zahružać radarnuju mapu z pałažeńnia, akreślenaha klučom &quot;radar&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="coordinates">
+						<local_schema short_desc="Kaardynaty pałažeńnia">
+						</local_schema>
+					</entry>
+					<entry name="location4">
+						<local_schema short_desc="Prahnoz nadvorja dla horadu">
+						</local_schema>
+					</entry>
+					<entry name="location3">
+						<local_schema short_desc="Radarnaje pałažeńnie">
+						</local_schema>
+					</entry>
+					<entry name="location2">
+						<local_schema short_desc="Pałažeńnie zony">
+						</local_schema>
+					</entry>
+					<entry name="location1">
+						<local_schema short_desc="Bližejšy horad">
+						</local_schema>
+					</entry>
+					<entry name="location0">
+						<local_schema short_desc="Infarmacyja pra miesca prahnozu">
+						</local_schema>
+					</entry>
+					<entry name="enable_radar_map">
+						<local_schema short_desc="Pakazvaj radarnuju mapu">
+							<longdesc>Zahruzka radarnaj mapy pry kožnaj aktualizacyi.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_detailed_forecast">
+						<local_schema short_desc="Bolej nie ŭžyvanaje">
+						</local_schema>
+					</entry>
+					<entry name="temperature_unit">
+						<local_schema short_desc="Adzinka temperatury">
+							<longdesc>Užyvanaja adzinka temperatury.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="speed_unit">
+						<local_schema short_desc="Adzinka chutkaści">
+							<longdesc>Užyvanaja adzinka chutkaści vietru.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="pressure_unit">
+						<local_schema short_desc="Adzinka cisku">
+							<longdesc>Užyvanyja adzinki cisku.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="distance_unit">
+						<local_schema short_desc="Adzinka adlehłaści">
+							<longdesc>Užyvanaja adzinka bačnaści.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_metric">
+						<local_schema short_desc="Vykarystańnie metryčnaj systemy">
+							<longdesc>Vykarystańnie metryčnaj systemy zamiest anhielskich adzinak.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_update_interval">
+						<local_schema short_desc="Peryjad aktualizacyi">
+							<longdesc>Peryjad času ŭ sekundach pamiž aŭtamatyčnymi aktualizacyjami.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_update">
+						<local_schema short_desc="Aŭtamatyčnaja aktualizacyja źviestak">
+							<longdesc>Akreślivaje, ci statystyka nadvorja aŭtamatyčna aktualizujecca apletam.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnome-keyring">
+				<dir name="daemon-components">
+					<entry name="pkcs11">
+						<local_schema short_desc="Ci ŭklučać kampanent PKCS#11 dla klučnika.">
+							<longdesc>Hetaja opcyja ŭklučaje kampanent PKCS#11 dla demana gnome-keyring. Opcyja ŭździejničaje tolki pry ŭruchamleńni demana gnome-keyring-daemon, h.zn. kali karystalnik uvachodzić u systemu. Hetaja nałada moža być źmieniena z dapamohaj peŭnych arhumentaŭ zahadnaha radka, pieradadzienych demanu.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="ssh">
+						<local_schema short_desc="Ci ŭklučać agenta SSH dla klučnika.">
+							<longdesc>Hetaja opcyja ŭklučaje agenta SSH dla demana gnome-keyring. Opcyja ŭździejničaje tolki pry ŭruchamleńni demana gnome-keyring-daemon, h.zn. kali karystalnik uvachodzić u systemu. Hetaja nałada moža być źmieniena z dapamohaj peŭnych arhumentaŭ zahadnaha radka, pieradadzienych demanu.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="evince">
+				<entry name="override_restrictions">
+					<local_schema short_desc="Nie zvažaj na abmiežavańni dakumentu">
+						<longdesc>Nie zvažaj na abmiežavańni dakumentu, napr., na abmiežavańni mahčymaści kapijavańnia albo druku.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+		</dir>
+		<dir name="desktop">
+			<dir name="gnome">
+				<dir name="thumbnailers">
+					<dir name="application@x-gzpdf">
+						<entry name="command">
+							<local_schema short_desc="Zahad stvareńnia minijaturaŭ dla dakumentaŭ PDF">
+								<longdesc>Pravilny zahad i arhumenty dla stvareńnia minijaturaŭ dla dakumentaŭ PDF. Hladzi dakumentacyju na stvareńnie minijaturaŭ dla Nautilusa dziela padrabiaznaściaŭ.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Uklučy minijatury dla dakumentaŭ PDF">
+								<longdesc>Dastupnyja lohikavyja opcyi: true ŭklučaje stvareńnie minijaturaŭ, false adklučaje</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@x-bzpdf">
+						<entry name="command">
+							<local_schema short_desc="Zahad stvareńnia minijaturaŭ dla dakumentaŭ PDF">
+								<longdesc>Pravilny zahad i arhumenty dla stvareńnia minijaturaŭ dla dakumentaŭ PDF. Hladzi dakumentacyju na stvareńnie minijaturaŭ dla Nautilusa dziela padrabiaznaściaŭ.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Uklučy minijatury dla dakumentaŭ PDF">
+								<longdesc>Dastupnyja lohikavyja opcyi: true ŭklučaje stvareńnie minijaturaŭ, false adklučaje</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@pdf">
+						<entry name="command">
+							<local_schema short_desc="Zahad stvareńnia minijaturaŭ dla dakumentaŭ PDF">
+								<longdesc>Pravilny zahad i arhumenty dla stvareńnia minijaturaŭ dla dakumentaŭ PDF. Hladzi dakumentacyju na stvareńnie minijaturaŭ dla Nautilusa dziela padrabiaznaściaŭ.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Uklučy minijatury dla dakumentaŭ PDF">
+								<longdesc>Dastupnyja lohikavyja opcyi: true ŭklučaje stvareńnie minijaturaŭ, false adklučaje</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+			</dir>
+		</dir>
+	</dir>
+</gconf>

@@ -1,0 +1,1230 @@
+<?xml version="1.0"?>
+<gconf>
+	<dir name="schemas">
+		<dir name="apps">
+			<dir name="gnome-system-log">
+				<entry name="logfile">
+					<local_schema short_desc="Эхлэлд протоколл файлыг нээх">
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="window_list_applet">
+				<dir name="prefs">
+					<entry name="maximum_size">
+						<local_schema short_desc="Цонх жагсаалтын хамгийн их хэмжээ">
+						</local_schema>
+					</entry>
+					<entry name="minimum_size">
+						<local_schema short_desc="Цонх жагсаалтын хамгийн бага хэмжээ:">
+						</local_schema>
+					</entry>
+					<entry name="move_unminimized_windows">
+						<local_schema short_desc="Цонхыг жижигрүүлээгүй бол идэвхтэй ажлын талбар руу шилжүүлэх">
+							<longdesc>Хэрэв үнэн бол жижигрүүлээгүй цонхыг идэвхитэй ажлын талбарт шилжүүлнэ. Үгүй бол цонхны ажлын талбарыг холбоно.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="group_windows">
+						<local_schema short_desc="Цонхны бүлэглэлд">
+							<longdesc>Цонхны жагсаалтад зарим програмын цонхнуудыг бүлэглэхээр шийдэх. Боломжит утгууд: &quot;хэзээ ч үгүй&quot;, &quot;автомат&quot; ба &quot;үргэлж&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_all_workspaces">
+						<local_schema short_desc="Бүх ажлын талбарын цонхнуудыг харуулах">
+							<longdesc>Хэрэв үнэн бол цонхны жагсаалт нь бүх ажлын талбарын цонхнуудыг үзүүлнэ. Үгүй бол зөвхөн идэвхитэй ажлын  талбарыг харуулна.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="workspace_switcher_applet">
+				<dir name="prefs">
+					<entry name="num_rows">
+						<local_schema short_desc="Ажлыг горим сэлгэгчийн мөрүүд">
+							<longdesc>Энэ түлхүүр ажлын талбарт ажлын талбар сэлгэгчийн хэдэн багана, мөр байгааг тодорхойлдог. Энэ нь зөвхөн дэлгэцийн бүх ажлын талбарууд үнэн байхад хүчинтэй.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_all_workspaces">
+						<local_schema short_desc="Бүх ажлын талбарыг харуулах">
+							<longdesc>Хэрэв үнэн бол ажлын талбарын сэлгэгч бүх ажлын талбарыг үзүүлнэ. Үгүй бол зөвхөн идэвхитэй ажлын талбарыг үзүүлнэ.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_workspace_names">
+						<local_schema short_desc="Ажлын талбарын нэрсийг харуулах">
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="fish_applet">
+				<dir name="prefs">
+					<entry name="rotate">
+						<local_schema short_desc="Босоо самбарт эргүүлэх">
+							<longdesc>Хэрэв үнэн бол загасны хөдөлгөөн босоо самбарт эргэлдэнэ.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="speed">
+						<local_schema short_desc="Кадр бүрээр түр зогсоох">
+							<longdesc>Энэ түлхүүр нь харуулж буй кадр бүрийн секундын тоог тодорхойлдог.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="frames">
+						<local_schema short_desc="Загасны хөдөлгөөний кадрууд">
+							<longdesc>Энэ түлхүүр нь загасны хөдөлгөөнийг харуулдаг кадрын тоог тодорхойлдог.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="command">
+						<local_schema short_desc="Товшиход устгах команд">
+							<longdesc>Загасан дээр дарахад биелүүлэхийг оролдох тушаалыг энэ түлхүүрээр тогтооно.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="image">
+						<local_schema short_desc="Загасны хөдөлгөөний пиксмап">
+							<longdesc>Энэ түлхүүр нь загас апплетийг пиксмаптай харьцуулсан харьцааг харуулдаг хөдөлгөөнд зориулан хэрэглэдэг пиксмапийн файлын нэрийг тодорхойлдог.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name">
+						<local_schema short_desc="Загасны нэр">
+							<longdesc>Нэргүй загас уйтгартай байна. Өөрийн загасыг сонгож нэрлэнэ үү.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="clock_applet">
+				<dir name="prefs">
+					<entry name="internet_time">
+						<local_schema short_desc="Интернэт цаг хэрэглэх">
+							<longdesc>Энэ түлхүүр нь форматын түлхүүрт тохирсон ГНОМЕ 2.6-д үгүйсгэгдсэн. Энэ схем нь хуучин хувилбаруудтай зохицоход хадгалагдаж үлдэнэ.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="unix_time">
+						<local_schema short_desc="ЮНИКС цаг хэрэглэх">
+							<longdesc>Энэ түлхүүр нь форматын түлхүүрт тохирсон ГНОМЕ 2.6-д үгүйсгэгдсэн. Энэ схем нь хуучин хувилбаруудтай зохицоход хадгалагдаж үлдэнэ.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hour_format">
+						<local_schema short_desc="Цагийн формат">
+							<longdesc>Энэ түлхүүр нь форматын түлхүүрт тохирсон ГНОМЕ 2.6-д үгүйсгэгдсэн. Энэ схем нь хуучин хувилбаруудтай зохицоход хадгалагдаж үлдэнэ.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_week_numbers">
+						<local_schema short_desc="Календар дээр долоо хоногийн дугаарыг харуулах">
+							<longdesc>Үнэн бол хуанли дээр долоо хоногийн дугаарыг харуулна.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="config_tool">
+						<local_schema short_desc="Цаг тохируулагч хэрэгсэл">
+						</local_schema>
+					</entry>
+					<entry name="gmt_time">
+						<local_schema short_desc="UTC хэрэглэх">
+							<longdesc>Үнэн бол цагийг дэлхийн универсал цагийн бүсээр харуулна.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_tooltip">
+						<local_schema short_desc="Зөвлөх нүдэнд огноог үзүүлэх">
+							<longdesc>Үнэн бол түүчээг цаган дээр очиход зөвлөх нүдэнд огноог үзүүлнэ.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_date">
+						<local_schema short_desc="Цаган дээр он сарыг харуулах">
+							<longdesc>Үнэн бол, цаган дээр огноог цагтай хамт үзүүлнэ.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_seconds">
+						<local_schema short_desc="Цагийг секундтэй нь харуулах">
+							<longdesc>Үнэн бол цагийг секунтээр үзүүлнэ.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="custom_format">
+						<local_schema short_desc="Цагийн тогтсон формат">
+						</local_schema>
+					</entry>
+					<entry name="format">
+						<local_schema short_desc="Цагийн формат">
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="panel">
+				<dir name="objects">
+					<entry name="action_type">
+						<local_schema short_desc="Үйлдлийн товчны хэлбэр">
+							<longdesc>Товчны үзүүлж байгаа үйлдлийн хэлбэр. Боломжит утгууд нь &quot;бэхлэх&quot;, &quot;гарах&quot;, &quot;ажиллуулах&quot;, &quot;хайх&quot; ба &quot;агшин дэлгэц&quot;. Энэ түлхүүр нь зөвхөн обьект_түлхүүр &quot;action-applet&quot; үед хүчинтэй.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="launcher_location">
+						<local_schema short_desc="Ачаалагчийн байршил">
+							<longdesc>Ачаалагчийг тодорхойлж буй дэлгэцийн файлын байрлал. Энэ түлхүүр нь зөвхөн обьект_хэлбэр түлхүүр &quot;ачаалагч-обьект&quot; үед хүчинтэй.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menu_path">
+						<local_schema short_desc="Цэсийн замын агуулга">
+							<longdesc>Цэсний агуулгын зам үүссэн. Энэ түлхүүр зөвхөн хэрэглэх_цэс_зам түлхүүр үнэн бөгөөд обьект_хэлбэр түлхүүр &quot;цэс-обьект&quot; бол хүчинтэй.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_menu_path">
+						<local_schema short_desc="Цэсний агуулгын замьг тогтоох">
+							<longdesc>Үнэн бол цэс_зам түлхүүр цэсний агуулгаас бүрдсэн замаар хэрэглэгдэнэ. Буруу бол цэс_зам түлхүүр үгүйсгэгдэнэ. Энэ түлхүүр нь обьект түлхүүр зөвхөн &quot;цэс-обьект&quot; үед хүчинтэй.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="custom_icon">
+						<local_schema short_desc="Объектуудын товчинд хэрэглэх эмблем">
+							<longdesc>Зургийн файлын байрлал обьектын товчинд эмблемийг ашигладаг. Энэ түлхүүр нь зөвхөн обьект_хэлбэр түлхүүр &quot;шүүгээ-обьект&quot; эсвэл &quot;цэс-обьект&quot; үед хүчинтэй бөгөөд хэрэглэх_зуршил_эмблем түлхүүр үнэн байна.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_custom_icon">
+						<local_schema short_desc="Объектын товчны эмблемийг тогтоох">
+							<longdesc>Үнэн бол хэрэглэгчийн эмблем нь товчны хэрэглэгчийн эмблемээр хэрэглэгдэнэ. Буруу бол хэрэглэгчийн эмблем үгүйсгэгдэнэ. Энэ түлхүүр нь зөвхөн товчны хэлбэрийн түлхүүр &quot;цэс-обьект&quot; эсвэл &quot;шүүгээ-обьект&quot; үед хүчинтэй.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="tooltip">
+						<local_schema short_desc="Шүүгээ болон цэсэнд зориулан харуулсан зөвлөмж">
+							<longdesc>Шүүгээний болон цэсний зөвлөмжид харуулах текст. Энэ түлхүүр нь зөвхөн обьект_хэлбэр түлхүүр &quot;шүүгээ-обьект&quot; эсвэл &quot;цэс-обьект&quot; үед хүчинтэй.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="attached_toplevel_id">
+						<local_schema short_desc="Самбарыг шүүгээнд хавсаргав">
+							<longdesc>Самбарны тэмдэглэгчийг энэ шүүгээнд хавсаргав. Энэ түлхүүр зөвхөн обьект_түлхүүр &quot;шүүгээ-обьект&quot; үед хүчинтэй.	</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="bonobo_iid">
+						<local_schema short_desc="Апплет Bonobo IID">
+							<longdesc>Самбарын Бонобо биелэлт ТТ- жиш:&quot;OAFIID:ГНОМЕ_Цагны апплет&quot;. Энэ түлхүүр зөвхөн обьект_хэлбэр түлхүүр &quot;бонобо-апплет&quot; үед хүчинтэй.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="locked">
+						<local_schema short_desc="Объектыг самбарт бэхлэх">
+							<longdesc>Үнэн бол хэрэглэгч &quot;Нээлттэй&quot; цэсний эмблем ашиглан обьектыг эхэлж нээхгүйгээр апплетыг зөөж чадахгүй.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="panel_right_stick">
+						<local_schema short_desc="Суурь/баруун зах гэсэн харьцангуй байрлалыг харуулах">
+							<longdesc>Үнэн бол обьектын байрлал самбарны баруун захад (босоо бол суурь хэсэгт) байна.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="position">
+						<local_schema short_desc="Самбар дах объектын байрлал">
+							<longdesc>Энэ самбар обьектын байрлал. Энэ байрлал нь самбарны зүүн захын (босоо бол суурь) цэгүүдийн тоогоор тодорхойлогддог.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toplevel_id">
+						<local_schema short_desc="Обьектыг агуулж буй самбарын дээд түвшин">
+							<longdesc>Энэ обьектыг агуулж буй дээд түвшний самбарыг тэмдэглэгч</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="object_type">
+						<local_schema short_desc="Самбарын объектын төрөл">
+							<longdesc>Самбарны обьектын хэлбэр. Боломжит утгууд нь &quot;шүүгээ-обьект&quot;, &quot;цэс-обьект&quot;, &quot;ачаалагч-обьект&quot;, &quot;бонобо-апплет&quot;, &quot;үйлдэл-апплет&quot; ба &quot;цэс-мөр&quot;.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="toplevels">
+					<entry name="animation_speed">
+						<local_schema short_desc="Хөдөлгөөний хурд">
+							<longdesc>Самбарыг хөдөлгөх хурд. Боломжит утгууд &quot;удаан&quot;, &quot;дунд зэрэг&quot; мөн &quot;хурдан&quot;. Энэ түлхүүр нь зөвхөн боломжит_хөдөлгөөнүүд түлхүүр үнэн үед хүчинтэй.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_hide_size">
+						<local_schema short_desc="Далдлахад харагдах цэгүүд">
+							<longdesc>Самбар буланд автоматаар далдлагдсан үед харагдаж буй пикселийн дугаарыг тодорхойлно. Энэ түлхүүр зөвхөн автоматаар далдлах түлхүүр үнэн үед хүчинтэй.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="unhide_delay">
+						<local_schema short_desc="Самбар автоматаар далдлагдах хугацаа">
+							<longdesc>Самбарыг автоматаар дахин харуулахаас өмнө заагч самбарт ирсний дараах миллисекундын дугаарын хоцролтыг заасан. Энэ түлхүүр зөвхөн автоматаар далдлах түлхүүр үнэн үед хүчинтэй.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hide_delay">
+						<local_schema short_desc="Самбар автоматаар далдлагдах хугацаа">
+							<longdesc>Самбарыг автоматаар далдлахаас өмнө заагч самбарын хэсгийг орхисны дараах миллисекундын дугаарын хоцролтыг заасан. Энэ түлхүүр зөвхөн автоматаар далдлах түлхүүр үнэн үед хүчинтэй.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_arrows">
+						<local_schema short_desc="Далдлагдсан товчин дээр сум үзүүлэх">
+							<longdesc>Үнэн бол далдлагдсан товч дээр сумыг байрлуулна. Энэ түлхүүр зөвхөн боломжтой_товч түлхүүр үнэн үед хүчинтэй.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_buttons">
+						<local_schema short_desc="Далдлагдсан товчийг нээх">
+							<longdesc>Үнэн бол товчнуудыг дэлгэцийн зах руу зөөхөд ашигласан самбарны тал бүрд байрлуулж, зөвхөн нэг товчийг төлөөлүүлж үлдээнэ.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="Хөдөлгөөн оруулах">
+							<longdesc>Үнэн бол далдлагдсан болон далдлагдаагүй самбаруудыг одоо байгаагаас илүү хөдөлгөөнд оруулна.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_hide">
+						<local_schema short_desc="Самбарыг автоматаар булан руу далдлах">
+							<longdesc>Үнэн бол сум самбарын хэсгийг орхисон тохиолдолд самбарыг дэлгэцийн буланд далдална. Сумыг буланд дахин зөөхөд самбар дахин гарч ирнэ.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="y_centered">
+						<local_schema short_desc="Самбарыг у-тэнхлэгт голлуулах">
+						</local_schema>
+					</entry>
+					<entry name="x_centered">
+						<local_schema short_desc="Самбарыг х-тэнхлэгт голлуулах">
+						</local_schema>
+					</entry>
+					<entry name="y">
+						<local_schema short_desc="Самбарын Ү-тэнхлэг">
+							<longdesc>Самбарын у-тэнхлэгийн дагуух байрлал. Энэ түлхүүр зөвхөн өргөтгөөгүй хэлбэрт хүчинтэй. Өргөтгөсөн хэлбэрт энэ түлхүүр нь үгүйсгэгддэг ба самбар байрлалын түлхүүрээр тодорхойлогдсон дэлгэцийн захад байрлана.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="x">
+						<local_schema short_desc="Самбарын Х-тэнхлэг">
+							<longdesc>Самбарын х-тэнхлэгийн дагуух байрлал. Энэ түлхүүр зөвхөн өргөтгөөгүй хэлбэрт хүчинтэй. Өргөтгөсөн хэлбэрт энэ түлхүүр нь үгүйсгэгддэг ба самбар байрлалын түлхүүрээр тодорхойлогдсон дэлгэцийн захад байрлана.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size">
+						<local_schema short_desc="Самбарын хэмжээ">
+							<longdesc>Самбарны өндөр (хэвтээ самбар бол өргөн). Үсгийн хэмжээ болон бусад үзүүлэлт дээр тулгуурласан хамгийн бага самбарны хэмжээг ажиллах хугацаанд тодорхойлно. Хамгийн том хэмжээ нь дэлгэцний өндөрийн (эсвэл өргөний) дөрөвний нэгээр тодорхойлогдоно.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="orientation">
+						<local_schema short_desc="Самбарын чиглэл">
+							<longdesc>Самбарны байрлал. Боломжит утгууд &quot;дээд хэсэг&quot;, &quot;доод хэсэг&quot;, &quot;зүүн&quot;, &quot;баруун&quot;. Самбарны дэлгэцийн захад байгаа түлхүүр нь өргөтгөсөн хэлбэрт тодорхойлогддог. &quot;дээд хэсэг&quot; ба &quot;доод хэсэг&quot;-ээр ялгаа бүхий өргөтгөөгүй хэлбэр нь чухал биш - хоёулаа хэвтээ самбар гэдгийг тодорхойлох боловч зарим самбар обьектыг хэрхэн авах талаар зөвлөлгөө өгнө. Жишээлбэл, Самбарны &quot;дээд хэсэг&quot;-т цэсний товч нь самбарны доорхи цэстэй таарч байхад &quot;доод хэсэг&quot; дэх цэс самбарны дээр таардаг.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand">
+						<local_schema short_desc="Нийт дэлгэцийн өргөнийг эзлэхийн тулд өргөтгөх">
+							<longdesc>Үнэн бол самбар дэлгэцийн бүх өргөнийг эзэлнэ (Хэрвээ босоо самбар бол өндөрийг). Самбарны энэ төрөл нь зөвхөн дэлгэцийн захад байрлах боломжтой. Буруу бол самбар нь апплетууд, ачаалагчид, товчнуудыг багтаасан том байна.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="monitor">
+						<local_schema short_desc="Самбар харуулах Xinerama хянах самбар">
+							<longdesc>Та Xinerama тохиргоонд хянах дэлгэц бүрт самбаруудтай байна. Энэ түлхүүр самбарны идэвхитэй хянах дэлгэцийг тодорхойлно.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="screen">
+						<local_schema short_desc="Самбар харуулах Х-дэлгэц">
+							<longdesc>Та олон төрлийн дэлгэц тохиргоонд тухайн дэлгэц бүрд самбаруудтай байна. Энэ түлхүүр нь харагдаж буй самбарны идэвхитэй дэлгэцийг тодорхойлно.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name">
+						<local_schema short_desc="Самбарыг ялгах нэр">
+							<longdesc>Энэ нь самбарыг тодорхойлоход таны хэрэглэсэн уншиж болохоор нэр байна. </longdesc>
+						</local_schema>
+					</entry>
+					<dir name="background">
+						<entry name="rotate">
+							<local_schema short_desc="Босоо самбарын зургийг эргүүлэх">
+								<longdesc>Үнэн бол самбар хэвтээ үед дэвсгэр зургийг эргүүлнэ.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="stretch">
+							<local_schema short_desc="Зургийг самбарт татаж тааруулах">
+								<longdesc>Үнэн бол зургийг самбарын хэмжээнд хуваарилна. Зургийн уртын хэмжээ хадгалагдахгүй.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="fit">
+							<local_schema short_desc="Зургийг самбарт дүүргэх">
+								<longdesc>Үнэн бол зургийг самбарын өндөрт хуваарилна (зургийн уртын хэмжээг хадгална).</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="image">
+							<local_schema short_desc="Дэвсгэр зураг">
+								<longdesc>Дэвсгэр зурагт хэрэглэх файлыг тодорхойлох. Хэрвээ зураг альфа сувагт агуулагдаж байвал дэлгэцийн дэвсгэр зурагт хамт байна.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="opacity">
+							<local_schema short_desc="Дэвсгэр өнгөний бүдгэрэлт">
+								<longdesc>Дэвсгэрийн өнгөний форматын тодорхой бус байдлыг заана. Хэрвээ өнгө нь хэсэг газраараа тунгалаг биш (утга нь 655335- аас бага) бол тухайн өнгө дэлгэцийн дэвсгэр өнгөнд агуулагдана.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="color">
+							<local_schema short_desc="Дэвсгэр өнгө">
+								<longdesc>#RGB формат дахь самбарын дэвсгэр өнгийг тодорхойлох</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="type">
+							<local_schema short_desc="Дэвсгэрийн төрөл">
+								<longdesc>Дэвсгэрийн ямар ч өнгийг энэ самбарт хэрэглэж болно. Боломжит утгууд &quot;гтк&quot;- стандарт ГТК+ хэрэгслэлд хэрэглэнэ, &quot;өнгө&quot;- өнгө түлхүүрийг дэвсгэр өнгөөр хэрэглэх ба &quot;зураг&quot;- зураг нь зураг түлхүүрээр дэвсгэр болон хэрэглэгдэнэ.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="general">
+					<entry name="profiles_migrated">
+						<local_schema short_desc="Хуучин профил шилжсэн">
+							<longdesc>/apps/panel/profiles/default дахь хэрэглэгчийн өмнөх тохиргоо /apps/ самбарны шинэ байрлалд хуулсан эсэхийг боолеаны тэмдэг тодорхойлдог.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="object_id_list">
+						<local_schema short_desc="Самбарын объектын ТТ жагсаалт">
+							<longdesc>Самбар обьектын ТТ жагсаалт. ТТ бүр панел обьектын онцлогийг тодорхойлдог.(Жиш. ачаалагч, үйлдлийн товч эсвэл цэсний товч/мөр). Эдгээр обьект бүрийн тохируулга /apps/panel/objects/$(id)-д хадгалагдсан.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="applet_id_list">
+						<local_schema short_desc="Самбарын апплетын ТТ жагсаалт">
+							<longdesc>Самбар апплетийн ТТ жагсаалтууд. ТТ бүр панел апплетийн онцлогийг тодорхойлдог. Эдгээр апплет бүрийн тохируулга /apps/panel/applets/$(id)-д хадгалагдсан.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toplevel_id_list">
+						<local_schema short_desc="Самбарын ТТ жагсаалт">
+							<longdesc>ТТ самбарны жагсаалт. ТТ бүр самбарны дээд түвшнийг тодорхойлно. Эдгээр самбар бүрийн тохируулга /apps/panel/toplevels/$(id)-д хадгалагдсан.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_autocompletion">
+						<local_schema short_desc="&quot;Програм ажиллуулах&quot; цонхонд автоматаар дуусгахыг идэвхижүүлэх">
+							<longdesc>Үнэн бол &quot;Програм ажиллуулах&quot; цонхонд автоматаар дуусгахыг боломжтой болгох.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_program_list">
+						<local_schema short_desc="&quot;Програм ажиллуулах&quot; цонхонд програмын жагсаалтыг задлах">
+							<longdesc>Үнэн бол цонх нээгдэхэд &quot;Програм ажиллуулах&quot; цонхонд  &quot;тодорхой програм&quot; гарчигийг задалсан. Энэ түлхүүр нь зөвхөн _програмын_жагсаалт түлхүүр үнэн үед хэрэгтэй.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_program_list">
+						<local_schema short_desc="&quot;Програм ажиллуулах&quot; цонхонд програмын жагсаалтыг идэвхижүүлэх">
+							<longdesc>Үнэн бол &quot;Програм ажиллуулах&quot; цонхонд &quot;тодорхой програм&quot;-гарчигийг хүснэгтэнд бэлэн болгоно. Хэрвээ цонх харуулах_програм_жагсаалт түлхүүрээр хянагдаж байвал юмар ч тохиолдолд жагсаалтыг өргөтгөнө.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="global">
+					<entry name="disable_force_quit">
+						<local_schema short_desc="Хүчээр гарахыг идэвхгүйжүүлэх">
+							<longdesc>Үнэн бол самбар хэрэглэгчдэд хаах товч руу орох оролтыг устгаж програм хаахыг зөвшөөрөхгүй.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_log_out">
+						<local_schema short_desc="Гарахыг идэвхгүйжүүлэх">
+							<longdesc>Үнэн бол самбар гарах цэсийн элементийн хандалтыг устгасанаар хэрэглэгчдийг гарахыг зөвшөөрөхгүй.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_lock_screen">
+						<local_schema short_desc="Татгалзсан">
+						</local_schema>
+					</entry>
+					<entry name="disabled_applets">
+						<local_schema short_desc="Ачаалалтаас IIDs апплетыг хаах">
+							<longdesc>Апплетын ТТ жагсаалт самбарыг үгүйсгэсэн. Ийм байдлаар та цэсэнд ачаалж байгаа болон харуулж байгаа апплетуудаас хаах боломжтой. Жишээлбэл апплетын жижиг удирдлагыг хаахад энэ жагсаалт дээр &apos;OAFIID:ГНОМЕ_Жижиг удирдлагын апплет&apos;-ийг нэмнэ. Үүнийг нөлөөтэй байлгахад самбарыг дахин эхлүүлнэ.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="locked_down">
+						<local_schema short_desc="Самбарны оньсыг бүрдүүлэх">
+							<longdesc>Үнэн бол самбар нь самбарын тохиргооны ямар нэг өөрчлөлтийг зөвшөөрөхгүй. Апплет бүр тус тусдаа түгжигдэх ёстой. Үүнийг нөлөөтэй байлгахад самбарыг дахин эхлүүлэх ёстой.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="highlight_launchers_on_mouseover">
+						<local_schema short_desc="Түүчээ хүрэхэд ачаалагчийг онцгойлох">
+							<longdesc>Үнэн бол хэрэглэгч заагч сумыг шилжүүлэхэд ачаалагч онцгойрно.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="confirm_panel_remove">
+						<local_schema short_desc="Самбар устгахыг бататгах">
+							<longdesc>Үнэн бол хэрэглэгч самбарыг устгахыг хүсвэл баталгаа асуусан хүснэгт харуулна.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="drawer_autoclose">
+						<local_schema short_desc="Шүүгээг автоматаар хаах">
+							<longdesc>Үнэн бол хэрэглэгч ачаалагчийг нь товшиход шүүгээ автоматаар хаагдана.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="window_screenshot_key">
+						<local_schema short_desc="Татгалзсан">
+						</local_schema>
+					</entry>
+					<entry name="screenshot_key">
+						<local_schema short_desc="Татгалзсан">
+						</local_schema>
+					</entry>
+					<entry name="run_key">
+						<local_schema short_desc="Татгалзсан">
+						</local_schema>
+					</entry>
+					<entry name="menu_key">
+						<local_schema short_desc="Татгалзсан">
+						</local_schema>
+					</entry>
+					<entry name="enable_key_bindings">
+						<local_schema short_desc="Татгалзсан">
+						</local_schema>
+					</entry>
+					<entry name="panel_hide_delay">
+						<local_schema short_desc="Татгалзсан">
+						</local_schema>
+					</entry>
+					<entry name="panel_animation_speed">
+						<local_schema short_desc="Татгалзсан">
+						</local_schema>
+					</entry>
+					<entry name="panel_show_delay">
+						<local_schema short_desc="Татгалзсан">
+						</local_schema>
+					</entry>
+					<entry name="panel_minimized_size">
+						<local_schema short_desc="Татгалзсан">
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="Хөдөлгөөн оруулах">
+						</local_schema>
+					</entry>
+					<entry name="keep_menus_in_memory">
+						<local_schema short_desc="Татгалзсан">
+						</local_schema>
+					</entry>
+					<entry name="tooltips_enabled">
+						<local_schema short_desc="Зөвлөмж оруулах">
+							<longdesc>Үнэн бол обьект ба самбарт зөвлөмжийг харуулна.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gweather">
+				<dir name="prefs">
+					<entry name="enable_detailed_forecast">
+						<local_schema short_desc="Хэрэглэгдэхээ больсон.">
+						</local_schema>
+					</entry>
+					<entry name="auto_update_interval">
+						<local_schema short_desc="Шинэчлэх завсар:">
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+		</dir>
+		<dir name="desktop">
+			<dir name="gnome">
+				<dir name="interface">
+					<entry name="show_unicode_menu">
+						<local_schema short_desc="&apos;Юникод Хяналтын Тэмдэгт&apos; цэсийг харуул">
+							<longdesc>Оруулах талбар ба бичвэрийн мужийн хам цэсэнд удирдах тэмдэгт оруулах боломж олгох эсэх.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_input_method_menu">
+						<local_schema short_desc="&apos;Оруулах арга&apos; цэсийг харуул">
+							<longdesc>Оруулах талбар ба бичвэрийн мужийн хам цэсэнд оруулах аргыг өөрчлөх боломж олгох эсэх.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menubar_accel">
+						<local_schema short_desc="Цэсийн самбар хурдасгуур">
+							<longdesc>Цэс самбар нээгч товчлуурын хослол.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="file_chooser_backend">
+						<local_schema short_desc="GtkFileChooser -н модуль">
+							<longdesc>GtkFileChooser виджетийн файл системийн загвараар хэрэглэгдэх модуль. Боломжит утгууд &quot;gio&quot;, &quot;gnome-vfs&quot; and &quot;gtk+&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="status_bar_meter_on_right">
+						<local_schema short_desc="Баруун тал дахь төлөвийн самбар">
+							<longdesc>Төлөв самбарыг баруун талд харуулах эсэх.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_custom_font">
+						<local_schema short_desc="Хэрэглэгчийн зааж өгсөн фонтыг хэрэглэх">
+							<longdesc>GTK+-программд хэрэглэгчийн заасан фонтыг хэрэглэх эсэх</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="monospace_font_name">
+						<local_schema short_desc="Ижил өргөнтэй бичиг">
+							<longdesc>Ижил өргөнтэй бичгийн нэр (fixed-width) жишээ нь терминалд хэрэглэгддэг.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="document_font_name">
+						<local_schema short_desc="Баримтын фонт">
+							<longdesc>Баримт уншихад хэрэглэгдсэн өгөгдмөл фонтын нэр.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk-im-module">
+						<local_schema short_desc="GTK IM Модуль">
+							<longdesc>GTK+-д хэрэглэгдсэн оруулалтын аргын модулийн нэр.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk-im-status-style">
+						<local_schema short_desc="GTK-ийн өгөгдлийн статусын хэлбэр">
+							<longdesc>GTK+-т хэрэглэгдсэн Төлөв-хэлбэрийн оруулалтын аргын нэр.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk-im-preedit-style">
+						<local_schema short_desc="GTK-ийн өгөгдлийн урьдчилан засварлах хэлбэр">
+							<longdesc>GTK+-т хэрэглэгдсэн Preedit-хэлбэрийн оруулалтын аргын нэр.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="font_name">
+						<local_schema short_desc="Өгөгдмөл фонт">
+							<longdesc>GTK+-д хэрэглэгдсэн өгөгдмөл фонтын нэр.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk_key_theme">
+						<local_schema short_desc="GTK+Хэлбэр">
+							<longdesc>GTK+ -аас заагдсан стандарт суурь нэрсүүд</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk_theme">
+						<local_schema short_desc="GTK+Хэлбэр">
+							<longdesc>GTK+ -аас заагдсан стандарт суурь нэрсүүд</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="icon_theme">
+						<local_schema short_desc="Icon-Хэлбэр">
+							<longdesc>Наутилус мэтийн самбаруудад хэрэглэгддэг эмблемийн хэлбэрүүд</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="cursor_blink_time">
+						<local_schema short_desc="Заагчийн анивчих давтамж">
+							<longdesc>Түүчээний анивчилтын давтамжийн урт миллисекундээр.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="cursor_blink">
+						<local_schema short_desc="Заагчийн анивчилт">
+							<longdesc>Түүчээ анивчих эсэх.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_icons_size">
+						<local_schema short_desc="Багажийн самбарын эмблемийн хэмжээ">
+							<longdesc>&quot;small-toolbar&quot; эсвэл &quot;large-toolbar&quot; багаж самбар дахь дарцагийн хэмжээ.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_detachable">
+						<local_schema short_desc="Багажийн самбарыг салгаж болохуйц">
+							<longdesc>Хэрэглэгч багаж самбарыг салган зөөж болох эсэх.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menubar_detachable">
+						<local_schema short_desc="Цэсийн самбарыг салгаж болохуйц">
+							<longdesc>Хэрэглэгч цэсний самбарыг салган зөөж болох эсэх.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menus_have_icons">
+						<local_schema short_desc="Цэснүүд эмблемтэй">
+							<longdesc>Цэсийн элементүүдийн дэргэд дарцаг харуулах эсэх.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_style">
+						<local_schema short_desc="Багажийн самбарын хэлбэр">
+							<longdesc>Багаж самбарын хэлбэр. Боломжит утгууд нь »both«, »both_horiz«, »icon« ба »text«</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="can_change_accels">
+						<local_schema short_desc="Өөрчилж болох гарын түргэн үйлдлүүд">
+							<longdesc>Хулгана эсвэл гараар онцгойлсон цэсний бичлэгт хэрэглэгч товчлуурын комбинацыг динамик байдлаар тохируулах эсэх.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menus_have_tearoff">
+						<local_schema short_desc="Цэснүүд ноорог тэмдэглэлтэй">
+							<longdesc>Цэсүүд хэрчилттэй байх эсэх.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="Хөдөлгөөнийг идэвхжүүлэх">
+							<longdesc>Үйл хөдлөлүүдийг харуулах эсэх. Жич: Энэ бол ерөнхий түлхүүр. Түүгээр цонхны менежер, самбар гэх мэтийн төлөвийг өөрчилж болно.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="accessibility">
+						<local_schema short_desc="Хандалтыг чөлөөтэй болгох">
+							<longdesc>Програмуудад хялбар хандалт боломжтой байлгах эсэх.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="background">
+					<entry name="color_shading_type">
+						<local_schema short_desc="Өнгөний тунаралтын төрөл">
+							<longdesc>Дэвсгэрийн өнгөний уусалтыг тохируулах. Боломжит утгууд нь »horizontal-gradient« (хэвтээ уусалт), »vertical-gradient« (босоо уусалт) мөн »solid« (дан өнгийн).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="secondary_color">
+						<local_schema short_desc="Хоёрдогч өнгө">
+							<longdesc>Өнгөний өөрчлөлтийг илэрхийлэхэд гарах баруун болоод доод хэсгийн өнгө эсвэл цул өнгөөр будахад хэрэглэх өнгө.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="primary_color">
+						<local_schema short_desc="Анхны өнгө">
+							<longdesc>Өнгөний өөрчлөлтийг илэрхийлэхэд гарах зүүн болоод дээд хэсгийн өнгө эсвэл цул өнгөөр будахад хэрэглэх өнгө.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="picture_opacity">
+						<local_schema short_desc="Зургийн өнгөний идэвх">
+							<longdesc>Дэвсгэрийн зургийн өнгөний идэвх.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="picture_filename">
+						<local_schema short_desc="Зургийн файлын нэр">
+							<longdesc>Дэвсгэрийн зургаар ашиглах файл.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="picture_options">
+						<local_schema short_desc="Зургийн сонголтууд">
+							<longdesc>»wallpaper_filename« -ийн тодорхойлсон зургийг хэрхэн үзүүлэхийг тохируулна.Боломжит сонголтууд нь »none« (Байхгүй), »wallpaper« (Туурга), »centered« (голлуулсан), »scaled« (хуваарилсан) ба »streched« (сунгасан).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="draw_background">
+						<local_schema short_desc="Дэлгэцийн ар дэвсгэр зурах">
+							<longdesc>GNOME дэлгэцийн дэвсгэрийг зурах шаардлагатай эсэх.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="thumbnail_cache">
+					<entry name="maximum_size">
+						<local_schema>
+							<longdesc>Завсрын хадгалагчид мини зургуудыг хадгалах хамгийн их хугацаа, мегабайтаар. Цэвэрлэхгүй гэвэл -1 сонгоно уу.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="maximum_age">
+						<local_schema>
+							<longdesc>Завсрын хадгалагчид мини зургуудыг хадгалах хамгийн их хугацаа, өдрөөр. Цэвэрлэхгүй гэвэл -1 сонгоно уу.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="typing_break">
+					<entry name="enabled">
+						<local_schema short_desc="Гар түгжих эсэх?">
+							<longdesc>Гар түгжих эсэх?</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="allow_postpone">
+						<local_schema short_desc="Түр зогсолт зөөхийг зөвшөөрөх">
+							<longdesc>Хэрэглэгч оруулах үеийн түр зогсолтыг зөөж болох эсэх.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="break_time">
+						<local_schema short_desc="Түр зогсолт">
+							<longdesc>Оруулах үеийн түр зогсолтын үргэлжилэх минут.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="type_time">
+						<local_schema short_desc="Оруулах хугацаа">
+							<longdesc>Оруулах (бичих) үеийн түр зогсолтын горим эхлэхийн өмнөх минутын тоо</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="sound">
+					<entry name="event_sounds">
+						<local_schema short_desc="Үйлдлүүдийн гаргах дуу">
+							<longdesc>Хэрэглэгчийн хийх үйлдэлд хамааруулан дуу гаргах эсэх</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_esd">
+						<local_schema short_desc="ESD-ийг идэвхжүүлэх">
+							<longdesc>GNOME-ийн эхлэхэд дууны серверийг ажиллуулах6</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="default_mixer_tracks">
+						<local_schema short_desc="Өгөгдмөл найруулагчийн суваг">
+							<longdesc>Мультимедиа товчлуур хэрэглэх үед өгөгдмөл суваг хэрэглэх эсэх.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="default_mixer_device">
+						<local_schema short_desc="Өгөгдмөл найруулагч төхөөрөмж">
+							<longdesc>Мультимедиа товчлуур хэрэглэх үед өгөгдмөл найруулагч төх. хэрэглэх эсэх.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="peripherals">
+					<dir name="keyboard">
+						<entry name="remember_numlock_state">
+							<local_schema short_desc="NumLock-н төлөвийг хадгалах">
+								<longdesc>Хэрэв TRUE (үнэн) бол GNOME суулт хооронд umLock LED-н төлөвийг хадгалах эсэх.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bell_custom_file">
+							<local_schema short_desc="Гарны товчлуурын хонхны дууны файлын нэр">
+								<longdesc>Тоглуулах дууны файлын нэр.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bell_mode">
+							<local_schema>
+								<longdesc>Боломжит утгууд нь »on« (асаах), »off« (салгах) мөн»custom« (хэрэглэгчийн тохиргоогоор)</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="mouse">
+						<entry name="cursor_size">
+							<local_schema short_desc="Түүчээний хэмжээ">
+								<longdesc>»cursor_theme«-р холбогдсон хулганы заагуурын хэмжээ.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="cursor_theme">
+							<local_schema short_desc="Түүчээний хэлбэр">
+								<longdesc>Түүчээний хэлбэрийн нэр. XFree86 4.3 болон сүүлийн хувилбар мэт Xcursor дэмжидэг зөвхөн X-Server хэрэглэгдэх эсэх.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="cursor_font">
+							<local_schema short_desc="Түүчээний фонт">
+								<longdesc>Түүчээний фонт. Түүнийг тодорхойлж өгөөгүй тохиолдолд стандарт бичгийг хэрэглэнэ. Энэ утга нь бүртгүүлэх болгонд X-Server -т мэдэгдэж байдаг тул дараагийн удаа ортол ямар ч өөрчлөлт оруулахгүй.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="locate_pointer">
+							<local_schema short_desc="Түүчээний байршил тогтоох">
+								<longdesc>CTRL товчлуурыг дарах болон тавих үед хулганын заагуурын байрлалыг нааш нь товойлгож харуулах эсэх.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="double_click">
+							<local_schema short_desc="Давхар товшилтын хугацаа">
+								<longdesc>Давхар товшилтын урт</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="drag_threshold">
+							<local_schema short_desc="Чирэх хурдын хязгаар">
+								<longdesc>Чирэхийн өмнө хэрэглэгдэх зай.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="motion_threshold">
+							<local_schema short_desc="Хөдөлгөөний хурдын хязгаар">
+								<longdesc>Хулганын хурдавчилсан хөдөлгөөн эхэлтэл заагуурын хоцрох зайг цэгээр илэрхийлсэн нь.Утга  -1 нь стандарт.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="motion_acceleration">
+							<local_schema short_desc="Дан товшилт">
+								<longdesc>Хулганын хөдөлгөөний хурдцыг үржүүлэгчУтга »-1« бол стандарт.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="single_click">
+							<local_schema short_desc="Дан товшилт">
+								<longdesc>Дарцагийг нээхэд дан товших.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="left_handed">
+							<local_schema short_desc="Хулганын товчлуурын байрлал">
+								<longdesc>Солгой хүнд зориулан хулганын товчлуурын байрлалыг солих эсэх.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="lockdown">
+					<entry name="disable_application_handlers">
+						<local_schema short_desc="URL ба MIME төрөл боловсруулагчийг хаах">
+							<longdesc>Ажиллаж буй URL эсвэл MIME төрөл боловсруулагч програмыг саатуулах.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_lock_screen">
+						<local_schema short_desc="Дэлгэц түгжилт идэвхгүйжүүлэх">
+							<longdesc>Хэрэглэгчийг дэлгэцээ түгжихийг саатуулах.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_user_switching">
+						<local_schema short_desc="Хэрэглэгчийн сэлгээг идэвхгүйжүүлэх">
+							<longdesc>Суулт идэвхтэй байх үед хэрэглэгч өөр данс руу сэлгэхийг саатуулах.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_print_setup">
+						<local_schema short_desc="Хэвлэх тохиргоог идэвхгүйжүүлэх">
+							<longdesc>Хэрэглэгч хэвлэх тохиргоо өөрчлөхөөс сэрэмжилэх. Жишээлбэл, Бүх програмын &quot;Хэвлэх тохиргоо&quot; диалог руу хандалт хаагдана.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_printing">
+						<local_schema short_desc="Хэвлэхийг идэвхгүйжүүлэх">
+							<longdesc>Хэрэглэгч хэвлэхийг хориглох. Жишээлбэл, Бүх програмын &quot;Хэвлэх&quot; диалогийн хандалт хаагдана.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_save_to_disk">
+						<local_schema short_desc="Диск рүү файл хадгалахыг идэвхгүйжүүлэх">
+							<longdesc>Хэрэглэгч диск рүү файл хадгалахаас сэрэмжилэх. Жишээлбэл, Бүх програмын &quot;Өөрөөр хадгалах&quot; диалогийн хандалт хаагдана.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_command_line">
+						<local_schema short_desc="Тушаалын мөр идэвхгүйжүүлэх">
+							<longdesc>Терминал эсвэл тушаалын мөрөөс хандахыг хориглох. Жишээлбэл, &quot;Програм ажиллуулах&quot; диалог руу хандахыг хаана.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="file-views">
+					<entry name="icon_theme">
+						<local_schema short_desc="Файлын эмблемийн хэлбэр">
+							<longdesc>Файлын дарцагийг үзүүлэхэд ашиглах хэлбэр.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="accessibility">
+					<dir name="startup">
+						<entry name="exec_ats">
+							<local_schema short_desc="Тусламж технологитой эхлэл програмууд">
+								<longdesc>GNOME-ажлын тавцан руу нэвтрэх үед эхлүүлэх тусламж технологийн програмуудын жагсаалт.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="keyboard">
+						<entry name="stickykeys_modifier_beep">
+							<local_schema>
+								<longdesc>Сэлгүүр товчлуур дарагдахад дуу гаргах</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="stickykeys_two_key_off">
+							<local_schema>
+								<longdesc>Нэгэн зэрэг хоёр товчлуур дарагдсан байхад идэвхгүйжүүлэх</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="slowkeys_delay">
+							<local_schema short_desc="Хамгийн бага завсар миллисекундээр">
+								<longdesc>Товчлуур @delay миллисекундээс богино хугацаанд дарагдсан бол үл тооцох.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="mousekeys_init_delay">
+							<local_schema short_desc="Эхлэх хүлээлт миллисекундээр">
+								<longdesc>Хулганын хөдөлгөөний товчлуур үйлчилж эхэлтэл хэдэн миллисекунд хүлээх вэ.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="mousekeys_accel_time">
+							<local_schema short_desc="Хэдэн миллисекундээр хурдасгах вэ">
+								<longdesc>0-ээс хамгийн дээд хурд хүртэл хэдэн миллисекунд үргэлжлэх вэ?</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="mousekeys_max_speed">
+							<local_schema short_desc="Нэг секундэд ноогдох цэг">
+								<longdesc>Хулганын дээд хурдны үед секундэд хэдэн цэгээр хөдлөх вэ.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bouncekeys_delay">
+							<local_schema short_desc="хамгийн бага хоорондын интервал миллисекундээр">
+								<longdesc>_Тухайн_ товчлуурыг @delay миллисекундэд олон удаа дарагдсаныг үл тооцох.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="thumbnailers">
+					<entry name="disable_all">
+						<local_schema short_desc="Бүх гадаад мини харагдалтыг хаах">
+							<longdesc>Хэрвээ идэвхжүүлбэл бүх гадаад мини харагдалттай програмыг тэд тусдаа нээлттэй/хаалттай эсэхийг үл харгалзан хаана.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="url-handlers">
+					<dir name="h323">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Програмыг терминалд ажиллуулах">
+								<longdesc>Энэ түлхүүр үнэн бол, тушаал энэ төрлийн URL-г терминалд ажиллуулахад хэрэглэгдэнэ.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="callto">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Програмыг терминалд ажиллуулах">
+								<longdesc>Энэ түлхүүр үнэн бол, тушаал энэ төрлийн URL-г терминалд ажиллуулахад хэрэглэгдэнэ.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="&quot;callto&quot; URLs-н тодорхойлогч">
+								<longdesc>Тушаал хэрэв нээлттэй бол &quot;callto&quot; URL авч үзэхэд хэрэглэгдэнэ.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Сонгосон тушаал &quot;callto&quot; URLs-г авч үзэх эсэх">
+								<longdesc>Энэ түлхүүр үнэн бол, тушаал »command« түлхүүр &quot;callto&quot; URLs-г авч үзэхийгзаана.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="aim">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Програмыг терминалд ажиллуулах">
+								<longdesc>Энэ түлхүүр үнэн бол, тушаал энэ төрлийн URL-г терминалд ажиллуулахад хэрэглэгдэнэ.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="&quot;aim&quot; URLs тодорхойлогч">
+								<longdesc>Тушаал хэрэв нээлттэй бол &quot;aim&quot; URL авч үзэхэд хэрэглэгдэнэ.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Сонгосон тушаал &quot;aim&quot; URLs-г авч үзэх эсэх">
+								<longdesc>Энэ түлхүүр үнэн бол, програмд &quot;aim&quot; URLs-н тодорхойлогчийг »command« -д өгнө.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="mailto">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Програмыг терминалд ажиллуулах">
+								<longdesc>Энэ түлхүүр үнэн бол, тушаал энэ төрлийн URL-г терминалд ажиллуулахад хэрэглэгдэнэ.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="&quot;mailto&quot; URLs-н тодорхойлогч">
+								<longdesc>Тушаал хэрэв нээлттэй бол &quot;mailto&quot; URL авч үзэхэд хэрэглэгдэнэ.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Сонгосон тушаал &quot;mailto&quot; URLs-г авч үзэх эсэх">
+								<longdesc>Энэ түлхүүр үнэн бол, тушаал »command« түлхүүр &quot;mailto&quot; URLs-г авч үзэхийгзаана.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="https">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Програмыг терминалд ажиллуулах">
+								<longdesc>Энэ түлхүүр үнэн бол, тушаал энэ төрлийн URL-г терминалд ажиллуулахад хэрэглэгдэнэ.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="http">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Програмыг терминалд ажиллуулах">
+								<longdesc>Энэ түлхүүр үнэн бол, тушаал энэ төрлийн URL-г терминалд ажиллуулахад хэрэглэгдэнэ.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="man">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Програмыг терминалд ажиллуулах">
+								<longdesc>Энэ түлхүүр үнэн бол, тушаал энэ төрлийн URL-г терминалд ажиллуулахад хэрэглэгдэнэ.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="&quot;man&quot; URLs тодорхойлогч">
+								<longdesc>Тушаал хэрэв нээлттэй бол &quot;man&quot; URL авч үзэхэд хэрэглэгдэнэ.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Сонгосон тушаал &quot;man&quot; URLs-г авч үзэх эсэх">
+								<longdesc>Энэ түлхүүр үнэн бол, тушаал »command« түлхүүр &quot;man&quot; URLs-г авч үзэхийгзаана.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="info">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Програмыг терминалд ажиллуулах">
+								<longdesc>Энэ түлхүүр үнэн бол, тушаал энэ төрлийн URL-г терминалд ажиллуулахад хэрэглэгдэнэ.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="&quot;info&quot; URLs тодорхойлогч">
+								<longdesc>Тушаал хэрэв нээлттэй бол &quot;info&quot; URL авч үзэхэд хэрэглэгдэнэ.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Сонгосон тушаал &quot;info&quot; URLs-г авч үзэх эсэх">
+								<longdesc>Энэ түлхүүр үнэн бол, тушаал »command« түлхүүр &quot;info&quot; URLs-г авч үзэхийгзаана.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="ghelp">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Програмыг терминалд ажиллуулах">
+								<longdesc>Энэ түлхүүр үнэн бол, тушаал энэ төрлийн URL-г терминалд ажиллуулахад хэрэглэгдэнэ.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="&quot;ghelp&quot; URLs тодорхойлогч">
+								<longdesc>Тушаал хэрэв нээлттэй бол &quot;ghelp&quot; URL авч үзэхэд хэрэглэгдэнэ.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Сонгосон тушаал &quot;ghelp&quot; URLs-г авч үзэх эсэх">
+								<longdesc>Энэ түлхүүр үнэн бол, тушаал »command« түлхүүр &quot;ghelp&quot; URLs-г авч үзэхийгзаана.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="trash">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Програмыг терминалд ажиллуулах">
+								<longdesc>Энэ түлхүүр үнэн бол, тушаал энэ төрлийн URL-г терминалд ажиллуулахад хэрэглэгдэнэ.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="&quot;trash&quot; URLs тодорхойлогч">
+								<longdesc>Тушаал хэрэв нээлттэй бол &quot;trash&quot; URL авч үзэхэд хэрэглэгдэнэ.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Сонгосон тушаал &quot;trash&quot; URLs-г авч үзэх эсэх">
+								<longdesc>Энэ түлхүүр үнэн бол, тушаал »command« түлхүүр &quot;trash&quot; URLs-г авч үзэхийгзаана.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="applications">
+					<dir name="tasks">
+						<entry name="needs_term">
+							<local_schema short_desc="Даалгавар терминал шаардаж байна">
+								<longdesc>Өгөгдмөл даалгаварын програм ажиллахын тулд терминал шаардах эсэх</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="Өгөгдмөл даалгавар">
+								<longdesc>Өгөгдмөл даалгавар програм</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="calendar">
+						<entry name="needs_term">
+							<local_schema short_desc="Цаглабар терминал шаардаж байна">
+								<longdesc>Өгөгдмөл цаглабар програм ажиллахын тулд терминал шаардах эсэх</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="Өгөгдмөл цаглабар">
+								<longdesc>Өгөгдмөл цаглабар программ</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="window_manager">
+						<entry name="workspace_names">
+							<local_schema short_desc="Ажлын талбаруудын нэрс (хуучирсан)">
+								<longdesc>Эхний цонхны менежерт хэрэглэгдэх нэрийн жагсаалт. Энэ түлхүүр GNOME 2.12 -оос хойш хуучирсан.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="number_of_workspaces">
+							<local_schema short_desc="Ажлын талбаруудын тоо (хуучирсан)">
+								<longdesc>Цонхны менежер хэрэглэх ёстой ажлын талбарын тоо. Энэ түлхүүр GNOME 2.12 -оос хойш хуучирсан.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="current">
+							<local_schema short_desc="Хэрэглэгчийн цонхны менежер (хуучирсан)">
+								<longdesc>Эхэлж оролдох цонхны менежер. Энэ түлхүүр GNOME 2.12 -оос хойш хуучирсан.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="default">
+							<local_schema short_desc="Ослын үе дэх цонхны менежер (хуучирсан)">
+								<longdesc>Хэрэглэгч цонхны менежер олохгүй үед хэрэглэх &quot;ослын&quot; үеийн цонхны менежер. Энэ түлхүүр GNOME 2.12 -оос хойш хуучирсан.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="browser">
+						<entry name="nremote">
+							<local_schema short_desc="Хөтөч алсаас удирдуулна">
+								<longdesc>Өгөгдмөл хөтөч »netscape remote« хэрэгсэл ашиглан алсаас удирдагдах эсэх.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="needs_term">
+							<local_schema short_desc="Хөтөч терминал шаардаж байна">
+								<longdesc>Өгөгдмөл хөтөч ажиллахдаа терминал шаардах эсэх</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="Өгөгдмөл-хөтөч">
+								<longdesc>Бүх URL-ийн хувьд өгөгдмөл вэб хөтөч.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="at">
+						<dir name="mobility">
+							<entry name="startup">
+								<local_schema short_desc="Мобил тусламжийн технологи эхлүүлэхэд эрхэмлэсэн програм">
+									<longdesc>Нэвтрэхэд эхлүүлэх мобил тусламжийн технологид хэрэглэхээр эрхэмлэсэн програм.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="exec">
+								<local_schema short_desc="Эрхэмлэсэн тусламж технологийн програм">
+									<longdesc>Нэвтрэлт, цэс эсвэл тушаалын мөрөнд хэрэглэгдэх эрхэмлэсэн мобил тусламж технологийн програм.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+						<dir name="visual">
+							<entry name="startup">
+								<local_schema short_desc="Эрхэмлэсэн харааны тусламж технологийн програм эхлүүлэх">
+									<longdesc>Нэвтрэх үед GNOME-н эхлүүлэх эрхэмлэсэн харааны тусламж технологийн програм.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="exec">
+								<local_schema short_desc="Эрхэмлэсэн харааны тусламж технологийн програм">
+									<longdesc>Нэвтрэлт, цэс эсвэл тушаалын мөрөнд хэрэглэгдэх эрхэмлэсэн харааны тусламж технологийн програм.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+					</dir>
+					<dir name="component_viewer">
+						<entry name="exec">
+							<local_schema short_desc="Стандарт бүрэлдэхүүн харагч програм">
+								<longdesc>Харуулах бүрэлдэхүүн шаардлагатай файлууд харуулахад хэрэглэгдэх програм. %s параметр файлын хаягаар, %c параметр бүрэлдэхүүний-IID -р орлуулагдана.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="terminal">
+						<entry name="exec_arg">
+							<local_schema short_desc="Үйлдлийн Аргументууд">
+								<longdesc>Терминал дотор программ ажиллуулахад хэрэглэдэг »exec«-түлхүүрээр тодорхойлогдсон аргумент</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="Терминал-программ">
+								<longdesc>Терминал шаардах програмуудын эхлүүлэхэд хэрэглэх терминал програм.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+			</dir>
+		</dir>
+		<dir name="system">
+			<dir name="dns_sd">
+				<entry name="display_local">
+					<local_schema short_desc="Яаж локал DNS-SD сервисийг харуулах вэ">
+						<longdesc>Боломжит утгууд &quot;merged&quot;, &quot;separate&quot; ба &quot;disabled&quot;.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="smb">
+				<entry name="workgroup">
+					<local_schema short_desc="SMB ажлын хэсэг">
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="proxy">
+				<entry name="autoconfig_url">
+					<local_schema short_desc="Итгэмжилэгч серверийн автомат тохиргоо хаяг.">
+						<longdesc>Итгэмжилэгчийн тохиргоог нийлүүлэх утгын хаяг</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="socks_port">
+					<local_schema short_desc="SOCKS итгэмжилэгчийн порт">
+						<longdesc>Итгэмжилэгч порт &quot;/system/proxy/socks_host&quot; гэж тодорхойлогдсон хост</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="socks_host">
+					<local_schema short_desc="SOCKS Итгэмжилэгчийн хостын нэр">
+						<longdesc>Итгэмжилэгч socks-н машины нэр</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="ftp_port">
+					<local_schema short_desc="FTP итгэмжилэгчийн порт">
+						<longdesc>Итгэмжилэгч порт  &quot;/system/proxy/ftp_host&quot; гэж тодорхойлогдсон хост</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="ftp_host">
+					<local_schema short_desc="FTPитгэмжилэгч хост нэр">
+						<longdesc>Итгэмжилэгч FTP -н машины нэр</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="secure_port">
+					<local_schema short_desc="Хамгаалалттай HTTP итгэмжилэгчийн порт">
+						<longdesc>Итгэмжилэгч порт &quot;/system/proxy/secure_host&quot; гэж тодорхойлогдсон хост</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="secure_host">
+					<local_schema short_desc="Хамгаалалттай HTTP итгэмжилэгчийн хост нэр">
+						<longdesc>Итгэмжилэгч хамгаалалттай HTTP-н машины нэр</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="mode">
+					<local_schema short_desc="Итгэмжилэгч тохируулах горим">
+						<longdesc>Хамгаалалттай итгэмжилэгчийн тохируулах горим. Боломжит утгууд &quot;none&quot;, &quot;manual&quot;, &quot;auto&quot;.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="http_proxy">
+				<entry name="ignore_hosts">
+					<local_schema short_desc="Итгэмжилэгчгүй хост">
+						<longdesc>Энэ түлхүүр итгэмжилэгчээр биш (идэвхитэй үед) шууд холболт хийгдэх ёстой хостуудын жагсаалтыг агуулна. Утгууд нь Хостын нэр, Домайн (Wildcard, ж.нь *.foo.mn), Хостын IP-хаяг (түүнчилэн IPv4 ба IPv6) болон сүлжээний масктай сүлжээний хаягууд (192.168.0.0/24 хэлбэртэй) байна.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="authentication_password">
+					<local_schema short_desc="HTTP итгэмжилэгчийн нууц үг">
+						<longdesc>HTTP итгэмжилэл хийх үеийн батламжийн нууц үг.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="authentication_user">
+					<local_schema short_desc="HTTP итгэмжилэгчийн хэрэглэгчийн нэр">
+						<longdesc>HTTP итгэмжилэл хийж байхад бататгах хэрэглэгчийн нэр</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="use_authentication">
+					<local_schema short_desc="Итгэмжилэгч сервер холболтыг батал">
+					</local_schema>
+				</entry>
+				<entry name="port">
+					<local_schema short_desc="HTTP итгэмжилэгчийн порт">
+						<longdesc>Итгэмжилэгч порт &quot;/system/http_proxy/host&quot; гэж тодорхойлогдсон хост</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="host">
+					<local_schema short_desc="HTTP итгэмжилэгч хостын нэр">
+						<longdesc>Итгэмжилэгч HTTP-н машины нэр</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="use_http_proxy">
+					<local_schema short_desc="HTTP итгэмжилэгч хэрэглэх">
+						<longdesc>HTTP-р интернэт рүү хандахад итгэмжилэгчийн тохиргоог нээх</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+		</dir>
+	</dir>
+</gconf>

@@ -1,0 +1,2282 @@
+<?xml version="1.0"?>
+<gconf>
+	<dir name="schemas">
+		<dir name="apps">
+			<dir name="gnome-system-log">
+				<entry name="logfiles">
+					<local_schema short_desc="Soubory s protokoly, které otevřít při startu">
+						<longdesc>Určuje seznam souborů s protokoly, které otevřít při startu. Implicitní seznam je vytvořen čtením /etc/syslog.conf.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="width">
+					<local_schema short_desc="Šířka hlavního okna v pixelech">
+						<longdesc>Určuje šířku hlavního okna prohlížeče protokolů v pixelech.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="height">
+					<local_schema short_desc="Výška hlavního okna v pixelech">
+						<longdesc>Určuje výšku hlavního okna prohlížeče protokolů v pixelech.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="fontsize">
+					<local_schema short_desc="Velikost písma používaného pro zobrazování protokolu">
+						<longdesc>Určuje velikost neproporcionálního písma používaného pro zobrazování protokolů v hlavním stromovém pohledu. Implicitní hodnota je převzata z implicitní velikosti písma terminálu.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="logfile">
+					<local_schema short_desc="Soubor protokolu, který otevřít při startu">
+						<longdesc>Určuje soubor protokolu zobrazovaný při startu. Implicitní je buď /var/adm/messages nebo /var/log/messages, podle vašeho operačního systému.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="gnome-search-tool">
+				<entry name="look_in_folder">
+					<local_schema short_desc="Hledat ve složce">
+						<longdesc>Tento klíč definuje výchozí hodnotu widgetu &quot;Hledat ve složce&quot;.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default_window_maximized">
+					<local_schema short_desc="Implicitně je okno maximalizované">
+						<longdesc>Tento klíč určuje, jestli se nástroj hledání spouští v maximalizovaném stavu.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default_window_height">
+					<local_schema short_desc="Implicitní výška okna">
+						<longdesc>Tento klíč definuje výšku okna a používá se pro zapamatování velikosti nástroje pro hledání mezi sezeními. Jeho nastavení na -1 způsobí, že nástroj pro hledání bude používat implicitní výšku.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default_window_width">
+					<local_schema short_desc="Implicitní šířka okna">
+						<longdesc>Tento klíč definuje šířku okna a používá se pro zapamatování velikosti nástroje pro hledání mezi sezeními. Jeho nastavení na -1 způsobí, že nástroj pro hledání bude používat implicitní šířku.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="columns_order">
+					<local_schema short_desc="Pořadí sloupců výsledků hledání">
+						<longdesc>Tento klíč definuje pořadí sloupců ve výsledcích hledání. Tento klíč by neměl být měněn uživatelem.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="quick_search_second_scan_excluded_paths">
+					<local_schema short_desc="Cesty vyjmuté z druhého průchodu rychlého hledání">
+						<longdesc>Tento klíč definuje cesty, které nástroj hledání vyjme z druhého průchodu při rychlém hledání. Druhý průchod používá pro hledání souborů příkaz find. Účel druhého průchodu je najít soubory, které nebyly indexovány. Jsou podporovány zástupné znaky &apos;*&apos; a &apos;?&apos;. Implicitní hodnota je /.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="disable_quick_search_second_scan">
+					<local_schema short_desc="Zakázat druhý průchod rychlého hledání">
+						<longdesc>Tento klíč určuje, jestli nástroj hledání zakazuje použití příkazu find po provedení rychlého hledání.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="quick_search_excluded_paths">
+					<local_schema short_desc="Cesty vyjmuté z rychlého hledání">
+						<longdesc>Tento klíč definuje cesty, které nástroj hledání vyjme z rychlého hledání. Jsou podporovány zástupné znaky &apos;*&apos; a &apos;?&apos;. Implicitní hodnoty jsou /mnt/*, /media/*, /dev/*, /tmp/*, /proc/* a /var/*.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="disable_quick_search">
+					<local_schema short_desc="Zakázat rychlé hledání">
+						<longdesc>Tento klíč určuje, jestli nástroj hledání zakazuje použití příkazu locate při provádění jednoduchých hledání názvů souborů.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="show_additional_options">
+					<local_schema short_desc="Zvolit Zobrazit více možností">
+						<longdesc>Tento klíč určuje, jestli je při spuštění nástroje hledání rozbalen oddíl &quot;Vybrat další možnosti&quot;.</longdesc>
+					</local_schema>
+				</entry>
+				<dir name="select">
+					<entry name="exclude_other_filesystems">
+						<local_schema short_desc="Zvolit možnost hledání &quot;Vyjmout jiné souborové systémy&quot;">
+							<longdesc>Tento klíč určuje, jestli je při spuštění nástroje hledání zvolena možnost hledání &quot;Vyjmout jiné souborové systémy&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="follow_symbolic_links">
+						<local_schema short_desc="Zvolit možnost hledání &quot;Sledovat symbolické odkazy&quot;">
+							<longdesc>Tento klíč určuje, jestli je při spuštění nástroje hledání zvolena možnost hledání &quot;Sledovat symbolické odkazy&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_hidden_files_and_folders">
+						<local_schema short_desc="Zvolit možnost hledání &quot;Zobrazovat skryté soubory a složky&quot;">
+							<longdesc>Tento klíč určuje, jestli je při spuštění nástroje hledání zvolena možnost hledání &quot;Zobrazovat skryté soubory a složky&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name_matches_regular_expression">
+						<local_schema short_desc="Zvolit možnost hledání &quot;Název odpovídá regulárnímu výrazu&quot;">
+							<longdesc>Tento klíč určuje, jestli je při spuštění nástroje hledání zvolena možnost hledání &quot;Název odpovídá regulárnímu výrazu&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name_does_not_contain">
+						<local_schema short_desc="Zvolit možnost hledání &quot;Název neobsahuje&quot;">
+							<longdesc>Tento klíč určuje, jestli je při spuštění nástroje hledání zvolena možnost hledání &quot;Název neobsahuje&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="owner_is_unrecognized">
+						<local_schema short_desc="Zvolit možnost hledání &quot;Vlastníka nelze rozpoznat&quot;">
+							<longdesc>Tento klíč určuje, jestli je při spuštění nástroje hledání zvolena možnost hledání &quot;Vlastníka nelze rozpoznat&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="owned_by_group">
+						<local_schema short_desc="Zvolit možnost hledání &quot;Vlastněno skupinou&quot;">
+							<longdesc>Tento klíč určuje, jestli je při spuštění nástroje hledání zvolena možnost hledání &quot;Vlastněno skupinou&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="owned_by_user">
+						<local_schema short_desc="Zvolit možnost hledání &quot;Vlastněno uživatelem&quot;">
+							<longdesc>Tento klíč určuje, jestli je při spuštění nástroje hledání zvolena možnost hledání &quot;Vlastněno uživatelem&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="file_is_empty">
+						<local_schema short_desc="Zvolit možnost hledání &quot;Soubor je prázdný&quot;">
+							<longdesc>Tento klíč určuje, jestli je při spuštění nástroje hledání zvolena možnost hledání &quot;Soubor je prázdný&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size_at_most">
+						<local_schema short_desc="Zvolit možnost hledání &quot;Velikost nejvíce&quot;">
+							<longdesc>Tento klíč určuje, jestli je při spuštění nástroje hledání zvolena možnost hledání &quot;Velikost nejvíce&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size_at_least">
+						<local_schema short_desc="Zvolit možnost hledání &quot;Velikost alespoň&quot;">
+							<longdesc>Tento klíč určuje, jestli je při spuštění nástroje hledání zvolena možnost hledání &quot;Velikost alespoň&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="date_modified_more_than">
+						<local_schema short_desc="Zvolit možnost hledání &quot;Datum úpravy více než&quot;">
+							<longdesc>Tento klíč určuje, jestli je při spuštění nástroje hledání zvolena možnost hledání &quot;Datum úpravy více než&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="date_modified_less_than">
+						<local_schema short_desc="Zvolit možnost hledání &quot;Datum úpravy méně než&quot;">
+							<longdesc>Tento klíč určuje, jestli je při spuštění nástroje hledání zvolena možnost hledání &quot;Datum úpravy méně než&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="contains_the_text">
+						<local_schema short_desc="Zvolit možnost hledání &quot;Obsahuje text&quot;">
+							<longdesc>Tento klíč určuje, jestli je při spuštění nástroje hledání zvolena možnost hledání &quot;Obsahuje text&quot;.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnome-screenshot">
+				<entry name="border_effect">
+					<local_schema short_desc="Efekt rámečku">
+						<longdesc>Efekt přidaný k vnější části rámečku. Možné hodnoty jsou &quot;shadow&quot;, &quot;none&quot; a &quot;border&quot;.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="include_pointer">
+					<local_schema short_desc="Zahrnout kurzor myši">
+						<longdesc>Zahrnout do snímku obrazovky kurzor myši</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="include_border">
+					<local_schema short_desc="Zahrnout rámeček">
+						<longdesc>Zahrnout do snímku obrazovky rámeček správce oken</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="last_save_directory">
+					<local_schema short_desc="Adresář snímků obrazovky">
+						<longdesc>Adresář, do kterého byl uložen poslední snímek obrazovky.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="delay">
+					<local_schema short_desc="Zpoždění snímku obrazovky">
+						<longdesc>Doba čekání v sekundách před zachycením snímku obrazovky.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="take_window_shot">
+					<local_schema short_desc="Snímek obrazovky podle specifického nastavení okna (zastaralé)">
+						<longdesc>Zachytit pouze aktuální okno, nikoliv celou pracovní plochu. Tento klíč je zastaralý a už se nepoužívá.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="gnome-dictionary">
+				<entry name="sidebar-width">
+					<local_schema short_desc="Šířka postranního panelu">
+						<longdesc>Tento klíč definuje šířku postranního panelu a je použit pro zapamatování nastavení mezi sezeními.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="sidebar-page">
+					<local_schema short_desc="Stránka postranního panelu pro zobrazení">
+						<longdesc>Tento klíč definuje, která stránka postranního panelu má být zobrazena, a je použit pro zapamatování nastavení mezi sezeními. Může být &quot;speller&quot; nebo &quot;databases&quot;.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="statusbar-visible">
+					<local_schema short_desc="Jestli má být stavový řádek viditelný">
+						<longdesc>Tento klíč definuje, jestli má být stavový řádek viditelný, a je použit pro zapamatování stavu stavového řádku mezi sezeními. Nastavení na TRUE učiní stavový řádek vždy viditelným.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="sidebar-visible">
+					<local_schema short_desc="Jestli má být postranní panel viditelný">
+						<longdesc>Tento klíč definuje, jestli má být postranní panel viditelný, a je použit pro zapamatování stavu postranního panelu mezi sezeními. Nastavení na TRUE učiní postranní panel vždy viditelným.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="window-is-maximized">
+					<local_schema short_desc="Jestli má být okno aplikace maximalizováno">
+						<longdesc>Tento klíč definuje, jestli má být okno maximalizováno, a je použit pro zapamatování stavu okna slovníku mezi sezeními. Nastavení na TRUE způsobí, že okno bude vždy maximalizováno.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default-window-height">
+					<local_schema short_desc="Implicitní výška okna aplikace">
+						<longdesc>Tento klíč definuje výšku okna a je použit pro zapamatování velikosti okna slovníku mezi sezeními. Nastavení na -1 způsobí, že okno slovníku bude používat výšku založenou na velikosti písma.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default-window-width">
+					<local_schema short_desc="Implicitní šířka okna aplikace">
+						<longdesc>Tento klíč definuje šířku okna a je použit pro zapamatování velikosti okna slovníku mezi sezeními. Nastavení na -1 způsobí, že okno slovníku bude používat šířku založenou na velikosti písma.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="source-name">
+					<local_schema short_desc="Název používaného zdroje slovníku">
+						<longdesc>Název zdroje slovníku používaného pro získávání definic slov.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="print-font">
+					<local_schema short_desc="Písmo, které používat při tisku">
+						<longdesc>Písmo, které používat při tisku definice.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="strategy">
+					<local_schema short_desc="Implicitně používaná metoda hledání">
+						<longdesc>Název implicitní metody hledání, kterou používat ve zdroji slovníku, je-li k dispozici. Implicitní metoda je &apos;exact&apos;, to je hledat přesně odpovídající slova.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="database">
+					<local_schema short_desc="Implicitně používaná databáze">
+						<longdesc>Název implicitní konkrétní databáze nebo metadatabáze, kterou chcete používat ve zdroji slovníku. Vykřičník (&quot;!&quot;) znamená, že se má hledat ve všech databázích ve zdroji slovníku.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="smart">
+					<local_schema short_desc="Používat chytré hledání (Zastaralé)">
+						<longdesc>Zadejte, jestli se má používat chytré hledání. Tento klíč závisí na tom, zda server se slovníkem podporuje tuto možnost. Implicitní hodnota je TRUE. Tento klíč je zastaralý a už se nepoužívá.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="port">
+					<local_schema short_desc="Port pro připojení se k serveru (Zastaralé)">
+						<longdesc>Číslo portu, ke kterému se má připojit. Implicitní port je 2628. Tento klíč je zastaralý a už se nepoužívá.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="server">
+					<local_schema short_desc="Server se slovníkem (Zastaralé)">
+						<longdesc>Server se slovníkem, ke kterému se připojovat. Implicitní server je dict.org. Podrobnosti o dalších serverech naleznete na http://www.dict.org. Tento klíč je zastaralý a už se nepoužívá.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="baobab">
+				<dir name="properties">
+					<entry name="skip_scan_uri_list">
+						<local_schema short_desc="Vyřazené uri oddílů">
+							<longdesc>Seznam uri pro oddíly, které budou vyřazeny z vyhledávání.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_home_monitor">
+						<local_schema short_desc="Povolit sledování domovské složky">
+							<longdesc>Jestli mají být sledovány změny v domovské složce.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="ui">
+					<entry name="baobab_subfoldertips_visible">
+						<local_schema short_desc="Popisy tlačítek podsložek viditelné">
+							<longdesc>Jestli jsou popisy tlačítek podsložek z vybrané složky vykresleny.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="statusbar_visible">
+						<local_schema short_desc="Stavový řádek je zobrazen">
+							<longdesc>Jestli má být stavový řádek ve spodní části hlavního okna viditelný.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_visible">
+						<local_schema short_desc="Lišta nástrojů je zobrazena">
+							<longdesc>Jestli má být lišta nástrojů v hlavním okně viditelná.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="window_list_applet">
+				<dir name="prefs">
+					<entry name="maximum_size">
+						<local_schema short_desc="Maximální velikost seznamu oken">
+							<longdesc>Použití tohoto klíče je od GNOME 2.20 zastaralé. Schéma bylo ponecháno kvůli kompatibilitě se staršími verzemi.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="minimum_size">
+						<local_schema short_desc="Minimální velikost seznamu oken">
+							<longdesc>Použití tohoto klíče je od GNOME 2.20 zastaralé. Schéma bylo ponecháno kvůli kompatibilitě se staršími verzemi.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="move_unminimized_windows">
+						<local_schema short_desc="Při obnovení minimalizovaných oken je přesunout na aktuální pracovní plochu">
+							<longdesc>Je-li &quot;true&quot;, okno se při zrušení minimalizace přesune na aktuální pracovní plochu. V opačném případě se přepne na pracovní plochu okna.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="group_windows">
+						<local_schema short_desc="Kdy seskupovat okna">
+							<longdesc>Určuje, kdy seskupovat okna jedné aplikace v seznamu oken. Možné hodnoty jsou &quot;never&quot;, &quot;auto&quot;, a &quot;always&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_all_workspaces">
+						<local_schema short_desc="Zobrazovat okna ze všech pracovních ploch">
+							<longdesc>Je-li &quot;true&quot;, zobrazuje seznam oken okna ze všech pracovních ploch. V opačném případě zobrazuje jen okna z aktuální pracovní plochy.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="workspace_switcher_applet">
+				<dir name="prefs">
+					<entry name="num_rows">
+						<local_schema short_desc="Řádky v přepínači pracovních ploch">
+							<longdesc>Tento klíč určuje, v kolika řádcích (ve vodorovném rozložení) nebo sloupcích (ve svislém rozložení) zobrazuje přepínač pracovní plochy. Tento klíč se projeví jen pokud má klíč display_all_workspaces hodnotu &quot;true&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_all_workspaces">
+						<local_schema short_desc="Zobrazovat všechny pracovní plochy">
+							<longdesc>Je-li &quot;true&quot;, zobrazuje přepínač pracovních ploch všechny pracovní plochy, jinak zobrazuje pouze aktuální plochu.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_workspace_names">
+						<local_schema short_desc="Zobrazovat názvy pracovních ploch">
+							<longdesc>Je-li &quot;true&quot;, zobrazují se v přepínači pracovních ploch názvy pracovních ploch. V opačném případě se zobrazí okna na pracovní ploše. Nastavení je funkční pouze v případě, kdy je správcem oken Metacity.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="fish_applet">
+				<dir name="prefs">
+					<entry name="rotate">
+						<local_schema short_desc="Na svislém panelu otočit">
+							<longdesc>Je-li &quot;true&quot;, bude animace ryby na svislých panelech zobrazena s otočením.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="speed">
+						<local_schema short_desc="Prodleva mezi políčky">
+							<longdesc>Tento klíč určuje počet sekund, po který bude každé políčko zobrazeno.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="frames">
+						<local_schema short_desc="Políčka v animaci ryby">
+							<longdesc>Tento klíč určuje počet políček zobrazovaných v animaci ryby.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="command">
+						<local_schema short_desc="Příkaz spouštěný po kliknutí">
+							<longdesc>Tento klíč určuje příkaz, se kterým bude učiněn pokus o spuštění po kliknutí na rybu.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="image">
+						<local_schema short_desc="Obrázek animace ryby">
+							<longdesc>Tento klíč určuje název souboru obrázku, který bude použit k animaci zobrazované v appletu ryby, relativně k adresáři obrázků.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name">
+						<local_schema short_desc="Jméno ryby">
+							<longdesc>Ryba bez jména je pěkně hloupá ryba. Oživte svou rybu tím, že ji pojmenujete.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="clock_applet">
+				<dir name="prefs">
+					<entry name="speed_unit">
+						<local_schema short_desc="Jednotky rychlosti">
+							<longdesc>Jednotka, která se má použít při zobrazování rychlosti větru.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="temperature_unit">
+						<local_schema short_desc="Jednotky teploty">
+							<longdesc>Jednotka, která se má použít při zobrazování teplot.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="cities">
+						<local_schema short_desc="Seznam umístění">
+							<longdesc>Seznam umístění, který se má zobrazovat v okně kalendáře.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="internet_time">
+						<local_schema short_desc="Používat internetový čas">
+							<longdesc>Použití tohoto klíče je v GNOME 2.6 nahrazeno klíčem &quot;format&quot;. Schéma bylo ponecháno kvůli kompatibilitě se staršími verzemi.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="unix_time">
+						<local_schema short_desc="Používat unixový čas">
+							<longdesc>Použití tohoto klíče je v GNOME 2.6 nahrazeno klíčem &quot;format&quot;. Schéma bylo ponecháno kvůli kompatibilitě se staršími verzemi.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hour_format">
+						<local_schema short_desc="Formát hodin">
+							<longdesc>Použití tohoto klíče je v GNOME 2.6 nahrazeno klíčem &quot;format&quot;. Schéma bylo ponecháno kvůli kompatibilitě se staršími verzemi.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_locations">
+						<local_schema short_desc="Rozbalit seznam umístění">
+							<longdesc>Je-li &quot;true&quot;, rozbalovat v okně kalendáře seznam umístění.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_weather">
+						<local_schema short_desc="Rozbalit seznam informací o počasí">
+							<longdesc>Je-li &quot;true&quot;, rozbalovat v kalendáři seznam informací o počasí.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_tasks">
+						<local_schema short_desc="Rozbalit seznam úkolů">
+							<longdesc>Je-li &quot;true&quot;, rozbalovat v kalendáři seznam úkolů.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_birthdays">
+						<local_schema short_desc="Rozbalit seznam narozenin">
+							<longdesc>Je-li &quot;true&quot;, rozbalovat v kalendáři seznam narozenin.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_appointments">
+						<local_schema short_desc="Rozbalit seznam událostí">
+							<longdesc>Je-li &quot;true&quot;, rozbalovat v kalendáři seznam událostí.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_week_numbers">
+						<local_schema short_desc="Zobrazovat v kalendáři čísla týdnů">
+							<longdesc>Je-li &quot;true&quot;, zobrazovat v kalendáři čísla týdnů.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="config_tool">
+						<local_schema short_desc="Nástroj na nastavení času">
+							<longdesc>Použití tohoto klíče bylo v GNOME 2.22 nahrazeno vnitřním konfiguračním nástrojem. Schéma bylo ponecháno z důvodu kompatibility se staršími verzemi.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gmt_time">
+						<local_schema short_desc="Používat UTC">
+							<longdesc>Je-li &quot;true&quot;, zobrazovat čas v pásmu Universal Coordinated Time.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_temperature">
+						<local_schema short_desc="Zobrazovat v hodinách teplotu">
+							<longdesc>Je-li &quot;true&quot;, zobrazovat teplotu vedle ikony počasí.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_weather">
+						<local_schema short_desc="Zobrazovat v hodinách počasí">
+							<longdesc>Je-li &quot;true&quot;, zobrazovat ikonu počasí.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_tooltip">
+						<local_schema short_desc="Zobrazovat datum v místní nápovědě">
+							<longdesc>Je-li &quot;true&quot;, zobrazovat datum v místní nápovědě, když je myš nad hodinami.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_date">
+						<local_schema short_desc="Zobrazovat v hodinách datum">
+							<longdesc>Je-li &quot;true&quot;, zobrazovat v hodinách kromě času i datum.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_seconds">
+						<local_schema short_desc="Zobrazovat v čase sekundy">
+							<longdesc>Je-li &quot;true&quot;, zobrazovat v čase sekundy.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="custom_format">
+						<local_schema short_desc="Vlastní formát hodin">
+							<longdesc>Tento klíč určuje formát používaný appletem hodin, když je klíč format nastaven na &quot;custom&quot;. K získání konkrétního formátu můžete použít specifikátory převodu, kterým rozumí strftime(). Více informací viz manuál k strftime().</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="format">
+						<local_schema short_desc="Formát hodin">
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="panel">
+				<dir name="objects">
+					<entry name="action_type">
+						<local_schema short_desc="Typ tlačítka akce">
+							<longdesc>Typ akce, kterou toto tlačítko reprezentuje. Možné hodnoty jsou &quot;lock&quot;, &quot;logout&quot;, &quot;run&quot;, &quot;search&quot; a &quot;screenshot&quot;. Tento klíč má vliv jen pokud klíč object_type je &quot;action-applet&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="launcher_location">
+						<local_schema short_desc="Umístění spouštěče">
+							<longdesc>Umístění souboru .desktop popisujícího spouštěč. Tento klíč má vliv jen pokud klíč object_type je &quot;launcher-object&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menu_path">
+						<local_schema short_desc="Cesta k obsahu nabídky">
+							<longdesc>Cesta, ze které je vytvářen obsah nabídky. Tento klíč má vliv jen pokud klíč use_menu_path je &quot;true&quot; a klíč object_type je &quot;menu-object&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_menu_path">
+						<local_schema short_desc="Používat vlastní cestu pro obsah nabídky">
+							<longdesc>Je-li &quot;true&quot;, používá se klíč menu_path jako cesta, ze které má být vytvořen obsah nabídky. Je-li &quot;false&quot;, je klíč menu_path ignorován. Tento klíč má význam jen pokud klíč object_type je &quot;menu-object&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="custom_icon">
+						<local_schema short_desc="Ikona používaná pro tlačítko objektu">
+							<longdesc>Umístění souboru s obrázkem používaným jako ikona tlačítka objektu. Tento klíč má vliv jen pokud klíč object_type je &quot;drawer-object&quot; nebo &quot;menu-object&quot; a klíč use_custom_icon je &quot;true&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_custom_icon">
+						<local_schema short_desc="Používat vlastní ikonu pro tlačítko objektu">
+							<longdesc>Je-li &quot;true&quot;, používá se klíč custom_icon jako vlastní ikona pro tlačítko. Je-li &quot;false&quot;, je klíč custom_icon ignorován. Tento klíč má význam jen pokud klíč object_type je &quot;menu-object&quot; nebo &quot;drawer-object&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="tooltip">
+						<local_schema short_desc="Místní nápověda zobrazovaná u zásuvky nebo nabídky">
+							<longdesc>Text, který zobrazovat v místní nápovědě této zásuvky nebo nabídky. Tento klíč má vliv jen pokud klíč object_type je &quot;drawer-object&quot; nebo &quot;menu-object&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="attached_toplevel_id">
+						<local_schema short_desc="Panel připojený k zásuvce">
+							<longdesc>Identifikátor panelu připojeného k této zásuvce. Tento klíč má vliv jen pokud klíč object_type je &quot;drawer-object&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="bonobo_iid">
+						<local_schema short_desc="Bonobo IID appletu">
+							<longdesc>ID implementace Bobono appletu - např. &quot;OAFIID:GNOME_ClockApplet&quot;. Tento klíč má vliv, jen pokud klíč object_type je &quot;bonobo-applet&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="locked">
+						<local_schema short_desc="Zamknout objekt na panelu">
+							<longdesc>Je-li &quot;true&quot;, nemůže uživatel s appletem hýbat, pokud jej nejdříve neodemkne pomocí položky nabídky &quot;Odemknout&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="panel_right_stick">
+						<local_schema short_desc="Interpretovat pozici relativně ke spodnímu/pravému okraji">
+							<longdesc>Je-li &quot;true&quot;, je umístění objektu interpretováno relativně k pravému okraji panelu (nebo dolnímu, je-li vertikální).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="position">
+						<local_schema short_desc="Pozice objektu na panelu">
+							<longdesc>Pozice tohoto objektu panelu. Pozice je určena počtem pixelů od levého okraje panelu (nebo horního, je-li vertikální).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toplevel_id">
+						<local_schema short_desc="Panel nejvyšší úrovně, který obsahuje objekt">
+							<longdesc>Identifikátor panelu nejvyšší úrovně, který obsahuje tento objekt.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="object_type">
+						<local_schema short_desc="Typ objektu panelu">
+							<longdesc>Typ tohoto objektu panelu. Možné hodnoty jsou &quot;drawer-object&quot;, &quot;menu-object&quot;, &quot;launcher-object&quot;, &quot;bonobo-applet&quot;, &quot;action-applet&quot; a &quot;menu-bar&quot;.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="toplevels">
+					<entry name="animation_speed">
+						<local_schema short_desc="Rychlost animace">
+							<longdesc>Rychlost, kterou mají probíhat animace. Možné hodnoty jsou &quot;slow&quot;, &quot;medium&quot; a &quot;fast&quot;. Tento klíč má vliv jen pokud klíč enable_animations je &quot;true&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_hide_size">
+						<local_schema short_desc="Počet viditelných pixelů skrytého panelu">
+							<longdesc>Určuje počet viditelných pixelů, když je panel automaticky skryt do rohu. Tento klíč má vliv, jen pokud klíč auto_hide je &quot;true&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="unhide_delay">
+						<local_schema short_desc="Zpoždění automatického odkrytí panelu">
+							<longdesc>Určuje počet milisekund zpoždění poté, co kurzor vstoupí do oblasti panelu, než je panel automaticky obnoven. Tento klíč má vliv, jen pokud klíč auto_hide je &quot;true&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hide_delay">
+						<local_schema short_desc="Zpoždění automatického skrytí panelu">
+							<longdesc>Určuje počet milisekund zpoždění poté, co kurzor opustí oblast panelu, než je panel automaticky skryt. Tento klíč má vliv, jen pokud klíč auto_hide je &quot;true&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_arrows">
+						<local_schema short_desc="Povolit šipky na tlačítkách ke skrývání">
+							<longdesc>Je-li &quot;true&quot;, budou na tlačítkách ke skrývání umístěny šipky. Tento klíč má význam jen pokud klíč enable_buttons je &quot;true&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_buttons">
+						<local_schema short_desc="Povolit tlačítka ke skrývání">
+							<longdesc>Je-li &quot;true&quot;, bude na každou stranu panelu umístěno tlačítko, které může být použito k přesunu panelu na okraj obrazovky, kdy bude zobrazené jen tlačítko.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="Povolit animace">
+							<longdesc>Je-li &quot;true&quot;, bude skrývání a odkrývání panelu animované namísto toho, aby se tak stalo okamžitě.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_hide">
+						<local_schema short_desc="Automaticky skrývat panel do rohu">
+							<longdesc>Je-li &quot;true&quot;, bude panel automaticky skryt do rohu obrazovky, když kurzor opustí oblast panelu. Opětovný přesun kurzoru do tohoto rohu způsobí, že se panel znovu objeví.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="y_centered">
+						<local_schema short_desc="Vycentrovat panel v ose y">
+							<longdesc>Je-li &quot;true&quot;, jsou klíče &quot;y&quot; a &quot;y_bottom&quot; ignorovány a panel je umístěn do středu osy y obrazovky. Je-li změněna velikost panelu, zůstane na stejné pozici - tj. zvětší se na obou stranách. Je-li &quot;false&quot;, určují umístění panelu klíče &quot;y&quot; a &quot;y_bottom&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="x_centered">
+						<local_schema short_desc="Vycentrovat panel v ose x">
+							<longdesc>Je-li &quot;true&quot;, jsou klíče &quot;x&quot; a &quot;x_right&quot; ignorovány a panel je umístěn do středu osy x obrazovky. Je-li změněna velikost panelu, zůstane na stejné pozici - tj. zvětší se na obou stranách. Je-li &quot;false&quot;, určují umístění panelu klíče &quot;x&quot; a &quot;x_right&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="y_bottom">
+						<local_schema short_desc="Souřadnice Y panelu, začínající od spodního okraje obrazovky">
+							<longdesc>Umístění panelu podél osy y, začínající od spodního okraje obrazovky. Pokud je hodnota &quot;-1&quot;, je ignorována a použita bude hodnota klíče &quot;y&quot;. Je-li hodnota vyšší než &quot;0&quot;, pak je ignorována hodnota klíče &quot;y&quot;. Tento klíč má význam jen mimo režim rozpínání. V režimu rozpínání je tento klíč ignorován a panel je umístěn na okraj obrazovky daný klíčem orientation.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="x_right">
+						<local_schema short_desc="Souřadnice X panelu, začínající od pravého okraje obrazovky">
+							<longdesc>Umístění panelu podél osy x, začínající od pravého okraje obrazovky. Pokud je hodnota &quot;-1&quot;, je ignorována a použita bude hodnota klíče &quot;x&quot;. Je-li hodnota vyšší než &quot;0&quot;, pak je ignorována hodnota klíče &quot;x&quot;. Tento klíč má význam jen mimo režim rozpínání. V režimu rozpínání je tento klíč ignorován a panel je umístěn na okraj obrazovky daný klíčem orientation.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="y">
+						<local_schema short_desc="Souřadnice Y panelu">
+							<longdesc>Umístění panelu podél osy y. Tento klíč má význam jen mimo režim rozpínání. V režimu rozpínání je tento klíč ignorován a panel je umístěn na okraj obrazovky daný klíčem orientation.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="x">
+						<local_schema short_desc="Souřadnice X panelu">
+							<longdesc>Umístění panelu podél osy x. Tento klíč má význam jen mimo režim rozpínání. V režimu rozpínání je tento klíč ignorován a panel je umístěn na okraj obrazovky daný klíčem orientation.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size">
+						<local_schema short_desc="Velikost panelu">
+							<longdesc>Výška panelu (šířka u vertikálního panelu). Panel při běhu určí minimální velikost podle velikosti písma a jiných hodnot. Maximální velikost je omezena na jednu čtvrtinu výšky (nebo šířky) obrazovky.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="orientation">
+						<local_schema short_desc="Orientace panelu">
+							<longdesc>Orientace panelu. Možné hodnoty jsou &quot;top&quot;, &quot;bottom&quot;, &quot;left&quot;, &quot;right&quot;. V režimu rozpínání klíč určuje, na kterém okraji obrazovky je panel. Mimo režim rozpínání je rozdíl mezi &quot;top&quot; a &quot;bottom&quot; méně důležitý - obojí indikuje, že je to vodorovný panel - ale stále dává užitečnou nápovědu, jak se mají chovat některé objekty panelu. Například na panelu &quot;top&quot; bude tlačítko otevírat nabídku pod panelem, ale na panelu &quot;bottom&quot; bude nabídka otevřena nad panelem.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand">
+						<local_schema short_desc="Rozpínat kvůli zabrání celé šířky obrazovky">
+							<longdesc>Je-li &quot;true&quot;, bude panel zabírat celou šířku obrazovky (výšku, pokud je to vertikální panel). V tomto režimu může být panel umístěn jen na okraj obrazovky. Je-li &quot;false&quot;, bude panel jen tak velký, aby se do něj vešly jeho applety, spouštěče a tlačítka.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="monitor">
+						<local_schema short_desc="Monitor Xinerama, na kterém se panel zobrazuje">
+							<longdesc>V nastavení Xinerama můžete mít panely na každém monitoru. Tento klíč identifikuje aktuální monitor, na kterém je panel zobrazován.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="screen">
+						<local_schema short_desc="Obrazovka X, na které se panel zobrazuje">
+							<longdesc>V systému s více obrazovkami můžete mít panely na každé obrazovce. Tento klíč identifikuje aktuální obrazovku, na které je panel zobrazován.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name">
+						<local_schema short_desc="Název, kterým identifikovat panel">
+							<longdesc>Toto je člověkem čitelný název, který je možné používat k identifikaci panelu. Jeho hlavním účelem je sloužit jako nadpis okna panelu, což je užitečné při přepínání mezi panely.</longdesc>
+						</local_schema>
+					</entry>
+					<dir name="background">
+						<entry name="rotate">
+							<local_schema short_desc="Otočit obrázek na svislých panelech">
+								<longdesc>Je-li &quot;true&quot;, bude obrázek na pozadí otočen, pokud je panel umístěn svisle.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="stretch">
+							<local_schema short_desc="Roztáhnout obrázek na panel">
+								<longdesc>Je-li &quot;true&quot;, bude velikost obrázku změněna na rozměry panelu. Poměr stran obrázku nebude zachován.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="fit">
+							<local_schema short_desc="Přizpůsobit obrázek velikosti panelu">
+								<longdesc>Je-li &quot;true&quot;, bude velikost obrázku změněna (se zachováním poměru stran) na výšku panelu (je-li vodorovný).</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="image">
+							<local_schema short_desc="Obrázek na pozadí">
+								<longdesc>Určuje soubor, který se má používat k obrázku na pozadí. Pokud obrázek obsahuje kanál alfa, bude složen s obrázkem na pozadí pracovní plochy.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="opacity">
+							<local_schema short_desc="Krytí barvy pozadí">
+								<longdesc>Určuje krytí formátu barvy na pozadí. Pokud barva úplně nekryje (hodnota menší než 65535), bude barva složena s obrázkem na pozadí pracovní plochy.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="color">
+							<local_schema short_desc="Barva pozadí">
+								<longdesc>Určuje barvu pozadí panelu ve formátu #RGB.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="type">
+							<local_schema short_desc="Typ pozadí">
+								<longdesc>Jaký typ pozadí má být použit pro tento panel. Možné hodnoty jsou &quot;gtk&quot; - bude použito výchozí pozadí widgetů GTK+, &quot;color&quot; - jako barva pozadí bude použit klíč color, nebo &quot;image&quot; - jako pozadí bude použit obrázek určený v klíči image.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="general">
+					<entry name="profiles_migrated">
+						<local_schema short_desc="Nastavení starých profilů převedeno">
+							<longdesc>Booleovský příznak indikace, zda bylo předchozí nastavení uživatele v /apps/panel/profiles/default zkopírováno do nového umístění v /apps/panel.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="object_id_list">
+						<local_schema short_desc="Seznam ID objektů panelu">
+							<longdesc>Seznam ID objektů panelu. Každé ID identifikuje jeden objekt panelu (např. spouštěč, tlačítko akce nebo nabídku tlačítka/panelu). Nastavení každého takového objektu je uloženo v /apps/panel/objects/$(id).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="applet_id_list">
+						<local_schema short_desc="Seznam ID appletů panelu">
+							<longdesc>Seznam ID appletů panelu. Každé ID identifikuje jeden applet panelu. Nastavení každého takového appletu je uloženo v /apps/panel/applets/$(id).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toplevel_id_list">
+						<local_schema short_desc="Seznam ID panelů">
+							<longdesc>Seznam ID panelů. Každé ID identifikuje jeden panel nejvyšší úrovně. Nastavení každého takového panelu je uloženo v /apps/panel/toplevels/$(id).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_autocompletion">
+						<local_schema short_desc="Povolit automatické doplňování v dialogu &quot;Spustit aplikaci&quot;">
+							<longdesc>Je-li &quot;true&quot;, je zpřístupněno automatické doplňování v dialogu &quot;Spustit aplikaci&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_program_list">
+						<local_schema short_desc="Rozbalit seznam programů v dialogu &quot;Spustit aplikaci&quot;">
+							<longdesc>Je-li &quot;true&quot;, je seznam &quot;Známé aplikace&quot; v případě otevření dialogu &quot;Spustit aplikaci&quot; rozbalen. Toto nastavení má vliv jen pokud je klíč enable_program_list s hodnotou &quot;true&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_program_list">
+						<local_schema short_desc="Povolit seznam programů v dialogu &quot;Spustit aplikaci&quot;">
+							<longdesc>Je-li &quot;true&quot;, je v dialogu &quot;Spustit aplikaci&quot; dostupný seznam &quot;Známé aplikace&quot;. Zda seznam je nebo není rozbalen při zobrazení dialogu, to je řízeno nastavením klíče show_program_list.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="global">
+					<entry name="disable_force_quit">
+						<local_schema short_desc="Zakázat vynucení ukončení">
+							<longdesc>Je-li &quot;true&quot;, panel uživateli nedovolí vynutit ukončení aplikace tím, že odstraní přístup k tlačítku vynuceného ukončení.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_log_out">
+						<local_schema short_desc="Zakázat odhlašování">
+							<longdesc>Je-li &quot;true&quot;, panel uživateli nepovolí uživateli odhlásit se tím, že odstraní přístup k položkám nabídky odhlášení.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_lock_screen">
+						<local_schema short_desc="Zastaralé">
+							<longdesc>Tento klíč je zastaralý, jelikož nemůže být použit v implementaci korektního uzamčení. Namísto toho by měl být použit klíč /desktop/gnome/lockdown/disable_lock_screen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disabled_applets">
+						<local_schema short_desc="IID appletů, jejichž načítání zakázat">
+							<longdesc>Seznam IID appletů, které bude panel ignorovat. Takto je možné zakázat načítání některých appletů, nebo jejich zobrazování v nabídce. Například applet &quot;mini-commander&quot; zakážete přidáním &quot;OAFIID:GNOME_MiniCommanderApplet&quot; do tohoto seznamu. Aby mělo takové nastavení vliv, musí být panel restartován.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="locked_down">
+						<local_schema short_desc="Úplné zamčení panelu">
+							<longdesc>Je-li &quot;true&quot;, nepovolí panel žádné změny svého nastavení. Jednotlivé applety ale možná bude potřeba zamknout odděleně. Aby mělo toto nastavení vliv, musí být panel restartován.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="highlight_launchers_on_mouseover">
+						<local_schema short_desc="Zvýrazňovat spouštěče při přítomnosti myši">
+							<longdesc>Je-li &quot;true&quot;, je spouštěč zvýrazněn, když na něj uživatel přesune kurzor.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="confirm_panel_remove">
+						<local_schema short_desc="Potvrzovat odstranění panelu">
+							<longdesc>Je-li &quot;true&quot;, je zobrazen dialog žádající o potvrzení, když chce uživatel odstranit panel.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="drawer_autoclose">
+						<local_schema short_desc="Automaticky zavřít zásuvku">
+							<longdesc>Je-li &quot;true&quot;, bude zásuvka automaticky zavřena, když v ní uživatel klikne na spouštěč.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="window_screenshot_key">
+						<local_schema short_desc="Zastaralé">
+						</local_schema>
+					</entry>
+					<entry name="screenshot_key">
+						<local_schema short_desc="Zastaralé">
+						</local_schema>
+					</entry>
+					<entry name="run_key">
+						<local_schema short_desc="Zastaralé">
+						</local_schema>
+					</entry>
+					<entry name="menu_key">
+						<local_schema short_desc="Zastaralé">
+						</local_schema>
+					</entry>
+					<entry name="enable_key_bindings">
+						<local_schema short_desc="Zastaralé">
+						</local_schema>
+					</entry>
+					<entry name="panel_hide_delay">
+						<local_schema short_desc="Zastaralé">
+						</local_schema>
+					</entry>
+					<entry name="panel_animation_speed">
+						<local_schema short_desc="Zastaralé">
+						</local_schema>
+					</entry>
+					<entry name="panel_show_delay">
+						<local_schema short_desc="Zastaralé">
+						</local_schema>
+					</entry>
+					<entry name="panel_minimized_size">
+						<local_schema short_desc="Zastaralé">
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="Povolit animace">
+						</local_schema>
+					</entry>
+					<entry name="keep_menus_in_memory">
+						<local_schema short_desc="Zastaralé">
+						</local_schema>
+					</entry>
+					<entry name="tooltips_enabled">
+						<local_schema short_desc="Povolit místní nápovědu">
+							<longdesc>Je-li &quot;true&quot;, je zobrazována místní nápověda k objektům v panelech.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gweather">
+				<dir name="prefs">
+					<entry name="radar">
+						<local_schema short_desc="URL radarové mapy">
+							<longdesc>Používat vlastní URL k získání radarové mapy.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_custom_radar_url">
+						<local_schema short_desc="Používat vlastní URL radarové mapy">
+							<longdesc>Je-li &quot;true&quot;, získat radarovou mapu z polohy určené klíčem &quot;radar&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="coordinates">
+						<local_schema short_desc="Souřadnice polohy">
+						</local_schema>
+					</entry>
+					<entry name="location4">
+						<local_schema short_desc="Předpověď počasí pro město">
+						</local_schema>
+					</entry>
+					<entry name="location3">
+						<local_schema short_desc="Poloha radaru">
+						</local_schema>
+					</entry>
+					<entry name="location2">
+						<local_schema short_desc="Poloha pásma">
+						</local_schema>
+					</entry>
+					<entry name="location1">
+						<local_schema short_desc="Blízké město">
+						</local_schema>
+					</entry>
+					<entry name="location0">
+						<local_schema short_desc="Informace o poloze počasí">
+						</local_schema>
+					</entry>
+					<entry name="enable_radar_map">
+						<local_schema short_desc="Zobrazovat radarovou mapu">
+							<longdesc>Stáhnout radarovou mapu při každé aktualizaci.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_detailed_forecast">
+						<local_schema short_desc="Již se nepoužívá">
+						</local_schema>
+					</entry>
+					<entry name="temperature_unit">
+						<local_schema short_desc="Jednotky teploty">
+							<longdesc>Jednotka, kterou používat pro teplotu.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="speed_unit">
+						<local_schema short_desc="Jednotky rychlosti">
+							<longdesc>Jednotka, kterou používat pro rychlost větru.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="pressure_unit">
+						<local_schema short_desc="Jednotky tlaku">
+							<longdesc>Jednotka, kterou používat pro tlak.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="distance_unit">
+						<local_schema short_desc="Jednotky vzdálenosti">
+							<longdesc>Jednotka, kterou používat pro viditelnost.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_metric">
+						<local_schema short_desc="Používat metrické jednotky">
+							<longdesc>Používat metrické jednotky místo anglosaských.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_update_interval">
+						<local_schema short_desc="Interval aktualizace">
+							<longdesc>Interval v sekundách mezi automatickými aktualizacemi.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_update">
+						<local_schema short_desc="Aktualizovat data automaticky">
+							<longdesc>Určuje, jestli applet automaticky aktualizuje své statistiky počasí.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnome-keyring">
+				<dir name="daemon-components">
+					<entry name="pkcs11">
+						<local_schema short_desc="Zda je komponenta PKCS#11 pro gnome-keyring aktivní.">
+							<longdesc>Tato volba aktivuje komponentu PKCS#11 v démonovi gnome-keyring. Změna se projeví pouze během spouštění gnome-keyring-daemon (např. když se uživatel přihlásí). Toto nastavení může být potlačeno, pokud jsou démonu předány jisté parametry příkazové řádky.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="ssh">
+						<local_schema short_desc="Zda je agent SSH pro gnome-keyring aktivní.">
+							<longdesc>Tato volba aktivuje SSH agenta v démonovi gnome-keyring. Změna se projeví pouze během spouštění gnome-keyring-daemon (např. když se uživatel přihlásí). Toto nastavení může být potlačeno, pokud jsou démonu předány jisté parametry příkazové řádky.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="brasero">
+				<dir name="filter">
+					<entry name="notify">
+						<local_schema short_desc="Má Brasero oznámit filtrování souborů?">
+							<longdesc>Má Brasero oznámit filtrování souborů? Nastavíte-li hodnotu PRAVDA, Brasero zobrazí upozornění.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="broken_sym">
+						<local_schema short_desc="Má Brasero filtrovat poškozené symbolické odkazy?">
+							<longdesc>Má Brasero filtrovat poškozené symbolické odkazy? Nastavíte-li hodnotu PRAVDA, Brasero bude filtrovat poškozené symbolické odkazy.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="replace_sym">
+						<local_schema short_desc="Nahradit symbolické odkazy jejich cílovými soubory">
+							<longdesc>Má Brasero nahrazovat v projektu symbolické odkazy jejich cílovými soubory? Nastavíte-li hodnotu PRAVDA, Brasero bude nahrazovat symbolické odkazy.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hidden">
+						<local_schema short_desc="Má Brasero filtrovat skryté soubory?">
+							<longdesc>Má Brasero filtrovat skryté soubory? Nastavíte-li hodnotu PRAVDA, Brasero bude filtrovat skryté soubory.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="display">
+					<entry name="video_height">
+						<local_schema short_desc="Výška náhledu videa">
+							<longdesc>Výchozí výška náhledu videa.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="video_width">
+						<local_schema short_desc="Šířka náhledu videa">
+							<longdesc>Výchozí šířka náhledu videa.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="image_height">
+						<local_schema short_desc="Výška náhledu obrázku">
+							<longdesc>Výchozí výška náhledu obrázků.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="image_width">
+						<local_schema short_desc="Šířka náhledu obrázku">
+							<longdesc>Výchozí šířka náhledu obrázků.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="viewer">
+						<local_schema short_desc="Povolit náhledy souborů">
+							<longdesc>Zobrazení náhledu souboru. Pro zobrazení nastavte hodnotu PRAVDA.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="layout">
+						<local_schema short_desc="Rozložení UI">
+							<longdesc>Tento klíč nastavuje pozici panelu projektu (0 = vpravo, 1 = vlevo, 2 = nahoře, 3 = dole)</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="video_pane">
+						<local_schema short_desc="Panel u videoprojektů">
+							<longdesc>Panel zobrazující se při zvolení videoprojektu. Měl by být jeden z následujících: &quot;Chooser&quot;, &quot;Search&quot; nebo &quot;Playlist&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="data_pane">
+						<local_schema short_desc="Panel u datových projektů">
+							<longdesc>Panel zobrazující se při zvolení datového projektu. Měl by být jeden z následujících: &quot;Chooser&quot; nebo &quot;Search&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="audio_pane">
+						<local_schema short_desc="Panel u hudebních projektů">
+							<longdesc>Panel zobrazující se při zvolení hudebního projektu. Měl by být jeden z následujících: &quot;Chooser&quot;, &quot;Search&quot; nebo &quot;Playlist&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="sidepane">
+						<local_schema short_desc="Povolit postranní panel">
+							<longdesc>Zobrazení postranního panelu. Pro zobrazení nastavte hodnotu PRAVDA.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="config">
+					<entry name="raw_flag">
+						<local_schema short_desc="Použití přepínače &quot;--driver generic-mmc-raw&quot; spolu s cdrdao">
+							<longdesc>Použití přepínače &quot;--driver generic-mmc-raw&quot; spolu s cdrdao. Pro použití nastavte hodnotu PRAVDA. Jedná se jen o dočasné řešení pro určité jednotky/nastavení.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="minbuf_value">
+						<local_schema short_desc="Použito ve spojení s přepínačem &quot;-immed&quot; při použití cdrecord">
+							<longdesc>Použito ve spojení s přepínačem &quot;-immed&quot; při použití cdrecord</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="dao_flag">
+						<local_schema short_desc="Použití přepínače &quot;-use-the-force-luke=dao&quot; spolu s growisofs">
+							<longdesc>Použití přepínače &quot;-use-the-force-luke=dao&quot; spolu s growisofs. Nastavíte-li hodnotu NEPRAVDA, Brasero jej nebude používat. Jedná se jen o dočasné řešení pro určité jednotky/nastavení.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="immed_flag">
+						<local_schema short_desc="Povolit přepínač &quot;-immed&quot; při použití cdrecord">
+							<longdesc>Použití přepínače &quot;-immed&quot; spolu s cdrecord. Používat opatrně (při nastavení na hodnotu PRAVDA). Jedná se jen o dočasné řešení pro určité jednotky/nastavení.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="plugins">
+						<local_schema short_desc="Seznam povolených doplňkových zásuvných modulů k použití">
+							<longdesc>Obsahuje seznam doplňkových zásuvných modulů, které Brasero použije k vypalování disků. Je-li nastaveno na NULL, načte je Brasero všechny.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="engine-group">
+						<local_schema short_desc="Oblíbený vypalovací systém">
+							<longdesc>Obsahuje název oblíbeného nainstalovaného nástroje vypalovacího systému. Bude-li to možné, bude použit.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="evince">
+				<entry name="override_restrictions">
+					<local_schema short_desc="Ignorovat omezení dokumentu">
+						<longdesc>Ignorovat omezení dokumentu, například zákaz kopírování nebo tisku.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="gnome-settings">
+				<dir name="gnumeric">
+					<entry name="toolbar_style">
+						<local_schema short_desc="Styl lišty nástrojů">
+							<longdesc>Styl lišty nástrojů. Platné hodnoty jsou both, both_horiz, icon a text</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnumeric">
+				<dir name="plugin">
+					<dir name="latex">
+						<entry name="use-utf8">
+							<local_schema short_desc="Používat UTF-8 v exportu do LaTeXu">
+								<longdesc>Toto nastavení určuje, jestli vytvářené soubory LaTeX používají UTF-8 (unicode) nebo ISO-8859-1 (Latin1). Pro použití souborů UTF-8 musíte mít nainstalován balík LaTeXu ucs.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="cut-and-paste">
+					<entry name="prefer-clipboard">
+						<local_schema short_desc="Dávat přednost výběru CLIPBOARD před PRIMARY">
+							<longdesc>Je-li TRUE, bude Gnumeric dávat přednost modernímu výběru CLIPBOARD před klasickým výběrem PRIMARY. Nastavte na FALSE, pokud musíte pracovat se staršími aplikacemi jako Xterm nebo Emacs, které nastavují jen výběr PRIMARY.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="core">
+					<dir name="sort">
+						<dir name="dialog">
+							<entry name="max-initial-clauses">
+								<local_schema short_desc="Počet automatických klauzulí">
+									<longdesc>Při výběru tříděné oblasti v dialogu třídění jsou přidávány automaticky vyhledávací klauzule. Toto číslo určuje maximální počet klauzulí, které se mají přidat automaticky.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+						<dir name="default">
+							<entry name="ascending">
+								<local_schema short_desc="Setřídit vzestupně">
+									<longdesc>Tato volba určuje počáteční stav tlačítka pro pořadí třídění v dialogu třídění.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="retain-formats">
+								<local_schema short_desc="Třídění zachovává formát">
+									<longdesc>Nastavení této volby způsobí, že tlačítka třídění na liště nástrojů budou zachovávat formát buňky při třídění, ovlivní úvodní nastavení zaškrtávacího okénka pro zachování formátu v dialogu třídění.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="by-case">
+								<local_schema short_desc="Rozlišovat velikost písmen při třídění">
+									<longdesc>Nastavení této volby způsobí, že všechna tlačítka třídění na liště nástrojů budou provádět třídění s rozlišením malých a velkých písmen, a ovlivní úvodní nastavení zaškrtávacího okénka pro rozlišování velkých a malých písmen v dialogu třídění.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+					</dir>
+					<dir name="file">
+						<dir name="save">
+							<entry name="def-overwrite">
+								<local_schema short_desc="Implicitně přepisovat soubory">
+									<longdesc>Před tím, než se přepíše existující soubor, je zobrazen varovný dialog. Nastavením této volby učiníte tlačítko &quot;Přepsat&quot; v tomto dialogu výchozím.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="single_sheet">
+								<local_schema short_desc="Varovat při exportu do formátu s jediným listem">
+									<longdesc>Některé formáty souborů mohou obsahovat pouze jediný list. Tato proměnná určuje, zdali bude uživatel varován, pokud se má uložit pouze jeden list sešitu s více listy.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+					</dir>
+					<dir name="xml">
+						<entry name="compression-level">
+							<local_schema short_desc="Výchozí úroveň komprimace souborů Gnumeric">
+								<longdesc>Toto celé číslo (mezi 0 a 9) udává úroveň komprimace prováděné Gnumericem při ukládání souborů v implicitním formátu. 0 je minimální komprese, 9 je maximální komprese.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="gui">
+						<dir name="window">
+							<entry name="zoom">
+								<local_schema short_desc="Výchozí poměr zvětšení">
+									<longdesc>Počáteční poměr zvětšení pro nové sešity.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="y">
+								<local_schema short_desc="Výchozí svislá velikost okna">
+									<longdesc>Toto číslo (v intervalu 0,25 až 1,00) udává svislou část velikosti obrazovky pokrytou výchozím oknem.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="x">
+								<local_schema short_desc="Výchozí vodorovná velikost okna">
+									<longdesc>Toto číslo (v intervalu 0,25 až 1,00) udává vodorovnou část velikosti obrazovky pokrytou výchozím oknem.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+						<dir name="editing">
+							<entry name="transitionkeys">
+								<local_schema short_desc="Klávesy přechodu">
+								</local_schema>
+							</entry>
+							<entry name="recalclag">
+								<local_schema short_desc="Prodleva automatického přepočítávání výrazů">
+									<longdesc>Je-li `lag&apos; 0, gnumeric přepočítává všechny automatické výrazy hned po každé změně. Nenulové hodnoty `lag&apos; umožňují gnumericu akumuluvat více změn před každým přepočítáním. Je-li `lag&apos; kladné, tak gnumeric při každé změně čeká `lag&apos; milisekund a pak přepočítává; pokud se v té době objeví více změn, jsou v té době také zpracovány. Je-li `lag&apos; záporné, přepočítává se jen po tichém období |lag| milisekund.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="livescrolling">
+								<local_schema short_desc="Živé posunování">
+									<longdesc>Tato proměnná určuje, zdali je prováděno živé nebo zpožděné posunování.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="autocomplete">
+								<local_schema short_desc="Automatické doplňování">
+									<longdesc>Tato proměnná určuje, zdali je zapnuto automatické doplňování.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+						<dir name="toolbars">
+							<entry name="ObjectToolbar">
+								<local_schema short_desc="Lišta nástrojů Objekt viditelná">
+									<longdesc>Tato proměnná určuje, jestli má být na začátku viditelná lišta nástrojů objekt.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="FormatToolbar">
+								<local_schema short_desc="Lišta nástrojů Formát viditelná">
+									<longdesc>Tato proměnná určuje, jestli má být na začátku viditelná lišta nástrojů formát.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="StandardToolbar">
+								<local_schema short_desc="Standardní lišta nástrojů viditelná">
+									<longdesc>Tato proměnná určuje, jestli má být na začátku viditelná standardní lišta nástrojů.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+						<dir name="screen">
+							<entry name="verticaldpi">
+								<local_schema short_desc="Vertikální DPI">
+									<longdesc>Rozlišení obrazovky ve svislém směru.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="horizontaldpi">
+								<local_schema short_desc="Horizontální DPI">
+									<longdesc>Rozlišení obrazovky ve vodorovném směru.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+					</dir>
+					<dir name="workbook">
+						<entry name="n-sheet">
+							<local_schema short_desc="Výchozí počet listů">
+								<longdesc>Počet zpočátku vytvořených listů v novém sešitu.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="defaultfont">
+						<entry name="italic">
+							<local_schema short_desc="Výchozí písmo je kurzíva.">
+								<longdesc>Tato hodnota určuje, zdali je výchozí písmo pro nový sešit kurzíva.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bold">
+							<local_schema short_desc="Výchozí písmo je tučné.">
+								<longdesc>Tato hodnota určuje, zdali je výchozí písmo pro nový sešit tučné.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="name">
+							<local_schema short_desc="Výchozí název písma">
+							</local_schema>
+						</entry>
+						<entry name="size">
+							<local_schema short_desc="Výchozí velikost písma">
+								<longdesc>Výchozí velikost písma pro nové sešity.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="undo">
+					<entry name="max_descriptor_width">
+						<local_schema short_desc="Délka popisovačů zpětných operací">
+							<longdesc>Tato hodnota udává maximální délku popisovače příkazů v řetězech zpětných akcí a jejich vrácení.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="maxnum">
+						<local_schema short_desc="Počet zpětných položek">
+							<longdesc>Tato hodnota určuje maximální počet položek v seznamu zpětných operací či jejich vrácení.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size">
+						<local_schema short_desc="Maximální velikost zpětných operací">
+							<longdesc>Tato hodnota určuje délku řetězu zpětných operací. Každá operace úpravy s sebou nese určitou velikost, pro porovnání s paměťovými nároky jednoduché úpravy jedné buňky (velikost 1). Seznam zpětných operací bude oříznut, pokud jeho celková velikost překročí nastavenou hodnotu.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_sheet_name">
+						<local_schema short_desc="Zobrazovat název listu v seznamu zpětných operací">
+							<longdesc>Tato hodnota určuje, zdali se má v seznamu zpětných operací či jejich vrácení zobrazovat název listu.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="dialogs">
+					<dir name="rs">
+						<entry name="unfocused">
+							<local_schema short_desc="Povolit nezaměřené výběry oblastí">
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="printsetup">
+					<entry name="hf-right">
+						<local_schema short_desc="Formát hlavičky/patičky (pravá část)">
+							<longdesc>Pro úpravu této hodnoty prosím používejte dialog Nastavení tisku.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hf-middle">
+						<local_schema short_desc="Formát hlavičky/patičky (prostřední část)">
+							<longdesc>Pro úpravu této hodnoty prosím používejte dialog Nastavení tisku.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hf-left">
+						<local_schema short_desc="Formát hlavičky/patičky (levá část)">
+							<longdesc>Pro úpravu této hodnoty prosím používejte dialog Nastavení tisku.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="margin-gtk-right">
+						<local_schema short_desc="Implicitní spodní okraj">
+						</local_schema>
+					</entry>
+					<entry name="margin-bottom">
+						<local_schema short_desc="Implicitní spodní okraj">
+							<longdesc>Tato hodnota udává implicitní počet bodů od spodního okraje stránky ke konci těla. Pro úpravu této hodnoty prosím používejte dialog Nastavení tisku.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="margin-top">
+						<local_schema short_desc="Implicitní horní okraj">
+							<longdesc>Tato hodnota udává implicitní počet bodů od horního okraje stránky k začátku těla. Pro úpravu této hodnoty prosím používejte dialog Nastavení tisku.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="repeat-left">
+						<local_schema short_desc="Implicitně opakovaná levá oblast">
+							<longdesc>Tento řetězec udává implicitní oblast, kterou opakovat v levé části každého tištěného listu. Pro úpravu této hodnoty prosím používejte dialog Nastavení tisku.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="repeat-top">
+						<local_schema short_desc="Implicitně opakovaná horní oblast">
+							<longdesc>Tento řetězec udává implicitní oblast, kterou opakovat v horní části každého tištěného listu. Pro úpravu této hodnoty prosím používejte dialog Nastavení tisku.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="scale-height">
+						<local_schema short_desc="Implicitní výška pro změnu měřítka">
+						</local_schema>
+					</entry>
+					<entry name="scale-width">
+						<local_schema short_desc="Implicitní šířka pro změnu měřítka">
+						</local_schema>
+					</entry>
+					<entry name="scale-percentage-value">
+						<local_schema short_desc="Implicitní procenta měřítka">
+							<longdesc>Tato hodnota udává procenta, o kolik změnit měřítko každé tištěné stránky. Pro úpravu této hodnoty prosím používejte dialog Nastavení tisku.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="scale-percentage">
+						<local_schema short_desc="Implicitní typ změny měřítka">
+							<longdesc>Tato hodnota určuje implicitní nastavení v dialogu Nastavení tisku, jestli zmenšovat stránky o danou část. Pro úpravu této hodnoty prosím používejte dialog Nastavení tisku.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="across-then-down">
+						<local_schema short_desc="Implicitní směr tisku">
+							<longdesc>Tato hodnota určuje implicitní nastavení v dialogu Nastavení tisku, jestli tisknout nejdříve doprava, pak dolů. Pro úpravu této hodnoty prosím používejte dialog Nastavení tisku.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="print-titles">
+						<local_schema short_desc="Implicitní tisk nadpisu">
+							<longdesc>Tato hodnota určuje implicitní nastavení v dialogu Nastavení tisku, jestli tisknout hlavičky řádků a sloupců. Pro úpravu této hodnoty prosím používejte dialog Nastavení tisku.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="print-black-n-white">
+						<local_schema short_desc="Implicitně černobílý tisk">
+							<longdesc>Tato hodnota určuje implicitní nastavení v dialogu Nastavení tisku, jestli tisknout jen černobíle. Pro úpravu této hodnoty prosím používejte dialog Nastavení tisku.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="print-even-if-only-styles">
+						<local_schema short_desc="Implicitně tisknout buňky jen se styly">
+							<longdesc>Tato hodnota určuje implicitní nastavení v dialogu Nastavení tisku, jestli tisknout prázdné, ale formátované buňky. Pro úpravu této hodnoty prosím používejte dialog Nastavení tisku.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="print-grid-lines">
+						<local_schema short_desc="Implicitní tisk mřížky">
+							<longdesc>&gt;Tato hodnota určuje implicitní nastavení v dialogu Nastavení tisku, jestli tisknout mřížku. Pro úpravu této hodnoty prosím používejte dialog Nastavení tisku.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="center-vertically">
+						<local_schema short_desc="Implicitní svislé centrování">
+						</local_schema>
+					</entry>
+					<entry name="center-horizontally">
+						<local_schema short_desc="Implicitní vodorovné centrování">
+						</local_schema>
+					</entry>
+					<entry name="hf-font-italic">
+						<local_schema short_desc="Implicitní písmo hlaviček/patiček je kurzíva.">
+							<longdesc>Tato hodnota určuje, zdali je implicitní písmo pro hlavičky a patičky kurzíva.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hf-font-bold">
+						<local_schema short_desc="Implicitní písmo hlaviček/patiček je tučné.">
+							<longdesc>Tato hodnota určuje, zdali je implicitní písmo pro hlavičky a patičky tučné.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hf-font-name">
+						<local_schema short_desc="Implicitní název písma hlavičky/patičky">
+						</local_schema>
+					</entry>
+					<entry name="hf-font-size">
+						<local_schema short_desc="Implicitní velikost písma hlavičky/patičky">
+							<longdesc>Implicitní velikost písma pro hlavičky a patičky.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="footer">
+						<local_schema short_desc="Patička stránky">
+							<longdesc>Implicitní patička stránky pro nové dokumenty, která může být upravena pomocí dialogu nastavení stránky.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="header">
+						<local_schema short_desc="Hlavička stránky">
+							<longdesc>Implicitní hlavička stránky pro nové dokumenty, která může být upravena pomocí dialogu nastavení stránky.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="all-sheets">
+						<local_schema short_desc="Použít nastavení tisku na všechny listy">
+							<longdesc>Tato hodnota určuje, zdali se implicitně vztahuje dialog pro nastavení tisku na všechny listy zároveň.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="autoformat">
+					<entry name="usr-dir">
+						<local_schema short_desc="Uživatelský adresář pro automatické formáty">
+							<longdesc>Hlavní adresář pro uživatelsky definované šablony automatického formátu.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="sys-dir">
+						<local_schema short_desc="Systémový adresář pro automatické formáty">
+							<longdesc>Tento adresář obsahuje předinstalované šablony automatického formátu.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="extra-dirs">
+						<local_schema short_desc="Seznam dodatečných adresářů s automatickým formátem.">
+							<longdesc>Tento seznam obsahuje všechny dodatečné adresáře obsahující šablony automatického formátu.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="plugins">
+					<entry name="extra-dirs">
+						<local_schema short_desc="Seznam dodatečných adresářů se zásuvnými moduly.">
+							<longdesc>Tento seznam obsahuje všechny dodatečné adresáře obsahující zásuvné moduly.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="file-states">
+						<local_schema short_desc="Seznam stavů souborů zásuvných modulů.">
+							<longdesc>Tento seznam obsahuje stavy souborů všech zásuvných modulů.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="known">
+						<local_schema short_desc="Seznam dostupných zásuvných modulů.">
+							<longdesc>Tento seznam obsahuje všechny známé zásuvné moduly.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="active">
+						<local_schema short_desc="Seznam aktivních zásuvných modulů.">
+							<longdesc>Tento seznam obsahuje všechny zásuvné moduly, které by měly být automaticky aktivovány.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="activate-new">
+						<local_schema short_desc="Aktivovat nové zásuvné moduly">
+							<longdesc>Tato proměnná určuje, zdali se má aktivovat každý nově dostupný zásuvný modul.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="autocorrect">
+					<entry name="replace">
+						<local_schema short_desc="Automaticky opravovat nahrazení">
+							<longdesc>Automaticky opravovat nahrazení</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="names-of-days">
+						<local_schema short_desc="Automaticky opravovat názvy dnů">
+							<longdesc>Automaticky opravovat názvy dnů</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="first-letter-list">
+						<local_schema short_desc="Seznam výjimek prvních písmen">
+							<longdesc>Automatická oprava neopravuje první písmena slov v tomto seznamu.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="first-letter">
+						<local_schema short_desc="Automaticky opravovat první písmeno">
+							<longdesc>Automaticky opravovat první písmeno</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="init-caps-list">
+						<local_schema short_desc="Seznam výjimek úvodních kapitálek">
+							<longdesc>Automatická oprava neopravuje úvodní kapitálky slov v tomto seznamu.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="init-caps">
+						<local_schema short_desc="Automaticky opravovat úvodní kapitálky">
+							<longdesc>Automaticky opravovat úvodní kapitálky</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="functionselector">
+					<entry name="num-of-recent">
+						<local_schema short_desc="Maximální délka seznamu nedávno použitých funkcí">
+							<longdesc>Výběr funkce uchovává seznam nedávno použitých funkcí. Toto je maximální délka tohoto seznamu.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="recentfunctions">
+						<local_schema short_desc="Seznam nedávno použitých funkcí.">
+							<longdesc>Výběr funkce uchovává seznam nedávno použitých funkcí. Toto je ten seznam.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+		</dir>
+		<dir name="desktop">
+			<dir name="gnome">
+				<dir name="interface">
+					<entry name="show_unicode_menu">
+						<local_schema short_desc="Zobrazovat nabídku &apos;Řídící znak Unicode&apos;">
+							<longdesc>Jestli kontextové nabídky vstupních polí a textových polí mají nabízet změnu vložení řídicích znaků.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_input_method_menu">
+						<local_schema short_desc="Zobrazovat nabídku &apos;Vstupní metody&apos;">
+							<longdesc>Jestli kontextové nabídky vstupních polí a textových polí mají nabízet změnu vstupní metody.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menubar_accel">
+						<local_schema short_desc="Klávesová zkratka panelu nabídek">
+							<longdesc>Klávesová zkratka pro otevření lišt nabídek.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="file_chooser_backend">
+						<local_schema short_desc="Modul pro GtkFileChooser">
+							<longdesc>Modul, který chcete používat jako model systému souborů pro widget GtkFileChooser. Možné hodnoty jsou &quot;gio&quot;, &quot;gnome-vfs&quot; a &quot;gtk+&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="status_bar_meter_on_right">
+						<local_schema short_desc="Stavová lišta vpravo">
+							<longdesc>Jestli zobrazovat měřidlo na stavové liště vpravo.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_custom_font">
+						<local_schema short_desc="Použít vlastní písmo">
+							<longdesc>Jestli použít vlastní písmo v aplikacích gtk+.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="monospace_font_name">
+						<local_schema short_desc="Neproporcionální písmo">
+							<longdesc>Název neproporcionálního písma (s pevnou šířkou), které používat napři. v terminálech.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="document_font_name">
+						<local_schema short_desc="Písmo dokumentu">
+							<longdesc>Název výchozího písma používaného ke čtení dokumentů.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk-im-module">
+						<local_schema short_desc="Modul GTK IM">
+							<longdesc>Název modulu vstupní metody používaný v GTK+.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk-im-status-style">
+						<local_schema short_desc="Styl GTK IM Status">
+							<longdesc>Jméno stylu Status vstupní metody GTK+ používané v gtk+.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk-im-preedit-style">
+						<local_schema short_desc="Styl GTK IM Preedit">
+							<longdesc>Jméno stylu Preedit vstupní metody GTK+ používané v gtk+.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="font_name">
+						<local_schema short_desc="Implicitní písmo">
+							<longdesc>Jméno implicitního písma používaného v gtk+.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk_key_theme">
+						<local_schema short_desc="Motiv Gtk+">
+							<longdesc>Základní jméno implicitního motivu používaného v gtk+.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk_theme">
+						<local_schema short_desc="Motiv Gtk+">
+							<longdesc>Základní jméno implicitního motivu používaného v gtk+.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="icon_theme">
+						<local_schema short_desc="Motiv ikon">
+							<longdesc>Motiv ikon, které použít pro panel, nautilus atd.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="cursor_blink_time">
+						<local_schema short_desc="Čas blikání kurzoru">
+							<longdesc>Délka cyklu blikání kurzoru v milisekundách.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="cursor_blink">
+						<local_schema short_desc="Blikání kurzoru">
+							<longdesc>Jestli má kurzor blikat.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_icons_size">
+						<local_schema short_desc="Velikost ikon lišty nástrojů">
+							<longdesc>Velikost ikon na lištách nástrojů, buď &quot;small-toolbar&quot; nebo &quot;large-toolbar&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_detachable">
+						<local_schema short_desc="Lišta nástrojů odpojitelná">
+							<longdesc>Jestli uživatel může odpojit lišty nástrojů a posouvat je.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menubar_detachable">
+						<local_schema short_desc="Panel nabídek je odpojitelný">
+							<longdesc>Jestli uživatel může odpojit panely nabídek a posouvat je.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="buttons_have_icons">
+						<local_schema short_desc="Tlačítka mají ikony">
+							<longdesc>Jestli mohou tlačítka zobrazovat ikonu vedle textu tlačítka.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menus_have_icons">
+						<local_schema short_desc="Nabídky mají ikony">
+							<longdesc>Jestli mohou nabídky zobrazovat ikonu vedle položky nabídky.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_style">
+						<local_schema short_desc="Styl lišty nástrojů">
+							<longdesc>Styl lišty nástrojů. Platné hodnoty jsou &quot;both&quot;, &quot;both-horiz&quot;, &quot;icons&quot; a &quot;text&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="can_change_accels">
+						<local_schema short_desc="Může změnit zkratky">
+							<longdesc>Zda uživatel může dynamicky přiřadit novou klávesovou zkratku stisknutím klávesy nad aktivní položkou nabídky.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menus_have_tearoff">
+						<local_schema short_desc="Nabídky mají úchyt">
+							<longdesc>Jestli mají mít nabídky úchyt.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="Povolit animace">
+							<longdesc>Jestli mají být zobrazovány animace. Poznámka: toto je globální klíč, změní chování manažera oken, panelu atd.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="accessibility">
+						<local_schema short_desc="Povolit zpřístupnění">
+							<longdesc>Zda by měly aplikace mít podporu zpřístupnění.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="background">
+					<entry name="color_shading_type">
+						<local_schema short_desc="Typ barevného stínování">
+							<longdesc>Jak stínovat barvu pozadí. Možné hodnoty jsou &quot;horizontal-gradient&quot;, &quot;vertical-gradient&quot; a &quot;solid&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="secondary_color">
+						<local_schema short_desc="Sekundární barva">
+							<longdesc>Pravá nebo dolní barva při kreslení přechodů, nepoužito pro jedinou barvu.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="primary_color">
+						<local_schema short_desc="Primární barva">
+							<longdesc>Levá nebo horní barva při kreslení přechodů, nebo jediná barva.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="picture_opacity">
+						<local_schema short_desc="Průhlednost obrázku">
+							<longdesc>Průhlednost, se kterou kreslit obrázek na pozadí.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="picture_filename">
+						<local_schema short_desc="Jméno souboru obrázku">
+							<longdesc>Soubor, který chcete použít pro obrázek na pozadí.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="picture_options">
+						<local_schema short_desc="Možnosti obrázku">
+							<longdesc>Určuje, jak je vykreslen obrázek nastavený v wallpaper_filename. Možné hodnoty jsou &quot;none&quot;, &quot;wallpaper&quot;, &quot;centered&quot;, &quot;scaled&quot;, &quot;stretched&quot;, &quot;zoom&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="draw_background">
+						<local_schema short_desc="Kreslit pozadí pracovní plochy">
+							<longdesc>Nechat GNOME kreslit pozadí pracovní plochy.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="thumbnail_cache">
+					<entry name="maximum_size">
+						<local_schema>
+							<longdesc>Maximální velikost vyrovnávací paměti náhledů v megabajtech. Nastavte na -1 k zakázání vymazání.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="maximum_age">
+						<local_schema>
+							<longdesc>Maximální stáří náhledů ve vyrovnávací paměti ve dnech. Nastavte na -1 k zakázání vymazání.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="typing_break">
+					<entry name="enabled">
+						<local_schema short_desc="Jestli je povoleno zamknutí klávesnice">
+							<longdesc>Jestli je povoleno zamknutí klávesnice.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="allow_postpone">
+						<local_schema short_desc="Povolit odkládání přestávek">
+							<longdesc>Jestli může být obrazovka přestávky ve psaní odložena.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="break_time">
+						<local_schema short_desc="Doba přestávky">
+							<longdesc>Počet minut délky přestávky.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="type_time">
+						<local_schema short_desc="Doba psaní">
+							<longdesc>Počet minut psaní před přechodem do režimu přestávky.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="sound">
+					<entry name="input_feedback_sounds">
+						<local_schema short_desc="Zvuky zpětné vazby vstupu">
+							<longdesc>Jestli přehrávat zvuky při událostech vstupu.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="theme_name">
+						<local_schema short_desc="Název motivu zvuku">
+							<longdesc>Motiv zvuku XDG, který má být použit u zvuků událostí.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="event_sounds">
+						<local_schema short_desc="Zvuky pro události">
+							<longdesc>Jestli přehrávat zvuky při uživatelských událostech.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_esd">
+						<local_schema short_desc="Povolit ESD">
+							<longdesc>Povolit spuštění zvukového serveru.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="default_mixer_tracks">
+						<local_schema short_desc="Výchozí stopy směšovače">
+							<longdesc>Výchozí stopy směšovače užívané multimediálními klávesovými zkratkami.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="default_mixer_device">
+						<local_schema short_desc="Výchozí zařízení směšovače">
+							<longdesc>Výchozí zařízení směšovače užívané multimediálními klávesovými zkratkami.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="peripherals">
+					<dir name="keyboard">
+						<entry name="remember_numlock_state">
+							<local_schema short_desc="Pamatovat si stav NumLock">
+								<longdesc>Je-li nastaveno na true, GNOME si bude mezi sezeními pamatovat stav LED NumLock.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bell_custom_file">
+							<local_schema short_desc="Vlastní jméno souboru klávesového zvonku">
+								<longdesc>Název souboru se zvukem zvonku, který chcete přehrávat.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bell_mode">
+							<local_schema>
+								<longdesc>možné hodnoty jsou &quot;on&quot;, &quot;off&quot; a &quot;custom&quot;.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="mouse">
+						<entry name="cursor_size">
+							<local_schema short_desc="Velikost kurzoru">
+								<longdesc>Velikost kurzoru, na který se odkazuje cursor_theme.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="cursor_theme">
+							<local_schema short_desc="Motiv kurzoru">
+								<longdesc>Název motivu kurzoru. Používáno jen Xservery, které podporují Xcursor, například XFree86 4.3 a pozdější.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="cursor_font">
+							<local_schema short_desc="Písmo kurzoru">
+								<longdesc>Název písma kurzoru. Není-li nastaveno, používá se implicitní písmo. Tato hodnota je předána X serveru jen při startu každého sezení, takže její změna v době sezení nebude mít vliv, dokud se znovu nepřihlásíte.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="locate_pointer">
+							<local_schema short_desc="Nalézt ukazatel">
+								<longdesc>Zvýrazní současné umístění ukazatele, když je stisknuta a uvolněna klávesa Control.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="double_click">
+							<local_schema short_desc="Čas dvojitého kliknutí">
+								<longdesc>Délka dvojitého kliknutí.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="drag_threshold">
+							<local_schema short_desc="Práh tažení">
+								<longdesc>Vzdálenost, než začne tažení.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="motion_threshold">
+							<local_schema short_desc="Práh pohybu">
+								<longdesc>Vzdálenost v pixelech, o kterou se musí kurzor posunout, než je aktivován zrychlený pohyb myši. Hodnota -1 je implicitní pro systém.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="motion_acceleration">
+							<local_schema short_desc="Jednoduché kliknutí">
+								<longdesc>Násobitel zrychlení pohybu myši. Hodnota -1 je implicitní pro systém.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="single_click">
+							<local_schema short_desc="Jednoduché kliknutí">
+								<longdesc>Jednoduché kliknutí otevírá ikony.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="left_handed">
+							<local_schema short_desc="Orientace tlačítek myši">
+								<longdesc>Přehodit levé a pravé tlačítko myši u myši pro leváky.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="lockdown">
+					<entry name="disable_application_handlers">
+						<local_schema short_desc="Zakázat obsluhu URL a typů MIME">
+							<longdesc>Znemožnit běh jakýchkoliv aplikací obsluhujících URL nebo typy MIME.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_lock_screen">
+						<local_schema short_desc="Zakázat zamykání obrazovky">
+							<longdesc>Zabránit uživateli v zamčení obrazovky.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_user_switching">
+						<local_schema short_desc="Zakázat přepínání uživatelů">
+							<longdesc>Zabránit uživateli přepínat na jiný účet, pokud je jeho sezení aktivní.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_print_setup">
+						<local_schema short_desc="Zakázat nastavení tisku">
+							<longdesc>Znemožnit uživateli měnit nastavení tisku. To například zakáže přístup k dialogům &quot;Nastavení tisku&quot; všech aplikací.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_printing">
+						<local_schema short_desc="Zakázat tisk">
+							<longdesc>Znemožnit uživateli tisknout. To například zakáže přístup k dialogům &quot;Vytisknout&quot; všech aplikací.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_save_to_disk">
+						<local_schema short_desc="Zakázat ukládání souborů na disk">
+							<longdesc>Znemožnit uživateli ukládat soubory na disk. To například zakáže přístup k dialogům &quot;Uložit jako&quot; všech aplikací.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_command_line">
+						<local_schema short_desc="Zakázat příkazový řádek">
+							<longdesc>Znemožnit uživateli přistupovat k terminálu nebo určovat příkazový řádek pro spuštění. To například zakáže přístup k dialogu panelu &quot;Spustit aplikaci&quot;.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="file-views">
+					<entry name="icon_theme">
+						<local_schema short_desc="Motiv ikon souborů">
+							<longdesc>Motiv používaný k zobrazování ikon souborů.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="accessibility">
+					<dir name="startup">
+						<entry name="exec_ats">
+							<local_schema short_desc="Spouštět aplikace technologie usnadnění">
+								<longdesc>Seznam aplikací technologie usnadnění, které chcete spustit při přihlášení do prostředí GNOME.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="keyboard">
+						<entry name="stickykeys_modifier_beep">
+							<local_schema>
+								<longdesc>Pípnout, je-li stisknut modifikátor.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="stickykeys_two_key_off">
+							<local_schema>
+								<longdesc>Zakázat, jsou-li zároveň stisknuty dvě klávesy.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="slowkeys_delay">
+							<local_schema short_desc="Minimální interval v milisekundách">
+								<longdesc>Nepřijmout klávesu jako stisknutou, není-li podržena @delay milisekund.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="mousekeys_init_delay">
+							<local_schema short_desc="Počáteční zpoždění v milisekundách">
+								<longdesc>Kolik milisekund počkat, než začnou fungovat klávesy pohybu myši.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="mousekeys_accel_time">
+							<local_schema short_desc="Jak dlouho zrychlovat v milisekundách">
+								<longdesc>Kolik milisekund trvá přejít z 0 na maximální rychlost.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="mousekeys_max_speed">
+							<local_schema short_desc="Pixelů za sekundu">
+								<longdesc>O kolik pixelů za sekundu se posunout při maximální rychlosti.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bouncekeys_delay">
+							<local_schema short_desc="minimální interval v milisekundách">
+								<longdesc>Ignorovat více stisknutí _stejné_ klávesy do @delay milisekund.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="thumbnailers">
+					<entry name="disable_all">
+						<local_schema short_desc="Zakázat všechny externí tvůrce miniatur">
+							<longdesc>Nastavte na true pro zákaz všech externích programů pro tvorbu miniatur, bez ohledu na to, jestli jsou jednotlivě zakázány/povoleny.</longdesc>
+						</local_schema>
+					</entry>
+					<dir name="application@x-gzpdf">
+						<entry name="command">
+							<local_schema short_desc="Příkaz náhledů pro dokumenty PDF">
+								<longdesc>Platný příkaz a argumenty pro tvůrce náhledů dokumentu PDF. Chcete-li se dovědět více informací, podívejte se do dokumentace tvůrce náhledů Nautilu.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Povolit tvorbu náhledů dokumentů PDF">
+								<longdesc>Dostupné logické hodnoty; pravdivá hodnota povoluje tvorbu náhledů a nepravdivá hodnota zakazuje tvorbu nových náhledů.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@x-bzpdf">
+						<entry name="command">
+							<local_schema short_desc="Příkaz náhledů pro dokumenty PDF">
+								<longdesc>Platný příkaz a argumenty pro tvůrce náhledů dokumentu PDF. Chcete-li se dovědět více informací, podívejte se do dokumentace tvůrce náhledů Nautilu.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Povolit tvorbu náhledů dokumentů PDF">
+								<longdesc>Dostupné logické hodnoty; pravdivá hodnota povoluje tvorbu náhledů a nepravdivá hodnota zakazuje tvorbu nových náhledů.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@pdf">
+						<entry name="command">
+							<local_schema short_desc="Příkaz náhledů pro dokumenty PDF">
+								<longdesc>Platný příkaz a argumenty pro tvůrce náhledů dokumentu PDF. Chcete-li se dovědět více informací, podívejte se do dokumentace tvůrce náhledů Nautilu.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Povolit tvorbu náhledů dokumentů PDF">
+								<longdesc>Dostupné logické hodnoty; pravdivá hodnota povoluje tvorbu náhledů a nepravdivá hodnota zakazuje tvorbu nových náhledů.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="url-handlers">
+					<dir name="h323">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Spustit příkaz v terminálu">
+								<longdesc>&quot;True&quot;, pokud by měl být program používaný pro obsluhu tohoto typu URL spouštěn v terminálu.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Obsluha pro URL &quot;h323&quot;">
+								<longdesc>Příkaz používaný pro obsluhu URL &quot;h323&quot;, je-li povolen.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Jestli má určený příkaz obsluhovat URL &quot;h323&quot;">
+								<longdesc>&quot;True&quot;, pokud má příkaz určený v klíči &quot;command&quot; obsluhovat URL &quot;h323&quot;.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="callto">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Spustit příkaz v terminálu">
+								<longdesc>&quot;True&quot;, pokud by měl být program používaný pro obsluhu tohoto typu URL spouštěn v terminálu.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Obsluha pro URL &quot;callto&quot;">
+								<longdesc>Příkaz používaný pro obsluhu URL &quot;callto&quot;, je-li povolen.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Jestli má určený příkaz obsluhovat URL &quot;callto&quot;">
+								<longdesc>&quot;True&quot;, pokud má příkaz určený v klíči &quot;command&quot; obsluhovat URL &quot;callto&quot;.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="aim">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Spustit příkaz v terminálu">
+								<longdesc>&quot;True&quot;, pokud by měl být program používaný pro obsluhu tohoto typu URL spouštěn v terminálu.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Obsluha pro URL &quot;aim&quot;">
+								<longdesc>Příkaz používaný pro obsluhu URL &quot;aim&quot;, je-li povolen.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Jestli má určený příkaz obsluhovat URL &quot;aim&quot;">
+								<longdesc>&quot;True&quot;, pokud má příkaz určený v klíči &quot;command&quot; obsluhovat URL &quot;aim&quot;.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="mailto">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Spustit příkaz v terminálu">
+								<longdesc>&quot;True&quot;, pokud by měl být program používaný pro obsluhu tohoto typu URL spouštěn v terminálu.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Obsluha pro URL &quot;mailto&quot;">
+								<longdesc>Příkaz používaný pro obsluhu URL &quot;mailto&quot;, je-li povolen.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Jestli má určený příkaz obsluhovat URL &quot;mailto&quot;">
+								<longdesc>&quot;True&quot;, pokud má příkaz určený v klíči &quot;command&quot; obsluhovat URL &quot;mailto&quot;.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="https">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Spustit příkaz v terminálu">
+								<longdesc>&quot;True&quot;, pokud by měl být program používaný pro obsluhu tohoto typu URL spouštěn v terminálu.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Obsluha pro URL &quot;https&quot;">
+								<longdesc>Příkaz používaný pro obsluhu URL &quot;https&quot;, je-li povolen.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Jestli má určený příkaz obsluhovat URL &quot;https&quot;">
+								<longdesc>&quot;True&quot;, pokud má příkaz určený v klíči &quot;command&quot; obsluhovat URL &quot;https&quot;.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="http">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Spustit příkaz v terminálu">
+								<longdesc>&quot;True&quot;, pokud by měl být program používaný pro obsluhu tohoto typu URL spouštěn v terminálu.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Obsluha pro URL &quot;http&quot;">
+								<longdesc>Příkaz používaný pro obsluhu URL &quot;http&quot;, je-li povolen.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Jestli má určený příkaz obsluhovat URL &quot;http&quot;">
+								<longdesc>&quot;True&quot;, pokud má příkaz určený v klíči &quot;command&quot; obsluhovat URL &quot;http&quot;.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="man">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Spustit příkaz v terminálu">
+								<longdesc>&quot;True&quot;, pokud by měl být program používaný pro obsluhu tohoto typu URL spouštěn v terminálu.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Obsluha pro URL &quot;man&quot;">
+								<longdesc>Příkaz používaný pro obsluhu URL &quot;man&quot;, je-li povolen.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Jestli má určený příkaz obsluhovat URL &quot;man&quot;">
+								<longdesc>&quot;True&quot;, pokud má příkaz určený v klíči &quot;command&quot; obsluhovat URL &quot;man&quot;.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="info">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Spustit příkaz v terminálu">
+								<longdesc>&quot;True&quot;, pokud by měl být program používaný pro obsluhu tohoto typu URL spouštěn v terminálu.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Obsluha pro URL &quot;info&quot;">
+								<longdesc>Příkaz používaný pro obsluhu URL &quot;info&quot;, je-li povolen.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Jestli má určený příkaz obsluhovat URL &quot;info&quot;">
+								<longdesc>&quot;True&quot;, pokud má příkaz určený v klíči &quot;command&quot; obsluhovat URL &quot;info&quot;.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="ghelp">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Spustit příkaz v terminálu">
+								<longdesc>&quot;True&quot;, pokud by měl být program používaný pro obsluhu tohoto typu URL spouštěn v terminálu.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Obsluha pro URL &quot;ghelp&quot;">
+								<longdesc>Příkaz používaný pro obsluhu URL &quot;ghelp&quot;, je-li povolen.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Jestli má určený příkaz obsluhovat URL &quot;ghelp&quot;">
+								<longdesc>&quot;True&quot;, pokud má příkaz určený v klíči &quot;command&quot; obsluhovat URL &quot;ghelp&quot;.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="trash">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Spustit příkaz v terminálu">
+								<longdesc>&quot;True&quot;, pokud by měl být program používaný pro obsluhu tohoto typu URL spouštěn v terminálu.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Obsluha pro URL &quot;trash&quot;">
+								<longdesc>Příkaz používaný pro obsluhu URL &quot;trash&quot;, je-li povolen.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Jestli má určený příkaz obsluhovat URL &quot;trash&quot;">
+								<longdesc>&quot;True&quot;, pokud má příkaz určený v klíči &quot;command&quot; obsluhovat URL &quot;trash&quot;.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="applications">
+					<dir name="tasks">
+						<entry name="needs_term">
+							<local_schema short_desc="Úlohy potřebují terminál">
+								<longdesc>Zda výchozí aplikace úloh potřebuje ke běhu terminál</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="Výchozí úlohy">
+								<longdesc>Výchozí aplikace úloh</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="calendar">
+						<entry name="needs_term">
+							<local_schema short_desc="Kalendář potřebuje terminál">
+								<longdesc>Zda výchozí kalendář potřebuje ke běhu terminál</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="Výchozí kalendář">
+								<longdesc>Výchozí aplikace kalendáře</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="window_manager">
+						<entry name="workspace_names">
+							<local_schema short_desc="Názvy pracovních ploch (zastaralé)">
+								<longdesc>Seznam názvů pracovních ploch prvního manažera oken. Tento klíč byl od GNOME 2.12 zastaralý.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="number_of_workspaces">
+							<local_schema short_desc="Počet pracovních ploch (zastaralé)">
+								<longdesc>Počet pracovních ploch, které má manažer oken používat. Tento klíč byl od GNOME 2.12 zastaralý.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="current">
+							<local_schema short_desc="Uživatelský manažer oken (zastaralé)">
+								<longdesc>Manažer oken, který zkusit nejdřív. Tento klíč byl od GNOME 2.12 zastaralý.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="default">
+							<local_schema short_desc="Náhradní manažer oken (zastaralé)">
+								<longdesc>Náhradní manažer oken, pokud nelze najít uživatelského manažera oken. Tento klíč byl od GNOME 2.12 zastaralý.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="browser">
+						<entry name="nremote">
+							<local_schema short_desc="Prohlížeč rozumí remote">
+								<longdesc>Zda výchozí prohlížeč rozumí &quot;netscape remote&quot;.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="needs_term">
+							<local_schema short_desc="Prohlížeč potřebuje terminál">
+								<longdesc>Zda výchozí prohlížeč potřebuje ke běhu terminál.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="Implicitní prohlížeč">
+								<longdesc>Výchozí prohlížeč pro všechna URL.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="at">
+						<dir name="mobility">
+							<entry name="startup">
+								<local_schema short_desc="Spustit preferovanou aplikaci technologie usnadnění v oblasti pohyblivosti">
+									<longdesc>GNOME spustí preferovanou aplikaci technologie usnadnění v oblasti pohyblivosti během přihlášení.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="exec">
+								<local_schema short_desc="Preferovaná aplikace technologie usnadnění v oblasti pohyblivosti">
+									<longdesc>Preferovaná aplikace technologie usnadnění v oblasti pohyblivosti k použití při přihlášení, v nabídce či příkazovém řádku.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+						<dir name="visual">
+							<entry name="startup">
+								<local_schema short_desc="Spustit preferovanou aplikaci technologie usnadnění v oblasti zobrazování">
+									<longdesc>GNOME spustí preferovanou aplikaci technologie usnadnění v oblasti zobrazování během přihlášení.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="exec">
+								<local_schema short_desc="Preferovaná aplikace technologie usnadnění v oblasti zobrazování">
+									<longdesc>Preferovaná aplikace technologie usnadnění v oblasti zobrazování k použití při přihlášení, v nabídce či příkazovém řádku.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+					</dir>
+					<dir name="component_viewer">
+						<entry name="exec">
+							<local_schema short_desc="Implicitní aplikace prohlížeče komponent">
+								<longdesc>Aplikace, kterou chcete používat k zobrazování souborů, které k zobrazení vyžadují komponentu. Parametr %s bude nahrazen URI souboru, parametr %c bude nahrazen IID komponenty.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="terminal">
+						<entry name="exec_arg">
+							<local_schema short_desc="Argumenty exec">
+								<longdesc>Argument používaný pro spuštění programů v terminálu definovaném v klíči &apos;exec&apos;.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="Aplikace terminálu">
+								<longdesc>Terminálový program, který chcete použít pro start aplikací jej vyžadující.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+			</dir>
+		</dir>
+		<dir name="system">
+			<dir name="dns_sd">
+				<entry name="extra_domains">
+					<local_schema short_desc="Další domény, ve kterých se mají hledat služby DNS-SD">
+						<longdesc>Čárkami oddělený seznam domén DNS-SD, které by měly být viditelné v umístění &quot;network:///&quot;.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="display_local">
+					<local_schema short_desc="Jak zobrazit místní službu DNS-SD">
+						<longdesc>Možné hodnoty jsou &quot;merged&quot;, &quot;separate&quot; a &quot;disabled&quot;.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="smb">
+				<entry name="workgroup">
+					<local_schema short_desc="Pracovní skupina SMB">
+						<longdesc>Pracovní skupina nebo doména Windows, jejímž členem je uživatel. Aby se úplně projevila nová pracovní skupina, uživatel se možná bude muset odhlásit a znovu přihlásit.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="proxy">
+				<entry name="autoconfig_url">
+					<local_schema short_desc="URL automatického nastavení proxy">
+						<longdesc>URL, které poskytuje hodnoty nastavení proxy.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="socks_port">
+					<local_schema short_desc="Port proxy SOCKS">
+						<longdesc>Port na počítači definovaném v &quot;/system/proxy/socks_host&quot;, který používat pro proxy.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="socks_host">
+					<local_schema short_desc="Název počítače proxy SOCKS">
+						<longdesc>Název počítače, který používat jako proxy socks.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="ftp_port">
+					<local_schema short_desc="Port proxy FTP">
+						<longdesc>Port na počítači definovaném v &quot;/system/proxy/ftp_host&quot;, který používat pro proxy.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="ftp_host">
+					<local_schema short_desc="Název počítače proxy FTP">
+						<longdesc>Název počítače, který používat jako proxy FTP.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="secure_port">
+					<local_schema short_desc="Port proxy zabezpečeného HTTP">
+						<longdesc>Port na počítači definovaném v &quot;/system/proxy/secure_host&quot;, který používat pro proxy.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="secure_host">
+					<local_schema short_desc="Název počítače proxy zabezpečeného HTTP">
+						<longdesc>Název počítače, který používat jako proxy zabezpečeného HTTP.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="mode">
+					<local_schema short_desc="Režim nastavení proxy">
+						<longdesc>Vyberte režim nastavení proxy. Podporované hodnoty jsou &quot;none&quot;, &quot;manual&quot;, &quot;auto&quot;.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="http_proxy">
+				<entry name="ignore_hosts">
+					<local_schema short_desc="Počítače bez proxy">
+						<longdesc>Tento klíč obsahuje seznam počítačů, které jsou připojeny přímo, ne přes proxy (pokud je aktivní). Hodnoty mohou být názvy počítačů, domény (pomocí počátečního zástupného znaku, např. *.foo.com), adresy IP počítačů (IPv4 i IPv6) a adresy sítí s maskou sítě (přibližně jako 192.168.0.0/24).</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="authentication_password">
+					<local_schema short_desc="Heslo proxy HTTP">
+						<longdesc>Heslo, které předat jako autentizaci při používání HTTP proxy.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="authentication_user">
+					<local_schema short_desc="Jméno uživatele proxy HTTP">
+						<longdesc>Jméno uživatele, které předávat jako autentizaci při používání proxy HTTP.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="use_authentication">
+					<local_schema short_desc="Autentizovat připojení k serveru proxy">
+						<longdesc>Je-li &quot;true&quot;, vyžadují připojení k serveru proxy autentizaci. Kombinace jméno uživatele/heslo je definována v &quot;/system/http_proxy/authentication_user&quot; a &quot;/system/http_proxy/authentication_password&quot;.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="port">
+					<local_schema short_desc="Port proxy HTTP">
+						<longdesc>Port na počítači definovaném v &quot;/system/http_proxy/host&quot;, který používat pro proxy.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="host">
+					<local_schema short_desc="Název počítače proxy HTTP">
+						<longdesc>Název počítače, který používat jako proxy HTTP.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="use_http_proxy">
+					<local_schema short_desc="Používat proxy HTTP">
+						<longdesc>Povolí nastavení proxy při přístupu k HTTP přes Internet.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+		</dir>
+	</dir>
+</gconf>

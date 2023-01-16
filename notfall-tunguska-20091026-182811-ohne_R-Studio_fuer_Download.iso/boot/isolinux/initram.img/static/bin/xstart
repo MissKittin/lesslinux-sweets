@@ -1,0 +1,57 @@
+#!/static/bin/ash	
+		
+PATH=/bin:/sbin:/usr/bin:/usr/sbin:/static/bin:/static/sbin
+		
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors
+		
+DBUS_LAUNCH=/usr/bin/dbus-launch
+VESA_MODE=0x0117
+screen="default_screen"
+xorg_conf="/etc/X11/xorg.conf"
+driver="xvesa"
+vesapref=""
+dpi=75
+
+if [ -f /var/run/lesslinux/xorg_vars ] ; then
+    . /var/run/lesslinux/xorg_vars
+fi
+
+# Find our xinitrc
+if [ -x /home/surfer/.xinitrc ] ; then
+    XINITRC="/home/surfer/.xinitrc"
+else
+    XINITRC="/etc/lesslinux/xinitrc"
+fi
+
+# Determine if we have to use dbus-launch
+if which "$DBUS_LAUNCH" ; then
+    if ps waux | grep 'dbus-daemon --config' ; then
+        true
+    else
+        XINITRC="$DBUS_LAUNCH $XINITRC"
+    fi
+fi
+
+# Determine which Xserver to use
+if [ "$driver" = "xorg" ] ; then
+    /usr/bin/xinit $XINITRC -- /usr/bin/Xorg -nolisten tcp -screen "$screen" -dpi "$dpi"
+else
+    # dump vesa modes
+    Xvesa -listmodes > /tmp/.vesamodes 2>&1
+    # Search suitable modes
+    resolutions="640x480x16 640x480x24 800x600x16 800x600x24 1024x600x16 1024x600x24 1024x768x16 1024x768x24 ${xmode}x16 ${xmode}x24 ${xmode} ${vesapref}"
+    tryvesa=0x0117
+    for i in $resolutions ; do
+        mode=` grep " $i " /tmp/.vesamodes | awk -F ':' '{print $1}' | tail -n1 `
+        [ -n "$mode" ] && tryvesa="$mode"
+    done
+    /usr/bin/xinit $XINITRC -- /usr/bin/Xvesa -nolisten tcp +kb -keybd keyboard -mouse mouse,/dev/input/mice -mode "$tryvesa"
+fi
+		
+# sleep for debugging reasons:
+echo '===> Shutdown of X-Server, sleeping 5 seconds'
+sleep 5
+		
+# The end	

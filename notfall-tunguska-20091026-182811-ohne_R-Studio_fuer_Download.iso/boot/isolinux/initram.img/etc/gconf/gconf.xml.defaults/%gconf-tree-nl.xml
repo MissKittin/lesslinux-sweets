@@ -1,0 +1,2266 @@
+<?xml version="1.0"?>
+<gconf>
+	<dir name="schemas">
+		<dir name="apps">
+			<dir name="gnome-system-log">
+				<entry name="logfiles">
+					<local_schema short_desc="Bij opstarten te openen logbestanden">
+						<longdesc>Geeft een lijst met logbestanden die bij het opstarten worden geopend. Er wordt een standaardlijst aangemaakt met de gegevens in /etc/syslog.conf.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="width">
+					<local_schema short_desc="Breedte van het hooft venster in pixels">
+						<longdesc>Geeft de breedte van het logboek-venster in pixels.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="height">
+					<local_schema short_desc="Hoogte van het hoofdvenster in pixels">
+						<longdesc>Specificeert de hoogte van het logvenster in pixels.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="fontsize">
+					<local_schema short_desc="Grootte van het lettertype voor logweergave">
+						<longdesc>Geeft de grootte van het vaste-breedte lettertype voor de tekst van het logboek in het hoofdvenster. De standaard is gelijk aan het standaard lettertype van een terminalvenster.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="logfile">
+					<local_schema short_desc="Bij opstarten te openen logbestand ">
+						<longdesc>Geeft aan welk logbestand bij het opstarten geopend moet worden. Standaard is dit /var/adm/messages of /var/log/messages, afhankelijk van uw besturingssysteem.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="gnome-search-tool">
+				<entry name="default_window_maximized">
+					<local_schema short_desc="Standaard gemaximaliseerd venster">
+						<longdesc>Deze sleutel bepaalt of het venster van zoekprogramma bij het starten gemaximaliseerd is.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default_window_height">
+					<local_schema short_desc="Standaard vensterhoogte">
+						<longdesc>Deze sleutel stelt de hoogte in van het venster. Het wordt gebruikt om de afmeting van het zoekvenster te onthouden. Met de waarde -1 zal het zoekvenster de standaardhoogte krijgen.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default_window_width">
+					<local_schema short_desc="Standaard vensterbreedte">
+						<longdesc>Deze sleutel stelt de breedte in van het venster. Het wordt gebruikt om de afmeting van het zoekvenster te onthouden. Met de waarde -1 zal het zoekvenster de standaardbreedte krijgen.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="columns_order">
+					<local_schema short_desc="Zoekresultaten kolommen volgorde">
+						<longdesc>Deze sleutel definieerd de volgorde van kolommen van de zoekresultaten. Deze sleutel hoort niet aangepast te worden door de gebruiker.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="quick_search_second_scan_excluded_paths">
+					<local_schema short_desc="Snelzeken tweede scan uitzonderingspaden">
+						<longdesc>Deze sleutel bepaalt de paden die bij snelzoeken voor een tweede scan worden overgeslagen. De tweede scan gebruikt de het programma &apos;find&apos; om bestanden te zoeken. Het doel van de tweede scan is om bestanden te vinden die nog niet zijn geïndexeerd. De wildcards &apos;*&apos; en &apos;?&apos; mogen gebruikt worden. De standaardwaarde is /.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="disable_quick_search_second_scan">
+					<local_schema short_desc="Tweede scan bij snelzoeken uitschakelen">
+						<longdesc>Deze sleutel bepaalt of het zoekprogramma het gebruik van de opdracht &apos;find&apos; weigert na het uitvoeren van een snelzoekactie.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="quick_search_excluded_paths">
+					<local_schema short_desc="Snelzoeken uitzonderingspaden">
+						<longdesc>Deze sleutel bepaalt de paden die bij snelzoeken worden overgeslagen. De wildcards &apos;*&apos; en &apos;?&apos; mogen gebruikt worden. De standaardwaarden zijn /mnt/*, /media/*, /dev/*, /tmp/*, /proc/* en /var/*.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="disable_quick_search">
+					<local_schema short_desc="Snelzoeken uitschakelen">
+						<longdesc>Deze sleutel bepaalt of het zoekprogramma het gebruik van de opdracth &apos;locate&apos; weigert na het uitvoeren van eenvoudige bestandsnaam-zoekopdrachten.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="show_additional_options">
+					<local_schema short_desc="Extra opties tonen">
+						<longdesc>Deze sleutel bepaalt of het gedeelte ‘Meer opties selecteren’ uitgeklapt is bij het opstarten van het zoekprogramma.</longdesc>
+					</local_schema>
+				</entry>
+				<dir name="select">
+					<entry name="follow_symbolic_links">
+						<local_schema short_desc="Selecteer de zoekoptie ‘Volg symbolische verwijzingen’">
+							<longdesc>Deze sleutel bepaalt of de zoekoptie ‘Volg symbolische verwijzingen’ geselecteerd is bij het opstarten.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_hidden_files_and_folders">
+						<local_schema short_desc="Selecteer de zoekoptie ‘Verborgen bestanden en mappen tonen’">
+							<longdesc>Deze sleutel bepaalt of de zoekoptie ‘Verborgen bestanden en mappen tonen’ geselecteerd is bij het opstarten.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name_matches_regular_expression">
+						<local_schema short_desc="Selecteer de zoekoptie ‘Naam komt overeen met reguliere expressie’">
+							<longdesc>Deze sleutel bepaalt of de zoekoptie ‘Naam komt overeen met reguliere expressie’ geselecteerd is bij het opstarten.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name_does_not_contain">
+						<local_schema short_desc="Selecteer de zoekoptie ‘Naam bevat niet’">
+							<longdesc>Deze sleutel bepaalt of de zoekoptie ‘Naam bevat niet’ geselecteerd is bij het opstarten.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="owner_is_unrecognized">
+						<local_schema short_desc="Selecteer de zoekoptie ‘Eigenaar is niet bekend’">
+							<longdesc>Deze sleutel bepaalt of de zoekoptie ‘Eigenaar is niet bekend’ geselecteerd is bij het opstarten.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="owned_by_group">
+						<local_schema short_desc="Selecteer de zoekoptie ‘Eigendom van groep’">
+							<longdesc>Deze sleutel bepaalt of de zoekoptie ‘Eigendom van groep’ geselecteerd is bij het opstarten.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="owned_by_user">
+						<local_schema short_desc="Selecteer de zoekoptie ‘Eigendom van gebruiker’">
+							<longdesc>Deze sleutel bepaalt of de zoekoptie ‘Eigendom van gebruiker’ geselecteerd is bij het opstarten.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="file_is_empty">
+						<local_schema short_desc="Selecteer de zoekoptie ‘Bestand is leeg’">
+							<longdesc>Deze sleutel bepaalt of de zoekoptie ‘Bestand is leeg’ geselecteerd is bij het opstarten.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size_at_most">
+						<local_schema short_desc="Selecteer de zoekoptie ‘Grootte ten hoogste’">
+							<longdesc>Deze sleutel bepaalt of de zoekoptie ‘Grootte ten hoogste’ geselecteerd is bij het opstarten.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size_at_least">
+						<local_schema short_desc="Selecteer de zoekoptie ‘Grootte minstens’">
+							<longdesc>Deze sleutel bepaalt of de zoekoptie ‘Grootte minstens’ geselecteerd is bij het opstarten.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="date_modified_more_than">
+						<local_schema short_desc="Selecteer de zoekoptie ‘Meer dan (dagen) geleden gewijzigd’">
+							<longdesc>Deze sleutel bepaalt of de zoekoptie ‘Meer dan (dagen) geleden gewijzigd’ geselecteerd is bij het opstarten.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="date_modified_less_than">
+						<local_schema short_desc="Selecteer de zoekoptie ‘Minder dan (dagen) geleden gewijzigd’">
+							<longdesc>Deze sleutel bepaalt of de zoekoptie ‘Minder dan (dagen) geleden gewijzigd’ geselecteerd is bij het opstarten.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="contains_the_text">
+						<local_schema short_desc="Selecteer de zoekoptie ‘Bevat de tekst’">
+							<longdesc>Deze sleutel bepaalt of de zoekoptie ‘Bevat de tekst’ geselecteerd is bij het opstarten.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnome-screenshot">
+				<entry name="border_effect">
+					<local_schema short_desc="Vensterrand-effect">
+						<longdesc>Effect dat aan de buitenkant van een venster wordt toegevoegd. Mogelijke waarden zijn ‘shadow’, ‘none’, en ‘border’.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="include_pointer">
+					<local_schema short_desc="Muisaanwijzer opnemen">
+						<longdesc>De muisaanwezer in de schermafdruk opnemen</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="include_border">
+					<local_schema short_desc="Vensterrand opnemen">
+						<longdesc>De vensterrand van de window manager in de schermafdruk opnemen</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="last_save_directory">
+					<local_schema short_desc="Schermafdruk map">
+						<longdesc>Map waar het schermafdrukprogramma het laatst in heeft opgeslagen</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="delay">
+					<local_schema short_desc="Vertraging voor schermadruk">
+						<longdesc>Het aantal te wachten seconden voordat de schermafdruk genomen wordt.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="take_window_shot">
+					<local_schema short_desc="Venster-specifieke schermafdruk (verouderd)">
+						<longdesc>Alleen het huidige venster opnemen, in plaats van het hele scherm. Deze sleutel is verouderd en wordt niet langer gebruikt.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="gnome-dictionary">
+				<entry name="sidebar-width">
+					<local_schema short_desc="Breedte van het zijpaneel">
+						<longdesc>De breedte van het zijpaneel (wordt onthouden tussen sessies).</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="sidebar-page">
+					<local_schema short_desc="Weer te geven pagina van het zijpaneel">
+						<longdesc>Deze sleutel bepaalt welke pagina weergegeven dient te worden in het zijpaneel. Het wordt onthouden tussen sessies en kan ‘speller’ of ‘databases’ zijn.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="statusbar-visible">
+					<local_schema short_desc="Of de statusbalk zichtbaar dient te zijn">
+						<longdesc>Deze sleutel bepaalt of de statusbalk zichtbaar dient te zijn. Het wordt onthouden tussen sessies.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="sidebar-visible">
+					<local_schema short_desc="Of het zijpaneel zichtbaar dient te zijn">
+						<longdesc>Deze sleutel bepaalt of het zijpaneel zichtbaar dient te zijn. Het wordt onthouden tussen sessies.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="window-is-maximized">
+					<local_schema short_desc="Of het toepassingsvenster gemaximaliseerd moet worden">
+						<longdesc>Deze sleutel stelt in of het venster gemaximaliseerd wordt. Het wordt gebruikt om deze instelling van het woordenboekvenster te onthouden.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default-window-height">
+					<local_schema short_desc="De standaardhoogte van het toepassingsvenster">
+						<longdesc>Deze sleutel stelt de hoogte in van het venster. Het wordt gebruikt om de afmeting van het woordenboekvenster te onthouden. Met de waarde -1 zal het woordenboekvenster de standaardhoogte krijgen, gebaseerd op de grootte van het lettertype.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default-window-width">
+					<local_schema short_desc="De standaardbreedte van het toepassingsvenster">
+						<longdesc>Deze sleutel stelt de breedte in van het venster. Het wordt gebruikt om de afmeting van het woordenboekvenster te onthouden. Met de waarde -1 zal het woordenboekvenster de standaardbreedte krijgen, gebaseerd op de grootte van het lettertype.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="source-name">
+					<local_schema short_desc="De naam van de gebruikte woordenboekbron">
+						<longdesc>de naam van de woordenboekbron die gebruikt wordt voor het ophalen van de definitie van woorden.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="print-font">
+					<local_schema short_desc="Het lettertype dat bij het afdrukken gebruikt wordt">
+						<longdesc>Het lettertype dat gebruikt wordt bij het afdrukken van een definitie.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="strategy">
+					<local_schema short_desc="De standaard zoekstrategie die gevolgd wordt">
+						<longdesc>De naam van de standaard zoekstrategie die gebruikt wordt op een woordenboekbron, indien beschikbaar. De standaardstrategie is &apos;exact&apos;, dat wil zeggen: de woorden moeten exact overeenkomen.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="database">
+					<local_schema short_desc="De standaard database die gebruikt wordt">
+						<longdesc>De naam van de database of meta-database die standaard moet worden gebruikt bij een woordenboekbron. Een uitroepteken ‘!’ betekent dat alle beschikbare woordenboeken op de woordenboekbron moeten worden doorzocht</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="smart">
+					<local_schema short_desc="Slim zoeken gebruiken (afgeraden)">
+						<longdesc>Geef aan of &apos;slim zoeken&apos; moet worden gebruikt. Deze sleutelwaarde is afhankelijk van de woordenboekserver die deze mogelijkheid wel of niet kan ondersteunen. De standaardinstelling is WAAR. Deze sleutel wordt afgeraden en is niet langer in gebruik.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="port">
+					<local_schema short_desc="Poort voor het verbinden met woordenboekserver (afgeraden)">
+						<longdesc>Het poortnummer waarmee moet worden verbonden. De standaardpoort is 2628. Deze sleutel wordt afgeraden en is niet langer in gebruik.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="server">
+					<local_schema short_desc="Woordenboekserver (afgeraden)">
+						<longdesc>De woordenboekserver waarmee moet worden verbonden. De standaardserver is dict.org. Zie http://www.dict.org voor informatie over andere servers. Deze sleutel wordt afgeraden en is niet langer in gebruik.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="baobab">
+				<dir name="properties">
+					<entry name="skip_scan_uri_list">
+						<local_schema short_desc="Te negeren partitie-uri&apos;s">
+							<longdesc>Een lijst van uri&apos;s voor te negeren partities.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_home_monitor">
+						<local_schema short_desc="Wijzigingen in persoonlijke map detecteren">
+							<longdesc>Of wijzigingen in de persoonlijke map gedetecteerd dienen te worden.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="ui">
+					<entry name="baobab_subfoldertips_visible">
+						<local_schema short_desc="Zwevende tips voor submappen zichtbaar">
+							<longdesc>Of de zwevende tips voor de submappen van de geselecteerde map getoond worden.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="statusbar_visible">
+						<local_schema short_desc="Statusbalk zichtbaar">
+							<longdesc>Of de statusbalk zichtbaar dient te zijn.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_visible">
+						<local_schema short_desc="Werkbalk zichtbaar">
+							<longdesc>Of de werkbalk zichtbaar dient te zijn.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="window_list_applet">
+				<dir name="prefs">
+					<entry name="maximum_size">
+						<local_schema short_desc="Maximumgrootte van vensterlijst">
+							<longdesc>Het gebruik van deze sleutel wordt afgeraden sinds Gnome 2.20. Het schema blijft behouden voor compatibiliteit met oudere versies.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="minimum_size">
+						<local_schema short_desc="Minimumgrootte van vensterlijst">
+							<longdesc>Het gebruik van deze sleutel wordt afgeraden sinds Gnome 2.20. Het schema blijft behouden voor compatibiliteit met oudere versies.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="move_unminimized_windows">
+						<local_schema short_desc="Vensters bij herstellen verplaatsen naar het huidige werkblad">
+							<longdesc>Indien ingeschakeld zal het herstellen van een venster deze naar het huidige werkblad brengen. Anders zal worden gewisseld naar het oorspronkelijke werkblad van het venster.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="group_windows">
+						<local_schema short_desc="Wanneer vensters te groeperen">
+							<longdesc>Bepaalt waneer vensters van eenzelfde toepassing op de vensterlijst worden gegroepeerd. Geldige waarden zijn: ‘never’, ‘auto’, en ‘always’.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_all_workspaces">
+						<local_schema short_desc="Vensters van alle werkbladen tonen">
+							<longdesc>Indien ingeschakeld toont de vensterlijst alle vensters van alle werkbladen, anders slechts de vensters van het huidige werkblad.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="workspace_switcher_applet">
+				<dir name="prefs">
+					<entry name="num_rows">
+						<local_schema short_desc="Rijen in werkbladwisselaar">
+							<longdesc>Deze sleutel geeft aan in hoeveel rijen (voor horizontale lay-out) of kolommen (voor verticale lay-out) de werkbladwisselaar de werkbladen weergeeft. Deze sleutel is slechts relevant als de sleutel display_all_workspaces waar is.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_all_workspaces">
+						<local_schema short_desc="Alle werkbladen weergeven">
+							<longdesc>Indien ingeschakeld zal de werkbladwisselaar alle werkbladen tonen, anders slechts het huidige werkblad.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_workspace_names">
+						<local_schema short_desc="Werkbladnamen weergeven">
+							<longdesc>Indien ingeschakeld zullen de werkbladen in de werkbladwisselaar de namen van de werkbladen tonen, anders tonen ze de vensters op het werkblad. Deze instelling werkt alleen bij het gebruik van Metacity voor vensterbeheer.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="fish_applet">
+				<dir name="prefs">
+					<entry name="rotate">
+						<local_schema short_desc="Kantelen in verticale panelen">
+							<longdesc>Indien ingeschakeld wordt de achtergrondafbeelding gekanteld wanneer het paneel verticaal geöriënteerd is.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="speed">
+						<local_schema short_desc="Pauze per beeldje">
+							<longdesc>Deze sleutel geeft het aantal seconden aan voor weergave van elk beeldje.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="frames">
+						<local_schema short_desc="Het aantal beeldjes in het animatiebestand">
+							<longdesc>Deze sleutel geeft het aantal beeldjes aan voor weergave van de visanimatie.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="command">
+						<local_schema short_desc="Uit te voeren opdracht bij een muisklik">
+							<longdesc>Deze sleutel geeft de opdracht aan die getracht wordt uit te voeren wanneer de vis wordt aangeklikt.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="image">
+						<local_schema short_desc="Het animatiepictogram van de vis">
+							<longdesc>Deze sleutel geeft de bestandsnaam aan van de afbeelding die gebruikt wordt voor de animatie in het vis-applet, relatief aan de map waarin de afbeelding zich bevindt.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name">
+						<local_schema short_desc="De naam van de vis">
+							<longdesc>Een vis zonder naam is behoorlijk saai. Geef het beestje een naam om er leven in te blazen.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="clock_applet">
+				<dir name="prefs">
+					<entry name="speed_unit">
+						<local_schema short_desc="Eenheid voor snelheid">
+							<longdesc>Eenheid voor het tonen van windsnelheid.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="temperature_unit">
+						<local_schema short_desc="Eenheid voor temperatuur">
+							<longdesc>Eenheid voor het tonen van temperaturen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="cities">
+						<local_schema short_desc="Locatielijst">
+							<longdesc>Een lijst van locaties om weer te geven in het agendavenster.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="internet_time">
+						<local_schema short_desc="Internettijd gebruiken">
+							<longdesc>Het gebruik van deze sleutel is afgeraden sinds Gnome 2.6 en maakt plaats voor de ‘format’-sleutel. Het schema blijft behouden voor compatibiliteit met oudere versies.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="unix_time">
+						<local_schema short_desc="UNIX-tijd gebruiken">
+							<longdesc>Het gebruik van deze sleutel is afgeraden sinds Gnome 2.6 en maakt plaats voor de ‘format’-sleutel. Het schema blijft behouden voor compatibiliteit met oudere versies.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hour_format">
+						<local_schema short_desc="Uurweergave">
+							<longdesc>Het gebruik van deze sleutel is afgeraden sinds Gnome 2.6 en maakt plaats voor de ‘format’-sleutel. Het schema blijft behouden voor compatibiliteit met oudere versies.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_locations">
+						<local_schema short_desc="Locatielijst uitklappen">
+							<longdesc>Indien ingeschakeld wordt de locatielijst in het kalenderscherm uitgeklapt.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_weather">
+						<local_schema short_desc="Weerinformatie uitklappen">
+							<longdesc>Indien ingeschakeld wordt de lijst met weerinformatie in het kalenderscherm uitgeklapt.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_tasks">
+						<local_schema short_desc="Takenlijst uitklappen">
+							<longdesc>Indien ingeschakeld wordt de takenlijst in het kalenderscherm uitgeklapt.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_birthdays">
+						<local_schema short_desc="Verjaardagenlijst uitklappen">
+							<longdesc>Indien ingeschakeld wordt de lijst met verjaardagen in het kalenderscherm uitgeklapt.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_appointments">
+						<local_schema short_desc="Afsprakenlijst uitklappen">
+							<longdesc>Indien ingeschakeld wordt de lijst met afspraken in het kalenderscherm uitgeklapt.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_week_numbers">
+						<local_schema short_desc="Weeknummers tonen in kalender">
+							<longdesc>Indien ingeschakeld worden weeknummers in de kalender getoond.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="config_tool">
+						<local_schema short_desc="Tijdconfiguratie-programma">
+						</local_schema>
+					</entry>
+					<entry name="gmt_time">
+						<local_schema short_desc="UTC gebruiken">
+							<longdesc>Indien ingeschakeld wordt de tijd in Universal Coordinated Time-zone (UTC)weergeven.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_temperature">
+						<local_schema short_desc="Temperatuur tonen in de klok">
+							<longdesc>Indien ingeschakeld worden de temperatuur naast het weerpictogram weergegeven.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_weather">
+						<local_schema short_desc="Weer tonen in de klok">
+							<longdesc>Indien ingeschakeld wordt het weerpictogram weergegeven.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_tooltip">
+						<local_schema short_desc="Datum tonen in zwevende tip">
+							<longdesc>Indien ingeschakeld wordt de datum getoond in een zwevende tip wanneer de muisaanwijzer boven de klok staat.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_date">
+						<local_schema short_desc="Datum tonen in klok">
+							<longdesc>Indien ingeschakeld wordt naast de tijd ook de datum getoond in de klok.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_seconds">
+						<local_schema short_desc="Tijd tonen inclusief seconden">
+							<longdesc>Indien ingeschakeld wordt de tijd in seconden nauwkeurig weergegeven.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="custom_format">
+						<local_schema short_desc="Aangepaste klokweergave">
+							<longdesc>Deze sleutel geeft aan welke weergave het klok-applet gebruik wanneer de weergavesleutel is ingsteld op ‘custom’. U kunt opmaakcodes voor de functie ‘strftime()’ gebruiken om een bepaalde weergave te verkrijgen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="format">
+						<local_schema short_desc="Uurweergave">
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="panel">
+				<dir name="objects">
+					<entry name="action_type">
+						<local_schema short_desc="Type actieknop">
+							<longdesc>Het actietype dat deze knop representeert. Mogelijke waarden zijn ‘lock’, ‘logout’, ‘run’, ‘search’ en ‘screenshot’. Deze sleutel is slechts relevant als de sleutel ‘object_type’ gelijk is aan ‘action-applet’.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="launcher_location">
+						<local_schema short_desc="Starter-locatie">
+							<longdesc>De locatie van het .desktop-bestand dat deze starter beschrijft. Deze sleutel is slechts relevant als het ‘object_type’ gelijk is aan ‘launcher-object’.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menu_path">
+						<local_schema short_desc="Pad van menu-inhoud">
+							<longdesc>Het pad waarvanuit de menu-inhoud wordt samengesteld. Deze sleutel is slechts relevant als ‘use_menu_path’ ingeschakeld is en de sleutel ‘object_type’ gelijkt is aan ‘menu-object’.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_menu_path">
+						<local_schema short_desc="Aangepast pad gebruiken voor de menu-inhoud">
+							<longdesc>Indien ingeschakeld wordt de sleutel ‘menu_path’ gebruikt als het pad waarvandaan de menu-inhoud moet worden opgebouwd. Indien uitgeschakeld wordt de sleutel ‘menu_path’ genegeerd. Deze sleutel is slechts relevant als de sleutel ‘object_type’ gelijk is aan ‘menu-object’.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="custom_icon">
+						<local_schema short_desc="Het pictogram voor de objectknop">
+							<longdesc>De locatie van het afbeeldingsbestand dat als pictogram dient voor de knop van het object. Deze sleutel is slechts relevant als ‘object_type’ gelijk is aan ‘drawer-object’ of ‘menu-object’ en de sleutel ‘use_custom_icon’ ingeschakeld is.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_custom_icon">
+						<local_schema short_desc="Aangepast pictogram gebruiken voor de knop van het object">
+							<longdesc>Indien ingeschakeld wordt de custom_icon sleutel gebruikt voor een aangepast pictogram op de knop. Indien uitgeschakeld wordt de custom_icon instelling genegeerd. Deze sleutel is slechts relevant als de sleutel ‘object_type’ gelijk is aan ‘menu-object’ of ‘drawer-object’.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="tooltip">
+						<local_schema short_desc="Weer te geven zwevende tip voor opberglade of menu">
+							<longdesc>De weer te geven tekst in een zwevende tip voor deze opberglade of dit menu.Deze sleutel is slechts relevant als de sleutel ‘object_type’ gelijk is aan ‘drawer-object’ of ‘menu-object’.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="attached_toplevel_id">
+						<local_schema short_desc="Paneel verbonden aan opberglade">
+							<longdesc>De identificatie van het paneel dat verbonden is aan deze opberglade. Deze sleutel is slechts relevant als de sleutel ‘object_type’ gelijk is aan ‘drawer-object’.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="bonobo_iid">
+						<local_schema short_desc="Bonobo-IID van applet">
+							<longdesc>Het Bonobo-implementatie-ID van het applet - bijv. ‘OAFIID:GNOME_ClockApplet’. Deze sleutel is slechts relevant als de sleutel ‘object_type’ gelijk is aan ‘bonobo-applet’.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="locked">
+						<local_schema short_desc="Het object vastzetten op het paneel">
+							<longdesc>Indien ingeschakeld mag de gebruiker het applet niet verplaatsen zonder eerst het object losgemaakt te hebben met het ‘Losmaken’-menu-item.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="panel_right_stick">
+						<local_schema short_desc="Positie relatief aan de rechtsonderrand interpreteren">
+							<longdesc>Indien ingeschakeld wordt de positie van het object geïnterpreteerd relatief aan de rechterkant (of onderkant als verticaal) van het paneel.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="position">
+						<local_schema short_desc="De positie van het object op het paneel">
+							<longdesc>De positie van dit paneel-object. De positie wordt bepaald door het aantal beeldpunten vanaf de linker paneelrand (bovenrand als verticaal).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toplevel_id">
+						<local_schema short_desc="Het topniveau-paneel dat het object bevat">
+							<longdesc>De identificatie van het topniveau-paneel dat dit object bevat.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="object_type">
+						<local_schema short_desc="Paneelobject-type">
+							<longdesc>Het type van dit paneel-object. Mogelijke waarden zijn ‘drawer-object’, ‘menu-object’, ‘launcher-object’, ‘bonobo-applet’, ‘action-applet’ en ‘menu-bar’.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="toplevels">
+					<entry name="animation_speed">
+						<local_schema short_desc="Animatiesnelheid">
+							<longdesc>De snelheid om paneel-animaties mee af te spelen. De mogelijke mogelijke waarden zijn ‘slow’, ‘medium’ en ‘fast’. Deze sleutel is slechts relevant als de enable_animations sleutel waar is.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_hide_size">
+						<local_schema short_desc="Aantal zichtbare beeldpunten wanneer verborgen">
+							<longdesc>Geeft het aantal zichtbare beeldpunten aan wanneer het paneel automatisch in een hoek verborgen is. Deze voorkeur is slechts relevant als de sleutel auto_hide waar is.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="unhide_delay">
+						<local_schema short_desc="Paneel weer zichtbaar maken-vertraging">
+							<longdesc>Geeft het aantal milliseconden vertraging aan voordat het paneel automatisch weer wordt afgebeeld nadat de muispijl het paneelgebied ingaat. Deze voorkeur is slechts relevant als de sleutel auto_hide waar is.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hide_delay">
+						<local_schema short_desc="Paneel automatisch verbergen-vertraging">
+							<longdesc>Geeft het aantal milliseconden vertraging aan voordat het paneel automatisch wordt verborgen nadat de muispijl het paneelgebied verlaat. Deze voorkeur is slechts relevant als de sleutel auto_hide waar is.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_arrows">
+						<local_schema short_desc="Pijltjes op verbergknoppen inschakelen">
+							<longdesc>Indien ingeschakeld worden pijltjes geplaatst op de verbergknoppen. Deze sleutel is slechts relevant als de sleutel ‘enable_buttons’ waar is.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_buttons">
+						<local_schema short_desc="Verbergknoppen inschakelen">
+							<longdesc>Indien ingeschakeld worden aan beide zijden van het paneel knoppen geplaatst die gebruikt kunnen worden om het paneel naar de rand van het scherm te verplaatsen, waardoor slechts een knop zichtbaar blijft.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="Animaties inschakelen">
+							<longdesc>Indien ingeschakeld zal het verbergen en tevoorschijn brengen van dit paneel geanimeerd worden in plaats van op slag te verdwijnen en te verschijnen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_hide">
+						<local_schema short_desc="Paneel automatisch in de hoek verbergen">
+							<longdesc>Indien ingeschakeld wordt het paneel automatisch verborgen in een hoek van het scherm wanneer de muispijl het paneelgebied verlaat. Het paneel verschijnt als de muis weer naar het paneelgebied bewogen wordt.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="y_centered">
+						<local_schema short_desc="Paneel centreren op de y-as.">
+							<longdesc>Indien ingeschakeld worden de sleutels ‘y’ en ‘x_bottom’ genegeerd en staat het paneel in het midden van de y-as van het scherm. Wanneer het paneel van grootte wordt veranderd, blijft het op die positie - oftewel het paneel wordt aan beide kanten groter. Indien uitgeschakeld bepalen de sleutels ‘y’ en ‘x_bottom’ de locatie van het paneel.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="x_centered">
+						<local_schema short_desc="Paneel centreren op de x-as.">
+							<longdesc>Indien ingeschakeld worden de sleutels ‘x’ en ‘x_right’ genegeerd en staat het paneel in het midden van de x-as van het scherm. Wanneer het paneel van grootte wordt veranderd, blijft het op die positie - oftewel het paneel wordt aan beide kanten groter. Indien uitgeschakeld bepalen de sleutels ‘x’ en ‘x_right’ de locatie van het paneel.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="y_bottom">
+						<local_schema short_desc="Y-coördinaat van het paneel, gerekend van de onderzijde van het scherm">
+							<longdesc>De locatie van het paneel op de y-as, gerekend vanaf de onderzijde van het scherm. Indien de waarde -1 wordt ingesteld, wordt deze sleutel genegeerd en wordt de waarde van de y-sleutel gebruikt. Indien de waarde groter dan 0 is, dan wordt de waarde van de y-sleutel genegeerd. Deze sleutel is alleen relevant in niet-uitgeschoven toestand. In uitgeschoven toestand wordt deze waarde genegeerd en wordt het paneel geplaatst op de schermrand zoals aangegeven door de oriëntatie-sleutel.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="x_right">
+						<local_schema short_desc="X-coördinaat van het paneel, gerekend van de rechterzijde van het scherm">
+							<longdesc>De locatie van het paneel op de x-as, gerekend vanaf de onderzijde van het scherm. Indien de waarde -1 wordt ingesteld, wordt deze sleutel genegeerd en wordt de waarde van de x-sleutel gebruikt. Indien de waarde groter dan 0 is, dan wordt de waarde van de x-sleutel genegeerd. Deze sleutel is alleen relevant in niet-uitgeschoven toestand. In uitgeschoven toestand wordt deze waarde genegeerd en wordt het paneel geplaatst op de schermrand zoals aangegeven door de oriëntatie-sleutel.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="y">
+						<local_schema short_desc="Y-coördinaat van het paneel">
+							<longdesc>De locatie van het paneel op de y-as. Deze sleutel is alleen relevant in niet-uitgeschoven toestand. In uitgeschoven toestand wordt deze waarde genegeerd en wordt het paneel geplaatst op de schermrand zoals aangegeven door de oriëntatie-sleutel.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="x">
+						<local_schema short_desc="X-coördinaat van het paneel">
+							<longdesc>De locatie van het paneel op de x-as. Deze sleutel is alleen relevant in niet-uitgeschoven toestand. In uitgeschoven toestand wordt deze sleutel genegeerd en wordt het paneel geplaatst op de schermrand zoals aangegeven door de oriëntatie-sleutel.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size">
+						<local_schema short_desc="Paneelgrootte">
+							<longdesc>De hoogte (breedte voor een verticaal paneel) van het paneel. Het paneel zal dynamisch een minimumgrootte bepalen, gebaseerd op de lettertypegrootte en andere factoren. De maximumgrootte is vastgesteld op een kwart van de hoogte (of breedte) van het scherm.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="orientation">
+						<local_schema short_desc="Paneel-oriëntatie">
+							<longdesc>De oriëntatie van het paneel. Mogelijke waarden zijn ‘top’, ‘bottom’, ‘left’, ‘right’. In uitgeschoven toestand bepaalt deze sleutel aan welke schermrand het paneel zich bevindt. In ingeschoven toestand is het verschil tussen ‘top’ en ‘bottom’ minder belangrijk - beiden geven aan dat dit een horizontaal paneel is - maar geeft nog altijd een bruikbare hint wat betreft het gedrag van sommige paneelobjecten. Bijvoorbeeld, op een ‘top’-paneel zal een menuknop zijn menu onder het paneel weergeven, terwijl op een ‘bottom’-paneel het menu erboven verschijnt. </longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand">
+						<local_schema short_desc="Uitschuiven zodat hele schermbreedte wordt gebruikt.">
+							<longdesc>Indien ingeschakeld beslaat het paneel de gehele breedte van het scherm (hoogte als dit een verticaal paneel is). In deze toestand kan het paneel enkel aan een schermrand geplaatst worden. Indien uitgeschakeld zal het paneel slechts slechts zo groot als nodig zijn om de applets, starters en knoppen te bevatten.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="monitor">
+						<local_schema short_desc="De Xinerama-monitor waarop het paneel zich bevindt.">
+							<longdesc>In een Xinerama-omgeving kunt u elke monitor aparte panelen hebben. Deze sleutel geeft aan de monitor aan waarop het paneel wordt weergegeven.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="screen">
+						<local_schema short_desc="Het X-scherm waarop het paneel zich bevindt.">
+							<longdesc>Met een multi-scherminstelling kunt u panelen op elk scherm apart hebben. Deze sleutel identificeert het huidige scherm waarop het paneel getoond wordt.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name">
+						<local_schema short_desc="Naam om dit paneel mee te identificeren.">
+							<longdesc>Dit is een voor mensen leesbare naam welke u kunt gebruiken om een paneel te identificeren. Het voornaamste doel hiervan is om te dienen als de venstertitel van het paneel, wat handig is bij het navigeren tussen panelen.</longdesc>
+						</local_schema>
+					</entry>
+					<dir name="background">
+						<entry name="rotate">
+							<local_schema short_desc="Afbeelding kantelen in verticale panelen">
+								<longdesc>Indien ingeschakeld wordt de achtergrondafbeelding gekanteld wanneer het paneel verticaal geöriënteerd is.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="stretch">
+							<local_schema short_desc="Afbeelding uitrekken tot op het paneel passend">
+								<longdesc>Indien ingeschakeld wordt de afbeelding op dezelfde schaal gemaakt als de paneelomvang. De afbeeldingsverhoudingen blijven niet behouden.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="fit">
+							<local_schema short_desc="Afbeelding inpassen in paneel.">
+								<longdesc>Indien ingeschakeld wordt de afbeelding op schaal gemaakt (met behoud van de afbeeldingsverhoudingen) naar de paneelhoogte (indien horizontaal).</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="image">
+							<local_schema short_desc="Achtergrondafbeelding:">
+								<longdesc>Geeft aan welk bestand dient voor de achtergrondafbeelding. Als de afbeelding een alpha-kanaal bevat, dan wordt dit gemengd met de achtergrondafbeelding van het werkblad.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="opacity">
+							<local_schema short_desc="Dekkingsgraad van de achtergrondkleur">
+								<longdesc>Geeft de (on)doorzichtigheid van de achtergrondkleur aan. Als de kleur niet volledig ondoorzichtig is (een waarde kleiner dan 65535), dan wordt de kleur gemengd met de achtergrondafbeelding van het werkblad.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="color">
+							<local_schema short_desc="Achtergrondkleur">
+								<longdesc>Specificeert de achtergrondkleur voor het paneel in #RGB-vorm.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="type">
+							<local_schema short_desc="Achtergrondtype">
+								<longdesc>Welk type achtergrond voor dit paneel gebruikt wordt. Mogelijke waarden zijn ‘gtk’ - de standaard GTK+ elementachtergrond wordt gebruikt, ‘color’ - de color-sleutel wordt als achtergrondkleur gebruikt, of ‘image’ - de afbeelding aangegeven door de image-sleutel wordt als achtergrond gebruikt.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="general">
+					<entry name="profiles_migrated">
+						<local_schema short_desc="Configuratie van oude profielen gemigreerd">
+							<longdesc>Een boolean-vlag om aan te geven of de vorige gebruikersconfiguratie in/apps/panel/profiles/default gekopieerd is naar de nieuwe locatie in /apps/panel.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="object_id_list">
+						<local_schema short_desc="Lijst van ID&apos;s van paneel-objecten">
+							<longdesc>Een lijst van ID&apos;s van paneel-objecten. Elk ID staat voor een individueel paneel-object (bijv. een starter, actieknop of menuknop / -balk. De instellingen voor elk van deze objecten zijn opgeslagen in /apps/panel/objects/$(id).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="applet_id_list">
+						<local_schema short_desc="Lijst van ID&apos;s van paneel-applets">
+							<longdesc>Een lijst van ID&apos;s van paneel-applets. Elk ID staat voor een individueel paneel-applet. De instellingen voor elk van deze applets zijn opgeslagen in /apps/panel/applets/$(id).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toplevel_id_list">
+						<local_schema short_desc="Lijst van paneel-ID&apos;s">
+							<longdesc>Een lijst van paneel-ID&apos;s. Elke ID identificeert een individueel topniveau-paneel. De instellingen voor elk van deze panelen zijn opgeslagen in /apps/panel/toplevels/$(id).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_autocompletion">
+						<local_schema short_desc="Auto-aanvulling inschakelen in het ‘Toepassing uitvoeren’-dialoogvenster">
+							<longdesc>Indien ingeschakeld is auto-aanvulling in het ‘Toepassing uitvoeren’-dialoogvenster beschikbaar.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_program_list">
+						<local_schema short_desc="Programma-opsomming uitschuiven in het ‘Toepassing uitvoeren’-dialoogvenster">
+							<longdesc>Indien ingeschakeld is de lijst van bekende toepassingen in het ‘Programma uitvoeren’-dialoogvenster uitgeschoven wanneer deze wordt geopend. Deze sleutel is slechts relevant wanneer de sleutel enable_program_list ingeschakeld is.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_program_list">
+						<local_schema short_desc="Programma-opsomming inschakelen in het ‘Toepassing uitvoeren’-dialoogvenster">
+							<longdesc>Indien ingeschakeld is de lijst van bekende toepassingen in het ‘Programma uitvoeren’-dialoogvenster beschikbaar. Of de lijst is uitgeschoven of niet wanneer het dialoogvenster getoond wordt, hangt af van de sleutel ‘show_program_list’.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="global">
+					<entry name="disable_force_quit">
+						<local_schema short_desc="Geforceerd afsluiten uitschakelen">
+							<longdesc>Indien ingeschakeld staat het paneel een gebruiker niet toe om een toepassing te dwingen af te sluiten door geen toegang te geven tot de ‘Afsluiten forceren’-knop.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_log_out">
+						<local_schema short_desc="Afmelden uitschakelen">
+							<longdesc>Indien ingeschakeld staat het paneel een gebruiker niet toe om zich af te melden door geen toegang te geven tot de menu-items voor afmelden.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_lock_screen">
+						<local_schema short_desc="Achterhaald">
+						</local_schema>
+					</entry>
+					<entry name="disabled_applets">
+						<local_schema short_desc="Niet te laden Applet-IID&apos;s">
+							<longdesc>Eem lijst van applet-IID&apos;s die het paneel negeert. Op deze manier kunt u bepaalde applets verhinderen om te laden of om zichtbaar te worden in het menu. Bijvoorbeeld, om het mini-commander applet uit te schakelen voegt u &apos;OAFIID:GNOME_MiniCommanderApplet&apos; toe aan deze lijst. Het paneel dient herstart te worden om dit effect te laten hebben.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="locked_down">
+						<local_schema short_desc="Paneel volledig vastzetten">
+							<longdesc>Indien ingeschakeld laat het paneel geen enkele wijziging toe tot de configuratie. Individuele applets moeten desalniettemin apart vastgezet worden. Het paneel dient herstart te worden om dit effect te laten hebben.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="highlight_launchers_on_mouseover">
+						<local_schema short_desc="Starters laten oplichten wanneer muispijl eroverheen beweegt">
+							<longdesc>Indien ingeschakeld licht een starter op wanneer de gebruiker de muispijl eroverheen beweegt.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="confirm_panel_remove">
+						<local_schema short_desc="Verwijderen van paneel bevestigen">
+							<longdesc>Indien ingeschakeld wordt een bevestigingsdialoogvenster getoond wanneer de gebruiker een paneel wil verwijderen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="drawer_autoclose">
+						<local_schema short_desc="Opberglade automatisch sluiten">
+							<longdesc>Indien ingeschakeld wordt de opberglade automatisch gesloten wanneer de gebruiker een starter die erin zit, aanklikt</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="window_screenshot_key">
+						<local_schema short_desc="Achterhaald">
+						</local_schema>
+					</entry>
+					<entry name="screenshot_key">
+						<local_schema short_desc="Achterhaald">
+						</local_schema>
+					</entry>
+					<entry name="run_key">
+						<local_schema short_desc="Achterhaald">
+						</local_schema>
+					</entry>
+					<entry name="menu_key">
+						<local_schema short_desc="Achterhaald">
+						</local_schema>
+					</entry>
+					<entry name="enable_key_bindings">
+						<local_schema short_desc="Achterhaald">
+						</local_schema>
+					</entry>
+					<entry name="panel_hide_delay">
+						<local_schema short_desc="Achterhaald">
+						</local_schema>
+					</entry>
+					<entry name="panel_animation_speed">
+						<local_schema short_desc="Achterhaald">
+						</local_schema>
+					</entry>
+					<entry name="panel_show_delay">
+						<local_schema short_desc="Achterhaald">
+						</local_schema>
+					</entry>
+					<entry name="panel_minimized_size">
+						<local_schema short_desc="Achterhaald">
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="Animaties inschakelen">
+						</local_schema>
+					</entry>
+					<entry name="keep_menus_in_memory">
+						<local_schema short_desc="Achterhaald">
+						</local_schema>
+					</entry>
+					<entry name="tooltips_enabled">
+						<local_schema short_desc="Zwevende tips inschakelen.">
+							<longdesc>Indien ingeschakeld worden zwevende tips getoond voor paneelobjecten.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gweather">
+				<dir name="prefs">
+					<entry name="radar">
+						<local_schema short_desc="URL voor de radarkaart">
+							<longdesc>De aangepaste URL voor de radarkaart.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_custom_radar_url">
+						<local_schema short_desc="Aangepaste URL gebruiken voor de radarkaart">
+							<longdesc>Indien ingeschakeld, een radarkaart ophalen van de locatie gespecificeerd in d sleutel &quot;radar&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="coordinates">
+						<local_schema short_desc="Locatie coördinaten">
+						</local_schema>
+					</entry>
+					<entry name="location4">
+						<local_schema short_desc="Weerbericht voor een stad">
+						</local_schema>
+					</entry>
+					<entry name="location3">
+						<local_schema short_desc="Radarlocatie">
+						</local_schema>
+					</entry>
+					<entry name="location2">
+						<local_schema short_desc="Zone locatie">
+						</local_schema>
+					</entry>
+					<entry name="location1">
+						<local_schema short_desc="Dichtstbijzijnde stad">
+						</local_schema>
+					</entry>
+					<entry name="location0">
+						<local_schema short_desc="Weerbericht locatie-informatie">
+						</local_schema>
+					</entry>
+					<entry name="enable_radar_map">
+						<local_schema short_desc="Radarkaart weergeven">
+							<longdesc>Radarkaart ophalen bij iedere update.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_detailed_forecast">
+						<local_schema short_desc="Niet meer gebruikt">
+						</local_schema>
+					</entry>
+					<entry name="temperature_unit">
+						<local_schema short_desc="Temperatuur eenheid">
+							<longdesc>De gebruikte eenheid voor temperatuur.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="speed_unit">
+						<local_schema short_desc="Snelheids eenheid">
+							<longdesc>De gebruikte eenheid voor windsnelheid.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="pressure_unit">
+						<local_schema short_desc="Luchtdruk eenheid">
+							<longdesc>De gebruikte eenheid voor druk.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="distance_unit">
+						<local_schema short_desc="Afstands eenheid">
+							<longdesc>De gebruikte eenheid voor zicht.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_metric">
+						<local_schema short_desc="Metrische eenheden gebruiken">
+							<longdesc>Metrische eenheden gebruiken in plaats van engelse eenheden.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_update_interval">
+						<local_schema short_desc="Verversingstijd">
+							<longdesc>Het automatische verversingsinterval in seconden.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_update">
+						<local_schema short_desc="Gegevens automatisch verversen">
+							<longdesc>Bepaalt of het applet de weerstatistieken automatisch ververst of niet.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnome-keyring">
+				<dir name="daemon-components">
+					<entry name="pkcs11">
+						<local_schema short_desc="Of de PKCS#11-component van gnome-keyring ingeschakeld is.">
+							<longdesc>Deze optie schakelt de PKCS#11-component van gnome-keyring daemon in. Dit heeft alleen effect als gnome-keyring-daemon start, bijvoorbeeld als de gebruiker zich aanmeldt. Deze instelling kan worden overschreven door parameters op de opdrachtregel mee te geven aan de daemon.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="ssh">
+						<local_schema short_desc="Of de SSH-agent van gnome-keyring ingeschakeld is.">
+							<longdesc>Deze optie schakelt de SSH-agent van gnome-keyring daemon in. Dit heeft alleen effect als gnome-keyring-daemon start, bijvoorbeeld als de gebruiker zich aanmeldt. Deze instelling kan worden overschreven door parameters op de opdrachtregel mee te geven aan de daemon.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="brasero">
+				<dir name="filter">
+					<entry name="notify">
+						<local_schema short_desc="Geeft aan of Brasero dient te melden dat bestanden gefilterd worden.">
+							<longdesc>Geeft aan of Brasero dient te melden dat bestanden gefilterd worden. Indien ingeschakeld, zal een bericht weergegeven worden.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hidden">
+						<local_schema short_desc="Of Brasero verborgen bestanden dient te filteren">
+							<longdesc>Of Brasero verborgen bestanden dient te filteren. Indien ingeschakeld worden deze gefilterd.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="display">
+					<entry name="video_height">
+						<local_schema short_desc="Hoogte van videovoorbeeld">
+							<longdesc>Standaardhoogte van videovoorbeeld.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="video_width">
+						<local_schema short_desc="Breedte van videovoorbeeld">
+							<longdesc>Standaardbreedte van videovoorbeeld.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="image_height">
+						<local_schema short_desc="Hoogte van afbeeldingsvoorbeeld">
+							<longdesc>Standaardhoogte van afbeeldingsvoorbeeld.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="image_width">
+						<local_schema short_desc="Breedte van afbeelingsvoorbeeld">
+							<longdesc>Standaardbreedte van afbeeldingsvoorbeeld.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="viewer">
+						<local_schema short_desc="Bestandsvoorbeeld inschakelen">
+							<longdesc>Geeft aan of bestandsvoorbeelden getoond moeten worden.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="layout">
+						<local_schema short_desc="Lay-out van de gebruikersinterface">
+							<longdesc>Deze waarde bepaalt waar het projectpaneel getoond wordt. ‘0’ voor rechts, ‘1’ voor links, ‘2&apos; voor bovenaan, ‘3’ voor onderaan.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="video_pane">
+						<local_schema>
+							<longdesc>Het te tonen paneel voor videoprojecten. Mogelijk waardes: ‘Chooser’, ‘Search’ of ‘Playlist’.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="data_pane">
+						<local_schema>
+							<longdesc>Het te tonen paneel voor dataprojecten. Mogelijk waardes: ‘Chooser’ of ‘Search’.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="audio_pane">
+						<local_schema>
+							<longdesc>Het te tonen paneel voor audioprojecten. Mogelijk waardes: ‘Chooser’, ‘Search’ of ‘Playlist’.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="sidepane">
+						<local_schema short_desc="Zijbalk inschakelen">
+							<longdesc>Geeft aan of het zijpaneel getoond moet worden.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="config">
+					<entry name="raw_flag">
+						<local_schema short_desc="Geeft aan de ‘--driver generic-mmc-raw’-vlag voor cdrdao gebruikt moet worden.">
+							<longdesc>Geeft aan of de ‘--driver generic-mmc-raw’-vlag voor cdrdao gebruikt moet worden. Dit kan nodig zijn om problemen bepaalde stations te omzeilen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="minbuf_value">
+						<local_schema short_desc="Gebruikt in combinatie met de ‘-immed’-vlag voor cdrecord.">
+							<longdesc>Gebruikt in combinatie met de ‘-immed’-vlag voor cdrecord.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="dao_flag">
+						<local_schema short_desc="Geeft aan of de ‘use-the-force-luke=dao’-vlag voor growisofs gebruikt moet worden.">
+							<longdesc>Geeft aan of de ‘use-the-force-luke=dao’-vlag voor growisofs gebruikt moet worden. Indien uitgeschakeld zal deze niet gebruikt worden; dit kan problemen met bepaalde stations omzeilen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="immed_flag">
+						<local_schema short_desc="De ‘-immed’-vlag bij cdrecord inschakelen.">
+							<longdesc>Geeft aan of de ‘-immed’-vlag voor cdrecord gebruikt moet worden. Schakel dit alleen in speciale gevallen in want het is slechts bedoeld om problemen met bepaalde stations te omzeilen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="plugins">
+						<local_schema short_desc="Lijst van te gebruiken aanvullende plug-ins">
+							<longdesc>Bevat de lijst van extra plug-ins die Brasero zal gebruiken om schijven te branden. Indien ingesteld op NULL, zal Brasero alle plugins laden.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="engine-group">
+						<local_schema short_desc="Voorkeurs-engine voor branden">
+							<longdesc>Bevat de naam van de voorkeurs-engine voor het branden van cd&apos;s. Deze zal indien mogelijk gebruikt worden.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="evince">
+				<entry name="override_restrictions">
+					<local_schema short_desc="Documentrestricties negeren">
+						<longdesc>Documentrestricties, zoals een beperking op kopiëren of afdrukken, negeren.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="gnome-settings">
+				<dir name="gnumeric">
+					<entry name="toolbar_style">
+						<local_schema short_desc="Werkbalkstijl">
+							<longdesc>Werkbalk-stijl. Geldige waarden zijn both, both_horiz, icon en text</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnumeric">
+				<dir name="plugin">
+					<dir name="latex">
+						<entry name="use-utf8">
+							<local_schema short_desc="Bij LaTeX-export, UTF-8 gebruiken">
+								<longdesc>Deze instelling bepaalt of aangemaakte LaTeX-bestanden UTF-8 (unicode) gebruiken of ISO-8859-1 (Latin1). Om UTF-8 bestanden te maken, moet u het ucs LaTeX pakket hebben geïnstalleerd.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="cut-and-paste">
+					<entry name="prefer-clipboard">
+						<local_schema short_desc="bij selecteren CLIPBOARD prefereren boven PRIMARY">
+							<longdesc>Indien WAAR, zal Gnumeric de modernere CLIPBOARD-selectie verkiezen boven de verouderde PRIMARY-selecties. Zet deze variabele op ONWAAR als u met oudere toepassingen te maken heeft, zoals Xterm of Emacs, die alleen de PRIMARY-selectie gebruiken.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="core">
+					<dir name="sort">
+						<dir name="dialog">
+							<entry name="max-initial-clauses">
+								<local_schema short_desc="Aantal automatisch clausules">
+									<longdesc>Bij het selecteren van een sorteerbereik in het dialoogvenster &apos;Sorteren&apos;, worden automatisch zoekclausules bijgevoegd. Dit getal bepaalt het maximum aantal clausules dat automatisch toegevoegd zal worden.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+						<dir name="default">
+							<entry name="ascending">
+								<local_schema short_desc="Oplopend sorteren">
+									<longdesc>Deze optie bepaalt de beginstand van de sorteervolgorde-knop in het sorteerdialoogvenster.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="retain-formats">
+								<local_schema short_desc="Sorteren behoudt opmaak">
+									<longdesc>Deze optie zort dat de sorteerknoppen op de werkbalk bij het sorteren de opmaak van de cellen behouden. Ook zal hiermee het vinkje in het sorteerdialoogvenster standaard bij: &apos;opmaak behouden&apos; staan</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="by-case">
+								<local_schema short_desc="Sorteren is hoofdlettergevoelig">
+									<longdesc>Deze optie zorgt dat de sorteerknoppen op de werkbalk hoofdlettergevoelig sorteren. Ook zal hiermee het vinkje in het sorteerdialoogvenster standaard bij: &apos;hooflettergevoelig&apos; staan.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+					</dir>
+					<dir name="file">
+						<dir name="save">
+							<entry name="def-overwrite">
+								<local_schema short_desc="Bestanden overschrijven instellen als standaard">
+									<longdesc>Voordat een reeds bestaand bestand wordt overschreven laat gnumeric een waarschuwingsdialoog zien. Als u deze optie aanzet zal de knop voor overschrijven, de standaardknop zijn.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="single_sheet">
+								<local_schema short_desc="Waarschuwen als geëxporteerd wordt naar een enkel-werkblad formaat">
+									<longdesc>Sommige bestandsformaten kunnen slechts een enkel werkblad bevatten. Deze variabele bepaalt of de gebruiker wordt gewaarschuwd als er van een werkmap met meerdere werkbladen slechts één werkblad wordt opgeslagen.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+					</dir>
+					<dir name="xml">
+						<entry name="compression-level">
+							<local_schema short_desc="Standaard compressieniveau voor Gnumeric-bestanden">
+								<longdesc>Dit getal (tussen 0 en 9) geeft de mate waarin Gnumeric bestanden comprimeert bij het opslaan in het standaard bestandsformaat. Bij 0 is er geen compressie terwijl bij 9 de bestanden maximaal gecomprimeerd worden.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="gui">
+						<dir name="window">
+							<entry name="zoom">
+								<local_schema short_desc="Standaard zoom-factor">
+									<longdesc>De standaard zoomfactor voor nieuwe werkmappen.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="y">
+								<local_schema short_desc="Standaard verticale grootte van venster">
+									<longdesc>Dit getal (tussen 0.25 en 1.00) geeft de verticale fractie van het beeldscherm dat door het standaardvenster in beslag wordt genomen.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="x">
+								<local_schema short_desc="Standaard horizontale grootte van venster">
+									<longdesc>Dit getal (tussen 0.25 en 1.00) geeft de horizontale fractie van het beeldscherm dat door het standaardvenster in beslag wordt genomen.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+						<dir name="editing">
+							<entry name="transitionkeys">
+								<local_schema short_desc="Overgangstoetsen">
+								</local_schema>
+							</entry>
+							<entry name="recalclag">
+								<local_schema short_desc="Vertraging bij automatisch herberekenen van uitdrukkingen">
+									<longdesc>Indien `lag&apos; gelijk is aan 0, zal gnumeric alle auto-uitdrukkingen onmiddellijk na elke wijziging herberekenen. Indien `lag&apos; niet gelijk is aan nul, krijgt gnumeric gelegenheid om wijzigingen te verzamelen voordat er opnieuw een herberekening wordt uitgevoerd. Wanneer `lag&apos; positief is, wacht gnumeric na het aanbrengen van de wijziging met de herberekening, gedurende het aantal milliseconden dat `lag&apos; aangeeft; indien binnen deze periode meer wijzigingen worden doorgevoerd, worden deze op het eind van de periode gelijk meeverwerkt.
+Wanneer `lag&apos; negatief is, wordt een herberekening pas uitgevoerd nadat er een periode van |lag| milliseconden geen activiteit is geweest.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="livescrolling">
+								<local_schema short_desc="Live schuiven">
+									<longdesc>Deze variabele bepaalt of &apos;live&apos;-schuiven (versus vertraagd) wordt gebruikt.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="autocomplete">
+								<local_schema short_desc="Automatisch aanvullen">
+									<longdesc>Deze variabele bepaalt of autoaanvullen wordt gebruikt.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+						<dir name="toolbars">
+							<entry name="ObjectToolbar">
+								<local_schema short_desc="Objectenwerkbalk zichtbaar">
+									<longdesc>Deze variabele bepaalt of de objectenwerkbalk in eerste instantie getoond wordt.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="FormatToolbar">
+								<local_schema short_desc="Opmaakwerkbalk zichtbaar">
+									<longdesc>Deze variabele bepaalt of de opmaakwerkbalk in eerste instantie getoond wordt.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="StandardToolbar-position">
+								<local_schema short_desc="Standaardwerkbalk positie">
+								</local_schema>
+							</entry>
+							<entry name="StandardToolbar">
+								<local_schema short_desc="Standaardwerkbalk zichtbaar">
+									<longdesc>Deze variabele bepaalt of de standaardwerkbalk in eerste instantie getoond wordt.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+						<dir name="screen">
+							<entry name="verticaldpi">
+								<local_schema short_desc="DPI Vertikaal">
+									<longdesc>Schermresolutie in verticale richting.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="horizontaldpi">
+								<local_schema short_desc="DPI Horizontaal">
+									<longdesc>Schermresolutie in horizontale richting.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+					</dir>
+					<dir name="workbook">
+						<entry name="n-sheet">
+							<local_schema short_desc="Standaard aantal werkbladen">
+								<longdesc>Het standaard aantal werkbladen in een nieuwe werkmap.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="defaultfont">
+						<entry name="italic">
+							<local_schema short_desc="Het standaard lettertype is cursief.">
+								<longdesc>Deze waarde bepaalt of het standaard lettertype van een nieuwe werkmap cursief is.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bold">
+							<local_schema short_desc="Het standaard lettertype is vet.">
+								<longdesc>Deze waarde bepaalt of het standaard lettertype van een nieuwe werkmap, vet is.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="name">
+							<local_schema short_desc="Standaard lettertype-naam">
+							</local_schema>
+						</entry>
+						<entry name="size">
+							<local_schema short_desc="Standaard lettergrootte">
+								<longdesc>Het grootte van het standaard lettertype voor nieuwe werkmappen.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="undo">
+					<entry name="max_descriptor_width">
+						<local_schema short_desc="Lengte van de herstellen-omschrijvingen">
+							<longdesc>Deze waarde geeft de maximum lengte van de opdrachtomschrijvingen in de herstellen/opnieuw lijsten.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="maxnum">
+						<local_schema short_desc="Aantal Herstellen-items">
+							<longdesc>Deze waarde bepaalt het maximum aantal items in de herstellen/opnieuw-lijst.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size">
+						<local_schema short_desc="Maximum omvang van Herstellen">
+							<longdesc>Deze waarde bepaalt de lengte van de herstellen-lijst. Elke bewerking heeft een geassocieerde grootte teneinde het te kunnen vergelijken met het geheugengebruik dat benodigd is voor het bewerken van een enkele cel (de grootte daarvan is 1). De herstellen-lijst zal worden afgekapt als de grootte van de lijst, deze waarde overschrijdt.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_sheet_name">
+						<local_schema short_desc="Werkbladnaam tonen in de Herstellen-lijst">
+							<longdesc>Deze waarde bepaalt of de werkbladnamen worden getoond in de herstellen/opnieuw lijsten.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="dialogs">
+					<dir name="rs">
+						<entry name="unfocused">
+							<local_schema short_desc="&quot;Bereik-selecties zonder focus&quot; toestaan">
+								<longdesc>Sommige dialoogvensters bevatten slechts een enkel invoerveld voor bereik-selecties in de werkmap. Als deze variabele aangevinkt wordt, zal een bereik-selectie rechtstreeks in dit invoerveld worden gezet, zelfs al heeft dit invoerveld geen toetsenbord-aandacht.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="printsetup">
+					<entry name="hf-right">
+						<local_schema short_desc="Kop/voet opmaakt (rechter deel)">
+							<longdesc>Gebruik het dialoogvenster Afdrukinstellingen om deze waarde te wijzigen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hf-middle">
+						<local_schema short_desc="Kop/voet opmaak (midden)">
+							<longdesc>Gebruik het dialoogvenster Afdrukinstellingen om deze waarde te wijzigen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hf-left">
+						<local_schema short_desc="Kop/voet opmaak (linker deel)">
+							<longdesc>Gebruik het dialoogvenster Afdrukinstellingen om deze waarde te wijzigen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="margin-gtk-right">
+						<local_schema short_desc="Standaard ondermarge">
+						</local_schema>
+					</entry>
+					<entry name="margin-bottom">
+						<local_schema short_desc="Standaard ondermarge">
+							<longdesc>Deze waarde geeft het standaart aantal punten van de onderkant van de pagina tot het einde van de tekst. Gebruik het dialoogvenster Afdrukinstellingen om deze waarde te wijzigen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="margin-top">
+						<local_schema short_desc="Standaard bovenmarge">
+							<longdesc>Deze waarde geeft het standaard aantal punten van de bovenkant van de pagina tot het begin van de tekst. Gebruik het dialoogvenster Afdrukinstellingen om deze waarde te wijzigen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="repeat-left">
+						<local_schema short_desc="Standaard herhaald linkergebied">
+							<longdesc>Deze tekenreeks geeft het standaard gebied dat aan de linkerzijde van elk afgedrukt werkblad wordt herhaald. Gebruik het dialoog Afdrukinstellingen om deze waarde in te stellen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="repeat-top">
+						<local_schema short_desc="Standaard herhaald bovengebied">
+							<longdesc>Deze tekenreeks geeft het standaard gebied dat aan de bovenzijde van elk afgedrukt werkblad wordt herhaald. Gebruik het dialoog Afdrukinstellingen om deze waarde in te stellen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="scale-height">
+						<local_schema short_desc="Standaard schaalhoogte">
+						</local_schema>
+					</entry>
+					<entry name="scale-width">
+						<local_schema short_desc="Standaard schaalbreedte">
+						</local_schema>
+					</entry>
+					<entry name="scale-percentage-value">
+						<local_schema short_desc="Standaard schalingspercentage">
+							<longdesc>Deze waarde geeft het percentage waarmee elke afgedrukte pagina wordt vergroot of verkleind. Gebruik het dialoogvenster Afdrukinstellingen om deze waarde te wijzigen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="scale-percentage">
+						<local_schema short_desc="Standaard schalingstype">
+							<longdesc>Deze waarde bepaalt of de standaardinstelling in het afdrukinstellingen-venster wat betreft het op schaal maken van pagina&apos;s met een gegeven percentage. Gebruik het Afdrukinstellingenvenster om deze waarde te bewerken.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="across-then-down">
+						<local_schema short_desc="Standaard afdrukrichting">
+							<longdesc>Deze waarde bepaalt de standaard instelling in het dialoogvenster Afdrukinstellingen of eerst naar rechts wordt afgedrukt en dan naar beneden. Gebruik het dialoogvenster Afdrukinstellingen om deze waarde te wijzigen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="print-titles">
+						<local_schema short_desc="Standaard titel afdrukken">
+							<longdesc>Deze waarde bepaalt of de standaardinstelling in het afdrukinstellingen-venster wat betreft het afdrukken van rij- en kolomkoppen. Gebruik het Afdrukinstellingenvenster om deze waarde te bewerken</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="print-black-n-white">
+						<local_schema short_desc="Standaard zwart-wit afdrukken">
+							<longdesc>Deze waarde bepaalt de standaard instelling in het dialoogvenster Afdrukinstellingen of alleen in zwart-wit wordt afgedrukt. Gebruik het dialoogvenster Afdrukinstellingen om deze waarde te wijzigen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="print-even-if-only-styles">
+						<local_schema short_desc="Standaard cellen afdrukken met alleen stijlen">
+							<longdesc>Deze waarde bepaalt de standaard instelling in het dialoog Afdrukinstellingen, of lege cellen (maar met opmaak) worden afgedrukt. Gebruik het dialoog Afdrukinstellingen om deze instelling te wijzigen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="print-grid-lines">
+						<local_schema short_desc="Standaard rooster afdrukken">
+							<longdesc>&gt;Deze waarde bepaalt of bij de standaardinstelling in het dialoogvenster &quot;Afdrukinstellingen&quot; rasterlijnen worden gebruikt. Gebruik het dialoogvenster &quot;Afdrukinstellingen&quot; om deze waarde te bewerken.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="center-vertically">
+						<local_schema short_desc="Standaard verticale centrering">
+						</local_schema>
+					</entry>
+					<entry name="center-horizontally">
+						<local_schema short_desc="Standaard horizontale centrering">
+						</local_schema>
+					</entry>
+					<entry name="hf-font-italic">
+						<local_schema short_desc="Het standaard lettertype voor de kop/voet is cursief.">
+							<longdesc>Deze waarde bepaalt of het standaard lettertype van een kop of voettekst, cursief is.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hf-font-bold">
+						<local_schema short_desc="Het standaard lettertype voor de kop/voet is vet.">
+							<longdesc>Deze waarde bepaalt of het standaard lettertype van een kop of voettekst, vet is.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hf-font-name">
+						<local_schema short_desc="Standaard lettertype-naam kop/voet">
+						</local_schema>
+					</entry>
+					<entry name="hf-font-size">
+						<local_schema short_desc="Standaard lettertypegrootte kop/voet">
+							<longdesc>Het grootte van het standaard lettertype voor kop en voetteksten</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="footer">
+						<local_schema short_desc="Paginavoet">
+							<longdesc>De standaard paginavoet voor nieuwe documenten hetgeen aangepast kan worden via het dialoogvenster: pagina-instellen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="header">
+						<local_schema short_desc="Paginakop">
+							<longdesc>De standaard paginakop voor nieuwe documenten hetgeen aangepast kan worden via het dialoogvenster: pagina-instellen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="all-sheets">
+						<local_schema short_desc="Afdrukinstellingen toepassen op alle werkbladen">
+							<longdesc>Deze waarde bepaalt of de instellingen in het afdruk-dialoogvenster standaard voor alle werkbladen tegelijk gelden.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="autoformat">
+					<entry name="usr-dir">
+						<local_schema short_desc="Gebruikersmap voor autoformaten.">
+							<longdesc>De hoofdmap voor gebruikerspecifieke autoformat-sjablonen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="sys-dir">
+						<local_schema short_desc="Systeemmap voor autoformaten">
+							<longdesc>Deze map bevat de vooraf-geïnstalleerde autoformat-sjablonen</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="extra-dirs">
+						<local_schema short_desc="Lijst van extra Autoformat-mappen.">
+							<longdesc>Deze lijst bevat alle extra mappen met autoformat-sjablonen.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="plugins">
+					<entry name="extra-dirs">
+						<local_schema short_desc="Lijst van extra plugin-mappen.">
+							<longdesc>Deze lijst bevat alle extra mappen met plugins.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="file-states">
+						<local_schema short_desc="Lijst van Plugin Bestandstoestanden.">
+							<longdesc>Deze lijst bevat alle plugin bestandstoestanden.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="known">
+						<local_schema short_desc="Lijst van bekende plugins.">
+							<longdesc>Deze lijst bevat alle beschikbare plugins.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="active">
+						<local_schema short_desc="Lijst met actieve plugins">
+							<longdesc>Deze lijst bevat alle plugins die automatisch moeten worden geactiveerd.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="activate-new">
+						<local_schema short_desc="Nieuwe plugins activeren">
+							<longdesc>Deze variabele bepaalt of nieuw ontdekte plugins automatisch worden geactiveerd.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="autocorrect">
+					<entry name="replace">
+						<local_schema short_desc="Vervanging automatisch corrigeren">
+							<longdesc>Vervanging automatisch corrigeren</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="names-of-days">
+						<local_schema short_desc="Autocorrectie toepassen op dagnamen">
+							<longdesc>Autocorrectie toepassen op dagnamen</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="first-letter-list">
+						<local_schema short_desc="Lijst met Eerste-letter Uitzonderingen">
+							<longdesc>Autocorrectie corrigeert niet de eerste letter voor woorden die in deze lijst staan.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="first-letter">
+						<local_schema short_desc="Eerste letter automatisch corrigeren">
+							<longdesc>Eerste letter automatisch corrigeren</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="init-caps-list">
+						<local_schema short_desc="Lijst met Beginhoofdletter Uitzonderingen">
+							<longdesc>Autocorrectie corrigeert niet een begin-hoofdletter voor woorden die in deze lijst staan.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="init-caps">
+						<local_schema short_desc="Beginhoofdletter automatisch corrigeren">
+							<longdesc>Beginhoofdletter automatisch corrigeren</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="functionselector">
+					<entry name="num-of-recent">
+						<local_schema short_desc="Maximumlengte van de lijst met recentelijk gebruikte functies.">
+							<longdesc>De functiekiezer gebruikt een lijst met recentelijk gebruikte functies. Dit is de maximumlengte van die lijst.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="recentfunctions">
+						<local_schema short_desc="Lijst van recentelijk gebruikte functies.">
+							<longdesc>De functiekiezer houdt een lijst bij van recentelijk gebruikte functies. Dat is deze lijst.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+		</dir>
+		<dir name="desktop">
+			<dir name="gnome">
+				<dir name="interface">
+					<entry name="show_unicode_menu">
+						<local_schema short_desc="Het &apos;Unicode controleteken&apos;-menu tonen">
+							<longdesc>Of de contextmenu&apos;s van tekstvelden een optie moeten bieden om controletekens in te voegen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_input_method_menu">
+						<local_schema short_desc="&apos;Invoermethoden&apos;-menu tonen">
+							<longdesc>Of de contextmenu&apos;s van tekstvelden een optie moeten bieden om de invoermethode te wijzigen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menubar_accel">
+						<local_schema short_desc="Menubalk-sneltoets">
+							<longdesc>Sneltoets voor het openen van de menubalken.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="file_chooser_backend">
+						<local_schema short_desc="Module voor GtkFileChooser">
+							<longdesc>Te gebruiken modelmodule voor bestandssysteemweergave voor het GtkFileChooser element. Mogelijke waardes zijn ‘gio’, ‘gnome-vfs’ en ‘gtk+’.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="status_bar_meter_on_right">
+						<local_schema short_desc="Statusbalk aan de rechterkant">
+							<longdesc>Of er een meter op statusbalk aan de rechterkant weergegeven moet worden.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_custom_font">
+						<local_schema short_desc="Aangepast lettertype gebruiken">
+							<longdesc>Of gtk+-toepassingen een aangepast lettertype moeten gebruiken.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="monospace_font_name">
+						<local_schema short_desc="Niet-proportioneel lettertype">
+							<longdesc>Naam van een niet-proportioneel lettertype voor gebruik in terminalvenster-achtige toepassingen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="document_font_name">
+						<local_schema short_desc="Documentlettertype">
+							<longdesc>Naam van het standaardlettertype voor het lezen van documenten.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk-im-module">
+						<local_schema short_desc="GTK IM Module">
+							<longdesc>Naam de van GTK+ invoermethode.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk-im-status-style">
+						<local_schema short_desc="GTK IM Status Style">
+							<longdesc>Naam de van GTK+ invoermethode Status-stijl van gtk+.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk-im-preedit-style">
+						<local_schema short_desc="GTK IM Preedit Style">
+							<longdesc>Naam de van GTK+ invoermethode Preedit-stijl van gtk+.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="font_name">
+						<local_schema short_desc="Standaardlettertype">
+							<longdesc>Naam van het standaardlettertype van gtk+.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk_key_theme">
+						<local_schema short_desc="Gtk+ Thema">
+							<longdesc>Basisnaam voor standaardthema van gtk+.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk_theme">
+						<local_schema short_desc="Gtk+ Thema">
+							<longdesc>Basisnaam voor standaardthema van gtk+.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="icon_theme">
+						<local_schema short_desc="Pictogramthema">
+							<longdesc>Te gebruiken pictogramthema voor het paneel, nautilus, etc...</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="cursor_blink_time">
+						<local_schema short_desc="Knippersnelheid van cursor">
+							<longdesc>Lengte van de cursor-knippercyclus, in milliseconden.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="cursor_blink">
+						<local_schema short_desc="Knipperen van Cursor">
+							<longdesc>Of de cursor moet knipperen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_icons_size">
+						<local_schema short_desc="Werkbalk pictogramafmetingen">
+							<longdesc>De grootte pictogrammen op de werkbalken, geldige waarden zijn ´small-toolbar´ of ´large-toolbar´.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_detachable">
+						<local_schema short_desc="Werkbalken kunnen losgescheurd worden">
+							<longdesc>Of de gebruiker werkbalken kan losscheuren en los op het scherm kan neerzetten.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menubar_detachable">
+						<local_schema short_desc="Menubalken kunnen losgescheurd worden">
+							<longdesc>Of de gebruiker menubalken kan losscheuren en los op het scherm kan neerzetten.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="buttons_have_icons">
+						<local_schema short_desc="Menu&apos;s hebben pictogrammen">
+							<longdesc>Of menu&apos;s behalve een opschrift ook een pictogram mogen weergeven.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menus_have_icons">
+						<local_schema short_desc="Menu&apos;s hebben pictogrammen">
+							<longdesc>Of menu&apos;s een pictogram naast een menu-ingang mogen weergeven.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_style">
+						<local_schema short_desc="Werkbalkstijl">
+							<longdesc>Werkbalkstijl. Geldige waarden zijn ‘both’, ‘both-horiz’, ‘icons’ en ‘text’.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="can_change_accels">
+						<local_schema short_desc="Mag sneltoetsen veranderen">
+							<longdesc>Of de gebruiker dynamisch een nieuwe sneltoetsbinding kan aangeven wanneer de muis een selecteerbaar menuonderdeel aanwijst.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menus_have_tearoff">
+						<local_schema short_desc="Menu&apos;s hebben een losscheuroptie">
+							<longdesc>Of menu&apos;s een losscheurrand moeten hebben.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="Animaties gebruiken">
+							<longdesc>Of animaties weergegeven moeten worden. Opmerking: Dit is een globale instelling. Het heeft invloed op het paneel, vensterbeheer, etc...</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="accessibility">
+						<local_schema short_desc="Toegankelijkheid gebruiken">
+							<longdesc>Of programma&apos;s toegankelijkheid moeten gebruiken.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="background">
+					<entry name="color_shading_type">
+						<local_schema short_desc="Type kleurschakering">
+							<longdesc>Hoe de achtergrondkleur getekend moet worden. Mogelijke waarden zijn ‘horizontal-gradient’, ‘vertical-gradient’, ‘solid’.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="secondary_color">
+						<local_schema short_desc="Secundaire kleur">
+							<longdesc>Rechter of onderste kleur bij kleurverloop (ongebruikt bij één kleur).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="primary_color">
+						<local_schema short_desc="Primaire kleur">
+							<longdesc>Linker - of bovenste kleur bij kleurverloop, of gewoon de kleur bij één kleur.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="picture_opacity">
+						<local_schema short_desc="Doorzichtigheid van afbeelding">
+							<longdesc>Doorzichtigheid van de achtergrondafbeelding.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="picture_filename">
+						<local_schema short_desc="Bestandsnaam van afbeelding">
+							<longdesc>Bestand voor achtergrondafbeelding.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="picture_options">
+						<local_schema short_desc="Opties van afbeelding">
+							<longdesc>Bepaalt hoe de afbeeldingen welke gezet is met wallpaper_filename wordt weergegeven. Mogelijke waarden zijn ‘none’ (niet), ‘wallpaper’ (behang), ‘centered’ (gecentreerd), ‘scaled’ (geschaald), ‘stretched’ (uitgerekt).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="draw_background">
+						<local_schema short_desc="Bureaubladachtergrond tekenen">
+							<longdesc>Laat Gnome de werkbladachtergrond tekenen.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="thumbnail_cache">
+					<entry name="maximum_size">
+						<local_schema>
+							<longdesc>Maximum grootte van de miniaturen-cache, in megabyte. Instellen op -1 om opschonen uit te zetten.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="maximum_age">
+						<local_schema>
+							<longdesc>Maximum leeftijd voor miniaturen in de cache, in dagen. Instellen op -1 om opschonen uit te zetten.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="typing_break">
+					<entry name="enabled">
+						<local_schema short_desc="Of het op slot zetten van het toetsenbord is ingeschakeld">
+							<longdesc>Of het op slot zetten van het toetsenbord is ingeschakeld</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="allow_postpone">
+						<local_schema short_desc="Uitstellen van pauzes toestaan">
+							<longdesc>Of het tikpauze-scherm al dan niet kan worden uitgesteld.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="break_time">
+						<local_schema short_desc="Pauze-tijd">
+							<longdesc>Aantal minuten dat de tikpauze duurt.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="type_time">
+						<local_schema short_desc="Tijd om te typen">
+							<longdesc>Aantal minuten tijd om te typen voordat pauze-modus begint.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="sound">
+					<entry name="input_feedback_sounds">
+						<local_schema short_desc="Invoerfeedbackgeluiden">
+							<longdesc>Of er geluiden afgespeeld worden bij invoeracties.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="theme_name">
+						<local_schema short_desc="Naam van geluidsthema">
+							<longdesc>Het XDG-geluidsthema voor actiegeluiden.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="event_sounds">
+						<local_schema short_desc="Geluiden voor acties">
+							<longdesc>Of er geluiden afgespeeld worden bij gebruikersacties.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_esd">
+						<local_schema short_desc="ESD inschakelen">
+							<longdesc>Geluidsserver inschakelen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="default_mixer_tracks">
+						<local_schema short_desc="Standaard mixer-schuiven">
+							<longdesc>De mixer-schuiven die standaard gebruikt worden voor de multimediatoetsen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="default_mixer_device">
+						<local_schema short_desc="Standaard mixer">
+							<longdesc>De mixer die standaard gebruikt wordt voor de multimediatoetsen.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="peripherals">
+					<dir name="keyboard">
+						<entry name="remember_numlock_state">
+							<local_schema short_desc="NumLock-status onthouden">
+								<longdesc>Als ingesteld op waar, dan zal Gnome de status van de NumLock LED onthouden van de ene sessie op de andere.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bell_custom_file">
+							<local_schema short_desc="Aangepaste bestandsnaam toetsenbordbeltoon">
+								<longdesc>Bestandsnaam van af te spelen geluid als beltoon.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bell_mode">
+							<local_schema>
+								<longdesc>mogelijke waarden zijn ‘on’, ‘off’, en ‘custom’ (aangepast).</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="mouse">
+						<entry name="cursor_size">
+							<local_schema short_desc="Cursorgrootte">
+								<longdesc>Grootte van de cursor waar cursor_theme naar verwijst.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="cursor_theme">
+							<local_schema short_desc="Cursorthema">
+								<longdesc>Cursorthema-naam. Slechts gebruikt door Xservers die Xcursor ondersteunen, zoals XFree86 4.3 en nieuwer.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="cursor_font">
+							<local_schema short_desc="Cursorlettertype">
+								<longdesc>Naam van het lettertype van de cursor. Als het niet ingesteld is, wordt het standaardlettertype gebruikt. Deze waarde wordt alleen bij het starten van elke sessie doorgegeven aan de X-server, dus om veranderingen te activeren zult u zich opnieuw moeten aanmelden.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="locate_pointer">
+							<local_schema short_desc="Muisaanwijzer localiseren">
+								<longdesc>Geeft aan waar de muisaanwijzer zich bevindt wanneer de CTRL-toets wordt ingedrukt en losgelaten.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="double_click">
+							<local_schema short_desc="Dubbelkliktijd">
+								<longdesc>Lengte van een dubbelklik.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="drag_threshold">
+							<local_schema short_desc="Sleepdrempel">
+								<longdesc>Afstand voordat wordt begonnen met slepen.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="motion_threshold">
+							<local_schema short_desc="Bewegingsdrempel">
+								<longdesc>Afstand die de muisaanwijzer moet afleggen voordat de versnelling wordt ingeschakeld. Een waarde van -1 is de systeemstandaard.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="motion_acceleration">
+							<local_schema short_desc="Enkele klik">
+								<longdesc>Versnellingsfactor voor muisbewegingen. Een waarde van -1 is de systeemstandaard.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="single_click">
+							<local_schema short_desc="Enkele klik">
+								<longdesc>Enkele klik om pictogrammen te openen.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="left_handed">
+							<local_schema short_desc="Muisoriëntatie">
+								<longdesc>Links en rechts omdraaien voor linkshandige muizen.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="lockdown">
+					<entry name="disable_application_handlers">
+						<local_schema short_desc="URL- en MIME-type afhandeling uitschakelen">
+							<longdesc>Voorkomen dat bepaalde toepassingen gestart worden voor het afhandelen van URL- of MIME-types.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_lock_screen">
+						<local_schema short_desc="Schermvergrendeling uitschakelen">
+							<longdesc>Voorkomen dat de gebruiker het scherm kan vergrendelen</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_user_switching">
+						<local_schema short_desc="Wisselen van gebruiker uitschakelen">
+							<longdesc>Voorkomen dat van gebruiker gewisseld kan worden als de sessie actief is</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_print_setup">
+						<local_schema short_desc="Afdrukinstellingen uitschakelen">
+							<longdesc>De gebruiker verhinderen om de afdrukinstellingen aan te passen. Dit schakelt bijvoorbeeld de toegang uit tot de ‘Afdrukinstellingen’-dialoogvensters van alle toepassingen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_printing">
+						<local_schema short_desc="Afdrukken uitschakelen">
+							<longdesc>De gebruiker verhinderen af te drukken. Dit schakelt bijvoorbeeld de toegang uit tot de &quot;Afdrukken&quot;-dialoogvensters van alle toepassingen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_save_to_disk">
+						<local_schema short_desc="Opslaan van bestanden naar schijf uitschakelen">
+							<longdesc>De gebruiker verhinderen om bestanden naar schijf op te slaan. Dit schakelt bijvoorbeeld de toegang uit tot de ‘Opslaan als’-dialoogvensters van alle toepassingen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_command_line">
+						<local_schema short_desc="Opdrachtregel uitschakelen">
+							<longdesc>De gebruiker verhinderen om toegang tot de terminal te krijgen of om een uit te voeren opdrachtregel op te geven. Dit schakelt bijvoorbeeld de toegang uit tot het ‘Toepassing uitvoeren’-dialoogvenster van het paneel.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="file-views">
+					<entry name="icon_theme">
+						<local_schema short_desc="Bestandspictogramthema">
+							<longdesc>Te gebruiken thema voor bestandspictogrammen.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="accessibility">
+					<dir name="startup">
+						<entry name="exec_ats">
+							<local_schema short_desc="Opstarten van assisterende technologie-toepassingen">
+								<longdesc>Lijst van te starten assisterende technologie-toepassingen bij het aanmelden bij de Gnome werkomgeving.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="keyboard">
+						<entry name="stickykeys_modifier_beep">
+							<local_schema>
+								<longdesc>Piepen bij aanslaan van een optietoets.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="stickykeys_two_key_off">
+							<local_schema>
+								<longdesc>Uitschakelen wanneer twee toetsen tegelijkertijd worden aangeslagen.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="slowkeys_delay">
+							<local_schema short_desc="Minimuminterval in milliseconden">
+								<longdesc>Toets niet accepteren als ingedrukt tenzij @delay milliseconden lang ingedrukt gehouden.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="mousekeys_init_delay">
+							<local_schema short_desc="Startvertraging in milliseconden">
+								<longdesc>Hoeveel milliseconden te wachten voordat muisbewegingstoetsen in werking treden.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="mousekeys_accel_time">
+							<local_schema short_desc="Hoe lang te versnellen in milliseconden">
+								<longdesc>Hoeveel milliseconden het duurt om van 0 naar maximumsnelheid te gaan.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="mousekeys_max_speed">
+							<local_schema short_desc="Pixels per seconde">
+								<longdesc>Hoeveel pixels per seconde te bewegen op maximumsnelheid.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bouncekeys_delay">
+							<local_schema short_desc="minimuminterval in milliseconden">
+								<longdesc>Meerdere aanslagen van _dezelfde_ toets negeren binnen @delay milliseconden.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="thumbnailers">
+					<entry name="disable_all">
+						<local_schema short_desc="Externe miniaturiseringsprogramma&apos;s uitschakelen">
+							<longdesc>Instellen op waar om alle externe miniaturiseringsprogramma&apos;s uit te schakelen, ongeacht of ze individueel ingeschakeld/uitgeschakeld zijn.</longdesc>
+						</local_schema>
+					</entry>
+					<dir name="application@x-gzpdf">
+						<entry name="command">
+							<local_schema short_desc="Opdracht voor miniaturen bij PDF-documenten">
+								<longdesc>Geldige opdracht plus argumenten voor de maker van miniaturen van PDF-documenten. Zie de documentatie voor nautilus miniaturen voor meer informatie.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Miniaturen aanzetten voor PDF-documenten">
+								<longdesc>Boolese opties beschikbaar, true zet miniaturen aan en bij false worden er geen nieuwe miniaturen gemaakt</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@x-bzpdf">
+						<entry name="command">
+							<local_schema short_desc="Opdracht voor miniaturen bij PDF-documenten">
+								<longdesc>Geldige opdracht plus argumenten voor de maker van miniaturen van PDF-documenten. Zie de documentatie voor nautilus miniaturen voor meer informatie.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Miniaturen aanzetten voor PDF-documenten">
+								<longdesc>Boolese opties beschikbaar, true zet miniaturen aan en bij false worden er geen nieuwe miniaturen gemaakt</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@pdf">
+						<entry name="command">
+							<local_schema short_desc="Opdracht voor miniaturen bij PDF-documenten">
+								<longdesc>Geldige opdracht plus argumenten voor de maker van miniaturen van PDF-documenten. Zie de documentatie voor nautilus miniaturen voor meer informatie.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Miniaturen aanzetten voor PDF-documenten">
+								<longdesc>Boolese opties beschikbaar, true zet miniaturen aan en bij false worden er geen nieuwe miniaturen gemaakt</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="url-handlers">
+					<dir name="h323">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Opdracht in terminalvenster starten">
+								<longdesc>Waar indien de opdracht om dit type URL af te handelen in een terminalvenster gestart dient te worden.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Het programma dat &quot;h323&quot; URL&apos;s afhandelt">
+								<longdesc>De opdracht voor het afhandelen van &quot;h323&quot;-URL&apos;s, indien ingeschakeld</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Of de aangegeven opdracht &quot;h323&quot;-URL&apos;s dient af te handelen.">
+								<longdesc>Waar indien de opdracht aangegeven in de sleutel: &quot;command&quot;, &quot;h323&quot;-URL&apos;s dient af te handelen.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="callto">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Opdracht in terminalvenster starten">
+								<longdesc>Waar indien de opdracht om dit type URL af te handelen in een terminalvenster gestart dient te worden.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Het programma dat &quot;callto&quot; URL&apos;s afhandelt">
+								<longdesc>De opdracht voor het afhandelen van &quot;callto&quot;-URL&apos;s, indien ingeschakeld</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Of de aangegeven opdracht &quot;callto&quot;-URL&apos;s dient af te handelen.">
+								<longdesc>Waar indine de opdracht aangegeven in de sleutel: &quot;command&quot;, &quot;callto&quot;-URL&apos;s dient af te handelen.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="aim">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Opdracht in terminalvenster starten">
+								<longdesc>Waar indien de opdracht om dit type URL af te handelen in een terminalvenster gestart dient te worden.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Het programma dat &quot;aim&quot; URL&apos;s afhandelt">
+								<longdesc>De opdracht voor het afhandelen van &quot;aim&quot;-URL&apos;s, indien ingeschakeld</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Of de aangegeven opdracht &quot;aim&quot;-URL&apos;s dient af te handelen.">
+								<longdesc>Waar indien de opdracht aangegeven in de sleutel: &quot;command&quot;, &quot;aim&quot;-URL&apos;s dient af te handelen.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="mailto">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Opdracht in terminalvenster starten">
+								<longdesc>Waar indien de opdracht om dit type URL af te handelen in een terminalvenster gestart dient te worden.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Het programma dat &quot;mailto&quot; URL&apos;s afhandelt">
+								<longdesc>De opdracht voor het afhandelen van &quot;mailto&quot;-URL&apos;s, indien ingeschakeld</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Of de aangegeven opdracht &quot;mailto&quot;-URL&apos;s dient af te handelen.">
+								<longdesc>Waar indien de opdracht aangegeven in de sleutel: &quot;command&quot;, &quot;mailto&quot;-URL&apos;s dient af te handelen.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="https">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Opdracht in terminalvenster starten">
+								<longdesc>Waar indien de opdracht om dit type URL af te handelen in een terminalvenster gestart dient te worden.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Het programma dat &quot;https&quot; URL&apos;s afhandelt">
+								<longdesc>De opdracht voor het afhandelen van &quot;https&quot;-URL&apos;s, indien ingeschakeld</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Of de aangegeven opdracht &quot;https&quot;-URL&apos;s dient af te handelen.">
+								<longdesc>Waar indien de opdracht aangegeven in de sleutel: &quot;command&quot;, &quot;https&quot;-URL&apos;s dient af te handelen.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="http">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Opdracht in terminalvenster starten">
+								<longdesc>Waar indien de opdracht om dit type URL af te handelen in een terminalvenster gestart dient te worden.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Het programma dat &quot;http&quot; URL&apos;s afhandelt">
+								<longdesc>De opdracht voor het afhandelen van &quot;http&quot;-URL&apos;s, indien ingeschakeld</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Of de aangegeven opdracht &quot;http&quot;-URL&apos;s dient af te handelen.">
+								<longdesc>Waar indien de opdracht aangegeven in de sleutel: &quot;command&quot; &quot;http&quot;-URL&apos;s dient af te handelen.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="man">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Opdracht in terminalvenster starten">
+								<longdesc>Waar indien de opdracht om dit type URL af te handelen in een terminalvenster gestart dient te worden.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Het programma dat &quot;man&quot; URL&apos;s afhandelt">
+								<longdesc>De opdracht voor het afhandelen van &quot;man&quot;-URL&apos;s, indien ingeschakeld</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Of de aangegeven opdracht &quot;man&quot;-URL&apos;s dient af te handelen.">
+								<longdesc>Waar indien de opdracht aangegeven in de sleutel: &quot;command&quot;, &quot;man&quot;-URL&apos;s dient af te handelen.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="info">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Opdracht in terminalvenster starten">
+								<longdesc>Waar indien de opdracht om dit type URL af te handelen in een terminalvenster gestart dient te worden.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Het programma dat &quot;info&quot; URL&apos;s afhandelt">
+								<longdesc>De opdracht voor het afhandelen van &quot;info&quot;-URL&apos;s, indien ingeschakeld</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Of de aangegeven opdracht &quot;info&quot;-URL&apos;s dient af te handelen.">
+								<longdesc>Waar indien de opdracht aangegeven in de sleutel: &quot;command&quot;, &quot;info&quot;-URL&apos;s dient af te handelen.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="ghelp">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Opdracht in terminalvenster starten">
+								<longdesc>Waar indien de opdracht om dit type URL af te handelen in een terminalvenster gestart dient te worden.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Het programma dat &quot;ghelp&quot; URL&apos;s afhandelt">
+								<longdesc>De opdracht voor het afhandelen van &quot;ghelp&quot;-URL&apos;s, indien ingeschakeld</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Of de aangegeven opdracht &quot;ghelp&quot;-URL&apos;s dient af te handelen.">
+								<longdesc>Waar indien de opdracht aangegeven in de sleutel: &quot;command&quot;, &quot;ghelp&quot;-URL&apos;s dient af te handelen.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="trash">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Opdracht in terminalvenster starten">
+								<longdesc>Waar indien de opdracht om dit type URL af te handelen in een terminalvenster gestart dient te worden.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Het programma dat &quot;trash&quot; URL&apos;s afhandelt">
+								<longdesc>De opdracht voor het afhandelen van &quot;trash&quot;-URL&apos;s, indien ingeschakeld</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Of de aangegeven opdracht &quot;trash&quot;-URL&apos;s dient af te handelen.">
+								<longdesc>Waar indien de opdracht aangegeven in de sleutel: &quot;command&quot;, &quot;trash&quot;-URL&apos;s dient af te handelen.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="applications">
+					<dir name="tasks">
+						<entry name="needs_term">
+							<local_schema short_desc="Taken heeft terminalvenster nodig">
+								<longdesc>Of de standaardtaak toepassing voor het uitvoeren een terminalvenster vereist</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="Standaard taken">
+								<longdesc>Standaard taken toepassing</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="calendar">
+						<entry name="needs_term">
+							<local_schema short_desc="Agenda heeft terminalvenster nodig">
+								<longdesc>Of de standaardagenda toepassing voor het uitvoeren een terminalvenster vereist</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="Standaardagenda">
+								<longdesc>Standaard agenda toepassing</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="window_manager">
+						<entry name="workspace_names">
+							<local_schema short_desc="Werkbladnamen (ontraden)">
+								<longdesc>Een namenlijst van de eerste window manager-werkbladen. Deze sleutel is ontraden sinds Gnome 2.12.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="number_of_workspaces">
+							<local_schema short_desc="Aantal werkbladen (ontraden)">
+								<longdesc>Het aantal werkbladen dat de window manager moet gebruiken. Deze sleutel is ontraden sinds Gnome 2.12.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="current">
+							<local_schema short_desc="Gebruikers-windowmanager (ontraden)">
+								<longdesc>Als eerste te proberen windowmanager. Deze sleutel is ontraden sinds Gnome 2.12.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="default">
+							<local_schema short_desc="Terugval-window manager (ontraden)">
+								<longdesc>Windowmanager om op terug te vallen als de gebruikers-windowmanager onvindbaar is. Deze sleutel is ontraden sinds Gnome 2.12.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="browser">
+						<entry name="nremote">
+							<local_schema short_desc="Browser begrijpt &apos;remote&apos;">
+								<longdesc>Of de standaardbrowser de Netscape &apos;remote&apos;-opdracht begrijpt.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="needs_term">
+							<local_schema short_desc="Browser heeft terminalvenster nodig">
+								<longdesc>Of de standaardbrowser voor het uitvoeren een terminalvenster vereist.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="Standaardbrowser">
+								<longdesc>Standaardbrowser voor alle URL&apos;s.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="at">
+						<dir name="mobility">
+							<entry name="startup">
+								<local_schema short_desc="Opstarten van assisterende technologie-toepassing voor mobiliteit">
+									<longdesc>Of Gnome de assisterende technologie-toepassing voor mobiliteit moet starten tijdens het inloggen.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="exec">
+								<local_schema short_desc="Geprefereerde assisterende technologie-toepassing voor mobiliteit">
+									<longdesc>Geprefereerde assisterende technologie-toepassing voor mobiliteit die bij inloggen, het menu en de opdrachtregel gebruikt moet worden.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+						<dir name="visual">
+							<entry name="startup">
+								<local_schema short_desc="Opstarten van assisterende technologie-toepassing voor visuele hulp">
+									<longdesc>Of Gnome de assisterende technologie-toepassing voor visuele hulp moet starten na inloggen.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="exec">
+								<local_schema short_desc="Geprefereerde assisterende technologie-toepassing voor visuele hulp">
+									<longdesc>Geprefereerde assisterende technologie-toepassing voor visuele hulp die bij inloggen, het menu en de opdrachtregel gebruikt moet worden.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+					</dir>
+					<dir name="component_viewer">
+						<entry name="exec">
+							<local_schema short_desc="Standaard componentweergave-programma">
+								<longdesc>Te gebruiken programma voor weergave van bestanden die een component vereisen. De parameter %s zal vervangen worden door de URI van het bestand en de parameter %c zal vervangen worden de de IID van de component.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="terminal">
+						<entry name="exec_arg">
+							<local_schema short_desc="Exec-argumenten">
+								<longdesc>Argument voor het uitvoeren van programma&apos;s in het terminalvenster gedefinieerd door de &apos;exec&apos;-sleutel.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="Terminaltoepassing">
+								<longdesc>Terminalprogramma voor het starten van toepassingen die er één vereisen.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+			</dir>
+		</dir>
+		<dir name="system">
+			<dir name="dns_sd">
+				<entry name="extra_domains">
+					<local_schema short_desc="Extra domeinen waarin naar DNS-SD services wordt gezocht">
+						<longdesc>Een door komma&apos;s gescheiden lijst met DNS-SD domeinen die zichtbaar behoren te zijn in de locatie &quot;netwerk:///&quot;.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="display_local">
+					<local_schema short_desc="Hoe een lokale DNS-SD service wordt weergegeven">
+						<longdesc>Mogelijke waarden zijn &quot;merged&quot;, &quot;separate&quot; en &quot;disabled&quot;.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="smb">
+				<entry name="workgroup">
+					<local_schema short_desc="SMB-werkgroep">
+						<longdesc>De werkgroep of het domein van het Windows-netwerk waar de gebruiker deel van is. Om de nieuwe werkgroep volledig effectief te laten zijn moet u mogelijkerwijs een keer uitloggen en opnieuw aanmelden.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="proxy">
+				<entry name="autoconfig_url">
+					<local_schema short_desc="URL voor automatische proxy-configuratie">
+						<longdesc>URL die de waardes geeft voor proxyconfiguratie.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="socks_port">
+					<local_schema short_desc="SOCKS-proxy poortnummer">
+						<longdesc>De poort op de machine die u als proxy gebruikt en gedefinieerd door &quot;/system/proxy/socks_host&quot;</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="socks_host">
+					<local_schema short_desc="SOCKS-proxy hostnaam">
+						<longdesc>De machinenaam waar de socks-proxy op draait.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="ftp_port">
+					<local_schema short_desc="FTP-proxy poortnummer">
+						<longdesc>De poort op de machine die u als proxy gebruikt en gedefinieerd door &quot;/system/proxy/ftp_host&quot;</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="ftp_host">
+					<local_schema short_desc="FTP-proxy hostnaam">
+						<longdesc>De machinenaam waar de FTP-proxy op draait.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="secure_port">
+					<local_schema short_desc="Beveiligde HTTP-proxy poortnummer">
+						<longdesc>De poort op de machine die u als proxy gebruikt en gedefinieerd door &quot;/system/proxy/secure_host&quot;</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="secure_host">
+					<local_schema short_desc="Beveiligde HTTP-proxy hostnaam">
+						<longdesc>De machinenaam waar de beveiligde HTTP-proxy op draait.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="mode">
+					<local_schema short_desc="Proxy configuratiemodus">
+						<longdesc>Kies de proxy configuratiemodus. Mogelijke waarden zijn &quot;none&quot; (geen), &quot;manual&quot; (handmatig) en &quot;auto&quot; (automatisch).</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="http_proxy">
+				<entry name="ignore_hosts">
+					<local_schema short_desc="Non-proxy hosts">
+						<longdesc>Deze sleutel bevat een lijst van computers die direct benaderd dienen te worden in plaats van via de proxy. De waardes kunnen computernamen zijn, of domeinen (met jokertekens zoals: *.bla.com), IP-adressen (zowel IPv4 als IPv6) of netwerkadressen met netmasker zoals 192.168.0.0/24.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="authentication_password">
+					<local_schema short_desc="HTTP-proxy wachtwoord">
+						<longdesc>Te gebruiken wachtwoord bij gebruik van de HTTP proxy.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="authentication_user">
+					<local_schema short_desc="HTTP-proxy gebruikersnaam">
+						<longdesc>Te gebruiken naam voor identificatie bij HTTP-proxy.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="use_authentication">
+					<local_schema short_desc="Aanmeldingscontrole gebruiken bij proxyserver-verbindingen">
+						<longdesc>Indien waar, wordt voor een verbinding met de proxyserver aanmeldingscontrole vereist. De combinatie van gebruikersnaam en wachtwoord komt voort uit &quot;/system/http_proxy/authentication_user&quot; en &quot;/system/http_proxy/authentication_password&quot;.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="port">
+					<local_schema short_desc="HTTP-proxy poortnummer">
+						<longdesc>Het poortnummer op de machine die u als proxy gebruikt en gedefineerd door &quot;/system/http_proxy/host&quot; </longdesc>
+					</local_schema>
+				</entry>
+				<entry name="host">
+					<local_schema short_desc="HTTP-proxy hostnaam">
+						<longdesc>De machinenaam waar de HTTP-proxy op draait.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="use_http_proxy">
+					<local_schema short_desc="HTTP-proxy gebruiken">
+						<longdesc>Proxy-instellingen gebruiken bij HTTP-verbindingen over het internet.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+		</dir>
+	</dir>
+</gconf>

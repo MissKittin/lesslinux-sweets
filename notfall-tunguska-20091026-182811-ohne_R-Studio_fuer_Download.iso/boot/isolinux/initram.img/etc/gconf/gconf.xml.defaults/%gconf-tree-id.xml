@@ -1,0 +1,1474 @@
+<?xml version="1.0"?>
+<gconf>
+	<dir name="schemas">
+		<dir name="apps">
+			<dir name="gnome-system-log">
+				<entry name="logfiles">
+					<local_schema short_desc="Berkas log yang dibuka saat program dimulai">
+						<longdesc>Tentukan berkas log yang akan dibuka saat program dijalankan. Daftar default dibuat dengan membaca /etc/syslog.conf.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="width">
+					<local_schema short_desc="Lebar jendela utama dalam piksel">
+						<longdesc>Tentukan lebar jendela utama penampil log dalam piksel.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="height">
+					<local_schema short_desc="Tinggi dari jendela utama dalam piksel">
+						<longdesc>Tentukan tinggi jendela utama penampil log dalam piksel.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="fontsize">
+					<local_schema short_desc="Ukuran huruf yang digunakan untuk menampilkan log">
+						<longdesc>Tentukan ukuran dari huruf lebar-tetap yang digunakan menampilkan log pada tampilan pohon utama. Defaultnya diambil dari ukuran huruf default terminal.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="logfile">
+					<local_schema short_desc="Berkas log yang dibuka saat program dijalankan">
+						<longdesc>Tentukan berkas log yang dibuka saat program dijalankan. Biasanya bernilai/var/adm/messages atau /var/log/messages bergantung pada sistem operasi.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="gnome-search-tool">
+				<entry name="default_window_maximized">
+					<local_schema short_desc="Pembesaran Default Jendela">
+						<longdesc>Kunci ini menentukan apakah jendela alat pencari akan dimulai dalam keadaan besar.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default_window_height">
+					<local_schema short_desc="Tinggi Default Jendela">
+						<longdesc>Kunci ini menjelaskan tinggi jendela, dan dipergunakan untuk mengingat ukuran alat pencarian diantara sesi. Buat menjadi -1 akan menjadikan alat pencarian menggunakan tinggi default.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default_window_width">
+					<local_schema short_desc="Lebar Default Jendela">
+						<longdesc>Kunci ini menjelaskan lebar jendela, dan dipergunakan untuk mengingat ukuran alat pencarian diantara sesi. Buat menjadi -1 akan menjadikan alat pencarian menggunakan lebar default.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="columns_order">
+					<local_schema short_desc="Urutan Kolom Hasil Pencarian">
+						<longdesc>Kunci ini menjelaskan urutan kolom dalam hasil pencarian. Kunci ini harus tidak diubah oleh pengguna.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="quick_search_second_scan_excluded_paths">
+					<local_schema short_desc="Path Yang Tidak Dicari Dalam Pencarian Cepat Tahap Kedua">
+						<longdesc>Kunci ini berisi path yang tidak akan dicari pada model pencarian cepat tahap kedua. Pencarian tahap dua ini menggunakan perintah &apos;find&apos; untuk melakukan proses pencarian. Gunanya adalah untuk mencari berkas yang belum diindeks. Kode &apos;*&apos; dan &apos;?&apos; diperbolehkan untuk digunakan. Nilai awalnya adalah /.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="disable_quick_search_second_scan">
+					<local_schema short_desc="Matikan Pencarian Cepat Tahap Kedua">
+						<longdesc>Kunci ini menentukan apakah program pencari mematikan fungsi perintah &apos;find&apos; setelah melakukan pencarian cepat.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="quick_search_excluded_paths">
+					<local_schema short_desc="Path Yang Tidak Dicari Dalam Pencarian Cepat">
+						<longdesc>Kunci ini berisi path yang tidak akan dicari pada model pencarian cepat. Kode &apos;*&apos; dan &apos;?&apos; dapat dipergunakan disini. Nilai awalnya adalah /mnt/*, /media/*, /dev/*, /tmp/*, /proc/*, dan /var/*.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="disable_quick_search">
+					<local_schema short_desc="Matikan Pencarian Cepat">
+						<longdesc>Kunci ini menentukan apakah program pencari mematikan fungsi perintah &apos;locate&apos; setelah melakukan pencarian cepat.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="show_additional_options">
+					<local_schema short_desc="Tampilkan Pilihan Lainnya">
+						<longdesc>Kunci ini menentukan apakah pilihan &quot;Tampilkan pilihan lainnya&quot; dibuka saat program pencari mulai dijalankan.</longdesc>
+					</local_schema>
+				</entry>
+				<dir name="select">
+					<entry name="follow_symbolic_links">
+						<local_schema short_desc="Pilih pilihan &quot;Ikuti taut simbolik&quot;">
+							<longdesc>Kunci ini menentukan apakah pilihan &quot;Ikuti taut simbolik&quot; dipilih saat program pencari mulai dijalankan.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_hidden_files_and_folders">
+						<local_schema short_desc="Pilih pilihan &quot;Tampilkan berkas dan folder tersembunyi&quot;">
+							<longdesc>Kunci ini menentukan apakah pilihan &quot;Tampilkan berkas dan folder tersembunyi&quot; dipilih saat program pencari mulai dijalankan.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name_matches_regular_expression">
+						<local_schema short_desc="Pilih pilihan &quot;Nama cocok dengan ekspresi reguler&quot;">
+							<longdesc>Kunci ini menentukan apakah pilihan &quot;Nama cocok dengan ekspresi reguler&quot; dipilih saat program pencari mulai dijalankan.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name_does_not_contain">
+						<local_schema short_desc="Pilih pilihan &quot;Nama tidak berisi&quot;">
+							<longdesc>Kunci ini menentukan apakah pilihan &quot;Nama tidak berisi&quot; dipilih saat program pencari mulai dijalankan.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="owner_is_unrecognized">
+						<local_schema short_desc="Pilih pilihan &quot;Pemilik tidak dikenal&quot;">
+							<longdesc>Kunci ini menentukan apakah pilihan &quot;Pemilik tidak diketahui&quot; dipilih saat program pencari mulai dijalankan.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="owned_by_group">
+						<local_schema short_desc="Pilih pilihan &quot;Dimiliki oleh kelompok&quot;">
+							<longdesc>Kunci ini menentukan apakah pilihan &quot;Dimiliki kelompok&quot; dipilih saat program pencari mulai dijalankan.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="owned_by_user">
+						<local_schema short_desc="Pilih pilihan &quot;Dimiliki oleh pengguna&quot;">
+							<longdesc>Kunci ini menentukan apakah pilihan &quot;Dimiliki pengguna&quot; dipilih saat program pencari mulai dijalankan.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="file_is_empty">
+						<local_schema short_desc="Pilih pilihan &quot;Berkasnya kosong&quot;">
+							<longdesc>Kunci ini menentukan apakah pilihan &quot;Berkas kosong&quot; dipilih saat program pencari mulai dijalankan.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size_at_most">
+						<local_schema short_desc="Pilih pilihan &quot;Ukuran terbesar&quot;">
+							<longdesc>Kunci ini menentukan apakah pilihan &quot;Ukuran terbesar&quot; dipilih saat program pencari mulai dijalankan.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size_at_least">
+						<local_schema short_desc="Pilih pilihan &quot;Ukuran paling tidak&quot;">
+							<longdesc>Kunci ini menentukan apakah pilihan &quot;Ukuran paling tidak&quot; dipilih saat program pencari mulai dijalankan.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="date_modified_more_than">
+						<local_schema short_desc="Pilih pilihan &quot;Tanggal modifikasi lebih tua dari&quot;">
+							<longdesc>Kunci ini menentukan apakah pilihan &quot;Tanggal lebih tua dari&quot; dipilih saat program pencari mulai dijalankan.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="date_modified_less_than">
+						<local_schema short_desc="Pilih pilihan &quot;Tanggal modifikasi lebih muda dari&quot;">
+							<longdesc>Kunci ini menentukan apakah pilihan &quot;Tanggal lebih muda dari&quot; dipilih saat program pencari mulai dijalankan.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="contains_the_text">
+						<local_schema short_desc="Pilih pilihan &quot;Berisi teks&quot;">
+							<longdesc>Kunci ini menentukan apakah pilihan &quot;Berisi teks&quot; dipilih saat program pencari mulai dijalankan.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnome-screenshot">
+				<entry name="border_effect">
+					<local_schema short_desc="Efek Bingkai">
+					</local_schema>
+				</entry>
+				<entry name="include_border">
+					<local_schema short_desc="Tampilkan Bingkai">
+						<longdesc>Tampilkan bingkai jendela pada gambar layar</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="last_save_directory">
+					<local_schema short_desc="Direktori cuplikan layar">
+						<longdesc>Direktori dimana cuplikan layar terakhir disimpan.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="gnome-dictionary">
+				<entry name="sidebar-width">
+					<local_schema short_desc="Lebar dari panel samping">
+						<longdesc>Kunci ini menjelaskan lebar panel samping dan digunakan untuk mengingat setingan melalui sesi.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="sidebar-page">
+					<local_schema short_desc="Halaman dari panel samping untuk digunakan">
+						<longdesc>Kunci ini menentukan halaman mana dari panel samping yang harus ditampilkan dan dipergunakan untuk mengingat ketentuan ini melalui sesi.. Ini bisa &quot;pengeja&quot; atau &quot;basis data&quot;.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="statusbar-visible">
+					<local_schema short_desc="Apakah panel status harus kelihatan">
+						<longdesc>Kunci ini menentukan apakah panel status harus kelihatan dan dipergunakan untuk mengingat lokasi panel status kamus melalui sesi. Ubah menjadi TRUE akan membuat panel status selalu kelihatan.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="sidebar-visible">
+					<local_schema short_desc="Apakah panel samping harus kelihatan">
+						<longdesc>Kunci ini menentukan apakah jendela harus diperbesar dan dipergunakan untuk mengingat lokasi panel samping melalui sesi. Ubah menjadi TRUE akan membuat panel samping selalu kelihatan.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="window-is-maximized">
+					<local_schema short_desc="Apakah jendela aplikasi harus diperbesar">
+						<longdesc>Kunci ini menentukan apakah jendela harus diperbesar dan dipergunakan untuk mengingat lokasi jendela kamus melalui sesi. Ubah menjadi TRUE akan membuat jendela selalu kelihatan diperbesar.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default-window-height">
+					<local_schema short_desc="Tinggi default jendela aplikasi">
+						<longdesc>Kunci menjelaskan tinggi jendela dan dipergunakan untuk mengingat ukuran jendela kamus melalui sesi. Ubah menjadi -1 akan membuat jendela kamus menggunakan tinggi yang berdasarkan ukuran jenis huruf.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default-window-width">
+					<local_schema short_desc="Lebar default jendela aplikasi">
+						<longdesc>Kunci menjelaskan lebar jendela dan dipergunakan untuk mengingat ukuran jendela kamus melalui sesi. Ubah menjadi -1 akan membuat jendela kamus menggunakan lebar yang berdasarkan ukuran jenis huruf.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="source-name">
+					<local_schema short_desc="Nama sumber kamus yang digunakan">
+						<longdesc>Nama sumber kamus yang dipergunakan untuk menerima definisi kata.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="print-font">
+					<local_schema short_desc="Jenis huruf yang digunakan ketika mencetak">
+						<longdesc>Jenis huruf yang dipergunakan ketika mencetak definisi.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="strategy">
+					<local_schema short_desc="Strategi pencarian yang digunakan">
+						<longdesc>Nama dari strategi pencarian untuk dipergunakan pada sumber kamus, jika tersedia. Strategi defaultnya adalah &apos;pasti&apos;, yaitu pasti cocok katanya.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="database">
+					<local_schema short_desc="Basis data default yang digunakan">
+						<longdesc>Nama basis data tunggal atau meta-basis data yang digunakan pada sumber kamus. Tanda eksklamasi (&quot;!&quot;) berarti seluruh basis data yang ada dalam sumber kamus harus dicari.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="smart">
+					<local_schema short_desc="Gunakan pencarian pintar (Kuno)">
+						<longdesc>Tentukan apakah menggunakan pencarian pintar atau tidak. Nilai ini bergantung kepada server kamusnya, apakah bisa atau tidak menggunakan cara ini. Nilai awalnya adalah TRUE. Nilai ini telah kuno dan tidak digunakan lagi.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="port">
+					<local_schema short_desc="Port yang digunakan untuk terhubung ke server (Kuno)">
+						<longdesc>Port yang digunakan:. Biasanya dipakai 2628. Kunci ini sudah kuno dan tidak lagi dipergunakan.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="server">
+					<local_schema short_desc="Server kamus (Kuno)">
+						<longdesc>Server kamus yang hendak dihubungi. Server defaultnya adalah dict.org.Lihat http://www.dict.org untuk melihat rincian daftar server yang lain. Kunci ini sudah tua dan tidak lagi dipergunakan.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="baobab">
+				<dir name="properties">
+					<entry name="enable_home_monitor">
+						<local_schema short_desc="Aktifkan pemantauan direktori home">
+							<longdesc>Apakah setiap perubahan pada direktori home harus dipantau.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="ui">
+					<entry name="statusbar_visible">
+						<local_schema short_desc="Panel status Kelihatan">
+							<longdesc>Apakah panel status pada bagian bawah jendela utama harus kelihatan.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_visible">
+						<local_schema short_desc="Panel Kelihatan">
+							<longdesc>Apakah panel harus kelihatan pada jendela utama.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="window_list_applet">
+				<dir name="prefs">
+					<entry name="maximum_size">
+						<local_schema short_desc="Ukuran m_aksimum daftar jendela:">
+						</local_schema>
+					</entry>
+					<entry name="minimum_size">
+						<local_schema short_desc="Ukuran m_inimum daftar jendela:">
+						</local_schema>
+					</entry>
+					<entry name="move_unminimized_windows">
+						<local_schema short_desc="Pindahkan jendela ke area kerja aktif ketika dikembalikan ukurannya">
+							<longdesc>Jika dipilih, maka pada saat suatu jendela program mengembalikan ukuran jendela kembali menjadi ukuran semula, jendela itu akan ditampilkan pada area kerja aktif. Jika tidak, maka jendela itu akan ditampilkan pada ruang kerja asalnya.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="group_windows">
+						<local_schema short_desc="Kriteria pengelompokkan jendela program">
+							<longdesc>Tentukan apakah jendela program akan dikelompokkan berdasarkan jenis yang sama atau tidak. Pilih antara &quot;never&quot;, &quot;auto&quot; atau &quot;always&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_all_workspaces">
+						<local_schema short_desc="Tampilkan semua jendela dari semua area kerja">
+							<longdesc>Jika dipilih, daftar jendela program akan menampilkan semua jendela pada semua area kerja. Bila tidak dipilih, yang akan ditampilkan hanyalah semua jendela pada area kerja yang aktif saja.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="workspace_switcher_applet">
+				<dir name="prefs">
+					<entry name="num_rows">
+						<local_schema short_desc="Banyaknya baris pada pengalih area kerja">
+							<longdesc>ini mengatur banyaknya baris (pada layout horisontal) atau kolom (pada layout vertikal) yang akan ditampilkan oleh pengalih area kerja. Pengaturan ini berlaku bila display_all_area kerjas dipilih.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_all_workspaces">
+						<local_schema short_desc="Tampilkan _semua area kerja">
+							<longdesc>Jika dipilih maka program pengalih area kerja akan menampilkan semua area kerja. Jika tidak, maka hanya area kerja sekarang saja yang akan ditampilkan.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_workspace_names">
+						<local_schema short_desc="Tampilkan nama area kerja">
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="fish_applet">
+				<dir name="prefs">
+					<entry name="rotate">
+						<local_schema short_desc="Rotasi di panel vertikal">
+							<longdesc>Animasi ikan akan ditampilkan berputar pada panel vertikal</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="speed">
+						<local_schema short_desc="Jeda per gambar">
+							<longdesc>Lama jeda penampilan tiap-tiap frame</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="frames">
+						<local_schema short_desc="Jumlah gambar dalam animasi ikan">
+							<longdesc>Jumlah frame dalam animasi ikan</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="command">
+						<local_schema short_desc="Perintah yang dijalankan ketika diklik">
+							<longdesc>Perintah yang akan dijalankan pada saat ikan diklik</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="image">
+						<local_schema short_desc="Berkas pixmap animasi ikan">
+							<longdesc>Key ini adalah nama berkas pixmap yang akan digunakan untuk animasi pada aplet ikan. Letaknya relatif ke direktori pixmap.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name">
+						<local_schema short_desc="Nama ikan">
+							<longdesc>Ikan tak bernama adalah Ikan bodoh. Hidupkan ikanmu dengan memberinya nama.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="clock_applet">
+				<dir name="prefs">
+					<entry name="internet_time">
+						<local_schema short_desc="Gunakan waktu Internet">
+							<longdesc>Key ini tidak dianjurkan pada GNOME 2.6 karena sudah ada key &apos;format&apos;. Key ini masih tetap dipertahankan untuk alasan kompatibilitas.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="unix_time">
+						<local_schema short_desc="Gunakan waktu UNIX">
+							<longdesc>Key ini tidak dianjurkan pada GNOME 2.6 karena sudah ada key &apos;format&apos;. Key ini masih tetap dipertahankan untuk alasan kompatibilitas.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hour_format">
+						<local_schema short_desc="Format jam">
+							<longdesc>Key ini tidak dianjurkan pada GNOME 2.6 karena sudah ada key &apos;format&apos;. Key ini masih tetap dipertahankan untuk alasan kompatibilitas.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_week_numbers">
+						<local_schema short_desc="Tampilkan nomor minggu dalam kalender">
+							<longdesc>Jika ya, tampilkan nomor minggu dalam kalender.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="config_tool">
+						<local_schema short_desc="Program konfigurasi waktu">
+						</local_schema>
+					</entry>
+					<entry name="gmt_time">
+						<local_schema short_desc="Gunakan UTC">
+							<longdesc>Tampilkan waktu dalam zona Universal Coordinated Time</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_tooltip">
+						<local_schema short_desc="Tampilkan tanggal dalam tooltip">
+							<longdesc>Tampilkan tanggal di tooltip ketika mouse di atas program Jam</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_date">
+						<local_schema short_desc="Tampilkan tanggal pada program Jam">
+							<longdesc>Selain jam, tampilkan juga tanggal pada program Jam</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_seconds">
+						<local_schema short_desc="Tampilkan waktu dengan detik">
+							<longdesc>Tampilkan angka detik</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="custom_format">
+						<local_schema short_desc="Menentukan format jam">
+						</local_schema>
+					</entry>
+					<entry name="format">
+						<local_schema short_desc="Format jam">
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="panel">
+				<dir name="objects">
+					<entry name="action_type">
+						<local_schema short_desc="Tipe kegiatan tombol">
+							<longdesc>Kegiatan menuliskan representasi dari tombol ini. Nilai yang mungkin adalah &quot;lock&quot;, &quot;logout&quot;, &quot;run&quot;, &quot;search&quot; and &quot;screenshot&quot;. Pengaturan ini hanya relevan jika object_type adalah &quot;action-applet&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="launcher_location">
+						<local_schema short_desc="Lokasi peluncur">
+							<longdesc>Lokasi berkas .desktop yang mendeskripsikan launcher. Pengaturan ini hanya relevan jika object_type adalah &quot;launcher-object&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menu_path">
+						<local_schema short_desc="Path isi menu">
+							<longdesc>Path yang isi menunya terkonstruksi. Pengaturan ini hanya relevan jika use_menu_path benar dan object_type adalah &quot;menu-object&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_menu_path">
+						<local_schema short_desc="Gunakan path custom untuk isi menu">
+							<longdesc>Jika benar, pengaturan menu_path digunakan sebagai path dari menu yang isinya telah terkonstruksi. Jika salah, pengaturan menu_path diabaikan. Pengaturan hanya relevan jika object_type adalah &quot;menu-object&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="custom_icon">
+						<local_schema short_desc="Ikon yang digunakan untuk tombol obyek">
+							<longdesc>Lokasi berkas gambar yang digunakan sebagai ikon untuk tombol objek. Pengaturan ini hanya relevan jika object_type adalah &quot;drawer-object&quot; atau &quot;menu-object&quot; dan use_custom_icon adalah true.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_custom_icon">
+						<local_schema short_desc="Gunakan ikon custom untuk tombol objek">
+							<longdesc>Jika diisi, pengaturan custom_icon digunakan sebagai ikon custom untuk tombol. Jika tidak isi, pengaturan custom_icon diabaikan. Pengaturan ini hanya relevan jika object_type adalah &quot;menu-object&quot; or &quot;drawer-object&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="tooltip">
+						<local_schema short_desc="Teks bantuan yang ditampilkan untuk laci ini">
+							<longdesc>Text yang ditampilkan dalam tooltip untuk laci ini. Pengaturan ini hanya relevan jika object_type adalah &quot;drawer-object&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="attached_toplevel_id">
+						<local_schema short_desc="Panel dimasukkan ke dalam laci">
+							<longdesc>Pengenal panel disertakan di laci ini. Pengaturan ini hanya relevan jika object_type adalah &quot;drawer-object&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="bonobo_iid">
+						<local_schema short_desc="IID Bonobo Applet">
+							<longdesc>ID implementasi Bonobo dari applet - seperti &quot;OAFIID:GNOME_ClockApplet&quot;. Pengaturan ini hanya relevan jika object_type adalah &quot;bonobo-applet&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="locked">
+						<local_schema short_desc="Kunci objek pada panel">
+							<longdesc>Jika diisi, pemakai tidak dapat memindahkan aplet tanpa sebelumnya membuka kunci dengan mengakses menu &quot;Buka Penguncian&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="panel_right_stick">
+						<local_schema short_desc="Interpretasikan posisi relatif terhadap sisi bawah/kanan">
+							<longdesc>Jika benar, posisi objek diinterpretasikan relatif terhadap sudut kanan (atau bawah jika vertikal) dari panel.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="position">
+						<local_schema short_desc="Posisi objek pada panel">
+							<longdesc>Position objek panel. Position ditentukan oleh jumlah pixel dari sudut panel kiri (atau atas jika vertikal).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toplevel_id">
+						<local_schema short_desc="Toplevel panel yang berisi objek ini">
+							<longdesc>Pengenal puncak panel yang berisi objek ini</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="object_type">
+						<local_schema short_desc="Jenis objek Panel">
+							<longdesc>Tipe objek panel. Ada beberapa nilai yang mungkin - &quot;drawer-object&quot;, &quot;menu-object&quot;, &quot;launcher-object&quot;, &quot;bonobo-applet&quot;, &quot;action-applet&quot; and &quot;menu-bar&quot;.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="toplevels">
+					<entry name="animation_speed">
+						<local_schema short_desc="Kecepatan animasi">
+							<longdesc>Kecepatan animasi. Ada tiga nilai yang mungkin; &quot;slow&quot;, &quot;medium&quot; dan &quot;fast&quot;. Pilihan ini hanya memiliki relevansi jika enable_animations bernilai true.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_hide_size">
+						<local_schema short_desc="Besar pixel saat disembunyikan">
+							<longdesc>Tentukan jumlah pixel ketika panel otomatis disembunyikan di pojok.Pilihan ini hanya memiliki relevansi jika auto_hide bernilai true.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="unhide_delay">
+						<local_schema short_desc="Jeda waktu sebelum panel dimunculkan kembali">
+							<longdesc>Tentukan jeda dalam milidetik setelah pointer memasuki area panel sebelum panel otomatis dimunculkan kembali. Pilihan ini hanya relevan jika auto_hide bernilai true.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hide_delay">
+						<local_schema short_desc="Jeda waktu sebelum panel disembunyikan">
+							<longdesc>Tentukan jeda dalam milidetik setelah pointer meninggalkan area panel sebelum panel otomatis disembunyikan. Pilihan ini hanya relevan jika auto_hide bernilai true.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_arrows">
+						<local_schema short_desc="Tampilkan panah pada tombol yang menyembunyikan panel">
+							<longdesc>Jika benar, panah akan ditempatkan pada tombol penyembunyi. Pilihan ini hanya berlaku jika enable_buttons bernilai benar.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_buttons">
+						<local_schema short_desc="Gunakan tombol untuk menyembunyikan panel">
+							<longdesc>Jika benar, tombol akan diletakkan pada tiap sisi panel yang akan digunakan untuk memindahkan panel ke sudut layar, hanya meninggalkan tombol untuk dimunculkan.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="Aktifkan animasi">
+							<longdesc>Jika diisi true, panel akan digambar dengan animasi.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_hide">
+						<local_schema short_desc="Otomatis sembunyikan panel ke pojok">
+							<longdesc>Jika benar, ketika pointer meninggalkan area panel, panel akan disembunyikan otomatis di pojok layar. Bila mouse diarahkan ke pojok akan menyebabkan panel muncul kembali.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="y_centered">
+						<local_schema short_desc="Pusatkan panel pada sumbu y">
+						</local_schema>
+					</entry>
+					<entry name="x_centered">
+						<local_schema short_desc="Pusatkan panel pada sumbu x">
+						</local_schema>
+					</entry>
+					<entry name="y">
+						<local_schema short_desc="Koordinat Y pada panel">
+							<longdesc>Lokasi panel sepanjang sumbu y. Nilai ini hanya berarti pada mode tidak terekspansi. Pada mode terekspansi nilai ini diabaikan dan panel ditempatkan pada sudut layar yang diindikasikan berdasarkan orientasi.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="x">
+						<local_schema short_desc="Koordinat X pada panel">
+							<longdesc>Lokasi panel sepanjang sumbu x. Nilai ini hanya berarti pada moda tidak terekspansi. Pada moda terekspansi nilai ini diabaikan dan panel ditempatkan pada sudut layar yang diindikasikan berdasarkan orientasi.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size">
+						<local_schema short_desc="Ukuran Panel">
+							<longdesc>Tinggi (lebar untuk panel vertikal) panel. Panel akan menentukan ukuran minimum berdasarkan ukuran font dan indikator lain pada saat runtime. Ukuran maksimum tetap yaitu seperempat dari tinggi layar (atau lebar).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="orientation">
+						<local_schema short_desc="Orientasi Panel">
+							<longdesc>Orientasi panel. Ada beberapa nilai yang mungkin ; &quot;top&quot;, &quot;bottom&quot;, &quot;left&quot;, &quot;right&quot;. Pada mode terekspansi nilai menentukan sudut layar yang mana yang menyala. Pada mode tidak terekspansi perbedaan antara &quot;top&quot; dan &quot;bottom&quot; kurang penting - keduanya menginsikasikan bahwa ini adalah sebuah panel horizontal - tapi masih memberikan tanda yang penting bagaimana sifat beberapa objek panel.Contoh, pada panel &quot;top&quot; tombol menu akan membuka menu ke bawah panel,sedangkan pada panel &quot;bottom&quot; menu akan membuka  menu ke atas panel.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand">
+						<local_schema short_desc="Maksimalkan ukuran selebar ukuran layar">
+							<longdesc>Jika benar, panel akan menempati seluruh lebar layar (tinggi layar jika ini adalah panel vertikal). Kemudian panel hanya dapat ditempatkan di sudut layar. Jika salah, panel hanya cukup lebar untuk mengakomodasi applet, launcher dan tombol pada panel.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="monitor">
+						<local_schema short_desc="Monitor Xinerama yang menampilkan panel">
+							<longdesc>Dalam setup Xinerama, Anda dapat memiliki panel pada setiap monitor secara individual. Kunci ini mengidentifikasi monitor sekarang bahwa panel menyala.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="screen">
+						<local_schema short_desc="Layar X yang menampilan panel">
+							<longdesc>Dengan setup multi-layar, Anda dapat memiliki panel pada setiap layar secara individual. Kunci ini mengidentifikasi layar sekarang bahwa panel menyala.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name">
+						<local_schema short_desc="Nama panel ini">
+							<longdesc>Ini adalah nama yang bisa dibaca orang yang dapat Anda gunakan untuk mengidentifikasi panel. Tujuan utamanya adalah untuk melayani sebagaimana judul jendela panel yang berguna ketika menavigasi antar panel.</longdesc>
+						</local_schema>
+					</entry>
+					<dir name="background">
+						<entry name="rotate">
+							<local_schema short_desc="Putar gambar pada panel-panel yang vertikal">
+								<longdesc>Jika benar, iamge latar akan berotasi ketika panel diorientasikan secara vertikal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="stretch">
+							<local_schema short_desc="Rentangkan gambar pada panel">
+								<longdesc>Jika benar, image akan di-skala-kan terhadap dimensi panel. Rasio segi gambar akan diabaikan.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="fit">
+							<local_schema short_desc="Pas-kan gambar ke panel">
+								<longdesc>Jika benar, image akan di-skala-kan (menahan rasio segi dari image) berdasarkan tinggi panel (jika horizontal).</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="image">
+							<local_schema short_desc="Gambar latar">
+								<longdesc>Tentukan berkas yang akan digunakan sebagai gambar latar. Jika gambar mengandung channel alpha maka akan dipadukan dengan gambar latar pada desktop.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="opacity">
+							<local_schema short_desc="Opasitas warna latar">
+								<longdesc>Tentukan opacity dari format warna latar. Jika warna tidak sepenuhnya opaque (nilai kurang dari 65535) dan warna akan dipadukan dengan gambar latar desktop.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="color">
+							<local_schema short_desc="Warna latar">
+								<longdesc>Tentukan warna latar untuk panel dalam format #RGB.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="type">
+							<local_schema short_desc="Tipe Latar">
+								<longdesc>Tipe latar yang mana yang akan digunakan pada panel ini. Ada 3 nilai yang mungkin; &quot;gtk&quot;, latar GTK+ widget default yang akan digunakan, &quot;color&quot;, pilihan warna akan di gunakan sebagai warna latar atau &quot;image&quot;, gambar yang ditentukan dalam pilihan image akan digunakan sebagai latar.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="general">
+					<entry name="profiles_migrated">
+						<local_schema short_desc="Profil konfigurasi yang lama yang dimigrasi">
+							<longdesc>Tanda boolean untuk menentukan apakah konfigurasi pengguna sebelumnya pada /apps/panel/profiles/default telah disalin ke lokasi baru pada panel /apps/ atau tidak.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="object_id_list">
+						<local_schema short_desc="Daftar ID obyek panel">
+							<longdesc>Daftar ID obyek panel. Tiap-tiap ID adalah identitas milik masing-masing obyek panel (misalnya peluncur, tombol aksi, atau tombol menu). Pengaturan applet-applet ini disimpan pada /apps/panel/objects/$(id).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="applet_id_list">
+						<local_schema short_desc="Daftar ID applet panel">
+							<longdesc>Daftar ID applet panel. Tiap-tiap ID adalah identitas milik masing-masing applet panel. Pengaturan applet-applet ini disimpan pada /apps/panel/applets/$(id).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toplevel_id_list">
+						<local_schema short_desc="Daftar ID Panel">
+							<longdesc>Daftar ID panel. Tiap-tiap ID adalah identitas milik masing-masing panel utama. Pengaturan panel-panel ini disimpan pada /apps/panel/toplevels/$(id).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_autocompletion">
+						<local_schema short_desc="Aktifkan fasilitas pelengkapan otomatis pada kotak dialog &quot;Jalankan Aplikasi&quot;">
+							<longdesc>Jika diisi, fasilitas pelengkapan otomatis pada dialog &quot;Jalankan Aplikasi&quot; akan diaktifkan</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_program_list">
+						<local_schema short_desc="Buka daftar program pada kotak dialog &quot;Jalankan Aplikasi&quot;">
+							<longdesc>Jika dipilih, maka daftar &quot;Aplikasi Terdaftar&quot; akan ditampilkan pada kotak dialog &quot;Jalankan Aplikasi&quot;. Pengaturan ini berlaku bila pilihan enable_program_list juga dipilih.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_program_list">
+						<local_schema short_desc="Aktifkan daftar program pada kotak dialog &quot;Jalankan Aplikasi&quot;">
+							<longdesc>Jika dipilih maka daftar &quot;Aplikasi Terdaftar&quot; pada kotak dialog &quot;Jalankan Aplikasi&quot; akan diaktifkan. Pengaturan berikutnya mengenai dibuka atau tidaknya daftar tersebut, dapat Anda atur pada show_program_list.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="global">
+					<entry name="disable_force_quit">
+						<local_schema short_desc="Matikan Pembunuh Program">
+							<longdesc>Jika dipilih, panel tidak akan mengizinkan pemakai untuk mematikan aplikasi secara paksa.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_log_out">
+						<local_schema short_desc="Matikan Fungsi Log Out">
+							<longdesc>Jika dipilih, panel tidak akan mengizinkan user untuk keluar dari GNOME.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_lock_screen">
+						<local_schema short_desc="Tidak disarankan untuk dipakai">
+						</local_schema>
+					</entry>
+					<entry name="disabled_applets">
+						<local_schema short_desc="IID Applet yang akan dinonaktifkan">
+							<longdesc>Daftar IID applet yang akan diabaikan. Dengan cara ini, Anda dapat mengaktifkan atau mematikan applet pada menu. Misalnya, untuk mematikan applet mini-commander, silakan tambahkan &apos;OAFIID:GNOME_MiniCommanderApplet&apos; pada daftar ini. Setelah itu restart panel agar pengaturan ini dapat berlaku.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="locked_down">
+						<local_schema short_desc="Kunci panel seluruhnya">
+							<longdesc>Jika dipilih, panel tidak akan mengizinkan adanya perubahan konfigurasi panel. Tiap-tiap applet yang ada perlu dikunci sendiri-sendiri. Agar konfigurasi ini berlaku, panel harus dijalankan ulang.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="highlight_launchers_on_mouseover">
+						<local_schema short_desc="Sorot peluncur saat dilalui mouse">
+							<longdesc>Jika dipilih maka peluncur akan disorot pada saat mouse melintasi peluncur itu.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="confirm_panel_remove">
+						<local_schema short_desc="Konfirmasi penghapusan panel">
+							<longdesc>Jika dipilih maka akan muncul sebuah dialog konfirmasi yang akan menanyakan apakah benar ingin menghapus panel.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="drawer_autoclose">
+						<local_schema short_desc="Laci menutup otomatis">
+							<longdesc>Jika dipilih, laci akan menutup secara otomatis pada saat pemakai mengklik peluncur pada laci itu.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="window_screenshot_key">
+						<local_schema short_desc="Tidak disarankan untuk dipakai">
+						</local_schema>
+					</entry>
+					<entry name="screenshot_key">
+						<local_schema short_desc="Tidak disarankan untuk dipakai">
+						</local_schema>
+					</entry>
+					<entry name="run_key">
+						<local_schema short_desc="Tidak disarankan untuk dipakai">
+						</local_schema>
+					</entry>
+					<entry name="menu_key">
+						<local_schema short_desc="Tidak disarankan untuk dipakai">
+						</local_schema>
+					</entry>
+					<entry name="enable_key_bindings">
+						<local_schema short_desc="Tidak disarankan untuk dipakai">
+						</local_schema>
+					</entry>
+					<entry name="panel_hide_delay">
+						<local_schema short_desc="Tidak disarankan untuk dipakai">
+						</local_schema>
+					</entry>
+					<entry name="panel_animation_speed">
+						<local_schema short_desc="Tidak disarankan untuk dipakai">
+						</local_schema>
+					</entry>
+					<entry name="panel_show_delay">
+						<local_schema short_desc="Tidak disarankan untuk dipakai">
+						</local_schema>
+					</entry>
+					<entry name="panel_minimized_size">
+						<local_schema short_desc="Tidak disarankan untuk dipakai">
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="Aktifkan animasi">
+						</local_schema>
+					</entry>
+					<entry name="keep_menus_in_memory">
+						<local_schema short_desc="Tidak disarankan untuk dipakai">
+						</local_schema>
+					</entry>
+					<entry name="tooltips_enabled">
+						<local_schema short_desc="Aktifkan tooltip">
+							<longdesc>Jika dipilih, tooltip akan ditampilkan pada tiap obyek panel.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gweather">
+				<dir name="prefs">
+					<entry name="radar">
+						<local_schema short_desc="Url untuk peta radar">
+							<longdesc>Url tersendiri dari di mana untuk menerima sebuah peta radar.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_custom_radar_url">
+						<local_schema short_desc="Gunakan url tersendiri untuk peta radar">
+							<longdesc>Jika benar, maka terima sebuah peta radar dari sebuah lokasi yang ditentukan oleh kunci &quot;radar&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="coordinates">
+						<local_schema short_desc="Koordinat lokasi">
+						</local_schema>
+					</entry>
+					<entry name="location4">
+						<local_schema short_desc="Prakiraan Cuaca untuk kota">
+						</local_schema>
+					</entry>
+					<entry name="location3">
+						<local_schema short_desc="Lokasi radar">
+						</local_schema>
+					</entry>
+					<entry name="location2">
+						<local_schema short_desc="Zona lokasi">
+						</local_schema>
+					</entry>
+					<entry name="location1">
+						<local_schema short_desc="Kota terdekat">
+						</local_schema>
+					</entry>
+					<entry name="location0">
+						<local_schema short_desc="Informasi lokasi cuaca.">
+						</local_schema>
+					</entry>
+					<entry name="enable_radar_map">
+						<local_schema short_desc="Tampilkan peta radar">
+							<longdesc>Ambil sebuah peta radar pada setiap kali pembaruan data.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_detailed_forecast">
+						<local_schema short_desc="Tidak dipergunakan lagi">
+						</local_schema>
+					</entry>
+					<entry name="temperature_unit">
+						<local_schema short_desc="Unit Suhu">
+							<longdesc>Unit yang dipergunakan untuk tekanan.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="speed_unit">
+						<local_schema short_desc="Unit kecepatan">
+							<longdesc>Unit yang dipergunakan untuk kecepatan angin.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="pressure_unit">
+						<local_schema short_desc="Unit tekanan">
+							<longdesc>Unit yang dipergunakan untuk tekanan.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="distance_unit">
+						<local_schema short_desc="Unit jarak">
+							<longdesc>Unit yang dipergunakan untuk jarak pandang.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_metric">
+						<local_schema short_desc="Gunakan unit meter">
+							<longdesc>Gunakan unit meter dari pada unit Inggris.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_update_interval">
+						<local_schema short_desc="Jarak waktu pembaruan">
+							<longdesc>Jarak, dalam detik, antara update otomatis.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_update">
+						<local_schema short_desc="Perbarui data secara otomatis">
+							<longdesc>Tentukan apakah applet secara otomatis memperbarui statistik cuacanya atau tidak.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="evince">
+				<entry name="override_restrictions">
+					<local_schema short_desc="Timpa batasan dokumen">
+						<longdesc>Timpa batasan dokumen, seperti batasan untuk menyalin ataupun untuk pencetakan.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+		</dir>
+		<dir name="desktop">
+			<dir name="gnome">
+				<dir name="interface">
+					<entry name="show_unicode_menu">
+						<local_schema short_desc="Tampilkan menu &apos;Kendali Karakter Unicode&apos;">
+						</local_schema>
+					</entry>
+					<entry name="show_input_method_menu">
+						<local_schema short_desc="Tampilkan menu &quot;Metode Masukan&apos;">
+						</local_schema>
+					</entry>
+					<entry name="menubar_accel">
+						<local_schema short_desc="Akselerator kotak menu">
+							<longdesc>Tombol pintas untuk membuka kotak menu.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="file_chooser_backend">
+						<local_schema short_desc="Modul untuk GtkFileChooser">
+						</local_schema>
+					</entry>
+					<entry name="status_bar_meter_on_right">
+						<local_schema short_desc="Kotak status ada di sebelah kanan">
+						</local_schema>
+					</entry>
+					<entry name="use_custom_font">
+						<local_schema short_desc="Gunakan font pilihan sendiri">
+							<longdesc>Menentukan apakah boleh menggunakan font pilihan sendiri pada aplikasi gtk+ atau tidak</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="monospace_font_name">
+						<local_schema short_desc="Huruf monospace">
+							<longdesc>Nama huruf monospace (dengan lebar tetap) yang akan digunakan oleh program-program semacam terminal.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="document_font_name">
+						<local_schema short_desc="Fonta dokumen">
+						</local_schema>
+					</entry>
+					<entry name="gtk-im-status-style">
+						<local_schema short_desc="Gaya status metode input GTK">
+							<longdesc>Nama gaya status metode input GTK+ yang digunakan oleh gtk+</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk-im-preedit-style">
+						<local_schema short_desc="Gaya preedit metode input GTK">
+							<longdesc>Nama gaya preedit metode input GTK+ yang digunakan oleh gtk+.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="font_name">
+						<local_schema short_desc="Font standar">
+							<longdesc>Nama font standar yang digunakan gtk+.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk_key_theme">
+						<local_schema short_desc="Tematik Gtk+">
+							<longdesc>Nama dasar tematik yang digunakan oleh gtk+.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk_theme">
+						<local_schema short_desc="Tematik Gtk+">
+							<longdesc>Nama dasar tematik yang digunakan oleh gtk+.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="icon_theme">
+						<local_schema short_desc="Tematik ikon">
+							<longdesc>Tematik ikon yang digunakan pada panel, nautilus, dsb.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="cursor_blink_time">
+						<local_schema short_desc="Waktu Berkedip kursor">
+						</local_schema>
+					</entry>
+					<entry name="cursor_blink">
+						<local_schema short_desc="Kursor berkedip">
+						</local_schema>
+					</entry>
+					<entry name="toolbar_icons_size">
+						<local_schema short_desc="Ukuran ikon toolbar">
+						</local_schema>
+					</entry>
+					<entry name="toolbar_detachable">
+						<local_schema short_desc="Toolbar bisa dilepas">
+						</local_schema>
+					</entry>
+					<entry name="menubar_detachable">
+						<local_schema short_desc="Kotak menu bisa dilepas">
+						</local_schema>
+					</entry>
+					<entry name="menus_have_icons">
+						<local_schema short_desc="Manu bisa memiliki ikon">
+						</local_schema>
+					</entry>
+					<entry name="toolbar_style">
+						<local_schema short_desc="Gaya toolbar">
+						</local_schema>
+					</entry>
+					<entry name="can_change_accels">
+						<local_schema short_desc="Dapat mengganti akselerator">
+						</local_schema>
+					</entry>
+					<entry name="menus_have_tearoff">
+						<local_schema short_desc="Menu bisa dilepas">
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="Aktifkan animasi">
+							<longdesc>Menentukan apakah bisa menggunakan animasi. Perhatian: ini adalah key global, Key ini menentukan kelakuan pengatur jendela, panel, dsb.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="accessibility">
+						<local_schema short_desc="Aktifkan Aksesibilitas">
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="background">
+					<entry name="color_shading_type">
+						<local_schema short_desc="Tipe Color Shading">
+						</local_schema>
+					</entry>
+					<entry name="secondary_color">
+						<local_schema short_desc="Warna sekunder">
+							<longdesc>Warna sebelah kanan atau sebelah bawah saat menggambar gradien, warna ini tidak digunakan saat menggambar warna padat</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="primary_color">
+						<local_schema short_desc="Warna utama">
+							<longdesc>Warna sebelah kiri atau sebelah atas saat menggambar gradien, atau warna padat.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="picture_opacity">
+						<local_schema short_desc="Tingkat transparansi gambar">
+						</local_schema>
+					</entry>
+					<entry name="picture_filename">
+						<local_schema short_desc="Nama file Gambar">
+						</local_schema>
+					</entry>
+					<entry name="picture_options">
+						<local_schema short_desc="Pilihan gambar">
+						</local_schema>
+					</entry>
+					<entry name="draw_background">
+						<local_schema short_desc="Gambar latar belakang desktop">
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="typing_break">
+					<entry name="enabled">
+						<local_schema short_desc="Menentukan apakah penguncian keyboard dilakukan">
+							<longdesc>Menentukan apakah penguncian keyboard dilakukan.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="allow_postpone">
+						<local_schema short_desc="Boleh menunda jeda">
+							<longdesc>Menentukan apakah jeda pengetikan dapat ditunda</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="break_time">
+						<local_schema short_desc="Waktu jeda">
+							<longdesc>Lama waktu (dalam menit) jeda pengetikan.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="type_time">
+						<local_schema short_desc="Waktu pengetikan">
+							<longdesc>Lama waktu mengetik (dalam menit) sebelum mode jeda dimulai.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="sound">
+					<entry name="event_sounds">
+						<local_schema short_desc="Suara untuk kejadian-kejadian tertentu">
+							<longdesc>Mainkan file suara saat ada kejadian tertentu.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_esd">
+						<local_schema short_desc="Gunakan ESD">
+							<longdesc>Gunakan server suara saat start.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="peripherals">
+					<dir name="keyboard">
+						<entry name="remember_numlock_state">
+							<local_schema short_desc="Ingat posisi NumLock">
+								<longdesc>Ketika ditetapkan sebagai benar, GNOME akan mengingat keadaan LED NumLock diantara setiap sesi.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bell_custom_file">
+							<local_schema short_desc="Nama file suara pilihan sendiri untuk keyboard">
+							</local_schema>
+						</entry>
+						<entry name="bell_mode">
+							<local_schema>
+								<longdesc>Pilihannya adalah: &quot;on&quot;, &quot;off&quot;, dan &quot;custom&quot;.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="mouse">
+						<entry name="cursor_size">
+							<local_schema short_desc="Ukuran kursor">
+								<longdesc>Ukuran kursor sesuai dengan kursor tema.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="cursor_theme">
+							<local_schema short_desc="tematik kursor">
+								<longdesc>Nama tema kursor. Hanya dipergunakan oleh Xservers yang mendukung Xcursor, seperti XFree86 4.3 ke atas.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="cursor_font">
+							<local_schema short_desc="Font kursor">
+								<longdesc>Nama font untuk kursor. Bila tidak diset, font standar akan digunakan. Nilai ini dianggap berubah saat X server dijalankan pada tiap sesi. Jadi bila menggantinya sekarang, maka akan baru berpengaruh nanti saat login di kali lain.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="locate_pointer">
+							<local_schema short_desc="Pencari Pointer">
+							</local_schema>
+						</entry>
+						<entry name="double_click">
+							<local_schema short_desc="Waktu Klik ganda">
+							</local_schema>
+						</entry>
+						<entry name="drag_threshold">
+							<local_schema short_desc="Derajat Drag">
+							</local_schema>
+						</entry>
+						<entry name="motion_threshold">
+							<local_schema short_desc="Derajat gerakan">
+								<longdesc>Jarak dalam satuan piksel yang digunakan pointer untuk bergerak, sebelum faktor pengali kecepatan mouse diaktifkan. Nilai -1 adalah nilai awal sistem.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="motion_acceleration">
+							<local_schema short_desc="Klik tunggal">
+								<longdesc>Faktor pengali kecepatan gerakan mouse. Nilai -1 adalah nilai awal sistem.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="single_click">
+							<local_schema short_desc="Klik tunggal">
+							</local_schema>
+						</entry>
+						<entry name="left_handed">
+							<local_schema short_desc="arah tombol mouse">
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="lockdown">
+					<entry name="disable_print_setup">
+						<local_schema short_desc="Matikan setup cetakan">
+							<longdesc>Mencegah pemakai untuk mengganti konfigurasi cetakan. Hal ini akan mematikan akses ke semua dialog &quot;Atur Cetakan&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_printing">
+						<local_schema short_desc="Matikan fasilitas cetak">
+							<longdesc>Mencegah pemakai untuk mencetak. Ini akan mematikan semua menu ke dialog &quot;Cetak&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_save_to_disk">
+						<local_schema short_desc="Matikan fasilitas penyimpanan file ke disk">
+							<longdesc>Mencegah pemakai untuk menyimpan file ke disk. Ini juga akan mematikan semua menu &quot;Simpan dengan nama lain&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_command_line">
+						<local_schema short_desc="Matikan baris perintah">
+							<longdesc>Mencegah pemakai untuk mengakses terminal atau menjalankan program. Ini juga akan mematikan fasilitas &quot;Jalankan Aplikasi&quot; pada panel.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="file-views">
+					<entry name="icon_theme">
+						<local_schema short_desc="Tematik ikon file">
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="accessibility">
+					<dir name="startup">
+						<entry name="exec_ats">
+							<local_schema short_desc="Startup Assistive Technology Applications">
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="keyboard">
+						<entry name="stickykeys_two_key_off">
+							<local_schema>
+								<longdesc>Nonaktifkan bila ada dua tombol ditekan pada saat yang sama.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bouncekeys_delay">
+							<local_schema short_desc="periode terkecil dalam satuan milidetik">
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="thumbnailers">
+					<entry name="disable_all">
+						<local_schema short_desc="Matikan semua pembuat gambar kecil eksternal">
+							<longdesc>Nyalakan untuk menonaktifkan semua program pembuat gambar kecil, terserah nantinya mau dinonaktifkan/dinyalakan per program atau tidak.</longdesc>
+						</local_schema>
+					</entry>
+					<dir name="application@x-gzpdf">
+						<entry name="command">
+							<local_schema short_desc="Perintah cuplikan kecil untuk dokumen PDF">
+								<longdesc>Perintah dan argumen yang benar untuk pencuplik kecil Dokumen PDF. Lihat dokumentasi pencuplik kecil nautilus untuk informasi lebih lanjutnya.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Aktifkan cuplikan kecil dari dokumen PDF">
+								<longdesc>Pilihan boolean tersedia, benar akan membolehkan cuplikan kecil dan salah akan mematikan pembuatan cuplikan kecil</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@x-bzpdf">
+						<entry name="command">
+							<local_schema short_desc="Perintah cuplikan kecil untuk dokumen PDF">
+								<longdesc>Perintah dan argumen yang benar untuk pencuplik kecil Dokumen PDF. Lihat dokumentasi pencuplik kecil nautilus untuk informasi lebih lanjutnya.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Aktifkan cuplikan kecil dari dokumen PDF">
+								<longdesc>Pilihan boolean tersedia, benar akan membolehkan cuplikan kecil dan salah akan mematikan pembuatan cuplikan kecil</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@pdf">
+						<entry name="command">
+							<local_schema short_desc="Perintah cuplikan kecil untuk dokumen PDF">
+								<longdesc>Perintah dan argumen yang benar untuk pencuplik kecil Dokumen PDF. Lihat dokumentasi pencuplik kecil nautilus untuk informasi lebih lanjutnya.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Aktifkan cuplikan kecil dari dokumen PDF">
+								<longdesc>Pilihan boolean tersedia, benar akan membolehkan cuplikan kecil dan salah akan mematikan pembuatan cuplikan kecil</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="url-handlers">
+					<dir name="h323">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Jalankan program di dalam terminal">
+								<longdesc>Pilih jika URL ini ingin dijalankan lewat sebuah terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Pengatur URL &quot;h323&quot;">
+								<longdesc>Perintah untuk mengatur URL &quot;h232&quot; jika ada.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Pilih jika perintah ini dapat mengatur URL &quot;h323&quot;">
+								<longdesc>Pilih jika ingin memasang program pengatur URL &quot;h323&quot; pada bagian &quot;command&quot;.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="callto">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Jalankan program di dalam terminal">
+								<longdesc>Pilih jika URL ini ingin dijalankan lewat sebuah terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Pengatur URL &quot;callto&quot;">
+								<longdesc>Perintah untuk mengatur URL &quot;callto&quot; jika ada.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Pilih jika perintah ini dapat mengatur URL &quot;callto&quot;">
+								<longdesc>Pilih jika ingin memasang program pengatur URL &quot;callto&quot; pada bagian &quot;command&quot;.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="aim">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Jalankan program di dalam terminal">
+								<longdesc>Pilih jika URL ini ingin dijalankan lewat sebuah terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Pengatur URL &quot;aim&quot;">
+								<longdesc>Perintah untuk mengatur URL &quot;aim&quot; jika ada.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Pilih jika perintah ini dapat mengatur URL &quot;aim&quot;">
+								<longdesc>Pilih jika ingin memasang program pengatur URL &quot;aim&quot; pada bagian &quot;command&quot;.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="mailto">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Jalankan program di dalam terminal">
+								<longdesc>Pilih jika URL ini ingin dijalankan lewat sebuah terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Pengatur URL &quot;mailto&quot;">
+								<longdesc>Perintah untuk mengatur URL &quot;mailto&quot; jika ada.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Pilih jika perintah ini dapat mengatur URL &quot;mailto&quot;">
+								<longdesc>Pilih jika ingin memasang program pengatur URL &quot;mailto&quot; pada bagian &quot;command&quot;.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="https">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Jalankan program di dalam terminal">
+								<longdesc>Pilih jika URL ini ingin dijalankan lewat sebuah terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Pengatur URL &quot;https&quot;">
+								<longdesc>Perintah untuk mengatur URL &quot;https&quot; jika ada.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Pilih jika perintah ini dapat mengatur URL &quot;https&quot;">
+								<longdesc>Pilih jika ingin memasang program pengatur URL &quot;https&quot; pada bagian &quot;command&quot;.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="http">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Jalankan program di dalam terminal">
+								<longdesc>Pilih jika URL ini ingin dijalankan lewat sebuah terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Pengatur URL &quot;http&quot;">
+								<longdesc>Perintah untuk mengatur URL &quot;http&quot; jika ada.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Pilih jika perintah ini dapat mengatur URL &quot;http&quot;">
+								<longdesc>Pilih jika ingin memasang program pengatur URL &quot;ghelp&quot; pada bagian &quot;command&quot;.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="man">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Jalankan program di dalam terminal">
+								<longdesc>Pilih jika URL ini ingin dijalankan lewat sebuah terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Pengatur URL &quot;man&quot;">
+								<longdesc>Perintah untuk mengatur URL &quot;man&quot; jika ada.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Pilih jika perintah ini dapat mengatur URL &quot;man&quot;">
+								<longdesc>Pilih jika ingin memasang program pengatur URL &quot;man&quot; pada bagian &quot;command&quot;.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="info">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Jalankan program di dalam terminal">
+								<longdesc>Pilih jika URL ini ingin dijalankan lewat sebuah terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Pengatur URL &quot;info&quot;">
+								<longdesc>Perintah untuk mengatur URL &quot;info&quot; jika ada.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Pilih jika perintah ini dapat mengatur URL &quot;info&quot;">
+								<longdesc>Pilih jika ingin memasang program pengatur URL &quot;info&quot; pada bagian &quot;command&quot;.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="ghelp">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Jalankan program di dalam terminal">
+								<longdesc>Pilih jika URL ini ingin dijalankan lewat sebuah terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Pengatur URL &quot;ghelp&quot;">
+								<longdesc>Perintah untuk mengatur URL &quot;ghelp&quot; jika ada.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Pilih jika perintah ini dapat mengatur URL &quot;ghelp&quot;">
+								<longdesc>Pilih jika ingin memasang program pengatur URL &quot;ghelp&quot; pada bagian &quot;command&quot;.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="trash">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Jalankan program di dalam terminal">
+								<longdesc>Pilih jika URL ini ingin dijalankan lewat sebuah terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Pengatur URL &quot;trash&quot;">
+								<longdesc>Perintah untuk mengatur URL &quot;trash&quot; jika ada.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Pilih jika perintah ini dapat mengatur URL &quot;trash&quot;">
+								<longdesc>Pilih jika ingin memasang program pengatur URL &quot;trash&quot; pada bagian &quot;command&quot;.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="applications">
+					<dir name="window_manager">
+						<entry name="workspace_names">
+							<local_schema short_desc="Nama area kerja">
+								<longdesc>Daftar nama area kerja pada pengatur jendela pertama.. Kunci ini tidak digunakan lagi sejak GNOME 2.12.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="number_of_workspaces">
+							<local_schema short_desc="Jumlah area kerja">
+								<longdesc>Jumlah area kerja yang harus digunakan pengatur jendela.. Kunci ini tidak digunakan lagi sejak GNOME 2.12.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="current">
+							<local_schema short_desc="Pengatur Jendela">
+								<longdesc>Pengatur jendela yang dijalankan pertama kali. Kunci ini tidak digunakan lagi sejak GNOME 2.12</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="default">
+							<local_schema short_desc="Pengatur jendela awal">
+								<longdesc>Pengatur jendela asal bila pengatur jendela yang ditentukan tidak ditemukan. Kunci ini tidak digunakan lagi sejak GNOME 2.12.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="browser">
+						<entry name="nremote">
+							<local_schema short_desc="Browser mengerti remote">
+							</local_schema>
+						</entry>
+						<entry name="needs_term">
+							<local_schema short_desc="Browser menggunakan terminal">
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="Browser standar">
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="component_viewer">
+						<entry name="exec">
+							<local_schema short_desc="Penampil standar">
+								<longdesc>Aplikasi yang digunakan untuk menampilkan isi file ini. Parameter %s akan disubstitusi dengan URI file ini, dan parameter %c akan digantikan dengan IID komponennya</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="terminal">
+						<entry name="exec_arg">
+							<local_schema short_desc="Perintah Exec">
+								<longdesc>Perintah yang digunakan untuk menjalankan program dalam terminal bisa diset pada key &apos;exec&apos;</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="Aplikasi terminal">
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+			</dir>
+		</dir>
+		<dir name="system">
+			<dir name="dns_sd">
+				<entry name="extra_domains">
+					<local_schema short_desc="Ranah tambahan yang dicari layanan DNS SD">
+						<longdesc>Daftar ranah DNS SD (dibatasi koma) yang seharusnya nampak pada lokasi &quot;network:///&quot;</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="display_local">
+					<local_schema short_desc="Penampakan layanan DNS SD lokal">
+						<longdesc>Nilai yang mungkin: &quot;merged&quot;, &quot;separate&quot; dan &quot;disabled&quot;.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="smb">
+				<entry name="workgroup">
+					<local_schema short_desc="Workgroup SMB">
+						<longdesc>Kelompok kerja jaringan Windows atau ranah tempat pengguna berada. Pengguna sebaiknya keluar dan masuk kembali ke jaringan agar dapat diterima pada kelompok kerja.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="proxy">
+				<entry name="autoconfig_url">
+					<local_schema short_desc="URL konfigurasi proksi otomatis">
+						<longdesc>URL yang memberikan konfigurasi proxy.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="socks_port">
+					<local_schema short_desc="Port proksi SOCKS">
+						<longdesc>Port proksi yang digunakan oleh komputer yang tercantum pada &quot;/system/proxy/socks_host&quot;.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="socks_host">
+					<local_schema short_desc="Nama komputer proxy SOCKS">
+						<longdesc>Nama komputer yang hendak menggunakan proksi socks</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="ftp_port">
+					<local_schema short_desc="Port proksi FTP">
+						<longdesc>Port proksi yang digunakan oleh komputer yang tercantum pada &quot;/system/proxy/ftp_host&quot;.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="ftp_host">
+					<local_schema short_desc="Nama komputer proksi FTP">
+						<longdesc>Nama komputer yang hendak menggunakan proksi FTP</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="secure_port">
+					<local_schema short_desc="Port proksi HTTP Secure">
+						<longdesc>Port proksi yang digunakan oleh komputer yang tercantum pada &quot;/system/proxy/secure_host&quot;.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="secure_host">
+					<local_schema short_desc="Nama komputer proksi HTTP Secure">
+						<longdesc>Nama komputer yang hendak menggunakan proksi HTTP secure</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="mode">
+					<local_schema short_desc="Modus konfigurasi proksi">
+						<longdesc>Pilihlah modus konfigurasi yang digunakan. Pilih antara &quot;none&quot;, &quot;manual&quot;, atau &quot;auto&quot;.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="http_proxy">
+				<entry name="ignore_hosts">
+					<local_schema short_desc="Host non-proksi">
+						<longdesc>Ini berisi daftar komputer yang akan terhubung langsung ke tujuan tanpa melalui proksi. Silakan isi dengan nama komputer, nama domain (gunakan wildcard semisal *.foo.com), alamat IP (boleh IPv4 atau IPv6), atau alamat jaringan lengkap dengan netmask (misalnya 192.168.0.0/24).</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="authentication_password">
+					<local_schema short_desc="Kata sandi pada proksi HTTP">
+						<longdesc>Kata sandi yang digunakan untuk melakukan otentikasi proksi HTTP.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="authentication_user">
+					<local_schema short_desc="Nama pemakai pada proksi HTTP">
+						<longdesc>Nama pemakai yang digunakan untuk otentikasi proksi HTTP</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="use_authentication">
+					<local_schema short_desc="Lakukan otentikasi pada koneksi server proksi">
+						<longdesc>Pilih jika ingin menggunakan otentikasi pada server proksi. Kolom nama pemakai dan kata sandinya silakan di set pada &quot;/system/http_proxy/authentication_user&quot; dan &quot;/system/http_proxy/authentication_password&quot;.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="port">
+					<local_schema short_desc="Port proksi HTTP">
+						<longdesc>Port proksi yang digunakan oleh komputer yang tercantum pada &quot;/system/http_proxy/host&quot;.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="host">
+					<local_schema short_desc="Nama komputer proksi HTTP">
+						<longdesc>Nama komputer yang hendak menggunakan proksi HTTP</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="use_http_proxy">
+					<local_schema short_desc="Gunakan proksi HTTP">
+						<longdesc>Aktifkan proksi saat mengakses HTTP lewat Internet.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+		</dir>
+	</dir>
+</gconf>

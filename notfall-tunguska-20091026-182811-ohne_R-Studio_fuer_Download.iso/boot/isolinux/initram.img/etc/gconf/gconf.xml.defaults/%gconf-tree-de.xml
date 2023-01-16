@@ -1,0 +1,2313 @@
+<?xml version="1.0"?>
+<gconf>
+	<dir name="schemas">
+		<dir name="apps">
+			<dir name="gnome-system-log">
+				<entry name="logfiles">
+					<local_schema short_desc="Beim Start zu öffnende Protokolldateien">
+						<longdesc>Gibt an, welche Protokolldateien beim Start geöffnet werden soll. Die Vorgabe wird durch die Datei »/etc/syslog.conf« festgelegt.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="width">
+					<local_schema short_desc="Breite des Systemprotokoll-Fensters in Pixeln">
+						<longdesc>Legt die Breite des Systemprotokoll-Fensters in Pixeln fest.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="height">
+					<local_schema short_desc="Höhe des Systemprotokoll-Fensters in Pixeln">
+						<longdesc>Legt die Höhe des Systemprotokoll-Fensters in Pixeln fest.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="fontsize">
+					<local_schema short_desc="Beim Anzeigen eines Protokolls zu verwendene Schriftgröße">
+						<longdesc>Legt die Größe dicktengleicher Schriften zur Anzeige der Protokollen im Systemprotokoll-Fenster fest. Die Vorgabe wird der Vorgabe »Terminal-Schrift« entnommen.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="logfile">
+					<local_schema short_desc="Beim Start zu öffnende Protokolldatei">
+						<longdesc>Gibt an, welche Protokolldatei beim Start geöffnet werden soll. Die Vorgabe ist entweder »/var/adm/messages« oder »/var/log/messages«. Dies ist von Ihrer Distribution abhängig.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="gnome-search-tool">
+				<entry name="look_in_folder">
+					<local_schema short_desc="Ordner durchsuchen">
+						<longdesc>Dieser Schlüssel definiert den Vorgabewert des »Ordner durchsuchen«-Widgets.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default_window_maximized">
+					<local_schema short_desc="Fenster maximiert öffnen">
+						<longdesc>Dieser Schlüssel legt fest ob die Suchfunktion maximiert startet.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default_window_height">
+					<local_schema short_desc="Vorgabehöhe des Fensters">
+						<longdesc>Dieser Schlüssel legt die Höhe des Suchfunktion-Fensters fest, damit diese bei weiteren Starts wiederhergestellt werden kann. Bei einem Wert von »-1« wird die Vorgabehöhe verwendet.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default_window_width">
+					<local_schema short_desc="Vorgabebreite des Fensters">
+						<longdesc>Dieser Schlüssel legt die Breite des Suchfunktion-Fensters fest, damit diese bei weiteren Starts wiederhergestellt werden kann. Bei einem Wert von »-1« wird die Vorgabebreite verwendet.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="columns_order">
+					<local_schema short_desc="Reihenfolge der Spalten der Suchergebnisse">
+						<longdesc>Dieser Schlüssel legt die Reihenfolge der Spalten der Suchergebnisse fest. Dieser Schlüssel sollte nicht von Benutzern geändert werden.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="quick_search_second_scan_excluded_paths">
+					<local_schema short_desc="Ausgelassene Pfade beim zweiten Suchlauf einer schnellen Suche">
+						<longdesc>Dieser Schlüssel legt die Pfade fest, welche beim zweiten Suchvorgang einer schnellen Suche ausgelassen werden. Der zweite Suchvorgang verwendet das find-Kommando, um auch Dateien zu finden, die nicht indiziert wurden. Die Joker-Zeichen »*« und »?« werden unterstützt. Der Standardwerte ist »/«.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="disable_quick_search_second_scan">
+					<local_schema short_desc="Zweiten Durchlauf der Schnellsuche deaktivieren">
+						<longdesc>Dieser Schlüssel deaktiviert die Verwendung des find-Befehls nach einer Schnellsuche.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="quick_search_excluded_paths">
+					<local_schema short_desc="Ausgelassene Pfade bei schneller Suche">
+						<longdesc>Dieser Schlüssel legt die Pfade fest, welche bei einer schnellen Suche ausgelassen werden. Die Joker-Zeichen »*« und »?« werden unterstützt. Der Standardwert ist »/mnt/*, /media/*, /dev/*, /tmp/*, /proc/*, /var/*«.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="disable_quick_search">
+					<local_schema short_desc="Schnellsuche deaktivieren">
+						<longdesc>Dieser Schlüssel deaktiviert die Verwendung des locate-Befehls wenn eine einfache Suche nach Dateinamen durchgeführt wird.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="show_additional_options">
+					<local_schema short_desc="Zusätzliche Optionen anzeigen">
+						<longdesc>Dieser Schlüssel legt fest, ob der Abschnitt »zusätzliche Optionen« angezeigt wird, wenn das Suchwerkzeug gestartet wird.</longdesc>
+					</local_schema>
+				</entry>
+				<dir name="select">
+					<entry name="exclude_other_filesystems">
+						<local_schema short_desc="Kriterium »Andere Dateisysteme ausschließen« auswählen">
+							<longdesc>Dieser Schlüssel legt fest, ob die Option »Andere Dateisysteme ausschließen« ausgewählt ist, wenn das Suchwerkzeug gestartet wird.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="follow_symbolic_links">
+						<local_schema short_desc="Kriterium »Symbolischen Verknüpfungen folgen« auswählen">
+							<longdesc>Dieser Schlüssel legt fest, ob die Option »Symbolischen Verknüpfungen folgen« ausgewählt ist, wenn das Suchwerkzeug gestartet wird.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_hidden_files_and_folders">
+						<local_schema short_desc="Kriterium »Versteckte Dateien und Ordner anzeigen« auswählen">
+							<longdesc>Dieser Schlüssel legt fest, ob die Option »Versteckte Dateien und Ordner anzeigen« ausgewählt ist, wenn das Suchwerkzeug gestartet wird.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name_matches_regular_expression">
+						<local_schema short_desc="Kriterium »Dateiname stimmt mit regulärem Ausdruck überein« auswählen">
+							<longdesc>Dieser Schlüssel legt fest, ob die Option »Dateiname stimmt mit regulärem Ausdruck überein« ausgewählt ist, wenn das Suchwerkzeug gestartet wird.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name_does_not_contain">
+						<local_schema short_desc="Kriterium »Name enthält nicht« auswählen">
+							<longdesc>Dieser Schlüssel legt fest, ob die Option »Name enthält nicht« ausgewählt ist, wenn das Suchwerkzeug gestartet wird.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="owner_is_unrecognized">
+						<local_schema short_desc="Kriterium »Besitzer ist unbekannt« auswählen">
+							<longdesc>Dieser Schlüssel legt fest, ob die Option »Besitzer ist unbekannt« ausgewählt ist, wenn das Suchwerkzeug gestartet wird.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="owned_by_group">
+						<local_schema short_desc="Kriterium »Gehört Gruppe« auswählen">
+							<longdesc>Dieser Schlüssel legt fest, ob die Option »Gehört Gruppe« ausgewählt ist, wenn das Suchwerkzeug gestartet wird.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="owned_by_user">
+						<local_schema short_desc="Kriterium »Gehört Benutzer« auswählen">
+							<longdesc>Dieser Schlüssel legt fest, ob die Option »Gehört Benutzer« ausgewählt ist, wenn das Suchwerkzeug gestartet wird.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="file_is_empty">
+						<local_schema short_desc="Kriterium »Datei ist leer« auswählen">
+							<longdesc>Dieser Schlüssel legt fest, ob die Option »Datei ist leer« ausgewählt ist, wenn das Suchwerkzeug gestartet wird.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size_at_most">
+						<local_schema short_desc="Kriterium »Maximale Größe« auswählen">
+							<longdesc>Dieser Schlüssel legt fest, ob die Option »Maximale Größe« ausgewählt ist, wenn das Suchwerkzeug gestartet wird.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size_at_least">
+						<local_schema short_desc="Kriterium »Mindestgröße« auswählen">
+							<longdesc>Dieser Schlüssel legt fest, ob die Option »Mindestgröße« ausgewählt ist, wenn das Suchwerkzeug gestartet wird.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="date_modified_more_than">
+						<local_schema short_desc="Kriterium »Geändert vor mehr als« auswählen">
+							<longdesc>Dieser Schlüssel legt fest, ob die Option »Geändert vor mehr als« ausgewählt ist, wenn das Suchwerkzeug gestartet wird.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="date_modified_less_than">
+						<local_schema short_desc="Kriterium »Geändert vor weniger als« auswählen">
+							<longdesc>Dieser Schlüssel legt fest, ob die Option »Geändert vor weniger als« ausgewählt ist, wenn das Suchwerkzeug gestartet wird.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="contains_the_text">
+						<local_schema short_desc="Kriterium »Enthält den Text« auswählen">
+							<longdesc>Dieser Schlüssel legt fest, ob die Option »Enthält den Text« ausgewählt ist, wenn das Suchwerkzeug gestartet wird.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnome-screenshot">
+				<entry name="border_effect">
+					<local_schema short_desc="Rahmeneffekt">
+						<longdesc>Der Effekt der auf die Außenseite des Fensterrahmens angewendet wird. Mögliche Werte sind »shadow« (Schatten), »none« (kein Effekt) und »border«(Rahmen).</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="include_pointer">
+					<local_schema short_desc="Zeiger einbeziehen">
+						<longdesc>Den Zeiger mit in das Bildschirmfoto aufnehmen</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="include_border">
+					<local_schema short_desc="Rahmen einbeziehen">
+						<longdesc>Bezieht den Fensterrahmen des Fenster-Managers mit in das Bildschirmfoto ein</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="last_save_directory">
+					<local_schema short_desc="Ordner für Bildschirmfotos">
+						<longdesc>Der Ordner, in dem zuletzt Bildschirmfotos abgelegt wurden.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="delay">
+					<local_schema short_desc="Aufnahmeverzögerung">
+						<longdesc>Die Anzahl der Sekunden, die bis zur Aufnahme des Bildschirmfotos gewartet wird.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="take_window_shot">
+					<local_schema short_desc="Fensterbezogenes Bildschirmfoto (veraltet)">
+						<longdesc>Nur das aktuelle Fenster statt der ganzen Arbeitsfläche aufnehmen. Dieser Schlüssel ist veraltet und wird nicht mehr verwendet.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="gnome-dictionary">
+				<entry name="sidebar-width">
+					<local_schema short_desc="Die Breite der Seitenleiste">
+						<longdesc>Dieser Schlüssel legt die Breite der Seitenleiste fest und speichert die Einstellung über mehrer Sitzungen hinweg.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="sidebar-page">
+					<local_schema short_desc="Die anzuzeigende Seite der Seitenleiste">
+						<longdesc>Dieser Schlüssel legt fest, welche Seite der Seitenleiste angezeigt wird und speichert die Einstellungen über mehrere Sitzungen hinweg. Mögliche Werte sind »speller« (Schreibweisen) und »databases« (Datenbanken).</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="statusbar-visible">
+					<local_schema short_desc="Legt fest, ob die Statusleiste angezeigt wird">
+						<longdesc>Dieser Schlüssel legt fest, ob die Statusleiste angezeigt wird und speichert ihren Zustand über mehrere Sitzungen hinweg. Bei einem Wert von »TRUE« wird die Statusleiste immer angezeigt.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="sidebar-visible">
+					<local_schema short_desc="Legt fest, ob die Seitenleiste angezeigt wird">
+						<longdesc>Dieser Schlüssel legt fest, ob die Seitenleiste angezeigt wird und speichert ihren Zustand über mehrere Sitzungen hinweg. Bei einem Wert von »TRUE« wird die Seitenleiste immer angezeigt.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="window-is-maximized">
+					<local_schema short_desc="Legt fest, ob das Wörterbuch-Fenster maximiert gestartet wird">
+						<longdesc>Dieser Schlüssel legt fest, ob das Fenster maximiert geöffnet wird, damit der Zustand des Wörterbuch-Fensters bei weiteren Starts wiederhergestellt werden kann. Bei einem Wert von »TRUE« wird das Fenster immer maximiert geöffnet.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default-window-height">
+					<local_schema short_desc="Die Vorgabehöhe des Wörterbuch-Fensters">
+						<longdesc>Dieser Schlüssel legt die Höhe des Wörterbuch-Fensters fest, damit diese bei weiteren Starts wiederhergestellt werden kann. Bei einem Wert von »-1« wird eine Höhe basierend auf der Schriftgröße verwendet.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default-window-width">
+					<local_schema short_desc="Die Vorgabebreite des Wörterbuch-Fensters">
+						<longdesc>Dieser Schlüssel legt die Breite des Wörterbuch-Fensters fest, damit diese bei weiteren Starts wiederhergestellt werden kann. Bei einem Wert von »-1« wird eine Breite basierend auf der Schriftgröße verwendet.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="source-name">
+					<local_schema short_desc="Die zu verwendene Wörterbuchquelle">
+						<longdesc>Der Name der Wörterbuchquelle die zum Nachschlagen von Wortdefinitionen verwendet wird.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="print-font">
+					<local_schema short_desc="Die beim Drucken zu verwendene Schriftart">
+						<longdesc>Die beim Drucken von Definitionen zu verwendene Schriftart.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="strategy">
+					<local_schema short_desc="Die vorgegebene zu verwendende Suchmethode">
+						<longdesc>Der Name der vorgegebenen Suchmethode einer Wörterbuchquelle, falls verfügbar. Die Vorgabe ist »exact«, sodass nur exakte Übereinstimmungen erkannt werden.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="database">
+					<local_schema short_desc="Die zu verwendende Datenbank">
+						<longdesc>Der Name der Vorgabe-(Meta-)Datenbank, die auf dem Wörterbuch-Server verwendet werden soll. Falls der Wert dieses Schlüssels »!« ist, werden alle Datenbanken auf dem angegebenen Wörterbuch-Server durchsucht</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="smart">
+					<local_schema short_desc="Intelligente Suche verwenden (Veraltet)">
+						<longdesc>Soll die intelligente Suche verwendet werden? Dieser Schlüssel kommt ausschließlich zum Tragen, falls der Wörterbuch-Server diese unterstützt. Die Vorgabe ist WAHR. Dieser Schlüssel ist veraltet und wird nicht mehr verwendet.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="port">
+					<local_schema short_desc="Port, der für die Verbindung zum Server verwendet wird (Veraltet)">
+						<longdesc>Die Port-Nummer, mit der die Verbindung aufgenommen werden soll. Der Vorgabe-Port ist 2628. Dieser Schlüssel ist veraltet und wird nicht mehr verwendet.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="server">
+					<local_schema short_desc="Wörterbuch-Server (Veraltet)">
+						<longdesc>Der Wörterbuch-Server, mit dem die Verbindung aufgenommen werden soll. Der Vorgabe-Server ist dict.org. Unter http://www.dict.org erhalten Sie weitere Details zu anderen Servern. Dieser Schlüssel ist veraltet und wird nicht mehr verwendet.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="baobab">
+				<dir name="properties">
+					<entry name="skip_scan_uri_list">
+						<local_schema short_desc="Adressen der ausgeschlossenen Partitionen">
+							<longdesc>Eine Liste von Adressen der Partitionen, die nicht eingelesen werden.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_home_monitor">
+						<local_schema short_desc="Persönlichen Ordner überwachen">
+							<longdesc>Legt fest, ob der persönliche Ordner auf Änderungen überwacht werden soll.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="ui">
+					<entry name="baobab_subfoldertips_visible">
+						<local_schema short_desc="Minihilfen für Unterordner sichtbar">
+							<longdesc>Legt fest, ob die Minihilfen der Unterordner eines ausgewählten Ordners dargestellt werden.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="statusbar_visible">
+						<local_schema short_desc="Statusleiste anzeigen">
+							<longdesc>Legt fest, ob die Statusleiste am unteren Rand des Hauptfensters angezeigt wird.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_visible">
+						<local_schema short_desc="Werkzeugleiste anzeigen">
+							<longdesc>Legt fest, ob die Werkzeugleiste im Hauptfenster angezeigt wird.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="window_list_applet">
+				<dir name="prefs">
+					<entry name="maximum_size">
+						<local_schema short_desc="Maximale Größe der Fensterliste">
+							<longdesc>Im Zuge von GNOME 2.20 wurde dieser Schlüssel für nichtig erklärt. Das Schema wird zwecks Rückwärtskompatibilität beibehalten.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="minimum_size">
+						<local_schema short_desc="Minimale Größe der Fensterliste">
+							<longdesc>Im Zuge von GNOME 2.20 wurde dieser Schlüssel für nichtig erklärt. Das Schema wird zwecks Rückwärtskompatibilität beibehalten.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="move_unminimized_windows">
+						<local_schema short_desc="Fenster beim Wiederherstellen auf momentan sichtbare Arbeitsfläche verschieben">
+							<longdesc>Fall dieser Schlüssel WAHR ist, wird ein Fenster auf die sichtbare Arbeitsfläche verschoben, wenn es wiederhergestellt wird. Andernfalls wird zur Arbeitsfläche gewechselt, auf der sich das Fenster befindet.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="group_windows">
+						<local_schema short_desc="Wann Fenster gruppiert werden sollen">
+							<longdesc>Dieser Schlüssel legt fest, wann Fenster der selben Anwendung in der Fensterliste gruppiert werden sollen. Zulässige Werte: »never« (nie), »auto« (bei Platzmangel) sowie »always« (immer).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_all_workspaces">
+						<local_schema short_desc="Auf allen Arbeitsfläche befindliche Fenster anzeigen">
+							<longdesc>Falls dieser Schlüssel WAHR ist, zeigt die Fensterliste alle geöffneten Fenster an, einschließlich denen, die sich auf anderen Arbeitsflächen befinden. Andernfalls zeigt sie lediglich die auf der momentan sichtbaren Arbeitsfläche befindlichen Fenster an.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="workspace_switcher_applet">
+				<dir name="prefs">
+					<entry name="num_rows">
+						<local_schema short_desc="Zeilen in Arbeitsflächenumschalter">
+							<longdesc>Dieser Schlüssel legt die Anzahl der Zeilen (bei horizontaler Darstellung) oder Spalten (bei vertikaler Darstellung) fest, in denen der Umschalter die Arbeitsflächen anzeigt. Dieser Schlüssel kommt ausschließlich zum Tragen, falls der Schlüssel »display_all_workspaces« WAHR ist.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_all_workspaces">
+						<local_schema short_desc="Alle Arbeitsflächen anzeigen">
+							<longdesc>Falls dieser Schlüssel WAHR ist, zeigt der Arbeitsflächenumschalter alle Arbeitsflächen an. Andernfalls zeigt er lediglich die momentan sichtbare.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_workspace_names">
+						<local_schema short_desc="Namen der Arbeitsflächen anzeigen">
+							<longdesc>Falls dieser Schlüssel WAHR ist, zeigt der Arbeitsflächenumschalter auf den Mini-Arbeitsflächen im Umschalter deren Namen an. Andernfalls enthalten diese den Inhalt der Arbeitsflächen. Dies funktioniert nur, wenn der Fenster-Manager »Metacity« verwendet wird.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="fish_applet">
+				<dir name="prefs">
+					<entry name="rotate">
+						<local_schema short_desc="Auf vertikalen Panels drehen">
+							<longdesc>Falls dieser Schlüssel WAHR ist, wird die Fischanimation auf vertikalen Panels gedreht angezeigt.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="speed">
+						<local_schema short_desc="Pause nach jedem Einzelbild">
+							<longdesc>Dieser Schlüssel legt die Anzahl der Sekunden fest, die jedes Einzelbild angezeigt werden soll.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="frames">
+						<local_schema short_desc="Einzelbilder in Fischanimation">
+							<longdesc>Dieser Schlüssel gibt die Anzahl der darzustellenden Einzelbilder in der Fischanimation an.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="command">
+						<local_schema short_desc="Beim Anklicken des Fisches auszuführender Befehl">
+							<longdesc>Dieser Schlüssel gibt den Befehl an, der beim Anklicken des Fischs ausgeführt werden soll.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="image">
+						<local_schema short_desc="Die Animations-Pixmap des Fisches">
+							<longdesc>Dieser Schlüssel gibt den Dateinamen der Pixmap an, die für die im Fisch-Applet angezeigte Animation verwendet wird, und zwar relativ zum Pixmap-Ordner.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name">
+						<local_schema short_desc="Der Name des Fisches">
+							<longdesc>Ein namenloser Fisch ist ein ziemlich dämlicher Fisch. Erwecken Sie Ihren Fisch zum Leben, indem Sie ihm einen Namen geben!</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="clock_applet">
+				<dir name="prefs">
+					<entry name="speed_unit">
+						<local_schema short_desc="Geschwindigkeitseinheit">
+							<longdesc>Die für die Anzeige der Windgeschwindigkeit zu benutzende Einheit.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="temperature_unit">
+						<local_schema short_desc="Temperatureinheit">
+							<longdesc>Die für die Anzeige von Temperaturen zu benutzende Einheit.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="cities">
+						<local_schema short_desc="Liste der Orte">
+							<longdesc>Eine Liste der im Kalenderfenster anzuzeigenden Orte.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="internet_time">
+						<local_schema short_desc="Internet-Zeit verwenden">
+							<longdesc>Im Zuge von GNOME 2.6 wurde dieser Schlüssel zu Gunsten des »format«-Schlüssels für nichtig erklärt. Das Schema wird zwecks Rückwärtskompatibilität beibehalten.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="unix_time">
+						<local_schema short_desc="UNIX-Zeit verwenden">
+							<longdesc>Im Zuge von GNOME 2.6 wurde dieser Schlüssel zu Gunsten des »format«-Schlüssels für nichtig erklärt. Das Schema wird zwecks Rückwärtskompatibilität beibehalten.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hour_format">
+						<local_schema short_desc="Stundenformat">
+							<longdesc>Im Zuge von GNOME 2.6 wurde dieser Schlüssel zu Gunsten des »format«-Schlüssels für nichtig erklärt. Das Schema wird zwecks Rückwärtskompatibilität beibehalten.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_locations">
+						<local_schema short_desc="Liste mit Orten ausklappen">
+							<longdesc>Legt fest, ob die Liste der Orte im Kalenderfenster ausgeklappt ist.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_weather">
+						<local_schema short_desc="Liste mit Wetterinformationen ausklappen">
+							<longdesc>Falls dieser Schlüssel WAHR ist, wird die Liste der Wetterinformationen im Kalenderfenster ausgeklappt.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_tasks">
+						<local_schema short_desc="Liste mit Aufgaben ausklappen">
+							<longdesc>Falls dieser Schlüssel WAHR ist, wird die Liste der Aufgaben im Kalenderfenster ausgeklapptt.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_birthdays">
+						<local_schema short_desc="Liste mit Geburtstagen ausklappen">
+							<longdesc>Falls dieser Schlüssel WAHR ist, wird die Liste der Geburtstage im Kalenderfenster ausgeklappt.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_appointments">
+						<local_schema short_desc="Liste mit Terminen ausklappen">
+							<longdesc>Falls dieser Schlüssel WAHR ist, wird die Liste der Termine im Kalenderfenster ausgeklappt.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_week_numbers">
+						<local_schema short_desc="Wochennummern im Kalender anzeigen">
+							<longdesc>Falls dieser Schlüssel WAHR ist, werden die Wochennummern im Kalender angezeigt.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="config_tool">
+						<local_schema short_desc="Werkzeug zur Zeitkonfiguration">
+							<longdesc>Im Zuge von GNOME 2.26 wurde dieser Schlüssel zu Gunsten eines internen Werkzeugs zur Zeiteinstellung für nichtig erklärt. Das Schema wird zwecks Rückwärtskompatibilität beibehalten.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gmt_time">
+						<local_schema short_desc="UTC verwenden">
+							<longdesc>Falls dieser Schlüssel WAHR ist, wird die Zeit in koordinierter Weltzeit (UTC) angezeigt.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_temperature">
+						<local_schema short_desc="Die Temperatur in der Uhr anzeigen">
+							<longdesc>Falls dieser Schlüssel WAHR ist, wird die Temperatur neben dem Wettersymbol angezeigt.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_weather">
+						<local_schema short_desc="Das Wetter in der Uhr anzeigen">
+							<longdesc>Legt fest, ob ein Wettersymbol angezeigt wird.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_tooltip">
+						<local_schema short_desc="Datum in Minihilfe anzeigen">
+							<longdesc>Falls dieser Schlüssel WAHR ist, wird das Datum in einer Minihilfe angezeigt, wenn sich die Maus über der Uhr befindet.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_date">
+						<local_schema short_desc="Datum in Uhr anzeigen">
+							<longdesc>Falls dieser Schlüssel WAHR ist, wird in der Uhr zusätzlich zur Zeit das Datum angezeigt.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_seconds">
+						<local_schema short_desc="Zeit sekundengenau anzeigen">
+							<longdesc>Falls dieser Schlüssel WAHR ist, wird die Zeit sekundengenau angezeigt.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="custom_format">
+						<local_schema short_desc="Benutzerdefiniertes Uhrenformat">
+							<longdesc>Dieser Schlüssel gibt das vom Uhren-Applet verwendete Format an, falls der Format-Schlüssel »custom« (benutzerdefiniert) ist. Sie können von »strftime()« akzeptierte Platzhalter verwenden, um ein bestimmtes Format zu erzielen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="format">
+						<local_schema short_desc="Stundenformat">
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="panel">
+				<dir name="objects">
+					<entry name="action_type">
+						<local_schema short_desc="Typ des Aktionsknopfes">
+							<longdesc>Der Aktionstyp, den dieser Knopf repräsentiert. Zulässige Werte: »lock« (Sperren), »logout« (Abmelden), »run« (Ausführen), »search« (Suche) sowie »screenshot« (Bildschirmfoto). Dieser Schlüssel kommt ausschließlich zum Tragen, falls der Objekttypschlüssel »object_type« »action-applet« ist.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="launcher_location">
+						<local_schema short_desc="Speicherort des Starters">
+							<longdesc>Der Speicherort der .desktop-Datei, die den Starter beschreibt. Dieser Schlüssel kommt ausschließlich zum Tragen, falls der Objekttypschlüssel »object_type« »launcher-object« ist.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menu_path">
+						<local_schema short_desc="Pfad zum Menüinhalt">
+							<longdesc>Der Pfad, mit Hilfe dessen der Menüinhalt konstruiert wird. Dieser Schlüssel kommt ausschließlich zum Tragen, falls der Schlüssel »use_menu_path« WAHR ist und der Objekttypschlüssel »object_type« »menu-object« ist.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_menu_path">
+						<local_schema short_desc="Benutzerdefinierten Pfad für Menüinhalt verwenden">
+							<longdesc>Falls dieser Schlüssel WAHR ist, wird der Schlüssel »menu_path« als Pfad verwendet, mit dessen Hilfe der Menüinhalt konstruiert wird. Falls dieser Schlüssel FALSCH ist, wird der Schlüssel »menu_path« ignoriert. Dieser Schlüssel kommt lediglich zum Tragen, falls der Objekttypschlüssel »object_type« »menu-object« oder »drawer-object« ist.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="custom_icon">
+						<local_schema short_desc="Für Objektknopf verwendetes Symbol">
+							<longdesc>Der Speicherort der Bilddatei, die als Symbol für den Objektknopf verwendet werden soll. Dieser Schlüssel kommt ausschließlich zum Tragen, falls der Objekttypschlüssel »object_type« »drawer_object« oder »menu-object« ist und der Schlüssel »use_custom_icon« WAHR ist.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_custom_icon">
+						<local_schema short_desc="Benutzerdefiniertes Symbol für Objektknopf verwenden">
+							<longdesc>Falls dieser Schlüssel WAHR ist, wird der Schlüssel »custom_icon« als benutzerdefiniertes Symbol für den Knopf verwendet. Falls dieser Schlüssel FALSCH ist, wird der Schlüssel »custom_icon« ignoriert. Dieser Schlüssel kommt ausschließlich zum Tragen, falls der Objekttypschlüssel »object_type« »menu-object« oder »drawer-object« ist.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="tooltip">
+						<local_schema short_desc="Für Schublade oder Menü anzuzeigende Minihilfe">
+							<longdesc>Der in der Minihilfe zu dieser Schublade oder diesem Menü anzuzeigende Text. Dieser Schlüssel kommt ausschließlich zum Tragen, falls der Objekttypschlüssel »object_type« »drawer-object« oder »menu-object« ist.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="attached_toplevel_id">
+						<local_schema short_desc="An Schublade angehängtes Panel">
+							<longdesc>Der Identifikator des an diese Schublade angehängten Panels. Dieser Schlüssel kommt ausschließlich zum Tragen, falls der Objekttypschlüssel »object_type« »drawer-object« ist.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="bonobo_iid">
+						<local_schema short_desc="Applet-Bonobo-IID">
+							<longdesc>Die Bonobo-Implementierungskennung des Applets - z.B. »OAFIID:GNOME_ClockApplet«. Dieser Schlüssel kommt lediglich zum Tragen, falls der Objekttypschlüssel »object_type« »bonobo-applet« ist.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="locked">
+						<local_schema short_desc="Das Objekt auf dem Panel sperren">
+							<longdesc>Falls dieser Schlüssel WAHR ist, darf der Benutzer das Applet nicht verschieben, ohne das Objekt vorher freizugeben, und zwar durch Anklicken des Menüobjekts »Freigeben«.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="panel_right_stick">
+						<local_schema short_desc="Die Position relativ zur unteren rechten Ecke bestimmen">
+							<longdesc>Falls dieser Schlüssel WAHR ist, wird die Position des Objekts relativ zur rechten Kante (oder der unteren, falls vertikal) des Panels berechnet.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="position">
+						<local_schema short_desc="Objektposition auf dem Panel">
+							<longdesc>Die Position dieses Panel-Objekts. Diese wird in Anzahl der Pixel zur linken (bzw. oberen, falls vertikal) Panel-Kante angegeben.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toplevel_id">
+						<local_schema short_desc="Übergeordnetes Panel, das Objekt enthält">
+							<longdesc>Der Identifikator des übergeordneten Panels, das dieses Objekt enthält.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="object_type">
+						<local_schema short_desc="Typ des Panelobjekts">
+							<longdesc>Der Typ dieses Panel-Objekts. Zulässige Werte: »drawer-object«, »menu-object«, »launcher-object«, »bonobo-applet«, »action-applet« sowie »menu-bar«.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="toplevels">
+					<entry name="animation_speed">
+						<local_schema short_desc="Animationsgeschwindigkeit">
+							<longdesc>Die Geschwindigkeit, in der Animationen wiedergegeben werden sollen. Zulässige Werte: »slow« (langsam), »medium« (mittel) sowie »fast« (schnell). Dieser Schlüssel kommt ausschließlich zum Tragen, falls der Schlüssel »enable_animations« WAHR ist.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_hide_size">
+						<local_schema short_desc="Sichtbare Pixel wenn verborgen">
+							<longdesc>Gibt die Anzahl der sichtbaren Pixel an, wenn das Panel automatisch in einer Ecke verbogen wurde. Dieser Schlüssel kommt ausschließlich zum Tragen, wenn der Schlüssel »auto_hide« WAHR ist.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="unhide_delay">
+						<local_schema short_desc="Verzögerung beim Auto-Wiederanzeigen">
+							<longdesc>Gibt die Anzahl der Millisekunden an, die sich der Zeiger über der Panel-Fläche befinden muss, bevor das Panel automatisch wieder angezeigt wird. Dieser Schlüssel kommt ausschließlich zum Tragen, falls der Schlüssel »auto_hide« WAHR ist.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hide_delay">
+						<local_schema short_desc="Verzögerung beim Auto-Verbergen">
+							<longdesc>Gibt die Anzahl der Millisekunden an, die sich der Zeiger außerhalb der Panel-Fläche befinden muss, bevor das Panel automatisch verborgen wird. Dieser Schlüssel kommt ausschließlich zum Tragen, falls der Schlüssel »auto_hide« WAHR ist.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_arrows">
+						<local_schema short_desc="Pfeile auf Verbergen-Knöpfen anzeigen">
+							<longdesc>Falls dieser Schlüssel WAHR ist, werden auf den Verbergen-Knöpfen Pfeile angezeigt. Dieser Schlüssel kommt ausschließlich zum Tragen, falls der Schlüssel »enable_buttons« WAHR ist.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_buttons">
+						<local_schema short_desc="Verbergen-Knöpfe aktivieren">
+							<longdesc>Falls dieser Schlüssel WAHR ist, werden auf jeder Seite des Panels Knöpfe angezeigt, die verwendet werden können, um das Panel an den Rand des Bildschirms zu verschieben, wobei in diesem Zustand nur ein Knopf angezeigt wird.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="Animationen aktivieren">
+							<longdesc>Falls dieser Schlüssel WAHR ist, wird das Anzeigen/Verbergen dieses Panels animiert. Anderenfalls wird das Panel unverzüglich angezeigt/verborgen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_hide">
+						<local_schema short_desc="Panel automatisch in der Ecke verbergen.">
+							<longdesc>Falls dieser Schlüssel WAHR ist, wird das Panel automatisch in einer Bildschirmecke verborgen, sobald der Zeiger die Panel-Fläche verlässt. Erneutes Bewegen in diese Ecke sorgt dafür, dass das Panel wieder angezeigt wird.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="y_centered">
+						<local_schema short_desc="Panel auf Y-Achse zentrieren">
+							<longdesc>Falls dieser Schlüssel WAHR ist, werden die Schlüssel »y« und »y_bottom« ignoriert und das Panel im Zentrum der Y-Achse auf dem Bildschirm platziert. Falls die Größe des Panels verändert wird, verharrt es auf dieser Position - das Panel wächst also auf beiden Seiten. Falls dieser Schlüssel FALSCH ist, geben die Schlüssel »y« und »y_bottom« den Anzeigeort des Panels an.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="x_centered">
+						<local_schema short_desc="Panel auf X-Achse zentrieren">
+							<longdesc>Falls dieser Schlüssel WAHR ist, werden die Schlüssel »x« und »x_right« ignoriert und das Panel im Zentrum der X-Achse auf dem Bildschirm platziert. Falls die Größe des Panels verändert wird, verharrt es auf dieser Position - das Panel wächst also auf beiden Seiten. Falls dieser Schlüssel FALSCH ist, geben die Schlüssel »x« und »x_right« den Anzeigeort des Panels an.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="y_bottom">
+						<local_schema short_desc="Y-Koordinate des Panels, ausgehend von unten">
+							<longdesc>Die Position des Panels auf der Y-Achse, beginnend unten vom Bildschirm. Falls dieser Wert -1 ist, wird er ignoriert und der Wert des Schlüssels »y« verwendet. Falls dieser Wert größer als 0 ist, wird der Wert des Schlüssels »y« ignoriert. Dieser Schlüssel kommt ausschließlich im nicht ausgedehnten Modus zum Tragen. Im ausgedehnten Modus wird dieser Schlüssel ignoriert und das Panel an der vom Schlüssel »orientation« angegebenen Bildschirmkante platziert.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="x_right">
+						<local_schema short_desc="X-Koordinate des Panels, ausgehend von rechts">
+							<longdesc>Die Position des Panels auf der X-Achse, beginnend rechts vom Bildschirm. Falls dieser Wert -1 ist, wird er ignoriert und der Wert des Schlüssels »x« verwendet. Falls dieser Wert größer als 0 ist, wird der Wert des Schlüssels »x« ignoriert. Dieser Schlüssel kommt ausschließlich im nicht ausgedehnten Modus zum Tragen. Im ausgedehnten Modus wird dieser Schlüssel ignoriert und das Panel an der vom Schlüssel »orientation« angegebenen Bildschirmkante platziert.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="y">
+						<local_schema short_desc="Y-Koordinate des Panels">
+							<longdesc>Die Position des Panels auf der Y-Achse. Dieser Schlüssel kommt ausschließlich im nicht ausgedehnten Modus zum Tragen. Im ausgedehnten Modus wird dieser Schlüssel ignoriert und das Panel an der vom Schlüssel »orientation« angegebenen Bildschirmkante platziert.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="x">
+						<local_schema short_desc="X-Koordinate des Panels">
+							<longdesc>Die Position des Panels auf der X-Achse. Dieser Schlüssel kommt ausschließlich im nicht ausgedehnten Modus zum Tragen. Im ausgedehnten Modus wird dieser Schlüssel ignoriert und das Panel an der vom Schlüssel »orientation« angegebenen Bildschirmkante platziert.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size">
+						<local_schema short_desc="Panel-Größe">
+							<longdesc>Die Höhe des Panels (Breite bei vertikalen Panels). Das Panel legt auf Basis der Schriftgröße und anderer Indikatoren beim Ausführen eine minimale Größe fest. Die maximale Größe ist auf ein Viertel der Bildschirmhöhe (bzw. -breite) begrenzt.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="orientation">
+						<local_schema short_desc="Panel-Ausrichtung">
+							<longdesc>Die Ausrichtung des Panels. Zulässige Werte: »top« (oben), »bottom« (unten), »left« (links) sowie »right« (rechts). Im ausgedehnten Modus gibt der Schlüssel an, auf welcher Seite des Bildschirms sich das Panel befindet. Im unausgedehnten Modus ist der Unterschied zwischen »top« und »bottom« weniger wichtig: Beide zeigen an, dass es sich hierbei um ein horizontales Panel handelt - sie sind jedoch für das Verhalten mancher Panel-Objekte ausschlaggebend. So wird z.B. bei einem oberen Panel (»top«) das Menü eines Menüknopfes unterhalb, bei einem unteren Panel (»bottom«) oberhalb des Panels angezeigt.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand">
+						<local_schema short_desc="Ausdehnen und so die gesamte Bildschirmbreite belegen">
+							<longdesc>Falls dieser Schlüssel WAHR ist, belegt das Panel die gesamte Bildschirmbreite (Höhe, falls es ein vertikales Panel ist). In diesem Modus kann das Panel ausschließlich an Bildschirmkanten platziert werden. Falls dieser Schlüssel FALSCH ist, ist das Panel gerade so groß, dass die Applets, Starter und Knöpfe darauf passen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="monitor">
+						<local_schema short_desc="Xinerama-Monitor, auf dem das Panel angezeigt wird">
+							<longdesc>In einer Xinerama-Umgebung ist es möglich, monitorspezifische Panels anzulegen. Dieser Schlüssel identifiziert den Bildschirm, auf dem das Panel momentan angezeigt wird.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="screen">
+						<local_schema short_desc="X-Bildschirm, auf dem das Panel angezeigt wird">
+							<longdesc>Falls Sie mehrere Bildschirme verwenden, können Panels auch auf einzelnen Bildschirmen angezeigt werden. Dieser Schlüssel legt fest, auf welchem Bildschirm dieses Panel angezeigt werden soll.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name">
+						<local_schema short_desc="Name zur Panel-Identifikation">
+							<longdesc>Dies ist ein menschenlesbarer Name, anhand dessen Sie ein Panel identifizieren können. Seine Hauptaufgabe besteht darin, als Fenstertitel für das Panel zu fungieren, was beim Umschalten zwischen Panels nützlich ist.</longdesc>
+						</local_schema>
+					</entry>
+					<dir name="background">
+						<entry name="rotate">
+							<local_schema short_desc="Bild auf vertikalen Panels drehen">
+								<longdesc>Falls dieser Schlüssel WAHR ist, wird das Hintergrundbild gedreht angezeigt, falls das Panel vertikal ausgerichtet ist.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="stretch">
+							<local_schema short_desc="Bild auf Panelgröße strecken">
+								<longdesc>Falls dieser Schlüssel WAHR ist, wird das Bild den Abmessungen des Panels angepasst. Das Ansichtsverhältnis des Bildes bleibt dabei nicht erhalten.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="fit">
+							<local_schema short_desc="Bild in Panel einpassen">
+								<longdesc>Falls dieser Schlüssel WAHR ist, wird das Bild auf Panel-Höhe (falls horizontal) skaliert, wobei das Ansichtsverhältnis des Bildes beibehalten wird.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="image">
+							<local_schema short_desc="Hintergrundbild">
+								<longdesc>Gibt die für das Hintergrundbild zu verwendende Datei an. Falls das Bild einen Alphakanal enthält, wird es mit dem Desktop-Hintergrundbild gemischt.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="opacity">
+							<local_schema short_desc="Deckkraft der Hintergrundfarbe">
+								<longdesc>Gibt die Deckkraft der Hintergrundfarbe an. Falls die Farbe nicht komplett deckend ist (ein Wert von weniger als 65535), wird das Bild mit dem Desktop-Hintergrundbild gemischt.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="color">
+							<local_schema short_desc="Hintergrundfarbe">
+								<longdesc>Gibt die Hintergrundfarbe des Panels im #RGB-Format an.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="type">
+							<local_schema short_desc="Hintergrundtyp">
+								<longdesc>Welcher Hintergrundtyp soll für dieses Panel verwendet werden? Zulässige Werte: »gtk« (den voreingestellten GTK+-Widget-Hintergrund verwenden), »color« (die gewünschte Farbe als Hintergrundfarbe verwenden) sowie »image« (das gewünschte Bild als Hintergrund verwenden).</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="general">
+					<entry name="profiles_migrated">
+						<local_schema short_desc="Konfiguration der alten Profile wurde übernommen">
+							<longdesc>Ein boolescher Wert der anzeigt, ob die vorherige Konfiguration unter /apps/panel/profiles/default zum neuen Ort /apps/panel kopiert wurde.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="object_id_list">
+						<local_schema short_desc="Liste der Panel-Objektkennungen">
+							<longdesc>Eine Liste der Panel-Objektkennungen. Jede Kennung entspricht einem Panel-Objekt (z.B. einem Starter oder einer Menüleiste). Die Einstellungen jedes dieser Panel-Objekte werden unter »/apps/panel/objects/$(id)« abgelegt.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="applet_id_list">
+						<local_schema short_desc="Liste der Panel-Applet-Kennungen">
+							<longdesc>Eine Liste der Applet-Kennungen. Jede Kennung entspricht einem bestimmten Panel-Applet. Die Einstellungen jedes dieser Applets werden unter »/apps/panel/applets/$(id)« abgelegt.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toplevel_id_list">
+						<local_schema short_desc="Liste Panel-Kennungen">
+							<longdesc>Eine Liste der Panel-Kennungen. Jede Kennung entspricht einem Panel auf oberster Ebene. Die Einstellungen jedes dieser Panels werden unter »/apps/panel/toplevels/$(id)« abgelegt.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_autocompletion">
+						<local_schema short_desc="Automatische Vervollständigung im Dialog »Anwendung ausführen« aktivieren">
+							<longdesc>Falls dieser Schlüssel WAHR ist, wird die automatische Vervollständigung im Dialog »Anwendung ausführen« aktiviert.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_program_list">
+						<local_schema short_desc="Programmliste im Dialog »Anwendung ausführen« ausklappen">
+							<longdesc>Falls dieser Schlüssel WAHR ist, wird die Liste bekannter Anwendungen der Größe des Dialogs »Anwendung ausführen« angepasst, sobald dieser geöffnet wird. Dieser Schlüssel kommt ausschließlich zum Tragen, falls der Schlüssel »enable_program_list« WAHR ist.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_program_list">
+						<local_schema short_desc="Programmliste im Dialog »Anwendung ausführen« aktivieren">
+							<longdesc>Falls dieser Schlüssel WAHR ist, wird die Liste bekannter Anwendungen im Dialog »Anwendung ausführen« angezeigt. Der Schlüssel »show_program_list« legt fest, ob die Größe der Liste der des Fensters angepasst werden soll.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="global">
+					<entry name="disable_force_quit">
+						<local_schema short_desc="Erzwungenes Beenden deaktivieren">
+							<longdesc>Falls dieser Schlüssel WAHR ist, erlaubt es das Panel dem Benutzer nicht, das Beenden einer Anwendung zu erzwingen. Dies wird durch das Entfernen des »Anwendung beenden«-Knopfes bewerkstelligt.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_log_out">
+						<local_schema short_desc="Abmelden deaktivieren">
+							<longdesc>Falls dieser Schlüssel WAHR ist, erlaubt es das Panel dem Benutzer nicht, sich abzumelden. Dies wird durch das Entfernen der »Abmelden«-Menüeinträge bewerkstelligt.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_lock_screen">
+						<local_schema short_desc="Veraltet">
+							<longdesc>Dieser Schlüssel ist veraltet, weil er nicht zur Implementation einer sauberen Sperrung verwendet werden kann. Stattdessen sollte der Schlüssel »/desktop/gnome/lockdown/disable_lock_screen« verwendet werden.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disabled_applets">
+						<local_schema short_desc="Zu ignorierende Applet-IIDs">
+							<longdesc>Eine Liste von Applet-IIDs, die das Panel ignoriert. Auf diese Weise können Sie verhindern, dass bestimmte Applets geladen oder im Menü angezeigt werden. Falls Sie beispielsweise das Befehlszeilen-Applet deaktivieren möchten, so müssen Sie »OAFIID:GNOME_MiniCommanderApplet« zur Liste hinzufügen. Damit diese Einstellungen wirksam werden, muss das Panel neu gestartet werden.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="locked_down">
+						<local_schema short_desc="Einstellungssperre für gesamtes Panel">
+							<longdesc>Falls dieser Schlüssel WAHR ist, unterbindet das Panel jegliche Änderungen an der Panel-Konfiguration. Applets müssen jedoch möglicherweise einzeln gesperrt werden. Damit diese Einstellungen wirksam werden, muss das Panel neu gestartet werden.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="highlight_launchers_on_mouseover">
+						<local_schema short_desc="Starter hervorheben, wenn sich die Maus darüber befindet">
+							<longdesc>Falls dieser Schlüssel WAHR ist, werden Starter hervorgehoben, wenn sich der Zeiger über ihnen befindet.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="confirm_panel_remove">
+						<local_schema short_desc="Entfernen des Panels bestätigen">
+							<longdesc>Falls dieser Schlüssel WAHR ist, wird ein Dialog angezeigt, der den Benutzer dazu auffordert, das Entfernen eines Panels zu bestätigen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="drawer_autoclose">
+						<local_schema short_desc="Schublade automatisch schließen">
+							<longdesc>Falls dieser Schlüssel WAHR ist, wird eine Schublade automatisch geschlossen, sobald der Benutzer darin einen Starter anklickt.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="window_screenshot_key">
+						<local_schema short_desc="Veraltet">
+						</local_schema>
+					</entry>
+					<entry name="screenshot_key">
+						<local_schema short_desc="Veraltet">
+						</local_schema>
+					</entry>
+					<entry name="run_key">
+						<local_schema short_desc="Veraltet">
+						</local_schema>
+					</entry>
+					<entry name="menu_key">
+						<local_schema short_desc="Veraltet">
+						</local_schema>
+					</entry>
+					<entry name="enable_key_bindings">
+						<local_schema short_desc="Veraltet">
+						</local_schema>
+					</entry>
+					<entry name="panel_hide_delay">
+						<local_schema short_desc="Veraltet">
+						</local_schema>
+					</entry>
+					<entry name="panel_animation_speed">
+						<local_schema short_desc="Veraltet">
+						</local_schema>
+					</entry>
+					<entry name="panel_show_delay">
+						<local_schema short_desc="Veraltet">
+						</local_schema>
+					</entry>
+					<entry name="panel_minimized_size">
+						<local_schema short_desc="Veraltet">
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="Animationen aktivieren">
+						</local_schema>
+					</entry>
+					<entry name="keep_menus_in_memory">
+						<local_schema short_desc="Veraltet">
+						</local_schema>
+					</entry>
+					<entry name="tooltips_enabled">
+						<local_schema short_desc="Minihilfen aktivieren">
+							<longdesc>Falls dieser Schlüssel WAHR ist, werden für Panelobjekte Minihilfen angezeigt.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gweather">
+				<dir name="prefs">
+					<entry name="radar">
+						<local_schema short_desc="URL zur Radarkarte">
+							<longdesc>Die Benutzerdefinierte URL, von der die Radarkarte abgerufen werden soll.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_custom_radar_url">
+						<local_schema short_desc="Benutzerdefinierte URL für die Radarkarte verwenden">
+							<longdesc>Falls dieser Schlüssel wahr ist, wird eine Radarkarte von einem Ort abgerufen, der vom Schlüssel »radar« angegeben wird.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="coordinates">
+						<local_schema short_desc="Standortkoordinaten">
+						</local_schema>
+					</entry>
+					<entry name="location4">
+						<local_schema short_desc="Wetter für eine Stadt">
+						</local_schema>
+					</entry>
+					<entry name="location3">
+						<local_schema short_desc="Radarstandort">
+						</local_schema>
+					</entry>
+					<entry name="location2">
+						<local_schema short_desc="Zonen-Standort">
+						</local_schema>
+					</entry>
+					<entry name="location1">
+						<local_schema short_desc="Nächstgelegene Stadt">
+						</local_schema>
+					</entry>
+					<entry name="location0">
+						<local_schema short_desc="Informationen zum Wetterstandort.">
+						</local_schema>
+					</entry>
+					<entry name="enable_radar_map">
+						<local_schema short_desc="Radarkarte anzeigen">
+							<longdesc>Bei jedem Aktualisierungsvorgang eine Radarkarte abrufen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_detailed_forecast">
+						<local_schema short_desc="Nicht mehr verwendet">
+						</local_schema>
+					</entry>
+					<entry name="temperature_unit">
+						<local_schema short_desc="Temperatureinheit">
+							<longdesc>Die für die Temperatur zu verwendente Einheit.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="speed_unit">
+						<local_schema short_desc="Geschwindigkeitseinheit">
+							<longdesc>Die für die Windgeschwindigkeit zu verwendente Einheit.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="pressure_unit">
+						<local_schema short_desc="Druckeinheit">
+							<longdesc>Die für den Druck zu verwendente Einheit.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="distance_unit">
+						<local_schema short_desc="Abstandseinheit">
+							<longdesc>Die für die Sichtweite zu verwendente Einheit.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_metric">
+						<local_schema short_desc="Metrische Einheiten verwenden">
+							<longdesc>Metrische statt englische Einheiten verwenden</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_update_interval">
+						<local_schema short_desc="Aktualisierungsintervall">
+							<longdesc>Das Intervall zwischen automatischen Aktualisierungen in Sekunden.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_update">
+						<local_schema short_desc="Die Daten automatisch aktualisieren">
+							<longdesc>Legt fest, ob das Applet automatisch seine Wetterstatistiken aktualisiert.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnome-keyring">
+				<dir name="daemon-components">
+					<entry name="pkcs11">
+						<local_schema short_desc="Legt fest, ob die PKCS #11-Komponente des GNOME-Schlüsselbunddienstes aktiviert ist.">
+							<longdesc>Diese Option aktiviert die PKCS #11-Komponente im GNOME-Schlüsselbunddienst. Sie tritt nur in Kraft, wenn der Schlüsselbunddienst gestartet wird (also der Benutzer sich anmeldet). Diese Einstellung kann von bestimmten Befehlszeilenargumenten überschrieben werden, die dem Dienst übergeben werden.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="ssh">
+						<local_schema short_desc="Legt fest, ob der SSH-Agent des GNOME-Schlüsselbunddienstes aktiviert ist.">
+							<longdesc>Diese Option aktiviert den SSH-Agenten des GNOME-Schlüsselbunddienstes. Sie tritt nur in Kraft, wenn der Schlüsselbunddienst gestartet wird (also der Benutzer sich anmeldet). Diese Einstellung kann von bestimmten Befehlszeilenargumenten überschrieben werden, die dem Dienst übergeben werden.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="brasero">
+				<dir name="filter">
+					<entry name="notify">
+						<local_schema short_desc="Soll Brasero darauf hinweisen, wenn Dateien gefiltert werden?">
+							<longdesc>Soll Brasero darauf hinweisen, wenn Dateien gefiltert werden? Wenn auf »Wahr« gesetzt, wird Brasero Hinweise anzeigen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="broken_sym">
+						<local_schema short_desc="Soll Brasero ungültige symbolische Verknüpfungen filtern?">
+							<longdesc>Soll Brasero ungültige symbolische Verknüpfungen filtern? Wenn auf »Wahr« gesetzt, filtert Brasero ungültige symbolische Verknüpfungen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="replace_sym">
+						<local_schema short_desc="Symbolische Verknüpfungen durch deren Ziele ersetzen">
+							<longdesc>Soll Brasero symbolische Verknüpfungen durch ihre Ziele im Projekt ersetzen? Wenn auf »Wahr« gesetzt, ersetzt Brasero die Verknüpfungen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hidden">
+						<local_schema short_desc="Soll Brasero verborgene Dateien filtern?">
+							<longdesc>Soll Brasero verborgene Dateien filtern? Wenn auf »Wahr« gesetzt, filtert Brasero verborgene Dateien.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="display">
+					<entry name="video_height">
+						<local_schema short_desc="Die Höhe für das Video-Vorschaufenster">
+							<longdesc>Die voreingestellte Höhe für das Video-Vorschaufenster.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="video_width">
+						<local_schema short_desc="Breite für Video-Vorschau">
+							<longdesc>Die voreingestellte Breite für das Video-Vorschaufenster.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="image_height">
+						<local_schema short_desc="Die Höhe für das Bilder-Vorschaufenster">
+							<longdesc>Die voreingestellte Höhe für das Bilder-Vorschaufenster.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="image_width">
+						<local_schema short_desc="Breite für Bilder-Vorschau">
+							<longdesc>Die voreingestellte Breite für das Bilder-Vorschaufenster.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="viewer">
+						<local_schema short_desc="Dateivorschau einschalten">
+							<longdesc>Aktivieren, um die Dateivorschau anzuzeigen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="layout">
+						<local_schema short_desc="Oberflächengestaltung">
+							<longdesc>Zeigt an, wo sich die Leiste befindet (0 = rechts, 1 = links, 2 = oben, 3 = unten)</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="video_pane">
+						<local_schema short_desc="Seitenleiste, in der Video-Projekte angezeigt werden">
+							<longdesc>Die Seitenleiste, die beim Audio-Projekt mit angezeigt werden kann. Es ist eine der folgenden: Chooser (Dateiauswahl)/Search (Suchen)/Playlist (Wiedergabeliste).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="data_pane">
+						<local_schema short_desc="Seitenleiste, in der Datenprojekte angezeigt werden">
+							<longdesc>Die Seitenleiste, die beim Datenprojekt mit angezeigt werden kann. Es ist eine der folgenden: Chooser (Dateiauswahl)/Search (Suchen).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="audio_pane">
+						<local_schema short_desc="Seitenleiste, in der Audio-Projekte angezeigt werden">
+							<longdesc>Die Seitenleiste, die beim Audioprojekt mit angezeigt werden kann. Es ist eine der folgenden: Chooser (Dateiauswahl)/Search (Suchen)/Playlist (Wiedergabeliste).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="sidepane">
+						<local_schema short_desc="Seitenleiste anzeigen">
+							<longdesc>Legt fest, ob die Seitenleiste angezeigt wird. Setzen Sie den Wert auf »WAHR« um die Seitenleiste zu verwenden.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="config">
+					<entry name="raw_flag">
+						<local_schema short_desc="Legt fest, ob cdrdao mit der Einstellung »--driver generic-mmc-raw« benutzt wird">
+							<longdesc>Legt fest, ob cdrdao mit der Einstellung »--driver generic-mmc-raw« benutzt wird. Auf »WAHR« gesetzt, verwendet Brasero diese Einstellung. Es könnte aber eine provisorische Lösung für einige Laufwerke/Systeme sein.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="minbuf_value">
+						<local_schema short_desc="Wird nur in Verbindung mit der Einstellung »-immed« von cdrecord benutzt">
+							<longdesc>Wird nur in Verbindung mit der Einstellung »-immed« von cdrecord benutzt</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="dao_flag">
+						<local_schema short_desc="Legt fest, ob growisofs mit der Einstellung »-use-the-force-luke=dao« benutzt wird">
+							<longdesc>Legt fest, ob growisofs mit der Einstellung »-use-the-force-luke=dao« benutzt wird. Auf »FALSCH« gesetzt, verwendet Brasero diese Einstellung nicht. Es könnte aber eine provisorische Lösung für einige Laufwerke/Systeme sein.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="immed_flag">
+						<local_schema short_desc="Die »immed«-Einstellung mit cdrecord benutzen">
+							<longdesc>Legt fest, ob cdrecord mit der Einstellung »-immed« benutzt wird. Diese Funktion sollte mit Vorsicht genutzt werden, da es sich nur um eine provisorische Lösung für einige Laufwerke/Systeme handelt.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="plugins">
+						<local_schema short_desc="Weiße Liste zur Benutzung von zusätzlichen Plugins">
+							<longdesc>Enthält die Liste zusätzlicher Plugins, die Brasero zum Brennen von CDs und DVDs verwendet. Wenn diese auf NULL gesetzt ist, wird Brasero alle laden.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="engine-group">
+						<local_schema short_desc="Bevorzugte Brennkomponente">
+							<longdesc>Enthält den Namen der bevorzugten Brennkomponente, die installiert ist. Diese wird verwendet, falls möglich.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="evince">
+				<entry name="override_restrictions">
+					<local_schema short_desc="Restriktionen des Dokuments übergehen">
+						<longdesc>Restriktionen des Dokuments, wie das Verbot zum Kopieren oder Drucken, übergehen.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="gnome-settings">
+				<dir name="gnumeric">
+					<entry name="toolbar_style">
+						<local_schema short_desc="Werkzeugleistenstil">
+							<longdesc>Werkzeugleistenstil. Zulässige Werte: »both«, »both_horiz«, »icon« sowie »text«</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnumeric">
+				<dir name="plugin">
+					<dir name="latex">
+						<entry name="use-utf8">
+							<local_schema short_desc="Beim LaTeX-Export UTF-8 verwenden">
+								<longdesc>Diese Einstellung legt fest, ob erzeugte LaTeX-Dateien UTF-8 (Unicode) oder ISO-8859-1 (Latin1) verwenden. Um die UTF-8-Dateien zu verwenden muss das ucs LaTeX-Paket installiert sein.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="cut-and-paste">
+					<entry name="prefer-clipboard">
+						<local_schema short_desc="ZWISCHENABLAGE- den Vorzug vor PRIMÄR-Auswahl geben">
+							<longdesc>Falls dieser Schlüssel wahr ist, bevorzugt Gnumeric die moderne CLIPBOARD-Auswahl über die angestaubte PRIMARY-Auswahl. Setzen Sie diesen Schlüssel auf falsch, falls Sie sich mit älteren Anwendungen, wie Xterm oder Emacs, herumschlagen müssen, die ausschließlich die PRIMARY-Auswahl verwenden.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="core">
+					<dir name="sort">
+						<dir name="dialog">
+							<entry name="max-initial-clauses">
+								<local_schema short_desc="Anzahl der automatischen Bedingungen">
+									<longdesc>Beim Markieren eines Sortierbereichs im Sortierdialog werden automatisch Suchbedingungen hinzugefügt. Diese Zahl legt die maximale Anzahl automatisch hinzuzufügender Suchbedingungen fest.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+						<dir name="default">
+							<entry name="ascending">
+								<local_schema short_desc="Aufsteigend sortieren">
+									<longdesc>Diese Option legt den Vorgabezustand des Sortierreihenfolge-Knopfes im Sortierdialog fest.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="retain-formats">
+								<local_schema short_desc="Beim Sortieren Formate beibehalten">
+									<longdesc>Das Setzen dieser Option veranlasst die Sortierknöpfe in der Werkzeugleiste, die Zellformate beizubehalten und legt den Zustand des »Formate beibehalten«-Kontrollkästchens zu Beginn im Sortierdialog fest.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="by-case">
+								<local_schema short_desc="Unter Berücksichtigung von Groß-/Kleinschreibung sortieren">
+									<longdesc>Das Setzen dieser Option veranlasst die Sortierknöpfe in der Werkzeugleiste, die Sortierung unter Berücksichtigung der Groß-/Kleinschreibung durchzuführen und legt den Zustand des »Groß-/Kleinschreibung berücksichtigen«-Kontrollkästchens zu Beginn im Sortierdialog fest.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+					</dir>
+					<dir name="file">
+						<dir name="save">
+							<entry name="def-overwrite">
+								<local_schema short_desc="Dateien per Vorgabe überschreiben">
+									<longdesc>Bevor eine existierende Datei überschrieben wird, zeigt Gnumeric einen Warn-Dialog an. Das Setzen dieser Option macht den Überschreiben-Knopf in diesem Dialog zum Vorgabeknopf.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="single_sheet">
+								<local_schema short_desc="Beim Exportieren in ein Ein-Blatt-Format warnen">
+									<longdesc>Einige Dateiformate können nur ein einzelnes Blatt speichern. Diese Variable legt fest, ob der Benutzer gewarnt werden soll, falls nur ein einzelnes Blatt eines Arbeitsbuchs gespeichert wird, das mehrere Blätter enthält.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+					</dir>
+					<dir name="xml">
+						<entry name="compression-level">
+							<local_schema short_desc="Vorgegebener Kompressionsgrad für Gnumeric-Dateien">
+								<longdesc>Diese Ganzzahl (zwischen 0 und 9) gibt den Grad der Kompression an, die von Gnumeric beim Speichern von Dateien im Vorgabe-Dateiformat durchgeführt wird. 0 führt zu einer minimalen Kompression, während 9 der maximale Kompressionsgrad ist.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="gui">
+						<dir name="window">
+							<entry name="zoom">
+								<local_schema short_desc="Vorgegebener Vergrößerungsfaktor">
+									<longdesc>Der voreingestellte Vergrößerungsfaktor für neue Arbeitsbücher.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="y">
+								<local_schema short_desc="Vorgegebene Fensterhöhe">
+									<longdesc>Die Zahl (zwischen 0.25 und 1.00) gibt den vertikalen Anteil des Bildschirms an, den das Vorgabefenster belegen soll.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="x">
+								<local_schema short_desc="Vorgegebene Fensterbreite">
+									<longdesc>Die Zahl (zwischen 0.25 und 1.00) gibt den horizontalen Anteil des Bildschirms an, den das Vorgabefenster belegen soll.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+						<dir name="editing">
+							<entry name="transitionkeys">
+								<local_schema short_desc="Übergangstasten">
+								</local_schema>
+							</entry>
+							<entry name="recalclag">
+								<local_schema short_desc="Verzögerung für Neuberechnung von Auto-Ausdrücken">
+								</local_schema>
+							</entry>
+							<entry name="livescrolling">
+								<local_schema short_desc="Live-Rollen">
+									<longdesc>Diese Variable legt fest, ob das Bewegen des Rollbalkens sofort umgesetzt wird (andernfalls Verzögerung).</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="autocomplete">
+								<local_schema short_desc="Auto-Vervollständigung">
+									<longdesc>Diese Variable legt fest, ob automatische Vervollständigung durchgeführt werden soll.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+						<dir name="toolbars">
+							<entry name="ObjectToolbar-position">
+								<local_schema short_desc="Position der Objektwerkzeugleiste">
+								</local_schema>
+							</entry>
+							<entry name="ObjectToolbar">
+								<local_schema short_desc="Objektwerkzeugleiste sichtbar">
+								</local_schema>
+							</entry>
+							<entry name="FormatToolbar-position">
+								<local_schema short_desc="Position der Formatierungswerkzeugleiste">
+									<longdesc>Diese Variable legt fest, wo die Formatierungswerkzeugleiste angezeigt werden soll. 0 ist links, 1 ist rechts, 2 ist oben.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="FormatToolbar">
+								<local_schema short_desc="Formatierungswerkzeugleiste sichtbar">
+								</local_schema>
+							</entry>
+							<entry name="StandardToolbar-position">
+								<local_schema short_desc="Position der Standardwerkzeugleiste">
+								</local_schema>
+							</entry>
+							<entry name="StandardToolbar">
+								<local_schema short_desc="Standardwerkzeugleiste sichtbar">
+								</local_schema>
+							</entry>
+						</dir>
+						<dir name="screen">
+							<entry name="verticaldpi">
+								<local_schema short_desc="DPI vertikal">
+									<longdesc>Bildschirmauflösung in vertikaler Richtung.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="horizontaldpi">
+								<local_schema short_desc="DPI horizontal">
+									<longdesc>Bildschirmauflösung in horizontaler Richtung.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+					</dir>
+					<dir name="workbook">
+						<entry name="n-sheet">
+							<local_schema short_desc="Vorgegebene Blattanzahl">
+								<longdesc>Die Anzahl der Blätter die in einem neuen Arbeitsbuch zu Beginn erzeugt werden.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="defaultfont">
+						<entry name="italic">
+							<local_schema short_desc="Die Vorgabeschrift ist kursiv.">
+								<longdesc>Dieser Wert legt fest, ob die Vorgabeschrift für neue Arbeitsbücher kursiv ist.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bold">
+							<local_schema short_desc="Die Vorgabeschrift ist fett.">
+								<longdesc>Dieser Wert legt fest, ob die Vorgabeschrift für neue Arbeitsbücher fett ist.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="name">
+							<local_schema short_desc="Vorgegebener Schriftname">
+							</local_schema>
+						</entry>
+						<entry name="size">
+							<local_schema short_desc="Vorgabeschriftgröße">
+								<longdesc>Die Größe der Vorgabeschrift für neue Arbeitsbücher.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="undo">
+					<entry name="max_descriptor_width">
+						<local_schema short_desc="Länge der Rückgängig-Beschreibungen">
+							<longdesc>Dieser Wert legt die maximale Länge der Befehlsbeschreibungen in Rückgängig- und Wiederholen-Ketten fest.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="maxnum">
+						<local_schema short_desc="Anzahl der Rückgängig-Objekte">
+							<longdesc>Diese Wert legt die maximale Anzahl der Objekte in der Rückgängig/Wiederholen-Liste fest.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size">
+						<local_schema short_desc="Maximale Rückgängig-Größe">
+							<longdesc>Dieser Wert legt die Länge der Rückgängig-Kette fest. Jede Bearbeitungsaktion hat eine Größe damit assoziiert, um sie mit den Speichererfordernissen einer einfachen ein-Zell-Bearbeitung (Größe von 1) zu vergleichen. Die Rückgängig-Liste wird abgeschnitten, wenn die gesamte Größe diesen konfiguriertbaren Wert überschreitet.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_sheet_name">
+						<local_schema short_desc="Name des Blattes in Rückgängig-Liste anzeigen">
+							<longdesc>Dieser Wert legt fest, ob die Namen der Blätter in den Rückgängig- und Wiederherstellen-Listen angezeigt werden sollen.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="dialogs">
+					<dir name="rs">
+						<entry name="unfocused">
+							<local_schema short_desc="Nicht fokussierte Bereichsmarkierungen zulassen">
+								<longdesc>Einige Dialoge enthalten nur ein einzelnes Eingabefeld, das Bereichsmarkierungen im Arbeitsbuch erlaubt. Das Setzen dieses Wertes auf »TRUE« leitet Markierungen an diesen Eintrag weiter, sogar wenn der Eintrag keinen Tastaturfokus hat.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="printsetup">
+					<entry name="hf-right">
+						<local_schema short_desc="Kopf-/Fußzeilenformat (rechter Anteil)">
+							<longdesc>Bitte verwenden Sie den Druckeinstellungsdialog zum Bearbeiten dieses Werts.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hf-middle">
+						<local_schema short_desc="Kopf-/Fußzeilenformat (mittlerer Anteil)">
+							<longdesc>Bitte verwenden Sie den Druckeinstellungsdialog zum Bearbeiten dieses Werts.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hf-left">
+						<local_schema short_desc="Kopf-/Fußzeilenformat (linker Anteil)">
+							<longdesc>Bitte verwenden Sie den Druckeinstellungsdialog zum Bearbeiten dieses Werts.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="paper-orientation">
+						<local_schema short_desc="Papier">
+						</local_schema>
+					</entry>
+					<entry name="paper">
+						<local_schema short_desc="Papier">
+						</local_schema>
+					</entry>
+					<entry name="margin-gtk-right">
+						<local_schema short_desc="Vorgegebener unterer Rand">
+						</local_schema>
+					</entry>
+					<entry name="margin-gtk-left">
+						<local_schema short_desc="Vorgegebener linker Rand">
+						</local_schema>
+					</entry>
+					<entry name="margin-bottom">
+						<local_schema short_desc="Vorgegebener unterer Rand">
+							<longdesc>Dieser Wert liefert den vorgegebenen Abstand vom Ende der Seite zum Ende des Körpers in Punkten. Bitte verwenden Sie den Druckeinstellungsdialog zum Bearbeiten dieses Werts.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="margin-top">
+						<local_schema short_desc="Vorgegebener oberer Rand">
+							<longdesc>Dieser Wert liefert den vorgegebenen Abstand vom Anfang der Seite zum Anfang des Körpers in Punkten. Bitte verwenden Sie den Druckeinstellungsdialog zum Bearbeiten dieses Werts.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="preferred-unit">
+						<local_schema short_desc="Bevorzugte Anzeigeeinheit">
+						</local_schema>
+					</entry>
+					<entry name="repeat-left">
+						<local_schema short_desc="Vorgabe für den zu wiederholenden linken Bereich">
+							<longdesc>Diese Zeichenkette liefert den zu wiederholenden Vorgabebereich, der links auf jeder gedruckten Seite erscheint. Bitte verwenden Sie den Druckeinstellungsdialog zum Bearbeiten dieses Werts.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="repeat-top">
+						<local_schema short_desc="Vorgabe für den zu wiederholenden oberen Bereich">
+							<longdesc>Diese Zeichenkette liefert den zu wiederholenden Vorgabebereich, der oben auf jeder gedruckten Seite erscheint. Bitte verwenden Sie den Druckeinstellungsdialog zum Bearbeiten dieses Werts.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="scale-height">
+						<local_schema short_desc="Vorgegebene Skalierungshöhe">
+						</local_schema>
+					</entry>
+					<entry name="scale-width">
+						<local_schema short_desc="Vorgegebene Skalierungsbreite">
+						</local_schema>
+					</entry>
+					<entry name="scale-percentage-value">
+						<local_schema short_desc="Vorgegebener Prozentwert zur Skalierung">
+							<longdesc>Dieser Wert liefert den Prozentsatz, um den jede zu druckende Seite skaliert werden soll. Bitte verwenden Sie den Druckeinstellungsdialog zum Bearbeiten dieses Werts.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="scale-percentage">
+						<local_schema short_desc="Vorgegebene Skalierungsart">
+							<longdesc>Dieser Wert legt fest, ob die Skalierung von Seiten mit einem festgelegten Prozentwert im Druckeinstellungsdialog per Vorgabe aktiviert ist. Bitte verwenden Sie den Druckeinstellungsdialog zum Bearbeiten dieses Werts.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="across-then-down">
+						<local_schema short_desc="Vorgabedruckrichtung">
+							<longdesc>Dieser Wert legt fest, ob die Seitenabfolge »nach rechts, dann nach unten« im Druckeinstellungsdialog per Vorgabe aktiviert ist. Bitte verwenden Sie den Druckeinstellungsdialog zum Bearbeiten dieses Werts.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="print-titles">
+						<local_schema short_desc="Titel per Vorgabe drucken">
+							<longdesc>Dieser Wert legt fest, ob das Drucken der Beschriftungen von Zeilen und Spalten im Druckeinstellungsdialog per Vorgabe aktiviert ist. Bitte verwenden Sie den Druckeinstellungsdialog zum Bearbeiten dieses Werts.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="print-black-n-white">
+						<local_schema short_desc="Per Vorgabe Schwarz/Weiß drucken">
+							<longdesc>Dieser Wert legt fest, ob der Schwarz/Weiß-Druck im Druckeinstellungsdialog per Vorgabe aktiviert ist. Bitte verwenden Sie den Druckeinstellungsdialog zum Bearbeiten dieses Werts.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="print-even-if-only-styles">
+						<local_schema short_desc="Per Vorgabe leere, aber formatierte Zellen drucken">
+							<longdesc>Dieser Wert legt fest, ob das Drucken von leeren, aber formatierten Zellen im Druckeinstellungsdialog per Vorgabe aktiviert ist. Bitte verwenden Sie den Druckeinstellungsdialog zum Bearbeiten dieses Werts.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="print-grid-lines">
+						<local_schema short_desc="Per Vorgabe Gitterlinien drucken">
+							<longdesc>&gt;Dieser Wert legt fest, ob der Druckeinstellungsdialog per Vorgabe das Drucken der Gitterlinien aktiviert. Bitte verwenden Sie den Druckeinstellungsdialog zum Bearbeiten dieses Werts.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="center-vertically">
+						<local_schema short_desc="Per Vorgabe vertikal zentrieren">
+						</local_schema>
+					</entry>
+					<entry name="center-horizontally">
+						<local_schema short_desc="Per Vorgabe horizontal zentrieren">
+						</local_schema>
+					</entry>
+					<entry name="hf-font-italic">
+						<local_schema short_desc="Die Vorgabeschrift für Kopf-/Fußzeilen ist kursiv.">
+							<longdesc>Dieser Wert legt fest, ob die Vorgabeschrift für neue Kopf- und Fußzeilen kursiv ist.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hf-font-bold">
+						<local_schema short_desc="Die Vorgabeschrift für Kopf-/Fußzeilen ist fett.">
+							<longdesc>Dieser Wert legt fest, ob die Vorgabeschrift für Kopf- und Fußzeilen fett ist.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hf-font-name">
+						<local_schema short_desc="Name der Vorgabeschrift für Kopf-/Fußzeilen">
+						</local_schema>
+					</entry>
+					<entry name="hf-font-size">
+						<local_schema short_desc="Größe der Vorgabeschrift für Kopf-/Fußzeilen">
+							<longdesc>Die Größe der Vorgabeschrift für Kopf- und Fußzeilen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="footer">
+						<local_schema short_desc="Fußzeilen">
+							<longdesc>Die Vorgabefußzeile neuer Dokumente, die mit Hilfe des Dialogs Seiteneinstellungen verändert werden kann.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="header">
+						<local_schema short_desc="Kopfzeilen">
+							<longdesc>Die Vorgabekopfzeile neuer Dokumente, die mit Hilfe des Dialogs Seiteneinstellungen verändert werden kann.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk-setting">
+						<local_schema short_desc="GTKPrintSetting">
+							<longdesc>Die Konfiguration von GTKPrintSetting. Verändern Sie diesen Wert nicht!</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="all-sheets">
+						<local_schema short_desc="Druckeinstellungen auf alle Blätter anwenden">
+							<longdesc>Dieser Wert legt fest, ob der Druckeinstellungsdialog per Vorgabe auf alle Blätter gleichzeitig angewendet werden soll.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="autoformat">
+					<entry name="usr-dir">
+						<local_schema short_desc="Benutzerverzeichnis für Auto-Formatierungen">
+							<longdesc>Das Hauptverzeichnis für benutzerspezifische Vorlagen zur Auto-Formatierung.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="sys-dir">
+						<local_schema short_desc="Systemverzeichnis für Auto-Formatierungen">
+							<longdesc>Dieser Ordner enthält die vorinstallierten Vorlagen für die Auto-Formatierung.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="extra-dirs">
+						<local_schema short_desc="Liste zusätzlicher Auto-Formatierung-Ordner.">
+							<longdesc>Diese Liste enthält alle zusätzlichen Dateien, die Vorlagen zur Auto-Formatierung enthalten.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="plugins">
+					<entry name="extra-dirs">
+						<local_schema short_desc="Liste zusätzlicher Plugin-Ordner.">
+							<longdesc>Diese Liste enthält alle zusätzlichen Dateien, die Plugins enthalten.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="file-states">
+						<local_schema short_desc="Liste der Plugin-Dateizustände">
+							<longdesc>Diese Liste enthält alle Plugin-Dateizustände.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="known">
+						<local_schema short_desc="Liste bekannter Plugins.">
+							<longdesc>Diese Liste enthält alle bekannten Plugins.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="active">
+						<local_schema short_desc="Liste aktiver Plugins.">
+							<longdesc>Diese Liste enthält alle Plugins, die automatisch aktiviert werden sollen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="activate-new">
+						<local_schema short_desc="Neue Plugins sofort aktivieren">
+							<longdesc>Diese Variable legt fest, ob jedes neu entdeckte Plugin aktiviert werden soll.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="autocorrect">
+					<entry name="replace">
+						<local_schema short_desc="Ersetzen automatisch korrigieren">
+							<longdesc>Ersetzen automatisch korrigieren</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="names-of-days">
+						<local_schema short_desc="Namen der Tage automatisch korrigieren">
+							<longdesc>Namen der Tage automatisch korrigieren</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="first-letter-list">
+						<local_schema short_desc="Liste der erster Buchstabe-Ausnahmen">
+							<longdesc>Der ersten Buchstaben von Wörter in dieser Liste wird nicht von der Auto-Korrektur korrigiert.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="first-letter">
+						<local_schema short_desc="Ersten Buchstaben automatisch korrigieren">
+							<longdesc>Ersten Buchstaben automatisch korrigieren</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="init-caps-list">
+						<local_schema short_desc="Liste der Ausnahmen großer Anfangsbuchstaben">
+							<longdesc>Die großen Anfangsbuchstaben von Wörtern in dieser Liste werden nicht automatisch berichtigt.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="init-caps">
+						<local_schema short_desc="Ersten Buchstaben automatisch korrigieren">
+							<longdesc>Ersten Buchstaben automatisch korrigieren</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="functionselector">
+					<entry name="num-of-recent">
+						<local_schema short_desc="Maximale Einträge in der Liste zuletzt verwendeter Funktionen">
+							<longdesc>Die Funktionswahl hält eine Liste zuletzt verwendeter Funktionen vor. Dies ist die Zahl der maximalen Einträge in dieser Liste.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="recentfunctions">
+						<local_schema short_desc="Liste zuletzt verwendeter Funktionen.">
+							<longdesc>Die Funktionswahl hält eine Liste zuletzt verwendeter Funktionen vor. Dies ist diese Liste.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+		</dir>
+		<dir name="desktop">
+			<dir name="gnome">
+				<dir name="interface">
+					<entry name="show_unicode_menu">
+						<local_schema short_desc="Das Menü »Unicode-Steuerzeichen einfügen« anzeigen">
+							<longdesc>Legt fest, ob die Kontextmenüs der Eingabefelder und Textbereiche die Möglichkeit bieten sollen, Steuerzeichen einzugeben.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_input_method_menu">
+						<local_schema short_desc="Das Menü »Eingabemethoden« anzeigen">
+							<longdesc>Legt fest, ob die Kontextmenüs der Eingabefelder und Textbereiche die Möglichkeit bieten sollen, die Eingabemethode zu ändern.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menubar_accel">
+						<local_schema short_desc="Menüleistetastenkürzel">
+							<longdesc>Tastenkürzel um Menüleisten zu öffnen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="file_chooser_backend">
+						<local_schema short_desc="Modul für GtkFileChooser">
+							<longdesc>Als Dateisystemmodell für das GtkFileChooser-Widget zu verwendendes Modul. Zulässige Werte: »gio«, »gnome-vfs« sowie »gtk+«.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="status_bar_meter_on_right">
+						<local_schema short_desc="Statusleiste rechts">
+							<longdesc>Legt fest, ob Status-Anzeigen auf der rechten Seite angezeigt werden.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_custom_font">
+						<local_schema short_desc="Benutzerdefinierte Schrift verwenden">
+							<longdesc>Soll eine benutzerdefinierte Schrift in GTK+-Anwendungen verwendet werden?</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="monospace_font_name">
+						<local_schema short_desc="Dicktengleiche Schrift">
+							<longdesc>Name einer dicktengleichen Schrift, die z.B. im Terminal verwendet werden soll.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="document_font_name">
+						<local_schema short_desc="Dokumentenschrift">
+							<longdesc>Name der Vorgabeschrift zum Anzeigen von Dokumenten.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk-im-module">
+						<local_schema short_desc="GTK-Eingabemethoden-Modul">
+							<longdesc>Name des von GTK+ genutzten Eingabemethoden-Moduls.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk-im-status-style">
+						<local_schema short_desc="Statusstil der GTK-Eingabemethoden">
+							<longdesc>Name des von GTK+ verwendeten Statusstils der Eingabemethode.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk-im-preedit-style">
+						<local_schema short_desc="Stil der Vorbearbeitung der GTK-Eingabemethoden">
+							<longdesc>Name des von GTK+ verwendeten Preedit-Stils der Eingabemethode.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="font_name">
+						<local_schema short_desc="Vorgabeschrift">
+							<longdesc>Name der von GTK+ verwendeten Vorgabeschrift.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk_key_theme">
+						<local_schema short_desc="GTK+-Thema">
+							<longdesc>Basisname des von GTK+ verwendeten Vorgabethemas.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk_theme">
+						<local_schema short_desc="GTK+-Thema">
+							<longdesc>Basisname des von GTK+ verwendeten Vorgabethemas.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="icon_theme">
+						<local_schema short_desc="Symbol-Thema">
+							<longdesc>Für das Panel, Nautilus, usw. zu verwendendes Symbol-Thema.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="cursor_blink_time">
+						<local_schema short_desc="Cursor-Blinkfrequenz">
+							<longdesc>Die Cursor-Blinkfrequenz in Millisekunden.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="cursor_blink">
+						<local_schema short_desc="Cursor-Blinken">
+							<longdesc>Legt fest, ob der Cursor blinken soll.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_icons_size">
+						<local_schema short_desc="Symbolgröße in Werkzeugleisten">
+							<longdesc>Symbolgröße in Werkzeugleisten, entweder »small-toolbar« (klein) oder »large-toolbar« (groß).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_detachable">
+						<local_schema short_desc="Werkzeugleisten abtrennbar">
+							<longdesc>Legt fest, ob der Benutzer Werkzeugleisten abnehmen und verschieben kann.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menubar_detachable">
+						<local_schema short_desc="Menüleiste ist abnehmbar">
+							<longdesc>Legt fest, ob der Benutzer Menüleisten abnehmen und verschieben kann.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="buttons_have_icons">
+						<local_schema short_desc="Knöpfe haben Symbole">
+							<longdesc>Legt fest, ob Knöpfe ein Symbol neben dem Text anzeigen dürfen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menus_have_icons">
+						<local_schema short_desc="Menüs haben Symbole">
+							<longdesc>Legt fest, ob Menüs ein Symbol neben den Menüeinträgen anzeigen dürfen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_style">
+						<local_schema short_desc="Werkzeugleisten-Stil">
+							<longdesc>Der Stil der Werkzeugleiste. Zulässige Werte: »both« (Symbol und Text darunter), »both_horiz« (Symbol und Text daneben), »icon« (nur Symbol) sowie »text« (nur Text).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="can_change_accels">
+						<local_schema short_desc="Veränderliche Tastenkombinationen">
+							<longdesc>Legt fest, ob der Benutzer dynamisch eine Tastenkombination für Menüeinträge festlegen kann, wenn diese durch Maus oder Tastatur hervorgehoben werden.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menus_have_tearoff">
+						<local_schema short_desc="Menüs haben Abreißer">
+							<longdesc>Legt fest, ob in Menüs ein Abreißer angezeigt werden soll.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="Animationen aktivieren">
+							<longdesc>Sollen Animationen angezeigt werden? Hinweis: Dies ist ein globaler Schlüssel. Er ändert das Verhalten des Fenstermanagers, des Panels usw.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="accessibility">
+						<local_schema short_desc="Barrierefreiheit aktivieren">
+							<longdesc>Legt fest, ob Anwendungen barrierefreien Zugriff ermöglichen sollen.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="background">
+					<entry name="color_shading_type">
+						<local_schema short_desc="Typ der Farbschattierung">
+							<longdesc>Legt fest, wie die Hintergrundfarbe schattiert werden soll. Zulässige Werte: »horizontal-gradient« (Horizontaler Verlauf), »vertical-gradient« (Vertikaler Verlauf) sowie »solid« (Einfarbig).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="secondary_color">
+						<local_schema short_desc="Zweite Farbe">
+							<longdesc>Rechte bzw. untere Farbe beim Zeichnen eines Farbverlaufs. Bei einem einfarbigen Hintergrund wir diese Farbe nicht verwendet.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="primary_color">
+						<local_schema short_desc="Erste Farbe">
+							<longdesc>Linke bzw. obere Farbe beim Zeichnen eines Farbverlaufs, oder die bei einem einfarbigen Hintergrund verwendete Farbe.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="picture_opacity">
+						<local_schema short_desc="Deckkraft des Bildes">
+							<longdesc>Deckkraft, mit der das Hintergrundbild gezeichnet wird.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="picture_filename">
+						<local_schema short_desc="Dateiname des Bildes">
+							<longdesc>Als Hintergrundbild zu verwendende Datei.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="picture_options">
+						<local_schema short_desc="Bildoptionen">
+							<longdesc>Legt fest, wie das von »wallpaper_filename« festgelegte Bild dargestellt werden soll. Zulässige Werte: »none« (Keins), »wallpaper« (Tapete), »centered« (zentriert), »scaled« (skaliert), »stretched« (gestreckt) sowie »zoom« (Zoom).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="draw_background">
+						<local_schema short_desc="Desktop-Hintergrund zeichnen">
+							<longdesc>Legt fest, ob GNOME den Desktop-Hintergrund zeichnet.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="thumbnail_cache">
+					<entry name="maximum_size">
+						<local_schema>
+							<longdesc>Maximale Größer des Zwischenspeichers für die Miniatur-Vorschaubilder. Der Wert -1 deaktiviert das Löschen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="maximum_age">
+						<local_schema>
+							<longdesc>Maximales Alter der Miniatur-Vorschaubilder im Zwischenspeicher, in Tagen. Der Wert -1 deaktiviert das Löschen.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="typing_break">
+					<entry name="enabled">
+						<local_schema short_desc="Soll die Tastatur gesperrt werden?">
+							<longdesc>Soll die Tastatur gesperrt werden?</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="allow_postpone">
+						<local_schema short_desc="Verschieben von Pausen zulassen">
+							<longdesc>Soll der Benutzer die Eingabepause verschieben können?</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="break_time">
+						<local_schema short_desc="Pausenzeit">
+							<longdesc>Die Anzahl der Minuten, die die Eingabepause dauern soll.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="type_time">
+						<local_schema short_desc="Tippdauer">
+							<longdesc>Die Anzahl der Eingabeminuten bevor der Pausenmodus beginnt.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="sound">
+					<entry name="input_feedback_sounds">
+						<local_schema short_desc="Klänge bei Eingaben">
+							<longdesc>Sollen bei Eingabe-Ereignissen Klänge abgespielt werden?</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="theme_name">
+						<local_schema short_desc="Name des Audio-Themas">
+							<longdesc>Für Ereignis-Klänge zu verwendenes Audio-Thema.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="event_sounds">
+						<local_schema short_desc="Klänge bei Ereignissen">
+							<longdesc>Sollen bei Benutzer-Ereignissen Klänge abgespielt werden?</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_esd">
+						<local_schema short_desc="ESD aktivieren">
+							<longdesc>Soll der Sound-Server beim Start von GNOME gestartet werden?</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="default_mixer_tracks">
+						<local_schema short_desc="Voreingestellte Mixer-Kanäle">
+							<longdesc>Die voreingestellten Mixer-Kanäle die beim Verwenden der Multimedia-Tasten benutzt wird.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="default_mixer_device">
+						<local_schema short_desc="Voreingestelltes Mixer-Gerät">
+							<longdesc>Das voreingestellte Mixer-Gerät das beim Verwenden der Multimedia-Tasten benutzt wird.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="peripherals">
+					<dir name="keyboard">
+						<entry name="remember_numlock_state">
+							<local_schema short_desc="Status von NumLock speichern">
+								<longdesc>Falls auf TRUE (wahr) gesetzt, speichert GNOME den Status der NumLock-LED zwischen zwei Sitzungen.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bell_custom_file">
+							<local_schema short_desc="Benutzerdefinierter Dateiname für Tastaturglocke">
+								<longdesc>Dateiname des wiederzugebenden Glockenklangs.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bell_mode">
+							<local_schema>
+								<longdesc>Zulässige Werte: »on« (aktivieren), »off« (deaktivieren) sowie »custom« (benutzerdefiniert).</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="mouse">
+						<entry name="cursor_size">
+							<local_schema short_desc="Zeigergröße">
+								<longdesc>Größe des Mauszeigers bezogen auf »cursor_theme«.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="cursor_theme">
+							<local_schema short_desc="Zeiger-Thema">
+								<longdesc>Name des Mauszeiger-Themas. Wird nur von X-Servern benutzt, die Xcursor unterstützen, wie z.B. XFree86 4.3 und neuer.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="cursor_font">
+							<local_schema short_desc="Zeigerschrift">
+								<longdesc>Schriftname des Zeigers. Falls dieser Schlüssel nicht gesetzt wurde, wird die Vorgabeschrift verwendet. Dieser Wert wird dem X-Server lediglich am Anfang jeder Sitzung mitgeteilt, daher werden Änderungen an diesem Schlüssel erst ausgewertet, wenn Sie sich das nächste Mal anmelden.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="locate_pointer">
+							<local_schema short_desc="Mauszeiger finden">
+								<longdesc>Hebt die aktuelle Position des Mauszeigers hervor, wenn die Strg-Taste gedrückt und wieder losgelassen wird.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="double_click">
+							<local_schema short_desc="Doppelklick-Verzögerung">
+								<longdesc>Länge eines Doppelklicks.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="drag_threshold">
+							<local_schema short_desc="Ziehen Schwellwert">
+								<longdesc>Distanz bevor das Ziehen einsetzt.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="motion_threshold">
+							<local_schema short_desc="Bewegungsschwellwert">
+								<longdesc>Die Distanz in Pixel, die der Mauszeiger bewegt werden muss, bevor eine beschleunigte Mausbewegung aktiviert wird. Der Wert -1 ist die Systemvorgabe.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="motion_acceleration">
+							<local_schema short_desc="Einfacher Klick">
+								<longdesc>Beschleunigungsmultiplikator für Mausbewegungen. Der Wert »-1« ist die Systemvorgabe.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="single_click">
+							<local_schema short_desc="Einfacher Klick">
+								<longdesc>Einfacher Klick zum Öffnen von Symbolen.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="left_handed">
+							<local_schema short_desc="Ausrichtung der Mausknöpfe">
+								<longdesc>Vertauscht den rechten und den linken Mausknopf, so dass Linkshänder die Maus verwenden können.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="lockdown">
+					<entry name="disable_application_handlers">
+						<local_schema short_desc="Verarbeitung von URL- und MIME-Typen verhinden">
+							<longdesc>Verhindert, dass Anwendungen zum Verarbeiten von URL- oder MIME-Typen gestartet werden.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_lock_screen">
+						<local_schema short_desc="»Bildschirm sperren« deaktivieren">
+							<longdesc>Den Benutzer am Sperren seines Bildschirms hindern.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_user_switching">
+						<local_schema short_desc="Benutzerwechsel deaktivieren">
+							<longdesc>Den Benutzer am Wechsel in andere Benutzerkonten hindern, solange seine Sitzung aktiv ist.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_print_setup">
+						<local_schema short_desc="Druckeinstellungen deaktivieren">
+							<longdesc>Den Benutzer daran hindern, die Druckeinstellungen zu verändern. Dies verhindert beispielsweise den Zugriff auf den Druckeinstellungsdialog aller Anwendungen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_printing">
+						<local_schema short_desc="Drucken deaktivieren">
+							<longdesc>Den Benutzer am Drucken hindern. Dies verhindert beispielsweise den Zugriff auf den Druckdialog aller Anwendungen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_save_to_disk">
+						<local_schema short_desc="Speichern von Dateien auf Platte deaktivieren">
+							<longdesc>Den Benutzer am Speichern von Dateien auf Platte hindern. Dies verhindert beispielsweise den Zugriff auf den »Speichern unter«-Dialog aller Anwendungen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_command_line">
+						<local_schema short_desc="Befehlszeile deaktivieren">
+							<longdesc>Den Benutzer daran hindern, auf das Terminal zuzugreifen oder eine auszuführende Befehlszeile anzugeben. Dies verhindert beispielsweise den Zugriff auf den Panel-Dialog »Anwendung ausführen«.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="file-views">
+					<entry name="icon_theme">
+						<local_schema short_desc="Dateisymbol-Thema">
+							<longdesc>Zum Anzeigen von Dateisymbole verwendetes Thema.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="accessibility">
+					<dir name="startup">
+						<entry name="exec_ats">
+							<local_schema short_desc="Beim Anmelden zu startende Anwendungen, die Hilfstechnologie bereitstellen">
+								<longdesc>Liste der beim Anmelden am GNOME-Desktop zu startende Anwendungen, die Hilfstechnologie bereitstellen.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="keyboard">
+						<entry name="stickykeys_modifier_beep">
+							<local_schema>
+								<longdesc>Signalton erzeugen, wenn ein Modifikator gedrückt wird</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="stickykeys_two_key_off">
+							<local_schema>
+								<longdesc>Deaktivieren, wenn zwei Tasten gleichzeitig gedrückt werden</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="slowkeys_delay">
+							<local_schema short_desc="Minimales Intervall in Millisekunden">
+								<longdesc>Eine Taste nicht als gedrückt werten, wenn sie nicht @delay Millisekunden heruntergedrückt wurde.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="mousekeys_init_delay">
+							<local_schema short_desc="Verzögerung in Millisekunden zu Beginn">
+								<longdesc>Die Anzahl der Millisekunden, die abgewartet wird, bevor Maus-Bewegungstasten zu funktionieren beginnen.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="mousekeys_accel_time">
+							<local_schema short_desc="Wie lang die Beschleunigung in Millisekunden dauern soll">
+								<longdesc>Die Anzahl der Millisekunden von 0 bis zur maximalen Beschleunigung.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="mousekeys_max_speed">
+							<local_schema short_desc="Pixel pro Sekunde">
+								<longdesc>Die Anzahl der Pixel pro Sekunde, mit denen die Mausbewegung bei maximaler Geschwindigkeit erfolgt.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bouncekeys_delay">
+							<local_schema short_desc="Minimales Intervall in Millisekunden">
+								<longdesc>Mehrmaliges Drücken _derselben_ Taste innerhalb von @delay Millisekunden ignorieren.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="thumbnailers">
+					<entry name="disable_all">
+						<local_schema short_desc="Alle externen Miniatur-Vorschaubilderzeuger deaktivieren">
+							<longdesc>Sollen alle externen Programme zum Erzeugen von Miniatur-Vorschaubildern deaktiviert werden, unabhängig davon, ob sie anderweitig aktiviert wurden?</longdesc>
+						</local_schema>
+					</entry>
+					<dir name="application@x-gzpdf">
+						<entry name="command">
+							<local_schema short_desc="Vorschaubefehl für PDF-Dokumente">
+								<longdesc>Zulässiges Kommando plus Argumente für die PDF-Dokumentenvorschau. Bitte schauen Sie für weiterführende Informationen in der Dokumentation der Nautilus-Dokumentvorschau nach.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Vorschaubilder von PDF-Dokumenten aktivieren">
+								<longdesc>Wahr (true) aktiviert die Erstellung von Vorschaubildern, während unwahr (false) das Erzeugen neuer Vorschaubilder deaktiviert.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@x-bzpdf">
+						<entry name="command">
+							<local_schema short_desc="Vorschaubefehl für PDF-Dokumente">
+								<longdesc>Zulässiges Kommando plus Argumente für die PDF-Dokumentenvorschau. Bitte schauen Sie für weiterführende Informationen in der Dokumentation der Nautilus-Dokumentvorschau nach.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Vorschaubilder von PDF-Dokumenten aktivieren">
+								<longdesc>Wahr (true) aktiviert die Erstellung von Vorschaubildern, während unwahr (false) das Erzeugen neuer Vorschaubilder deaktiviert.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@pdf">
+						<entry name="command">
+							<local_schema short_desc="Vorschaubefehl für PDF-Dokumente">
+								<longdesc>Zulässiges Kommando plus Argumente für die PDF-Dokumentenvorschau. Bitte schauen Sie für weiterführende Informationen in der Dokumentation der Nautilus-Dokumentvorschau nach.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Vorschaubilder von PDF-Dokumenten aktivieren">
+								<longdesc>Wahr (true) aktiviert die Erstellung von Vorschaubildern, während unwahr (false) das Erzeugen neuer Vorschaubilder deaktiviert.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="url-handlers">
+					<dir name="h323">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Den Befehl in einem Terminal ausführen">
+								<longdesc>Falls dieser Schlüssel wahr ist, wird das Programm, dass diesen URL-Typ handhaben soll, in einem Terminal ausgeführt.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Der Handler für »h323«-URLs">
+								<longdesc>Der zum Handhaben von »h323«-URLs verwendete Befehl, falls aktiviert.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Soll der angegebene Befehl »h323«-URLs handhaben?">
+								<longdesc>Falls dieser Schlüssel wahr ist, handhabt das in »command« angegebene Programm »h323«-URLs.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="callto">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Den Befehl in einem Terminal ausführen">
+								<longdesc>Falls dieser Schlüssel wahr ist, wird das Programm, dass diesen URL-Typ handhaben soll, in einem Terminal ausgeführt.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Der Handler für »callto«-URLs">
+								<longdesc>Der zum Handhaben von »callto«-URLs verwendete Befehl, falls aktiviert.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Soll der angegebene Befehl »callto«-URLs handhaben?">
+								<longdesc>Falls dieser Schlüssel wahr ist, handhabt das in »command« angegebene Programm »callto«-URLs.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="aim">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Den Befehl in einem Terminal ausführen">
+								<longdesc>Falls dieser Schlüssel wahr ist, wird das Programm, dass diesen URL-Typ handhaben soll, in einem Terminal ausgeführt.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Der Handler für »aim«-URLs">
+								<longdesc>Der zum Handhaben von »aim«-URLs verwendete Befehl, falls aktiviert.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Soll der angegebene Befehl »aim«-URLs handhaben?">
+								<longdesc>Falls dieser Schlüssel wahr ist, handhabt das in »command« angegebene Programm »aim«-URLs.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="mailto">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Den Befehl in einem Terminal ausführen">
+								<longdesc>Falls dieser Schlüssel wahr ist, wird das Programm, dass diesen URL-Typ handhaben soll, in einem Terminal ausgeführt.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Der Handler für »mailto«-URLs">
+								<longdesc>Der zum Handhaben von »mailto«-URLs verwendete Befehl, falls aktiviert.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Soll der angegebene Befehl »mailto«-URLs handhaben?">
+								<longdesc>Falls dieser Schlüssel wahr ist, handhabt das in »command« angegebene Programm »mailto«-URLs.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="https">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Den Befehl in einem Terminal ausführen">
+								<longdesc>Falls dieser Schlüssel wahr ist, wird das Programm, dass diesen URL-Typ handhaben soll, in einem Terminal ausgeführt.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Der Handler für »https«-URLs">
+								<longdesc>Der zum Handhaben von »https«-URLs verwendete Befehl, falls aktiviert.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Soll der angegebene Befehl »https«-URLs handhaben?">
+								<longdesc>Falls dieser Schlüssel wahr ist, handhabt das in »command« angegebene Programm »https«-URLs.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="http">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Den Befehl in einem Terminal ausführen">
+								<longdesc>Falls dieser Schlüssel wahr ist, wird das Programm, dass diesen URL-Typ handhaben soll, in einem Terminal ausgeführt.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Der Handler für »http«-URLs">
+								<longdesc>Der zum Handhaben von »http«-URLs verwendete Befehl, falls aktiviert.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Soll der angegebene Befehl »http«-URLs handhaben?">
+								<longdesc>Falls dieser Schlüssel wahr ist, handhabt das in »command« angegebene Programm »http«-URLs.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="man">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Den Befehl in einem Terminal ausführen">
+								<longdesc>Falls dieser Schlüssel wahr ist, wird das Programm, dass diesen URL-Typ handhaben soll, in einem Terminal ausgeführt.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Der Handler für »man«-URLs">
+								<longdesc>Der zum Handhaben von »man«-URLs verwendete Befehl, falls aktiviert.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Soll der angegebene Befehl »man«-URLs handhaben?">
+								<longdesc>Falls dieser Schlüssel wahr ist, handhabt das in »command« angegebene Programm »man«-URLs.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="info">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Den Befehl in einem Terminal ausführen">
+								<longdesc>Falls dieser Schlüssel wahr ist, wird das Programm, dass diesen URL-Typ handhaben soll, in einem Terminal ausgeführt.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Der Handler für »info«-URLs">
+								<longdesc>Der zum Handhaben von »info«-URLs verwendete Befehl, falls aktiviert.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Soll der angegebene Befehl »info«-URLs handhaben?">
+								<longdesc>Falls dieser Schlüssel wahr ist, handhabt das in »command« angegebene Programm »info«-URLs.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="ghelp">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Den Befehl in einem Terminal ausführen">
+								<longdesc>Falls dieser Schlüssel wahr ist, wird das Programm, dass diesen URL-Typ handhaben soll, in einem Terminal ausgeführt.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Der Handler für »ghelp«-URLs">
+								<longdesc>Der zum Handhaben von »ghelp«-URLs verwendete Befehl, falls aktiviert.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Soll der angegebene Befehl »ghelp«-URLs handhaben?">
+								<longdesc>Falls dieser Schlüssel wahr ist, handhabt das in »command« angegebene Programm »ghelp«-URLs.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="trash">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Den Befehl in einem Terminal ausführen">
+								<longdesc>Falls dieser Schlüssel wahr ist, wird das Programm, dass diesen URL-Typ handhaben soll, in einem Terminal ausgeführt.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Der Handler für »trash«-URLs">
+								<longdesc>Der zum Handhaben von »trash«-URLs verwendete Befehl, falls aktiviert.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Soll der angegebene Befehl »trash«-URLs handhaben?">
+								<longdesc>Falls dieser Schlüssel wahr ist, handhabt das in »command« angegebene Programm »trash«-URLs.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="applications">
+					<dir name="tasks">
+						<entry name="needs_term">
+							<local_schema short_desc="Aufgaben-Anwendung benötigt Terminal">
+								<longdesc>Legt fest, ob die voreingestellte Aufgaben-Anwendung ein Terminal benötigt, um ausgeführt zu werden</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="Voreingestellte Aufgaben">
+								<longdesc>Voreingestellte Aufgaben-Anwendung</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="calendar">
+						<entry name="needs_term">
+							<local_schema short_desc="Kalender benötigt Terminal">
+								<longdesc>Legt fest, ob die voreingestellte Kalender-Anwendung ein Terminal benötigt, um ausgeführt zu werden</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="Voreingestellter Kalender">
+								<longdesc>Voreingestellte Kalender-Anwendung</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="window_manager">
+						<entry name="workspace_names">
+							<local_schema short_desc="Namen der Arbeitsflächen (veraltet)">
+								<longdesc>Eine Liste mit den Namen der ersten, vom Fenster-Manager verwendeten Arbeitsflächen. Dieser Schlüssel ist seit GNOME 2.12 veraltet.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="number_of_workspaces">
+							<local_schema short_desc="Die Anzahl der Arbeitsflächen (veraltet)">
+								<longdesc>Die Anzahl der Arbeitsflächen, die der Fenster-Manager verwenden soll. Dieser Schlüssel ist seit GNOME 2.12 veraltet.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="current">
+							<local_schema short_desc="Bevorzugter Fenster-Manager (veraltet)">
+								<longdesc>Der Fenster-Manager der als erster versucht werden soll. Dieser Schlüssel ist seit GNOME 2.12 veraltet.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="default">
+							<local_schema short_desc="Fenster-Manager im Problemfall (veraltet)">
+								<longdesc>Fenster-Manager, der verwendet werden soll, wenn der bevorzugte Fenster-Manager nicht gefunden werden konnte. Dieser Schlüssel ist seit GNOME 2.12 veraltet.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="browser">
+						<entry name="nremote">
+							<local_schema short_desc="Kann der Browser fernbedient werden?">
+								<longdesc>Legt fest, ob sich der Vorgabe-Browser mittels »netscape remote« fernbedienen lässt.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="needs_term">
+							<local_schema short_desc="Browser benötigt Terminal">
+								<longdesc>Legt fest, ob der Vorgabe-Browser ein Terminal benötigt, um ausgeführt zu werden.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="Vorgabe-Browser">
+								<longdesc>Für alle URLs voreingestellter Browser.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="at">
+						<dir name="mobility">
+							<entry name="startup">
+								<local_schema short_desc="Bevorzugte Anwendung für mobile Hilfstechnologie starten">
+									<longdesc>Bevorzugte Anwendung für mobile Hilfstechnologie beim Anmelden starten.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="exec">
+								<local_schema short_desc="Bevorzugte Anwendung für mobile Hilfstechnologie">
+									<longdesc>Die bevorzugte Anwendung für mobile Hilfstechnologie, die beim Anmelden, in Menüs oder der Kommandozeile verwendet wird.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+						<dir name="visual">
+							<entry name="startup">
+								<local_schema short_desc="Bevorzugte Anwendung für visuelle Hilfstechnologie starten">
+									<longdesc>Bevorzugte Anwendung für visuelle Hilfstechnologie beim Anmelden starten.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="exec">
+								<local_schema short_desc="Bevorzugte Anwendung für visuelle Hilfstechnologie">
+									<longdesc>Die bevorzugte Anwendung für visuelle Hilfstechnologie, die beim Anmelden, in Menüs oder der Kommandozeile verwendet wird.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+					</dir>
+					<dir name="component_viewer">
+						<entry name="exec">
+							<local_schema short_desc="Vorgabeanwendung für Ansichtskomponenten">
+								<longdesc>Die zum Anzeigen von Dateien, die eine Ansichtskomponente erforderlich machen, verwendete Anwendung. Der Parameter %s wird durch die Dateiadresse, der Parameter %d durch die Komponenten-IID ersetzt.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="terminal">
+						<entry name="exec_arg">
+							<local_schema short_desc="Ausführungsargumente">
+								<longdesc>Das zum Ausführen von Programmen im Terminal verwendete, vom Schlüssel »exec« festgelegte Argument.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="Terminal-Anwendung">
+								<longdesc>Zu verwendende Terminal-Anwendung beim Starten von Anwendungen, die ein Terminal benötigen.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+			</dir>
+		</dir>
+		<dir name="system">
+			<dir name="dns_sd">
+				<entry name="extra_domains">
+					<local_schema short_desc="Zusätzlich nach DNS-SD-Diensten zu durchsuchende Domänen">
+						<longdesc>Durch Kommata unterteilte Liste der DNS-SD-Domänen, die am Netzwerk-Speicherort »network:///« angezeigt werden sollen.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="display_local">
+					<local_schema short_desc="Legt fest, wie der lokale DNS-SD-Dienst angezeigt werden soll">
+						<longdesc>Zulässige Werte: »merged«, »separate« sowie »disabled«.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="smb">
+				<entry name="workgroup">
+					<local_schema short_desc="SMB-Arbeitsgruppe">
+						<longdesc>Die Windows-Netzwerkarbeitsgruppe oder -domäne zu der der Benutzer gehört. Damit eine neue Arbeitsgruppe vollständig übernommen werden kann, muss sich der Benutzer ab- und wieder anmelden.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="proxy">
+				<entry name="autoconfig_url">
+					<local_schema short_desc="URL zur automatischen Proxy-Konfiguration">
+						<longdesc>URL, die Proxy-Konfigurationswerte liefert.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="socks_port">
+					<local_schema short_desc="Port am SOCKS-Proxy">
+						<longdesc>Der Proxy-Port am von »/system/http_proxy/socks_host« festgelegten Rechner.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="socks_host">
+					<local_schema short_desc="Rechnername des Socks-Proxys">
+						<longdesc>Der Rechnername des Socks-Proxys.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="ftp_port">
+					<local_schema short_desc="Port am FTP-Proxy">
+						<longdesc>Der Proxy-Port am von »/system/http_proxy/ftp_host« festgelegten Rechner.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="ftp_host">
+					<local_schema short_desc="Rechnername des FTP-Proxys">
+						<longdesc>Der Rechnername des FTP-Proxys.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="secure_port">
+					<local_schema short_desc="Port am sicheren HTTP-Proxy">
+						<longdesc>Der Proxy-Port am von »/system/http_proxy/secure_host« festgelegten Rechner.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="secure_host">
+					<local_schema short_desc="Rechnername des sicheren HTTP-Proxys">
+						<longdesc>Der Rechnername des sicheren HTTP-Proxys.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="mode">
+					<local_schema short_desc="Proxy-Konfigurationsmodus">
+						<longdesc>Legt den Proxy-Konfigurationsmodus fest. Zulässige Werte: »none« (keiner), »manual« (manuell) sowie »auto« (automatisch).</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="http_proxy">
+				<entry name="ignore_hosts">
+					<local_schema short_desc="Nicht-Proxy-Rechner">
+						<longdesc>Dieser Schlüssel enthält eine Liste der Rechner, mit denen eine Direktverbindung aufgebaut werden soll, also nicht via Proxy (falls aktiv). Als Werte sind Rechnernamen, Domänen (per Wildcard, z.B. *.foo.de), IP-Rechneradresse (sowohl IPv4 als auch IPv6) und Netzwerkadressen mit einer Netzmaske (der Form 192.168.0.0/24) zulässig.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="authentication_password">
+					<local_schema short_desc="Passwort am HTTP-Proxy">
+						<longdesc>Zur HTTP-Proxy-Legitimation zu übergebendes Passwort</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="authentication_user">
+					<local_schema short_desc="Benutzername am HTTP-Proxy">
+						<longdesc>Zur HTTP-Proxy-Legitimation zu übergebender Benutzername.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="use_authentication">
+					<local_schema short_desc="Verbindungen mit dem Proxy-Server legitimieren">
+						<longdesc>Legt fest, ob Verbindungen mit dem Proxy-Server legitimiert werden müssen. Hierbei werden die Werte von »/system/http_proxy/authentication_user« und »/system/http_proxy/authentication_password« als Benutzername bzw. Passwort verwendet.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="port">
+					<local_schema short_desc="Port am HTTP-Proxy">
+						<longdesc>Der Proxy-Port am von »/system/http_proxy/host« festgelegten Rechner.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="host">
+					<local_schema short_desc="Rechnername des HTTP-Proxys">
+						<longdesc>Der Rechnername des HTTP-Proxys.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="use_http_proxy">
+					<local_schema short_desc="HTTP-Proxy verwenden">
+						<longdesc>Sollen die Proxy-Einstellungen zum HTTP-Zugriff per Internet verwendet werden?</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+		</dir>
+	</dir>
+</gconf>

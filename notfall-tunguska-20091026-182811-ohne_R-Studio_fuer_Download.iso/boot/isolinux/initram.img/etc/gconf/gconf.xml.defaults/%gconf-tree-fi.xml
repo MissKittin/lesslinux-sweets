@@ -1,0 +1,2177 @@
+<?xml version="1.0"?>
+<gconf>
+	<dir name="schemas">
+		<dir name="apps">
+			<dir name="gnome-system-log">
+				<entry name="logfiles">
+					<local_schema short_desc="Alussa avattavat lokitiedostot">
+						<longdesc>Määrittelee listan lokitiedostoista, jotka avataan käynnistettäessä. Kun tämä avain luodaan, luetaan oletuslista tiedostosta /etc/syslog.conf.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="width">
+					<local_schema short_desc="Pääikkunan leveys pikseleinä">
+						<longdesc>Määrittelee lokikatselimen pääikkunan leveyden pikseleinä.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="height">
+					<local_schema short_desc="Pääikkunan korkeus pikseleinä">
+						<longdesc>Määrittelee lokikatselimen pääikkunan korkeuden pikseleinä.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="fontsize">
+					<local_schema short_desc="Lokin näyttöön käytetyn kirjasimen koko">
+						<longdesc>Määrittelee lokitiedostojen näyttämiseen käytetyn tasalevyisen kirjasimen koon pääikkunan puunäkymässä. Oletusarvo otetaan gnomen pääteikkunan kirjasimen koosta.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="logfile">
+					<local_schema short_desc="Alussa avattava lokitiedosto">
+						<longdesc>Määrittelee alussa avattavan lokitiedoston. Oletus on joko /var/adm/messages tai /var/log/messages, riippuen käyttöjärjestelmästä.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="gnome-search-tool">
+				<entry name="look_in_folder">
+					<local_schema short_desc="Etsi kansiosta">
+						<longdesc>Tämä avain määrittää &quot;Look in Folder&quot;-elementin oletusarvon.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default_window_maximized">
+					<local_schema short_desc="Onko ikkuna suurennettu oletuksena">
+						<longdesc>Tämä avain määrittää, käynnistyykö hakuikkuna suurennetussa tilassa.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default_window_height">
+					<local_schema short_desc="Ikkunan oletuskorkeus">
+						<longdesc>Tämä avain määrittelee ikkunan korkeuden, ja sitä käytetään muistamaan hakutyökalun koko istuntojen välillä. Jos arvoksi asetetaan -1, käytetään hakutyökalun oletuskorkeutta.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default_window_width">
+					<local_schema short_desc="Ikkunan oletusleveys">
+						<longdesc>Tämä avain määrittelee ikkunan leveyden, ja sitä käytetään muistamaan hakutyökalun koko istuntojen välillä. Jos arvoksi asetetaan -1, käytetään hakutyökalun oletusleveyttä.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="columns_order">
+					<local_schema short_desc="Hakutulosten sarakejärjestys">
+						<longdesc>Tämä avain määrittelee hakutulosten sarakkeiden järjestyksen. Käyttäjän ei ole tarkoitus muokata tätä avainta.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="quick_search_second_scan_excluded_paths">
+					<local_schema short_desc="Pikaetsinnän toisesta hausta pois jätettävät polut">
+						<longdesc>Tämä avain määrittelee, mitkä polut etsintätyökalu jättää pois pikaetsinnän toisesta hausta. Toinen haku käyttää etsintäkomentoa tiedostojen hakemiseen. Toisen haun tarkoituksena on löytää tiedostot, joita pikahaku ei ole luetellut. Hahmoja &quot;*&quot; ja &quot;?&quot; voi käyttää. Oletusarvo on /.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="disable_quick_search_second_scan">
+					<local_schema short_desc="Poista pikaetsinnän toinen haku käytöstä">
+						<longdesc>Tämä avain määrittelee, jättääkö etsintätyökalu find-komennon käyttämättä pikahaun jälkeen.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="quick_search_excluded_paths">
+					<local_schema short_desc="Pikaetsinnästä pois jätettävät polut">
+						<longdesc>Tämä avain määrittelee, mitkä polut etsintätyökalu jättää pois pikaetsinnästä. Hahmoja &quot;*&quot; ja &quot;?&quot; voi käyttää. Oletusarvo on /mnt/*, /media/*, /dev/*, /tmp/*, /proc/*, ja /var/*.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="disable_quick_search">
+					<local_schema short_desc="Poista pikaetsintä käytöstä">
+						<longdesc>Tämä avain määrittelee, jättääkö etsintätyökalu locate-komennon käyttämättä tehtäessä yksinkertaisia hakuja tiedostonimien perusteella.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="show_additional_options">
+					<local_schema short_desc="Näytä lisää ehtoja">
+						<longdesc>Tämä avain määrittelee, onko osio &quot;Näytä lisää valintoja&quot; laajennettu etsintätyökalun käynnistyessä.</longdesc>
+					</local_schema>
+				</entry>
+				<dir name="select">
+					<entry name="exclude_other_filesystems">
+						<local_schema short_desc="Valitse hakuehto &quot;älä etsi toisista tiedostojärjestelmistä&quot;">
+							<longdesc>Tämä avain määrittelee, onko hakuehto &quot;älä hae toisista tiedostojärjestelmistä&quot; valittu etsintätyökalun käynnistyessä.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="follow_symbolic_links">
+						<local_schema short_desc="Valitse hakuehto &quot;seuraa symbolisia linkkejä&quot;">
+							<longdesc>Tämä avain määrittelee, onko hakuehto &quot;seuraa symbolisia linkkejä&quot; valittu etsintätyökalun käynnistyessä.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_hidden_files_and_folders">
+						<local_schema short_desc="Valitse hakuehto &quot;näytä piilotiedostot ja -kansiot&quot;">
+							<longdesc>Tämä avain määrittelee, onko hakuehto &quot;näytä piilotiedostot- ja kansiot&quot; valittu etsintätyökalun käynnistyessä.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name_matches_regular_expression">
+						<local_schema short_desc="Valitse hakuehto &quot;nimi täsmää säännölliseen lausekkeeseen&quot;">
+							<longdesc>Tämä avain määrittelee, onko hakuehto &quot;nimi täsmää säännölliseen lausekkeeseen&quot; valittu etsintätyökalun käynnistyessä.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name_does_not_contain">
+						<local_schema short_desc="Valitse hakuehto &quot;nimi ei sisällä&quot;">
+							<longdesc>Tämä avain määrittelee, onko hakuehto &quot;nimi ei sisällä&quot; valittu etsintätyökalun käynnistyessä.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="owner_is_unrecognized">
+						<local_schema short_desc="Valitse hakuehto &quot;omistaja on tunnistamaton&quot;">
+							<longdesc>Tämä avain määrittelee, onko hakuehto &quot;omistaja on tunnistamaton&quot; valittu etsintätyökalun käynnistyessä.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="owned_by_group">
+						<local_schema short_desc="Valitse hakuehto &quot;omistajaryhmä&quot;">
+							<longdesc>Tämä avain määrittelee, onko hakuehto &quot;omistajaryhmä&quot; valittu etsintätyökalun käynnistyessä.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="owned_by_user">
+						<local_schema short_desc="Valitse hakuehto &quot;omistaja&quot;">
+							<longdesc>Tämä avain määrittelee, onko hakuehto &quot;omistaja&quot; valittu etsintätyökalun käynnistyessä.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="file_is_empty">
+						<local_schema short_desc="Valitse hakuehto &quot;tiedosto on tyhjä&quot;">
+							<longdesc>Tämä avain määrittelee, onko hakuehto &quot;tiedosto on tyhjä&quot; valittu etsintätyökalun käynnistyessä.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size_at_most">
+						<local_schema short_desc="Valitse hakuehto &quot;koko enintään&quot;">
+							<longdesc>Tämä avain määrittelee, onko hakuehto &quot;koko enintään&quot; valittu etsintätyökalun käynnistyessä.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size_at_least">
+						<local_schema short_desc="Valitse hakuehto &quot;koko vähintään&quot;">
+							<longdesc>Tämä avain määrittelee, onko hakuehto &quot;koko vähintään&quot; valittu etsintätyökalun käynnistyessä.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="date_modified_more_than">
+						<local_schema short_desc="Valitse hakuehto &quot;muokattu aiemmin kuin&quot;">
+							<longdesc>Tämä avain määrittelee, onko hakuehto &quot;muokattu aiemmin kuin&quot; valittu etsintätyökalun käynnistyessä.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="date_modified_less_than">
+						<local_schema short_desc="Valitse hakuehto &quot;muokattu myöhemmin kuin&quot;">
+							<longdesc>Tämä avain määrittelee, onko hakuehto &quot;muokattu myöhemmin kuin&quot; valittu etsintätyökalun käynnistyessä.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="contains_the_text">
+						<local_schema short_desc="Valitse hakuehto &quot;sisältää tekstin&quot;">
+							<longdesc>Tämä avain määrittelee, onko hakuehto &quot;sisältää tekstin&quot; valittu etsintätyökalun käynnistyessä.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnome-screenshot">
+				<entry name="border_effect">
+					<local_schema short_desc="Reunatehoste">
+						<longdesc>Reunojen ulkopuolelle lisättävä tehoste. Mahdollisia arvoja ovat &quot;shadow&quot; (varjo), &quot;none&quot; (ei mikään) ja &quot;border&quot; (reunus).</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="include_pointer">
+					<local_schema short_desc="Kaappaa myös osoitin">
+						<longdesc>Kaappaa myös kohdistin mukaan kuvaan</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="include_border">
+					<local_schema short_desc="Kaappaa myös kehykset">
+						<longdesc>Kaappaa myös ikkunointiohjelman piirtämät ikkunoiden kehykset kuvaan</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="last_save_directory">
+					<local_schema short_desc="Kuvakaappausten hakemisto">
+						<longdesc>Kansio, johon viimeisin kuvakaappaus tallennettiin.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="delay">
+					<local_schema short_desc="Kuvakaappauksen viive">
+						<longdesc>Kuinka monta sekuntia odotetaan ennen kuvakaappausta.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="take_window_shot">
+					<local_schema short_desc="Ikkunakohtainen kuvakaappaus (ei enää käytössä)">
+						<longdesc>Kaappaa vain tämänhetkinen ikkuna koko työpöydän sijasta. Tämä avain on vanhentunut eikä sitä enää käytetä.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="gnome-dictionary">
+				<entry name="sidebar-width">
+					<local_schema short_desc="Sivupalkin leveys">
+						<longdesc>Tämä avain määrittää sivupalkin leveyden. Avainta käytetään leveyden muistamiseen istuntojen välillä.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="sidebar-page">
+					<local_schema short_desc="Sivupalkissa näytettävä sivu">
+						<longdesc>Tämä avain määrittelee, mikä sivupalkin sivu näytetään. Avainta käytetään myös valitun sivun muistamiseen istuntojen välissä. Avaimen arvo voi olla joko &quot;speller&quot; tai &quot;databases&quot;.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="statusbar-visible">
+					<local_schema short_desc="Näytetäänkö tilarivi">
+						<longdesc>Tämä avain määrittelee, näytetäänkö tilarivi. Avainta käytetään tilarivin tilan muistamiseen istuntojen välissä. Arvon asettaminen todeksi pakottaa oikolukuelementin näyttämisen aina.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="sidebar-visible">
+					<local_schema short_desc="Näytetäänkö sivupalkki">
+						<longdesc>Tämä avain määrittelee, näytetäänkö sivupalkki. Avainta käytetään sivupaneelin tilan muistamiseen istuntojen välissä. Arvon asettaminen todeksi pakottaa sivupalkin näyttämisen aina.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="window-is-maximized">
+					<local_schema short_desc="Onko ohjelman ikkuna suurennettu">
+						<longdesc>Tämä avain määrittelee, tulisiko ikkunan olla suurennettu, ja sitä käytetään muistamaan sanakirjaikkunan tila istuntojen välillä. Jos arvoksi asetetaan TRUE, näytetään sanakirjaikkuna aina suurennettuna.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default-window-height">
+					<local_schema short_desc="Sovellusikkunan oletuskorkeus">
+						<longdesc>Tämä avain määrittelee ikkunan korkeuden, ja sitä käytetään muistamaan sanakirjaikkunan koko istuntojen välillä. Jos arvoksi asetetaan -1, valitaan sanakirjaikkunan koko kirjasimen kokoon perustuen.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default-window-width">
+					<local_schema short_desc="Sovellusikkunan oletusleveys">
+						<longdesc>Tämä avain määrittelee ikkunan leveyden, ja sitä käytetään muistamaan sanakirjaikkunan koko istuntojen välillä. Jos arvoksi asetetaan -1, valitaan sanakirjaikkunan koko kirjasimen kokoon perustuen.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="source-name">
+					<local_schema short_desc="Käytettävän sanakirjan lähteen nimi">
+						<longdesc>Sanojen määritelmien hakuun käytetyn sanakirjan lähteen nimi.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="print-font">
+					<local_schema short_desc="Tulostettaessa käytettävä kirjasin">
+						<longdesc>Määritelmää tulostettaessa käytettävä kirjasin.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="strategy">
+					<local_schema short_desc="Käytettävä oletushakustrategia">
+						<longdesc>Haketavan oletusasetus uusilla sanakirjalähteillä, jos se on käytettävissä. Hakutavan oletus on &apos;exact&apos;, jolla tarkoitetaan kokonaisten sanojen hakua.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="database">
+					<local_schema short_desc="Käytettävä oletustietokanta">
+						<longdesc>Tietokannan lähteenä oletuksena käytettävän yksittäisen tietokannan tai tietokantakokoelman nimi. Huutomerkki &quot;!&quot; määrittelee, että etsitään kaikista lähteessä olevista tietokannoista</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="smart">
+					<local_schema short_desc="Käytä älykästä hakua (vanhentunut)">
+						<longdesc>Määrittele, käytetäänkö älykästä hakua. Tämä avain riippuu siitä, tukeeko käytettävä sanakirjapalvelin tätä vaihtoehtoa. Oletus on TOSI. Tämä avain on vanhentunut eikä ole enää käytössä.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="port">
+					<local_schema short_desc="Palvelimeen yhdistettäessä käytettävä portti (vanhentunut)">
+						<longdesc>Portti, johon otetaan yhteyttä. Oletusportti on 2628. Tämä avain on vanhentunut eikä ole enää käytössä.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="server">
+					<local_schema short_desc="Sanakirjapalvelin (vanhentunut)">
+						<longdesc>Käytettävä sanakirjapalvelin. Oletuspalvelin on dict.org. Katso lisätietoja muista palvelimista osoitteesta http://www.dict.org. Tämä avain on vanhentunut eikä ole enää käytössä.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="baobab">
+				<dir name="properties">
+					<entry name="skip_scan_uri_list">
+						<local_schema short_desc="Ohitettujen osioiden URIt">
+							<longdesc>Luettelo osioiden URI:sta, joita ei huomioida kartoitettaessa.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_home_monitor">
+						<local_schema short_desc="Ota käyttöön kotihakemiston tarkkailu">
+							<longdesc>Tarkkaillaanko muutoksia kotihakemistossa.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="ui">
+					<entry name="baobab_subfoldertips_visible">
+						<local_schema short_desc="Alikansioiden vinkit näytetään">
+							<longdesc>Näytetäänkö valitun kansion alikansioiden vihjeet.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="statusbar_visible">
+						<local_schema short_desc="Näytetäänkö tilapalkki">
+							<longdesc>Näytetäänkö tilarivi pääikkunan alareunassa.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_visible">
+						<local_schema short_desc="Näytetäänkö työkalupalkki">
+							<longdesc>Näytetäänkö työkalupalkki pääikkunassa.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="window_list_applet">
+				<dir name="prefs">
+					<entry name="maximum_size">
+						<local_schema short_desc="Suurin ikkunalistan koko">
+							<longdesc>Tämä avain on vanhentunut Gnome 2.20-julkaisussa. Kaavain on olemassa yhteensopivuuden vuoksi.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="minimum_size">
+						<local_schema short_desc="Pienin ikkunalistan koko">
+							<longdesc>Tämä avain on vanhentunut Gnome 2.20-julkaisussa. Kaavain on olemassa yhteensopivuuden vuoksi.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="move_unminimized_windows">
+						<local_schema short_desc="Siirrä ikkunat nykyiseen työtilaan palautettaessa">
+							<longdesc>Jos tosi, niin pienennetyn ikkunan palauttaminen siirtää sen nykyiseen työtilaan. Muulloin siirrytään ikkunan työtilaan.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="group_windows">
+						<local_schema short_desc="Milloin ikkunat ryhmittyvät">
+							<longdesc>Määrittelee, milloin saman sovelluksen ikkunat ryhmittyvät ikkunaluettelossa. Käypiä arvoja ovat &quot;never&quot; (ei koskaan), &quot;auto&quot; (automaattisesti) ja &quot;always&quot; (aina).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_all_workspaces">
+						<local_schema short_desc="Näytä kaikkien työtilojen ikkunat">
+							<longdesc>Jos tosi, niin kaikkien työtilojen ikkunat näkyvät ikkunaluettelossa, muulloin vain nykyisen työtilan ikkunat näkyvät.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="workspace_switcher_applet">
+				<dir name="prefs">
+					<entry name="num_rows">
+						<local_schema short_desc="Rivejä työtilanvaihtimessa">
+							<longdesc>Kun kaikki työtilat näkyvät, tämä määrittää kuinka monessa rivissä (vaaka-asettelu) tai sarakkeessa (pystyasettelu) ne ovat työtilanvaihtimessa. Tällä on merkitystä vain jos avaimen &quot;display_all_workspaces&quot; arvo on tosi.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_all_workspaces">
+						<local_schema short_desc="Näytä kaikki työtilat">
+							<longdesc>Jos tämä on tosi, kaikki työtilat näkyvät työtilanvaihtimessa. Muulloin vain nykyinen työtila näkyy.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_workspace_names">
+						<local_schema short_desc="Näytä työtilojen nimet">
+							<longdesc>Jos tosi, työtilanvaihtimessa näkyville työtiloille näytetään nimet. Muutoin työtilat näyttävät työtilassa olevat ikkunat. Tämä toimii vain, jos ikkunanhallintaohjelmana on metacity.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="fish_applet">
+				<dir name="prefs">
+					<entry name="rotate">
+						<local_schema short_desc="Kierrä pystypaneeleissa">
+							<longdesc>Jos tosi, kalan animaatio näkyy kiertyneenä pystypaneeleissa.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="speed">
+						<local_schema short_desc="Tauko ruutua kohden">
+							<longdesc>Tämä avain määrittelee ajan sekunteina, jonka verran kukin kehys näkyy.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="frames">
+						<local_schema short_desc="Kalan animaation ruutujen määrä">
+							<longdesc>Kalan animaation ruutujen määrä.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="command">
+						<local_schema short_desc="Napsauttamalla käynnistyvä komento">
+							<longdesc>Kalaa napsauttamalla käynnistyvä komento.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="image">
+						<local_schema short_desc="Kalan animaatiokuva">
+							<longdesc>Tämä avain määrittelee kalasovelmassa näkyvässä animaatiossa käytettävän kuvan tiedostonimen suhteessa kuvakansioon.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name">
+						<local_schema short_desc="Kalan nimi">
+							<longdesc>Nimetön kala on varsin tylsä ilmestys. Nimeäpä siis kalasi.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="clock_applet">
+				<dir name="prefs">
+					<entry name="speed_unit">
+						<local_schema short_desc="Nopeusyksikkö">
+							<longdesc>Tuulen nopeutta näytettäessä käytettävä yksikkö.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="temperature_unit">
+						<local_schema short_desc="Lämpötilayksikkö">
+							<longdesc>Lämpötiloja näytettäessä käytettävä yksikkö.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="cities">
+						<local_schema short_desc="Luettelo sijainneista">
+							<longdesc>Luettelo sijainneista, jotka näytetään kalenteri-ikkunassa.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="internet_time">
+						<local_schema short_desc="Näytä Internet-aikaa">
+							<longdesc>Tämän avaimen käyttö ei ole suositeltua GNOME 2.6:ssa. Käytä mieluummin &quot;format&quot;-avainta. Kaavain on olemassa yhteensopivuuden vuoksi.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="unix_time">
+						<local_schema short_desc="Näytä Unix-aikaa">
+							<longdesc>Tämän avaimen käyttö ei ole suositeltua GNOME 2.6:ssa. Käytä mieluummin &quot;format&quot;-avainta. Kaavain on olemassa yhteensopivuuden vuoksi.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hour_format">
+						<local_schema short_desc="Tuntimuoto">
+							<longdesc>Tämän avaimen käyttö ei ole suositeltua GNOME 2.6:ssa. Käytä mieluummin &quot;format&quot;-avainta. Kaavain on olemassa yhteensopivuuden vuoksi.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_locations">
+						<local_schema short_desc="Laajenna luettelo sijainneista">
+							<longdesc>Jos tosi, laajenna luettelo sijainneista kalenteri-ikkunassa.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_weather">
+						<local_schema short_desc="Laajenna luettelo säätiedoista">
+							<longdesc>Jos tosi, näytä luettelo säätiedoista kalenteri-ikkunassa.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_tasks">
+						<local_schema short_desc="Laajenna luettelo tehtävistä">
+							<longdesc>Jos tosi, näytä luettelo tehtävistä kalenteri-ikkunassa.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_birthdays">
+						<local_schema short_desc="Laajenna luettelo syntymäpäivistä">
+							<longdesc>Jos tosi, näytä luettelo syntymäpäivistä kalenteri-ikkunassa.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_appointments">
+						<local_schema short_desc="Laajenna luettelo tapaamisista">
+							<longdesc>Jos tosi, näytä luettelo tapaamisista kalenteri-ikkunassa.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_week_numbers">
+						<local_schema short_desc="Näytä viikkonumerot kalenterissa">
+							<longdesc>Jos tosi, näytä viikkonumerot kalenterissa.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="config_tool">
+						<local_schema short_desc="Ajan asetustyökalu">
+							<longdesc>Tämän avain poistettiin käytöstä GNOME 2.22 -versiossa sisäisen aika-asettelun lisäyksen ansiosta. Tämä kaavain on säilytetty vanhojen versioiden yhteensopivuuden vuoksi.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gmt_time">
+						<local_schema short_desc="Näytä UTC-aikaa">
+							<longdesc>Jos tosi, näytä yleismaailmallista aikaa (UTC)</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_temperature">
+						<local_schema short_desc="Näytä lämpötila kellossa">
+							<longdesc>Jos tosi, näytä lämpötila sääkuvakkeen vieressä.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_weather">
+						<local_schema short_desc="Näytä sää kellossa">
+							<longdesc>Jos tosi, näytä sääkuvake.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_tooltip">
+						<local_schema short_desc="Näytä päiväys vinkissä">
+							<longdesc>Jos tosi, päiväys näkyy vinkissä, kun hiiri on sovelman yllä</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_date">
+						<local_schema short_desc="Näytä päiväys kellossa">
+							<longdesc>Jos tosi, päiväys näkyy kellossa ajan lisäksi.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_seconds">
+						<local_schema short_desc="Näytä sekunnit">
+							<longdesc>Jos tosi, sekunnit näkyvät ajassa.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="custom_format">
+						<local_schema short_desc="Mukautettu ajan näyttömuoto">
+							<longdesc>Tämä avain määrittelee kellosovelman näyttämän ajan muodon, kun avaimen &quot;format&quot; arvo on &quot;custom&quot;. Voit käyttää kaikkia strftime()-kutsun ymmärtämiä aikamääreitä. Lue strftime-ohjesivulta lisätietoja.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="format">
+						<local_schema short_desc="Tuntimuoto">
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="panel">
+				<dir name="objects">
+					<entry name="action_type">
+						<local_schema short_desc="Toimintopainikkeen tyyppi">
+							<longdesc>Toimintotyyppi, jota tämä painike vastaa. Mahdollisia arvoja ovat &quot;lock&quot; (lukitse), &quot;logout&quot; (kirjaudu ulos), &quot;search&quot; (etsi) ja &quot;screenshot&quot; (ota kuvakaappaus). Tällä on merkitystä vain jos avaimen &quot;object_type&quot; arvo on &quot;action-applet&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="launcher_location">
+						<local_schema short_desc="Käynnistimen sijainti">
+							<longdesc>Käynnistintä kuvaavan .desktop-tiedoston sijainti. Tällä on merkitystä vain jos avaimen &quot;object_type&quot; arvo on &quot;launcher-object&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menu_path">
+						<local_schema short_desc="Valikon sisällön polku">
+							<longdesc>Polku, josta valikon sisältö rakentuu. Tällä on merkitystä vain jos &quot;use_menu_path&quot; on tosi, ja avaimen &quot;object_type&quot; arvo on &quot;menu-object&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_menu_path">
+						<local_schema short_desc="Käytä mukautettua polkua valikon sisällölle">
+							<longdesc>Jos tosi, avain &quot;menu_path&quot; määrittelee polun, josta valikon sisältö rakentuu. Jos epätosi, &quot;menu_path&quot; jää huomiotta. Tällä on merkitystä vain jos avaimen &quot;object_type&quot; arvo on &quot;menu-object&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="custom_icon">
+						<local_schema short_desc="Esineen painikkeessa näkyvä kuvake">
+							<longdesc>Esineen painikkeen kuvakkeena toimivan kuvatiedoston sijainti. Tällä on merkitystä vain jos avaimen &quot;object_type&quot; arvo on &quot;drawer-object&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_custom_icon">
+						<local_schema short_desc="Käytä mukautettua kuvaketta esineen painikkeessa">
+							<longdesc>Jos tosi, avain &quot;custom_icon&quot; määrittelee painikkeen mukautetun kuvakkeen. Jos epätosi, avain &quot;custom_icon&quot; jää huomiotta. Tällä on merkitystä vain jos avaimen &quot;object_type&quot; arvo on &quot;menu-object&quot; tai &quot;drawer-object&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="tooltip">
+						<local_schema short_desc="Laatikon tai valikon vinkki">
+							<longdesc>Tämän laatikon tai valikon vinkissä näkyvä teksti. Tällä on merkitystä vain jos avaimen &quot;object_type&quot; arvo on &quot;drawer-object&quot; tai &quot;menu-object&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="attached_toplevel_id">
+						<local_schema short_desc="Laatikkoon liittyvä paneeli">
+							<longdesc>Tähän laatikkoon liittyvän paneelin tunniste. Tällä on merkitystä vain jos avaimen &quot;object_type&quot; arvo on &quot;drawer-object&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="bonobo_iid">
+						<local_schema short_desc="Sovelman Bonobo-IID">
+							<longdesc>Sovelman Bonobo-IID, esimerkiksi &quot;OAFIID:GNOME_ClockApplet&quot;. Tällä on merkitystä vain jos avaimen &quot;object_type&quot; arvo on &quot;bonobo-applet&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="locked">
+						<local_schema short_desc="Lukitse esine paneeliin">
+							<longdesc>Jos tosi, käyttäjä ei voi siirtää sovelmaa avaamatta esineen lukitusta valitsemalla valikosta &quot;Avaa lukitus&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="panel_right_stick">
+						<local_schema short_desc="Tulkitse sijainti suhteessa oikeaan reunaan tai alareunaan">
+							<longdesc>Jos tosi, paneeliesineen sijainti tulkitaan annetuksi suhteessa paneelin oikeaan reunaan (tai alareunaan pystypaneeleissa).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="position">
+						<local_schema short_desc="Esineen sijainti paneelissa">
+							<longdesc>Tämän paneeliesineen sijainti. Sijainti tulee antaa kuvapisteinä paneelin vasemmasta reunasta (tai pystypaneeleissa yläreunasta).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toplevel_id">
+						<local_schema short_desc="Esineen sisältävä ylätason paneeli">
+							<longdesc>Tämän esineen sisältävän ylätason paneelin tunniste.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="object_type">
+						<local_schema short_desc="Paneeliesineen tyyppi">
+							<longdesc>Tämän paneeliesineen tyyppi. Mahdollisia arvoja ovat &quot;drawer-object&quot; (laatikko), &quot;menu-object&quot; (valikko), &quot;launcher-object&quot; (käynnistin), &quot;bonobo-applet&quot; (Bonobo-sovelma), &quot;action-applet&quot; (toimintosovelma) ja &quot;menu-bar&quot; (valikkopalkki).</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="toplevels">
+					<entry name="animation_speed">
+						<local_schema short_desc="Animaationopeus">
+							<longdesc>Nopeus, jolla paneelianimaatiot näkyvät. Mahdollisia arvoja ovat &quot;slow&quot; (hidas), &quot;medium&quot; (keskinopea) ja &quot;fast&quot; (nopea). Tällä on merkitystä vain jos avaimen &quot;enable_animations&quot; arvo on tosi.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_hide_size">
+						<local_schema short_desc="Piilossa olevasta paneelista näkyvien kuvapisteiden määrä">
+							<longdesc>Määrittelee paneelista näkyvien kuvapisteiden määrän, kun se on piilottanut itsensä nurkkaan. Tällä on merkitystä vain jos avaimen &quot;auto_hide&quot; arvo on tosi.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="unhide_delay">
+						<local_schema short_desc="Paneelin ilmestymisviive">
+							<longdesc>Määrittelee viipeen (millisekunteina) osoittimen paneelin ylle tulemisen ja paneelin itsestään ilmestymisen välillä. Tällä on merkitystä vain jos avaimen &quot;auto_hide&quot; arvo on tosi.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hide_delay">
+						<local_schema short_desc="Paneelin piiloutumisviive">
+							<longdesc>Määrittelee viipeen (millisekunteina) osoittimen paneelin päältä pois siirtymisen ja paneelin itsensä piilottamisen välillä. Tällä on merkitystä vain jos avain &quot;auto_hide&quot; on tosi.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_arrows">
+						<local_schema short_desc="Näytä piilotuspainikkeiden nuolet">
+							<longdesc>Jos tosi, piilotuspainikkeissa on nuolet. Tällä on merkitystä vain jos avaimen &quot;enable_buttons&quot; arvo on tosi.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_buttons">
+						<local_schema short_desc="Näytä piilotuspainikkeet">
+							<longdesc>Jos tosi, paneelin päihin tulee painikkeet, joilla paneelin voi siirtää ruudun laitaan siten, että vain painike näkyy.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="Käytä animaatioita">
+							<longdesc>Jos tosi, tämän paneelin piilottaminen ja ilmestyminen näkyvät animoituina sen sijaan että tapahtuisivat välittömästi.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_hide">
+						<local_schema short_desc="Piilota paneeli itsestään nurkkaan">
+							<longdesc>Jos tosi, paneeli piilottaa itsensä näytön nurkkaan, kun hiiri ei ole sen päällä. Hiiren osoittimen siirtäminen nurkkaan saa paneelin ilmestymään.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="y_centered">
+						<local_schema short_desc="Keskitä paneeli y-akselilla">
+							<longdesc>Jos tosi, x- ja y-avaimet jätetään huomioimatta, ja paneeli sijoitetaan näytön y-akselilla keskelle. Jos paneelin kokoa muutetaan, se säilyy samassa paikassa, eli se kasvaa molemmilta sivuilta. Jos arvo on epätosi, x- ja y-avaimet määrittävät paneelin sijainnin.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="x_centered">
+						<local_schema short_desc="Keskitä paneeli x-akselilla">
+							<longdesc>Jos tosi, x- ja y-avaimet jätetään huomioimatta, ja paneeli sijoitetaan näytön x-akselilla keskelle. Jos paneelin kokoa muutetaan, se säilyy samassa paikassa, eli se kasvaa molemmilta sivuilta. Jos arvo on epätosi, x- ja y-avaimet määrittävät paneelin sijainnin.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="y_bottom">
+						<local_schema short_desc="Paneelin Y-koordinaatti, alkaen näytön alalaidasta">
+							<longdesc>Paneelin sijainti y-akselilla, alkaen näytön alalaidasta. Jos arvo on -1, arvoa ei käytetä ja käytetään arvoa avaimesta y. Jos arvo on suurempi kuin 0, jätetään avaimen y arvo huomioimatta. Tällä arvolla on merkitystä vain laajentamattomassa tilassa. Laajennetussa tilassa tätä avainta ei huomioida, ja paneeli asetetaan orientation-avaimen määräämän sijainnin mukaisesti näytön reunalle.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="x_right">
+						<local_schema short_desc="Paneelin X-koordinaatti, alkaen näytön oikeasta laidasta">
+							<longdesc>Paneelin sijainti x-akselilla, alkaen näytön oikeasta laidasta. Jos arvo on -1, arvoa ei käytetä ja käytetään arvoa avaimesta x. Jos arvo on suurempi kuin 0, jätetään avaimen x arvo huomioimatta. Tällä arvolla on merkitystä vain laajentamattomassa tilassa. Laajennetussa tilassa tätä avainta ei huomioida, ja paneeli asetetaan orientation-avaimen määräämän sijainnin mukaisesti näytön reunalle.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="y">
+						<local_schema short_desc="Paneelin y-koordinaatti">
+							<longdesc>Paneelin sijainti y-akselilla. Tällä on merkitystä vain laajentamattomassa tilassa. Laajennetussa tilassa tämä avain jää huomiotta ja paneeli sijoittuu ruudun reunalle &quot;orientation&quot;-avaimen (suunta) mukaisesti.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="x">
+						<local_schema short_desc="Paneelin x-koordinaatti">
+							<longdesc>Paneelin sijainti x-akselilla. Tällä on merkitystä vain laajentamattomassa tilassa. Laajennetussa tilassa tämä avain jää huomiotta ja paneeli sijoittuu ruudun reunalle &quot;orientation&quot;-avaimen (suunta) mukaisesti.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size">
+						<local_schema short_desc="Paneelin koko">
+							<longdesc>Paneelin korkeus (tai pystypaneelin leveys). Paneelin minimikoko määrittyy ajonaikaisesti kirjasinkoon ja muiden merkkien perusteella. Maksimikoko on kiinteä yksi neljäsosa ruudun korkeudesta (tai leveydestä).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="orientation">
+						<local_schema short_desc="Paneelin suunta">
+							<longdesc>Paneelin suunta. Mahdollisia arvoja ovat &quot;top&quot; (yläreuna), &quot;bottom&quot; (alareuna), &quot;left&quot; (vasen reuna) ja &quot;right&quot; (oikea reuna). Laajennetussa tilassa tämä määrittelee millä ruudun reunalla paneeli on. Laajentamattomassa tilassa ero arvojen &quot;top&quot; ja &quot;bottom&quot; välillä on vähemmän tärkeä, molemmat tarkoittavat, että paneeli on vaakasuuntainen, mutta antavat silti vihjeen eräille paneeliesineille miten niiden pitäisi toimia. Esimerkiksi yläpaneelissa valikkopainike avaa valikon paneelin alle, kun taas alapaneelissa valikko avautuu paneelin ylle.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand">
+						<local_schema short_desc="Laajenna viemään koko ruudun leveys">
+							<longdesc>Jos tosi, paneeli on koko ruudun leveyden kokoinen (tai korkeuden, jos paneeli on pystyssä). Tässä tilassa paneelin voi sijoittaa vain ruudun reunalle. Jos epätosi, paneeli on juuri tarpeeksi suuri, jotta kaikki sovelmat, käynnistimet ja painikkeet sopivat siihen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="monitor">
+						<local_schema short_desc="Xinerama-näyttöruutu, jolla paneeli on">
+							<longdesc>Xinerama-asetuksissa paneeleita voi olla kaikilla näytöillä. Tämä avain määrittelee nykyisen näytön, jolla paneeli on.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="screen">
+						<local_schema short_desc="X-ruutu, jolla paneeli on">
+							<longdesc>Moninäyttöisessä järjestelmässä paneeleita voi olla joka näytöllä. Tämä avain kertoo nykyisen näytön, jolla paneeli on.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name">
+						<local_schema short_desc="Nimi, jolla paneeli tunnetaan">
+							<longdesc>Tämä on selväkielinen paneelin nimi. Tämän päätarkoitus on toimia paneeli-ikkunan otsikkona, mistä on hyötyä paneelien välisessä navigoinnissa.</longdesc>
+						</local_schema>
+					</entry>
+					<dir name="background">
+						<entry name="rotate">
+							<local_schema short_desc="Kierrä kuvaa pystypaneeleissa">
+								<longdesc>Jos tosi, taustakuva kiertyy kun paneeli on pystyasennossa.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="stretch">
+							<local_schema short_desc="Venytä kuva paneeliin sopivaksi">
+								<longdesc>Jos tosi, kuva skaalautuu paneelin mittojen mukaan. Kuvan sivusuhde ei tällöin säily.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="fit">
+							<local_schema short_desc="Sovita kuva paneeliin">
+								<longdesc>Jos tosi, kuva skaalautuu (säilyttäen sivusuhteensa) paneelin korkeuteen (jos vaakasuunnassa).</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="image">
+							<local_schema short_desc="Taustakuva">
+								<longdesc>Määrittelee paneelin taustakuvan tiedoston. Jos tiedostossa on alfakanava, kuva sulautuu työpöydän taustakuvan päälle.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="opacity">
+							<local_schema short_desc="Taustavärin peittävyys">
+								<longdesc>Määrittelee taustavärimuodon peittävyyden. Jos väri ei ole täysin peittävä (arvo on pienempi kuin 65535), väri piirtyy työpöydän taustakuvan päälle.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="color">
+							<local_schema short_desc="Taustaväri">
+								<longdesc>Määrittelee paneelin taustavärin #RGB-muodossa.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="type">
+							<local_schema short_desc="Taustan tyyppi">
+								<longdesc>Minkälainen tausta tällä paneelilla on. Mahdollisia arvoja ovat &quot;gtk&quot; (GTK+ säädinten oletustausta), &quot;color&quot; (&quot;color&quot;-avaimen määrittelemä taustaväri) tai &quot;image&quot; (&quot;image&quot;-avaimen määrittelemä kuva).</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="general">
+					<entry name="profiles_migrated">
+						<local_schema short_desc="Vanhat profiiliasetukset kopioitu nykyiseen paikkaan">
+							<longdesc>Totuusarvo, joka ilmaisee onko käyttäjän vanhat asetukset sijainnista /apps/panel/profiles/default kopioitu uuteen paikkaan sijainnissa apps/panel.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="object_id_list">
+						<local_schema short_desc="Paneeliesineiden ID-luettelo">
+							<longdesc>Luettelo paneeliesineiden ID:istä. Jokainen ID kuvaa yksittäistä paneeliesinettä (esim. käynnistin, toimintopainike, valikkopainike tai -palkki). Näiden paneeliesineiden asetukset ovat sijainnissa /apps/panel/objects/$(id).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="applet_id_list">
+						<local_schema short_desc="Paneelisovelmien ID-luettelo">
+							<longdesc>Luettelo paneelisovelmien ID:istä. Jokainen ID kuvaa yksittäistä paneelisovelmaa. Näiden paneelisovelmien asetukset ovat sijainnissa /apps/panel/applets/$(id).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toplevel_id_list">
+						<local_schema short_desc="Paneelin ID-lista">
+							<longdesc>Luettelo paneelien ID:istä. Jokainen ID kuvaa yksittäistä ylätason paneelia. Näiden paneelien asetukset ovat sijainnissa /apps/panel/toplevels/$(id).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_autocompletion">
+						<local_schema short_desc="Näytä automaattinen täydennys &quot;Suorita sovellus&quot;-ikkunassa">
+							<longdesc>Jos tosi, &quot;Suorita sovellus&quot;-ikkunassa on käytössä automaattinen täydennys.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_program_list">
+						<local_schema short_desc="Avaa sovellusluettelo &quot;Suorita sovellus&quot;-ikkunassa">
+							<longdesc>Jos tosi, &quot;Tunnetut sovellukset&quot;-luettelo &quot;Käynnistä sovellus&quot;-ikkunassa on auki kun ikkuna avautuu. Tällä on vaikutusta vain jos &quot;enable_program_list&quot; on tosi.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_program_list">
+						<local_schema short_desc="Näytä sovellusluettelo &quot;Suorita sovellus&quot;-ikkunassa">
+							<longdesc>Jos tosi &quot;Tunnetut sovellukset&quot;-luettelo &quot;Käynnistä sovellus&quot;-ikkunassa on näkyvissä. Onko tämä luettelo auki kun ikkuna avautuessa, määräytyy avaimen &quot;show_program_list&quot; arvon mukaan.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="global">
+					<entry name="disable_force_quit">
+						<local_schema short_desc="Poista väkisin sulkeminen käytöstä">
+							<longdesc>Jos tosi, paneeli ei salli käyttäjän sulkea ohjelmia väkisin, eli väkisinsulkemispainike poistuu käytöstä.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_log_out">
+						<local_schema short_desc="Poista ulos kirjautuminen käytöstä">
+							<longdesc>Jos tosi, paneeli ei salli käyttäjän kirjautua ulos, eli uloskirjautumisvalinnat poistuvat valikoista.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_lock_screen">
+						<local_schema short_desc="Vanhentunut">
+							<longdesc>Tämä avain on vanhentunut eikä sitä voida käyttää toteuttamaan lukitusta kunnolla. Avainta /desktop/gnome/lockdown/disable_lock_screen tulisi käyttää tämän sijaa.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disabled_applets">
+						<local_schema short_desc="IID:t sovelmille, joiden lataus estetään">
+							<longdesc>Luettelo sovelmien IID:istä, jotka paneeli jättää huomiotta. Tällä tavoin voit estää tiettyjen sovelmien latautumisen tai valikoissa näkymisen. Jos esimerkiksi haluat poistaa sovelman &quot;mini-commander&quot; käytöstä, lisää &quot;OAFIID:GNOME_MiniCommanderApplet&quot; tähän luetteloon. Paneeli täytyy käynnistää uudelleen, jotta tämä tulee voimaan.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="locked_down">
+						<local_schema short_desc="Täydellinen paneelin lukinta">
+							<longdesc>Jos tosi, paneeli ei salli muutoksia paneelin asetuksiin. Yksittäiset sovelmat kuitenkin täytynee lukita erikseen. Paneeli täytyy käynnistää uudelleen, jotta tämä tulee voimaan.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="highlight_launchers_on_mouseover">
+						<local_schema short_desc="Korosta käynnistimet kun hiiri on niiden päällä">
+							<longdesc>Jos tosi, käynnistin korostuu kun käyttäjä siirtää hiiren sen ylle.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="confirm_panel_remove">
+						<local_schema short_desc="Varmista paneelista poisto">
+							<longdesc>Jos tosi, ikkuna avautuu ja kysyy varmistusta, kun käyttäjä poistaa paneelin.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="drawer_autoclose">
+						<local_schema short_desc="Sulje laatikko itsestään">
+							<longdesc>Jos tosi, laatikko sulkeutuu itsestään kun käyttäjä napsauttaa siinä olevaa käynnistintä.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="window_screenshot_key">
+						<local_schema short_desc="Vanhentunut">
+						</local_schema>
+					</entry>
+					<entry name="screenshot_key">
+						<local_schema short_desc="Vanhentunut">
+						</local_schema>
+					</entry>
+					<entry name="run_key">
+						<local_schema short_desc="Vanhentunut">
+						</local_schema>
+					</entry>
+					<entry name="menu_key">
+						<local_schema short_desc="Vanhentunut">
+						</local_schema>
+					</entry>
+					<entry name="enable_key_bindings">
+						<local_schema short_desc="Vanhentunut">
+						</local_schema>
+					</entry>
+					<entry name="panel_hide_delay">
+						<local_schema short_desc="Vanhentunut">
+						</local_schema>
+					</entry>
+					<entry name="panel_animation_speed">
+						<local_schema short_desc="Vanhentunut">
+						</local_schema>
+					</entry>
+					<entry name="panel_show_delay">
+						<local_schema short_desc="Vanhentunut">
+						</local_schema>
+					</entry>
+					<entry name="panel_minimized_size">
+						<local_schema short_desc="Vanhentunut">
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="Käytä animaatioita">
+						</local_schema>
+					</entry>
+					<entry name="keep_menus_in_memory">
+						<local_schema short_desc="Vanhentunut">
+						</local_schema>
+					</entry>
+					<entry name="tooltips_enabled">
+						<local_schema short_desc="Käytä vinkkejä">
+							<longdesc>Jos tosi, paneelien esineiden vinkit näkyvät.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gweather">
+				<dir name="prefs">
+					<entry name="radar">
+						<local_schema short_desc="Tutkakartan URL">
+							<longdesc>Mukautettu URL josta tutkakartat haetaan.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_custom_radar_url">
+						<local_schema short_desc="Käytä mukautettua osoitetta sääkartalle">
+							<longdesc>Mikäli tämä on päällä, hae tutkakartta &quot;radar&quot;-avaimessa määritellystä paikasta.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="coordinates">
+						<local_schema short_desc="Sijainnin koordinaatit">
+						</local_schema>
+					</entry>
+					<entry name="location4">
+						<local_schema short_desc="Kaupunkisää">
+						</local_schema>
+					</entry>
+					<entry name="location3">
+						<local_schema short_desc="Tutkan sijainti">
+						</local_schema>
+					</entry>
+					<entry name="location2">
+						<local_schema short_desc="Alueen sijainti">
+						</local_schema>
+					</entry>
+					<entry name="location1">
+						<local_schema short_desc="Lähikaupunki">
+						</local_schema>
+					</entry>
+					<entry name="location0">
+						<local_schema short_desc="Sijainnin säätiedot">
+						</local_schema>
+					</entry>
+					<entry name="enable_radar_map">
+						<local_schema short_desc="Näytä tutkakartta">
+							<longdesc>Hae tutkakartta jokaisen päivityksen yhteydessä.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_detailed_forecast">
+						<local_schema short_desc="Ei enää käytössä">
+						</local_schema>
+					</entry>
+					<entry name="temperature_unit">
+						<local_schema short_desc="Lämpötilan yksikkö">
+							<longdesc>Lämpötilaa näytettäessä käytettävä yksikkö.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="speed_unit">
+						<local_schema short_desc="Nopeuden yksikkö">
+							<longdesc>Tuulen nopeutta näytettäessä käytettävä yksikkö</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="pressure_unit">
+						<local_schema short_desc="Paineen yksikkö">
+							<longdesc>Painetta näytettäessä käytettävä yksikkö</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="distance_unit">
+						<local_schema short_desc="Matkan yksikkö">
+							<longdesc>Näkyvyyttä näytettäessä käytettävä yksikkö</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_metric">
+						<local_schema short_desc="Käytä SI-järjestelmää">
+							<longdesc>Käytä SI-järjestelmää englantilaisten yksiköiden sijaan.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_update_interval">
+						<local_schema short_desc="Päivitystiheys">
+							<longdesc>Automaattisten päivitysten päivitystiheys sekunneissa.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_update">
+						<local_schema short_desc="Päivitä tiedot automaattisesti">
+							<longdesc>Määrittää, päivittääkö sovelma automaattisesti säätiedot vai ei.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnome-keyring">
+				<dir name="daemon-components">
+					<entry name="pkcs11">
+						<local_schema short_desc="Onko gnome-keyring PKCS#11-komponentti käytössä.">
+							<longdesc>Tämä valinta ottaa käyttöön gnome-keyring-palvelimen PKCS#11-komponentin. Muutos tulee voimaan, kun gnome-keyring-palvelin käynnistetään uudestaan, esimerkiksi sisäänkirjauduttaessa. Tämä asetus voidaan ohittaa palvelimelle annetuilla komentorivivalitsimilla.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="ssh">
+						<local_schema short_desc="Onko gnome-keyring SSH-agentti käytössä.">
+							<longdesc>Tämä valinta ottaa käyttöön gnome-keyring-palvelimen SSH-agentin. Muutos tulee voimaan, kun gnome-keyring-palvelin käynnistetään uudestaan, esimerkiksi sisäänkirjauduttaessa. Tämä asetus voidaan ohittaa palvelimelle annetuilla komentorivivalitsimilla.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="brasero">
+				<dir name="filter">
+					<entry name="notify">
+						<local_schema short_desc="Annetaanko huomautus, kun tiedostoja suodatetaan">
+							<longdesc>Näytetäänkö huomautus, kun tiedostoja on suodatettu. Jos tosi, brasero näyttää huomautuksen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="broken_sym">
+						<local_schema short_desc="Suodattaako brasero rikkinäiset symboliset linkit">
+							<longdesc>Suodatetaanko rikkinäiset symboliset linkit. Jos tosi, brasero suodattaa pois rikkinäiset linkit.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="replace_sym">
+						<local_schema short_desc="Korvaa symboliset linkit linkin kohteella">
+							<longdesc>Korvaako brasero symboliset linkit linkkien kohdetiedostoilla projektissa. Jos tosi, brasero korvaa symboliset linkit.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hidden">
+						<local_schema short_desc="Suodatetaanko piilotiedostot">
+							<longdesc>Suodatetaanko piilotiedostot. Jos tosi, brasero suodattaa pois piilotiedostot.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="display">
+					<entry name="video_height">
+						<local_schema short_desc="Videon esikatselun korkeus">
+							<longdesc>Videon esikatselun oletuskorkeus.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="video_width">
+						<local_schema short_desc="Videon esikatselun leveys">
+							<longdesc>Videon esikatselun oletusleveys.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="image_height">
+						<local_schema short_desc="Kuvan esikatselun korkeus">
+							<longdesc>Kuvan esikatselun oletuskorkeus.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="image_width">
+						<local_schema short_desc="Kuvien esikatselun leveys">
+							<longdesc>Kuvan esikatselun oletuskorkeus.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="viewer">
+						<local_schema short_desc="Käytä tiedoston esikatselua">
+							<longdesc>Näytetäänkö tiedoston esikatselu. Aseta arvoon TOSI nähdäksesi sen</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="layout">
+						<local_schema short_desc="Käyttöliittymän asettelu">
+							<longdesc>Tämä avain asettaa, missä projektipaneeli näytetään (0 = oikealla, 1 = vasemmalla, 2 = ylhäällä ja 3 = alhaalla)</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="video_pane">
+						<local_schema short_desc="Videoprojekteille näytettävä paneeli">
+							<longdesc>Videoprojekteille näytettävä paneeli. Paneelin arvon tulisi olla joko ”Chooser”, ”Search” tai ”Playlist”.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="data_pane">
+						<local_schema short_desc="Dataprojekteille näytettävä paneeli">
+							<longdesc>Dataprojekteille näytettävä paneeli. Paneelin arvon tulisi olla joko ”Chooser” tai ”Search”.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="audio_pane">
+						<local_schema short_desc="Ääniprojekteille näytettävä paneeli">
+							<longdesc>Ääniprojekteille näytettävä paneeli. Paneelin arvon tulisi olla joko ”Chooser”, ”Search” tai ”Playlist”.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="sidepane">
+						<local_schema short_desc="Näytä sivupaneeli">
+							<longdesc>Näytetäänkö sivupaneeli. Aseta arvoon TOSI nähdäksesi sen.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="config">
+					<entry name="raw_flag">
+						<local_schema short_desc="Käytetäänkö ”--driver generic-mmc-raw” -lippua cdrdaon kanssa">
+							<longdesc>Käytetäänkö cdrdaon kanssa lippua ”--driver generic-mmc-raw”. Brasero käyttää sitä, jos asetetaan todeksi – se voi toimia korjauksena joillekin asemille ja järjestelmille.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="minbuf_value">
+						<local_schema short_desc="Käytetään ”-immed”-lipun kanssa käytettäessä cdrecordia">
+							<longdesc>Käytetään ”-immed”-lipun kanssa käytettäessä cdrecordia</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="dao_flag">
+						<local_schema short_desc="Käytetäänkö growisofs:n kanssa ”-use-the-force-luke=dao”-lippua">
+							<longdesc>Käytetäänkö growisofs:n kanssa lippua ”-use-the-force-luke=dao”. Jos asetetaan epätodeksi, Brasero ei käytä sitä – tämä voi toimia korjauksena joillekin asemille ja järjestelmille.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="immed_flag">
+						<local_schema short_desc="Käytä ”-immed”-lippua cdrecordin kanssa">
+							<longdesc>Käytetäänkö cdrecordin kanssa lippua ”-immed”. Käytä tätä varoen (asettaen se todeksi), sillä se on vain korjaus joillekin asemille ja järjestelmille.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="plugins">
+						<local_schema short_desc="Luettelo hyväksytyistä liitännäisistä">
+							<longdesc>Sisältää luettelon lisäliitännäisistä, joita Brasero käyttää levyjen kirjoitukseen. Jos arvo on NULL, Brasero lataa kaikki liitännäiset.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="engine-group">
+						<local_schema short_desc="Ensisijainen levynkirjoitusjärjestelmä">
+							<longdesc>Sisältää ensisijaisesti käytettävän kirjoitusjärjestelmän nimen. Arvoa käytetään aina kun se on mahdollista.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="evince">
+				<entry name="override_restrictions">
+					<local_schema short_desc="Ohita asiakirjan rajoitukset">
+						<longdesc>Ohita asiakirjan rajoitukset, kuten kopioinnin tai tulostuksen rajoitus.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="gnome-settings">
+				<dir name="gnumeric">
+					<entry name="toolbar_style">
+						<local_schema short_desc="Työkalupalkin tyyli">
+							<longdesc>Työkalupalkin tyyli. Mahdollisia arvoja ovat both, both_horiz, icon ja text.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnumeric">
+				<dir name="plugin">
+					<dir name="latex">
+						<entry name="use-utf8">
+							<local_schema short_desc="Käytä UTF-8-koodausta Latex-viennissä">
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="cut-and-paste">
+					<entry name="prefer-clipboard">
+						<local_schema short_desc="Suosi leikekirjaa pääasiallisen (”primary”) valinnan sijaan">
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="core">
+					<dir name="sort">
+						<dir name="dialog">
+							<entry name="max-initial-clauses">
+								<local_schema short_desc="Automaattisten lausekkeiden lukumäärä">
+								</local_schema>
+							</entry>
+						</dir>
+						<dir name="default">
+							<entry name="ascending">
+								<local_schema short_desc="Lajittele kasvavasti">
+								</local_schema>
+							</entry>
+							<entry name="retain-formats">
+								<local_schema short_desc="Lajittelu säilyttää muotoilut">
+								</local_schema>
+							</entry>
+							<entry name="by-case">
+								<local_schema short_desc="Lajittelu riippuu aakkoskoosta">
+								</local_schema>
+							</entry>
+						</dir>
+					</dir>
+					<dir name="file">
+						<dir name="save">
+							<entry name="def-overwrite">
+								<local_schema short_desc="Ylikirjoita tiedostot oletuksena">
+								</local_schema>
+							</entry>
+							<entry name="single_sheet">
+								<local_schema short_desc="Varoita vietäessä yhden taulun muotoon">
+								</local_schema>
+							</entry>
+						</dir>
+					</dir>
+					<dir name="xml">
+						<entry name="compression-level">
+							<local_schema short_desc="Gnumeric-tiedostojen oletuspakkaustaso">
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="gui">
+						<dir name="window">
+							<entry name="zoom">
+								<local_schema short_desc="Oletussuurennoskerroin">
+								</local_schema>
+							</entry>
+							<entry name="y">
+								<local_schema short_desc="Ikkunan pystysuunnan oletuskoko">
+								</local_schema>
+							</entry>
+							<entry name="x">
+								<local_schema short_desc="Ikkunan vaakasuuntainen oletuskoko">
+								</local_schema>
+							</entry>
+						</dir>
+						<dir name="editing">
+							<entry name="transitionkeys">
+								<local_schema short_desc="Siirtymisnäppäimet">
+								</local_schema>
+							</entry>
+							<entry name="livescrolling">
+								<local_schema short_desc="Reaaliaikainen vieritys">
+								</local_schema>
+							</entry>
+							<entry name="autocomplete">
+								<local_schema short_desc="Automaattitäydennys">
+								</local_schema>
+							</entry>
+						</dir>
+						<dir name="toolbars">
+							<entry name="ObjectToolbar">
+								<local_schema short_desc="Objektityökalupalkki näkyvissä">
+								</local_schema>
+							</entry>
+							<entry name="FormatToolbar">
+								<local_schema short_desc="Muotoilutyökalupalkki näkyvissä">
+								</local_schema>
+							</entry>
+							<entry name="StandardToolbar-position">
+								<local_schema short_desc="Perustyökalupalkin sijainti">
+								</local_schema>
+							</entry>
+							<entry name="StandardToolbar">
+								<local_schema short_desc="Perustyökalupalkki näkyvissä">
+								</local_schema>
+							</entry>
+						</dir>
+						<dir name="screen">
+							<entry name="verticaldpi">
+								<local_schema short_desc="Pystysuuntainen DPI">
+									<longdesc>Näytön tarkkuus pystysuunnassa.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="horizontaldpi">
+								<local_schema short_desc="Vaakasuuntainen DPI">
+									<longdesc>Näytön tarkkuus vaakasuunnassa.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+					</dir>
+					<dir name="workbook">
+						<entry name="n-sheet">
+							<local_schema short_desc="Taulujen oletusmäärä">
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="defaultfont">
+						<entry name="italic">
+							<local_schema short_desc="Oletuskirjasin on kursiivi.">
+							</local_schema>
+						</entry>
+						<entry name="bold">
+							<local_schema short_desc="Oletuskirjasin on lihavoitu.">
+							</local_schema>
+						</entry>
+						<entry name="name">
+							<local_schema short_desc="Oletuskirjasimen nimi">
+							</local_schema>
+						</entry>
+						<entry name="size">
+							<local_schema short_desc="Kirjasimen oletuskoko">
+								<longdesc>Oletuskirjasimen koko uusille taulukoille.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="undo">
+					<entry name="max_descriptor_width">
+						<local_schema short_desc="Kumoamiskuvausten pituus">
+						</local_schema>
+					</entry>
+					<entry name="maxnum">
+						<local_schema short_desc="Kumoa-kohteiden lukumäärä">
+						</local_schema>
+					</entry>
+					<entry name="size">
+						<local_schema short_desc="Suurin kumoamiskoko">
+						</local_schema>
+					</entry>
+					<entry name="show_sheet_name">
+						<local_schema short_desc="Näytä taulun nimi kumoamisluettelossa">
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="dialogs">
+					<dir name="rs">
+						<entry name="unfocused">
+							<local_schema short_desc="Salli kohdistamattomat alueen valinnat">
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="printsetup">
+					<entry name="hf-right">
+						<local_schema>
+							<longdesc>Muuta tätä arvoa tulostuksen asetusikkunasta.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hf-middle">
+						<local_schema>
+							<longdesc>Muuta tätä arvoa tulostuksen asetusikkunasta.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hf-left">
+						<local_schema>
+							<longdesc>Muuta tätä arvoa tulostuksen asetusikkunasta.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="paper-orientation">
+						<local_schema short_desc="Paperi">
+						</local_schema>
+					</entry>
+					<entry name="paper">
+						<local_schema short_desc="Paperi">
+						</local_schema>
+					</entry>
+					<entry name="margin-gtk-right">
+						<local_schema short_desc="Alareunan oletusmarginaali">
+						</local_schema>
+					</entry>
+					<entry name="margin-gtk-left">
+						<local_schema short_desc="Vasemman reunan oletusmarginaali">
+						</local_schema>
+					</entry>
+					<entry name="margin-bottom">
+						<local_schema short_desc="Alareunan oletusmarginaali">
+						</local_schema>
+					</entry>
+					<entry name="across-then-down">
+						<local_schema short_desc="Tulostuksen oletussuunta">
+						</local_schema>
+					</entry>
+					<entry name="print-black-n-white">
+						<local_schema short_desc="Mustavalkoinen tulostus oletuksena">
+						</local_schema>
+					</entry>
+					<entry name="print-even-if-only-styles">
+						<local_schema short_desc="Tulostetaanko oletuksena vain solut, joissa on tyylejä">
+						</local_schema>
+					</entry>
+					<entry name="print-grid-lines">
+						<local_schema short_desc="Tulostaanko apuviivat oletuksena">
+						</local_schema>
+					</entry>
+					<entry name="center-horizontally">
+						<local_schema short_desc="Vaakasuuntaisen keskityksen oletus">
+						</local_schema>
+					</entry>
+					<entry name="hf-font-name">
+						<local_schema>
+						</local_schema>
+					</entry>
+					<entry name="hf-font-size">
+						<local_schema short_desc="Otsakkeen ja alaotsakkeen kirjasinkoon oletus">
+						</local_schema>
+					</entry>
+					<entry name="footer">
+						<local_schema short_desc="Sivun alatunniste">
+						</local_schema>
+					</entry>
+					<entry name="header">
+						<local_schema short_desc="Sivun ylätunniste">
+						</local_schema>
+					</entry>
+					<entry name="all-sheets">
+						<local_schema short_desc="Käytä tulostusasetuksia kaikille taulukoille">
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="plugins">
+					<entry name="extra-dirs">
+						<local_schema short_desc="Lista liitännäishakemistoista.">
+						</local_schema>
+					</entry>
+					<entry name="file-states">
+						<local_schema short_desc="Lista liitännäistiedostojen tiloista.">
+						</local_schema>
+					</entry>
+					<entry name="known">
+						<local_schema short_desc="Listä tu">
+						</local_schema>
+					</entry>
+					<entry name="active">
+						<local_schema short_desc="Lista Lista aktiivisista liitännäisistä.">
+						</local_schema>
+					</entry>
+					<entry name="activate-new">
+						<local_schema short_desc="Ota uuden liitännäiset käyttöön">
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="autocorrect">
+					<entry name="names-of-days">
+						<local_schema short_desc="Korjaa päivien nimet automaattisesti">
+							<longdesc>Korjaa päivien nimet automaattisesti</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="first-letter-list">
+						<local_schema short_desc="Lista ensimmäisen kirjaimen poikkeuksista.">
+						</local_schema>
+					</entry>
+					<entry name="first-letter">
+						<local_schema short_desc="Korjaa ensimmäinen kirjain automattisesti">
+							<longdesc>Korjaa ensimmäinen kirjain automattisesti</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="init-caps-list">
+						<local_schema short_desc="Lista alkavan ison kirjaimen poikkeuksista.">
+						</local_schema>
+					</entry>
+					<entry name="init-caps">
+						<local_schema short_desc="Korjaa aloittavat isot kirjaimet automaattisesti">
+							<longdesc>Korjaa aloittavat isot kirjaimet automaattisesti</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="functionselector">
+					<entry name="num-of-recent">
+						<local_schema short_desc="Äskettäin käytettyjen funktioiden listan enimmäispituus">
+						</local_schema>
+					</entry>
+					<entry name="recentfunctions">
+						<local_schema short_desc="Lista äskettäin käytetyistä funktioista.">
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+		</dir>
+		<dir name="desktop">
+			<dir name="gnome">
+				<dir name="interface">
+					<entry name="show_unicode_menu">
+						<local_schema short_desc="Näytä &quot;Unicode-ohjausmerkki&quot;-valikko">
+							<longdesc>Näytetäänkö kohteiden ja tekstinäkymien ponnahdusvalikossa alivalikko ohjausmerkkien syöttöä varten.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_input_method_menu">
+						<local_schema short_desc="Näytä &quot;Syöttötavat&quot;-valikko">
+							<longdesc>Näytetäänkö kohteiden ja tekstinäkymien ponnahdusvalikossa alivalikko syöttömenetelmän vaihtoa varten.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menubar_accel">
+						<local_schema short_desc="Valikkopalkin pikavalitsin">
+							<longdesc>Työkalupalkkien avaamisen käytettävä pikanäppäin</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="file_chooser_backend">
+						<local_schema short_desc="GtkFileChooserin moduuli">
+							<longdesc>Moduuli, jota käytetään tiedostojärjestelmän mallina GtkFileChooser-säätimessä. Mahdolliset arvot ovat &quot;gio&quot;, &quot;gnome-vfs&quot; ja &quot;gtk+&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="status_bar_meter_on_right">
+						<local_schema short_desc="Tilarivi oikealla">
+							<longdesc>Näkyykö tilarivin edistysmittari oikealla.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_custom_font">
+						<local_schema short_desc="Käytä muuta kirjasinta.">
+							<longdesc>Onko Gtk+-ohjelmien kirjasin käyttäjän määrittelemä.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="monospace_font_name">
+						<local_schema short_desc="Tasavälinen kirjasin">
+							<longdesc>Tasavälisen kirjasinlajin nimi, jota käytetään mm. päätteissä.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="document_font_name">
+						<local_schema short_desc="Asiakirjan kirjasin">
+							<longdesc>Asiakirjojen lukemiseen käytetyn oletuskirjasimen nimi.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk-im-module">
+						<local_schema short_desc="GTK-IM-moduuli ">
+							<longdesc>GTK+:n oletus-syöttötapamoduulin nimi.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk-im-status-style">
+						<local_schema short_desc="GTK-IM tilatyyli">
+							<longdesc>GTK+:n syöttötavan tilatyylin nimi.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk-im-preedit-style">
+						<local_schema short_desc="GTK-IM esimuokkaustyyli">
+							<longdesc>GTK+:n syöttötavan esimuokkaustyylin nimi</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="font_name">
+						<local_schema short_desc="Oletuskirjasin">
+							<longdesc>Gtk+:n käyttämän oletuskirjasimen nimi.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk_key_theme">
+						<local_schema short_desc="Gtk+:n teema">
+							<longdesc>Gtk+:n käyttämän oletusteeman perusnimi.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk_theme">
+						<local_schema short_desc="Gtk+:n teema">
+							<longdesc>Gtk+:n käyttämän oletusteeman perusnimi.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="icon_theme">
+						<local_schema short_desc="Kuvakkeiden teema">
+							<longdesc>Paneelin, Nautiluksen ja muiden vastaavien kuvakkeiden teema.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="cursor_blink_time">
+						<local_schema short_desc="Kohdistimen vilkkumisaika">
+							<longdesc>Kohdistimen vilkkumisen aikaväli millisekunteina.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="cursor_blink">
+						<local_schema short_desc="Vilkkuva kohdistin">
+							<longdesc>Vilkkuuko kohdistin.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_icons_size">
+						<local_schema short_desc="Työkalupalkin kuvakekoko">
+							<longdesc>Kuvakkeiden koko työkalupalkeissa, joko &quot;small-toolbar&quot; tai &quot;large-toolbar&quot;</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_detachable">
+						<local_schema short_desc="Irrotettava työkalupalkki">
+							<longdesc>Voiko käyttäjä irrottaa työkalupalkit ja liikutella niitä.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menubar_detachable">
+						<local_schema short_desc="Valikkopalkki irrotettavissa">
+							<longdesc>Voiko käyttäjä irrottaa valikkopalkit ja liikutella niitä.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="buttons_have_icons">
+						<local_schema short_desc="Napeissa on kuvakkeet">
+							<longdesc>Voiko napissa näyttää kuvakkeen tekstin lisäksi.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menus_have_icons">
+						<local_schema short_desc="Valikkopalkissa on kuvakkeet">
+							<longdesc>Voiko valikoissa näkyä kuvake valikon kohdan vieressä.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_style">
+						<local_schema short_desc="Työkalupalkin tyyli">
+							<longdesc>Työkalupalkin tyyli. Mahdollisia arvoja ovat &quot;both&quot;, &quot;both-horiz&quot;, &quot;icons&quot;  ja &quot;text&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="can_change_accels">
+						<local_schema short_desc="Pikanäppäimiä voi muuttaa">
+							<longdesc>Voiko käyttäjä syöttää dynaamisesti uuden pikanäppäimen, kun kohdistin on aktiivisen valikon kohdan päällä.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menus_have_tearoff">
+						<local_schema short_desc="Valikot voi irrottaa">
+							<longdesc>Voiko valikot irrottaa.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="Animaatiot käytössä">
+							<longdesc>Näkyvätkö animaatiot. Huomautus: tämä on yleinen avain, joka vaikuttaa ikkunointiohjelman, paneelin sekä muidenkin osien toimintaan.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="accessibility">
+						<local_schema short_desc="Esteettömyysominaisuudet käytössä">
+							<longdesc>Tulisiko ohjelmissa olla käytössä esteettömyystuki.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="background">
+					<entry name="color_shading_type">
+						<local_schema short_desc="Varjostustyyppi">
+							<longdesc>Miten taustaväri varjostuu. Mahdollisia arvoja ovat &quot;horizontal-gradient&quot;, &quot;vertical-gradient&quot; ja &quot;solid&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="secondary_color">
+						<local_schema short_desc="Toinen väri">
+							<longdesc>Oikean tai alareunan väri väriliu&apos;ussa. Tasainen väri ei riipu tästä.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="primary_color">
+						<local_schema short_desc="Pääväri">
+							<longdesc>Vasemman reunan tai yläreunan väri väriliu&apos;ussa, tai tasainen väri.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="picture_opacity">
+						<local_schema short_desc="Kuvan peittävyys">
+							<longdesc>Taustakuvan piirrossa käytetty peittävyys.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="picture_filename">
+						<local_schema short_desc="Kuvan tiedostonimi">
+							<longdesc>Taustakuvana käytettävän tiedoston nimi.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="picture_options">
+						<local_schema short_desc="Kuva-asetukset">
+							<longdesc>Määrittää, kuinka avaimessa wallpaper_filename määritelty kuva esitetään. Mahdollisia arvoja ovat &quot;none&quot; (ei näytetä), &quot;wallpaper&quot; (taustakuva), &quot;centered&quot; (keskitetty), &quot;scaled&quot; (skaalattu), &quot;stretched&quot; (venytetty) ja &quot;zoom&quot; (lähennetty)</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="draw_background">
+						<local_schema short_desc="Piirrä työpöydän tausta">
+							<longdesc>Anna Gnomen piirtää työpöydän tausta.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="thumbnail_cache">
+					<entry name="maximum_size">
+						<local_schema>
+							<longdesc>Pienoiskuvien välimuistin enimmäiskoko megatavuina. Aseta arvoon -1, jos haluat estää siivouksen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="maximum_age">
+						<local_schema>
+							<longdesc>Pienoiskuvien enimmäisikä välimuistissa päivinä. Aseta arvoon -1, jos haluat estää siivouksen.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="typing_break">
+					<entry name="enabled">
+						<local_schema short_desc="Lukkiutuuko näppäimistö">
+							<longdesc>Lukkiutuuko näppäimistö.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="allow_postpone">
+						<local_schema short_desc="Salli taukojen lykkääminen">
+							<longdesc>Voiko kirjoitustaukoja lykätä.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="break_time">
+						<local_schema short_desc="Taukoaika">
+							<longdesc>Kirjoitustauon pituus minuutteina.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="type_time">
+						<local_schema short_desc="Kirjoitusaika">
+							<longdesc>Kirjoitusaika (minuutteja) ennen kuin taukovaihe alkaa.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="sound">
+					<entry name="input_feedback_sounds">
+						<local_schema short_desc="Syötteen palauteäänet">
+							<longdesc>Soitetaanko ääniä syötetapahtumille.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="theme_name">
+						<local_schema short_desc="Ääniteeman nimi">
+							<longdesc>Tapahtumien äänille käytettävä XDB-ääniteema.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="event_sounds">
+						<local_schema short_desc="Äänitapahtumat">
+							<longdesc>Soiko ääni käyttäjän määrittelemissä tapahtumissa.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_esd">
+						<local_schema short_desc="Käytä ESD:tä (äänipalvelin)">
+							<longdesc>Käynnistä äänipalvelin.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="default_mixer_tracks">
+						<local_schema short_desc="Mikserin oletuskanavat">
+							<longdesc>Multimedianäppäinten käyttämät mikserin oletuskanavat.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="default_mixer_device">
+						<local_schema short_desc="Oletusmikseri">
+							<longdesc>Multimedianäppäinten käyttämä oletusmikseri.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="peripherals">
+					<dir name="keyboard">
+						<entry name="remember_numlock_state">
+							<local_schema short_desc="Muista NumLock-näppäimen tila">
+								<longdesc>Jos arvo on tosi, Gnome muistaa NumLock-näppäimen ja valon tilan istuntojen välillä.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bell_custom_file">
+							<local_schema short_desc="Näppäimistöpiippauksen tiedostonimi">
+								<longdesc>Piippauksena soitettavan äänen tiedostonimi.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bell_mode">
+							<local_schema>
+								<longdesc>mahdollisia arvoja ovat &quot;on&quot; (päällä), &quot;off&quot; (pois) ja &quot;custom&quot; (muu).</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="mouse">
+						<entry name="cursor_size">
+							<local_schema short_desc="Osoittimen koko">
+								<longdesc>Kohdistin_teeman viittaamaan kohdistimen koko.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="cursor_theme">
+							<local_schema short_desc="Osoittimen teema">
+								<longdesc>Kohdistinteeman nimi. Käytetään vain X-palvelimilla, jotka tukevat Xcursor-laajennosta, kuten esimerkiksi XFree86 4.3 ja uudemmat.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="cursor_font">
+							<local_schema short_desc="Osoittimen kirjasin">
+								<longdesc>Osoittimen kirjasimen nimi. Jos ei ole asetettu, niin oletuskirjasin on käytössä. Tämä arvo välittyy X-palvelimelle vain joka istunnon alussa, joten sen muuttaminen kesken istunnon ei vaikuta ennen uutta sisäänkirjautumista.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="locate_pointer">
+							<local_schema short_desc="Paikanna osoitin">
+								<longdesc>Korostaa osoittimen nykyisen sijainnin, kun control-näppäintä painetaan ja vapautetaan.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="double_click">
+							<local_schema short_desc="Kaksoisnapsautuksen aika">
+								<longdesc>Kaksoisnapsautuksen kesto.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="drag_threshold">
+							<local_schema short_desc="Vetokynnys">
+								<longdesc>Matka, jonka jälkeen vetäminen alkaa.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="motion_threshold">
+							<local_schema short_desc="Liikekynnys">
+								<longdesc>Matka, jonka hiiren osoittimen täytyy liikkua, jotta liike alkaa kiihtyä. -1 tarkoittaa järjestelmän oletusarvoa.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="motion_acceleration">
+							<local_schema short_desc="Yksöisnapsautus">
+								<longdesc>Hiiren kiihdytyskerroin. -1 tarkoittaa järjestelmän oletusarvoa.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="single_click">
+							<local_schema short_desc="Yksöisnapsautus">
+								<longdesc>Yksi napsautus avaa kuvakkeet.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="left_handed">
+							<local_schema short_desc="Hiiren näppäimen asento">
+								<longdesc>Vaihda hiiren vasen ja oikea painike vasenkätistä hiirtä varten.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="lockdown">
+					<entry name="disable_application_handlers">
+						<local_schema short_desc="Poista URL- ja MIME-tyyppien käsittelijät käytöstä">
+							<longdesc>Estä URL- tai MIME-tyyppien käsittelijäohjelmien suoritus.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_lock_screen">
+						<local_schema short_desc="Estä näytön lukitseminen">
+							<longdesc>Estä käyttäjää lukitsemasta näyttöä.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_user_switching">
+						<local_schema short_desc="Poista käyttäjän vaihto käytöstä">
+							<longdesc>Estä käyttäjää kirjautumata toisena käyttäjänä sisään aktiivisesta istunnosta.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_print_setup">
+						<local_schema short_desc="Poista tulostusasetukset käytöstä">
+							<longdesc>Estä käyttäjää muuttamasta tulostusasetuksia. Tämä poistaa esimerkiksi kaikkien sovellusten &quot;Tulostusasetukset&quot;-ikkunan käytöstä.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_printing">
+						<local_schema short_desc="Poista tulostus käytöstä">
+							<longdesc>Estä käyttäjää tulostamasta. Tämä poistaa esimerkiksi kaikkien sovellusten &quot;Tulosta&quot;-ikkunat käytöstä.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_save_to_disk">
+						<local_schema short_desc="Poista tiedostojen levylle tallentaminen käytöstä">
+							<longdesc>Estä käyttäjää tallentamasta tiedostoja levylle. Tämä poistaa esimerkiksi kaikkien sovellusten &quot;Tallenna nimellä&quot;-ikkunat käytöstä.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_command_line">
+						<local_schema short_desc="Poista komentorivi käytöstä">
+							<longdesc>Estä käyttäjää käyttämästä päätettä tai antamasta suoritettavaa komentoriviä. Tämä poistaa esimerkiksi paneelin &quot;Suorita sovellus&quot;-toiminnon käytöstä.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="file-views">
+					<entry name="icon_theme">
+						<local_schema short_desc="Tiedostokuvakkeiden teema">
+							<longdesc>Tiedostokuvakkeiden piirrossa käytetty teema.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="accessibility">
+					<dir name="startup">
+						<entry name="exec_ats">
+							<local_schema short_desc="Käynnistettävät esteettömyysohjelmat">
+								<longdesc>Luettelo sisäänkirjauduttaessa käynnistyvistä esteettömyysohjelmista.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="keyboard">
+						<entry name="stickykeys_modifier_beep">
+							<local_schema>
+								<longdesc>Piippaa, kun muunnosnäppäintä painetaan.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="stickykeys_two_key_off">
+							<local_schema>
+								<longdesc>Poista käytöstä, jos kahta näppäintä painetaan samanaikaisesti.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="slowkeys_delay">
+							<local_schema short_desc="Pienin aikaväli millisekunteina">
+								<longdesc>Hyväksy näppäimen painallus vain, jos se kestää yli @delay millisekuntia.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="mousekeys_init_delay">
+							<local_schema short_desc="Alkuviive millisekunteina">
+								<longdesc>Kuinka monta millisekuntia kestää, ennen kuin hiirenliikutusnäppäimet alkavat toimia.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="mousekeys_accel_time">
+							<local_schema short_desc="Kuinka monta millisekuntia kiihdytetään">
+								<longdesc>Montako millisekuntia 0:sta maksiminopeuteen kiihdytys kestää.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="mousekeys_max_speed">
+							<local_schema short_desc="Pikseliä sekunnissa">
+								<longdesc>Kuinka monta pikseliä sekunnissa liikutaan maksiminopeudella.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bouncekeys_delay">
+							<local_schema short_desc="pienin aikaväli millisekunteina">
+								<longdesc>Hylkää useat saman näppäimen painallukset @delay millisekunnin aikana.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="thumbnailers">
+					<entry name="disable_all">
+						<local_schema short_desc="Poista erilliset pienoiskuvien tuottajat käytöstä">
+							<longdesc>Kun tämä on &quot;true&quot; (tosi), mitään erillisiä pienoiskuvien teko-ohjelmia ei käytetä, riippumatta siitä, mitä yksittäisissä kohdissa on valittu.</longdesc>
+						</local_schema>
+					</entry>
+					<dir name="application@x-gzpdf">
+						<entry name="command">
+							<local_schema short_desc="Pienoiskuvakomento PDF-asiakirjoille">
+								<longdesc>Komento sekä argumentit PDF-asiakirjan pienoiskuvien tuottamiseen. Katso lisätietoja nautiluksen pienoiskuvien tuottajan ohjeista.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Ota PDF-asiakirjojen pienoiskuvat käyttöön">
+								<longdesc>Mahdolliset vaihtoehdot: &quot;true&quot; ottaa pienoiskuvat käyttöön, &quot;false&quot; poistaa pienoiskuvien luomisen käytöstä</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@x-bzpdf">
+						<entry name="command">
+							<local_schema short_desc="Pienoiskuvakomento PDF-asiakirjoille">
+								<longdesc>Komento sekä argumentit PDF-asiakirjan pienoiskuvien tuottamiseen. Katso lisätietoja nautiluksen pienoiskuvien tuottajan ohjeista.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Ota PDF-asiakirjojen pienoiskuvat käyttöön">
+								<longdesc>Mahdolliset vaihtoehdot: &quot;true&quot; ottaa pienoiskuvat käyttöön, &quot;false&quot; poistaa pienoiskuvien luomisen käytöstä</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@pdf">
+						<entry name="command">
+							<local_schema short_desc="Pienoiskuvakomento PDF-asiakirjoille">
+								<longdesc>Komento sekä argumentit PDF-asiakirjan pienoiskuvien tuottamiseen. Katso lisätietoja nautiluksen pienoiskuvien tuottajan ohjeista.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Ota PDF-asiakirjojen pienoiskuvat käyttöön">
+								<longdesc>Mahdolliset vaihtoehdot: &quot;true&quot; ottaa pienoiskuvat käyttöön, &quot;false&quot; poistaa pienoiskuvien luomisen käytöstä</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="url-handlers">
+					<dir name="h323">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Suorita sovellus päätteessä">
+								<longdesc>Tosi, jos tämäntyyppisiä URL:eja käsittelevä ohjelma tulisi käynnistää päätteessä.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="&quot;h323&quot;-URL:ien käsittelykomento">
+								<longdesc>&quot;h323&quot;-tyyppiset URL:t käsittelevä komento, jos käytössä.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Käsitteleekö annettu komento &quot;h323&quot;-URL:eja">
+								<longdesc>Tosi, jos avaimessa &quot;command&quot; annettu komento käsittelee &quot;h323&quot;-tyyppisiä URL:eja.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="callto">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Suorita sovellus päätteessä">
+								<longdesc>Tosi, jos tämäntyyppisiä URL:eja käsittelevä ohjelma tulisi käynnistää päätteessä.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="&quot;callto&quot;-URL:ien käsittelykomento">
+								<longdesc>&quot;callto&quot;-tyyppiset URL:t käsittelevä komento, jos käytössä.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Käsitteleekö annettu komento &quot;callto&quot;-URL:eja">
+								<longdesc>Tosi, jos avaimessa &quot;command&quot; annettu komento käsittelee &quot;callto&quot;-tyyppisiä URL:eja.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="aim">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Suorita sovellus päätteessä">
+								<longdesc>Tosi, jos tämäntyyppisiä URL:eja käsittelevä ohjelma tulisi käynnistää päätteessä.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="&quot;aim&quot;-URL:ien käsittelykomento">
+								<longdesc>&quot;aim&quot;-tyyppiset URL:t käsittelevä komento, jos käytössä.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Käsitteleekö annettu komento &quot;aim&quot;-URL:eja">
+								<longdesc>Tosi, jos avaimessa &quot;command&quot; annettu komento käsittelee &quot;aim&quot;-tyyppisiä URL:eja.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="mailto">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Suorita sovellus päätteessä">
+								<longdesc>Tosi, jos tämäntyyppisiä URL:eja käsittelevä ohjelma tulisi käynnistää päätteessä.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="&quot;mailto&quot;-URL:ien käsittelykomento">
+								<longdesc>&quot;mailto&quot;-tyyppiset URL:t käsittelevä komento, jos käytössä.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Käsitteleekö annettu komento &quot;mailto&quot;-URL:eja">
+								<longdesc>Tosi, jos avaimessa &quot;command&quot; annettu komento käsittelee &quot;mailto&quot;-tyyppisiä URL:eja.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="https">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Suorita sovellus päätteessä">
+								<longdesc>Tosi, jos tämäntyyppisiä URL:eja käsittelevä ohjelma tulisi käynnistää päätteessä.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="&quot;https&quot;-URL:ien käsittelykomento">
+								<longdesc>&quot;https&quot;-tyyppiset URL:t käsittelevä komento, jos käytössä.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Käsitteleekö annettu komento &quot;https&quot;-URL:eja">
+								<longdesc>Tosi, jos avaimessa &quot;command&quot; annettu komento käsittelee &quot;https&quot;-tyyppisiä URL:eja.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="http">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Suorita sovellus päätteessä">
+								<longdesc>Tosi, jos tämäntyyppisiä URL:eja käsittelevä ohjelma tulisi käynnistää päätteessä.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="&quot;http&quot;-URL:ien käsittelykomento">
+								<longdesc>&quot;http&quot;-tyyppiset URL:t käsittelevä komento, jos käytössä.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Käsitteleekö annettu komento &quot;http&quot;-URL:eja">
+								<longdesc>Tosi, jos avaimessa &quot;command&quot; annettu komento käsittelee &quot;http&quot;-tyyppisiä URL:eja.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="man">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Suorita sovellus päätteessä">
+								<longdesc>Tosi, jos tämäntyyppisiä URL:eja käsittelevä ohjelma tulisi käynnistää päätteessä.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="&quot;man&quot;-URL:ien käsittelykomento">
+								<longdesc>&quot;man&quot;-tyyppiset URL:t käsittelevä komento, jos käytössä.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Käsitteleekö annettu komento &quot;man&quot;-URL:eja">
+								<longdesc>Tosi, jos avaimessa &quot;command&quot; annettu komento käsittelee &quot;man&quot;-tyyppisiä URL:eja.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="info">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Suorita sovellus päätteessä">
+								<longdesc>Tosi, jos tämäntyyppisiä URL:eja käsittelevä ohjelma tulisi käynnistää päätteessä.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="&quot;info&quot;-URL:ien käsittelykomento">
+								<longdesc>&quot;info&quot;-tyyppiset URL:t käsittelevä komento, jos käytössä.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Käsitteleekö annettu komento &quot;info&quot;-URL:eja">
+								<longdesc>Tosi, jos avaimessa &quot;command&quot; annettu komento käsittelee &quot;info&quot;-tyyppisiä URL:eja.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="ghelp">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Suorita sovellus päätteessä">
+								<longdesc>Tosi, jos tämäntyyppisiä URL:eja käsittelevä ohjelma tulisi käynnistää päätteessä.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="&quot;ghelp&quot;-URL:ien käsittelykomento">
+								<longdesc>&quot;ghelp&quot;-tyyppiset URL:t käsittelevä komento, jos käytössä.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Käsitteleekö annettu komento &quot;ghelp&quot;-URL:eja">
+								<longdesc>Tosi, jos avaimessa &quot;command&quot; annettu komento käsittelee &quot;ghelp&quot;-tyyppisiä URL:eja.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="trash">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Suorita sovellus päätteessä">
+								<longdesc>Tosi, jos tämäntyyppisiä URL:eja käsittelevä ohjelma tulisi käynnistää päätteessä.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="&quot;trash&quot;-URL:ien käsittelykomento">
+								<longdesc>&quot;trash&quot;-tyyppiset URL:t käsittelevä komento, jos käytössä.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Käsitteleekö annettu komento &quot;trash&quot;-URL:eja">
+								<longdesc>Tosi, jos avaimessa &quot;command&quot; annettu komento käsittelee &quot;trash&quot;-tyyppisiä URL:eja.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="applications">
+					<dir name="tasks">
+						<entry name="needs_term">
+							<local_schema short_desc="Tehtävähallinta tarvitsee päätteen">
+								<longdesc>Tarvitseeko oletustehtävähallinta päätteen toimiakseen</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="Oletustehtäväsovellus">
+								<longdesc>Tehtävähallinnan oletussovellus</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="calendar">
+						<entry name="needs_term">
+							<local_schema short_desc="Kalenteri tarvitsee päätteen">
+								<longdesc>Tarvitseeko oletuskalenteri päätteen toimiakseen</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="Oletuskalenteri">
+								<longdesc>Kalenteriohjelman oletus</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="window_manager">
+						<entry name="workspace_names">
+							<local_schema short_desc="Työtilojen nimet (vanhentunut)">
+								<longdesc>Luettelo, jossa on ensimmäisen ikkunointiohjelman työtilojen nimet. Tämä avain on vanhentunut versiosta Gnome 2.12 alkaen.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="number_of_workspaces">
+							<local_schema short_desc="Työtilojen lukumäärä (vanhentunut)">
+								<longdesc>Työtilojen lukumäärä, jota ikkunointiohjelman tulisi noudattaa. Tämä avain on vanhentunut versiosta Gnome 2.12 alkaen.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="current">
+							<local_schema short_desc="Käyttäjän määrittelemä ikkunointiohjelma (vanhentunut)">
+								<longdesc>Ensimmäiseksi yritettävä ikkunointiohjelma. Tämä avain on vanhentunut versiosta Gnome 2.12 alkaen.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="default">
+							<local_schema short_desc="Varaikkunointiohjelma (vanhentunut)">
+								<longdesc>Varaikkunointiohjelma, jos käyttäjän määrittelemää ei löydy. Tämä avain on vanhentunut versiosta Gnome 2.12 alkaen.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="browser">
+						<entry name="nremote">
+							<local_schema short_desc="Selain ymmärtää hallintakomentoja">
+								<longdesc>Ymmärtääkö oletusselain netscapen hallintakomentoja.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="needs_term">
+							<local_schema short_desc="Selain tarvitsee päätteen">
+								<longdesc>Tarvitseeko oletusselain päätteen toimiakseen.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="Oletusselain">
+								<longdesc>Kaikkien URL:ien oletusselain.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="at">
+						<dir name="mobility">
+							<entry name="startup">
+								<local_schema short_desc="Käynnistä ensisijainen liikuntarajoitteisten esteettömyyssovellus">
+									<longdesc>Gnome käynnistää ensisijaisen liikuntarajoitteisten esteettömyyssovelluksen sisäänkirjauduttaessa.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="exec">
+								<local_schema short_desc="Ensisijainen esteettömyyssovellus liikuntarajoitteisille">
+									<longdesc>Ensisijainen liikuntarajoitteisten esteettömyyssovellus käytettäväksi kirjautumiseen, valikoille ja komentoriville.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+						<dir name="visual">
+							<entry name="startup">
+								<local_schema short_desc="Käynnistä ensisijainen näkörajoitteisten esteettömyyssovellus">
+									<longdesc>Gnome käynnistää ensisijaisen näkörajoitteisten esteettömyyssovelluksen sisäänkirjauduttaessa.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="exec">
+								<local_schema short_desc="Ensisijainen esteettömyyssovellus näkörajoitteisille">
+									<longdesc>Ensisijainen näkörajoitteisten esteettömyyssovellus käytettäväksi kirjautumiseen, valikoille ja komentoriville.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+					</dir>
+					<dir name="component_viewer">
+						<entry name="exec">
+							<local_schema short_desc="Oletusarvoinen komponenttien katselusovellus">
+								<longdesc>Katseluun komponentin vaativien tiedostojen katselusovellus. Parametri %s korvautuu tiedoston URI:lla, parametri %c komponentin IID:llä.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="terminal">
+						<entry name="exec_arg">
+							<local_schema short_desc="Suoritusparametrit">
+								<longdesc>Parametri, jonka avulla &quot;exec&quot;-avaimessa annettu pääte saadaan suorittamaan jokin ohjelma.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="Päätesovellus">
+								<longdesc>Käytettävä pääteohjelma käynnistettäessä päätettä tarvitseva ohjelma.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+			</dir>
+		</dir>
+		<dir name="system">
+			<dir name="dns_sd">
+				<entry name="extra_domains">
+					<local_schema short_desc="Lisäverkkoalueet, joilta etsiä DNS-SD-palveluja">
+						<longdesc>Pilkuilla eroteltu luettelo DNS-SD-verkkoalueista, jotka näkyvät sijainnissa &quot;network:///&quot;.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="display_local">
+					<local_schema short_desc="Miten paikallinen DNS-SD-palvelu näkyy">
+						<longdesc>Mahdollisia arvoja ovat &quot;merged&quot; (yhdessä), &quot;separate&quot; (erillinen) ja &quot;disabled&quot; (ei käytössä).</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="smb">
+				<entry name="workgroup">
+					<local_schema short_desc="SMB-työryhmä">
+						<longdesc>Windows-verkkojen työryhmä tai aluenimi, johon käyttäjä kuuluu. Jotta uusi työryhmänimi toimii kaikkialla, voi olla tarpeen kirjautua uudestaan sisään järjestelmään muutoksen jälkeen.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="proxy">
+				<entry name="autoconfig_url">
+					<local_schema short_desc="Automaattisten välipalvelinasetusten URL">
+						<longdesc>URL, joka tarjoaa välipalvelinasetukset.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="socks_port">
+					<local_schema short_desc="SOCKS-välipalvelimen portti">
+						<longdesc>Välipalvelinportti koneella, joka on määritelty avaimessa &quot;/system/proxy/socks_host&quot;.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="socks_host">
+					<local_schema short_desc="SOCKS-välipalvelimen nimi">
+						<longdesc>SOCKS-välipalvelimena toimivan koneen nimi.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="ftp_port">
+					<local_schema short_desc="FTP-välipalvelimen portti">
+						<longdesc>Välipalvelinportti koneella, joka on määritelty avaimessa &quot;/system/proxy/ftp_host&quot;.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="ftp_host">
+					<local_schema short_desc="FTP-välipalvelimen nimi">
+						<longdesc>FTP-välipalvelimena toimivan koneen nimi.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="secure_port">
+					<local_schema short_desc="SHTTP-välipalvelimen portti">
+						<longdesc>Välipalvelinportti koneella, joka on määritelty avaimessa &quot;/system/proxy/secure_host&quot;.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="secure_host">
+					<local_schema short_desc="SHTTP-välipalvelimen nimi">
+						<longdesc>SHTTP-välipalvelimena toimivan koneen nimi.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="mode">
+					<local_schema short_desc="Välipalvelimen asetustapa">
+						<longdesc>Valitse välipalvelimen asetustapa. Mahdolliset arvot ovat &quot;none&quot; (ei mikään), &quot;manual&quot; (asetukset käsin), &quot;auto&quot; (automaattinen).</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="http_proxy">
+				<entry name="ignore_hosts">
+					<local_schema short_desc="Välipalvelinta käyttämättömät isäntäkoneet">
+						<longdesc>Tämä avain sisältää luettelon isäntäkoneista, joihin yhteys muodostetaan suoraan, ei välipalvelimen kautta (vaikka se olisi toiminnassa). Arvot voivat olla konenimiä, verkkoalueita (joissa alussa jokerimerkki, kuten *.testi.fi), IP-osoitteita (IPv4 tai IPv6) ja verkko-osoitteita verkkopeitteellä (kuten 192.168.0.0/24).</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="authentication_password">
+					<local_schema short_desc="HTTP-välipalvelimen salasana">
+						<longdesc>HTTP-välipalvelimelle välittyvä todentava salasana.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="authentication_user">
+					<local_schema short_desc="HTTP-välipalvelimen käyttäjätunnus">
+						<longdesc>HTTP-välipalvelimelle välittyvä todentava käyttäjätunnus</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="use_authentication">
+					<local_schema short_desc="Todenna välipalvelinyhteydet">
+						<longdesc>Jos tosi, yhteydet välipalvelimeen vaativat todennuksen. Käyttäjätunnus-salasana-yhdistelmän määrittelevät avaimet &quot;/system/http_proxy/authentication_user&quot; ja &quot;/system/http_proxy/authentication_password&quot;.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="port">
+					<local_schema short_desc="HTTP-välipalvelimen portti">
+						<longdesc>Välipalvelinportti koneella, joka on määritelty avaimessa &quot;/system/http_proxy/host&quot;.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="host">
+					<local_schema short_desc="HTTP-välipalvelimen nimi">
+						<longdesc>HTTP-välipalvelimena toimivan koneen nimi.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="use_http_proxy">
+					<local_schema short_desc="Käytä HTTP-välipalvelinta">
+						<longdesc>Ota välipalvelinasetukset käyttöön, kun HTTP:tä käytetään Internetissä.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+		</dir>
+	</dir>
+</gconf>
