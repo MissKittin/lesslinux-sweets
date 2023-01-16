@@ -23,3 +23,11 @@ If you are the author and you do not want this repository to be publicly availab
 * `shutdown-dummy-20190116-00.tar.gz` https://distfiles.lesslinux.org/shutdown-dummy-20190116-00.tar.gz
 * `skype_xtractor_v.0.1.8.8.zip` https://distfiles.lesslinux.org/skype_xtractor_v.0.1.8.8.zip
 * `virusfrontend-20190104.tar.bz2` https://distfiles.lesslinux.org/virusfrontend-20190104.tar.bz2
+
+# Scripts
+* `1570_clamav.xml` https://github.com/mschlenker/lesslinux-builder/blob/master/scripts/stage03/1570_clamav.xml
+* `5336_kaspersky.bak` https://github.com/mschlenker/lesslinux-builder/blob/master/scripts/stage03/5336_kaspersky.bak
+* `5828_lesslinux-eset.xml` https://github.com/mschlenker/lesslinux-builder/blob/master/scripts/stage03/5828_lesslinux-eset.xml
+* `5927_virtualbox-guest.xml` https://github.com/mschlenker/lesslinux-builder/blob/master/scripts/stage03/5927_virtualbox-guest.xml
+* `5993_avg_blob.xml` https://github.com/mschlenker/lesslinux-builder/blob/master/scripts/stage03/5993_avg_blob.xml
+* `5993_chrome_blob.xml` https://github.com/mschlenker/lesslinux-builder/blob/master/scripts/stage03/5993_chrome_blob.xml
