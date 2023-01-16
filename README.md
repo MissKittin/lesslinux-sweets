@@ -16,3 +16,4 @@ If you are the author and you do not want this repository to be publicly availab
 * `cobi-chromiumos-installer-20140305-00.tar.bz2` https://distfiles.lesslinux.org/cobi-chromiumos-installer-20140305-00.tar.bz2
 * `cobi-tarnmailer-20131112-02.tar.bz2` https://distfiles.lesslinux.org/cobi-tarnmailer-20131112-02.tar.bz2
 * `cobi-xpmover-20140404-00.tar.bz2` https://distfiles.lesslinux.org/cobi-xpmover-20140404-00.tar.bz2
+* `kaspersky-wrapper-20091022.tar.bz2` https://distfiles.lesslinux.org/kaspersky-wrapper-20091022.tar.bz2
