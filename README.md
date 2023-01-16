@@ -20,3 +20,4 @@ If you are the author and you do not want this repository to be publicly availab
 * `lesslinux-eset-20190103-01.tar.bz2` https://distfiles.lesslinux.org/lesslinux-eset-20190103-01.tar.bz2
 * `lesslinux-f-secure-20180408-00.tar.bz2` https://distfiles.lesslinux.org/lesslinux-f-secure-20180408-00.tar.bz2
 * `llbank-desktop-files-20111218.tar.bz2` https://distfiles.lesslinux.org/llbank-desktop-files-20111218.tar.bz2
+* `shutdown-dummy-20190116-00.tar.gz` https://distfiles.lesslinux.org/shutdown-dummy-20190116-00.tar.gz
