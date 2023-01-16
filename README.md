@@ -11,3 +11,4 @@ If you are the author and you do not want this repository to be publicly availab
 * `rescuetool-20111125-00.tar.bz2` https://distfiles.lesslinux.org/rescuetool-20111125-00.tar.bz2
 * `xconfgui-20180905-00.tar.bz2` https://distfiles.lesslinux.org/xconfgui-20180905-00.tar.bz2
 * `lesslinux-drivetools-20190629-00.tar.bz2` https://distfiles.lesslinux.org/lesslinux-drivetools-20190629-00.tar.bz2
+* `avgfree-20180410-00.tar.bz2` https://distfiles.lesslinux.org/avgfree-20180410-00.tar.bz2
