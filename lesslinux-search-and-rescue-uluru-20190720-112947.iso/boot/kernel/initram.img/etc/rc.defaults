@@ -1,0 +1,101 @@
+# set some defaults...
+
+# Network
+console=tty0                            # console used to determine if we should show nice graphics 
+nonet='0'				# skip networking, should be removed
+staticnet='|eth0|192.168.1.123|255.255.255.0|192.168.1.252|192.168.1.252|'
+dhcpwait=5				# Seconds to wait for DHCP in earlynet
+hostname='lesslinux.test'		# hostname to display 
+dhcp='1'				# use dhcp or static settings in earlynet script
+regdom=''				# regulatory domain for WIFI
+
+loadmodules=''				# list of modules to load very early in the boot process
+defermods='|drivers/net/wireless|sound|' #
+					# was |drivers/net/wireless|drivers/gpu/drm|sound|drivers/net/ethernet|
+					# specify module directories to be loaded later by udev
+hwenv='default'				# influences the behaviour for loading modules
+searchiso=''				# search content directories only on ISOs with the given ISOID and count of bytes
+					# searchiso=isoid
+					# searchiso='' ignore
+offsetptable=0				# use an offsetted partition table after the ISO image 
+contdir="lesslinux"			# name of the content directory to search for 
+skipntfs=0				# Skip ISOs on NTFS completely
+ntfsrw=0				# Access NTFS read-write with ntfs-3g? Useful for containers on NTFS.
+dropbearport=22222			# port to run dropbear
+xmode=""				# WTF?
+toram=0					# 0 newer copy to ram, 1 always copy to ram, ram threshold in kB else
+optram=0				# Only copy toram on optical devices
+usbwait=4				# how many 5s intervals to wait for usb upon startup
+usbsettle=0				# hard usb settle time in seconds
+skipcheck=0				# 2: always skip check of SHA1SUMs of boot files and containers
+					# 1: skipcheck upon normal startup, but check when converting a thumb drive
+					# 0: always check
+hwmode=ro				# mount USB stick in rw or ro mode
+hwid=unknown				# hardware identifier for protocols
+sysloglevel=8				# loglevel for syslogd
+lang=de					# default language
+halt=poweroff				# halt or poweroff on shutdown?
+ultraquiet=0				# 1: less messages - do not use together with fbsplash
+					# 2: show a nice progressbar 
+tmpsize=0				# dynamic /tmp mem minus 1024MB if mem > 2048, half mem else
+homesize=512				# not dynamic yet
+rootsize=16     			# not dynamic yet
+blobsize=0                              # size of blob partition to create
+swapsize=0				# size of swap partition to create
+swap=''					# swap UUID or 'none'
+minram=256      			# the absoulute minimum, if the RAM found is lower, system is shut down
+lowram=768	   			# the recommended minimum, if RAM found is lower, a message is shown
+					# cheatcode is different! ram=|256|512|
+security=none				# security model to use, currently 'smack' and 'none' are supported
+allowsudosu=0				# allow any user to execute 'sudo su', basically for debugging
+laxsudo=0				# do not ask for passwords upon mounting disks
+debug_threshold=0
+ejectcdonumass=0			# Eject CD if mountumass was successful
+ejectcd=1				# Eject CD after copying to RAM or shutting down
+skipsearch=""				# Define which media types to skip
+dpi=75					# Default DPI for X11
+guisleep=1                              # Default time to wait between GUI restarts
+simulate=''				# Simulate certain conditions
+uuid='all' 				# UUID to search system on
+tz=''					# default timezone
+homepage=''				# default homepage
+printers=''				# printers=|usblp0|usblp1| makes lpd start - queue names = device names
+pgcolor='32'				# default color for progress bar 31=red, 32=green, 33=yellow, 34=blue
+					# 35=magenta, 36=cyan, 37=white - defaults to green
+
+# Start via network:
+wgetiso=''
+wgetsize=0				# Size of the tmpfs in kB where the ISO will be stored
+nfs=''
+cifs=''
+
+# Settings for VNC access / Xvfb virtual framebuffer
+xvnc=''
+xvfb=''
+
+# Automatically connect to wireless networks
+wlan=''
+
+# Use a special xinitrc
+xinitrc=''
+
+# Settings for home container
+# Specify as homecont=128-1024
+homecontmin=0
+homecontmax=0
+
+# installer settings
+installer=''
+
+# Switch to a new root filesystem - intended to boot a linux system with a f*cked up
+# bootloader or initramfs config, specify the following way, the first parameter is
+# either UIID or label of the filesystem, the second is the init to use:
+# 
+# switchroot=|24ba4487-b601-47af-89d0-3b46d00581ec|rw|/sbin/init|extras|
+#
+switchuuid=''
+switchread=''
+switchinit=''
+switchextr=''
+
+

@@ -1,0 +1,220 @@
+#!/static/bin/ash
+
+PATH=/static/bin:/static/sbin:/bin:/sbin:/usr/bin:/usr/sbin
+export PATH
+
+if [ '!' -L /proc/mounts ] ; then
+    mount -t proc none /proc > /dev/null 2>&1
+fi
+ln -sf /proc/mounts /etc/mtab
+touch /etc/fstab
+mountpoint -q /dev     || mount -t devtmpfs devtmpfs /dev
+mkdir /dev/pts
+mkdir /dev/shm
+mkdir /dev/mapper
+mkdir -p /var/log/lesslinux/bootlog 
+mountpoint -q /proc    || mount -t proc none /proc
+mountpoint -q /sys     || mount -t sysfs sysfs /sys
+mountpoint -q /dev/pts || mount -t devpts -o rw,nosuid,noexec,relatime,gid=5,mode=620,ptmxmode=000 devpts /dev/pts
+mountpoint -q /dev/shm || mount -t tmpfs devshm /dev/shm
+if [ -d /sys/firmware/efi/efivars ] ; then
+	mountpoint -q /sys/firmware/efi/efivars || mount -t efivarfs -o rw,nosuid,nodev,noexec,relatime efivarfs /sys/firmware/efi/efivars
+fi
+
+# set this to prevent faults if not set in /etc/rc.defaults
+ultraquiet=0
+
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors
+. /etc/rc.lang/en/messages.sh
+[ -f "/etc/rc.lang/$lang/messages.sh" ] && . /etc/rc.lang/$lang/messages.sh
+. /etc/lesslinux/branding/branding.en.sh
+[ -f "/etc/lesslinux/branding/branding.${lang}.sh" ] && . /etc/lesslinux/branding/branding.${lang}.sh
+
+### Function for showing the progess bar:
+
+showpgbar() {
+	fraction=$1
+	total=$2
+	serv=$3
+	termdims=` /static/bin/stty -F /dev/tty1 size ` 
+	cols=` echo $termdims | awk '{print $2}' `
+	rows=` echo $termdims | awk '{print $1}' `
+	[ -z "$cols" -o "$cols" = 0 ] && cols=80
+	[ -z "$rows" -o "$rows" = 0 ] && rows=24
+	# Move cursor to top left - clear screen
+	printf '\33[2J' > /dev/tty1
+	# Move cursor down
+	sline=` expr  '(' $rows -  2 ')' / 2 ` 
+	scol=` expr '(' $cols - $total ')' / 2 ` 
+	# Print Start text
+	printf '\33[0m' > /dev/tty1
+	printf '\33['$sline';'$scol'H'"${bold}${brandlong}${normal}" > /dev/tty1 
+	printf '\33['` expr $sline + 1 `';'$scol'H' > /dev/tty1
+	# Set color 
+	printf '\33['$pgcolor'm' > /dev/tty1
+	# Inverse color for blocks
+	printf '\33[7m' > /dev/tty1
+	for n in ` seq 1 $fraction ` ; do printf ' ' > /dev/tty1 ; done
+	tend=` expr $total - 1 ` 
+	printf '\33[0;7m' > /dev/tty1
+	for n in ` seq $fraction $tend ` ;  do printf ' ' > /dev/tty1 ; done
+	printf '\33[0m' > /dev/tty1
+	[ -n "$serv" ] && printf '\33['` expr $sline + 2 `';'$scol'H'"Starting ${serv}${normal}" > /dev/tty1 
+	# Move cursor out of way, clean up
+	printf '\33['` expr $rows - 1 `';0H' > /dev/tty1
+	printf '\33[0m' > /dev/tty1
+}
+
+### Function for showing graphical progress bar
+
+showsplash() {
+    fraction=$1
+    total=$2
+    serv=$3
+    if [ '!' -p /splash.fifo ] ; then
+	colordepth=` fbset | grep geometry | awk '{print $6}' `
+	if [ 1${colordepth} -gt 115 ] ; then
+		# disable the cursor
+		# echo -n -e '\e[?17;14;224c' > /dev/tty1
+		echo -n -e '\e[?25l' > /dev/tty8
+		chvt 8
+		# create a fifo
+		mkfifo /splash.fifo
+		# Write config
+		fbwidth=` fbset | grep '^mode' | awk -F '["x-]' '{print $2}' `
+		fbheight=` fbset | grep '^mode' | awk -F '["x-]' '{print $3}' `
+		/etc/rc.subr/write_fbsplash_config $fbwidth $fbheight 
+		fbsplash -i /etc/lesslinux/fbsplash.cfg -s /etc/lesslinux/branding/fbsplash/splash.ppm -f /splash.fifo &
+	fi
+    fi
+    if [ -p /splash.fifo ] ; then
+	expr ${fraction}00 / ${total} > /splash.fifo
+	if [ -f /etc/lesslinux/fbsplash_icon.cfg -a -f  /etc/lesslinux/branding/fbsplash/i_${serv}.ppm ] ; then
+		fbsplash -i /etc/lesslinux/fbsplash_icon.cfg -s /etc/lesslinux/branding/fbsplash/i_${serv}.ppm 
+	elif [ -f /etc/lesslinux/fbsplash_icon.cfg -a -f  /etc/lesslinux/branding/fbsplash/i_gears.ppm ] ; then
+		fbsplash -i /etc/lesslinux/fbsplash_icon.cfg -s /etc/lesslinux/branding/fbsplash/i_gears.ppm 
+	fi
+	if [ -f /etc/lesslinux/branding/fbsplash/textblank.ppm -a -f  /etc/lesslinux/fbsplash_text.cfg ] ; then
+		fbsplash -i /etc/lesslinux/fbsplash_text.cfg -s /etc/lesslinux/branding/fbsplash/textblank.ppm
+	fi
+    fi
+}
+
+### FIXME: Change RAM message according to settings for fbsplash!
+### In this build when fbsplash and different console is selected
+### nothing will be shown, the computer will just shutdown!
+
+memtotal=` cat /proc/meminfo | grep MemTotal | awk '{print $2}' `
+memtotalmb=` expr $memtotal / 1024 `
+
+printf "${bold}${starting_up} ${brandlong} ${normal}\n\n"
+if [ "$ultraquiet" -lt 1 ] ; then
+    printf "${bold}Starting with Linux kernel: ${normal}" ; uname -r 
+    printf "${bold}Build ID:                   ${normal}" ; cat /etc/lesslinux/updater/version.txt
+    printf "${bold}RAM:                        ${normal}" ; echo $memtotalmb ; printf "\n"
+fi
+[ "$ultraquiet" -gt 0 ] && dmesg -n1
+
+if [ -n "$memtotal" -a "$memtotalmb" -lt "$minram" ] ; then
+	printf "${bold}${ram_too_low_hard}${normal}"
+	echo '#!/static/bin/ash' > /etc/rc.shutdown
+	chmod 0755 /etc/rc.shutdown
+	sleep 15
+	poweroff
+elif [ -n "$memtotal" -a "$memtotalmb" -lt "$lowram" ] ; then
+	printf "${bold}${ram_too_low_soft}${normal}\n"
+	sleep 5
+fi
+
+####
+scriptcount=0 
+scripttotal=` ls /etc/rc.d/[0-9][0-9][0-9][0-9]-*.?? | wc -l ` 
+[ "$console" = tty2 -a "$ultraquiet" -gt 1 ] && showpgbar 0 $scripttotal 
+
+for i in /etc/rc.d/[0-9][0-9][0-9][0-9]-*.?? ; do
+        provides="` cat $i | grep '#lesslinux provides' | awk '{print $3}' `"
+        patience="` cat $i | grep '#lesslinux patience' | awk '{print $2}' `"
+        verbose="` cat $i  | grep '#lesslinux verbose'  | awk '{print $2}' `"
+        debuglev="` cat $i | grep '#lesslinux debug'    | awk '{print $3}' `"
+	parallel="` cat $i  | grep '#lesslinux parallel'  | awk '{print $2}' `"
+        [ -z "$provides" ] && provides="$i"
+	touch /var/log/lesslinux/bootlog/${provides}.start
+	if echo "$skipservices" | grep '|'$provides'|' > /dev/null 2>&1 ; then 
+	    [ "$ultraquiet" -gt 0 ] || printf "$bold---> Skipping $provides \n" 
+	elif [ -n "$debuglev" ] && [ "$debug_threshold" -gt "$debuglev" ] ; then
+	    printf "\n$bold===> Running debug script \n" 
+	    $i start
+	elif [ -f /var/run/lesslinux/boot_failed ] ; then
+	    printf "$bold---> Skipping $provides - prerequisites failed\n" 
+	elif [ -z "$debuglev" ] ; then
+	    [ "$ultraquiet" -eq 3 ] && showsplash $scriptcount $scripttotal $provides
+	    [ "$ultraquiet" -gt 1 ] && showpgbar $scriptcount $scripttotal $provides
+	    [ "$ultraquiet" -eq 1 ] && printf "[${bold}${provides}${normal}] "
+	    if [ -f "/etc/rc.confd/$provides.$hwenv.modules" ] ; then
+		[ "$ultraquiet" -gt 0 ] && \
+		    /etc/rc.subr/loadmodules.sh "/etc/rc.confd/$provides.$hwenv.modules" > /dev/null 2>&1 || \
+		    /etc/rc.subr/loadmodules.sh "/etc/rc.confd/$provides.$hwenv.modules"
+	    elif [ -f "/etc/rc.confd/$provides.default.modules" ] ; then
+		[ "$ultraquiet" -gt 0 ] && \
+		    /etc/rc.subr/loadmodules.sh "/etc/rc.confd/$provides.default.modules" > /dev/null 2>&1 || \
+		    /etc/rc.subr/loadmodules.sh "/etc/rc.confd/$provides.default.modules"
+	    fi
+	    [ "$ultraquiet" = 1 ] && [ -n "$patience" ] && printf "\n${bold}${be_patient}${normal}\n"
+	    if [ "$ultraquiet" -gt 0 ] ; then
+		[ -z "$parallel" ] && $i start > /dev/null 2>&1
+		[ -n "$parallel" ] && $i start > /dev/null 2>&1 &
+	    else
+		[ -z "$parallel" ] && $i start
+		[ -n "$parallel" ] && $i start & 
+	    fi
+	fi
+	scriptcount=` expr $scriptcount + 1 `
+	if [ "$$" = 1 ] ; then
+	    if mountpoint -q /newroot ; then
+		if [ "$ultraquiet" -lt 2 ] ; then
+		    printf "\n$bold===> Trying to switch Root FS \n"
+	        fi
+	        [ -z "$switchinit" ] && switchinit="/sbin/init" 
+	        exec switch_root /newroot "$switchinit"  
+	    fi
+	    echo "Failed to switch_root, dropping to a shell"
+	    exec /static/bin/ash 
+	fi
+	[ -z "$parallel" ] && touch /var/log/lesslinux/bootlog/${provides}.done
+done
+####
+
+ # Softlink /dev/hvc0 so that there is no constant respawning on Console 0
+hv=""
+[ -f /sys/hypervisor/type ] && hv=` cat /sys/hypervisor/type `
+if [ "$hv" '=' "xen" ] ; then
+	ln -s /dev/hvc0 /dev/xenconsole
+	ln -s /dev/tty9 /dev/serialconsole
+else
+	ln -s /dev/tty8 /dev/xenconsole
+	if [ -c /dev/ttyS0 ] ; then
+		ln -s /dev/ttyS0 /dev/serialconsole
+	else
+		ln -s /dev/tty9 /dev/serialconsole
+	fi
+fi
+
+# Running local startup script -- containers and encrypted home should be available right now:
+if [ -f "/etc/rc.local" ] ; then
+	printf "\n${bold}===> Running local startup scripts from /etc/rc.local ${normal}\n"
+	/etc/rc.local
+fi
+printf "$normal\n"
+
+# Exit the splash and remove the fifo:
+if [ -p /splash.fifo ] ; then
+	echo "exit" > /splash.fifo
+	rm /splash.fifo
+	# re-enable the cursor...
+	echo -n -e '\e[?25h' > /dev/tty8
+	chvt 1
+fi
+
+#		

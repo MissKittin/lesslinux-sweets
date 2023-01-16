@@ -1,0 +1,83 @@
+#!/static/bin/ash	
+PATH=/bin:/sbin:/usr/bin:/usr/sbin:/static/bin:/static/sbin
+		
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors		
+	
+chooser=''
+rdesktop=''
+remotehost=''
+remoteuser=''
+remotedom=''
+remotequal=''
+tmphost=''
+
+for i in /etc/xinitrc.d/[0-9][0-9][0-9][0-9]-*.?? ; do
+	provides="` cat $i | grep '#lesslinux provides' | awk '{print $3}' `"
+	if echo "$skipservices" | grep -q '|'$provides'|' ; then
+		echo "Skipping $provides"
+	else
+		$i start
+	fi
+done
+	
+xfsettingsd --replace
+
+# Read boot command line for rdesktop
+# Read boot command line for the chooser
+# FIXME: Do proper replacement of Umlauts 
+	
+for i in ` cat /proc/cmdline /etc/lesslinux/cmdline /lesslinux/boot/cmdline ` ; do
+      case "$i" in
+	rdesktop=*)
+	    rdesktop=` echo "$i" | awk -F '=' '{print $2}' `
+	    remotehost=` echo $rdesktop | awk -F '|' '{print $2}' `
+	    remoteuser=` echo $rdesktop | awk -F '|' '{print $3}' `
+	    remotedom=` echo $rdesktop | awk -F '|' '{print $4}' `
+	    remotequal=` echo $rdesktop | awk -F '|' '{print $5}' `
+	    [ -z "$remotequal" ] && remotequal=2
+	;;
+	chooser=*)
+	    chooser=` echo "$i" | awk -F '=' '{print $2}' ` 
+	;;
+      esac
+done	
+
+xsetroot -solid darkgray
+setxkbmap -layout "$xkbmap"
+esetroot -scale /etc/lesslinux/branding/desktop.jpg
+
+# Try to download/copy the chooser configuration
+if echo "$chooser" | grep -q '^file://' ; then
+	file=` echo "$chooser" | sed 's%^file://%%g' `
+	cp "$file" /home/surfer/.chooser.xml
+elif echo "$chooser" | grep -q '^tftp://' ; then
+	hostpath=` echo "$chooser" | sed 's%^tftp://%%g' | sed 's%/% %' `
+	tftphost=` echo $hostpath | awk '{print $1}' `
+	tftppath=` echo $hostpath | awk '{print $2}' `
+	tftp -g -l /home/surfer/.chooser.xml -r "$tftppath" "$tftphost" 
+elif echo "$chooser" | grep -q -E '^http://|^https://|^ftp://' ; then
+	wget -T 5 --no-check-certificate -O /home/surfer/.chooser.xml "$chooser"
+fi
+
+openbox &
+while true ; do
+	xfsettingsd --replace
+	if [ -f /home/surfer/.chooser.xml ] ; then
+		ruby /usr/share/lesslinux/thinclient/chooser.rb /home/surfer/.chooser.xml
+	elif [ -n "$remotehost" ] ; then
+		ruby /usr/share/lesslinux/thinclient/mask.rb "$remotehost" "$remoteuser" "$remotedom" "$remotequal" 
+	elif [ -x /usr/bin/remmina ] ; then
+		remmina
+	else
+		ruby /usr/share/lesslinux/thinclient/mask.rb "" "" "" 2 
+	fi
+	if [ -f /home/surfer/.chooser.xml ] || zenity --question --text "Connection failed or finished. Try again?" ; then
+		sleep 2
+	else 
+		/usr/bin/shutdown-wrapper.sh 
+	fi
+done
+		
+		

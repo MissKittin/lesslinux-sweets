@@ -1,0 +1,78 @@
+#!/static/bin/ash	
+
+PATH=/bin:/sbin:/usr/bin:/usr/sbin:/static/bin:/static/sbin:/opt/bin:/opt/sbin
+		
+if [ -f $HOME/.xinitrc ] ; then
+	exec bash $HOME/.xinitrc
+fi
+		
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors		
+. /etc/lesslinux/branding/branding.en.sh
+
+export QT_QPA_PLATFORMTHEME=qt5ct
+
+for i in /etc/xinitrc.d/[0-9][0-9][0-9][0-9]-*.?? ; do
+	provides="` cat $i | grep '#lesslinux provides' | awk '{print $3}' `"
+	if echo "$skipservices" | grep -q '|'$provides'|' ; then
+		echo "Skipping $provides"
+	else
+		$i start
+	fi
+done
+
+# If present the variable swap confuses conky...
+unset swap
+
+for f in .config/cairo-dock/current_theme/launchers/05launcher.desktop Desktop/000_mmmm.desktop .config/openbox/menu.xml ; do
+	sed -i 's/mmmm\.rb/mmmmng.sh/g' /home/surfer/${f} 
+done
+sed -i 's%wicd-gtk%connman-gtk%g' .config/cairo-dock/current_theme/launchers/02launcher.desktop
+sed -i 's%wicd.desktop%connman-gtk.desktop%g' .config/cairo-dock/current_theme/launchers/02launcher.desktop
+
+# Uncomment to debug
+# /usr/bin/Terminal &
+# /usr/bin/xterm &
+# setxkbmap -rules xorg -model pc105 -layout "$xkbmap"
+xfsettingsd --replace
+setxkbmap -layout "$xkbmap"
+esetroot -scale /etc/lesslinux/branding/wintile.png # desktop.jpg
+Thunar --daemon &
+if xdpyinfo | grep -q -i composite ; then
+	sed -i 's/fake transparency=true/fake transparency=false/g' $HOME/.config/cairo-dock/current_theme/cairo-dock.conf
+fi
+sed -i 's/modules=switcher;/modules=/g' $HOME/.config/cairo-dock/current_theme/cairo-dock.conf
+xbindkeys &
+cairo-dock -c &
+if xdpyinfo | grep -q -i composite ; then
+	sleep 1
+	compton --shadow-exclude '_GTK_FRAME_EXTENTS@:c' --fade-exclude '_GTK_FRAME_EXTENTS@:c' -cCGbf 
+	# xcompmgr -c &
+fi
+openbox &
+
+# Open the assistant when the background image is provided:
+if [ -f /etc/lesslinux/branding/bg_assistant.png ] ; then
+	( cd /usr/share/lesslinux/drivetools ; ruby -I . assistant.rb ) & 
+fi
+
+# conky -d 
+# Weird hack!
+xfct=0
+while true ; do
+	sleep 5
+	if [ "$xfct" -lt 2 ] ; then
+		killall -9 compton
+		xfsettingsd --replace
+		compton --shadow-exclude '_GTK_FRAME_EXTENTS@:c' --fade-exclude '_GTK_FRAME_EXTENTS@:c' -cCGbf 
+		xfct=` expr $xfct + 1 ` 
+		sleep 3
+		killall -9 conky
+		conky -d 
+	else
+		sleep 9999999
+	fi
+done
+		
+		

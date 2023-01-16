@@ -1,0 +1,1 @@
+ruby -I . builder.rb -n -l -s 1,2,bootconf -p config/pkglist_neutral_rescue_GTK3_unstable.txt --skip-files config/skiplist_neutral_rescue.txt -c config/general_neutral_rescue.xml -b config/branding_neutral_rescue.xml -k config/kernels_rescue_unstable.xml --builddir /mnt/archiv/LessLinux/llbuild.verystable --unstable

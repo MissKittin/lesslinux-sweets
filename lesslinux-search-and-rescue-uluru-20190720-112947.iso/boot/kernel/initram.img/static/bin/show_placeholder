@@ -1,0 +1,34 @@
+#!/static/bin/ash
+		
+PATH=/static/bin:/static/sbin
+export PATH
+
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+
+for i in ` seq 100 ` ; do echo "" ; done
+sleep 15
+
+if mountpoint -q /usr ; then
+	if [ -n "$xvnc" ] ; then
+		cat /etc/lesslinux/placeholder_xvnc
+	elif [ -n "$xvfb" ] ; then
+		cat /etc/lesslinux/placeholder_xvnc
+		echo ` ip addr show | grep inet | awk '{print $2}' | awk -F '/' '{print $1}' | grep -v '127\.0' ` 
+	else
+		placeholder=/etc/lesslinux/placeholder_monitor
+		[ -f /etc/lesslinux/placeholder_monitor.${lang} ] && placeholder=/etc/lesslinux/placeholder_monitor.${lang}
+		cat $placeholder
+	fi
+else
+	placeholder=/etc/lesslinux/placeholder_container
+	[ -f /etc/lesslinux/placeholder_container.${lang} ] && placeholder=/etc/lesslinux/placeholder_container.${lang}
+	cat $placeholder
+fi
+echo ''
+echo -n "Build ID: "
+cat /etc/lesslinux/updater/version.txt
+		
+sleep 3600
+		
+		

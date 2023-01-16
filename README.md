@@ -23,6 +23,7 @@ If you are the author and you do not want this repository to be publicly availab
 * `shutdown-dummy-20190116-00.tar.gz` https://distfiles.lesslinux.org/shutdown-dummy-20190116-00.tar.gz
 * `skype_xtractor_v.0.1.8.8.zip` https://distfiles.lesslinux.org/skype_xtractor_v.0.1.8.8.zip
 * `virusfrontend-20190104.tar.bz2` https://distfiles.lesslinux.org/virusfrontend-20190104.tar.bz2
+* `lesslinux-search-and-rescue-uluru-20190720-112947.iso` https://download.lesslinux.org/incoming/lesslinux-search-and-rescue-uluru-20190720-112947.iso
 
 # Scripts
 * `1570_clamav.xml` https://github.com/mschlenker/lesslinux-builder/blob/master/scripts/stage03/1570_clamav.xml

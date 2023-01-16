@@ -1,0 +1,45 @@
+#!/static/bin/ash	
+PATH=/bin:/sbin:/usr/bin:/usr/sbin:/static/bin:/static/sbin
+		
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors		
+
+for i in /etc/xinitrc.d/[0-9][0-9][0-9][0-9]-*.?? ; do
+	provides="` cat $i | grep '#lesslinux provides' | awk '{print $3}' `"
+	if echo "$skipservices" | grep -q '|'$provides'|' ; then
+		echo "Skipping $provides"
+	else
+		$i start
+	fi
+done
+
+xfsettingsd
+
+xsetroot -solid darkgray
+setxkbmap -layout "$xkbmap"
+
+killall -9 compton
+killall -9 xcompmgr
+
+urxvt &
+sudo urxvt &
+firefox http://i3wm.org/docs/userguide &
+
+i3 &
+
+# conky -d 
+# Weird hack!
+xfct=0
+while true ; do
+	sleep 5
+	if [ "$xfct" -lt 3 ] ; then
+		xfsettingsd --replace
+		xfct=` expr $xfct + 1 ` 
+		sleep 5
+	else
+		sleep 9999999
+	fi
+done
+		
+		

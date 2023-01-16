@@ -1,0 +1,172 @@
+
+		
+		
+# genericpgbar 15 32 "Konvertiere das Zeugs..." "15%" "" pts/18
+# genericpgbar 37 32 "Konvertiere das Zeugs..." "37%" "FEHLER: Schreiben auf Geraet doof" pts/18
+
+genericpgbar() {
+	percentage=$1
+	pgcolor=$2
+	textupper="$3"
+	textlower="$4" 
+	errortext="$5"
+	console="$console"
+	[ -n "$6" ] && console="$6" 
+	
+	termdims=` /static/bin/stty -F /dev/$console size ` 
+	cols=` echo $termdims | awk '{print $2}' `
+	rows=` echo $termdims | awk '{print $1}' `
+	[ -z "$cols" -o "$cols" = 0 ] && cols=80
+	[ -z "$rows" -o "$rows" = 0 ] && rows=24
+	total=` expr $cols '*' 2 / 3 `  
+	fraction=` expr $total '*' $percentage / 100  ` 
+	
+	# Move cursor to top left - clear screen
+	printf '\33[2J' > /dev/$console
+	# Move cursor down
+	sline=` expr  '(' $rows -  3 ')' / 2 ` 
+	scol=` expr '(' $cols - $total ')' / 2 ` 
+	
+	# Print Start text
+	printf '\33[0m\33[1m' > /dev/$console
+	printf '\33['${sline}';'${scol}'H' > /dev/$console 
+	echo -n "${textupper}" > /dev/$console 
+	printf '\33['` expr $sline + 1 `';'$scol'H' > /dev/$console
+	# Set color 
+	printf '\33['$pgcolor'm' > /dev/$console
+	# Inverse color for blocks
+	printf '\33[7m' > /dev/$console
+	for n in ` seq 1 $fraction ` ; do printf ' ' > /dev/$console ; done
+	tend=` expr $total - 1 ` 
+	printf '\33[0;7m' > /dev/$console
+	for n in ` seq $fraction $tend ` ;  do printf ' ' > /dev/$console ; done
+	printf '\33[0m' > /dev/$console
+	printf '\33['` expr $sline + 2 `';'${scol}'H' > /dev/$console 
+	echo -n "${textlower}" > /dev/$console 
+	if [ -n "$errortext" ] ; then
+		printf '\33[1;31m' > /dev/$console
+		printf '\33['` expr $sline + 3 `';'${scol}'H' > /dev/$console 
+		echo -n "${errortext}" > /dev/$console 
+	fi
+	# Move cursor out of way, clean up
+	printf '\33['` expr $rows - 1 `';0H' > /dev/$console
+	printf '\33[0m' > /dev/$console
+}
+
+clearscreen() {
+	console="tty1"
+	[ -n "$1" ] && console="$1" 
+	# Move cursor to top left - clear screen
+	printf '\33[2J' > /dev/$console
+}
+
+upperredbar() {
+	console="tty1"
+	[ -n "$1" ] && console="$1" 
+	termdims=` /static/bin/stty -F /dev/$console size ` 
+	cols=` echo $termdims | awk '{print $2}' `
+	rows=` echo $termdims | awk '{print $1}' `
+	[ -z "$cols" -o "$cols" = 0 ] && cols=80
+	[ -z "$rows" -o "$rows" = 0 ] && rows=24
+	# Move cursor to top left - clear screen
+	printf '\33[2J' > /dev/$console
+	for l in 2 3 4 ; do
+		printf '\33['$l';0H' > /dev/$console 
+		# Set color 
+		printf '\33[31m' > /dev/$console
+		# Inverse color for blocks
+		printf '\33[7m' > /dev/$console
+		for n in ` seq 1 $cols ` ; do
+			echo -n ' ' > /dev/$console
+		done
+	done
+	printf '\33[6;0H' > /dev/$console 
+	printf '\33[0m' > /dev/$console
+}
+
+lowerredbar() {
+	console="tty1"
+	[ -n "$1" ] && console="$1" 
+	termdims=` /static/bin/stty -F /dev/$console size ` 
+	cols=` echo $termdims | awk '{print $2}' `
+	rows=` echo $termdims | awk '{print $1}' `
+	[ -z "$cols" -o "$cols" = 0 ] && cols=80
+	[ -z "$rows" -o "$rows" = 0 ] && rows=24
+	for l in `expr $rows - 3 ` ` expr $rows - 2 `  `expr $rows - 1 `  ; do
+		printf '\33['$l';0H' > /dev/$console 
+		# Set color 
+		printf '\33[31m' > /dev/$console
+		# Inverse color for blocks
+		printf '\33[7m' > /dev/$console
+		for n in ` seq 1 $cols ` ; do
+			echo -n ' ' > /dev/$console
+		done
+	done
+	printf '\33[0m' > /dev/$console
+}
+
+centertext() {
+	textwidth=$1
+	textheight=$2
+	showtext="$3"
+	console="tty1"
+	[ -n "$4" ] && console="$4" 
+	termdims=` /static/bin/stty -F /dev/$console size ` 
+	cols=` echo $termdims | awk '{print $2}' `
+	rows=` echo $termdims | awk '{print $1}' `
+	[ -z "$cols" -o "$cols" = 0 ] && cols=80
+	[ -z "$rows" -o "$rows" = 0 ] && rows=24
+	startline=` expr '(' $rows - $textheight ')' / 2 `
+	echo "$showtext" | while read line ; do
+		printf '\33[1m\33['$startline';'` expr '(' $cols - $textwidth ')' / 2 `'H' > /dev/$console 
+		echo $line > /dev/$console 
+		startline=` expr $startline + 1 ` 
+	done
+	printf '\33[0m' > /dev/$console
+}
+
+run_self_test() {
+	mdir=$1
+	bootok=0
+	shaok=0
+	if [ "$ultraquiet" -gt 1 ] ; then
+		genericpgbar 10 32 "$check_head" "${check_boot}" "" tty1
+		[ -p /splash.fifo ] && echo 10 /splash.fifo
+	else
+		echo "---> Checking boot files"
+	fi
+	if [ '!' -d /lesslinux/${mdir}/boot/kernel ] ; then
+		bootok=1 
+	elif ( cd /lesslinux/${mdir}/boot/kernel ; sha1sum -c /lesslinux/${mdir}/${contdir}/boot.sha ) ; then
+		bootok=1
+	fi
+	if [ "$bootok" -gt 0 ] ; then
+		[ "$ultraquiet" -lt 1 ] && echo "---> Checking system files" > /dev/tty8
+		if [ "$ultraquiet" -gt 1 ] ; then
+			genericpgbar 40 32 "$check_head" "${check_squash}" "" tty1
+			[ -p /splash.fifo ] && echo 40 /splash.fifo
+		else
+			echo "---> Checking system files"
+		fi
+		if ( cd /lesslinux/${mdir}/${contdir} ; sha1sum -c /lesslinux/${mdir}/${contdir}/squash.sha ) ; then
+			shaok=1
+		fi
+	fi
+	if [ "$shaok" -lt 1 ] ; then
+		touch /var/run/lesslinux/boot_failed 
+		echo "+++> Check failed - refusing to boot" > /dev/tty8
+		echo "   > Press the Return key to shut down" > /dev/tty8
+		echo "+++> Check failed - refusing to boot"
+		echo "   > Press the Return key to shut down"
+		if [ "$ultraquiet" -gt 1 ] ; then
+			upperredbar tty1
+			centertext 64 1 "$convert_failed" tty1
+			lowerredbar tty1
+			chvt 1
+		fi
+		read nix
+		poweroff
+	fi
+}
+
+#		
