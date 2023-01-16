@@ -18,3 +18,4 @@ If you are the author and you do not want this repository to be publicly availab
 * `cobi-xpmover-20140404-00.tar.bz2` https://distfiles.lesslinux.org/cobi-xpmover-20140404-00.tar.bz2
 * `kaspersky-wrapper-20091022.tar.bz2` https://distfiles.lesslinux.org/kaspersky-wrapper-20091022.tar.bz2
 * `lesslinux-eset-20190103-01.tar.bz2` https://distfiles.lesslinux.org/lesslinux-eset-20190103-01.tar.bz2
+* `lesslinux-f-secure-20180408-00.tar.bz2` https://distfiles.lesslinux.org/lesslinux-f-secure-20180408-00.tar.bz2
