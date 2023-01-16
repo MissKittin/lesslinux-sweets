@@ -1,0 +1,67 @@
+CHANGELOG
+
+v.0.1.8.8
+
+- Mapped Latin characters for reverse chatsync extraction.
+- output-directory option added. Now you can select the output folder.
+  python skype.py --output-dir /output/path/ main.db
+  python skype.py -o /output/path/ main.db
+- Minor fix. A bug in date_me() function was crashing the script on windows.
+
+ 
+v.0.1.8.7
+
+- Minor fix. If a .dat file is empty it won't be parsed.
+- Added more Latin special characters.
+- Added debug option and changed the location for the debug folder. Now you'll find it in the report folder. You can run the debug mode with:
+python skype.py --chatsync --debug main.db
+
+v.0.1.8.6
+
+- Minor fix. The csv folder is now placed inside the report folder.
+- Minor fix. The command to extract the chatsync files is now: python skype.py --chatsync main.db
+
+v.0.1.8.5
+
+- Bugfix. chatsync, files with extension different from ".dat" are discarded. (Sometimes it is possible to find FS residual like $I30 files.)
+- The terminal will show the number of messages while creating each single chat page. (So you know why is taking so long)
+
+v.0.1.8.4
+
+- chats with same people are extracted in the same HTML file. 
+- Bugfix. Corrected the algorith to extract single chats. Time to extract 42.9253 messages is about 40 minutes with i7 cpu and 8 gb of ram.
+- now the summary_chat page shows the chat ids that were put together into a single HTML file
+
+v.0.1.8.3
+
+- Bugfix.
+
+v.0.1.8.2
+
+- Creation of single chat update: try to put chats with usernameX and usernameY together even if the chat_name is different. N of single chats reduced.
+- By default all messages will be desplayed, not only 10.
+- Bugfix: order by date now working in HTML Report.
+- Bugfix: char "<" now is HTML encoded as &lt; so that these tags and their content are visible.
+
+v.0.1.8.1
+
+- The HTML pages header will be created by a function. (deleted more than 600 lines of static code..)
+
+v.0.1.8
+
+- Added Chat Summary page. It shows a table with the name of the chat, total messages, first and last message timestamp and report file size. You can now click on a specific link to view only this page.
+- The old chat page is now part of the chat summary page as a link to all the messages. 
+- The old chat page has now a drop-down menu to select which chat to view.
+
+v.0.1.7
+
+- New algorithm to extract chatsync files. Beta version. Feedback required.
+
+
+v.0.1.5
+
+- You can now extract chatsync files.
+
+v.0.1
+
+- Important fields from the main.db are extracted in HTML and csv
