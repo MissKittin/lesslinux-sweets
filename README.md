@@ -27,6 +27,7 @@ If you are the author and you do not want this repository to be publicly availab
 * `notfall-tunguska-20091026-182811-ohne_R-Studio_fuer_Download.iso` https://download.lesslinux.org/testing/cbrescue/notfall-tunguska-20091026-182811-ohne_R-Studio_fuer_Download.iso
 * `cobi-xpmover-20140129-00.tar.bz2` https://distfiles.lesslinux.org/cobi-xpmover-20140129-00.tar.bz2
 * `cobi-xpmover-20140201-00.tar.bz2` https://distfiles.lesslinux.org/cobi-xpmover-20140201-00.tar.bz2
+* `MergeIDE.zip` https://www.virtualbox.org/wiki/Migrate_Windows
 
 # Scripts
 * `1570_clamav.xml` https://github.com/mschlenker/lesslinux-builder/blob/master/scripts/stage03/1570_clamav.xml
