@@ -1,0 +1,72 @@
+[Setup]
+Express=1
+InstallDir="C:\WINDOWS"
+EBD=0
+ChangeDir=0
+OptionalComponents=1
+Network=0
+System=0
+CCP=0
+CleanBoot=0
+Display=0
+PenWinWarning=0
+InstallType=3
+DevicePath=1
+Uninstall=0
+VRC=0
+NoPrompt2Boot=1
+
+[System]
+; Display= is set to the default adapter initially.
+; This should change when Setup detects your new adapter.
+Display="Standard Display Adapter (VGA)"
+
+[NameAndOrg]
+Display=0
+
+[Network]
+Display=0
+IgnoreDetectedNetCards=1
+ValidateNetCardResources=0
+
+[OptionalComponents]
+
+[Printers]
+
+[Install]
+CopyFiles=HIERMA.RegFile,HIERMA.DriverInf
+DelReg=BadDevices
+AddReg=RunOnce
+
+[BadDevices]
+; Removing the display Setup assigns should make room for your
+; new display driver.
+HKLM,"Enum\Root\*PNP0900\0000"
+HKLM,"System\CurrentControlSet\Services\Class\Display\0000"
+
+[SourceDisksNames]
+101="HIERMA",,0
+
+[SourceDisksFiles]
+HIERMA.REG      = 101
+
+[DestinationDirs]
+HIERMA.RegFile      = 10
+HIERMA.DriverInf    = 17
+
+[HIERMA.RegFile]
+; When using HIERMA, this file should always be present in the
+; setup directory.
+HIERMA.REG
+
+[HIERMA.DriverInf]
+
+[VLogon]
+
+[Strings]
+MSNP32NP="System\CurrentControlSet\Services\MSNP32\NetworkProvider"
+VNETSUP="System\CurrentControlSet\Services\VxD\VNETSUP"
+PCName="System\CurrentControlSet\control\ComputerName\ComputerName"
+RunOnceSetup="Software\Microsoft\Windows\CurrentVersion\RunOnce\Setup"
+RunOnce="Software\Microsoft\Windows\CurrentVersion\RunOnce"
+

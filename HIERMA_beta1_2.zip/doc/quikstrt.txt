@@ -1,0 +1,130 @@
+HIERMA Beta 1.2
+The Quick Start Guide
+
+0. Preamble
+1. How HIERMA Works
+2. Loading HIERMA
+3. What to Ignore (for now)
+4. Setting the Destination, Mounting and Formatting a Disk
+5. Choosing an OS Source
+6. Configuring the Installation
+7. Selecting Components
+8. Preloading Drivers
+9. Installing a Temporary Boot Manager
+9a. Executing a Setup Batch Script in DOS
+10. The Future of HIERMA
+
+0. Preamble
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+
+A copy of the GNU General Public License can be found at the root of the HIERMA distribution, or read in the legal notice dialog.
+
+1. How HIERMA Works
+
+HIERMA is a set of Bash scripts that execute various GNU (or otherwise) utilities in a Linux environment to prepare a storage medium for an automated or interactive installation of Windows. This could be a hard disk or a CD-ROM. Thanks to the versatility of Linux over MS-DOS, it is possible to install an operating system from a wide variety of sources; you can use a CD-ROM, a USB flash drive, or even an FTP server.
+
+It's important to note that HIERMA does not actually do any of the installing on its own. All it does is set up some files in a way that the operating system in question can understand in order to carry on with its installation routine, hands-free or otherwise. As such, you could use HIERMA to prepare your own custom installation CD with new drivers and/or your preferred configuration. All you'd have to do is copy all the contents of the destination directory to such a CD, and then you wouldn't have to run HIERMA repeatedly.
+
+HIERMA is logically organized into a few simple routines: setting the destination path or disk, copying the OS setup files, preconfiguring some settings, preloading new drivers, and preloading updates to execute during Setup. The update preloading routine is not actually ready to use in beta 1.2, but will be by the final release.
+
+Unlike other premade installation solutions like 98lite or the Windows 98SE UBCD, HIERMA is designed to be as flexible as possible. You can effectively conduct a completely vanilla installation of your operating system using HIERMA while using an unconventional install medium if you want to.
+
+2. Loading HIERMA
+
+There are several ways to load HIERMA. The first is to run hierma.sh on an existing Linux box and set the destination to a user-writable directory, or a secondary hard disk if you're running it as root. The second way to run HIERMA is by booting the target computer with the HIERMA ISO file or the GZip archives over PXE. This method is more convenient as you'll be able to install your operating system directly to the machine you want.
+
+To run HIERMA on your existing Linux environment, you'll need to install the following packages: dialog, mtools, dosfstools, bash (version 4.x), coreutils, cabextract, lftp, GNU sed, pv, and syslinux. Keep in mind that as HIERMA runs, it routinely deletes files in the working directory that have the extension .tmp, and files with the names working.conf, working.comp, and lastdir. Keep this in mind in case the directory you run HIERMA from has files matching these criteria.
+
+To boot HIERMA from a CD, your BIOS or disk controller needs to support this functionality. If your system does not support booting from a CD natively, you may be able to use Smart Boot Manager or PLOP Boot Manager with a floppy disk (the latter supports USB booting from what I understand, but this has not been tested yet).
+
+PXELINUX is the optimal application to use if you want to load HIERMA from a PXE-capable network card. You'll need to download some things from the SYSLINUX website and read up some documentation for PXELINUX and getting a TFTP server running, but from there you can refer to isolinux.cfg in /boot/isolinux from the CD image and adapt its configuration to your own PXE menu.
+
+3. What to Ignore (for now)
+
+When prompted for a configuration database to use, just stick with the default one for now. Other functions pertaining to database selection have not been fully implemented, but will be in a future release.
+
+There's probably some things I missed, so if you run into any issues, let me know (preferrably with video footage) and I will append this section as needed.
+
+4. Setting the Destination, Mounting and Formatting a Disk
+
+The destination can be a user-writable directory or a hard disk. If you are creating your own custom CD image or over-the-network setup share, you can set the destination path to somewhere in your home directory.
+
+If you are going to use a preformatted FAT16 or FAT32 partition, you can mount it by selecting the "Mount" option. It is necessary to mount a storage medium prior to using it, as that's just how Linux and Unix-like environments work. Also, Linux doesn't use the drive letter convention as DOS does. Storage devices are treated as files in the /dev directory of every Unix-like system. When the list of available disks is loaded, the second column displays the size of the disk (and possibly other information) to help you pinpoint the one you want to mount.
+
+If you need to format a new partition, select "Format". You will be prompted to select a hard disk to wipe and format. Unlike with native DOS format utilities, the various Linux-based utilities HIERMA uses to format a hard disk take only a few seconds to complete their duties. Bad sectors are not accounted for, so you may wish to run a disk scanning utility post-Setup.
+
+After selecting the hard disk to format, you'll be asked which parition type to use. You may notice there are two variants of FAT16, one just being "FAT16" and the other being "FAT16 LBA". There is a significant difference between the two; FAT16 uses CHS, and there are several things that need to be kept in mind besides the fairly obvious 2GB limit; you can only create multiple partitions collectively spanning up to ~8GB, and this partition type may not work correctly in Windows 95 OSR2 and later.
+
+FAT16 LBA allows for the creation of more extended partitions beyond ~8GB and is fully compatible with Windows 95 RTM and onward, but will not be recognized by MS-DOS 6.22 or earlier. There is only one FAT32 option which uses LBA, and it requires a FAT32-aware operating system.
+
+You will be asked to confirm whether or not you want to format the hard disk. This is final, so make certain you have selected the right disk and you are prepared to delete the contents of said disk! (Furthermore, since HIERMA is in beta, I strongly advise you run it on a system where there are no attached disks containing valuable data.)
+
+Whether you mount an existing partition or format a new one, the destination path will automatically be set to /mnt/hierma_dest/HIERMA.
+
+5. Choosing an OS Source
+
+There are several ways you can go about copying the setup files; you can use an original CD-ROM, a USB flash drive, or other local storage device. A local device must also be mounted prior to being available to read from. Select "Mount", then select the device you want to use. Then choose "Local" and select the path you want to use.
+
+You can also load the setup files from your FTP server. Note that FTP connections are not secure, and passwords are stored and transmitted in plain text. Take care to protect your credentials, or use anonymous FTP if possible.
+
+HIERMA searches for potential setup paths recursively, so depending on the contents of your source device and where you begin the search, you may find multiple paths. HIERMA determines the setup path that is to be used based on the presence of PRECOPY1.CAB, and matches its MD5 checksum with a known entry in checksum.conf to adjust how upcoming scripts will function. If a match is not found for the checksum, you'll need to specify which operating system you're installing yourself. Upon selecting the source path, HIERMA will copy every file in it to the destination path.
+
+6. Configuring the Installation
+
+You'll then be prompted to set various configuration options ahead of time. Several default settings are preloaded which you can change as needed, and some are not mandatory (particularly the keyboard layout and locale), but you may want go through each and every menu to determine what you'll want in your installation. To select a radio or check option, highlight the option and press the space bar.
+
+7. Selecting Components
+
+After configuring how Setup will run, you'll still need to select optional components to install. It takes a long time to load the component list due to the method it uses to grab component names and descriptions from the INF files in a PRECOPY cabinet. I have no effective way to organize components into groups using the dialog utility, so for now you'll have to go through each and every one line by line.
+
+8. Preloading Drivers
+
+You can preload extracted drivers for Windows 9x to automatically install in the same way you preloaded the setup files. If you need to replace a CD-ROM in the same drive, you must first unmount the CD-ROM drive by selecting "Unmount" and selecting the currently mounted drive. Afterwards, you can remount the drive with a new medium.
+
+When selecting a driver path, whether it be local or over FTP, you should choose a path that encompasses all the drivers and nothing else. HIERMA will search for INF files pertaining to drivers recursively, and you can select any you want to preload. Driver files need to be copied to a flat path that needs to use the 8.3 character format for DOS-based Setup to recognize them, so duplicate driver filenames and long INF names are handled by HIERMA automatically. You can preload as many drivers as allowed by the filesystem, as Windows 9x will simply autodetect the exact drivers you need.
+
+To make the INF menu more intuitive, you can modify your INF files with a plain text editor. There are a few special directives HIERMA takes from each driver INF under the [Strings] section, those being HIERMA_DESC and HIERMA_OSTYPE. HIERMA_DESC is a description string that is displayed in the second column of the INF menu to better describe a file that may have a truncated name, and HIERMA_OSTYPE is used to specify which operating systems a driver will only be available to. The five Windows 9x releases are denoted as win95, win95b, win98, win98se, and winme. If you want a driver for a modem to only be available for both Windows 95 RTM and OSR2, type lines like these under the Strings section:
+
+    HIERMA_DESC="SquidNet branded 28.8 modem (ISA)"
+    HIERMA_OSTYPE=win95,win95b
+
+These strings are used exclusively by HIERMA and will not impede the installation of your drivers.
+
+9. Installing a Temporary Boot Manager
+
+Since HIERMA does not install an operating system itself, your target system still needs to load a small boot image to execute the setup program. HIERMA is capable of installing a temporary boot manager using SYSLINUX. The only purpose of this boot manager is to boot a DOS floppy image that is to be stored on the destination hard disk under /boot/syslinux.
+
+When loading a floppy image, several commands are loaded into the floppy image's AUTOEXEC.BAT to overwrite the MBR with something DOS and Windows can use (FDISK /MBR and SYS C:), and then execute the setup program with the switches defined in HIERMA. The source floppy image is never modified, only the copied image at the destination.
+
+In the majority of cases, it's best to use the default floppy image. The default floppy image boots into a barebones FreeDOS 1.2 environment and runs the aforementioned commands. If you use a FreeDOS image, the /NM switch is required so Setup doesn't fail. This is enabled by default.
+
+Still, you do have the option of selecting a different floppy image from a local or remote source, or you can insert a DOS boot disk into a floppy drive and have HIERMA copy it to a temporary boot image. You'll be given the option to replace the startup files on the boot image or merely append to them.
+
+Once you have installed the temporary boot manager, HIERMA will convert every text file in the destination path to use the DOS line break format for Setup to work with them correctly, and that's all there is to it. If you're using the boot CD, the system will reboot upon exiting. Note that if you need to exit HIERMA at any time, press CTRL-C. If you're using the boot CD, a prompt will appear asking what you want to do.
+
+9a. Executing a Setup Batch Script in DOS
+
+If you are not going to install a temporary boot manager, HIERMA can create a batch script in the destination path. You can then boot from a DOS boot floppy, change to the setup directory, and run HIERMA.BAT. You will be prompted to answer a few questions to ensure the system reboots successfully after completing the first phase of Setup. This is particularly useful if you are creating a custom boot CD which doesn't rerun HIERMA.
+
+10. The Future of HIERMA
+
+HIERMA has a long way ahead of itself before the art of installing legacy operating systems can be perfected. Before the initial non-beta release, HIERMA needs to be able to preload external updates, define custom partition sizes, run unattended at the directive of a database, and boot with 64MB systems.
+
+Currently, HIERMA only supports Windows 9x. In the next milestone following the initial release, I plan to implement support for MS-DOS 3.30 to 6.22. After that, several versions of Windows NT are expected to be supported, those being NT 3.51 (maybe), NT 4.0, and Windows 2000. Each of these operating systems pose their own challenges that will require much more grinding through countless test installations.
+
+For the boot CD, I envision using a more leaned down Linux kernel that cuts out unnecessary drivers and other things given the systems I plan to target, although I expect some people may want to use HIERMA for installing operating systems to modern computers. Ideally, I'd want the HIERMA boot CD to be able to boot into a low memory option for 32MB systems and boot into an entirely memory-resident environment on 64MB systems. Unfortunately I have no knowledge of compiling Linux kernels and don't have the time to learn about it, so if you're willing to provide help there, that would be great.
+
+While HIERMA is still rather unstable, it will continue to be refined in future releases. I hope this application will be useful enough that it saves you a mundane hour from attending your old system to answer additional dialogs and load drivers one by one. Enjoy your new installation!

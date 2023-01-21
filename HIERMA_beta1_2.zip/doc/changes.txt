@@ -1,0 +1,69 @@
+HIERMA Changelog
+----------------
+
+Beta 1.2:
+- Minor speed optimizations were added to update_msbatch.sh.
+- If the user specifies an NT domain to log on to, the LMLogon value is now set to 1 to enable domain logon functionality out of the box.
+- "No APM" option and the commands to write the "Power" field in MSBATCH.INF were removed because they often caused Windows Setup to fail.
+- Fixed a problem where the resolution and color depth defined by HIERMA may not be properly set after Setup completes.
+- Reworked component script to read components directly from INFs.
+- Internal updates added; can be accessed from configuration menu.
+- Express mode implemented. A configuration database section must have "hierma_express" set to 1 to run HIERMA in express mode.
+- Boot CD now has its own menu. Also created a boot floppy for computers that can't boot from CDs.
+- hierma_bootmgr.sh, a script which originally didn't make it to beta 1, returns with greater flexibility on how HIERMA should install a bootloader to a hard disk.
+- SYSLINUX updated to 6.03, and Core Linux updated to 10.1. This will tie up more RAM on the live boot CD, but an alternate boot method for low-RAM systems is planned.
+- When running interactively, the user can now read GPLv2 from a dialog at the start. GPLv2.txt has been moved to the HIERMA core.
+- The final file conversion process is now displayed as a progress gauge.
+- 21 PRECOPY1.CAB MD5 checksums were added, one being in Russian.
+- Formatting a new partition no longer imposes a 10 second wait; instead, mkfs.msdos attempts to run once every second until it succeeds to scale better with slow or fast computers.
+- A second terminal can now be accessed on the boot CD by pressing ALT-F2, should you need it for anything.
+
+KNOWN ISSUES for Beta 1.2:
+
+- Installing a temporary boot manager to a hard drive from an environment that isn't the HIERMA boot CD may cause AUTOEXEC.BAT to fail to execute the necessary setup command due to an "Invalid drive specification" error.
+- If a domain name to log on to is specified, domain logon still may not be enabled in Windows 98/ME.
+- The internal update for enabling user profiles doesn't work.
+- The setup command is added to AUTOEXEC.BAT twice. This shouldn't be a problem if Setup completes successfully, but it's not neat.
+
+Luminaries Beta 1.1b:
+- Emergency bugfix pertaining to the "More Options" dialog. Also handles AUTOEXEC.BAT creation so a double backslash isn't printed if you're installing the setup files to the root of a hard disk when using the bootloader.
+
+Luminaries Beta 1.1a:
+- The HIERMA distributions should now be GNU GPLv2 compliant. The full license text can be found in LICENSE.TXT at the root of either distribution. Source code is located in /src from the root of the HIERMA distribution, except script files since they are interpreted programs.
+- HIERMA now copies SYSLINUX modules from /usr/local/share/syslinux rather than from its own script path. memdisk and mbr.bin have been removed from the core HIERMA distribution.
+- Added a function to the INF and REG tools to process many read/write operations from a list on a single section quickly.
+    -- The locale, keyboard layout, monitor, and optional component menus have been reworked to make use of this function and should load much faster as a result.
+- Added the switch /nm to the setup switch menu, which is necessary when installing to a virtual machine using the FreeDOS boot floppy. This is enabled by default.
+- The disk script now hides entries saying "doesntcontainavalidpartitiontable".
+- The mount utility now correctly displays mount errors if any occur. I forgot to add message box size parameters in beta 1.1 for that.
+- When the local install script says "Looking for valid install paths in", the full path may not be visible in the infobox if it's too long. Rather than upsizing the height of the box, only the basename of the full path is displayed now.
+- Fixed the AUTOEXEC.BAT generation script for the boot manager floppy image so a double backslash is not printed at the root of the C: drive, and HIERMA.BAT refuses to run if the current working directory is not the setup path (by checking for the presence of HIERMA.BAT in the working directory). This is a protective measure against the wrong FDISK.EXE, CHOICE.EXE, and SYS.COM programs being deleted.
+- Fixed a problem with copying catalog files. Windows 98/ME should now install your drivers without any issues, though a few like the 3C905B/C driver are known to load the wrong NDIS driver initially in Windows ME. If this happens, uninstall the driver, reboot, and it should be redetected with the correct NDIS version.
+- ncurses5 extension was removed from the ISO since it is not used.
+- The delimiter used in os.conf for selecting an operating system when an unknown directory is specified has been corrected.
+
+Luminaries Beta 1.1:
+
+- The driver copying script now copies catalog files, which Windows ME requires.
+- When an INF list is assembled, quote marks are removed from each HIERMA_DESC string printed in the second column.
+- Driver file list assembly is slightly faster.
+- The destination path no longer has to end with the name "HIERMA" for the 1st boot registry merge and AUTOEXEC.BAT to work.
+- Mount dialogs are a bit more contextual; all devices reading as /dev/sr* are annotated as CD-ROM devices. /dev/fd0 and /dev/fd1 are annotated as floppy drives A: and B:, respectively.
+- The mount dialog also traps errors, displaying them to the user instead of letting them disappear in the blink of an eye.
+- Default display attributes are adjusted to safer settings. 1MB video cards should be able to handle 640x480 in 16-bit color.
+- The local setup file copier, cdinstall.sh, had a bug where if it found PRECOPY1.CAB at the root of the path you specified, no setup files would be copied. This has been fixed.
+- Several improvements have been made to the configuration menu:
+    -- Selecting APM or ACPI now correctly forces one setting or the other by appending a device detection switch.
+    -- The default toggles for the setup and device detection switches are now based on what you've set in the configuration database. In other words, it remembers what you've set previously should you go back to the dialog.
+    -- The product key dialog is a bit wider, and the key you supply is now added to both ProductID and ProductKey in MSBATCH.INF to account for all Windows 9x versions.
+    -- The keyboard layout and locale scripts are now functional.
+- CHOICE.EXE from the FreeDOS 1.2 CD is now included. The source code for this program is not supplied in HIERMA's core, but can be found in the FreeDOS install CD and may be included in the final CD filesystem outside of the boot files if necessary.
+- HIERMA.BAT itself is now stored as a static batch file. It calls CHOICE.EXE to prompt the user to overwrite the MBR and copy the system files. The required setup command is appended to the destination directory's HIERMA.BAT upon completion of HIERMA's scripts.
+- The device unmount dialog's title is corrected.
+- The keyboard layout, locale, and monitor dialogs are now operational. Moreover, a VERY IMPORTANT function has been added to the keyboard layout dialog.
+- monitor.sh and some config file manipulation scripts now handle ampersands correctly, for when you need to select a monitor from AT&T or the like.
+- HIERMA's INF/INI manipulation tool, Infsect, didn't remove its temporary files after exiting. Now it does.
+- In addition, Infsect and the registry manipulation tool have been given some more much needed bugfixes to prevent multiple lines from being returned when trying to retrieve a single value from a section.
+
+Luminaries Beta 1:
+- Initial private release.

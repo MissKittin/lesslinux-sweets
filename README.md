@@ -1,5 +1,5 @@
 # Achtung
-This is not open source software  
+This software may not be FOSS  
 Uploaded for archival purposes only  
 If you are the author and you do not want this repository to be publicly available, please write to me.
 
@@ -28,6 +28,7 @@ If you are the author and you do not want this repository to be publicly availab
 * `cobi-xpmover-20140129-00.tar.bz2` https://distfiles.lesslinux.org/cobi-xpmover-20140129-00.tar.bz2
 * `cobi-xpmover-20140201-00.tar.bz2` https://distfiles.lesslinux.org/cobi-xpmover-20140201-00.tar.bz2
 * `MergeIDE.zip` https://www.virtualbox.org/wiki/Migrate_Windows
+* `HIERMA_beta1_2.zip` https://razorback95.com/projects/hierma.php
 
 # Scripts
 * `1570_clamav.xml` https://github.com/mschlenker/lesslinux-builder/blob/master/scripts/stage03/1570_clamav.xml
