@@ -35,6 +35,7 @@ If you are the author and you do not want this repository to be publicly availab
 * `lesslinux-mounttools-20090715.tar.bz2` https://distfiles.lesslinux.org/lesslinux-mounttools-20090715.tar.bz2
 * `lesslinux-mounttools-20091130.tar.bz2` https://distfiles.lesslinux.org/lesslinux-mounttools-20091130.tar.bz2
 * `lesslinux-mounttools-20140726-00.tar.bz2` https://distfiles.lesslinux.org/lesslinux-mounttools-20140726-00.tar.bz2
+* `updater_tunguska-20210121-095412.test/updater.tbz` https://download.lesslinux.org/updater/tunguska-20210121-095412.test/
 
 # Scripts
 * `1570_clamav.xml` https://github.com/mschlenker/lesslinux-builder/blob/master/scripts/stage03/1570_clamav.xml
