@@ -30,6 +30,7 @@ If you are the author and you do not want this repository to be publicly availab
 * `MergeIDE.zip` https://www.virtualbox.org/wiki/Migrate_Windows
 * `HIERMA_beta1_2.zip` https://razorback95.com/projects/hierma.php
 * `infsect_src.zip` https://razorback95.com/resources/programs/infsect.php
+* `lesslinux-drivetools-20120308-00.tar.bz2` https://distfiles.lesslinux.org/lesslinux-drivetools-20120308-00.tar.bz2
 
 # Scripts
 * `1570_clamav.xml` https://github.com/mschlenker/lesslinux-builder/blob/master/scripts/stage03/1570_clamav.xml
