@@ -33,6 +33,7 @@ If you are the author and you do not want this repository to be publicly availab
 * `lesslinux-drivetools-20120308-00.tar.bz2` https://distfiles.lesslinux.org/lesslinux-drivetools-20120308-00.tar.bz2
 * `lesslinux-keymap-switcher-20091106.tar.bz2` https://distfiles.lesslinux.org/lesslinux-keymap-switcher-20091106.tar.bz2
 * `lesslinux-mounttools-20090715.tar.bz2` https://distfiles.lesslinux.org/lesslinux-mounttools-20090715.tar.bz2
+* `lesslinux-mounttools-20091130.tar.bz2` https://distfiles.lesslinux.org/lesslinux-mounttools-20091130.tar.bz2
 
 # Scripts
 * `1570_clamav.xml` https://github.com/mschlenker/lesslinux-builder/blob/master/scripts/stage03/1570_clamav.xml
