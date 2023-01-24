@@ -1,0 +1,79 @@
+#!/static/bin/ash	
+		
+PATH=/bin:/sbin:/usr/bin:/usr/sbin:/static/bin:/static/sbin
+
+## xorgscreen="default_screen"
+## xorgconf="/etc/X11/xorg.conf.xorg"
+
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors
+		
+DBUS_LAUNCH=/usr/bin/dbus-launch
+## VESA_MODE=0x0117
+## driver="xvesa"
+## vesapref=""
+dpi=75
+
+if [ -f /var/run/lesslinux/xorg_vars ] ; then
+    . /var/run/lesslinux/xorg_vars
+fi
+
+if [ -n "$xorgconf" ] && [ -f "$xorgconf" ] ; then
+    cp -f  "$xorgconf" /etc/X11/xorg.conf
+else
+    cp -f /etc/X11/xorg.conf.xorg /etc/X11/xorg.conf
+fi
+
+# Find our xinitrc
+if [ -x /home/surfer/.xinitrc ] ; then
+    XINITRC="/home/surfer/.xinitrc"
+else
+    if [ -f "$xinitrc" ] && [ -n "$xinitrc" ] ; then
+        XINITRC="$xinitrc"
+    else
+	XINITRC="/etc/lesslinux/xinitrc"
+    fi
+fi
+
+# Determine if we have to use dbus-launch
+if which "$DBUS_LAUNCH" ; then
+    if ps waux | grep 'dbus-daemon --config' ; then
+        true
+    else
+        XINITRC="$DBUS_LAUNCH $XINITRC"
+    fi
+fi
+
+if [ -n "$xvnc" ] ; then
+    # xvnc=|local/remote|resolution|depth|
+    vncmode=` echo "$xvnc" | awk -F '|' '{print $2}' `
+    vncres=` echo "$xvnc" | awk -F '|' '{print $3}' `
+    vncdepth=` echo "$xvnc" | awk -F '|' '{print $4}' `
+    if [ "$vncmode" = "remote" ] ; then 
+	/usr/bin/xinit "$XINITRC" -- /usr/bin/Xvnc -geometry "$vncres" -depth "$vncdepth" -dpi "$dpi"
+    elif [ "$vncmode" = "reverse" ] ; then
+	revhost=` echo "$xvnc" | awk -F '|' '{print $5}' `
+	/usr/bin/xinit "$XINITRC" -- /usr/bin/Xvnc -interface 127.0.0.1 -geometry "$vncres" -depth "$vncdepth" -dpi "$dpi" &
+	sleep 5
+	/usr/bin/vncconnect -display :0 "$revhost"
+	while ps waux | grep -q /usr/bin/xinit ; do
+	    sleep 10
+	done
+    else
+	/usr/bin/xinit "$XINITRC" -- /usr/bin/Xvnc -interface 127.0.0.1 -geometry "$vncres" -depth "$vncdepth" -dpi "$dpi"
+    fi
+else
+    # Determine if we have to use a screen section or not
+    if [ -z "$xorgscreen" ] ; then
+        /usr/bin/xinit "$XINITRC" -- /usr/bin/Xorg -br -dpi "$dpi"
+    else
+        /usr/bin/xinit "$XINITRC" -- /usr/bin/Xorg -screen "$xorgscreen" -br -dpi "$dpi"
+    fi
+fi
+
+# sleep for debugging reasons:
+echo '===> Shutdown of X-Server, sleeping 15 seconds'
+sleep 15
+		
+# The end	

@@ -1,0 +1,1982 @@
+<?xml version="1.0"?>
+<gconf>
+	<dir name="schemas">
+		<dir name="apps">
+			<dir name="brasero">
+				<dir name="filter">
+					<entry name="hidden">
+						<local_schema short_desc="Дали brasero да ги филтрира скриените датотеки">
+							<longdesc>Дали brasero да ги филтрира скриените датотеки. Ако е поставено на true, brasero ќе ги филтрира скриените датотеки.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="display">
+					<entry name="viewer">
+						<local_schema short_desc="Овозможи преглед на датотеки">
+							<longdesc>Дали да се прикаже преглед на датотеки. Поставете на true за да го користите.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="config">
+					<entry name="engine-group">
+						<local_schema short_desc="Омилен енџин за снимање">
+							<longdesc>Го содржи името на омилениот енџин за снимање. Ако е можно, ќе се користи тој.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnome-system-log">
+				<entry name="logfiles">
+					<local_schema short_desc="Лог датотеки кои ќе се отворат при подигнување">
+						<longdesc>Одредува листа на лог датотеки кои треба да се отворат при подигнување. Стандардната листа е креирана со вчитување на /etc/syslog.conf.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="width">
+					<local_schema short_desc="Ширина на главниот прозорец во пиксели">
+						<longdesc>Ја одредува големината во пиксели на прозорецот на прегледувачот на логови.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="height">
+					<local_schema short_desc="Висина во пиксели на главниот прозорец">
+						<longdesc>Ја одредува висината во пиксели на главниот прозорец на прегледувачот на логови.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="fontsize">
+					<local_schema short_desc="Големина на фонтот за приказ на логот">
+						<longdesc>Ја одредува големината на фонтот со фиксна ширина употребен за приказ на логот во главниот преглед на дрвото. Стандардната големина е земена од големината на фонтот во терминалот.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="logfile">
+					<local_schema short_desc="Лог датотека да се отвори при подигнување">
+						<longdesc>Ја одредува лог датотека која треба да се отвори при подигнување. Стандардна датотека или /var/adm/порака или /var/log/пораки, зависно од вашиот оперативен систем.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="gnome-search-tool">
+				<entry name="default_window_maximized">
+					<local_schema short_desc="Стандардно максимизиран прозорец">
+						<longdesc>Ова копче одредува дали прозорецот на алатката за пребарување стартува максимизиран.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default_window_height">
+					<local_schema short_desc="Стандардна висина на прозорец">
+						<longdesc>Овој клуч ја дефинира висината на прозорецот и користи за да ја запомни висината на прозорецот на алатката за барање низ сесиите.  Со поставување на -1 прозорецот за барање ќе ја користи стандардната висина.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default_window_width">
+					<local_schema short_desc="С_тандарднa ширина на прозорецот">
+						<longdesc>Овој клуч ја дефинира ширината на прозорецот и користи за да ја запомни ширината на прозорецот на алатката за барање низ сесиите.  Со поставување на -1 прозорецот за барање ќе ја користи стандардната ширина.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="columns_order">
+					<local_schema short_desc="Резултати од пребарувањето:">
+						<longdesc>Овој клуч го дефинира редот на колоните на резултатите од барањето. Овој клуч не треба да биде менуван од корисникот.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="quick_search_second_scan_excluded_paths">
+					<local_schema short_desc="Quick Search Second Scan Excluded Paths">
+						<longdesc>Ова копче ги одредува патеките кои што ќе бидат исклулени од пребарувањето со скенирање. Пребарувањето со скенирање ја користи командата find за да пребарува датотеки. Целта на ова пребарување е да се најдат датотеки кои што не биле индексирани. Знаците &apos;*&apos; и &apos;?&apos; се поддржани. Стандардната вредност е /.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="disable_quick_search_second_scan">
+					<local_schema short_desc="Исклучи брзо пребарување и скенирање">
+						<longdesc>Ова копче одредува дали алатката за пребарување ја исклучува командата find откако ќе изврши брзо пребарување.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="quick_search_excluded_paths">
+					<local_schema short_desc="Брз пребарување во исклучените патеки">
+						<longdesc>Копчето ја одредува патеките кои што ќе ги исклучи алатката за пребарување. Знаците &apos;*&apos; и &apos;?&apos; се поддржани. Стандардните вредности се /mnt/*, /media/*, /dev/*, /tmp/*, /proc/*, и /var/*.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="disable_quick_search">
+					<local_schema short_desc="Исклучи брзо пребарување">
+						<longdesc>Ова копче одредува дали алатката за пребарување ја исклучува командата locate кога извршува едноставни пребарувања.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="show_additional_options">
+					<local_schema short_desc="Пoкажи додатни опции">
+						<longdesc>Ова копче одредува дали е избрана опцијата за пребарување &quot;Изберете повеќе опции&quot;.</longdesc>
+					</local_schema>
+				</entry>
+				<dir name="select">
+					<entry name="follow_symbolic_links">
+						<local_schema short_desc="Изберете·ја·опцијата·за·пребарување „Следи симболички врски“">
+							<longdesc>Ова копче одредува дали е избрана опцијата за пребарување &quot;Следи симболички врски&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_hidden_files_and_folders">
+						<local_schema short_desc="Одберете ја опцијата за пребарување „Покажи скриени датотеки и папки“">
+							<longdesc>Ова копче одредува дали е избрана опцијата за пребарување &quot;Покажи скриени датотеки и папки&quot;</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name_matches_regular_expression">
+						<local_schema short_desc="Изберете·ја·опцијата·за·пребарување „Името се совпаѓа со регуларниот израз“">
+							<longdesc>Ова копче одредува дали е избрана опцијата за пребарување &quot;Името се совпаѓа со регуларниот израз&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name_does_not_contain">
+						<local_schema short_desc="Изберете·ја·опцијата·за·пребарување „Името не содржи“">
+							<longdesc>Ова копче одредува дали е избрана опцијата за пребарување &quot;Името не содржи&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="owner_is_unrecognized">
+						<local_schema short_desc="Изберете·ја·опцијата·за·пребарување „Сопственикот не е познат“">
+							<longdesc>Ова копче одредува дали е избрана опцијата за пребарување &quot;Сопственикот е непознат&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="owned_by_group">
+						<local_schema short_desc="Изберете·ја·опцијата·за·пребарување „Во сопственост на групата“">
+							<longdesc>Ова копче одредува дали е избрана опцијата за пребарување &quot;Во сопственост на групата&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="owned_by_user">
+						<local_schema short_desc="Изберете·ја·опцијата·за·пребарување „Во сопственост на корисникот“">
+							<longdesc>Ова копче одредува дали е избрана опцијата за пребарување &quot;Во сопственост на&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="file_is_empty">
+						<local_schema short_desc="Изберете·ја·опцијата·за·пребарување „Датотеката е празна“">
+							<longdesc>Ова копче одредува дали е избрана опцијата за пребарување &quot;Датотеката е празна&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size_at_most">
+						<local_schema short_desc="Изберете ја опцијата за пребарување „Најголема“">
+							<longdesc>Ова копче одредува дали е избрана опцијата за пребарување &quot;Највеќе&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size_at_least">
+						<local_schema short_desc="Изберете·ја·опцијата·за·пребарување „Големина најмалку“">
+							<longdesc>Ова копче одредува дали е избрана опцијата за пребарување &quot;Најмалку&quot;</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="date_modified_more_than">
+						<local_schema short_desc="Изберете·ја·опцијата·за·пребарување „Датум на промена подоцна од“">
+							<longdesc>Ова копче одредува дали е избрана опцијата за пребарување &quot;Датум на промена подоцна од&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="date_modified_less_than">
+						<local_schema short_desc="Изберете ја опцијата за пребарување „Датум на промена порано од“">
+							<longdesc>Ова копче одредува дали е избрана опцијата за пребарување &quot;Датум на промена порано од&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="contains_the_text">
+						<local_schema short_desc="Изберете ја опцијата за пребарување „Го содржи текстот“">
+							<longdesc>Ова копче одредува дали е избрана опцијата за пребарување &quot;Го содржи текстот&quot;.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnome-screenshot">
+				<entry name="border_effect">
+					<local_schema short_desc="Ефект на границата">
+						<longdesc>Ефекти за додавање на надворешната рамка. Можни вредности се &quot;сенка&quot;, &quot;ништо&quot; и &quot;рамка&quot;.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="include_pointer">
+					<local_schema short_desc="Вклучи ја стрелката од глувчето">
+						<longdesc>Сликај ја стрелката од глувчето</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="include_border">
+					<local_schema short_desc="Вклучи граница">
+						<longdesc>Вклучи ја границата на менаџерот за прозорци заедно со сликата од екранот.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="last_save_directory">
+					<local_schema short_desc="Директориум за слики од екранот">
+						<longdesc>Директориумот во кој што е снимано последниот пат.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="delay">
+					<local_schema short_desc="Задоцнето сликање">
+						<longdesc>Бројот на секунди пред да се слика екранот.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="gnome-dictionary">
+				<entry name="sidebar-width">
+					<local_schema short_desc="Ширина на страничната лента">
+						<longdesc>Овој клуч ја дефинира ширината на страничната лента и се употребува за запомнување на поставувањето низ сесиите.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="sidebar-page">
+					<local_schema short_desc="Страницата на страничната лента која ќе се прикаже">
+						<longdesc>Овој клуч дефинра дали која страница од страничната лента треба да се прикаже и се користи за запомнување на поставувањето низ сесиите.. Може да биде &quot;speller&quot; or &quot;databases&quot;.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="statusbar-visible">
+					<local_schema short_desc="Дали статусната лента да е видлива">
+						<longdesc>Овој клуч дефинра дали статусната лента треба да биде видлива и се користи за да ја зачува состојбата на статусната лента меѓу сесиите. Поставувањето на TRUE ќе ја направи статусната лента секогаш да се појавува.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="sidebar-visible">
+					<local_schema short_desc="Дали страничната лента да е видлива">
+						<longdesc>Овој клуч дефинра дали страничната лента треба да биде видлива и да биде користен за да ја зачува состојбата на страничната лента меѓу сесиите. Поставувањето на TRUE ќе ја направи лентата секогаш да се појавува.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="window-is-maximized">
+					<local_schema short_desc="Дали прозорецот на апликацијата треба да биде максимизиран">
+						<longdesc>Овој клуч дефинра дали прозорецот треба да биде максимизиран и да биде користен за да ја зачува состојбата на прозорецот на речникот меѓу сесиите. Поставувањето на TRUE ќе го направи прозорецот секогаш да се појавува максимизиран.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default-window-height">
+					<local_schema short_desc="Стандардна висина на прозорецот на апликацијата">
+						<longdesc>Овој клуч ја дефинира висината и ширината и се користи за да ја запамети големината на прозорецот на речникот меѓу сесиите. Поставувањето на -1 ќе го направи прозорецот да ја користи висината базирана на големината на фонтот.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default-window-width">
+					<local_schema short_desc="Стандардна ширина на прозорецот на апликацијата">
+						<longdesc>Овој клуч ја дефинира ширината и се користи за да ја запамети големината на прозорецот на речникот меѓу сесиите. Поставувањето на -1 ќе го направи прозорецот да ја користи ширината базирана на големината на фонтот.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="source-name">
+					<local_schema short_desc="База на податоци за користење од серверот на речници">
+						<longdesc>Името на изворот на речникот употребен за добивање на дефиниции за зборовите.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="print-font">
+					<local_schema short_desc="Фонтот кој ќе биде употребен при печатење">
+						<longdesc>Фонтот кој ќе биде употребен при печатење на дефиниција.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="strategy">
+					<local_schema short_desc="Стандардната стратегија на пребарување">
+						<longdesc>Името на стандардната стратегија на пребарување кои ќе се употребат на изворот на речникот, ако е достапен. Стандардната стратегија е „исто“, односно ги наоѓа истите зборови.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="database">
+					<local_schema short_desc="Стандардната база на податоци за употреба">
+						<longdesc>Име на базата на податоци за користење на серверот за речници! Дефинира дали gnome речникот треба да ги пребарува сите бази на податоци на даден сервер. Извичникот (&quot;!&quot;) значи дека сите бази на податоци  во изворот на речникот ќе бидат пребарани.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="smart">
+					<local_schema short_desc="Користи интелигентно пребарување">
+						<longdesc>Дали да се пребарува интелигентно, ова зависи од тоа дали серверот подржува ваква опција. Стандардната вредност е TRUE.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="port">
+					<local_schema short_desc="Порта која се користи за поврзување со серверот">
+						<longdesc>Број на порта за поврзување. Стандардната вредност е 2628</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="server">
+					<local_schema short_desc="Сервер за речник">
+						<longdesc>Приклучување на сервер за речници. Стандардната вредност е dict.org. Проверете на: http://www.dict.org за повеќе детали за сервери.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="baobab">
+				<dir name="properties">
+					<entry name="enable_home_monitor">
+						<local_schema short_desc="Овозможи надгледување на домашната папка">
+							<longdesc>Дали било која промена на домашната папка да биде надгледувана.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="ui">
+					<entry name="baobab_subfoldertips_visible">
+						<local_schema short_desc="Видливи балончиња со совет за потпапките">
+						</local_schema>
+					</entry>
+					<entry name="statusbar_visible">
+						<local_schema short_desc="Лентата за статус е видлива">
+							<longdesc>Дали лентата за статус на дното на главниот прозорец да биде видлива.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_visible">
+						<local_schema short_desc="Лентата со алатки е видлива">
+							<longdesc>Дали лентата со алатки треба да биде видлива во главниот прозорец.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="window_list_applet">
+				<dir name="prefs">
+					<entry name="maximum_size">
+						<local_schema short_desc="Максимална големина за листање на прозорецот">
+							<longdesc>Употребата на ова копче е запоставена во GNOME 2.20. Оваа шема постои заради компатибилност со постари верзии.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="minimum_size">
+						<local_schema short_desc="Минимална големина за листање на прозорецот">
+							<longdesc>Употребата на ова копче е запоставена во GNOME 2.20. Оваа шема постои заради компатибилност со постари верзии.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="move_unminimized_windows">
+						<local_schema short_desc="Преместувај ги прозорците до тековниот работен простор кога се минимизирани">
+							<longdesc>Ако е точно, кога ќе се зголемува прозорец од листата донеси го на моменталниот екран. Во спротивно префрли се на неговиот екран за работа.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="group_windows">
+						<local_schema short_desc="Кога да групира прозорци">
+							<longdesc>Одлучува дали да ги групира прозорците од иста апликација во листата на прозорци. Може да стои „никогаш“, „автоматски“ и „секогаш“.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_all_workspaces">
+						<local_schema short_desc="Покажи прозорци од сите работни простори">
+							<longdesc>Ако ова е точно листата на прозорци ќе ги прикажува сите прозорци на сите екрани за работа, во спротивно ќе ги прикажува прозорците само на тековниот екран.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="workspace_switcher_applet">
+				<dir name="prefs">
+					<entry name="num_rows">
+						<local_schema short_desc="Скокач помеѓу простори за работа">
+							<longdesc>Ова копче одредува колку редови (за хоризонтално) и колку колони (за вертикално) ќе прикаже скокачот помеѓу работни простори.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_all_workspaces">
+						<local_schema short_desc="Прикажи ги сите работни простори">
+							<longdesc>Ако е избрано ова, скокачот ќе ги прикаже сите простори за работа. Во спротивно ќе го прикажува само моменталниот простор.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_workspace_names">
+						<local_schema short_desc="Прикажи имиња на работни простори">
+							<longdesc>Ако е точно, скокачот помеѓу работни простори ќе ги покажува имињата на просторите, во спротивно ќе ја прикажува содржината на просторот. Ова поставување работи само кога користите Metacity.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="fish_applet">
+				<dir name="prefs">
+					<entry name="rotate">
+						<local_schema short_desc="_Ротирај на вертикални панели">
+							<longdesc>Ако е точно, сликата во позадина ќе биде прокажана ротирана на вертикалнипанели.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="speed">
+						<local_schema short_desc="Пауза по рамка(и):">
+							<longdesc>Ова копче го одредува бројот на секунди меѓу кои ќе биде прикажана секоја рамка.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="frames">
+						<local_schema short_desc="Број на рамки во анимацијата на рибата">
+							<longdesc>Ова копче го одредува бројот на рамките во анимацијата на рибата.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="command">
+						<local_schema short_desc="Команда што треба да се изврши при кликање">
+							<longdesc>Команда која ќе се _подигне кога ќе кликнете на рибата.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="image">
+						<local_schema short_desc="Сликата за анимација на рибата">
+							<longdesc>Ова копче го одредува името на датотеката на pixmap-от кој ќе биде користен за анимацијата прикажана во делот со рибата.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name">
+						<local_schema short_desc="Името на рибата">
+							<longdesc>Риба без име е доста досадна риба. Оживејте си ја рибата давајќи ѝ име.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="clock_applet">
+				<dir name="prefs">
+					<entry name="speed_unit">
+						<local_schema short_desc="Единица за брзина">
+							<longdesc>Единицата што се користи за прикажување на брзината на ветерот.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="temperature_unit">
+						<local_schema short_desc="Единица за температура">
+							<longdesc>Единицата што се користи за прикажување на температурата.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="cities">
+						<local_schema short_desc="Листа на локации">
+							<longdesc>Листа на локации кои ќе се прикажат во прозорецот на календарот.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="internet_time">
+						<local_schema short_desc="Користи Интернет време">
+							<longdesc>Употребата на ова копче беше запоставена во GNOME 2.6. Оваа шема постои заради компатибилност со постари верзии.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="unix_time">
+						<local_schema short_desc="UNIX време">
+							<longdesc>Употребата на ова копче беше запоставена во GNOME 2.6. Оваа шема постои заради компатибилност со постари верзии.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hour_format">
+						<local_schema short_desc="Формат на часот">
+							<longdesc>Употребата на ова копче беше запоставена во GNOME 2.6. Оваа шема постои заради компатибилност со постари верзии.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_locations">
+						<local_schema short_desc="Прошири ја листата со локација">
+							<longdesc>Ако е true, прошири ја листата на локации во прозорецот на календарот.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_weather">
+						<local_schema short_desc="Прошири ја листата со информации за времето">
+							<longdesc>Ако е true, прошири ја листата со временски информации во прозорецот на календарот.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_tasks">
+						<local_schema short_desc="Прошири ја листата со задачи">
+							<longdesc>Ако е true, прошири ја листата со задачи во прозорецот на календарот.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_birthdays">
+						<local_schema short_desc="Прошири ја листата со родендени">
+							<longdesc>Ако е true, прошири ја листата со родендени во прозорецот на календарот.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_appointments">
+						<local_schema short_desc="Прошири ја листата со закажувања">
+							<longdesc>Ако е true, прошири ја листата со закажувања во прозорецот на календарот.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_week_numbers">
+						<local_schema short_desc="Покажи ги бројките на неделата во календарот">
+							<longdesc>Ако е обележано, прикажи ги бројките од неделата во календарот.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="config_tool">
+						<local_schema short_desc="Алатка за конфигурирање на време">
+						</local_schema>
+					</entry>
+					<entry name="gmt_time">
+						<local_schema short_desc="Користи UTC">
+						</local_schema>
+					</entry>
+					<entry name="show_temperature">
+						<local_schema short_desc="Покажи температура во часовникот">
+							<longdesc>Ако е обележано, прикажи ја температурата веднаш до иконата за времето.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_weather">
+						<local_schema short_desc="Покажи временска прогноза во часовникот">
+							<longdesc>Ако е точно, прикажи икона за времето.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_tooltip">
+						<local_schema short_desc="Покажи датум">
+							<longdesc>Прикажи датум во објаснувањето кога глувчето е над часовникот.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_date">
+						<local_schema short_desc="Покажи датум во часовникот">
+							<longdesc>Прикажи го датумот во часовникот, веднаш до времето.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_seconds">
+						<local_schema short_desc="Покажи секунди">
+							<longdesc>Прикажи ги секундите во времето.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="custom_format">
+						<local_schema short_desc="Сопствен формат за часовникот">
+							<longdesc>Ова копче го одредува форматот користен од страна на аплетот за часовник, кога копчето за формат е поставено на &quot;сопствен&quot;. За да добиете одреден формат можете да користите одредувачи на конверзија кои се разбриливи од страна на strftime(). Проверете го упатството за strftime() за повеќе информации.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="format">
+						<local_schema short_desc="Формат на часот">
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="panel">
+				<dir name="objects">
+					<entry name="action_type">
+						<local_schema short_desc="Копче за тип на дејство">
+							<longdesc>Типот на дејство што го извршува ова копче. Можни вредности се &quot;lock&quot;, &quot;logout&quot;, &quot;run&quot;, &quot;search&quot; и &quot;screenshot&quot;. Овие подесувања ќе одговараат само ако типот на објектот е &quot;action-applet&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="launcher_location">
+						<local_schema short_desc="Локација на пуштачот">
+							<longdesc>Локацијата на датотеката на вклучувачот на работната површина. Овие подесувања ќе одговараат само ако типот на објектот е ж&quot;вклучувачки објект&quot;</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menu_path">
+						<local_schema short_desc="Патека до содржината на менито">
+							<longdesc>Патека од каде елементите на менито се создаваат. Оваа поставка се зема во предвид само ако use_menu_path е точно и object_type е мени-објект</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_menu_path">
+						<local_schema short_desc="Користи сопствена патека за содржината на менијата">
+							<longdesc>Ако е точно, копчето за патеката на менито се користи како патека од која се конструира менито. Ако е неточно копчето за патеката на менито се игнорира. Ова копче се зема во предвид само ако &quot;типот-на-објект&quot; е &quot;мени-објект&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="custom_icon">
+						<local_schema short_desc="Иконата користена за објектот на копчето">
+							<longdesc>Локацијата на сликата е користена како икона на копчето. Овие подесувања ќе одговараат само ако типот на објектот е &quot;цртачки-објект&quot; или &quot;мени-објект&quot; и доколку користената_вобичаена _икона е вистинита.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_custom_icon">
+						<local_schema short_desc="Користи сопствена икона за ова копче">
+							<longdesc>Ако е точно, сопствена_икона поставката се користи како своја икона за копче, ако е неточно, сопствена_икона се игнорира. Оваа поставка се зема во предвид само ако типот на објект е &quot;мени-објект&quot;  или &quot;фиока-објект&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="tooltip">
+						<local_schema short_desc="Совети прикажани за фиоката или менито">
+							<longdesc>Текст за приказ како совет во оваа фиока или мени. Ова подесување се зема во предвид само ако типот на објектот е &quot;објект-фиока&quot; &quot;или објект-мени&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="attached_toplevel_id">
+						<local_schema short_desc="Панелот прикачен на фиоката">
+							<longdesc>Идентификаторот на панелот прикачен на овој цртач. Овие подесувања ќе одговараат само ако типот на објектот е &quot;drawer-object&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="bonobo_iid">
+						<local_schema short_desc="IID за аплетот на Bonobo">
+							<longdesc>Bonobo имплементираната индетификација на аплетот - пример &quot;OAFIID:GNOME_ClockApplet&quot;. Овие подесувања ќе одговараат само ако типот на објектот е &quot;bonobo-applet&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="locked">
+						<local_schema short_desc="Заклучи го објектот на панелот">
+							<longdesc>Ако е точно, корисникот можеби нема да може да го помрдне аплетот без претходно да го отклучи објектот користејќи &quot;Отклучи&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="panel_right_stick">
+						<local_schema short_desc="Интерпретирај ја позицијата релативно во однос на десниот-долен раб">
+							<longdesc>Ако е точно, позицијата на објектот се разгледува релативно од десниот (или долниот, ако е вертикален) раб на панелот.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="position">
+						<local_schema short_desc="Позицијата на објектот на панелот">
+							<longdesc>Позиција на панел објектот. Позицијата е одредена од бројот на пиксели од лево (или од горе ако е вертикален) од работ на панелот.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toplevel_id">
+						<local_schema short_desc="Панел што го содржи објектот">
+							<longdesc>Идентификаторот на врвот од панелот кој содржи објект.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="object_type">
+						<local_schema short_desc="Тип на објект за панелот">
+							<longdesc>Типот на овој панел-објект. Има неколку можни вредности - &quot;цртачки-објект&quot;, &quot;мени-објект&quot;, &quot;вклучувачки-објект&quot;, &quot;bonobo-аплет&quot;, &quot;акција-аплет&quot; и &quot;лента со мени&quot;.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="toplevels">
+					<entry name="animation_speed">
+						<local_schema short_desc="Брзина на анимацијата">
+							<longdesc>Бризината со кој анимациите би требало да се изведуваат. Има три можни вредности; &quot;споро&quot;; &quot;средно&quot; и &quot;брзо&quot;. Овие параметри ќе одговараат само ако enable_animation е вистинито.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_hide_size">
+						<local_schema short_desc="Број на видливи пиксели со сокриен панел">
+							<longdesc>Го одредува бројот на видливи пиксели панелот е автоматски скриен во ќошот. Овие параметри ќе одговараат само ако автоматското_криење е вистинито.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="unhide_delay">
+						<local_schema short_desc="Автоматско откривање на доцнењето">
+							<longdesc>Го одредува бројот на милисекунди за кои ќе се одложува после влегувањето на покажувачот во панелот пред панелот да е автоматски пре-прокажан. Овие параметри ќе одговараат само ако автоматското_криење е вистинито.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hide_delay">
+						<local_schema short_desc="Автоматско криење на доцнењето">
+							<longdesc>Го одредува бројот на милисекунди за кои ќе се одложува после излегувањето на покажувачот во панелот пред панелот да е автоматски скриен. Овие параметри ќе одговараат само ако автоматското_криење е вистинито.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_arrows">
+						<local_schema short_desc="Вклучи ги стрелките на криечките копчињата.">
+							<longdesc>Ако е точно,стрелките ќе се сместат на сокривачките копчиња. Овие параметри ќе бидат важечки само ако вклучените копчиња се вистинити.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_buttons">
+						<local_schema short_desc="Вклучи ги криечките копчињата.">
+							<longdesc>Ако е точно тогаш копчињата ќе бидат сместени на секоја страна од панлеот кој би можел да биде користен за поместување на панелот во работ на екранот притоа оставајќи видливо копче.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="Вклучи анимација.">
+							<longdesc>Ако е точно тогаш криењето и откривањето на овој панел ќе биде анимиано наместо прикажано моментално.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_hide">
+						<local_schema short_desc="Автоматски криј го панелот во ќошето.">
+							<longdesc>Ако е вистинито тогаш кога покажувачот го напушти панелот ќе биде автоматски скриен во ќошот на екранот. Поместувајќи го покажувачот во тој ќош ќе предизвика панелот повторно да се покаже.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="y_centered">
+						<local_schema short_desc="Центрирај го панелот на y-оската.">
+							<longdesc>Ако е вистинито тогаш поставувањата за y и y_bottom_keys ќе бидат одбегнати и панелот ќе биде сместен нацентарот на оската y на екранот. Доколку големината на панелот е променета тој ќе остане на таа позиција - појаснето. панелот ќе се рашири од двете страни. Ако е невистинито тогаш поставувањата за y и y y_bottom_keys  ќе ја одредат локацијата на панелот.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="x_centered">
+						<local_schema short_desc="Центрирај го панелот на х-оската">
+							<longdesc>Ако е штиклирано тогаш поставувањата за x и x_right_keys ќе бидат одбегнати и панелот ќе биде сместен на центарот на x-оската на екранот. Доколку големината на панелот е променета тој ќе остане на таа позиција - појаснето. панелот ќе се рашири од двете страни. Ако е исклучено тогаш поставувањата за х у x_right_keys ќе ја одредат локацијата на панелот.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="y_bottom">
+						<local_schema short_desc="Y координата на панелот, почнувајќи од дното на екранот">
+							<longdesc>Локацијата на панелот на y-оската, почнувајќи од дното на екранот. Ако е поставено на -1, вредноста се игнорира и се користи вредноста на клучот за y. Ако вредноста е поголема од 0, тогаш вредноста на клучот y се игнорира. Овој клуч е релевантен во непроширен режим. Во проширен режим овој клуч се игнорира и панелог е поставен на рабовите на екранот одредено според ориентацијата на клучот.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="x_right">
+						<local_schema short_desc="X координата на панелот, почнувајќи од десната страна на екранот">
+							<longdesc>Локацијата на панелот на x-оската, почнувајќи од дното на екранот. Ако е поставено на -1, вредноста се игнорира и се користи вредноста на клучот за x. Ако вредноста е поголема од 0, тогаш вредноста на клучот x се игнорира. Овој клуч е релевантен во непроширен режим. Во проширен режим овој клуч се игнорира и панелог е поставен на рабовите на екранот одредено според ориентацијата на клучот.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="y">
+						<local_schema short_desc="Y-кординатата на панелот.">
+							<longdesc>Локацијата на панелите покрај -оската. Оваа вредност има значење само во во не проширениот режим. Во проширениот режим вредноста е игнорирана и панеот е сместен во работ на екранот индицирано по орентацијата.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="x">
+						<local_schema short_desc="Х-кординатата на панелот">
+							<longdesc>Локацијата на панелите покрај х-оската. Оваа вредност има значење само во во не проширениот режим. Во проширениот режим вредноста е игнорирана и панеот е сместен во работ на екранот индицирано по орентацијата.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size">
+						<local_schema short_desc="Големина на панелот">
+							<longdesc>Висината (ширината за вертикален панел) на панелот. Панелот ќе одреди за време на работа минималната големина базирана на предната големина и други индикатори. Максималната големина е заклучена на една четвртина од висината на екранот (или ширина).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="orientation">
+						<local_schema short_desc="Ориентација на панелот">
+							<longdesc>Положба на панелот. Има четери можни вредности; &quot;врв&quot;, &quot;дно&quot;, &quot;лево&quot;, &quot;десно&quot;. Во проширениот режим вредноста специфира кој екрански раб на панелот е вклучен. Во не-проширениот режим разликите меѓу &quot;врв&quot; и &quot;дно&quot; е помалу важна - и двете  индицираат дека ова е хоризонтален панел  - но сеуште даваат корисна помош за однесувањето на панелите. На пример, на &quot;врв&quot; мени ќе излезе.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand">
+						<local_schema short_desc="Прошири низ целиот екран.">
+							<longdesc>Ако е точно тогаш панелот да ја завземе цела ширина на еранот (висина ако е вертикален панел). Во овој режим панелот може само да биде сместен на работ од екранот. Доколку е невистинито тогаш панелотќе биде доволно голем да ги смести аплетите, вклучувачите и копчињата на панелот.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="monitor">
+						<local_schema short_desc="Xinerama мониторот каде што е прикажан панелот">
+							<longdesc>Во Xinerama подесувањето, можно е да ги имате панелите посебно на секој монитор. Ова копче го индентификува тековниот монитор на кој е прикажан панелот.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="screen">
+						<local_schema short_desc="X екран каде што е прикажан панелот">
+							<longdesc>Со повеќе екранско подесување можно е да има панели на секој екран. Ова копче ги индетификува тековнио екран на кој панелот е прикажан.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name">
+						<local_schema short_desc="Име по кое ќе се распознава овој панел.">
+							<longdesc>Ова е читливо име од кое може да се препознае панел. Неговата главна намена е да служи како прозорец наслов на панел кој е корисен кога се преминува од еден во друг.</longdesc>
+						</local_schema>
+					</entry>
+					<dir name="background">
+						<entry name="rotate">
+							<local_schema short_desc="Ротирај ја сликата на вертикалниот панел">
+								<longdesc>Ако е точно, позадинската слика ќе биде ротирана ако ориентацијата на панелот е вертикална.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="stretch">
+							<local_schema short_desc="Рашири ја сликата низ панелот">
+								<longdesc>Ако е вистинито сликата ќе биде прилагодена со големината напанелот. Односот на сликата нема да биде одржан.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="fit">
+							<local_schema short_desc="Принуди ја сликата да одговара на панелот">
+								<longdesc>Ако е точно, сликата ќе биде прилагодена (одржувајќи го односот на сликата) на на висината на панелот (ако е хоризонтално).</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="image">
+							<local_schema short_desc="Позадинска слика">
+								<longdesc>Ја одредува датотеката која ќе биде користена како слика за позадина. Ако сликата содржи алфа канал ќе биде склопена на сликата на работната површина.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="opacity">
+							<local_schema short_desc="Густината на боја на позадина.">
+								<longdesc>Ја одредува густината на бојата на позадинската боја. Ако бојата не целосно матна (вредност помала од 65535), бојата ќе биде склопена на сликата на работната површина</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="color">
+							<local_schema short_desc="Боја на позадина">
+								<longdesc>Ја одредува бојата на позадината од #RGB палетата.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="type">
+							<local_schema short_desc="Тип на позадина">
+								<longdesc>Кој на позадина би требало да биде користен за овој панел. Има 3 можни вредности; &quot;gtk&quot;, стандарната GTK+ елемент позадиан ќе се користи, &quot;боја&quot;, параметрите на бојата ќе се користат како позадинска боја или &quot;слика&quot;, специфираната сликата во параметрите на сликата ќе се користи како позадина.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="general">
+					<entry name="profiles_migrated">
+						<local_schema short_desc="Конфигурацијата од старите профили е мигрирана">
+							<longdesc>Boolean знаменце кое што индицира дали претходната конфигурација на корисникот во /apps/panel/profiles/default е ископирана на новата локација во /apps/panel.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="object_id_list">
+						<local_schema short_desc="Листа со идентификации на панел објекти">
+							<longdesc>Листа со ID-а на панел објекти. Секоj ID идентификува посебен панел објект(на пр. подигнувач, копче за акција, копче за мени). Поставувањата на секој од објекти се чуваат во /apps/panel/general/$(profile)/objects/$(id).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="applet_id_list">
+						<local_schema short_desc="Панел аплет листа за идентификација">
+							<longdesc>Листа со ID-а на панел аплети. Секоj ID идентификува посебен панел аплет. Поставувањата на секој од аплетите се чуваат во /apps/panel/general/$(profile)/applets/$(id).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toplevel_id_list">
+						<local_schema short_desc="Панел листа за идентификација">
+							<longdesc>Листа со ID-а на панели. Секоj ID идентификува панел на највисокото ниво. Поставувањата на секој од панелите се чуваат во /apps/panel/general/$(profile)/toplevels/$(id).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_autocompletion">
+						<local_schema short_desc="Овозможете автоматско комплетирање во дијалогот „Изврши апликација“">
+							<longdesc>Ако е точно, автоматското комплетирање во дијалогот „Изврши апликација“ ќе биде достапно.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_program_list">
+						<local_schema short_desc="Рашири ја листата на програми во дијалогот &quot;„Стартувај програма“&quot;">
+							<longdesc>Ако е точно, &quot;листата познати програми&quot; во дијалогот &quot;Изврши апликација&quot; е отворена при отворање на дијалогот. Ова поДали листата ќе биде отворена или не зависи од тоа дали приказот на дијалогот е контролоран од show_program_list_settings. Апликации во изврши програм дијалог програма.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_program_list">
+						<local_schema short_desc="Овозможете ја листата на програми во дијалогот &quot;Изврши апликација&quot;">
+							<longdesc>Ако е точно,листата познати програми во дијалогот &quot;Изврши апликација&quot; е достапна. Дали листата ќе биде отворена или не зависи од тоа дали приказот на дијалогот е контролоран од show_program_list_settings.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="global">
+					<entry name="disable_force_quit">
+						<local_schema short_desc="Оневозможи присилен излез">
+							<longdesc>Ако е точно, панелот нема да му дозволи на корисникот да форсира исклучување на апликација со отстранување на пристапот до копчето за форсирање.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_log_out">
+						<local_schema short_desc="Оневозможи одјава">
+							<longdesc>Ако е точно, панелот нема да му дозволи на корисникот да се одјави со отстранување на пристапот до записите на менито за одјава.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_lock_screen">
+						<local_schema short_desc="Заостанато">
+						</local_schema>
+					</entry>
+					<entry name="disabled_applets">
+						<local_schema short_desc="ID на аплети кои што треба да бидат оневозможени при вчитување">
+							<longdesc>Листа на IID кои што ќе ги игнорира панелот. На овој начин можете да спречите одредени аплети да бидат вчитани или прикажани во менито. На пример, за да го оневозможите аплетот mini-commander, додадете &apos;OAFIID:GNOME_MiniCommanderApplet&apos; на листата. Панелот мора да се рестартира за да се применат промените.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="locked_down">
+						<local_schema short_desc="Целосно заклучување на панелот">
+							<longdesc>Ако е точно, панелот нема да дозволува никакви промени во неговата конфигурација.Како и да е, индивидуалните аплети можеби ќе мораат да бидат заклучувани посебно. За да работи ова, прво морате да го рестартирате панелот.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="highlight_launchers_on_mouseover">
+						<local_schema short_desc="Осветлени пуштачи со глушецот врз нив">
+							<longdesc>Ако е точно, пуштачот е осветлен кога корисникот ќе ја донесе стрелката врз него.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="confirm_panel_remove">
+						<local_schema short_desc="Потврди го отстранувањето на панелот">
+							<longdesc>Ако е точно, се покажува дијалог кој бара потврда за отстранување на панелот.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="drawer_autoclose">
+						<local_schema short_desc="Фиока што се затвора автоматски">
+							<longdesc>Ако е точно, фиоката ќе се затвори автоматски кога корисникот ќе кликне врз неа.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="window_screenshot_key">
+						<local_schema short_desc="Заостанато">
+						</local_schema>
+					</entry>
+					<entry name="screenshot_key">
+						<local_schema short_desc="Заостанато">
+						</local_schema>
+					</entry>
+					<entry name="run_key">
+						<local_schema short_desc="Заостанато">
+						</local_schema>
+					</entry>
+					<entry name="menu_key">
+						<local_schema short_desc="Заостанато">
+						</local_schema>
+					</entry>
+					<entry name="enable_key_bindings">
+						<local_schema short_desc="Заостанато">
+						</local_schema>
+					</entry>
+					<entry name="panel_hide_delay">
+						<local_schema short_desc="Заостанато">
+						</local_schema>
+					</entry>
+					<entry name="panel_animation_speed">
+						<local_schema short_desc="Заостанато">
+						</local_schema>
+					</entry>
+					<entry name="panel_show_delay">
+						<local_schema short_desc="Заостанато">
+						</local_schema>
+					</entry>
+					<entry name="panel_minimized_size">
+						<local_schema short_desc="Заостанато">
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="Вклучи анимација.">
+						</local_schema>
+					</entry>
+					<entry name="keep_menus_in_memory">
+						<local_schema short_desc="Заостанато">
+						</local_schema>
+					</entry>
+					<entry name="tooltips_enabled">
+						<local_schema short_desc="Овозможи совети">
+							<longdesc>Ако е точно, советите се прикажуваат како објекти на панелот.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gweather">
+				<dir name="prefs">
+					<entry name="radar">
+						<local_schema short_desc="Адреса за радарската мапа">
+							<longdesc>Сопствената адреса за добивање на радарската мапа.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_custom_radar_url">
+						<local_schema short_desc="Користи сопствена адреса за радарската мапа">
+							<longdesc>Доколку е вклучено тогаш собирај ја радарската мапа од локацијата одредена во копчето „радар“.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="coordinates">
+						<local_schema short_desc="Координати на локацијата">
+						</local_schema>
+					</entry>
+					<entry name="location4">
+						<local_schema short_desc="Време за градот">
+						</local_schema>
+					</entry>
+					<entry name="location3">
+						<local_schema short_desc="Локација на радар">
+						</local_schema>
+					</entry>
+					<entry name="location2">
+						<local_schema short_desc="Зона на локација">
+						</local_schema>
+					</entry>
+					<entry name="location1">
+						<local_schema short_desc="Град во близина">
+						</local_schema>
+					</entry>
+					<entry name="location0">
+						<local_schema short_desc="Информации за локацијата и временските услови.">
+						</local_schema>
+					</entry>
+					<entry name="enable_radar_map">
+						<local_schema short_desc="Прикажи радарска мапа">
+							<longdesc>Земи радарска мапа на секое ажурирање.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_detailed_forecast">
+						<local_schema short_desc="Не се користи повеќе">
+						</local_schema>
+					</entry>
+					<entry name="temperature_unit">
+						<local_schema short_desc="Единица мерка за температура">
+							<longdesc>Единица мерка за температурата.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="speed_unit">
+						<local_schema short_desc="Единица мерка за брзина">
+							<longdesc>Единица мерка за брзина на ветерот.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="pressure_unit">
+						<local_schema short_desc="Единица мерка за притисок">
+							<longdesc>Единица мерка за притисок.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="distance_unit">
+						<local_schema short_desc="Единица за далечина">
+							<longdesc>Единица мерка за видливост.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_metric">
+						<local_schema short_desc="Користи _метрички единици">
+							<longdesc>Користи метрички единици мерки.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_update_interval">
+						<local_schema short_desc="Ажурирај интервал">
+							<longdesc>Интервалот помеѓу автоматските ажурирања, во секунди.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_update">
+						<local_schema short_desc="Ажурирај ги податоците автоматски">
+							<longdesc>Одлучува дали аплетот автоматски ќе ги ажурира сопствените статистики за време или не.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnome-keyring">
+				<dir name="daemon-components">
+					<entry name="ssh">
+						<local_schema short_desc="Дали е вклучен SSH агентот за gnome-keyring.">
+							<longdesc>Оваа опција го вклучува SSH агентот во gnome-keyring даемонот. Се применува само кога при подигнувањето на даемонот за gnome-keyring, (пр. кога се најавува корисник). Ова поставување може да се избегне со додавање на одредени команди преку командната линија.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="pkcs11">
+						<local_schema short_desc="Дали е вклучена компонетата PKCS#11 за gnome-keyring.">
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnumeric">
+				<dir name="plugin">
+					<dir name="latex">
+						<entry name="use-utf8">
+							<local_schema short_desc="Користи UTF-8 подршка при извозот во LaTeX">
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="core">
+					<dir name="file">
+						<dir name="save">
+							<entry name="def-overwrite">
+								<local_schema short_desc="Стандардно за запишување над датотеки">
+								</local_schema>
+							</entry>
+						</dir>
+					</dir>
+					<dir name="xml">
+						<entry name="compression-level">
+							<local_schema short_desc="Стандардно ниво на компресија за Gnumeric датотеките">
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="gui">
+						<dir name="window">
+							<entry name="zoom">
+								<local_schema short_desc="Стандарден фактор на зумирање">
+								</local_schema>
+							</entry>
+							<entry name="y">
+								<local_schema short_desc="Стандардна вертикална големина на прозорец">
+								</local_schema>
+							</entry>
+							<entry name="x">
+								<local_schema short_desc="Стандардна хоризонтална големина на прозорец">
+								</local_schema>
+							</entry>
+						</dir>
+						<dir name="editing">
+							<entry name="autocomplete">
+								<local_schema short_desc="Автоматско довршување">
+								</local_schema>
+							</entry>
+						</dir>
+					</dir>
+					<dir name="workbook">
+						<entry name="n-sheet">
+							<local_schema short_desc="Стандарден број на листови">
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="defaultfont">
+						<entry name="italic">
+							<local_schema short_desc="Стандардниот фонт е курзив.">
+							</local_schema>
+						</entry>
+						<entry name="bold">
+							<local_schema short_desc="Стандардниот фонт е задебелен.">
+							</local_schema>
+						</entry>
+						<entry name="name">
+							<local_schema short_desc="Име на стандардниот фонт">
+								<longdesc>Стандардното име на фонтот за новите работни книги.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="size">
+							<local_schema short_desc="Стандардна големина на фонтот">
+								<longdesc>Стандардната големина на фонтовите за новите работни книги.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="undo">
+					<entry name="max_descriptor_width">
+						<local_schema short_desc="Должина на опишувачите за отповикување">
+						</local_schema>
+					</entry>
+					<entry name="maxnum">
+						<local_schema short_desc="Број на отповикливи предмети">
+						</local_schema>
+					</entry>
+					<entry name="size">
+						<local_schema short_desc="Максимална големина на отповикувања">
+						</local_schema>
+					</entry>
+					<entry name="show_sheet_name">
+						<local_schema short_desc="Прикажи го името на листот во листата за отповикување">
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="dialogs">
+					<dir name="rs">
+						<entry name="unfocused">
+							<local_schema short_desc="Дозволи избор на нефокусиран опсег">
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="printsetup">
+					<entry name="print-titles">
+						<local_schema short_desc="Стандарден наслов за печатење">
+						</local_schema>
+					</entry>
+					<entry name="footer">
+						<local_schema short_desc="Подножје на страницата">
+						</local_schema>
+					</entry>
+					<entry name="header">
+						<local_schema short_desc="Заглавие на страницата">
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="functionselector">
+					<entry name="num-of-recent">
+						<local_schema short_desc="Максимална должина на листата на скоро користени функции">
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="evince">
+				<entry name="override_restrictions">
+					<local_schema short_desc="Отстрани ги рестрикциите на документот">
+						<longdesc>Отстрани ги рестрикциите на документите, како рестрикциите за копирање или печатење</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+		</dir>
+		<dir name="desktop">
+			<dir name="gnome">
+				<dir name="interface">
+					<entry name="show_unicode_menu">
+						<local_schema short_desc="Покажи го менито  за „Контрола на Јуникод знаци“">
+							<longdesc>Дали контекстните менија на записи и прегледи на текст треба да нудат внесување на контролни знаци.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_input_method_menu">
+						<local_schema short_desc="Покажи го менито со  „Методи за запис“">
+							<longdesc>Дали контекстните менија на записи и прегледи на текст треба да нудат менување на методот на запис.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menubar_accel">
+						<local_schema short_desc="Забрзувач на менито">
+							<longdesc>Кратенка на тастатурата за отворање на лентите со менија.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="file_chooser_backend">
+						<local_schema short_desc="Модул за GtkFileChooser">
+							<longdesc>Модул кој што ќе се користи како модел на датотечниот систем за виџетот GtkFileChooser. Можни вредности се „gio“, „gnome-vfs“ и „gtk+“.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="status_bar_meter_on_right">
+						<local_schema short_desc="Статусната линија на десно">
+							<longdesc>Дали да се прикаже мерачот на статусната линија на десната страна.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_custom_font">
+						<local_schema short_desc="Користи сопствен фонт">
+							<longdesc>Дали да се користи сопствен фонт за gtk+ апликации.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="monospace_font_name">
+						<local_schema short_desc="Monospace">
+							<longdesc>Името на monospace фонтот за користење на локации како што се терминалите.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="document_font_name">
+						<local_schema short_desc="Фонт за документот">
+							<longdesc>Име на стандардниот фонт користен за читање на документи.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk-im-module">
+						<local_schema short_desc="GTK IM модул">
+							<longdesc>Име на GTK+ методот на внесување gtk+ користи Status Style.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk-im-status-style">
+						<local_schema short_desc="GTK IM Status Style">
+							<longdesc>Име на GTK+ методот на внесување gtk+ користи Status Style</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk-im-preedit-style">
+						<local_schema short_desc="GTK IM Preedit Style">
+							<longdesc>Име на GTK+ методот на внесување gtk+ користи Preedit Style</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="font_name">
+						<local_schema short_desc="Стандарден фонт">
+							<longdesc>Име на стандардниот фонт користен од gtk+</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk_key_theme">
+						<local_schema short_desc="Gtk+ Тема">
+							<longdesc>Основно име на стандардната тема користена од gtk+.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk_theme">
+						<local_schema short_desc="Gtk+ Тема">
+							<longdesc>Основно име на стандардната тема користена од gtk+.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="icon_theme">
+						<local_schema short_desc="Тема за инкони">
+							<longdesc>Тема на икони за да се користи зза панелот, nautilus итн</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="cursor_blink_time">
+						<local_schema short_desc="Време на трепкање на покажувачот">
+							<longdesc>Должина на циклусот на трепкање на покажувачот во милисекунди.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="cursor_blink">
+						<local_schema short_desc="Трепкање на покажувачот">
+							<longdesc>Дали покажувачот треба да трепка.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_icons_size">
+						<local_schema short_desc="Големина на иконите од лентата со алатки">
+							<longdesc>Големина на иконите во лентите со алатки, и на „мали ленти со алатки“ и на „големи ленти со алатки“.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_detachable">
+						<local_schema short_desc="Лентата со алатки може да се откачи">
+							<longdesc>Дали корисникот може да ги откачува и движи лентите со алатки.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menubar_detachable">
+						<local_schema short_desc="Менито може да се откачи">
+							<longdesc>Дали корисникот може да ги откачува и движи менијата.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menus_have_icons">
+						<local_schema short_desc="Менијата имаат икони">
+							<longdesc>Дали да се прикажува икона до текстот на елементите од менито.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_style">
+						<local_schema short_desc="Стил на лентата со алатки">
+							<longdesc>Стил на лентата со алатки. Валидни вредности се &quot;both&quot;, &quot;both-horiz&quot;, &quot;icons&quot;, и &quot;text&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="can_change_accels">
+						<local_schema short_desc="Moже да се менуваат забрзувачите">
+							<longdesc>Дали корисникот може динамички да внесе нов забрзувач кога е позициониран над активен предмет од менито.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menus_have_tearoff">
+						<local_schema short_desc="Менијата можат да се откачат">
+							<longdesc>Дали менијата можат да се откачат.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="Овозможи анимации">
+							<longdesc>Дали треба да се прикажуваат анимациите. Ова е глобално поставување и ќе го смени изгледот на управувачот со прозорци, панелот итн.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="accessibility">
+						<local_schema short_desc="Дозволи пристапност">
+							<longdesc>Дали апликациите треба да подржуваат пристапност.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="background">
+					<entry name="color_shading_type">
+						<local_schema short_desc="Тип на затемнување на боја">
+							<longdesc>Како да се затемни бојата за позадината. Можни вредности се &quot;horizontal-gradient&quot;, &quot;vertical-gradient&quot;, и &quot;solid&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="secondary_color">
+						<local_schema short_desc="Секундарна Боја">
+							<longdesc>Десна или долна боја при цртање на градиенти, не се користи за полна боја.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="primary_color">
+						<local_schema short_desc="Примарна Боја">
+							<longdesc>Лева или горна боја при цртање на градиенти или полна боја.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="picture_opacity">
+						<local_schema short_desc="Затемнетост на слика">
+							<longdesc>Затемнетост со која се исцртува позадинската слика.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="picture_filename">
+						<local_schema short_desc="Датотека за слика">
+							<longdesc>Датотека која се користи за позадинската слика.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="picture_options">
+						<local_schema short_desc="Опции за слика">
+						</local_schema>
+					</entry>
+					<entry name="draw_background">
+						<local_schema short_desc="Исцртај ја позадината на работната површина">
+							<longdesc>Дозволи GNOME да ја исцрта позадината на работната површина.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="thumbnail_cache">
+					<entry name="maximum_size">
+						<local_schema>
+							<longdesc>Максимална големина на сликичињата во кешот, во мегабајти. Поставете -1 за да го исклучите чистењето.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="maximum_age">
+						<local_schema>
+							<longdesc>Максимална старост на сликичиња во кешот, во денови. Поставете -1 за да го исклучите чистењето.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="typing_break">
+					<entry name="enabled">
+						<local_schema short_desc="Дали е овозможено заклучување на тастатурата">
+							<longdesc>Дали е овозможено заклучување на тастатурата.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="allow_postpone">
+						<local_schema short_desc="Дозволи одложување на паузи">
+							<longdesc>Дали може да се одложи екранот на паузата за чекање.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="break_time">
+						<local_schema short_desc="Време за пауза">
+							<longdesc>Број на минути колку што треба да трае паузата за куцање.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="type_time">
+						<local_schema short_desc="Време за куцање">
+							<longdesc>Број на минути за време на куцање пред да започне паузата.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="sound">
+					<entry name="input_feedback_sounds">
+						<local_schema short_desc="Звуци за влезен фидбек">
+							<longdesc>Дали да се пуштаат звуци при влезни настани.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="theme_name">
+						<local_schema short_desc="Име на тема со звуци">
+							<longdesc>XDG тема со звуци што ќе се користи за звучни настани.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="event_sounds">
+						<local_schema short_desc="Звуци за настани">
+							<longdesc>Дали да се пуштаат звуци за корисничките настани.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_esd">
+						<local_schema short_desc="Овозможи ESD">
+							<longdesc>Овозможи звук на подигање на серверот.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="default_mixer_tracks">
+						<local_schema short_desc="Стандардни траки на мискер">
+							<longdesc>Стандардните траки на миксер кои се користат од мултимедијалните поврзувања на копчиња.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="default_mixer_device">
+						<local_schema short_desc="Стандарден уред - миксер">
+							<longdesc>Стандардниот уред за мискање користен од поврзувањето на мултимедијалните копчиња.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="peripherals">
+					<dir name="keyboard">
+						<entry name="remember_numlock_state">
+							<local_schema short_desc="Запамти состојба на NumLock">
+								<longdesc>Кога е штиклирано, GNOME ќе ја памти состојбата на NumLock диодата помеѓу сесии.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bell_custom_file">
+							<local_schema short_desc="Име на датотеката со сопствено ѕвонче за тастатурата">
+								<longdesc>Име на датотеката со звук на ѕвонче за свирење.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bell_mode">
+							<local_schema>
+								<longdesc>можни вредности се &quot;вклучи&quot;, &quot;исклучи&quot; и &quot;сопствено&quot;.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="mouse">
+						<entry name="cursor_size">
+							<local_schema short_desc="Големина на покажувачот">
+								<longdesc>Големина на стрелката одредена од темата за _стрелката.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="cursor_theme">
+							<local_schema short_desc="Тема на покажувачот">
+								<longdesc>Име на тема за стрелка. Се користи само од X сервери кои што поддржуваат Xcursor, како на пр. XFree86.4 и понови верзии.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="cursor_font">
+							<local_schema short_desc="Фонт на покажувачот">
+								<longdesc>Име на фонт за стрелката. Ако не е поставено, се користи стандардниот фонт. Оваа вредност е пренесува на Х серверот на почетокот на секоја сесија така што менувањето за време на сесијата нема да се одрази се до следното најавување.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="locate_pointer">
+							<local_schema short_desc="Најди го покажувачот">
+								<longdesc>Означи ја тековната локација на покажувачот кога Control копчето е притиснато и отпуштено.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="double_click">
+							<local_schema short_desc="Временско растојание помеѓу два клика на глушецот за кое се смета дека е направено двоен клик.">
+								<longdesc>Временско растојание помеѓу два клика на глушецот.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="drag_threshold">
+							<local_schema short_desc="Праг на влечење">
+								<longdesc>Растојани пред повлечи и пушти е почнато.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="motion_threshold">
+							<local_schema short_desc="Праг на движење">
+								<longdesc>Растојание во пиксели кое покажувачот на глушецот мора да го помине пред да почне да се движи. Стандардната системска вредност е -1.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="motion_acceleration">
+							<local_schema short_desc="Единечен клик">
+								<longdesc>Множител за забрзување на покажувачот. Вредноста -1 е системски стандард.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="single_click">
+							<local_schema short_desc="Единечен клик">
+								<longdesc>Единечен клик за отворање на иконите.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="left_handed">
+							<local_schema short_desc="Ориентација на копчињата на глушецот (левак, деснак)">
+								<longdesc>Смени ги левото десното копче на глушецот, за глушецот да го користи левичар.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="lockdown">
+					<entry name="disable_application_handlers">
+						<local_schema short_desc="Исклучи справувачи за URL и MIME типови.">
+							<longdesc>Спречи извршување на справувачот за апликации за било кое URL или MIME тип.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_lock_screen">
+						<local_schema short_desc="Оневозможи заклучување на екранот">
+							<longdesc>Оневозможи го корисникот да го заклучи неговиот екран.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_user_switching">
+						<local_schema short_desc="Оневозможи сменување на корисник">
+							<longdesc>Оневозможи го корисникот да ја смени сметката додека неговата сесија е активна.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_print_setup">
+						<local_schema short_desc="Оневозможи поставување за печатење">
+							<longdesc>Спречи го корисникот да ги менува подесувањата за печатење. На пример, ова ќе го оневозможи пристапот до дијалогот за &quot;Подесувањата за печатење&quot; на сите апликации.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_printing">
+						<local_schema short_desc="Оневозможи печатење">
+							<longdesc>Спречи го корисникот да печати. На пример, ова ќе го спречи пристапот до дијалозите за &quot;Печатење&quot;на сите апликации.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_save_to_disk">
+						<local_schema short_desc="Оневозможи зачувување на датотеки на дискот">
+							<longdesc>Спречи го корисникот да зачувува датотеки на дискот. На пример, ова ќе го оневозможи пристапот до дијалозите &quot;Зачувај како&quot; на сите апликации.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_command_line">
+						<local_schema short_desc="Оневозможи ја командната линија">
+							<longdesc>Спречи го корисникот да пристапува на терминалот или да одредува команда за извршување. На пример, ова ќе го оневозможи пристапот до дијалогот &quot;Изврши апликација&quot;.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="file-views">
+					<entry name="icon_theme">
+						<local_schema short_desc="Датотека со тема за икони">
+							<longdesc>Тема која се копристи за приказ на иконите на датотеките.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="accessibility">
+					<dir name="startup">
+						<entry name="exec_ats">
+							<local_schema short_desc="Подигни апликации за помошните технологии">
+								<longdesc>Листа на апликациите за помошните технологии кои што треба да се подигнуваат кога ќе се најавите во работната околина GNOME.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="keyboard">
+						<entry name="stickykeys_modifier_beep">
+							<local_schema>
+								<longdesc>Свирни кога ќе биде притиснат променувачот.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="stickykeys_two_key_off">
+							<local_schema>
+								<longdesc>Оневозможи ако се стиснат две копчиња одеднаш</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="slowkeys_delay">
+							<local_schema short_desc="Минимален интервал во милисекунди">
+								<longdesc>Не регистрирај притискање на копчиња освен ако копчињата не се држат притиснати @delay милисекунди.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="mousekeys_init_delay">
+							<local_schema short_desc="Почетно доцнење во милисекунди">
+								<longdesc>Колкаво е времето на чекање во милисекунди пред да се вклучат копчињата за движење на глушецот.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="mousekeys_accel_time">
+							<local_schema short_desc="колку долго да се забрзува, во милисекунди">
+								<longdesc>Колку милисекунди се потребни од 0 до максималната брзина.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="mousekeys_max_speed">
+							<local_schema short_desc="Пиксели во секунда">
+								<longdesc>Колку пиксели во секунда да биде поместувањето при максимална брзина.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bouncekeys_delay">
+							<local_schema short_desc="минимален интервал во милисекунди">
+								<longdesc>Игнорај ги повеќекратните притискања на исто копче за @delay милисекунди.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="thumbnailers">
+					<entry name="disable_all">
+						<local_schema short_desc="Оневозможи ги сите надворешни сликички">
+							<longdesc>Поставете го на точно за да ги оневозможите сите надворешни програми за преглед на сликички.</longdesc>
+						</local_schema>
+					</entry>
+					<dir name="application@x-gzpdf">
+						<entry name="command">
+							<local_schema short_desc="Команда за сликички во PDF">
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Вклучи правење на сликичи од PDF документи">
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@x-bzpdf">
+						<entry name="command">
+							<local_schema short_desc="Команда за сликички во PDF">
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Вклучи правење на сликичи од PDF документи">
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@pdf">
+						<entry name="command">
+							<local_schema short_desc="Команда за сликички во PDF">
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Вклучи правење на сликичи од PDF документи">
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="url-handlers">
+					<dir name="ymsgr">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Извршете ја командата во терминал">
+								<longdesc>Точно, ако командата која се употребува за справување со овој тип на URL треба да биде извршена во терминал.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Справувачот за „ymsgr“ URL">
+								<longdesc>Командата која се користи за справување со „ymsgr“ URL, ако тоа е овозможено.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Дали одредената команда треба да се справува со URL на „ymsgr“">
+								<longdesc>Точно, ако командата одредена во клучот „команда“ треба да се справува со „ymsgr“ URL.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="xmpp">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Извршете ја командата во терминал">
+								<longdesc>Точно, ако командата која се употребува за справување со овој тип на URL треба да биде извршена во терминал.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Справувачот за „xmpp“ URL">
+								<longdesc>Командата која се користи за справување со „xmpp“ URL, ако тоа е овозможено.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Дали одредената команда треба да се справува со URL на „xmpp“">
+								<longdesc>Точно, ако командата одредена во клучот „команда“ треба да се справува со „xmpp“ URL.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="sip">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Извршете ја командата во терминал">
+								<longdesc>Точно, ако командата која се употребува за справување со овој тип на URL треба да биде извршена во терминал.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Справувачот за „sip“ URL">
+								<longdesc>Командата која се користи за справување со „sip“ URL, ако тоа е овозможено.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Дали одредената команда треба да се справува со URL на „sip“">
+								<longdesc>Точно, ако командата одредена во клучот „команда“ треба да се справува со „sip“ URL.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="msnim">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Извршете ја командата во терминал">
+								<longdesc>Точно, ако командата која се употребува за справување со овој тип на URL треба да биде извршена во терминал.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Справувачот за „msnim“ URL">
+								<longdesc>Командата која се користи за справување со „msnim“ URL, ако тоа е овозможено.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Дали одредената команда треба да се справува со URL на „msnim“">
+								<longdesc>Точно, ако командата одредена во клучот „команда“ треба да се справува со „msnim“ URL.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="irc">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Извршете ја командата во терминал">
+								<longdesc>Точно, ако командата која се употребува за справување со овој тип на URL треба да биде извршена во терминал.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Справувачот за „im“ URL">
+								<longdesc>Командата која се користи за справување со „irc“ URL, ако тоа е овозможено.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Дали одредената команда треба да се справува со URL на „irc“">
+								<longdesc>Точно, ако командата одредена во клучот „команда“ треба да се справува со „irc“ URL.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="icq">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Извршете ја командата во терминал">
+								<longdesc>Точно, ако командата која се употребува за справување со овој тип на URL треба да биде извршена во терминал.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Справувачот за „icq“ URL">
+								<longdesc>Командата која се користи за справување со „icq“ URL, ако тоа е овозможено.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Дали одредената команда треба да се справува со URL на „icq“">
+								<longdesc>Точно, ако командата одредена во клучот „команда“ треба да се справува со „icq“ URL.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="gg">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Извршете ја командата во терминал">
+								<longdesc>Точно, ако командата која се употребува за справување со овој тип на URL треба да биде извршена во терминал.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Справувачот за „gg“ URL">
+								<longdesc>Командата која се користи за справување со „gg“ URL, ако тоа е овозможено.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Дали одредената команда треба да се справува со URL на „gg“">
+								<longdesc>Точно, ако командата одредена во клучот „команда“ треба да се справува со „gg“ URL.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="h323">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Изврши ја командата во терминал">
+								<longdesc>Точно ако командата која што се користи за справување со овој тип на адреси треба да биде извршена во терминал.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Справувачот за &quot;h323&quot; URL">
+								<longdesc>Ако·е·вклучено,·командата·користена·за·справување·со „h323“ адреси.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Дали наведената команда да се справи со &quot;h323&quot; URL">
+								<longdesc>Точно ако одредената команда во клучот „команда“ треба да се справува со „h323“ адреси.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="callto">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Изврши ја командата во терминал">
+								<longdesc>Точно ако командата која што се користи за справување со овој тип на адреси треба да биде извршена во терминал.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Справувачот за &quot;callto&quot; URL">
+								<longdesc>Ако·е·вклучено,·командата·користена·за·справување·со „callto“ адреси.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Дали наведената команда да се справи со &quot;callto&quot; URL">
+								<longdesc>Точно ако одредената команда во клучот „команда“ треба да се справува со „callto“ адреси.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="aim">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Извршете ја командата во терминал">
+								<longdesc>Точно, ако командата која се употребува за справување со овој тип на URL треба да биде извршена во терминал.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Справувачот за „aim“ URL">
+								<longdesc>Командата користена за справување со &quot;aim&quot; адреси.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Дали одредената команда треба да се справува со URL на „aim“">
+								<longdesc>Точно, ако командата одредена во клучот „команда“ треба да се справува со „aim“ URL.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="mailto">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Изврши ја командата во терминал">
+								<longdesc>Точно ако командата која што се користи за справување со овој тип на адреси треба да биде извршена во терминал.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Справувачот за &quot;mailto&quot; URL">
+								<longdesc>Ако·е·вклучено,·командата·користена·за·справување·со „mailto“ адреси.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Дали наведената команда да се справи со &quot;mailto&quot; URL">
+								<longdesc>Точно ако одредената команда во клучот „команда“ треба да се справува со „mailto“ адреси.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="https">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Изврши ја командата во терминал">
+								<longdesc>Точно ако командата која што се користи за справување со овој тип на адреси треба да биде извршена во терминал.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Справувачот за &quot;https&quot; URL">
+								<longdesc>Ако·е·вклучено,·командата·користена·за·справување·со „https“ адреси.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Дали наведената команда да се справи со &quot;https&quot; URL">
+								<longdesc>Точно ако одредената команда во клучот „команда“ треба да се справува со „https“ адреси.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="http">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Изврши ја командата во терминал">
+								<longdesc>Точно ако командата која што се користи за справување со овој тип на адреси треба да биде извршена во терминал.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Справувачот за &quot;http&quot; URL">
+								<longdesc>Ако·е·вклучено,·командата·користена·за·справување·со „http“ адреси.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Дали наведената команда да се справи со &quot;http&quot; URL">
+								<longdesc>Точно ако одредената команда во клучот „команда“ треба да се справува со „http“ адреси.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="man">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Изврши ја командата во терминал">
+								<longdesc>Точно ако командата која што се користи за справување со овој тип на адреси треба да биде извршена во терминал.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Справувачот за &quot;man&quot; URL">
+								<longdesc>Ако·е·вклучено,·командата·користена·за·справување·со „man“ адреси.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Дали наведената команда да се справи со &quot;man&quot; URL">
+								<longdesc>Точно ако одредената команда во клучот „команда“ треба да се справува со „man“ адреси.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="info">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Изврши ја командата во терминал">
+								<longdesc>Точно ако командата која што се користи за справување со овој тип на адреси треба да биде извршена во терминал.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Справувачот за &quot;info&quot; URL">
+								<longdesc>Ако·е·вклучено,·командата·користена·за·справување·со „info“ адреси.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Дали наведената команда да се справи со &quot;info&quot; URL">
+								<longdesc>Точно ако одредената команда во клучот „команда“ треба да се справува со „info“ адреси.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="ghelp">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Изврши ја командата во терминал">
+								<longdesc>Точно ако командата која што се користи за справување со овој тип на адреси треба да биде извршена во терминал.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Справувачот за &quot;ghelp&quot; URL">
+								<longdesc>Ако·е·вклучено,·командата·користена·за·справување·со „ghelp“ адреси.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Дали наведената команда да се справи со &quot;ghelp&quot; URL">
+								<longdesc>Точно ако одредената команда во клучот „команда“ треба да се справува со „ghelp“ адреси.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="trash">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Изврши ја командата во терминал">
+								<longdesc>Точно ако командата која што се користи за справување со овој тип на адреси треба да биде извршена во терминал.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Справувачот за &quot;trash&quot; URL">
+								<longdesc>Ако·е·вклучено,·командата·користена·за·справување·со „trash“ адреси.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Дали наведената команда да се справи со &quot;trash&quot; URL">
+								<longdesc>Точно ако одредената команда во клучот „команда“ треба да се справува со „trash“ адреси.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="applications">
+					<dir name="tasks">
+						<entry name="needs_term">
+							<local_schema short_desc="Задачите бараат терминал">
+								<longdesc>Дали на стандардната апликација за задачи му треба терминал за да работи</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="Стандардни задачи">
+								<longdesc>Стандардна апликација за задачи</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="calendar">
+						<entry name="needs_term">
+							<local_schema short_desc="Календарот бара терминал">
+								<longdesc>Дали на стандардниот календар му треба терминал за да работи</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="Стандарден календар">
+								<longdesc>Стандардна апликација за календар</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="window_manager">
+						<entry name="workspace_names">
+							<local_schema short_desc="Имиња на работните простори (заостанато)">
+								<longdesc>Листа со имиња на работните простори на првиот управувач со прозорци. Ова копче е заостанато од GNOME 2.12.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="number_of_workspaces">
+							<local_schema short_desc="Број на работните простори (заостанато)">
+								<longdesc>Број на работните простори кои ги користи менаџерот на прозорци. Ова копче е заостанато од GNOME 2.12.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="current">
+							<local_schema short_desc="Кориснички менаџер на прозорци (заостанато)">
+								<longdesc>Менаџер на прозорци за прва употреба. Ова копче е заостанато од GNOME 2.12.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="default">
+							<local_schema short_desc="Враќачки менаџер на прозорци (заостанат)">
+								<longdesc>Враќачки менаџер на прозорци ако ако не може да биде пронајден корисничкиот менаџер на прозорци. Ова копче е заостанато во GNOME 2.12.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="browser">
+						<entry name="nremote">
+							<local_schema short_desc="Прелистувачот може да се управува далечински">
+								<longdesc>Дали стандардниот пребарувач поддржува netscape оддалечена контрола.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="needs_term">
+							<local_schema short_desc="Прелистувачот бара терминал">
+								<longdesc>Дали на стандардниот прелистувач му треба терминал за да работи.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="Стандарден прелистувач">
+								<longdesc>Стандарден прелистувач сите URL.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="at">
+						<dir name="mobility">
+							<entry name="startup">
+								<local_schema short_desc="Подигни ја реферираната апликација за помошна мобилна технологија">
+									<longdesc>GNOME да ја стартува посакуваната апликација за помошна технологија за мобилност при најава.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="exec">
+								<local_schema short_desc="Преферираната апликација за помошна технологија за мобилност при најава">
+									<longdesc>Преферираната апликација за помошна технологија да биде користена за најава, менија или командна линија.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+						<dir name="visual">
+							<entry name="startup">
+								<local_schema short_desc="Подигни ја преферираната програма за визуелна помошна технологија">
+									<longdesc>GNOME да ја подигне преферираната програма за визуелна помошна технологија при најава.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="exec">
+								<local_schema short_desc="Преферираната програма за визуелна помошна технологија">
+									<longdesc>Преферираната програма за визуелна помошна технологија да биде користена за најава, мени или командна линија.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+					</dir>
+					<dir name="component_viewer">
+						<entry name="exec">
+							<local_schema short_desc="Стандардна апликација за преглед на содржина">
+								<longdesc>Апликацијата што ќе се користи за преглед на датотеки кои што имаат потреба од компонента за преглед. Параметарот %s ќе биде заменет од страна на URI, параметрот %c ќе биде заменете од IID на компонентата.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="terminal">
+						<entry name="exec_arg">
+							<local_schema short_desc="Аргументи за извршување">
+								<longdesc>Аргумент кој се користи за подигање на програмата во терминал, дефиниран од exec </longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="Апликација за во терминал">
+								<longdesc>Терминал кој се користи при подигање на апликација која бара терминал.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+			</dir>
+		</dir>
+		<dir name="system">
+			<dir name="dns_sd">
+				<entry name="extra_domains">
+					<local_schema short_desc="Екстра домени за пребарување на DNS-SD сервиси">
+						<longdesc>Листа разделена со запирки од DNS-SD домените кои што би требало да се видливи на локацијата „network:///“.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="display_local">
+					<local_schema short_desc="Како да ги прикаже локалните DNS-SD сервиси">
+						<longdesc>Можни вредности се &quot;припоено&quot;, &quot;одделено&quot; и &quot;искулучено&quot;.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="smb">
+				<entry name="workgroup">
+					<local_schema short_desc="SMB работна група">
+						<longdesc>Работната група или доменот на Windows чиј што член е корисникот. Зада биде додаден во нова работна група корисникот може ќе треба да се одјави и повторно да се најави.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="proxy">
+				<entry name="autoconfig_url">
+					<local_schema short_desc="URL за автоматска конфигурација на proxy">
+						<longdesc>URL кое што снабдува вредност за конфигурација на proxy</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="socks_port">
+					<local_schema short_desc="SOCKS proxy порта">
+						<longdesc>Портата на машината дефинирана во &quot;/system/proxy/socks_host&quot; преку која што користите прокси.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="socks_host">
+					<local_schema short_desc="SOCKS proxy име на хост">
+						<longdesc>Името на машината што ќе се користи како прокси.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="ftp_port">
+					<local_schema short_desc="Порта за FTP proxy">
+						<longdesc>Портата на машината дефинирана во &quot;/system/proxy/ftp_host&quot; преку која што користите прокси.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="ftp_host">
+					<local_schema short_desc="Име на хост за FTP proxy">
+						<longdesc>Име на машината преку која се преминува за FTP.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="secure_port">
+					<local_schema short_desc="Безбедена HTTP proxy порта">
+						<longdesc>Портата на машината дефинирана во &quot;/system/proxy/secure_host&quot; преку која што користите прокси.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="secure_host">
+					<local_schema short_desc="Име на хост за безбеден HTTP proxy">
+						<longdesc>Име на машината преку која безбедно се преминува за HTTP.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="mode">
+					<local_schema short_desc="Режим за конфигурирање на proxy">
+						<longdesc>Изберете го режимот за конфигурирање на proxy. Поддржани вредности се &quot;ништо&quot;, &quot;рачно&quot;, &quot;автоматски&quot;.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="http_proxy">
+				<entry name="ignore_hosts">
+					<local_schema short_desc="Хостови без proxy">
+						<longdesc>Копчето содржи листа на хостови кои што се врзани директно наместо прекупрокси (доколку е активно). Вредностите можат да бидат имиња на хостови, домени (со користење на некој знак како на пример *.foo.com), IP адреси на хостови (вклучувајќи IPv4 и IPv6) и мрежни адреси со маски (нешто како 192.168.0.0/24).</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="authentication_password">
+					<local_schema short_desc="Лозинка за HTTP proxy">
+						<longdesc>Лозинка за преминување на автентикацијата кога се работи преку HTTP proxy.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="authentication_user">
+					<local_schema short_desc="Корисничко име за HTTP proxy">
+						<longdesc>Корисничко име и лозинка за проверка кога користите HTTP прокси.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="use_authentication">
+					<local_schema short_desc="Барај proxy автентикација за врските до серверот">
+						<longdesc>Ако е точно, тогаш врските до proxy серверот бараат проверка. Корисничкото име и лозинката дефинирани од страна на „/system/http_proxy/authentication_user“ и „/system/http_proxy/authentication_password“.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="port">
+					<local_schema short_desc="Порта за HTTP proxy">
+						<longdesc>Портата на машината дефинирана во &quot;/system/http_proxy/host&quot; преку која што користите прокси.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="host">
+					<local_schema short_desc="Име на хост за HTTP proxy">
+						<longdesc>Име на машината преку која се преминува за HTTP.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="use_http_proxy">
+					<local_schema short_desc="Користи HTTP proxy">
+						<longdesc>Ги вклучува подесувањата за proxy кога се пристапува на HTTP преку Интернет.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+		</dir>
+	</dir>
+</gconf>

@@ -1,0 +1,101 @@
+#!/static/bin/ash	
+
+PATH=/bin:/sbin:/usr/bin:/usr/sbin:/static/bin:/static/sbin
+		
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors		
+		
+		# /usr/bin/xterm &
+		setxkbmap -rules xorg -model pc105 -layout "$xkbmap"
+		
+# Change some firefox settings according to language
+if [ "$lang" = "pl" ] ; then
+	if [ -f /home/surfer/.mozilla/firefox/kqe39h9l.default/polish_mod ]; then
+		echo "Polish files already copied"
+	else
+		mv /home/surfer/.mozilla/firefox/kqe39h9l.default /home/surfer/.mozilla/firefox/kqe39h9l.default.de
+		mv /home/surfer/.mozilla/firefox/kqe39h9l.default.pl /home/surfer/.mozilla/firefox/kqe39h9l.default
+		touch /home/surfer/.mozilla/firefox/kqe39h9l.default/polish_mod
+	fi
+else	
+	rm -rf /home/surfer/.mozilla/firefox/kqe39h9l.default.pl
+fi	
+		
+		# replace old path for background file on COMPUTERBILD edition
+		sed -i 's/\/etc\/lesslinux\/branding\/computerbild\/desktop-cb-20090707\.jpg/\/etc\/lesslinux\/branding\/desktop.jpg/' /home/surfer/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml
+		# Replace old version path in Thunderbirds desktop icon
+		sed -i 's/-2\.0\.0\.22//g' /home/surfer/Desktop/020_thunderbird.desktop
+		sed -i 's/-2\.0\.0\.22//g' /home/surfer/.config/xfce4/panel/launcher-12473156652.rc
+		sed -i 's/\/opt\/firefox\/lib/\/opt\/firefox35\/lib/g' /home/surfer/.config/xfce4/panel/launcher-10.rc
+		sed -i 's/\/opt\/firefox\/lib/\/opt\/firefox35\/lib/g' /home/surfer/Desktop/010_firefox.desktop
+		
+		if mount | grep '/home' | grep '/dev/mapper' ; then
+			echo '/home seems to be on container, no need to delete Thunderbird'
+		else
+			echo '/home does not seem to be on container, deleting Thunderbird'
+			rm /home/surfer/Desktop/020_thunderbird.desktop
+			rm /home/surfer/.config/xfce4/panel/launcher-12473156652.rc
+			sed -i 's/<item name="launcher" id="12473156652"\/>/<!-- weg damit -->/g' /home/surfer/.config/xfce4/panel/panels.xml
+			if [ -f /etc/lesslinux/surfer.hash ] ; then
+			    echo 'Hash for surfer exists, keeping mount tools'
+			elif [ "$laxsudo" '!=' 1 ] ; then
+			    echo 'Hash for surfer missing, deleting mount tools'
+			    rm /home/surfer/Desktop/030_mmmm.desktop
+			    rm /home/surfer/.config/xfce4/panel/launcher-12473151760.rc
+			    mv /home/surfer/.config/xfce4/panel/launcher-9.rc /home/surfer/.config/xfce4/panel/launcher-9.bak
+			    cat /home/surfer/.config/xfce4/panel/launcher-9.bak | head -n 13 > /home/surfer/.config/xfce4/panel/launcher-9.rc
+			    sed -i 's/<item name="launcher" id="12473151760"\/>/<!-- weg damit -->/g' /home/surfer/.config/xfce4/panel/panels.xml
+			fi
+		fi
+		
+# Lets take a look at Kasperskys expiration date
+today=` date +%Y%m%d `
+expir=20101130
+
+if [ "$today" -gt "$expir" -o "$lang" = "pl" ] && grep 'Name=Kaspersky' /home/surfer/Desktop/030_kaspersky.desktop ; then
+	sed -i 's/Name=Kaspersky/Name=ClamAV/g' /home/surfer/Desktop/030_kaspersky.desktop
+	sed -i 's/Exec=run-kaspersky-gui.sh/Exec=avfrontend-clamav.sh/g' /home/surfer/Desktop/030_kaspersky.desktop
+fi
+
+# Delete the PDFs on Polish builds
+if [ -d "/home/surfer/Desktop/Anleitungen" ] && [ "$lang" = "pl" ] ; then
+	rm -rf "/home/surfer/Desktop/Anleitungen"
+fi
+		
+# Replace changed wicd icon path
+sed -i 's/=wicd-client/=wicd-gtk/g' /home/surfer/Desktop/005_wicd.desktop		
+
+# Add an icon for the LessLinux web page
+
+if [ -f /home/surfer/.lesslinux/lesslinux_link_created ] ; then
+    echo 'LessLinux Link already exists'
+else
+cat >> /home/surfer/Desktop/lesslinux.desktop << LLWWW
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Type=Application
+Name=LessLinux
+Comment=Visit the LessLinux website
+Comment[de]=Zur LessLinux-Webseite
+Categories=Application;
+Exec=/usr/bin/firefox http://www.lesslinux.de/ 
+Icon=www
+Terminal=false
+StartupNotify=true
+
+
+LLWWW
+    mkdir /home/surfer/.lesslinux
+    touch /home/surfer/.lesslinux/lesslinux_link_created
+fi
+
+# Temporary fixes!
+		
+[ -f /home/surfer/.config/Trolltech.conf ] || cp /etc/lesslinux/branding/misc/Trolltech.conf /home/surfer/.config/
+
+setxkbmap -rules xorg -model pc105 -layout "$xkbmap"
+/usr/bin/xfce4-session
+		
+		

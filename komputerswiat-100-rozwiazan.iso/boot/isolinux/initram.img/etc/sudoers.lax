@@ -1,0 +1,44 @@
+
+# LESSLINUX minimal configuration for sudo
+Defaults		timestamp_timeout=0
+Defaults env_reset
+
+# User privilege specification
+root    ALL=(ALL) ALL
+
+# All users might shutdown, reboot or poweroff without password
+ALL 	ALL = NOPASSWD: /sbin/shutdown,\
+	/sbin/halt,\
+	/sbin/poweroff,\
+	/sbin/reboot,\
+	/usr/libexec/xfsm-shutdown-helper
+# All users might unmount all filesystems without password
+ALL	ALL = NOPASSWD: /bin/umount
+# All users might run lshw without password
+ALL	ALL = NOPASSWD: /usr/sbin/lshw-static
+# surfer might mount all filesystems
+surfer  ALL = NOPASSWD: /bin/mount
+surfer  ALL = NOPASSWD: /usr/sbin/mount.cifs
+# surfer might make directories
+surfer  ALL = NOPASSWD: /bin/mkdir
+# surfer might refresh the device tree
+surfer  ALL = NOPASSWD: /sbin/mdev
+# surfer might start/stop the SSH daemon
+surfer  ALL = NOPASSWD: /etc/rc.d/0600-openssh.sh
+# All users might update ClamAVs signatures
+ALL	ALL = NOPASSWD: /opt/sbin/clam_update
+# surfer might trigger the firefox and thunderbird wrappers
+# without password
+surfer  ALL = NOPASSWD: /opt/firefox/bin/firefox_smack
+surfer  ALL = NOPASSWD: /opt/firefox35/bin/firefox_smack
+# surfer might trigger updates, but this needs a password
+surfer  ALL = NOPASSWD: /etc/lesslinux/updater/updater.sh
+# surfer might switch softlinks for ff addon installation
+# not necessary, do it with directory ownership
+# surfer  ALL = NOPASSWD: /usr/bin/ll_ff_allow_install,\
+#	/usr/bin/ll_ff_prevent_install
+##### THIS IS DANGEROUS
+surfer  ALL = NOPASSWD: /usr/bin/passwd
+surfer  ALL = NOPASSWD: /usr/bin/Terminal
+surfer  ALL = NOPASSWD: /usr/bin/Thunar
+#  The end	

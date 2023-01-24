@@ -1,0 +1,180 @@
+# extract bootparameters
+
+# FIXME: This script should just contain the extraction of variables needed
+# for more than one bootscript! All others should be extracted in the
+# respective script! (Mattias)
+
+for i in `cat /proc/cmdline`
+do
+   # echo $i
+   case "$i" in
+     skipservices=*)
+	skipservices=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     skipmodules=*)
+	skipmodules=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     loadmodules=*)
+	loadmodules=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     staticnet=*)
+        # |iface|ip|mask|dns|gateway|
+	staticnet=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     hostname=*)
+	hostname=`echo "$i" | awk -F '=' '{print $2}'`
+     ;; 
+     dhcp=*)
+        dhcp=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     verbose=*)
+        verbose=`echo "$i" | awk -F '=' '{print $2}'` 
+     ;;
+     hwenv=*)
+	hwenv=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;	
+     searchiso=*)
+        searchiso=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     contdir=*)
+	contdir=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     dropbearport=*)
+	dropbearport=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     xmode=*)
+	xmode=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     toram=*)
+	toram=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     usbwait=*)
+	usbwait=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     usbsettle=*)
+	usbsettle=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     skipcheck=*)
+	skipcheck=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     hwid=*)
+	hwid=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     sysloglevel=*)
+	auxloglevel=`echo "$i" | awk -F '=' '{print $2}'`
+	if [ "$auxloglevel" -gt 0 ] && [ "$auxloglevel" -lt 9 ] ; then
+            sysloglevel="$auxloglevel"
+        fi
+     ;;
+     halt=*)
+	halt=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     lang=*)
+	lang=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     keymap=*)
+	keymap=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     xkbmap=*)
+	xkbmap=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     ultraquiet=*)
+	ultraquiet=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     tmpsize=*)
+	tmp_tmpsize=`echo "$i" | awk -F '=' '{print $2}'`
+	[ "$tmp_tmpsize" -gt 0 ] 2> /dev/null && tmpsize="$tmp_tmpsize"
+     ;;
+     homesize=*)
+	tmp_homesize=`echo "$i" | awk -F '=' '{print $2}'`
+	[ "$tmp_homesize" -gt 0 ] 2> /dev/null && homesize="$tmp_homesize"
+     ;;
+     security=*)
+	security=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     ejectcdonumass=*)
+	ejectcdonumass=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     ejectcd=*)
+	ejectcd=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     allowsudosu=*)
+        allowsudosu=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     laxsudo=*)
+        laxsudo=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     xorgconf=*)
+	xorgconf=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     xorgscreen=*)
+	xorgscreen=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     xrandr=*)
+	xrandr=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     isoonntfs=*)
+	isoonntfs=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     skipsearch=*)
+        skipsearch=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     debug=*)
+        debug_threshold=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     skipflash=*)
+        skipflash=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     wgetiso=*)
+	wgetiso=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     xvnc=*)
+	xvnc=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     nfs=*)
+	nfs=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     wlan=*)
+	wlan=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     xinitrc=*)
+	xinitrc=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     toramdirs=*) 
+	toramdirs=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+   esac
+done
+
+# Adjust some settings depending each other
+
+if [ -z "$keymap" ] ; then
+	keymap=/lib/kbd/keymaps/i386/qwerty/us.map.gz
+	[ "$lang" = "de" ] && keymap=/lib/kbd/keymaps/i386/qwertz/de-latin1.map.gz
+	[ "$lang" = "en" ] && keymap=/lib/kbd/keymaps/i386/qwerty/us.map.gz
+	[ "$lang" = "es" ] && keymap=/lib/kbd/keymaps/i386/qwerty/es.map.gz
+	[ "$lang" = "us" ] && keymap=/lib/kbd/keymaps/i386/qwerty/us.map.gz
+	[ "$lang" = "uk" ] && keymap=/lib/kbd/keymaps/i386/qwerty/us.map.gz
+	[ "$lang" = "pl" ] && keymap=/lib/kbd/keymaps/i386/qwerty/pl.map.gz
+	[ "$lang" = "ru" ] && keymap=/lib/kbd/keymaps/i386/qwerty/ru.map.gz
+fi
+
+if [ -z "$xkbmap" ] ; then
+	xkbmap=us
+	[ "$lang" = "de" ] && xkbmap=de
+	[ "$lang" = "en" ] && xkbmap=us
+	[ "$lang" = "es" ] && xkbmap=es
+	[ "$lang" = "us" ] && xkbmap=us
+	[ "$lang" = "uk" ] && xkbmap=us
+	[ "$lang" = "pl" ] && xkbmap=pl
+	[ "$lang" = "ru" ] && xkbmap=ru
+fi
+
+[ "$lang" = "de" ] && export LC_ALL=de_DE.UTF-8 && export LANG=de_DE.UTF-8 && export LANGUAGE=de_DE:de
+[ "$lang" = "en" ] && export LC_ALL=en_US.UTF-8	&& export LANG=en_US.UTF-8 && export LANGUAGE=en_US:en_GB:en
+[ "$lang" = "es" ] && export LC_ALL=es_ES.UTF-8	&& export LANG=es_ES.UTF-8 && export LANGUAGE=es_ES:es_MX:es
+[ "$lang" = "uk" ] && export LC_ALL=en_US.UTF-8 && export LANG=en_GB.UTF-8 && export LANGUAGE=en_GB:en_US:en
+[ "$lang" = "pl" ] && export LC_ALL=pl_PL.UTF-8 && export LANG=pl_PL.UTF-8 && export LANGUAGE=pl_PL:pl
+[ "$lang" = "ru" ] && export LC_ALL=ru_RU.UTF-8 && export LANG=ru_RU.UTF-8 && export LANGUAGE=ru_RU:ru
+
+# end extract bootparams

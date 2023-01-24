@@ -1,0 +1,29 @@
+#!/static/bin/ash
+		
+#lesslinux provides smartmon
+#lesslinux license BSD
+#lesslinux description
+# Allow surfer to use gparted
+
+PATH=/static/bin:/static/sbin:/bin:/sbin:/usr/bin:/usr/sbin
+export PATH
+
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors
+
+case $1 in 
+    start)
+	printf "$bold===> Adjusting sudo for SmartMontools $normal\n"
+	echo '' >> /etc/sudoers
+	echo '# added by /etc/rc.d/0510-smartmon.sh' >> /etc/sudoers
+	echo 'surfer  ALL = NOPASSWD: /usr/sbin/smartctl' >> /etc/sudoers
+	echo 'surfer  ALL = NOPASSWD: /usr/sbin/smartd' >> /etc/sudoers
+	printf "$bold===> Enabling SMART $normal\n"
+	for dev in /dev/sd[a-z] ; do
+	    smartctl --smart=on $dev > /dev/null 2>&1
+	done
+    ;;
+esac
+
+		

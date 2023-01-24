@@ -1,0 +1,2273 @@
+<?xml version="1.0"?>
+<gconf>
+	<dir name="schemas">
+		<dir name="apps">
+			<dir name="brasero">
+				<entry name="nautilus-extension-debug">
+					<local_schema short_desc="Slå på feilsøkingsinformasjon fra Nautilus-utvidelser">
+					</local_schema>
+				</entry>
+				<dir name="filter">
+					<entry name="broken_sym">
+						<local_schema short_desc="Skal brasero filtrere bort brutte symbolske lenker">
+						</local_schema>
+					</entry>
+					<entry name="replace_sym">
+						<local_schema short_desc="Erstatt symbolske lenker med mål">
+						</local_schema>
+					</entry>
+					<entry name="hidden">
+						<local_schema short_desc="Skal brasero filtrere skjulte filer">
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="display">
+					<entry name="viewer">
+						<local_schema short_desc="Slå på forhånsvisning av filer">
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="config">
+					<entry name="immed_flag">
+						<local_schema short_desc="Bruk flagget «-immed» med cdrecord">
+						</local_schema>
+					</entry>
+					<entry name="engine-group">
+						<local_schema short_desc="Foretrukket motor for skriving">
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnome-system-log">
+				<entry name="logfiles">
+					<local_schema short_desc="Loggfiler som skal åpnes ved oppstart">
+						<longdesc>Angir en liste av loggfiler som skal åpnes ved oppstart. En forvalgt liste er opprettet ved lesing av /etc/syslog.conf.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="width">
+					<local_schema short_desc="Bredde på hovedvinduet i piksler">
+						<longdesc>Angir bredden på loggvisningsvinduet i piksler.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="height">
+					<local_schema short_desc="Høyde på hovedvinduet i piksler">
+						<longdesc>Angir høyden på loggvisningsvinduet i piksler.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="fontsize">
+					<local_schema short_desc="Størrelse på skrift som brukes for å vise loggen">
+						<longdesc>Angir størrelsen på skrifttypen med fast bredde som brukes for å vise loggfilen i hovedtrevisningen. Forvalg er tatt fra forvalgt størrelse på terminal-skrifttypen.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="logfile">
+					<local_schema short_desc="Loggfil som skal åpnes ved oppstart">
+						<longdesc>Angir loggfilen som skal åpnes ved oppstart. Forvalg er enten /var/adm/messages eller /var/log/messages, avhengig av ditt operativsystem.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="gnome-search-tool">
+				<entry name="look_in_folder">
+					<local_schema short_desc="Se i mappe">
+						<longdesc>Denne nøkkelen definerer forvalgt verdi for komponenten «Se i mappe».</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default_window_maximized">
+					<local_schema short_desc="Forvalgt vindu maksimert">
+						<longdesc>Denne nøkkelen bestemmer om søkeverktøyet skal startes maksimert.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default_window_height">
+					<local_schema short_desc="Standard vindushøyde">
+						<longdesc>Denne nøkkelen definerer høyden på vinduet, og den er brukt til å huske størrelsen på søkevertøyet mellom sesjonenen. Ved å sette den til -1, vil forvalgt bredde brukes.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default_window_width">
+					<local_schema short_desc="Standard vindusbredde">
+						<longdesc>Denne nøkkelen definerer bredden på vinduet, og den er brukt til å huske størrelsen på søkeverktøyet mellom sesjoner. Ved å sette denne til -1, vil forvalgt bredde brukes.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="columns_order">
+					<local_schema short_desc="Rekkefølge for kolonne for søkeresultater">
+						<longdesc>Denne nøkkelen definerer rekkefølgen på kolonnene i søkeresultatene. Denne burde ikke endres av brukeren.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="quick_search_second_scan_excluded_paths">
+					<local_schema short_desc="Utelatte stier for andre gangs søk ved hurtigsøk">
+						<longdesc>Denne nøkkelen definerer stiene som søkeverktøyet vil ekskludere fra det neste raske søket. Det neste søket bruker «find»-kommandoen til å søke etter filer. Hensikten med det neste søket er å finne filer som ikke har blitt indeksert. Jokertegnene «*» og «?» er støttet. Den forvalgte verdien er /.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="disable_quick_search_second_scan">
+					<local_schema short_desc="Deaktiver andre gangs søk i hurtigsøk">
+						<longdesc>Denne nøkkelen bestemmer om søkeverktøyet slår av bruken av «find»-kommandoen etter å ha utført et raskt søk.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="quick_search_excluded_paths">
+					<local_schema short_desc="Utelatte stier for hurtigsøk">
+						<longdesc>Denne nøkkelen definerer stiene som søkeverktøyet vil ekskludere i et raskt søk. Jokertegnene «*» og «?» er støttet. De forvalgte verdiene er /mnt/*, / media/*, /dev/*, /tmp/*, /proc/*, og /var/*.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="disable_quick_search">
+					<local_schema short_desc="Deaktiver hurtigsøk">
+						<longdesc>Denne nøkkelen bestemmer om søkeverktøyet deaktiverer bruken av «locate»-kommandoen under enkle filnavnsøk.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="show_additional_options">
+					<local_schema short_desc="Vis flere alternativer">
+						<longdesc>Denne nøkklen bestemmer om alle søkealternativene skal vises når søkeverktøyet starter.</longdesc>
+					</local_schema>
+				</entry>
+				<dir name="select">
+					<entry name="exclude_other_filesystems">
+						<local_schema short_desc="Velg søkealternativet «Utelat andre filsystemer»">
+							<longdesc>Denne nøkkelen bestemmer om «Ekskluder andre filsystemer» alternativet skal gjelde når søkeverktøyet starter.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="follow_symbolic_links">
+						<local_schema short_desc="Velg søkealternativet «Følg symbolske lenker»">
+							<longdesc>Denne nøkkelen bestemmer om «Følg symbolske lenker» alternativet skal gjelde når søkeverktøyet starter.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_hidden_files_and_folders">
+						<local_schema short_desc="Velg søkealternativet «Vis skjulte filer og mapper»">
+							<longdesc>Denne nøkkelen bestemmer om «Vis skjulte filer og mapper» alternativet skal gjelde når søkeverktøyet starter.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name_matches_regular_expression">
+						<local_schema short_desc="Velg søkealternativet «Navn har treff på vanlig uttrykk»">
+							<longdesc>Denne nøkkelen bestemmer om «Navn har treff på vanlig uttrykk» skal gjelde når søkeverktøyet starter.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name_does_not_contain">
+						<local_schema short_desc="Velg søkealternativet «Navn inneholder ikke»">
+							<longdesc>Denne nøkkelen bestemmer om «Navn inneholder ikke» alternativet skal gjelde når søkeverktøyet starter.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="owner_is_unrecognized">
+						<local_schema short_desc="Velg søkealternativet «Eier gjenkjennes ikke»">
+							<longdesc>Denne nøkkelen bestemmer om «Eier gjenkjennes ikke» alternativet skal gjelde når søkeverktøyet starter.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="owned_by_group">
+						<local_schema short_desc="Velg søkealternativet «Eies av gruppe»">
+							<longdesc>Denne nøkkelen bestemmer om «Eies av gruppe» alternativet skal gjelde når søkeverktøyet starter.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="owned_by_user">
+						<local_schema short_desc="Velg søkealternativet «Eies av bruker»">
+							<longdesc>Denne nøkkelen bestemmer om «Eies av bruker» alternativet skal gjelde når søkeverktøyet starter.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="file_is_empty">
+						<local_schema short_desc="Velg søkealternativet «Filen er tom»">
+							<longdesc>Denne nøkkelen bestemmer om «Filen er tom» alternativet skal gjelde når søkeverktøyet starter.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size_at_most">
+						<local_schema short_desc="Velg søkealternativet «Største størrelse»">
+							<longdesc>Denne nøkkelen bestemmer om «Ikke større enn» alternativet skal gjelde når søkeverktøyet starter.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size_at_least">
+						<local_schema short_desc="Velg søkealternativet «Minste størrelse»">
+							<longdesc>Denne nøkkelen bestemmer om «Minste størrelse» alternativet skal gjelde når søkeverktøyet starter.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="date_modified_more_than">
+						<local_schema short_desc="Velg søkealternativet «Endringsdato eldre enn»">
+							<longdesc>Denne nøkkelen bestemmer om «Endringsdato mer enn» alternativet skal gjelde når søkeverktøyet starter.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="date_modified_less_than">
+						<local_schema short_desc="Velg søkealternativet «Endringsdato nyere enn»">
+							<longdesc>Denne nøkkelen bestemmer om «Endringsdato mindre enn» alternativet skal gjelde når søkeverktøyet starter.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="contains_the_text">
+						<local_schema short_desc="Velg søkealternativet «Innholder tekst»">
+							<longdesc>Denne nøkkelen bestemmer om «Inneholder teksten» alternativet skal gjelde når søkeverktøyet starter.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnome-screenshot">
+				<entry name="border_effect">
+					<local_schema short_desc="Effekt for kant">
+						<longdesc>Effekt som skal legges til på utsiden av kanten. Mulige verdier er «shadow», «none» og «border».</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="include_pointer">
+					<local_schema short_desc="Ta med peker">
+						<longdesc>Ta med peker i skjermdumpet</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="include_border">
+					<local_schema short_desc="Ta med kant">
+						<longdesc>Ta med vindushåndtererens kant i skjermdumpet</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="last_save_directory">
+					<local_schema short_desc="Mappe for skjermdump">
+						<longdesc>Katalog hvor forrige skjermdump ble lagret.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="delay">
+					<local_schema short_desc="Pause før skjermdump">
+						<longdesc>Antall sekunder pause før skjermdumpet tas.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="take_window_shot">
+					<local_schema short_desc="Vindusspesifikt skjermdump (utgått)">
+						<longdesc>Dump kun aktivt vindu i stedet for hele skrivebordet. Denne nøkkelen er utgått og er ikke lenger i bruk.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="gnome-dictionary">
+				<entry name="sidebar-width">
+					<local_schema short_desc="Bredden på sidelinjen">
+						<longdesc>Denne nøkkelen definerer bredden på sidelinjen.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="sidebar-page">
+					<local_schema short_desc="Siden som skal vises på sidelinjen">
+						<longdesc>Denne nøkkelen bestemmer hvilken side som skal vises i sidepanelet, og den brukes til å huske innstillingen på tvers av sesjoner. Den kan være enten &quot;speller&quot; eller &quot;databases&quot;.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="statusbar-visible">
+					<local_schema short_desc="Hvorvidt statuslinjen skal være synlig">
+						<longdesc>Denne nøkkelen bestemmer om statuslinje skal være synlig, og den brukes til å huske statuslinjens tilstand på tvers av sesjoner. Settes den til &quot;TRUE&quot;, vil statuslinjen alltid bli vist.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="sidebar-visible">
+					<local_schema short_desc="Hvorvidt sidelinjen skal være synlig">
+						<longdesc>Denne nøkkelen bestemmer om sidepanelet skal være synlig, og den brukes til å huske sidepanelets tilstand på tvers av sesjoner. Settes den til &quot;TRUE&quot;, vil sidepanelet alltid bli vist.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="window-is-maximized">
+					<local_schema short_desc="Hvorvidt programmet skal være maksimert">
+						<longdesc>Denne nøkkelen bestemmer om vinduet skal være maksimert, og den brukes til å huske ordbokvinduets tilstand på tvers av sesjoner. Settes den til &quot;TRUE&quot;, vil vinduet alltid være maksimert fra start.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default-window-height">
+					<local_schema short_desc="Forvalgt høyde på programvinduet">
+						<longdesc>Denne nøkkelen definerer høyden på vinduet, og er brukt til å huske størrelsen på ordboksvinduet over flere sesjoner. Ved å sette denne til -1, vil vinduet bruke en høyde basert på skriftstørrelsen.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default-window-width">
+					<local_schema short_desc="Forvalgt bredde på programvinduet">
+						<longdesc>Denne nøkkelen definerer bredden på vinduet, og den er brukt til å huske størrelsen på ordboksvindiet over flere sesjoner. Ved å sette denne til -1, vil bredden på vinduet bli basert på skriftstørrelsen.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="source-name">
+					<local_schema short_desc="Navn på brukt ordbokkilde">
+						<longdesc>Navn på ordbokkilden for henting av orddefinisjoner</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="print-font">
+					<local_schema short_desc="Skrift som skal brukes ved utskrift">
+						<longdesc>Skrift til bruk for utskrift av en definisjon.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="strategy">
+					<local_schema short_desc="Forvalgt søkestrategi som skal brukes">
+						<longdesc>Navnet på forvalgt søkestrategi som benyttes på en ordbokkilde, hvis tilgjengelig. Forvalgt strategi er &quot;exact&quot;, det vil si identiske ord.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="database">
+					<local_schema short_desc="Forvalgt database som skal brukes">
+						<longdesc>Navn på individuell database eller meta-database som skal brukes i ordboktjeneren. Et utropstegn (!) betyr at programmet skal søke i alle databaser på en gitt tjener</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="smart">
+					<local_schema short_desc="Bruk smart oppslag (utdatert)">
+						<longdesc>Oppgi om smarte oppslag skal brukes. Denne nøkkelen er avhengig av om ordboktjeneren støtter valget. Forvalg er TRUE. Denne nøkkelen er foreldet og er ikke lenger i bruk.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="port">
+					<local_schema short_desc="Port som brukes for å koble til tjener (Fases ut)">
+						<longdesc>Portnummer for tilkoblingen. Forvalgt port er 2628. Denne innstillingen er ikke lenger i bruk.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="server">
+					<local_schema short_desc="Ordboktjener (Fases ut)">
+						<longdesc>Ordboktjener som skal brukes. Forvalgt tjener er dict.org. Se http://www.dict.org for detaljer om andre tjenere. Denne nøkkelen er foreldet og er ikke lenger i bruk.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="baobab">
+				<dir name="properties">
+					<entry name="skip_scan_uri_list">
+						<local_schema short_desc="URIer til ekskluderte partisjoner">
+							<longdesc>En liste med URIer til partisjoner som skal ekskluderes fra søket.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_home_monitor">
+						<local_schema short_desc="Aktiver overvåking av hjemmekatalog">
+							<longdesc>Om endringer i hjemmekatalogen skal overvåkes.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="ui">
+					<entry name="baobab_subfoldertips_visible">
+						<local_schema short_desc="Verktøytips for undermapper synlig">
+							<longdesc>Om verktøytips for undermapper av valgt mappe skal vises.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="statusbar_visible">
+						<local_schema short_desc="Statuslinjen er synlig">
+							<longdesc>Hvorvidt statuslinjen nederst i hovedvinduet skal være synlig.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_visible">
+						<local_schema short_desc="Verktøylinjen er synlig">
+							<longdesc>Hvorvidt verktøylinjen skal være synlig i hovedvinduet.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="window_list_applet">
+				<dir name="prefs">
+					<entry name="maximum_size">
+						<local_schema short_desc="Maksimal størrelse på vinduliste">
+							<longdesc>Bruk av denne nøkkelen gikk ut i GNOME 2.20. Denne bevares for kompatibilitet med eldre versjoner.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="minimum_size">
+						<local_schema short_desc="Minste størrelse på vinduliste">
+							<longdesc>Bruk av denne nøkkelen gikk ut i GNOME 2.20. Denne bevares for kompatibilitet med eldre versjoner.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="move_unminimized_windows">
+						<local_schema short_desc="Flytt vinuder til aktivt arbeidsområde ved gjenoppretting">
+							<longdesc>Hvis satt til «true» hentes vinduer til aktivt arbeidsområde ved gjenoppretting. Ellers bytt til vinduets arbeidsområde.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="group_windows">
+						<local_schema short_desc="Når skal vinduer grupperes">
+							<longdesc>Bestemmer når vinduer fra samme program skal grupperes i oppgavelisten. Mulige verdier er «never», «auto» og «always».</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_all_workspaces">
+						<local_schema short_desc="Vis vinduer fra alle arbeidsområder">
+							<longdesc>Hvis denne settes til «true» vil oppgavelisten vise vinduer fra alle arbeidsområder. Ellers vil kun vinduer fra aktivt arbeidsområde vises.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="workspace_switcher_applet">
+				<dir name="prefs">
+					<entry name="num_rows">
+						<local_schema short_desc="Rader i arbeidsområdebytter">
+							<longdesc>Denne nøkkelen spesifiserer hvor mange rader (for horisontal plassering) eller kolonner (for vertikal plassering) arbeidsområdebytteren viser arbeidsområdene i. Denne nøkkelen er kun relevant når nøkkelen «display_all_workspaces» er satt til «true».</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_all_workspaces">
+						<local_schema short_desc="Vis alle arbeidsområder">
+							<longdesc>Hvis denne er satt til «true» vil arbeidsområdebytter vise alle arbeidsområder, ellers vil kun aktivt arbeidsområde vises.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_workspace_names">
+						<local_schema short_desc="Vis navn på arbeidsområder">
+							<longdesc>Hvis denne er satt til «true» vil arbeidsområdebytter vise navn på arbeidsområdene, ellers vil vinduene på arbeidsområdet vises. Denne innstillingen virker kun med Metacity vindushåndtereren.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="fish_applet">
+				<dir name="prefs">
+					<entry name="rotate">
+						<local_schema short_desc="Roter på vertikale paneler">
+							<longdesc>Fiskens animasjon vil roteres på vertikale paneler hvis denne settes til «true».</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="speed">
+						<local_schema short_desc="Pause for hvert bilde">
+							<longdesc>Denne nøkkelen oppgir antall sekunder hvert bilde vil vises.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="frames">
+						<local_schema short_desc="Antall bilder i fiskens animasjon">
+							<longdesc>Denne nøkkelen oppgir antall bilder som vises i fiskens animasjon.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="command">
+						<local_schema short_desc="Kommando som skal utføres ved klikk">
+							<longdesc>Denne nøkkelen oppgir kommandoen som skal utføres ved klikk på fisken.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="image">
+						<local_schema short_desc="Fiskens animerte bilde">
+							<longdesc>Denne nøkkelen spesifiserer filnavnet relativ til bildekatalogen for bildet som skal brukes som animasjon for fisken.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name">
+						<local_schema short_desc="Fiskens navn">
+							<longdesc>En fisk uten et navn er en veldig kjedelig fisk. Gi liv til din fisk ved å gi den et navn.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="clock_applet">
+				<dir name="prefs">
+					<entry name="speed_unit">
+						<local_schema short_desc="Enhet for hastighet">
+							<longdesc>Enhet som skal brukes for vindhastighet.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="temperature_unit">
+						<local_schema short_desc="Enhet for temperatur">
+							<longdesc>Enhet som skal brukes ved visning av temperaturer.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="cities">
+						<local_schema short_desc="Liste med lokasjoner">
+							<longdesc>En liste med lokasjoner som vises i kalendervinduet.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="internet_time">
+						<local_schema short_desc="Bruk Internett-tid">
+							<longdesc>Bruk av denne nøkkelen gikk ut i GNOME 2.6 til fordel for «format»-nøkkelen. Denne bevares for kompatibilitet med eldre versjoner.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="unix_time">
+						<local_schema short_desc="Bruk UNIX tid">
+							<longdesc>Bruk av denne nøkkelen gikk ut i GNOME 2.6 til fordel for «format»-nøkkelen. Denne bevares for kompatibilitet med eldre versjoner.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hour_format">
+						<local_schema short_desc="Timeformat">
+							<longdesc>Bruk av denne nøkkelen gikk ut i GNOME 2.6 til fordel for «format»-nøkkelen. Denne bevares for kompatibilitet med eldre versjoner.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_locations">
+						<local_schema short_desc="Utvid liste med lokasjoner">
+							<longdesc>Utvid listen med lokasjoner i kalendervinduet hvis denne er satt til «true».</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_weather">
+						<local_schema short_desc="Utvid liste med informasjon om vær">
+							<longdesc>Utvid listen med værinformasjon i kalendervinduet hvis sann.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_tasks">
+						<local_schema short_desc="Utvid liste med oppgaver">
+							<longdesc>Utvid listen med oppgaver i kalendervinduet hvis sann.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_birthdays">
+						<local_schema short_desc="Utvid liste med fødselsdager">
+							<longdesc>Fødselsdagslisten i kalendervinduet utvides hvis sann.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_appointments">
+						<local_schema short_desc="Utvid liste med avtaler">
+							<longdesc>Avtalelisten i kalendervinduet utvides hvis sann.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_week_numbers">
+						<local_schema short_desc="Vis ukenummer i kalenderen">
+							<longdesc>Vis ukenummer i kalenderen hvis sann.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="config_tool">
+						<local_schema short_desc="Verktøy for konfigurering av tid">
+							<longdesc>Bruk av denne nøkkelen gikk ut i GNOME 2.22 til fordel for et internt verktøy for å stille klokken. Denne bevares for kompatibilitet med eldre versjoner.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gmt_time">
+						<local_schema short_desc="Bruk UTC">
+							<longdesc>Bruk av denne nøkkelen gikk ut i GNOME 2.28 til fordel for bruk av tidssoner. Denne bevares for kompatibilitet med eldre versjoner.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_temperature">
+						<local_schema short_desc="Vis temperaturen i klokken">
+							<longdesc>Vis temperatur ved siden av værikonet hvis sann.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_weather">
+						<local_schema short_desc="Vis været i klokken">
+							<longdesc>Vis værikon hvis denne er satt til «true».</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_tooltip">
+						<local_schema short_desc="Vis dato i verktøytipset">
+							<longdesc>Vis dato i verktøytipset når muspekeren holdes over klokken hvis satt til «true».</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_date">
+						<local_schema short_desc="Vis dato i klokken">
+							<longdesc>Vis dato i klokken, i tillegg til tid hvis satt til «true».</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_seconds">
+						<local_schema short_desc="Vis tid med csekunder">
+							<longdesc>Vis sekunder i tid hvis satt til «true».</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="custom_format">
+						<local_schema short_desc="Tilpasset format for klokken">
+							<longdesc>Denne nøkkelen spesifiserer formatet som brukes av panelklokken når formatnøkkelen er satt til «custom». Du kan bruke konverteringsspesifikasjonene som er gyldige i strftime() for å tilpasse formatet. Se manualsiden for strftime().</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="format">
+						<local_schema short_desc="Timeformat">
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="panel">
+				<dir name="objects">
+					<entry name="action_type">
+						<local_schema short_desc="Type knapp for handling">
+							<longdesc>Type handling denne knappen representerer. Mulige verdier er «lock», «logout», «run», «search», og «screenshot». Denne nøkkelen er kun relevant hvis nøkkelen object_type er «action-applet».</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="launcher_location">
+						<local_schema short_desc="Lokasjon for oppstarter">
+							<longdesc>Lokasjon for .desktop-filen som beskriver oppstarteren. Denne nøkkelen er kun relevant hvis nøkkelen «object_type» er satt til «launcher-object».</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menu_path">
+						<local_schema short_desc="Sti til menyinnhold">
+							<longdesc>Sti for oppretting av menyinnhold. Denne nøkkelen er kun relevant hvis nøkkelen use_menu_path er «true» og nøkkelen object_type er «menu-object».</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_menu_path">
+						<local_schema short_desc="Bruk egendefinert sti for menyinnhold">
+							<longdesc>Hvis «true», vil nøkkelen menu_path brukes som sti for oppretting av menyinnhold. Hvis «false» vil nøkkelen menu_path ignoreres. Denne nøkkelen er kun relevant hvis nøkkelen object_type er «menu-object».</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="custom_icon">
+						<local_schema short_desc="Ikon som brukes for objektets knapp">
+							<longdesc>Lokasjon for bildefilen som skal brukes som ikon for objektets knapp. Denne nøkkelen er kun relevant hvis nøkkelen object_type er «drawer-object» eller «menu-object» og nøkkelen use_custom_icon er «true».</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_custom_icon">
+						<local_schema short_desc="Bruk tilpasset ikon for objektets knapp">
+							<longdesc>Hvis sann vil nøkkelen custom_icon brukes som egendefinert ikon for knappen. Hvis usann vil custom_key ignoreres. Denne nøkkelen er kun relevant hvis nøkkelen object_key er satt til «menu-object» eller «drawer-object».</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="tooltip">
+						<local_schema short_desc="Verktøytips som vises for skuff eller meny">
+							<longdesc>Tekst som skal vises i verktøytips for denne skuffen eller menyen. Nøkkelen er kun relevant hvis nøkkelen «object_type» er «drawer-object» eller «menu-object».</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="attached_toplevel_id">
+						<local_schema short_desc="Panel festet til skuff">
+							<longdesc>Identifikator for panelet som denne skuffen henger på. Denne nøkkelen er kun relevant hvis nøkkelen object_type er «drawer-object».</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="bonobo_iid">
+						<local_schema short_desc="Bonobo-IID for panelprogrammet">
+							<longdesc>Bonobo-implementasjonsID for panelprogrammet - f.eks. «OAFIID:GNOME_ClockApplet». Denne nøkkelen er kun relevant hvis nøkkelen object_type er «bonobo-applet».</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="locked">
+						<local_schema short_desc="Lås objektet til panelet">
+							<longdesc>Hvis «true» vil bruker ikke kunne flytte panelprogrammet uten å først låse opp objektet ved å bruke menyoppføringen «Lås opp».</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="panel_right_stick">
+						<local_schema short_desc="Tolk posisjon relativt til nederste/høyre kant">
+							<longdesc>Hvis «true» vil posisjonen for objektet tolkes relativt til høyre (eller nederste) kant av panelet.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="position">
+						<local_schema short_desc="Objektets posisjon på panelet">
+							<longdesc>Posisjon for dette panelobjektet. Posisjonen spesifiseres med antall piksler fra venstre (eller øverste hvis vertikalt) kant av panelet.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toplevel_id">
+						<local_schema short_desc="Toppnivåpanel som inneholder objektet">
+							<longdesc>Identifikator for toppnivåpanelet som inneholder dette objektet.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="object_type">
+						<local_schema short_desc="Objekttype for panel">
+							<longdesc>Type for dette panelobjektet. Mulige verdier er «drawer-object», «menu-object», «launcher-object», «bonobo-applet», «action-applet» og «menu-bar».</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="toplevels">
+					<entry name="animation_speed">
+						<local_schema short_desc="Animasjonshastighet">
+							<longdesc>Hastighet for panelanimasjoner. Mulige verdier er «slow», «medium» og «fast». Denne nøkkelen er kun relevant hvis nøkkelen enable_animations er «true».</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_hide_size">
+						<local_schema short_desc="Antall synlige piksler når skjult">
+							<longdesc>Oppgir antall piksler som er synlig når panelet er automatisk skjult i et hjørne. Denne nøkkelen er kun relevant hvis nøkkelen auto_hide er «true».</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="unhide_delay">
+						<local_schema short_desc="Pause før gjenoppretting av panelet">
+							<longdesc>Oppgir antall millisekunder med pause før panelet vises igjen etter at pekeren går inn i panelområdet. Denne nøkkelen er kun relevant hvis nøkkelen auto_hide er «true».</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hide_delay">
+						<local_schema short_desc="Pause før automatisk skjuling av panelet">
+							<longdesc>Oppgir antall millisekunder med pause før panelet skjules etter at pekeren forlater panelområdet. Denne nøkkelen er kun relevant hvis nøkkelen auto_hide er satt til «true».</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_arrows">
+						<local_schema short_desc="Slå på piler på knapp for skjuling">
+							<longdesc>Hvis denne er satt til «true» vil piler plasseres på knappene for skjuling. Denne nøkkelen er kun relevant hvis nøkkelen «enable_buttons» er «true».</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_buttons">
+						<local_schema short_desc="Slå på knapper for skjuling">
+							<longdesc>Hvis denne er satt til «true» vil knapper som kan brukes til å skjule panelet til en av sidene plasseres på hver side av panelet.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="Slå på animasjoner">
+							<longdesc>Hvis «true» vil skjuling være animert i stedet for direkte.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_hide">
+						<local_schema short_desc="Skjul panelet automatisk i hjørnet">
+							<longdesc>Hvis «true» vil panelet skjules i et hjørne av skjermen når pekeren forlater panelområdet. Panelet vil komme til syne igjen hvis pekeren flyttes til aktuelt hjørne igjen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="y_centered">
+						<local_schema short_desc="Sentrer panelet på y-aksen">
+							<longdesc>Hvis «true» vil y og y_bottom-nøkkelen ignoreres og panelet plasseres sentrert på y-aksen av skjermen. Hvis panelets størrelse endres vil det forbli i denne posisjonen - dvs. panelet vil vokse på begge sider. Hvis «false» vil y og y_bottom-nøkkelen spesifisere panelets lokasjon.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="x_centered">
+						<local_schema short_desc="Sentrer panelet på x-aksen">
+							<longdesc>Hvis «true» vil x og x_right-nøkkelen ignoreres og panelet plasseres sentrert på x-aksen av skjermen. Hvis panelets størrelse endres vil det forbli i denne posisjonen - dvs. panelet vil vokse på begge sider. Hvis «false» vil x og x_right-nøkkelen spesifisere panelets lokasjon.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="y_bottom">
+						<local_schema short_desc="Y-koordinat for panelet. Starter fra bunnen av skjermen">
+							<longdesc>Lokasjon for panelet langs y-aksen fra bunnen av skjermen Hvis den settes til -1 ignoreres verdien og y-nøkkelen brukes i stedet Hvis verdien er større enn 0 vil y-nøkkelen ignoreres. Denne nøkkelen er kun relevant i ikke-utvidet modus. I utvidet modus ignoreres denne nøkkelen og panelet plasseres ved skjermkanten oppgitt av nøkkelen orientation.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="x_right">
+						<local_schema short_desc="X-koordinat for panelet. Starter fra høyre side av skjermen">
+							<longdesc>Lokasjon for panelet langs x-aksen fra bunnen av skjermen Hvis den settes til -1 ignoreres verdien og x-nøkkelen brukes i stedet Hvis verdien er større enn 0 vil x-nøkkelen ignoreres. Denne nøkkelen er kun relevant i ikke-utvidet modus. I utvidet modus ignoreres denne nøkkelen og panelet plasseres ved skjermkanten oppgitt av nøkkelen orientation.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="y">
+						<local_schema short_desc="Panelets y-koordinat">
+							<longdesc>Lokasjon for panelet langs y-aksen. Denne nøkkelen er kun relevant i ikke-utvidet modus. I utvidet modus ignoreres denne nøkkelen og panelet plasseres ved skjermkanten oppgitt av nøkkelen orientation.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="x">
+						<local_schema short_desc="Panelets x-koordinat">
+							<longdesc>Lokasjon for panelet langs x-aksen. Denne nøkkelen er kun relevant i ikke-utvidet modus. I utvidet modus ignoreres denne nøkkelen og panelet plasseres ved skjermkanten oppgitt av nøkkelen orientation.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size">
+						<local_schema short_desc="Panelets størrelse">
+							<longdesc>Høyde (bredde for et vertikalt panel) på panelet. Panelet vil bestemme minste størrelse basert på skriftstørrelse og andre faktorer ved oppstart. Maksimal størrelse er fastsatt til en fjerdedel av skjermhøyden (eller bredden).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="orientation">
+						<local_schema short_desc="Panelets orientering">
+							<longdesc>Orientering for panelet. Mulige verdier er «top», «bottom», «left», «right». I utvidet modus oppgir nøkkelen hvilken skjermkant panelet er på. I ikke-utvidet modus er forskjellen mellom «top» og «bottom» mindre viktig - begge indikerer at dette er et horisontalt panel - men de gir fremdeles et nyttig hint for oppførselen for noen panelobjekter. På et «top»-panel vil for eksempel en menyknapp vise meny under panelet, men på et «bottom»-panel vil menyen vises over panelet.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand">
+						<local_schema short_desc="Utvid til å bruke hele skjermbredden">
+							<longdesc>Hvis «true» vil panlet oppta hele skjermbredden (høyden hvis det er et vertikalt panel). Panelet kan kun plasseres ved skjermkanten i dette modus. Hvis «false» vil panelet kun tilpasses nødvendig størrelse for panelprogrammer, oppstartere og knapper på panelet.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="monitor">
+						<local_schema short_desc="Xinerama-skjerm hvor panelet vises">
+							<longdesc>Med et Xinerama-oppsett kan du ha paneler på hver individuelle skjerm. Denne nøkkelen identifiserer skjermen panelet vises på.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="screen">
+						<local_schema short_desc="X-skjerm panelet vises på">
+							<longdesc>I et oppsett med flere skjermer kan du ha paneler på hver individuelle skjerm. Denne nøkkelen identifiserer skjermen panelet vises på.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name">
+						<local_schema short_desc="Navn som identifiserer panelet">
+							<longdesc>Dette er et vanlig navn du kan bruke for å identifisere et panel. Hovedformålet med denne er bruk som panelets vindustittel hvilket er nyttig når man navigerer mellom forskjellige panelet.</longdesc>
+						</local_schema>
+					</entry>
+					<dir name="background">
+						<entry name="rotate">
+							<local_schema short_desc="Roter bildet på vertikale paneler">
+								<longdesc>Hvis «true» vil bakgrunnsbildet roteres når panelet er plassert vertikalt.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="stretch">
+							<local_schema short_desc="Strekk bildet til det passer panelet">
+								<longdesc>Hvis «true» vil bildet skaleres til panelets størrelse. Aspektraten for bilde vil ikke beholdes.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="fit">
+							<local_schema short_desc="Tilpass bildet til panelet">
+								<longdesc>Hvis «true» vil bildet skaleres (aspektraten for bildet beholdes) til panelets høyde (hvis horisontalt).</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="image">
+							<local_schema short_desc="Bakgrunnsbilde">
+								<longdesc>Oppgir filen som skal brukes som bakgrunnsbilde. Hvis bildet inneholder en alpha-kanal vil dette kompositeres på bakgrunnsbildet for skrivebordet.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="opacity">
+							<local_schema short_desc="Ugjennomsiktighet for bakgrunnsfarge">
+								<longdesc>Oppgir ugjennomsiktighet for bakgrunnsfargen. Hvis fargen ikke er helt ugjennomsiktig (en verdi mindre enn 65535) vil fargen kompositeres på bakgrunnsbildet for skrivebordet.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="color">
+							<local_schema short_desc="Bakgrunnsfarge">
+								<longdesc>Spesifiserer bakgrunnsfargen for panelet i #RGB-format.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="type">
+							<local_schema short_desc="Bakgrunnstype">
+								<longdesc>Type bakgrunn som skal brukes for dette panelet. Mulige verdier er «gtk» - forvalgt GTK+-bakgrunn brukes, «color» - nøkkelen color vil brukes som bakgrunnsvarge, eller «image» - bilde oppgitt av nøkkelen image vil brukes som bakgrunn.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="general">
+					<entry name="profiles_migrated">
+						<local_schema short_desc="Gammel konfigurasjon for profiler migrert">
+							<longdesc>Et boolsk flagg som indikerer om brukerens tidligere konfigurasjon i /apps/panel/profiles/default har blitt kopiert til den nye lokasjonen i /apps/panel.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="object_id_list">
+						<local_schema short_desc="ID-liste over panelobjekter">
+							<longdesc>En liste med IDer for panelobjekter. Hver ID identifiserer et individuelt panelobjekt, f.eks en oppstarter, handlingsknapp eller meny-knapp/linje. Innstillingene for hvert av disse objektene lagres i /apps/panel/objects/$(id).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="applet_id_list">
+						<local_schema short_desc="ID-liste for panelprogrammer">
+							<longdesc>En liste med IDer for panelprogrammer. Hver ID identifiserer et individuelt panelprogram. Innstillingene for hvert av disse programmene lagres i /apps/panel/applets/$(id).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toplevel_id_list">
+						<local_schema short_desc="ID-liste for paneler">
+							<longdesc>En liste med panel-IDer. Hver ID identifiserer et individuelt panel. Innstillingene for hvert av disse panelene lagres i /apps/panel/toplevels/$(id).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_autocompletion">
+						<local_schema short_desc="Aktiver automatisk fullføring i «Kjør program»-dialogen">
+							<longdesc>Hvis denne er satt til «true» vil automatisk fullføring være tilgjengelig i dialogen «Kjør program»</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_program_list">
+						<local_schema short_desc="Utvid programlisten i «Kjør program»-dialogen">
+							<longdesc>Hvis denne er sann vil listen med «Kjente programmer» i dialogen «Kjør program» utvides når dialogen åpnes. Denne nøkkelen er kun relevant hvis nøkkelen enable_program_list er satt til sann.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_program_list">
+						<local_schema short_desc="Aktiver programlisten i «Kjør program»-dialogen">
+							<longdesc>Hvis denne er sann vil listen med «Kjente program» i dialogen «Kjør program» gjøres tilgjengelig. Om listen skal utvides eller ikke styres av nøkkelen show_program_list.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="global">
+					<entry name="disable_force_quit">
+						<local_schema short_desc="Deaktiver tvungen nedstenging">
+							<longdesc>Hvis sann vil panelet ikke tillate en bruker å tvinge et program til å avslutte ved å fjerne tilgang til knappen for tvungen nedstenging.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_log_out">
+						<local_schema short_desc="Deaktiver logg ut">
+							<longdesc>Hvis sann vil panelet ikke la en bruker logge ut ved å fjerne tilgang til menyoppføringen «Logg ut».</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_lock_screen">
+						<local_schema short_desc="Utgått">
+							<longdesc>Denne nøkkelen er under utfasing siden den ikke kan brukes til å implementere nedlåsing skikkelig. Nøkkelen /desktop/gnome/lockdown/disable_lock_screen skal brukes i stedet.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disabled_applets">
+						<local_schema short_desc="IIDer for panelprogrammer som skal hindres å starte">
+							<longdesc>En liste med IIDer for panelprogrammer som panelet skal ignorere. På denne måten kan du hindre at panelprogrammer lastes eller vises i menyen. Du kan for eksempel deaktivere kommandolinjepanelprogrammet ved å legge til «OAFIID:GNOME_MiniCommanderApplet» i listen. Panelet må startes på nytt for at dette skal tre i kraft.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="locked_down">
+						<local_schema short_desc="Fullstending nedlåsing av panelet">
+							<longdesc>Hvis sann vil panelet ikke tillate noen endringer i konfigurasjonen for panelet. Individuelle panelprogrammer kan likevel trenge separat nedlåsing. Panelet må startes på nytt for at dette skal tre i kraft.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="highlight_launchers_on_mouseover">
+						<local_schema short_desc="Uthev oppstartere når musen beveges over dem">
+							<longdesc>Hvis sann vil en oppstarter utheves når bruker flytter pekeren over den.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="confirm_panel_remove">
+						<local_schema short_desc="Bekreft fjerning av panel">
+							<longdesc>Hvis sann vil en dialog vises for å spørre om bekreftelse hvis bruker ønsker å fjerne et panel.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="drawer_autoclose">
+						<local_schema short_desc="Lukk skuff automatisk">
+							<longdesc>Hvis sann vil en skuff lukke automatisk når bruker klikker på en oppstarter i denne.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="window_screenshot_key">
+						<local_schema short_desc="Utgått">
+						</local_schema>
+					</entry>
+					<entry name="screenshot_key">
+						<local_schema short_desc="Utgått">
+						</local_schema>
+					</entry>
+					<entry name="run_key">
+						<local_schema short_desc="Utgått">
+						</local_schema>
+					</entry>
+					<entry name="menu_key">
+						<local_schema short_desc="Utgått">
+						</local_schema>
+					</entry>
+					<entry name="enable_key_bindings">
+						<local_schema short_desc="Utgått">
+						</local_schema>
+					</entry>
+					<entry name="panel_hide_delay">
+						<local_schema short_desc="Utgått">
+						</local_schema>
+					</entry>
+					<entry name="panel_animation_speed">
+						<local_schema short_desc="Utgått">
+						</local_schema>
+					</entry>
+					<entry name="panel_show_delay">
+						<local_schema short_desc="Utgått">
+						</local_schema>
+					</entry>
+					<entry name="panel_minimized_size">
+						<local_schema short_desc="Utgått">
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="Slå på animasjoner">
+						</local_schema>
+					</entry>
+					<entry name="keep_menus_in_memory">
+						<local_schema short_desc="Utgått">
+						</local_schema>
+					</entry>
+					<entry name="tooltips_enabled">
+						<local_schema short_desc="Slå på verktøytips">
+							<longdesc>Hvis sann vil verktøytips vises for objekter på panelet.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gweather">
+				<dir name="prefs">
+					<entry name="radar">
+						<local_schema short_desc="URL for radarkartet">
+							<longdesc>Egendefinert URL for henting av radarkart.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_custom_radar_url">
+						<local_schema short_desc="Bruk egendefinert URL for radarkart">
+							<longdesc>Hent et radarkart fra en lokasjon spesifisert i nøkkelen «radar» hvis denne er true.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="coordinates">
+						<local_schema short_desc="Koordinater for lokasjon">
+						</local_schema>
+					</entry>
+					<entry name="location4">
+						<local_schema short_desc="Værmelding for en by">
+						</local_schema>
+					</entry>
+					<entry name="location3">
+						<local_schema short_desc="Radarlokasjon">
+						</local_schema>
+					</entry>
+					<entry name="location2">
+						<local_schema short_desc="Lokasjon for sone">
+						</local_schema>
+					</entry>
+					<entry name="location1">
+						<local_schema short_desc="By i nærheten">
+						</local_schema>
+					</entry>
+					<entry name="location0">
+						<local_schema short_desc="Informasjon om værlokasjon.">
+						</local_schema>
+					</entry>
+					<entry name="enable_radar_map">
+						<local_schema short_desc="Vis radarkart">
+							<longdesc>Hent et radarkart ved hver oppdatering.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_detailed_forecast">
+						<local_schema short_desc="Ikke brukt lenger">
+						</local_schema>
+					</entry>
+					<entry name="temperature_unit">
+						<local_schema short_desc="Enhet for temperatur">
+							<longdesc>Enhet som skal brukes for trykk.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="speed_unit">
+						<local_schema short_desc="Enhet for hastighet">
+							<longdesc>Enhet som skal brukes for vindhastighet.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="pressure_unit">
+						<local_schema short_desc="Enhet for trykk">
+							<longdesc>Enhet som skal brukes for trykk.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="distance_unit">
+						<local_schema short_desc="Enhet for avstand">
+							<longdesc>Enhet som skal brukes for synlighet.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_metric">
+						<local_schema short_desc="Bruk metriske måleenheter">
+							<longdesc>Bruk metriske måleenheter i stedet for engelske enheter.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_update_interval">
+						<local_schema short_desc="Oppdateringsintervall">
+							<longdesc>Intervall for automatisk oppdatering i sekunder.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_update">
+						<local_schema short_desc="Oppdater dataene automatisk">
+							<longdesc>Bestemmer om programmet skal oppdatere værstatistikken automatisk eller ikke.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnome-keyring">
+				<dir name="daemon-components">
+					<entry name="ssh">
+						<local_schema short_desc="Om SSH-agenten for gnome-keyring er aktivert.">
+							<longdesc>Dette alternativet aktiverer SSH-komponenten for gnome-keyring-tjenesten. Dette trer kun i kraft når gnome-keyring-daemon starter. Altså når brukeren logger inn. Denne innstillingen kan overstyres med spesifikke kommandolinjeargumenter gis til tjenesten.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="pkcs11">
+						<local_schema short_desc="Om PKCS#11-komponenten for gnome-keyring er aktivert.">
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnome-settings">
+				<dir name="gnumeric">
+					<entry name="toolbar_style">
+						<local_schema short_desc="Stil for verktøylinjen">
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnumeric">
+				<dir name="plugin">
+					<dir name="latex">
+						<entry name="use-utf8">
+							<local_schema short_desc="Bruk UTF-8 ved eksport til LaTeX">
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="cut-and-paste">
+					<entry name="prefer-clipboard">
+						<local_schema short_desc="Foretrekk CLIPBOARD framfor PRIMARY utvalg">
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="core">
+					<dir name="sort">
+						<dir name="dialog">
+							<entry name="max-initial-clauses">
+								<local_schema short_desc="Antall automatiske klausuler">
+								</local_schema>
+							</entry>
+						</dir>
+						<dir name="default">
+							<entry name="ascending">
+								<local_schema short_desc="Sorter stigende">
+								</local_schema>
+							</entry>
+							<entry name="retain-formats">
+								<local_schema short_desc="Sortering beholder formater">
+								</local_schema>
+							</entry>
+							<entry name="by-case">
+								<local_schema short_desc="Sortering skiller mellom små-/store bokstaver">
+								</local_schema>
+							</entry>
+						</dir>
+					</dir>
+					<dir name="file">
+						<dir name="save">
+							<entry name="def-overwrite">
+								<local_schema short_desc="Overskriv filer som forvalg">
+								</local_schema>
+							</entry>
+						</dir>
+					</dir>
+					<dir name="xml">
+						<entry name="compression-level">
+							<local_schema short_desc="Forvalgt kompresjonsnivå for Gnumeric-filer">
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="gui">
+						<dir name="window">
+							<entry name="zoom">
+								<local_schema short_desc="Forvalgt zoom-faktor">
+									<longdesc>Forhåndsdefinert zoom-faktor for nye arbeidsbøker.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="y">
+								<local_schema short_desc="Forvalgt vertikal vindusstørrelse">
+								</local_schema>
+							</entry>
+							<entry name="x">
+								<local_schema short_desc="Forvalgt horisontal størrelse for vindu">
+								</local_schema>
+							</entry>
+						</dir>
+						<dir name="editing">
+							<entry name="livescrolling">
+								<local_schema short_desc="Rulling i sanntid">
+								</local_schema>
+							</entry>
+							<entry name="autocomplete">
+								<local_schema short_desc="Autofullfør">
+									<longdesc>Denne variabelen bestemmer om automatisk fullføring er aktivert.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+						<dir name="toolbars">
+							<entry name="ObjectToolbar">
+								<local_schema short_desc="Objektverktøylinjen synlig">
+								</local_schema>
+							</entry>
+							<entry name="FormatToolbar">
+								<local_schema short_desc="Synlighet for verktøylinje for formattering">
+								</local_schema>
+							</entry>
+							<entry name="StandardToolbar-position">
+								<local_schema short_desc="Posisjon for standard verktøylinje">
+								</local_schema>
+							</entry>
+							<entry name="StandardToolbar">
+								<local_schema short_desc="Synlighet for standard verktøylinje">
+								</local_schema>
+							</entry>
+						</dir>
+						<dir name="screen">
+							<entry name="verticaldpi">
+								<local_schema short_desc="Vertikal DPI">
+									<longdesc>Skjermoppløsning i vertikal retning.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="horizontaldpi">
+								<local_schema short_desc="Horisontal DPI">
+									<longdesc>Skjermoppløsning i horisontal retning.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+					</dir>
+					<dir name="workbook">
+						<entry name="n-cols">
+							<local_schema short_desc="Forvalgt antall kolonner i et ark">
+							</local_schema>
+						</entry>
+						<entry name="n-rows">
+							<local_schema short_desc="Forvalgt antall rader i et ark">
+							</local_schema>
+						</entry>
+						<entry name="n-sheet">
+							<local_schema short_desc="Forvalgt antall ark">
+								<longdesc>Forhåndsdefinert antall ark i en ny arbeidsbok.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="defaultfont">
+						<entry name="italic">
+							<local_schema short_desc="Forvalgt skrift er kursiv.">
+								<longdesc>Denne verdien bestemmer om forvalgt skrift for en ny arbeidsbok er kursiv.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bold">
+							<local_schema short_desc="Forvalgt skrift er fet.">
+								<longdesc>Denne verdien bestemmer om forvalgt skrift for en ny arbeidsbok er uthevet.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="name">
+							<local_schema short_desc="Forvalgt skriftnavn">
+							</local_schema>
+						</entry>
+						<entry name="size">
+							<local_schema short_desc="Forvalgt skriftstørrelse">
+								<longdesc>Forvalgt skriftstørrelse for nye arbeidsbøker.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="undo">
+					<entry name="maxnum">
+						<local_schema short_desc="Antall angreoppføringer">
+						</local_schema>
+					</entry>
+					<entry name="size">
+						<local_schema short_desc="Maksimal angrestørrelse">
+						</local_schema>
+					</entry>
+					<entry name="show_sheet_name">
+						<local_schema short_desc="Vis arknavn i angrelisten">
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="dialogs">
+					<dir name="rs">
+						<entry name="unfocused">
+							<local_schema short_desc="Tillat områdevalg uten fokus">
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="printsetup">
+					<entry name="paper-orientation">
+						<local_schema short_desc="Papir">
+						</local_schema>
+					</entry>
+					<entry name="paper">
+						<local_schema short_desc="Papir">
+						</local_schema>
+					</entry>
+					<entry name="margin-gtk-right">
+						<local_schema short_desc="Forvalgt bunnmarg">
+						</local_schema>
+					</entry>
+					<entry name="margin-gtk-left">
+						<local_schema short_desc="Forvalgt venstremarg">
+						</local_schema>
+					</entry>
+					<entry name="margin-gtk-top">
+						<local_schema short_desc="Forvalgt topp utenfor margen">
+						</local_schema>
+					</entry>
+					<entry name="margin-gtk-bottom">
+						<local_schema short_desc="Forvalgt bunn utenfor margen">
+						</local_schema>
+					</entry>
+					<entry name="margin-bottom">
+						<local_schema short_desc="Forvalgt bunnmarg">
+						</local_schema>
+					</entry>
+					<entry name="margin-top">
+						<local_schema short_desc="Forvalgt toppmarg">
+						</local_schema>
+					</entry>
+					<entry name="scale-height">
+						<local_schema short_desc="Forvalgt skaleringshøyde">
+						</local_schema>
+					</entry>
+					<entry name="scale-width">
+						<local_schema short_desc="Forvalgt skaleringsbredde">
+						</local_schema>
+					</entry>
+					<entry name="scale-percentage-value">
+						<local_schema short_desc="Forvalgt prosent for skalering">
+						</local_schema>
+					</entry>
+					<entry name="scale-percentage">
+						<local_schema short_desc="Forvalgt type skalering">
+						</local_schema>
+					</entry>
+					<entry name="across-then-down">
+						<local_schema short_desc="Forvalgt utskriftsretning">
+						</local_schema>
+					</entry>
+					<entry name="print-titles">
+						<local_schema short_desc="Forvalgt tittel for utskrift">
+						</local_schema>
+					</entry>
+					<entry name="print-black-n-white">
+						<local_schema short_desc="Forvalgt sort/hvit utskrift">
+						</local_schema>
+					</entry>
+					<entry name="print-grid-lines">
+						<local_schema short_desc="Forvalgt utskrift av rutenett">
+						</local_schema>
+					</entry>
+					<entry name="center-vertically">
+						<local_schema short_desc="Forvalgt vertikal sentrering">
+						</local_schema>
+					</entry>
+					<entry name="center-horizontally">
+						<local_schema short_desc="Forvalgt horisontal sentrering">
+						</local_schema>
+					</entry>
+					<entry name="hf-font-italic">
+						<local_schema short_desc="Forvalgt skrift for topp- og bunntekst er kursiv.">
+						</local_schema>
+					</entry>
+					<entry name="hf-font-bold">
+						<local_schema short_desc="Forvalgt skrift for topp- og bunntekst er uthevet.">
+							<longdesc>Denne verdien bestemmer om forvalgt skrift for topp- og bunntekster er uthevet.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hf-font-name">
+						<local_schema short_desc="Forvalgt skriftnavn for topp-/bunntekst">
+						</local_schema>
+					</entry>
+					<entry name="hf-font-size">
+						<local_schema short_desc="Forvalgt skriftstørrelse for topp-/bunntekst">
+							<longdesc>Forvalgt skriftstørrelse for topp- og bunntekster.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="footer">
+						<local_schema short_desc="Bunntekst for siden">
+						</local_schema>
+					</entry>
+					<entry name="header">
+						<local_schema short_desc="Topptekst for siden">
+						</local_schema>
+					</entry>
+					<entry name="all-sheets">
+						<local_schema short_desc="Bruk på skriveroppsett på alle ark">
+							<longdesc>Denne verdien bestemmer om utskriftsdialogen brukes på alle ark samtidig som forvalg.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="autoformat">
+					<entry name="usr-dir">
+						<local_schema short_desc="Brukerordbok for autoformater">
+						</local_schema>
+					</entry>
+					<entry name="sys-dir">
+						<local_schema short_desc="Systemkatalog for autoformat">
+							<longdesc>Denne katalogen inneholder de preinstallerte malene for autoformat.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="extra-dirs">
+						<local_schema short_desc="Liste med ekstra autoformatkataloger.">
+							<longdesc>Denne listen inneholder alle ekstra kataloger som inneholder maler for autoformat.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="plugins">
+					<entry name="extra-dirs">
+						<local_schema short_desc="Liste med ekstra tilleggskataloger.">
+							<longdesc>Denne listen inneholder alle ekstra kataloger som inneholder tillegg.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="file-states">
+						<local_schema short_desc="Liste med filtilstand for tillegg.">
+							<longdesc>Denne listen inneholder stilstandsdata for alle tilleggsfiler.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="known">
+						<local_schema short_desc="Liste med kjente tillegg.">
+							<longdesc>Denne listen inneholder alle kjente tillegg.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="active">
+						<local_schema short_desc="Liste over aktive tillegg.">
+							<longdesc>Denne listen inneholder alle tillegg som skal aktiveres automatisk.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="activate-new">
+						<local_schema short_desc="Aktiver nye tillegg">
+							<longdesc>Denne variabelen bestemmer om alle nye tillegg skal aktiveres.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="autocorrect">
+					<entry name="replace">
+						<local_schema short_desc="Autokorriger erstatt">
+							<longdesc>Autokorriger erstatt</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="names-of-days">
+						<local_schema short_desc="Autokorriger dagnavn">
+							<longdesc>Autokorriger dagnavn</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="first-letter-list">
+						<local_schema short_desc="Liste med unntak for forbokstav">
+						</local_schema>
+					</entry>
+					<entry name="first-letter">
+						<local_schema short_desc="Autokorriger første bokstav">
+							<longdesc>Autokorriger første bokstav</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="init-caps">
+						<local_schema short_desc="Autokorriger storbokstav i begynnelsen av ord">
+							<longdesc>Autokorriger storbokstav i begynnelsen av ord</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="functionselector">
+					<entry name="num-of-recent">
+						<local_schema short_desc="Maksimal lengde på liste over nylig brukte funksjoner">
+						</local_schema>
+					</entry>
+					<entry name="recentfunctions">
+						<local_schema short_desc="Liste med nylig brukte funksjoner.">
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="evince">
+				<entry name="override_restrictions">
+					<local_schema short_desc="Overstyr begrensninger satt for dokumentet">
+						<longdesc>Overstyr begrensninger satt for dokumentet slik som mulighet til å kopiere fra det eller skrive det ut.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+		</dir>
+		<dir name="desktop">
+			<dir name="gnome">
+				<dir name="interface">
+					<entry name="show_unicode_menu">
+						<local_schema short_desc="Vis menyen «Unicode kontrolltegn»">
+							<longdesc>Om kontekstmeny for oppføringer og tekstvisninger skal vise alternativer for å sette inn Unicode kontrolltegn.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_input_method_menu">
+						<local_schema short_desc="Vis menyen «Inndatametoder»">
+							<longdesc>Om kontekstmeny for oppføringer og tekstvisninger skal vise alternativer for å bytte inndatametode.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menubar_accel">
+						<local_schema short_desc="Hurtigtast for menylinje">
+							<longdesc>Tastatursnarvei for å åpne menylinjene.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="file_chooser_backend">
+						<local_schema short_desc="Modul for GtkFileChooser">
+							<longdesc>Modul som skal brukes som filsystemmodell for GtkFileChooser-komponenten. Mulige verdier er «gio», «gnome-vfs» og «gtk+».</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="status_bar_meter_on_right">
+						<local_schema short_desc="Statuslinje til høyre">
+							<longdesc>Om statuslinje skal vises til høyre.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_custom_font">
+						<local_schema short_desc="Bruk egendefinert skrift.">
+							<longdesc>Om egendefinert skrift skal brukes i gtk+-programmer.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="monospace_font_name">
+						<local_schema short_desc="Skrift med lik tegnavstand">
+							<longdesc>Navn på en skrift med lik tegnavstand for bruk i f.eks. terminaler.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="document_font_name">
+						<local_schema short_desc="Skrift for dokument">
+							<longdesc>Navn på forvalgt skrift som brukes for visning av dokumenter.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk-im-module">
+						<local_schema short_desc="GTK IM-modul">
+							<longdesc>Navn på modul for inndatametode som brukes av GTK+.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk-im-status-style">
+						<local_schema short_desc="GTK IM statusstil">
+							<longdesc>Navn på statusstil for inndatametode som brukes av gtk+.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk-im-preedit-style">
+						<local_schema short_desc="GTK IM forhåndsredigeringsstil">
+							<longdesc>Navn på forhåndsredigeringsstil for inndatametode som brukes av gtk+.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="font_name">
+						<local_schema short_desc="Forvalgt skrift">
+							<longdesc>Navn på forvalgt skrift som brukes av gtk+.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk_key_theme">
+						<local_schema short_desc="Gtk+-tema">
+							<longdesc>Basisnavn på forvalgt tema som brukes av gtk+.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk_theme">
+						<local_schema short_desc="Gtk+-tema">
+							<longdesc>Basisnavn på forvalgt tema som brukes av gtk+.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="icon_theme">
+						<local_schema short_desc="Ikontema">
+							<longdesc>Ikontema som skal brukes for panelet, nautilus etc.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="cursor_blink_time">
+						<local_schema short_desc="Tid for markørblinking">
+							<longdesc>Lengde på blinksyklus for markør i millisekunder.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="cursor_blink">
+						<local_schema short_desc="Markørblinking">
+							<longdesc>Om markøren skal blinke.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_icons_size">
+						<local_schema short_desc="Ikonstørrelse for verktøylinjen">
+							<longdesc>Størrelse på ikoner på verktøylinjen. Enten «small-toolbar» eller «large-toolbar».</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_detachable">
+						<local_schema short_desc="Verktøylinjen kan tas av">
+							<longdesc>Om bruker kan ta løs verktøylinjer og flytte dem rundt.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menubar_detachable">
+						<local_schema short_desc="Menylinjen kan tas av">
+							<longdesc>Om bruke kan ta løs menylinjer og flytte dem rundt.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="buttons_have_icons">
+						<local_schema short_desc="Knapper har ikoner">
+							<longdesc>Om knapper kan vise et ikon i tillegg til knappeteksten.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menus_have_icons">
+						<local_schema short_desc="Menyer har ikoner">
+							<longdesc>Om menyer skal vise et ikon ved siden av en menyoppføring.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_style">
+						<local_schema short_desc="Stil for verktøylinjen">
+							<longdesc>Stil for verktøylinje. Gyldige verdier er «both», «both-horiz», «icon» og «text».</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="can_change_accels">
+						<local_schema short_desc="Kan endre snarveitaster">
+							<longdesc>Om bruker kan oppgi en snarveitast dynamisk når markøren er plassert over en aktiv menyoppføring.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menus_have_tearoff">
+						<local_schema short_desc="Menyer har avrivingskant">
+							<longdesc>Om menyer skal kunne rives løs.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="Aktiver animasjoner">
+							<longdesc>Om animasjoner skal vises. Merk: Dette er en global nøkkel. Den endrer oppførsel for vindushåndtereren, panelet etc.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="accessibility">
+						<local_schema short_desc="Aktiver tilgjengelighet">
+							<longdesc>Om programmer skal ha støtte for tilgjengelighet.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="background">
+					<entry name="color_shading_type">
+						<local_schema short_desc="Type skyggelegging av farger">
+							<longdesc>Hvordan bakgrunnsfargen skal skyggelegges. Mulige verdier er «horizontal-gradient», «vertical-gradient» og «solid».</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="secondary_color">
+						<local_schema short_desc="Sekundærfarge">
+							<longdesc>Høyre eller nedre farge ved tegning av gradienter. Ikke brukt for helfylt farge.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="primary_color">
+						<local_schema short_desc="Primærfarge">
+							<longdesc>Venstre eller øverste farge ved tegning av gradienter, eller den helfylte fargen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="picture_opacity">
+						<local_schema short_desc="Ugjennomsiktighet for bildet">
+							<longdesc>Ugjennomsiktighet for tegning av bakgrunnsbildet.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="picture_filename">
+						<local_schema short_desc="Filnavn for bilde">
+							<longdesc>Fil som skal brukes som bakgrunnsbilde.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="picture_options">
+						<local_schema short_desc="Alternativer for bilde">
+							<longdesc>Bestemmer hvordan bildet satt av wallpaper_filename skal rendres. Mulige verdier er «none», «wallpaper», «centered», «scaled», «stretched», «zoom» og «spanned».</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="draw_background">
+						<local_schema short_desc="Tegn skrivebordsbakgrunn">
+							<longdesc>La GNOME tegne skrivebordsbakgrunnen.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="thumbnail_cache">
+					<entry name="maximum_size">
+						<local_schema>
+							<longdesc>Maks størrelse på buffer for miniatyrer i megabyte. Sett til -1 for å deaktivere opprydding.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="maximum_age">
+						<local_schema>
+							<longdesc>Maks alder for miniatyrer i bufferen i dager. Sett til -1 for å deaktivere opprydding.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="typing_break">
+					<entry name="enabled">
+						<local_schema short_desc="Om låsing av tastaturet er aktivert">
+							<longdesc>Om låsing av tastaturet er aktivert.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="allow_postpone">
+						<local_schema short_desc="Tillat utsetting av pauser">
+							<longdesc>Om skrivepausen kan utsettes eller ikke.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="break_time">
+						<local_schema short_desc="Pausetid">
+							<longdesc>Antall minutter skrivepausen skal vare.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="type_time">
+						<local_schema short_desc="Skrivetid">
+							<longdesc>Antall minutter med skriving før pausemodus starter.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="sound">
+					<entry name="input_feedback_sounds">
+						<local_schema short_desc="Lyder for tilbakemelding om inndata">
+							<longdesc>Om lyder skal spilles av ved inndatahendelser.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="theme_name">
+						<local_schema short_desc="Navn på lydtema">
+							<longdesc>XDG lydtema som skal brukes for lydhendelser.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="event_sounds">
+						<local_schema short_desc="Lyder for hendelser">
+							<longdesc>Om lyder skal spilles av ved brukerhendelser.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_esd">
+						<local_schema short_desc="Aktiver ESD">
+							<longdesc>Aktiver oppstart av lydtjener.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="default_mixer_tracks">
+						<local_schema short_desc="Forvalgte spor for mikser">
+							<longdesc>Forvalgte spor for mikser som brukes av tastaturbindinger for multimedia.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="default_mixer_device">
+						<local_schema short_desc="Forvalgt mikserenhet">
+							<longdesc>Forvalgt mikserenhet som brukes av tastaturbindinger for multimedia.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="peripherals">
+					<dir name="keyboard">
+						<entry name="remember_numlock_state">
+							<local_schema short_desc="Husk tilstand for NumLock">
+								<longdesc>GNOME vil huske tilstand for NumLock mellom sesjoner hvis denne settes til «true».</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bell_custom_file">
+							<local_schema short_desc="Filnavn for egendefinert tastaturpip">
+								<longdesc>Filnavn for lyd for tastaturpip som skal spilles.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bell_mode">
+							<local_schema>
+								<longdesc>mulige verdier er «on», «off» og «custom».</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="mouse">
+						<entry name="cursor_size">
+							<local_schema short_desc="Markørstørrelse">
+								<longdesc>Størrelse på markøren referert til av cursor_theme.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="cursor_theme">
+							<local_schema short_desc="Tema for markør">
+								<longdesc>Navn på markørtema. Brukes kun av X-tjenere som støtter Xcursor. For eksempel XFree86 4.3 og senere.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="cursor_font">
+							<local_schema short_desc="Skrift for markør">
+								<longdesc>Skriftnavn for markøren. Hvis denne ikke er satt brukes forvalgt skrift. Denne verdien videresendes kun til X-tjeneren ved oppstart av en sesjon, så den har ingen effekt før ved neste innlogging hvis den endres i en sesjon.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="locate_pointer">
+							<local_schema short_desc="Lokaliser peker">
+								<longdesc>Uthever pekerens nåværende plassering når Ctrl-tasten trykkes ned og slippes.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="double_click">
+							<local_schema short_desc="Tid for dobbeltklikk">
+								<longdesc>Lengde på et dobbeltklikk.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="drag_threshold">
+							<local_schema short_desc="Terskel for dra-operasjon">
+								<longdesc>Avstand før draoperasjon startes.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="motion_threshold">
+							<local_schema short_desc="Bevegelsesterskel">
+								<longdesc>Avstand i piksler som pekeren må bevege seg før akselerert musbevegelse aktiveres. -1 er systemets forvalgte verdi.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="motion_acceleration">
+							<local_schema short_desc="Enkeltklikk">
+								<longdesc>Multipliserer for akselerasjon av musbevegelse. En verdi på -1 er forvalgt for systemet.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="single_click">
+							<local_schema short_desc="Enkeltklikk">
+								<longdesc>Enkeltklikk for å aktivere ikoner.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="left_handed">
+							<local_schema short_desc="Orientering for musknapper">
+								<longdesc>Bytt om høyre og venstre musknapp for venstrehendte mus.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="lockdown">
+					<entry name="disable_application_handlers">
+						<local_schema short_desc="Slå av URL- og MIME-håndterere">
+							<longdesc>Forhindre kjøring av håndterere for URL og MIME-type.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_lock_screen">
+						<local_schema short_desc="Slå av låsing av skjermen">
+							<longdesc>Hindre brukeren i å låse skjermen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_user_switching">
+						<local_schema short_desc="Deaktiver brukerbytting">
+							<longdesc>Hindre bruker fra å bytte til en annen konto mens sesjonen er aktiv.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_print_setup">
+						<local_schema short_desc="Dekativer skriveroppsett">
+							<longdesc>Hindre at bruker endrer innstillinger for skrivere. Dette vil for eksempel deaktivere tilgang til «Skriveroppsett»-dialoger i alle programmer.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_printing">
+						<local_schema short_desc="Deaktiver utskrift">
+							<longdesc>Hindre at bruker skriver ut dokumenter. Dette vil for eksempel deaktivere tilgang til «Skriv ut»-dialogene i alle programmer.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_save_to_disk">
+						<local_schema short_desc="Deaktiver lagring av filer til disk">
+							<longdesc>Hindre at bruker lagrer filer til disk. Dette vil for eksempel deaktivere «Lagre som»-dialogen i alle programmer.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_command_line">
+						<local_schema short_desc="Deaktiver kommandolinjen">
+							<longdesc>Forhindre bruker fra å aksessere terminalen eller oppgi en kommandolinje som skal kjøres. Dette vil for eksempel deaktivere tilgang til panelets «Kjør program»-dialog.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="file-views">
+					<entry name="icon_theme">
+						<local_schema short_desc="Ikontema for fil">
+							<longdesc>Tema som brukes for å vise filikoner.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="accessibility">
+					<dir name="startup">
+						<entry name="exec_ats">
+							<local_schema short_desc="Oppstart av programmer med hjelpeteknologi">
+								<longdesc>Liste over programmer med hjelpeteknologi som skal startes ved innlogging til GNOME skrivebordet.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="keyboard">
+						<entry name="stickykeys_modifier_beep">
+							<local_schema>
+								<longdesc>Pip når en endringstast trykkes ned.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="stickykeys_two_key_off">
+							<local_schema>
+								<longdesc>Deaktiver hvis to taster trykkes ned samtidig.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="slowkeys_delay">
+							<local_schema short_desc="Minste intervall i millisekunder">
+								<longdesc>Ikke godta en tast som nedtrykket før den holdes minst @delay millisekunder.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="mousekeys_init_delay">
+							<local_schema short_desc="Initiell pause i millisekunder">
+								<longdesc>Antall millisekunder ventetid før taster for musbevegelse begynner å virke.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="mousekeys_accel_time">
+							<local_schema short_desc="Lengde på aksellerasjon i millisekunder">
+								<longdesc>Antall millisekunder det tar å gå fra 0 til maksimal hastighet.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="mousekeys_max_speed">
+							<local_schema short_desc="Piksler per sekund">
+								<longdesc>Antall piksler per sekund i bevegelse ved maksimal hastighet.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bouncekeys_delay">
+							<local_schema short_desc="minste intervall i millisekunder">
+								<longdesc>Ignorer flere tastetrykk med samme tast innen @delay millisekunder.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="thumbnailers">
+					<entry name="disable_all">
+						<local_schema short_desc="Deaktiver alle eksterne miniatyrfunksjoner">
+							<longdesc>Sett til sann for å deaktivere alle eksterne programmer for miniatyrer, uavhengig av om de er individuelt aktive eller ikke.</longdesc>
+						</local_schema>
+					</entry>
+					<dir name="application@x-gzpdf">
+						<entry name="command">
+							<local_schema short_desc="Miniatyrbildekommando for PDF-dokumenter">
+								<longdesc>Gyldig kommando pluss argumenter for PDF-dokument miniatyrbilder. Se i Nautilus sin miniatyrbildedokumentasjon for mer informasjon.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Aktiver generering av miniatyrer for PDF-dokumenter">
+								<longdesc>Boolske verdier tilgjengelig: «true» aktiverer miniatyrer og «false» deaktiverer oppretting av nye miniatyrer.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@x-bzpdf">
+						<entry name="command">
+							<local_schema short_desc="Miniatyrbildekommando for PDF-dokumenter">
+								<longdesc>Gyldig kommando pluss argumenter for PDF-dokument miniatyrbilder. Se i Nautilus sin miniatyrbildedokumentasjon for mer informasjon.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Aktiver generering av miniatyrer for PDF-dokumenter">
+								<longdesc>Boolske verdier tilgjengelig: «true» aktiverer miniatyrer og «false» deaktiverer oppretting av nye miniatyrer.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@pdf">
+						<entry name="command">
+							<local_schema short_desc="Miniatyrbildekommando for PDF-dokumenter">
+								<longdesc>Gyldig kommando pluss argumenter for PDF-dokument miniatyrbilder. Se i Nautilus sin miniatyrbildedokumentasjon for mer informasjon.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Aktiver generering av miniatyrer for PDF-dokumenter">
+								<longdesc>Boolske verdier tilgjengelig: «true» aktiverer miniatyrer og «false» deaktiverer oppretting av nye miniatyrer.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="url-handlers">
+					<dir name="ymsgr">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Kjør kommandoen i en terminal">
+								<longdesc>Sann hvis kommandoen som skal håndtere denne type URLer skal kjøres i en terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Håndtereren for «ymsgr»-URLer">
+								<longdesc>Kommando for å håndtere «ymsgr»-URLer, hvis aktivert.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Om den spesifike kommandoen skal håndtere «ymsgr»-URLer">
+								<longdesc>Sann hvis kommandoen spesifisert i «kommando»-nøkkelen skal håndtere «ymsgr»-URLer.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="xmpp">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Kjør kommandoen i en terminal">
+								<longdesc>Sann hvis kommandoen som skal håndtere denne type URLer skal kjøres i en terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Håndtereren for «xmpp»-URLer">
+								<longdesc>Kommando for å håndtere «xmpp»-URLer, hvis aktivert.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Om den spesifike kommandoen skal håndtere «xmpp»-URLer">
+								<longdesc>Sann hvis kommandoen spesifisert i «kommando»-nøkkelen skal håndtere «xmpp»-URLer.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="sip">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Kjør kommandoen i en terminal">
+								<longdesc>Sann hvis kommandoen som skal håndtere denne type URLer skal kjøres i en terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Håndtereren for «sip»-URLer">
+								<longdesc>Kommando for å håndtere «sip»-URLer, hvis aktivert.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Om den spesifike kommandoen skal håndtere «sip»-URLer">
+								<longdesc>Sann hvis kommandoen spesifisert i «kommando»-nøkkelen skal håndtere «sip»-URLer.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="msnim">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Kjør kommandoen i en terminal">
+								<longdesc>Sann hvis kommandoen som skal håndtere denne type URLer skal kjøres i en terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Håndtereren for «msnim»-URLer">
+								<longdesc>Kommando for å håndtere «msnim»-URLer, hvis aktivert.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Om den spesifike kommandoen skal håndtere «msnim»-URLer">
+								<longdesc>Sann hvis kommandoen spesifisert i «kommando»-nøkkelen skal håndtere «msnim»-URLer.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="irc">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Kjør kommandoen i en terminal">
+								<longdesc>Sann hvis kommandoen som skal håndtere denne type URLer skal kjøres i en terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Håndtereren for «irc»-URLer">
+								<longdesc>Kommando for å håndtere «irc»-URLer, hvis aktivert.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Om den spesifike kommandoen skal håndtere «irc»-URLer">
+								<longdesc>Sann hvis kommandoen spesifisert i «kommando»-nøkkelen skal håndtere «irc»-URLer.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="icq">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Kjør kommandoen i en terminal">
+								<longdesc>Sann hvis kommandoen som skal håndtere denne type URLer skal kjøres i en terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Håndtereren for «icq»-URLer">
+								<longdesc>Kommando for å håndtere «icq»-URLer, hvis aktivert.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Om den spesifike kommandoen skal håndtere «icq»-URLer">
+								<longdesc>Sann hvis kommandoen spesifisert i «kommando»-nøkkelen skal håndtere «icq»-URLer.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="gg">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Kjør kommandoen i en terminal">
+								<longdesc>Sann hvis kommandoen som skal håndtere denne type URLer skal kjøres i en terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Håndtereren for «gg»-URLer">
+								<longdesc>Kommando for å håndtere «gg»-URLer, hvis aktivert.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Om den spesifike kommandoen skal håndtere «gg»-URLer">
+								<longdesc>Sann hvis kommandoen spesifisert i «kommando»-nøkkelen skal håndtere «gg»-URLer.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="h323">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Kjør kommandoen i en terminal">
+								<longdesc>True hvis programmet for å håndtere denne type URL skal kjøres i en terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Håndterer for «h323»-URLer">
+								<longdesc>Kommando som brukes til å håndtere «h323»-URLer, hvis aktivert.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Om oppgitt kommando skal håndtere «h323»-URLer">
+								<longdesc>True hvis programmet oppgitt i «command»-nøkkelen skal håndtere «h323»-URLer.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="callto">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Kjør kommandoen i en terminal">
+								<longdesc>True hvis programmet for å håndtere denne type URL skal kjøres i en terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Håndterer for «callto»-URLer">
+								<longdesc>Kommando som brukes til å håndtere «callto»-URLer, hvis aktivert.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Om oppgitt kommando skal håndtere «callto»-URLer">
+								<longdesc>True hvis programmet oppgitt i «command»-nøkkelen skal håndtere «callto»-URLer.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="aim">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Kjør kommandoen i en terminal">
+								<longdesc>Sann hvis kommandoen som skal håndtere denne type URLer skal kjøres i en terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Håndtereren for «aim»-URLer">
+								<longdesc>Kommando for å håndtere «aim»-URLer, hvis aktivert.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Om den spesifike kommandoen skal håndtere «aim»-URLer">
+								<longdesc>Sann hvis kommandoen spesifisert i «kommando»-nøkkelen skal håndtere «aim»-URLer.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="mailto">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Kjør kommandoen i en terminal">
+								<longdesc>True hvis programmet for å håndtere denne type URL skal kjøres i en terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Håndterer for «mailto»-URLer">
+								<longdesc>Kommando som brukes til å håndtere «mailto»-URLer, hvis aktivert.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Om oppgitt kommando skal håndtere «mailto»-URLer">
+								<longdesc> True hvis programmet oppgitt i «command»-nøkkelen skal håndtere «mailto»-URLer.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="https">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Kjør kommandoen i en terminal">
+								<longdesc>True hvis programmet for å håndtere denne type URL skal kjøres i en terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Håndterer for «https»-URLer">
+								<longdesc>Kommando som brukes til å håndtere «https»-URLer, hvis aktivert.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Om oppgitt kommando skal håndtere «https»-URLer">
+								<longdesc>True hvis programmet oppgitt i «command»-nøkkelen skal håndtere «https»-URLer.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="http">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Kjør kommandoen i en terminal">
+								<longdesc>True hvis programmet for å håndtere denne type URL skal kjøres i en terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Håndterer for «http»-URLer">
+								<longdesc>Kommando som brukes til å håndtere «http»-URLer, hvis aktivert.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Om oppgitt kommando skal håndtere «http»-URLer">
+								<longdesc>True hvis programmet oppgitt i «command»-nøkkelen skal håndtere «http»-URLer.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="man">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Kjør kommandoen i en terminal">
+								<longdesc>True hvis programmet for å håndtere denne type URL skal kjøres i en terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Håndterer for «man»-URLer">
+								<longdesc>Kommando som brukes til å håndtere «man»-URLer, hvis aktivert.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Om oppgitt kommando skal håndtere «man»-URLer">
+								<longdesc> True hvis programmet oppgitt i «command»-nøkkelen skal håndtere «man»-URLer.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="info">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Kjør kommandoen i en terminal">
+								<longdesc>True hvis programmet for å håndtere denne type URL skal kjøres i en terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Håndterer for «info»-URLer">
+								<longdesc>Kommando som brukes til å håndtere «info»-URLer, hvis aktivert.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Om oppgitt kommando skal håndtere «info»-URLer">
+								<longdesc> True hvis programmet oppgitt i «command»-nøkkelen skal håndtere «info»-URLer.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="ghelp">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Kjør kommandoen i en terminal">
+								<longdesc>True hvis programmet for å håndtere denne type URL skal kjøres i en terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Håndterer for «ghelp»-URLer">
+								<longdesc>Kommando som brukes til å håndtere «ghelp»-URLer, hvis aktivert.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Om oppgitt kommando skal håndtere «ghelp»-URLer">
+								<longdesc>True hvis programmet oppgitt i «command»-nøkkelen skal håndtere «ghelp»-URLer.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="trash">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Kjør kommandoen i en terminal">
+								<longdesc>True hvis programmet for å håndtere denne type URL skal kjøres i en terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Håndterer for «papirkurv»-URLer">
+								<longdesc>Kommando som brukes til å håndtere «trash»-URLer, hvis aktivert.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Om oppgitt kommando skal håndtere «trash»-URLer">
+								<longdesc>True hvis programmet oppgitt i «command»-nøkkelen skal håndtere «trash»-URLer.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="applications">
+					<dir name="tasks">
+						<entry name="needs_term">
+							<local_schema short_desc="Oppgaver trenger terminal">
+								<longdesc>Om forvalgt oppgaveprogram trenger en terminal for å kjøre.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="Forvalgte oppgaver">
+								<longdesc>Forvalgt oppgaveprogram</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="calendar">
+						<entry name="needs_term">
+							<local_schema short_desc="Kalender trenger terminal">
+								<longdesc>Om forvalgt kalenderprogram trenger en terminal for å kjøre.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="Forvalgt kalender">
+								<longdesc>Forvalgt kalenderprogram</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="window_manager">
+						<entry name="workspace_names">
+							<local_schema short_desc="Navn på arbeidsområder (fases ut)">
+								<longdesc>En liste med navn for de første arbeidsområdene i vindushåndtereren. Denne nøkkelen er ikke anbefalt brukt etter GNOME 2.12.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="number_of_workspaces">
+							<local_schema short_desc="Antall arbeidsområder (fases ut)">
+								<longdesc>Antall arbeidsområder vindushåntereren skal bruke. Denne nøkkelen skal fases ut etter GNOME 2.12.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="current">
+							<local_schema short_desc="Brukers vindushåndterer (fases ut)">
+								<longdesc>Vindushåndterer som skal prøves først. Denne nøkkelen skal fases ut etter GNOME 2.12.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="default">
+							<local_schema short_desc="Reserve-vindushåndterer (fases ut)">
+								<longdesc>Reserve-vindushåndterer hvis brukerens vindushåndterer ikke kan finnes. Denne nøkkelen skal fases ut etter GNOME 2.12.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="browser">
+						<entry name="nremote">
+							<local_schema short_desc="Nettleser forstår eksterne kommandoer">
+								<longdesc>Om forvalgt leser forstår netscape remote-protokollen.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="needs_term">
+							<local_schema short_desc="Nettleser trenger terminal">
+								<longdesc>Om forvalgt leser trenger en terminal for å kjøre.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="Forvalgt nettleser">
+								<longdesc>Forvalgt nettleser for alle URLer.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="at">
+						<dir name="mobility">
+							<entry name="startup">
+								<local_schema short_desc="Oppstart av foretrukket hjelpeteknologi for mobilitet">
+									<longdesc>GNOME skal starte foretrukket hjelpeteknologi for mobilitet ved innlogging.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="exec">
+								<local_schema short_desc="Foretrukket program for hjelpeteknologi for mobilitet">
+									<longdesc>Foretrukket hjelpeteknologi for bevegelseshemmede som skal brukes ved innlogging, meny, eller kommandolinje.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+						<dir name="visual">
+							<entry name="startup">
+								<local_schema short_desc="Oppstart av programmer med hjelpeteknologi">
+									<longdesc>Om foretrukket hjelpeteknologi for tilgjengelighet for svaksynte skal startes av GNOME ved innlogging.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="exec">
+								<local_schema short_desc="Foretrukket program med hjelpeteknologi for tilgjengelighet for svaksynte">
+									<longdesc>Foretrukket hjelpeteknologi for synshemmede som skal brukes ved innlogging, meny, eller kommandolinje.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+					</dir>
+					<dir name="component_viewer">
+						<entry name="exec">
+							<local_schema short_desc="Forvalgt applikasjon for visning av komponent">
+								<longdesc>Applikasjon som skal brukes for å vise filer som krever en komponent for visning. Parameteren %s vil erstattes med filens URIer, parameteren %c vil erstattes med komponentens IID.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="terminal">
+						<entry name="exec_arg">
+							<local_schema short_desc="Kjøringsflagg">
+								<longdesc>Argument som brukes til å kjøre programmer definert av «exec»-nøkkelen i terminalen.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="Terminalprogram">
+								<longdesc>Terminalprogram som skal brukes ved oppstart av programmer som krever det.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+			</dir>
+		</dir>
+		<dir name="system">
+			<dir name="dns_sd">
+				<entry name="extra_domains">
+					<local_schema short_desc="Ekstra domener som skal sjekkes for DNS-SD-tjenester">
+						<longdesc>Kommaseparert liste med DNS-SD-domener som skal være synlige i lokasjonen «network:///».</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="display_local">
+					<local_schema short_desc="Hvordan vises lokale DNS-SD-tjenester">
+						<longdesc>Mulige verdier er «merged», «separate» og «disabled».</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="smb">
+				<entry name="workgroup">
+					<local_schema short_desc="SMB-arbeidsgruppe">
+						<longdesc>Arbeidsgruppe eller domene brukeren er del av i Windows-nettverket. Brukeren må logge ut for at endringer skal tre i kraft.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="proxy">
+				<entry name="autoconfig_url">
+					<local_schema short_desc="URL for automatisk konfigurasjon av proxy">
+						<longdesc>URL som oppgir verdier for konfigurasjon av proxy.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="socks_port">
+					<local_schema short_desc="Port for SOCKS-proxy">
+						<longdesc>Port på maskinen som brukes som proxy og er definert i «/system/proxy/socks_host».</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="socks_host">
+					<local_schema short_desc="Vertsnavn for SOCKS-proxy">
+						<longdesc>Maskinnavn for SOCKS-proxy.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="ftp_port">
+					<local_schema short_desc="Port for FTP-proxy">
+						<longdesc>Port på maskinen som brukes som proxy og er definert i «/system/proxy/ftp_host».</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="ftp_host">
+					<local_schema short_desc="Vertsnavn for FTP-proxy">
+						<longdesc>Maskinnavn for FTP-proxy.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="secure_port">
+					<local_schema short_desc="Port for HTTPS-proxy">
+						<longdesc>Port på maskinen som brukes som proxy og er definert i «/system/proxy/secure_host».</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="secure_host">
+					<local_schema short_desc="Vertsnavn for HTTPS-proxy">
+						<longdesc>Maskinnavn for HTTPS-proxy.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="mode">
+					<local_schema short_desc="Konfigurasjonsmodus for proxy">
+						<longdesc>Velg konfigurasjonsmodus for proxy. Verdier som er støttet er «none», «manual», «auto».</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="http_proxy">
+				<entry name="ignore_hosts">
+					<local_schema short_desc="Verter som ikke skal bruke proxy">
+						<longdesc>Denne nøkkelen inneholder en liste med verter som har direkte forbindelse i stedet for å gå via proxy (hvis denne er aktiv). Verdiene kan være vertsnavn, domener (med jokertegn som *.domene.no), IP-adresse for verten (både IPv4 og IPv6) og nettverksadresser med en nettmaske (som 192.168.0.0/24).</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="authentication_password">
+					<local_schema short_desc="Passord for HTTP-proxy">
+						<longdesc>Passord som skal oppgis ved autentisering for bruk av HTTP-proxy.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="authentication_user">
+					<local_schema short_desc="Brukernavn for HTTP-proxy">
+						<longdesc>Brukernavn som skal oppgis som autentisering ved bruk av HTTP-proxy.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="use_authentication">
+					<local_schema short_desc="Autentiser forbindelser til proxytjener">
+						<longdesc>Hvis sann vil tilkoblinger til proxytjener kreve autentisering. Brukernavn/passord-kombinasjonen er definert i «/system/http_proxy/authentication_user» og «/system/http_proxy/authentication_password».</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="port">
+					<local_schema short_desc="Port for HTTP-proxy">
+						<longdesc>Port på maskinen som brukes som proxy og er definert i «/system/http_proxy/host».</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="host">
+					<local_schema short_desc="Vertsnavn for HTTP-proxy">
+						<longdesc>Maskinnavn for HTTP-proxy.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="use_http_proxy">
+					<local_schema short_desc="Bruk HTTP-proxy">
+						<longdesc>Aktiverer proxy-innstillinger ved aksess via HTTP til Internett.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+		</dir>
+	</dir>
+</gconf>

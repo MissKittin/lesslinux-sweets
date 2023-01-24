@@ -1,0 +1,9 @@
+::sysinit:/etc/rc
+tty1::respawn:/static/bin/show_placeholder
+tty2::respawn:/static/sbin/getty -l /static/bin/login 38400 tty2
+tty3::respawn:/static/sbin/getty -l /static/bin/login 38400 tty3
+tty4::respawn:/static/bin/ash
+tty5::respawn:/bin/bash
+tty6::respawn:/static/bin/x_user_start
+::ctrlaltdel:/static/sbin/reboot
+::shutdown:/etc/rc.shutdown

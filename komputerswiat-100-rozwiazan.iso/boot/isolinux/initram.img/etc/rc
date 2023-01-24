@@ -1,0 +1,77 @@
+#!/static/bin/ash
+
+PATH=/static/bin:/static/sbin:/bin:/sbin:/usr/bin:/usr/sbin
+export PATH
+
+if [ '!' -L /proc/mounts ] ; then
+    mount -t proc none /proc > /dev/null 2>&1
+fi
+
+# set this to prevent faults if not set in /etc/rc.defaults
+ultraquiet=0
+
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors
+. /etc/rc.lang/en/messages.sh
+[ -f "/etc/rc.lang/$lang/messages.sh" ] && . /etc/rc.lang/$lang/messages.sh
+. /etc/lesslinux/branding/branding.en.sh
+[ -f "/etc/lesslinux/branding/branding.${lang}.sh" ] && . /etc/lesslinux/branding/branding.${lang}.sh
+
+printf "${bold}${starting_up} ${brandlong} ${normal}\n\n"
+if [ "$ultraquiet" -lt 1 ] ; then
+    printf "${bold}Starting with Linux kernel: ${normal}" ; uname -r ;
+    printf "${bold}Build ID:                   ${normal}" ; cat /etc/lesslinux/updater/version.txt ; printf "\n"
+fi
+[ "$ultraquiet" -gt 0 ] && dmesg -n1
+
+for i in /etc/rc.d/[0-9][0-9][0-9][0-9]-*.??
+do
+    provides="` cat $i | grep '#lesslinux provides' | awk '{print $3}' `"
+    patience="` cat $i | grep '#lesslinux patience' | awk '{print $2}' `"
+    verbose="` cat $i  | grep '#lesslinux verbose'  | awk '{print $2}' `"
+    debuglev="` cat $i | grep '#lesslinux debug'    | awk '{print $3}' `"
+    if [ -z "$provides" ] ; then
+	[ "$ultraquiet" -gt 0 ] && \
+		$i start > /dev/null 2>&1 && printf "... " || \
+		$i start
+    else
+        if echo "$skipservices" | grep '|'$provides'|' > /dev/null 2>&1 ; then 
+	    [ "$ultraquiet" -gt 0 ] || printf "$bold---> Skipping $provides \n" 
+	elif [ -n "$debuglev" ] && [ "$debug_threshold" -gt "$debuglev" ] ; then
+	    printf "\n$bold===> Running debug script \n" 
+	    $i start
+        elif [ -z "$debuglev" ] ; then
+	    if [ -f "/etc/rc.confd/$provides.$hwenv.modules" ] ; then
+		[ "$ultraquiet" -gt 0 ] && \
+			/etc/rc.subr/loadmodules.sh "/etc/rc.confd/$provides.$hwenv.modules" > /dev/null 2>&1 ||
+			/etc/rc.subr/loadmodules.sh "/etc/rc.confd/$provides.$hwenv.modules"
+            elif [ -f "/etc/rc.confd/$provides.default.modules" ] ; then
+		[ "$ultraquiet" -gt 0 ] && \
+			/etc/rc.subr/loadmodules.sh "/etc/rc.confd/$provides.default.modules" > /dev/null 2>&1 || \
+			/etc/rc.subr/loadmodules.sh "/etc/rc.confd/$provides.default.modules"
+	    fi
+	    [ "$ultraquiet" -gt 0 ] && [ -n "$patience" ] && \
+		printf "\n${bold}${be_patient}${normal}\n"
+	    if [ "$ultraquiet" -gt 0 ] ; then
+		if [ -n "$verbose" ] ; then
+		    $i start
+		else
+		    $i start > /dev/null 2>&1 && printf "[${bold}${provides}${normal}] "
+		fi
+	    else
+		$i start
+	    fi
+        fi
+    fi
+done
+
+# Running local startup script -- containers and encrypted home should be available right now:
+if [ -f "/etc/rc.local" ] ; then
+	# printf "\n${bold}===> Running local startup scripts${normal}\n"
+	printf "\n${bold}===> Starte Befehle in /etc/rc.local ${normal}\n"
+	/etc/rc.local
+fi
+
+printf "$normal\n"
+#		

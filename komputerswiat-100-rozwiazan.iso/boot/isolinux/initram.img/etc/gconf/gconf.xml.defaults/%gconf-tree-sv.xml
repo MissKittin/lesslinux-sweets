@@ -1,0 +1,2691 @@
+<?xml version="1.0"?>
+<gconf>
+	<dir name="schemas">
+		<dir name="apps">
+			<dir name="brasero">
+				<entry name="nautilus-extension-debug">
+					<local_schema short_desc="Ska Nautilus-tillägg skriva ut felsökningsdata">
+						<longdesc>Ska Nautilus-tillägg skriva ut felsökningsdata. Värdet bör ställas in till true om det ska.</longdesc>
+					</local_schema>
+				</entry>
+				<dir name="filter">
+					<entry name="broken_sym">
+						<local_schema short_desc="Ska Brasero filtrera trasiga symboliskt länkade filer">
+							<longdesc>Ska Brasero filtrera trasiga symboliska länkar. Ställ in till true och Brasero kommer att filtrera trasiga symboliska länkar.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="replace_sym">
+						<local_schema short_desc="Ersätt symboliska länkar med deras mål">
+							<longdesc>Om Brasero ska ersätta symboliska länkar med sina målfiler i projektet. Ställ in till true och Brasero kommer att ersätta symboliska länkar.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hidden">
+						<local_schema short_desc="Ska brasero filtrera dolda filer">
+							<longdesc>Ska brasero filtrera dolda filer. Ställ in till sant, och brasero kommer att filtrera dolda filer.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="display">
+					<entry name="viewer">
+						<local_schema short_desc="Aktivera förhandsvisning av filer">
+							<longdesc>Huruvida förhandsvisning av filer ska visas. Ställ in till sant för att göra det.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="config">
+					<entry name="raw_flag">
+						<local_schema short_desc="Huruvida flaggan &quot;--driver generic-mmc-raw&quot; ska användas med cdrdao">
+							<longdesc>Huruvida flaggan &quot;--driver generic-mmc-raw&quot; ska användas med cdrdao. Ställ in till True och brasero kommer att använda den; det kan vara en temporär lösning för vissa enheter/konfigurationer.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="minbuf_value">
+						<local_schema short_desc="Används tillsammans med flaggan &quot;-immed&quot; med cdrecord">
+							<longdesc>Används tillsammans med flaggan &quot;-immed&quot; med cdrecord.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="dao_flag">
+						<local_schema short_desc="Huruvida flaggan &quot;-use-the-force-luke=dao&quot; ska användas med growisofs">
+							<longdesc>Huruvida flaggan &quot;-use-the-force-luke=dao&quot; ska användas med growisofs. Ställ in till false och brasero kommer inte att använda den; det kan vara en temporär lösning för vissa enheter/konfigurationer.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="immed_flag">
+						<local_schema short_desc="Aktivera flaggan &quot;-immed&quot; med cdrecord">
+							<longdesc>Huruvida flaggan &quot;-immed&quot; ska användas med cdrecord. Använd med försiktighet (ställ in till true) eftersom det endast är en temporär lösning för vissa enheter/konfigurationer.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="plugins">
+						<local_schema short_desc="Vitlista över ytterligare insticksmoduler att använda">
+							<longdesc>Innehåller listan över ytterligare insticksmoduler som Brasero använder för att bränna skivor. Om inställd till NULL kommer Brasero att läsa in alla.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="engine-group">
+						<local_schema short_desc="Favoritbränningsmotor">
+							<longdesc>Innehåller namnet på den favoritbrännmotorsviten som är installerad. Det kommer att användas om möjligt.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnome-system-log">
+				<entry name="logfiles">
+					<local_schema short_desc="Loggfiler att öppna vid uppstart">
+						<longdesc>Anger en lista på loggfiler som öppnas vid uppstart. En standardlista skapas genom att läsa /etc/syslog.conf.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="width">
+					<local_schema short_desc="Bredd på huvudfönstret i pixlar">
+						<longdesc>Anger bredden på loggvisarens huvudfönster i pixlar.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="height">
+					<local_schema short_desc="Höjd på huvudfönstret i pixlar.">
+						<longdesc>Anger höjden på loggvisarens huvudfönster i pixlar.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="fontsize">
+					<local_schema short_desc="Storlek på typsnittet som används för att visa loggen">
+						<longdesc>Anger storleken på det typsnitt med fast breddsteg som används för att visa loggen i huvudträdvyn. Standarden är tagen från storleken för standardterminaltypsnittet.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="logfile">
+					<local_schema short_desc="Loggfil att öppna vid uppstart">
+						<longdesc>Anger den loggfil som visas vid uppstart. Standard är antingen /var/adm/messages eller /var/log/messages, beroende på ditt operativsystem.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="gnome-search-tool">
+				<entry name="look_in_folder">
+					<local_schema short_desc="Leta i mapp">
+						<longdesc>Denna nyckel definierar standardvärdet för widgeten &quot;Sök i mapp&quot;.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default_window_maximized">
+					<local_schema short_desc="Maximerat standardfönster">
+						<longdesc>Denna nyckel bestämmer om sökverktygsfönstret startar i ett maximerat läge.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default_window_height">
+					<local_schema short_desc="Standard fönsterhöjd">
+						<longdesc>Denna nyckel definierar fönstrets höjd och den används för att komma ihåg storleken på sökverktyget mellan sessioner. Ställa in det till -1 gör att sökverktyget använder standardhöjden.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default_window_width">
+					<local_schema short_desc="Standard fönsterbredd">
+						<longdesc>Denna nyckel definierar fönstrets bredd och den används för att komma ihåg storleken på sökverktyget mellan sessioner. Ställa in det till -1 gör att sökverktyget använder standardbredden.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="columns_order">
+					<local_schema short_desc="Ordning för sökresultatkolumner">
+						<longdesc>Denna nyckel definierar ordningen på kolumner i sökresultaten. Denna nyckel bör inte ändras av användaren.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="quick_search_second_scan_excluded_paths">
+					<local_schema short_desc="Exkluderade sökvägar vid andra genomsökningen i snabbsökning">
+						<longdesc>Denna nyckel anger de sökvägar som sökverktyget kommer att undanta från en andra genomsökning då en snabbsökning genomförs. Den andra genomsökningen använder find-kommandot för att söka efter filer. Syftet med den andra genomsökningen är att hitta filer som inte har indexerats. Jokertecknen &quot;*&quot; och &quot;?&quot; stöds. Standardvärdet är /.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="disable_quick_search_second_scan">
+					<local_schema short_desc="Inaktivera andra genomsökning i snabbsökning">
+						<longdesc>Denna nyckel avgör om sökverktyget inaktiverar användningen av find-kommandot efter det att en snabbsökning genomförts.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="quick_search_excluded_paths">
+					<local_schema short_desc="Exkluderade sökvägar vid snabbsökning">
+						<longdesc>Denna nyckel anger de sökvägar som sökverktyget kommer att undanta från en snabbsökning. Jokertecknen &quot;*&quot; och &quot;?&quot; stöds. Standardvärdena är /mnt/*, /media/*, /dev/*, /tmp/*, /proc/* och /var/*.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="disable_quick_search">
+					<local_schema short_desc="Inaktivera snabbsökning">
+						<longdesc>Denna nyckel avgör om sökverktyget inaktiverar användningen av locate-kommandot då enkla filnamnssökningar genomförs.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="show_additional_options">
+					<local_schema short_desc="Visa ytterligare alternativ">
+						<longdesc>Denna nyckel avgör om sektionen &quot;Välj fler alternativ&quot; är utfälld då sökverktyget startas.</longdesc>
+					</local_schema>
+				</entry>
+				<dir name="select">
+					<entry name="exclude_other_filesystems">
+						<local_schema short_desc="Markera sökalternativet &quot;Exkludera andra filsystem&quot;">
+							<longdesc>Denna nyckel avgör om sökalternativet &quot;Exkludera andra filsystem&quot; är markerat då sökverktyget startas.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="follow_symbolic_links">
+						<local_schema short_desc="Markera sökalternativet &quot;Följ symboliska länkar&quot;">
+							<longdesc>Denna nyckel avgör om sökalternativet &quot;Följ symboliska länkar&quot; är markerat då sökverktyget startas.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_hidden_files_and_folders">
+						<local_schema short_desc="Markera sökalternativet &quot;Visa dolda filer och mappar&quot;">
+							<longdesc>Denna nyckel avgör om sökalternativet &quot;Visa dolda filer och mappar&quot; är markerat då sökverktyget startas.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name_matches_regular_expression">
+						<local_schema short_desc="Markera sökalternativet &quot;Namnet matchar reguljärt uttryck&quot;">
+							<longdesc>Denna nyckel avgör om sökalternativet &quot;Namnet matchar reguljärt uttryck&quot; är markerat då sökverktyget startas.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name_does_not_contain">
+						<local_schema short_desc="Markera sökalternativet &quot;Namnet innehåller inte&quot;">
+							<longdesc>Denna nyckel avgör om sökalternativet &quot;Namnet innehåller inte&quot; är markerat då sökverktyget startas.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="owner_is_unrecognized">
+						<local_schema short_desc="Markera sökalternativet &quot;Ägaren är okänd&quot;">
+							<longdesc>Denna nyckel avgör om sökalternativet &quot;Ägaren är okänd&quot; är markerat då sökverktyget startas.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="owned_by_group">
+						<local_schema short_desc="Markera sökalternativet &quot;Ägs av gruppen&quot;">
+							<longdesc>Denna nyckel avgör om sökalternativet &quot;Ägs av gruppen&quot; är markerat då sökverktyget startas.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="owned_by_user">
+						<local_schema short_desc="Markera sökalternativet &quot;Ägs av användaren&quot;">
+							<longdesc>Denna nyckel avgör om sökalternativet &quot;Ägs av användaren&quot; är markerat då sökverktyget startas.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="file_is_empty">
+						<local_schema short_desc="Markera sökalternativet &quot;Filen är tom&quot;">
+							<longdesc>Denna nyckel avgör om sökalternativet &quot;Filen är tom&quot; är markerat då sökverktyget startas.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size_at_most">
+						<local_schema short_desc="Markera sökalternativet &quot;Storleken som mest&quot;">
+							<longdesc>Denna nyckel avgör om sökalternativet &quot;Storleken är som mest&quot; är markerat då sökverktyget startas.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size_at_least">
+						<local_schema short_desc="Markera sökalternativet &quot;Storleken är minst&quot;">
+							<longdesc>Denna nyckel avgör om sökalternativet &quot;Storleken är minst&quot; är markerat då sökverktyget startas.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="date_modified_more_than">
+						<local_schema short_desc="Markera sökalternativet &quot;Ändringsdatum större än&quot;">
+							<longdesc>Denna nyckel avgör om sökalternativet &quot;Ändringsdatum större än&quot; är markerat då sökverktyget startas.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="date_modified_less_than">
+						<local_schema short_desc="Markera sökalternativet &quot;Ändringsdatum mindre än&quot;">
+							<longdesc>Denna nyckel avgör om sökalternativet &quot;Ändringsdatum mindre än&quot; är markerat då sökverktyget startas.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="contains_the_text">
+						<local_schema short_desc="Markera sökalternativet &quot;Innehåller texten&quot;">
+							<longdesc>Denna nyckel avgör om sökalternativet &quot;Innehåller texten&quot; är markerat då sökverktyget startas.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnome-screenshot">
+				<entry name="border_effect">
+					<local_schema short_desc="Rameffekt">
+						<longdesc>Effekt att lägga till utsidan på ramen. Möjliga värden är &quot;shadow&quot;, &quot;none&quot; och &quot;border&quot;.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="include_pointer">
+					<local_schema short_desc="Inkludera pekare">
+						<longdesc>Inkludera muspekaren i skärmbilden</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="include_border">
+					<local_schema short_desc="Inkludera ram">
+						<longdesc>Inkludera fönsterhanterarens ram i skärmbilden</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="last_save_directory">
+					<local_schema short_desc="Katalog för skärmbilder">
+						<longdesc>Katalogen som den senaste skärmbilden sparades i.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="delay">
+					<local_schema short_desc="Fördröjning för skärmbild">
+						<longdesc>Antalet sekunder att vänta innan skärmbilden tas.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="take_window_shot">
+					<local_schema short_desc="Fönsterspecifik skärmbild (utfasad)">
+						<longdesc>Fånga bara det aktuella fönstret istället för hela skrivbordet. Denna nyckel har fasats ut och används inte längre.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="gnome-dictionary">
+				<entry name="sidebar-width">
+					<local_schema short_desc="Bredden på sidoraden">
+						<longdesc>Denna nyckel definierar bredden på sidopanelen och den används för att komma ihåg inställningen mellan sessioner.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="sidebar-page">
+					<local_schema short_desc="Sidan av sidoraden att visa">
+						<longdesc>Denna nyckel definierar vilken sida av sidoraden ska vara synlig och den används för att komma ihåg inställningen mellan sessioner.. Den kan vara &quot;speller&quot; eller &quot;databases&quot;.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="statusbar-visible">
+					<local_schema short_desc="Huruvida statusraden ska vara synlig">
+						<longdesc>Denna nyckel definierar huruvida statusraden ska vara synlig och den används för att komma ihåg status på statusraden mellan sessioner. Ställa in den till TRUE kommer att göra att statusraden alltid kommer att visas.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="sidebar-visible">
+					<local_schema short_desc="Huruvida sidoraden ska vara synlig">
+						<longdesc>Denna nyckel definierar huruvida sidoraden ska vara synlig och den används för att komma ihåg status på sidoraden mellan sessioner. Ställa in den till TRUE kommer att göra att sidoraden alltid kommer att visas.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="window-is-maximized">
+					<local_schema short_desc="Huruvida programfönstret ska vara maximerat">
+						<longdesc>Denna nyckel definierar huruvida fönstret ska maximeras och den används för att komma ihåg status på ordboksfönstret mellan sessioner. Ställa in den till TRUE kommer att göra att fönstret alltid visas i maximerat läge.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default-window-height">
+					<local_schema short_desc="Standardhöjden på programfönstret">
+						<longdesc>Denna nyckeln definierar fönstrets höjd och den används för att komma ihåg storleken på ordbokens fönster mellan sessioner. Ställa in den till -1 gör att ordboksfönstret använder en höjd baserad på typsnittets storlek.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default-window-width">
+					<local_schema short_desc="Standardbredden på programfönstret">
+						<longdesc>Denna nyckeln definierar fönstrets bredd och den används för att komma ihåg storleken på ordbokens fönster mellan sessioner. Ställa in den till -1 gör att ordboksfönstret använder en bredd baserad på typsnittets storlek.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="source-name">
+					<local_schema short_desc="Namnet för ordbokskällan som används">
+						<longdesc>Namnet på ordbokskällan som används för att hämta definitioner av ord.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="print-font">
+					<local_schema short_desc="Typsnittet att användas vid utskrift">
+						<longdesc>Typsnittet att användas vid utskrift av en definition</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="strategy">
+					<local_schema short_desc="Standardsökstrategin att använda">
+						<longdesc>Namnet på standardsökstrategin att använda på en ordbokskälla, om tillgänglig. Standardstrategin är &quot;exact&quot;, alltså exakta ordmatchningar.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="database">
+					<local_schema short_desc="Standarddatabasen att använda">
+						<longdesc>Namnet på den individuella standarddatabasen eller meta-databasen att använda på en ordbokskälla. Utropstecknet &quot;!&quot; betyder att alla databaser som finns i en ordbokskälla ska sökas</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="smart">
+					<local_schema short_desc="Använd smart uppslagning (fasas ut)">
+						<longdesc>Ange huruvida smart uppslagning ska användas. Denna nyckel beror på om ordboksservern stöder detta alternativ. Standardvärdet är SANT. Denna nyckel är utfasad och används inte längre.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="port">
+					<local_schema short_desc="Port som används för att ansluta till servern (fasas ut)">
+						<longdesc>Portnumret att ansluta till. Standardporten är 2628. Denna nyckel är utfasad och används inte längre.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="server">
+					<local_schema short_desc="Ordboksserver (fasas ut)">
+						<longdesc>Ordboksservern att ansluta till. Standardvärdet är dict.org. Se http://www.dict.org för detaljer om andra servrar. Denna nyckel är utfasad och används inte längre.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="baobab">
+				<dir name="properties">
+					<entry name="skip_scan_uri_list">
+						<local_schema short_desc="Undantagna partitions-URI:er">
+							<longdesc>En lista över URI:er för partitioner som ska undantas från avsökning.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_home_monitor">
+						<local_schema short_desc="Aktivera övervakning av hemkatalog">
+							<longdesc>Huruvida ändringar i hemkatalogen ska övervakas.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="ui">
+					<entry name="baobab_subfoldertips_visible">
+						<local_schema short_desc="Synliga verktygstips för undermappar">
+							<longdesc>Huruvida verktygstips för undermappar för den markerade mappen ska visas.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="statusbar_visible">
+						<local_schema short_desc="Statusraden är synlig">
+							<longdesc>Huruvida statusraden i nedre delen av huvudfönstret ska vara synlig.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_visible">
+						<local_schema short_desc="Verktygsraden är synlig">
+							<longdesc>Huruvida verktygsraden ska vara synlig i huvudfönstret.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="window_list_applet">
+				<dir name="prefs">
+					<entry name="maximum_size">
+						<local_schema short_desc="Maximal fönsterlistestorlek">
+							<longdesc>Användandet av denna nyckel föråldrades i GNOME 2.20. Schemat har behållits för kompatibilitet med äldre versioner.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="minimum_size">
+						<local_schema short_desc="Minimal fönsterlistestorlek">
+							<longdesc>Användandet av denna nyckel föråldrades i GNOME 2.20. Schemat har behållits för kompatibilitet med äldre versioner.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="move_unminimized_windows">
+						<local_schema short_desc="Flytta fönster till den aktuella arbetsytan vid återställning">
+							<longdesc>Om detta är sant kommer återställning av ett fönster att flytta det till den aktuella arbetsytan. Byt annars till fönstrets arbetsyta.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="group_windows">
+						<local_schema short_desc="När fönster ska grupperas">
+							<longdesc>Avgör när fönster från samma program ska grupperas i fönsterlistan. Giltiga värden är &quot;never&quot; (aldrig), &quot;auto&quot; (auto) och &quot;always&quot; (alltid).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_all_workspaces">
+						<local_schema short_desc="Visa fönster från alla arbetsytor">
+							<longdesc>Om detta är sant kommer fönsterlistan att visa fönster från alla arbetsytor. Annars kommer den endast att visa fönster från den aktuella arbetsytan.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="workspace_switcher_applet">
+				<dir name="prefs">
+					<entry name="num_rows">
+						<local_schema short_desc="Rader i arbetsyteväxlaren">
+							<longdesc>Denna nyckel anger hur många rader (för horisontell layout) eller kolumner (för vertikal layout) som arbetsyteväxlaren visar arbetsytorna i. Denna nyckel är endast relevant om nyckeln display_all_workspaces är sann.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_all_workspaces">
+						<local_schema short_desc="Visa alla arbetsytor">
+							<longdesc>Om detta är sant kommer arbetsyteväxlaren att visa alla arbetsytor. Annars kommer endast den aktuella arbetsytan att visas.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_workspace_names">
+						<local_schema short_desc="Visa namn på arbetsytor">
+							<longdesc>Om detta är sant kommer arbetsytorna i arbetsyteväxlaren att visa namnen på arbetsytorna. Annars kommer fönstren på arbetsytorna att visas. Denna inställning fungerar endast när fönsterhanteraren Metacity används.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="fish_applet">
+				<dir name="prefs">
+					<entry name="rotate">
+						<local_schema short_desc="Rotera i vertikala paneler">
+							<longdesc>Om detta är sant kommer fiskens animation att visas roterad på vertikala paneler.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="speed">
+						<local_schema short_desc="Paus per bildruta">
+							<longdesc>Denna nyckel anger antalet sekunder som varje ram kommer att visas.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="frames">
+						<local_schema short_desc="Antalet bildrutor i fiskens animation">
+							<longdesc>Denna nyckel anger antalet bildrutor som kommer att visas i fiskens animation.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="command">
+						<local_schema short_desc="Kommando att köra vid klick">
+							<longdesc>Denna nyckel anger det kommando som ska försökas utföras när man klickar på fisken.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="image">
+						<local_schema short_desc="Fiskens animationsbildfil">
+							<longdesc>Denna nyckel anger filnamnet för den bild som kommer att användas som den animation som visas i fiskpanelprogrammet relativt bildkatalogen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name">
+						<local_schema short_desc="Fiskens namn">
+							<longdesc>En fisk utan ett namn är en ganska tråkig fisk. Gör din fisk levande genom att namnge den.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="clock_applet">
+				<dir name="prefs">
+					<entry name="speed_unit">
+						<local_schema short_desc="Hastighetsenhet">
+							<longdesc>Enheten att använda vid visning av vindhastighet.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="temperature_unit">
+						<local_schema short_desc="Temperaturenhet">
+							<longdesc>Enheten att använda vid visning av temperaturer.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="cities">
+						<local_schema short_desc="Lista över platser">
+							<longdesc>En lista över platser att visa i kalenderfönstret.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="internet_time">
+						<local_schema short_desc="Använd Internettid">
+							<longdesc>Användandet av denna nyckel föråldrades i GNOME 2.6 till förmån för nyckeln &quot;format&quot;. Schemat har behållits för kompatibilitet med äldre versioner.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="unix_time">
+						<local_schema short_desc="Använd UNIX-tid">
+							<longdesc>Användandet av denna nyckel föråldrades i GNOME 2.6 till förmån för nyckeln &quot;format&quot;. Schemat har behållits för kompatibilitet med äldre versioner.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hour_format">
+						<local_schema short_desc="Timformat">
+							<longdesc>Användandet av denna nyckel föråldrades i GNOME 2.6 till förmån för nyckeln &quot;format&quot;. Schemat har behållits för kompatibilitet med äldre versioner.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_locations">
+						<local_schema short_desc="Fäll ut listan över platser">
+							<longdesc>Om detta är sant fälls listan över platser ut i kalenderfönstret.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_weather">
+						<local_schema short_desc="Fäll ut listan över väderinformation">
+							<longdesc>Om detta är sant fälls listan över väderinformation ut i kalendervyn.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_tasks">
+						<local_schema short_desc="Fäll ut listan över uppgifter">
+							<longdesc>Om detta är sant fälls listan över uppgifter ut i kalenderfönstret.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_birthdays">
+						<local_schema short_desc="Fäll ut listan över födelsedagar">
+							<longdesc>Om detta är sant fälls listan över födelsedagar ut i kalenderfönstret.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_appointments">
+						<local_schema short_desc="Fäll ut listan över möten">
+							<longdesc>Om detta är sant fälls listan över möten ut i kalenderfönstret.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_week_numbers">
+						<local_schema short_desc="Visa veckonummer i kalendern">
+							<longdesc>Om detta är sant visas veckonummer i kalendern.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="config_tool">
+						<local_schema short_desc="Tidskonfigurationsverktyg">
+							<longdesc>Användandet av denna nyckel föråldrades i GNOME 2.22 i och med användningen av ett internt verktyg för tidskonfiguration. Schemat har behållits för kompatibilitet med äldre versioner.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gmt_time">
+						<local_schema short_desc="Använd UTC">
+							<longdesc>Användandet av denna nyckel föråldrades i GNOME 2.28 till förmån för användningen av tidszoner. Schemat har behållits för kompatibilitet med äldre versioner.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_temperature">
+						<local_schema short_desc="Visa temperatur i klockan">
+							<longdesc>Om detta är sant visas temperaturen bredvid väderikonen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_weather">
+						<local_schema short_desc="Visa väder i klockan">
+							<longdesc>Om detta är sant visas en väderikon.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_tooltip">
+						<local_schema short_desc="Visa datum som verktygstips">
+							<longdesc>Om detta är sant visas datum i ett verktygstips när muspekaren är över klockan.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_date">
+						<local_schema short_desc="Visa datum i klockan">
+							<longdesc>Om detta är sant visas datum i klockan, utöver tiden.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_seconds">
+						<local_schema short_desc="Visa tid med sekunder">
+							<longdesc>Om detta är sant visas sekunder i tiden.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="custom_format">
+						<local_schema short_desc="Anpassat format för klockan">
+							<longdesc>Denna nyckel anger formatet som används av klockpanelprogrammet då formatnyckeln är inställd till &quot;custom&quot;. Du kan använda de konverteringsspecifierare som förstås av strftime() för att få ett specifikt format. Se manualsidan för strftime() för mer information.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="format">
+						<local_schema short_desc="Timformat">
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="panel">
+				<dir name="objects">
+					<entry name="action_type">
+						<local_schema short_desc="Åtgärdsknapptyp">
+							<longdesc>Åtgärdstypen som denna knapp representerar. Möjliga värden är &quot;lock&quot; (lås), &quot;logout&quot; (utloggning), &quot;run&quot; (kör), &quot;search&quot; (sök) och &quot;screenshot&quot; (skärmdump). Denna nyckel är endast relevant om nyckeln object_type är &quot;action-applet&quot; (åtgärdspanelprogram).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="launcher_location">
+						<local_schema short_desc="Plats för programstartare">
+							<longdesc>Platsen för den .desktop-fil som beskriver programstartaren. Denna nyckel är endast relevant om nyckeln object_type är &quot;launcher-object&quot; (startarobjekt).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menu_path">
+						<local_schema short_desc="Sökväg för menyinnehåll">
+							<longdesc>Sökvägen från vilken menyinnehållet konstrueras. Nyckeln är endast relevant om nyckeln use_menu_path är sann och nyckeln object_type är &quot;menu-object&quot; (menyobjekt).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_menu_path">
+						<local_schema short_desc="Använd anpassad sökväg för menyinnehållet">
+							<longdesc>Om detta är sant används nyckeln menu_path som den sökväg från vilken menyinnehållet ska konstrueras. Om falskt ignoreras nyckeln menu_path. Denna nyckel är endast relevant om nyckeln object_type är &quot;menu-object&quot; (menyobjekt).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="custom_icon">
+						<local_schema short_desc="Ikon som används för objektets knapp">
+							<longdesc>Platsen för den bildfil som används som ikon för objektets knapp. Denna nyckel är endast relevant om nyckeln object_type är &quot;drawer-object&quot; (lådobjekt) eller &quot;menu-object&quot; och nyckeln use_custom_icon är sann.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_custom_icon">
+						<local_schema short_desc="Använd anpassad ikon för objektets knapp">
+							<longdesc>Om detta är sant kommer nyckeln custom_icon att användas som en anpassad ikon för knappen. Om detta är falskt kommer nyckeln custom_icon att ignoreras. Denna inställning är endast relevant om nyckeln object_type är &quot;menu-object&quot; eller &quot;drawer-object&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="tooltip">
+						<local_schema short_desc="Verktygstips som visas för låda eller meny">
+							<longdesc>Texten att visa i ett verktygstips för denna låda eller denna meny. Denna nyckel är endast relevant om nyckeln object_type är &quot;drawer-object&quot; (lådobjekt) eller &quot;menu-object&quot; (menyobjekt).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="attached_toplevel_id">
+						<local_schema short_desc="Panel fäst vid låda">
+							<longdesc>Identifieraren för panelen som är fäst vid denna låda. Denna nyckel är endast relevant om nyckeln object_type är &quot;drawer-object&quot; (lådobjekt).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="bonobo_iid">
+						<local_schema short_desc="Bonobo-IID för panelprogram">
+							<longdesc>Bonobo-implementations-id för panelprogrammet - t.ex. &quot;OAFIID:GNOME_ClockApplet&quot;. Denna nyckel är endast relevant om nyckeln object_type är &quot;bonobo-applet&quot; (bonobo-panelprogram).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="locked">
+						<local_schema short_desc="Lås objektet på panelen">
+							<longdesc>Om detta är sant kan användaren inte flytta panelprogrammet utan att först låsa upp objektet genom att använda menyobjektet &quot;Lås upp&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="panel_right_stick">
+						<local_schema short_desc="Tolka positionen relativt nedre/högra kanten">
+							<longdesc>Om detta är sant tolkas positionen för objektet relativt den högra (eller nedre om vertikalt) panelkanten.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="position">
+						<local_schema short_desc="Objektets position på panelen">
+							<longdesc>Positionen för detta panelobjekt. Positionen anges som antalet bildpunkter från vänstra (eller översta om vertikal) panelkanten.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toplevel_id">
+						<local_schema short_desc="Toppnivåpanel som innehåller objekt">
+							<longdesc>Identifieraren för den toppnivåpanel som innehåller detta objekt.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="object_type">
+						<local_schema short_desc="Panelobjekttyp">
+							<longdesc>Typen av panelobjekt. Möjliga värden är &quot;drawer-object&quot; (lådobjekt), &quot;menu-object&quot; (menyobjekt), &quot;launcher-object&quot; (startarobjekt), &quot;bonobo-applet&quot; (bonobo-panelprogram), &quot;action-applet&quot; (åtgärdspanelprogram) och &quot;menu-bar&quot; (menyrad).</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="toplevels">
+					<entry name="animation_speed">
+						<local_schema short_desc="Animeringshastighet">
+							<longdesc>Hastigheten med vilken animeringar ska ske. Möjliga värden är &quot;slow&quot; (långsam), &quot;medium&quot; (mellan) och &quot;fast&quot; (snabb). Denna inställning är endast relevant om nyckeln enable_animations är sann.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_hide_size">
+						<local_schema short_desc="Synliga bildpunkter då panelen är dold">
+							<longdesc>Anger antalet synliga bildpunkter om panelen automatiskt döljs i ett hörn. Denna inställning är endast relevant om nyckeln auto_hide är sann.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="unhide_delay">
+						<local_schema short_desc="Fördröjning för automatisk visning av panel">
+							<longdesc>Anger fördröjningen i antal millisekunder efter det att muspekaren har kommit in på panelytan innan panelen automatiskt visas igen. Denna inställning är endast relevant om nyckeln auto_hide är sann.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hide_delay">
+						<local_schema short_desc="Fördröjning för automatisk döljning av panel">
+							<longdesc>Anger fördröjningen i antal millisekunder efter det att muspekaren har lämnat panelytan innan panelen automatiskt döljs. Denna inställning är endast relevant om nyckeln auto_hide är sann.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_arrows">
+						<local_schema short_desc="Aktivera pilar på döljknappar">
+							<longdesc>Om detta är sant kommer pilar att placeras på döljknapparna. Denna inställning är endast meningsfull om nyckeln enable_buttons är sann.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_buttons">
+						<local_schema short_desc="Aktivera döljknappar">
+							<longdesc>Om detta är sant kommer knappar som kan användas för att flytta panelen till kanten på skärmen, och som endast lämnar en knapp synlig, att placeras på var sida om panelen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="Aktivera animationer">
+							<longdesc>Om detta är sant kommer döljande och visning av denna panel att animeras istället för att ske ögonblickligen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_hide">
+						<local_schema short_desc="Dölj automatiskt panelen i hörnet">
+							<longdesc>Om detta är sant kommer panelen att automatiskt döljas i ett hörn på skärmen när pekaren lämnar panelytan. Att flytta pekaren till det hörnet kommer att göra att panelen åter visas.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="y_centered">
+						<local_schema short_desc="Centrera panelen på y-axeln">
+							<longdesc>Om detta är sant kommer nycklarna y och y_bottom att ignoreras och panelen att placeras i mitten på skärmens y-axel. Om panelens storlek ändras kommer den att finnas kvar på den positionen, det vill säga att panelen kommer att växa på båda sidor. Om falskt kommer nycklarna y och y_bottom ange platsen för panelen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="x_centered">
+						<local_schema short_desc="Centrera panelen på x-axeln">
+							<longdesc>Om detta är sant kommer nycklarna x och x_right att ignoreras och panelen att placeras i mitten på skärmens x-axel. Om panelens storlek ändras kommer den att finnas kvar på den positionen, det vill säga att panelen kommer att växa på båda sidor. Om falskt kommer nycklarna x och x_right ange platsen för panelen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="y_bottom">
+						<local_schema short_desc="Y-koordinat för panelen, med början från skärmens nederkant">
+							<longdesc>Platsen för panelen längs y-axeln med början från skärmens nederkant. Om inställd till -1 kommer värdet att ignoreras och värdet för y-nyckeln att användas. Om värdet är större än 0 kommer värdet för y-nyckeln att ignoreras. Nyckeln är endast relevant i oexpanderat läge. I expanderat läge ignoreras nyckeln och panelen placeras på den skärmkant som anges av nyckeln orientation.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="x_right">
+						<local_schema short_desc="X-koordinat för panelen, med början från skärmens högra sida">
+							<longdesc>Platsen för panelen längs x-axeln med början från skärmens högra sida. Om inställd till -1 kommer värdet att ignoreras och värdet för x-nyckeln att användas. Om värdet är större än 0 kommer värdet för x-nyckeln att ignoreras. Nyckeln är endast relevant i oexpanderat läge. I expanderat läge ignoreras nyckeln och panelen placeras på den skärmkant som anges av nyckeln orientation.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="y">
+						<local_schema short_desc="Y-koordinaten för panelen">
+							<longdesc>Platsen för panelen längs y-axeln. Nyckeln är endast relevant i oexpanderat läge. I expanderat läge ignoreras nyckeln och panelen placeras på den skärmkant som anges av nyckeln orientering.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="x">
+						<local_schema short_desc="X-koordinaten för panelen">
+							<longdesc>Platsen för panelen längs x-axeln. Nyckeln är endast relevant i oexpanderat läge. I expanderat läge ignoreras nyckeln och panelen placeras på den skärmkant som anges av nyckeln orientering.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size">
+						<local_schema short_desc="Panelstorlek">
+							<longdesc>Höjden (bredden för en vertikal panel) för panelen. Panelen kommer vid körning att avgöra en maximal storlek baserad på typsnittsstorlek och andra indikatorer. Den maximala storleken är låst till en fjärdedel av skärmhöjden (eller skärmbredden).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="orientation">
+						<local_schema short_desc="Panelorientering">
+							<longdesc>Orienteringen för panelen. Möjliga värden är &quot;top&quot; (överkant), &quot;bottom&quot; (nederkant), &quot;left&quot; (vänsterkant), &quot;right&quot; (högerkant). I expanderat läge anger värdet vilken skärmkant som panelen finns på. I oexpanderat läge är skillnaden mellan &quot;top&quot; och &quot;bottom&quot; mindre viktig - båda indikerar att detta är en horisontell panel - men ger fortfarande en användbar indikering för hur en del panelobjekt ska bete sig. Till exempel kommer en menyknapp på en överkantspanel visa sin meny nedanför panelen, medan den på en nederkantspanel kommer att visas ovanför panelen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand">
+						<local_schema short_desc="Expandera så att hela skärmbredden tas i anspråk">
+							<longdesc>Om detta är sant kommer panelen att ta hela skärmbredden i anspråk (skärmhöjden om det är en vertikal panel). I detta läge kan panelen endast placeras på en skärmkant. Om falskt kommer panelen endast att vara tillräckligt stor för att panelprogrammen, programstartarna och knapparna ska få plats på panelen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="monitor">
+						<local_schema short_desc="Xinerama-bildskärmen som panelen visas på">
+							<longdesc>I en Xinerama-konfiguration kan du ha paneler på varje enskild bildskärm. Denna nyckel identifierar den aktuella bildskärm som panelen visas på.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="screen">
+						<local_schema short_desc="X-skärmen som panelen visas på">
+							<longdesc>Med en flerskärmskonfiguration kan du ha paneler på varje enskild skärm. Denna nyckel identifierar den aktuella skärm som panelen visas på.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name">
+						<local_schema short_desc="Namn att identifiera panelen med">
+							<longdesc>Detta är ett lättläsligt namn som du kan använda för att identifiera en panel. Dess huvuduppgift är att tjäna som panelens fönstertitel, vilket är användbart vid navigering mellan paneler.</longdesc>
+						</local_schema>
+					</entry>
+					<dir name="background">
+						<entry name="rotate">
+							<local_schema short_desc="Rotera bild på vertikala paneler">
+								<longdesc>Om detta är sant kommer bakgrundsbilden att roteras då panelen är vertikalt orienterad.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="stretch">
+							<local_schema short_desc="Sträck ut bild till panelen">
+								<longdesc>Om detta är sant kommer bilden att skalas till paneldimensionerna. Bildens proportioner kommer inte att bevaras.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="fit">
+							<local_schema short_desc="Passa in bilden på panelen">
+								<longdesc>Om detta är sant kommer bilden att skalas (samtidigt som bildproportionerna bevaras) till panelhöjden (om horisontell).</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="image">
+							<local_schema short_desc="Bakgrundsbild">
+								<longdesc>Anger filen som ska användas som bakgrundsbild. Om bilden inenhåller en alfakanal kommer den att sättas samman ovanpå skrivbordets bakgrundsbild.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="opacity">
+							<local_schema short_desc="Genomskinlighet för bakgrundsfärg">
+								<longdesc>Anger genomskinligheten för bakgrundsfärgformatet. Om färgen inte är helt genomskinlig (ett värde mindre än 65535) kommer färgen att sättas samman ovanpå skrivbordsbakgrundsbilden.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="color">
+							<local_schema short_desc="Bakgrundsfärg">
+								<longdesc>Anger bakgrundsfärgen för panelen i RGB-format.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="type">
+							<local_schema short_desc="Bakgrundstyp">
+								<longdesc>Vilken typ av bakgrund som ska användas för denna panel. Möjliga värden är &quot;gtk&quot;, GTK+-standardwidgetbakgrunden kommer att användas, &quot;color&quot; (färg), färginställningen kommer att användas som bakgrundsfärg eller &quot;image&quot; (bild), bilden som är angiven i bildinställningen kommer att användas som bakgrund.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="general">
+					<entry name="profiles_migrated">
+						<local_schema short_desc="Gammal profilkonfiguration är migrerad">
+							<longdesc>En boolesk flagga för att indikera huruvida användarens tidigare konfiguration i /apps/panel/profiles/default har kopierats till den nya platsen i /apps/panel.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="object_id_list">
+						<local_schema short_desc="Lista med panelobjekt-id">
+							<longdesc>En lista med panelobjekt-id. Varje id identifierar ett individuellt panelobjekt (t.ex. en programstartare, åtgärdsknapp eller menyknapp/menyrad). Inställningarna för vart och ett av dessa objekt lagras i /apps/panel/objects/$(id).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="applet_id_list">
+						<local_schema short_desc="Lista med panelprogram-id">
+							<longdesc>En lista med panelprogram-id. Varje id identifierar ett individuellt panelprogram. Inställningarna för var och en av dessa panelprogram lagras i /apps/panel/applets/$(id).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toplevel_id_list">
+						<local_schema short_desc="Lista med panel-id">
+							<longdesc>En lista med panel-id. Varje id identifierar en individuell toppnivåpanel. Inställningarna för var och en av dessa paneler lagras i /apps/panel/toplevels/$(id).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_autocompletion">
+						<local_schema short_desc="Aktivera automatisk komplettering i dialogfönstret &quot;Kör program&quot;">
+							<longdesc>Om detta är sant görs automatisk komplettering tillgängligt i dialogfönstret &quot;Kör program&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_program_list">
+						<local_schema short_desc="Fäll ut programlista i dialogfönstret &quot;Kör program&quot;">
+							<longdesc>Om detta är sant fälls listan &quot;Kända program&quot; i dialogfönstret &quot;Kör program&quot; ut när dialogfönstret öppnas. Denna nyckel är endast relevant om nyckeln enable_program_list är sann.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_program_list">
+						<local_schema short_desc="Aktivera programlista i dialogfönstret &quot;Kör program&quot;">
+							<longdesc>Om detta är sant görs listan &quot;Kända program&quot; i dialogfönstret &quot;Kör program&quot; tillgänglig. Huruvida listan fälls ut eller inte när dialogfönstret visas styrs av nyckeln show_program_list.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="global">
+					<entry name="disable_force_quit">
+						<local_schema short_desc="Inaktivera framtvingat avslut">
+							<longdesc>Om detta är sant kommer panelen inte att tillåta att en användare tvingar ett program att avsluta genom att ta bort åtkomsten till knappen tvinga avslutande.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_log_out">
+						<local_schema short_desc="Inaktivera utloggning">
+							<longdesc>Om detta är sant kommer panelen inte att tillåta att en användare loggar ut genom att ta bort åtkomsten till menyvalen logga ut.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_lock_screen">
+						<local_schema short_desc="Föråldrat">
+							<longdesc>Denna nyckel är föråldrad eftersom den inte kan användas för att implementera korrekt nedlåsning. Nyckeln /desktop/gnome/lockdown/disable_lock_screen ska användas istället.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disabled_applets">
+						<local_schema short_desc="Panelprograms-IID att förhindra från inläsning">
+							<longdesc>En lista med panelprograms-IID som panelprogrammet kommer att ignorera. På detta sätt kan du förhindra vissa panelprogram från att läsas in eller att visas i menyn. För att till exempel inaktivera panelprogrammet &quot;mini-commander&quot; kan du lägga till &quot;OAFIID:GNOME_MiniCommanderApplet&quot; i denna lista. Panelen måste startas om för att detta ska börja gälla.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="locked_down">
+						<local_schema short_desc="Lås panelen helt">
+							<longdesc>Om detta är sant kommer panelen inte att tillåta några ändringar i konfigurationen av panelen. Enskilda panelprogram måste däremot låsas separat. Panelen måste startas om för att detta ska börja gälla.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="highlight_launchers_on_mouseover">
+						<local_schema short_desc="Lys upp programstartare vid musövergång">
+							<longdesc>Om detta är sant lyses en programstartare upp när användaren flyttar muspekaren över den.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="confirm_panel_remove">
+						<local_schema short_desc="Bekräfta borttagning av panel">
+							<longdesc>Om detta är sant visas en dialogruta som frågar efter bekräftelse när användaren vill ta bort en panel.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="drawer_autoclose">
+						<local_schema short_desc="Stäng låda automatiskt">
+							<longdesc>Om detta är sant kommer en låda att automatiskt stängas när användaren klickar på en programstartare i den.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="window_screenshot_key">
+						<local_schema short_desc="Föråldrat">
+						</local_schema>
+					</entry>
+					<entry name="screenshot_key">
+						<local_schema short_desc="Föråldrat">
+						</local_schema>
+					</entry>
+					<entry name="run_key">
+						<local_schema short_desc="Föråldrat">
+						</local_schema>
+					</entry>
+					<entry name="menu_key">
+						<local_schema short_desc="Föråldrat">
+						</local_schema>
+					</entry>
+					<entry name="enable_key_bindings">
+						<local_schema short_desc="Föråldrat">
+						</local_schema>
+					</entry>
+					<entry name="panel_hide_delay">
+						<local_schema short_desc="Föråldrat">
+						</local_schema>
+					</entry>
+					<entry name="panel_animation_speed">
+						<local_schema short_desc="Föråldrat">
+						</local_schema>
+					</entry>
+					<entry name="panel_show_delay">
+						<local_schema short_desc="Föråldrat">
+						</local_schema>
+					</entry>
+					<entry name="panel_minimized_size">
+						<local_schema short_desc="Föråldrat">
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="Aktivera animationer">
+						</local_schema>
+					</entry>
+					<entry name="keep_menus_in_memory">
+						<local_schema short_desc="Föråldrat">
+						</local_schema>
+					</entry>
+					<entry name="tooltips_enabled">
+						<local_schema short_desc="Aktivera verktygstips">
+							<longdesc>Om detta är sant visas verktygstips för objekt i paneler.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gweather">
+				<dir name="prefs">
+					<entry name="radar">
+						<local_schema short_desc="Url för radarkartan">
+							<longdesc>Den anpassade url där en radarkarta ska hämtas ifrån.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_custom_radar_url">
+						<local_schema short_desc="Använd anpassad url för radarkartan">
+							<longdesc>Om denna nyckel är sann hämtas en radarkarta från den plats som anges av nyckeln &quot;radar&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="coordinates">
+						<local_schema short_desc="Platskoordinater">
+						</local_schema>
+					</entry>
+					<entry name="location4">
+						<local_schema short_desc="Väder för en stad">
+						</local_schema>
+					</entry>
+					<entry name="location3">
+						<local_schema short_desc="Radarplats">
+						</local_schema>
+					</entry>
+					<entry name="location2">
+						<local_schema short_desc="Zonplats">
+						</local_schema>
+					</entry>
+					<entry name="location1">
+						<local_schema short_desc="Närliggande stad">
+						</local_schema>
+					</entry>
+					<entry name="location0">
+						<local_schema short_desc="Väderplatsinformation">
+						</local_schema>
+					</entry>
+					<entry name="enable_radar_map">
+						<local_schema short_desc="Visa radarkarta">
+							<longdesc>Hämta en radarkarta vid varje uppdatering.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_detailed_forecast">
+						<local_schema short_desc="Används inte längre">
+						</local_schema>
+					</entry>
+					<entry name="temperature_unit">
+						<local_schema short_desc="Temperaturenhet">
+							<longdesc>Enhet att använda för temperatur.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="speed_unit">
+						<local_schema short_desc="Hastighetsenhet">
+							<longdesc>Enhet att använda för vindhastighet.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="pressure_unit">
+						<local_schema short_desc="Tryckenhet">
+							<longdesc>Enhet att använda för tryck.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="distance_unit">
+						<local_schema short_desc="Avståndsenhet">
+							<longdesc>Enhet att använda för sikt.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_metric">
+						<local_schema short_desc="Använd metriska enheter">
+							<longdesc>Använd metriska enheter istället för engelska enheter.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_update_interval">
+						<local_schema short_desc="Uppdateringsintervall">
+							<longdesc>Intervallet, i sekunder, mellan automatiska uppdateringar.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_update">
+						<local_schema short_desc="Uppdatera data automatiskt">
+							<longdesc>Avgör huruvida panelprogrammet automatiskt uppdaterar sin väderstatistik eller inte.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnome-keyring">
+				<dir name="daemon-components">
+					<entry name="ssh">
+						<local_schema short_desc="Huruvida SSH-agenten i gnome-keyring är aktiverad.">
+							<longdesc>Detta alternativ aktiverar SSH-agenten i gnome-keyring-demonen. Den blir endast aktiverad när gnome-keyring-daemon startar, (alltså när användaren loggar in). Denna inställning kan åsidosättas när vissa kommandoradsflaggor skickas till demonen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="pkcs11">
+						<local_schema short_desc="Huruvida PKCS#11-komponenten i gnome-keyring är aktiverad.">
+							<longdesc>Detta alternativ aktiverar PKCS#11-komponenten i gnome-keyring-demonen. Den blir endast aktiverad vid uppstart med gnome-session (alltså när användaren loggar in). Denna inställning kan åsidosättas när vissa kommandoradsflaggor skickas till demonen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="secrets">
+						<local_schema short_desc="Huruvida hemlighetstjänsten i gnome-keyring är aktiverad.">
+							<longdesc>Detta alternativ aktiverar tjänstekomponenten för hemligheter i gnome-keyring-demonen. Den blir endast aktiverad vid uppstart med gnome-session (alltså när användaren loggar in). Denna inställning kan åsidosättas när vissa kommandoradsflaggor skickas till demonen.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnome-settings">
+				<dir name="gnumeric">
+					<entry name="toolbar_style">
+						<local_schema short_desc="Stil på verktygsrad">
+							<longdesc>Stil på verktygsrad. Godkända värden är both, both_horiz, icon, och text</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnumeric">
+				<dir name="plugin">
+					<dir name="latex">
+						<entry name="use-utf8">
+							<local_schema short_desc="Använd UTF-8 i LaTeX-export">
+								<longdesc>Den här inställningen avgör om LaTeX-filer använder UTF-8 (unicode) eller ISO-8859-1 (Latin1). För att använda UTF-8-filer måste du ha ucs LaTeX-paketet installerat.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="cut-and-paste">
+					<entry name="prefer-clipboard">
+						<local_schema short_desc="Föredrar CLIPBOARD över huvudurklippet">
+							<longdesc>När SANT, föredrar Gnumeric den moderna CLIPBOARD-urklippet framför det åldriga huvudurklippet. Sätt till FALSKT om du måste arbeta med äldre applikationer, som Xterm eller Emacs, som endast sätter huvudurklippet.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="core">
+					<dir name="sort">
+						<dir name="dialog">
+							<entry name="max-initial-clauses">
+								<local_schema short_desc="Antal automatiska satser">
+									<longdesc>När ett område väljs i sorteringsdialogen läggs söksatser till automatiskt. Detta värde bestämmer det maximala antalet satser att läggas till aoutomatiskt.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+						<dir name="default">
+							<entry name="ascending">
+								<local_schema short_desc="Sortera stigande">
+									<longdesc>Det här valet avgör standardläget för sorteringsordningsknappen i sorteringsdialogen.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="retain-formats">
+								<local_schema short_desc="Sortering bevarar format">
+									<longdesc>Sätts detta val kommer sorteringsknapparna på verktygsfältet att behålla cellformaten under sorteringen och avgör också standardinställningen för kryssrytan för behåll-cellformat i sorteringsdialogen.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="by-case">
+								<local_schema short_desc="Sortering gör skillnad på gemener/VERSALER">
+									<longdesc>Sätts detta val kommer sorteringsknapparna på verktygsfältet att sortera med hänsyn till gemener/VERSALER  och avgör också standardinställningen för kryssrutan för gemener/VERSALER i sorteringsdialogen.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+					</dir>
+					<dir name="file">
+						<dir name="save">
+							<entry name="def-overwrite">
+								<local_schema short_desc="Standardinställning för att skriva över filer">
+									<longdesc>Innan en befintlig fil skrivs över visar gnumeric en varningsdialogruta. Det här alternativet sätter överskrivningsknappen som standardvalet.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="single_sheet">
+								<local_schema short_desc="Varna när export sker till ett enkelbladsformat">
+									<longdesc>Vissa filformat kan endast innehålla ett blad. Den här variabeln avgör om användaren blir varnad om endast ett blad i en arbetsbok med flera blad kommer att sparas.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+					</dir>
+					<dir name="xml">
+						<entry name="compression-level">
+							<local_schema short_desc="Standardkompressionsnivå för Gnumeric-filer">
+								<longdesc>Det här heltalet (mellan 0 och 9) anger mängden komprimering Gnumeric använder när den sparar i standardfilformatet. 0 är minimal komprimering och 9 är maximal komprimering.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="gui">
+						<dir name="window">
+							<entry name="zoom">
+								<local_schema short_desc="Standard zoomvärde">
+									<longdesc>Standardinzoomningsvärdet för nya arbetsböcker.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="y">
+								<local_schema short_desc="Standard vertikal fönsterstorlek">
+									<longdesc>Det här värdet (mellan 0,25 och 1,00) anger den vertikala delen av skärmen som täcks av standardfönstret.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="x">
+								<local_schema short_desc="Standard horisontell fönsterstorlek">
+									<longdesc>Det här värdet (mellan 0,25 och 1,00) anger den horisontella delen av skärmen som täcks av standardfönstret.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+						<dir name="editing">
+							<entry name="transitionkeys">
+								<local_schema short_desc="Övergångsnycklar">
+								</local_schema>
+							</entry>
+							<entry name="recalclag">
+								<local_schema short_desc="Fördröjning för automatisk omberäkning av uttryck">
+								</local_schema>
+							</entry>
+							<entry name="livescrolling">
+								<local_schema short_desc="Realtidsrullning">
+									<longdesc>Den här variabeln avgör om realtids- (i motsats till fördröjd) rullning skall utföras.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="autocomplete">
+								<local_schema short_desc="Autokomplettera">
+									<longdesc>Den här variabeln avgör om autokomplettering är igångsatt.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+						<dir name="screen">
+							<entry name="verticaldpi">
+								<local_schema short_desc="Vertikal PPT">
+									<longdesc>Skärmens upplösning i vertikal led</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="horizontaldpi">
+								<local_schema short_desc="Horisontell PPT">
+									<longdesc>Skärmens upplösning i horisontell led</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+					</dir>
+					<dir name="workbook">
+						<entry name="n-sheet">
+							<local_schema short_desc="Standardantal blad">
+								<longdesc>Antal blad som skapas för en ny arbetsbok.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="defaultfont">
+						<entry name="italic">
+							<local_schema short_desc="Standardtypsnittet är kursivt.">
+								<longdesc>Det här värdet avgör om standardtypsnittet för en ny arbetsbok är kursivt.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bold">
+							<local_schema short_desc="Standardtypsnittet är i fetstil.">
+								<longdesc>Det här värdet avgör om standardtypsnittet för en ny arbetsbok är i fetstil.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="name">
+							<local_schema short_desc="Standardtypsnitt">
+							</local_schema>
+						</entry>
+						<entry name="size">
+							<local_schema short_desc="Standard typsnittstorlek">
+								<longdesc>Standardtypsnittsstorleken för nya arbetsböcker.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="undo">
+					<entry name="max_descriptor_width">
+						<local_schema short_desc="Längden på ångrabeskrivningarna">
+							<longdesc>Det här värdet indikerar den maximala längden av kommandobeskrivningarna i ångra/gör om-stackarna.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="maxnum">
+						<local_schema short_desc="Antal ångraenheter">
+							<longdesc>Det här värdet avgör det största antalet enheter i ångra/gör om-listan.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size">
+						<local_schema short_desc="Maximal ångrastorlek">
+							<longdesc>Det här värdet anger storleken på ångrastacken. Varje editering har en storlek associerad, för att jämföras med minneskraven för en enkel editering av en cell (storlek 1). Ångralistan trunkeras om dess totala storlek blir större än detta konfigurerbara värde.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_sheet_name">
+						<local_schema short_desc="Visa bladnamn i ångralistan">
+							<longdesc>Det här värdet avgör om bladnamnen skall visas i ångra/gör om-listorna.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="dialogs">
+					<dir name="rs">
+						<entry name="unfocused">
+							<local_schema short_desc="Tillåt ofokuserade områdesval">
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="printsetup">
+					<entry name="hf-right">
+						<local_schema short_desc="Format för sidhuvud/sidfot (höger del)">
+							<longdesc>Använd Skrivarinställningar för att ändra detta värde.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hf-middle">
+						<local_schema short_desc="Format för sidhuvud/sidfot (mittendel)">
+							<longdesc>Använd Skrivarinställningar för att ändra detta värde.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hf-left">
+						<local_schema short_desc="Format för sidhuvud/sidfot (vänster del)">
+							<longdesc>Använd Skrivarinställningar för att ändra detta värde.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="paper-orientation">
+						<local_schema short_desc="Papper">
+						</local_schema>
+					</entry>
+					<entry name="paper">
+						<local_schema short_desc="Papper">
+						</local_schema>
+					</entry>
+					<entry name="margin-gtk-right">
+						<local_schema short_desc="Standard nedermarginal">
+						</local_schema>
+					</entry>
+					<entry name="margin-bottom">
+						<local_schema short_desc="Standard nedermarginal">
+							<longdesc>Det här värdet anger antal punkter från sidans nederkant till slutet på huvudinnehållet. Använd Skrivarinställningar för att ändra detta värde.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="margin-top">
+						<local_schema short_desc="Standard vermarginal">
+							<longdesc>Det här värdet anger antal punkter från sidans överkant till början på huvudinnehållet. Använd Skrivarinställningar för att ändra detta värde.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="repeat-left">
+						<local_schema short_desc="Repetera vänstra regiaonen som standard">
+							<longdesc>Den här strängen anger området som ska repeteras till vänster av varje utskrivet blad. Använd Skrivarinställningar för att ändra detta värde.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="repeat-top">
+						<local_schema short_desc="Repetera övre regionen som standard">
+							<longdesc>Den här strängen anger området som ska repeteras överst på varje utskrivet blad. Använd Skrivarinställningar för att ändra detta värde.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="scale-height">
+						<local_schema short_desc="Vertikal skalning i procent som standard">
+						</local_schema>
+					</entry>
+					<entry name="scale-width">
+						<local_schema short_desc="Horisontell skalning i procent som standard">
+						</local_schema>
+					</entry>
+					<entry name="scale-percentage-value">
+						<local_schema short_desc="Standardskalning i procent">
+							<longdesc>Det här värdet anger procentsatsen med vilken varje utskriven sida skalas. Använd Skrivarinställningar för att ändra detta värde.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="scale-percentage">
+						<local_schema short_desc="Skalningstyp som standard">
+							<longdesc>Det här värdet sätter standardinställningen i Skrivarinställningar för om sidorna skall skalas med en given procentsats. Använd Skrivarinställningar för att ändra detta värde.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="across-then-down">
+						<local_schema short_desc="Standardriktning för utskrift">
+							<longdesc>Det här värdet sätter standardinställningen i Skrivarinställningar för om sidorna ska skrivas ut åt höger och sedan ner eller inte. Använd Skrivarinställningar för att ändra detta värde.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="print-titles">
+						<local_schema short_desc="Skriv ut titel som standard">
+							<longdesc>Det här värdet sätter standardinställningen i Skrivarinställningar för om rad- och kolumnrubriker skall skrivas ut. Använd Skrivarinställningar för att ändra detta värde.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="print-black-n-white">
+						<local_schema short_desc="Svart-vit utskrift som standard">
+							<longdesc>Det här värdet sätter standardinställningen i Skrivarinställningar för om utskrift endast skall vara i svart-vitt. Använd Skrivarinställningar för att ändra detta värde.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="print-even-if-only-styles">
+						<local_schema short_desc="Skriv ut celler mad bara stilar som standard">
+							<longdesc>Det här värdet sätter standardinställningen i Skrivarinställningar för om tomma men formatterade celler skall skrivas ut. Använd Skrivarinställningar för att ändra detta värde.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="print-grid-lines">
+						<local_schema short_desc="Skriv ut rutnät som standard">
+							<longdesc>&gt;Det här värdet sätter standardvärdet i Skrivarinställningar för om man ska skriva ut rutnätslinjer. Använd Skrivarinställningar för att ändra detta värde.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="center-vertically">
+						<local_schema short_desc="Vertikal centrering som standard">
+						</local_schema>
+					</entry>
+					<entry name="center-horizontally">
+						<local_schema short_desc="Horisontell centrering som standard">
+						</local_schema>
+					</entry>
+					<entry name="hf-font-italic">
+						<local_schema short_desc="Standardtypsnittet för sidhuvud/sidfot är kursivt.">
+							<longdesc>Det här värdet avgör om standardtypsnittet för sidhuvud och sidfot är kursivt.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hf-font-bold">
+						<local_schema short_desc="Standardtypsnittet för sidhuvud/sidfot är i fetstil.">
+							<longdesc>Det här värdet avgör om standardtypsnittet för sidhuvud och sidfot är i fetstil.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hf-font-name">
+						<local_schema short_desc="Standardtypsnitt för sidhuvud/sidfot">
+						</local_schema>
+					</entry>
+					<entry name="hf-font-size">
+						<local_schema short_desc="Standard typsnittstorlek för sidhuvud/sidfot">
+							<longdesc>Standardtypsnittsstorleken för nya sidhuvud och sidfot.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="footer">
+						<local_schema short_desc="Sidfot">
+							<longdesc>Sidfot för nya dokument som kan modifieras i dialogen för sidegenskaper.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="header">
+						<local_schema short_desc="Sidhuvud">
+							<longdesc>Sidhuvud för nya dokument som kan modifieras i dialogen för sidegenskaper.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk-setting">
+						<local_schema short_desc="GTKPrintSetting">
+						</local_schema>
+					</entry>
+					<entry name="all-sheets">
+						<local_schema short_desc="Tillämpa skrivarinställningar på alla blad">
+							<longdesc>Det här värdet avgör om skrivarinställningsdialogen skall gälla för alla blad samtidigt.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="autoformat">
+					<entry name="usr-dir">
+						<local_schema short_desc="Användarkatalog för autoformat">
+							<longdesc>Huvudkatalogen för användarspecifika autoformatmallar.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="sys-dir">
+						<local_schema short_desc="Systemkatalog för autoformat">
+							<longdesc>Den här katalogen innehåller de fördefinierade autoformatmallarna.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="extra-dirs">
+						<local_schema short_desc="Lista över extra autoformat-kataloger.">
+							<longdesc>Den här listan innehåller alla extra kataloger med autoformatmallar.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="plugins">
+					<entry name="extra-dirs">
+						<local_schema short_desc="Lista över extra insticksmodulkataloger.">
+							<longdesc>Den här listan innehåller alla extra kataloger med insticksmoduler.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="file-states">
+						<local_schema short_desc="Lista över filtillstånd för insticksmoduler.">
+							<longdesc>Den här listan innehåller filtillstånden för alla insticksmoduler.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="known">
+						<local_schema short_desc="Lista över kända insticksmoduler">
+							<longdesc>Den här listan innehåller alla kända insticksmoduler.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="active">
+						<local_schema short_desc="Lista över aktiva insticksmoduler.">
+							<longdesc>Den här listan innehåller alla insticksmoduler som skall aktiveras automatiskt.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="activate-new">
+						<local_schema short_desc="Aktivera nya insticksmoduler">
+							<longdesc>Den här variabeln avgör om varje ny insticksmodul skall aktiveras.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="autocorrect">
+					<entry name="replace">
+						<local_schema short_desc="Autorätta Ersätt">
+							<longdesc>Autorätta Ersätt</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="names-of-days">
+						<local_schema short_desc="Autorätta namn på dagar">
+							<longdesc>Autorätta namn på dagar</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="first-letter-list">
+						<local_schema short_desc="Lista över undantag för första tecken">
+							<longdesc>Autorättaren rättar inte det första tecknet för ord i denna listan.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="first-letter">
+						<local_schema short_desc="Autorätta första bokstaven">
+							<longdesc>Autorätta första bokstaven</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="init-caps-list">
+						<local_schema short_desc="Lista över undantag för stor bokstav">
+							<longdesc>Autorättaren rättar inte stor bokstav först för ord i denna listan.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="init-caps">
+						<local_schema short_desc="Autorätta stor bokstav i början">
+							<longdesc>Autorätta stor bokstav i början</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="functionselector">
+					<entry name="num-of-recent">
+						<local_schema short_desc="Maximal längd på lista över nyligen använda funktioner">
+							<longdesc>Funktionsväljaren har en lista över nyligen använda funktioner. Detta är den maximala längden på den listan.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="recentfunctions">
+						<local_schema short_desc="Lista över nyligen använda funktioner.">
+							<longdesc>Funktionsväljaren har en lista över nyligen använda funktioner. Detta är den listan.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="evince">
+				<entry name="override_restrictions">
+					<local_schema short_desc="Åsidosätt dokumentbegränsningar">
+						<longdesc>Åsidosätt dokumentbegränsningar, som till exempel begränsning i att kopiera eller att skriva ut.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+		</dir>
+		<dir name="desktop">
+			<dir name="gnome">
+				<dir name="interface">
+					<entry name="show_unicode_menu">
+						<local_schema short_desc="Visa &quot;Unicode-kontrolltecken&quot;-menyn">
+							<longdesc>Huruvida sammanhangsmenyerna för objekt och textvyer ska låta kontrolltecken infogas eller inte.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_input_method_menu">
+						<local_schema short_desc="Visa &quot;Inmatningsmetoder&quot;-menyn">
+							<longdesc>Huruvida sammanhangsmenyer för objekt och textvyer ska låta inmatningsmetoden ändras eller inte.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menubar_accel">
+						<local_schema short_desc="Menyradssnabbtangent">
+							<longdesc>Tangentbordsgenväg för att öppna menyraderna.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="file_chooser_backend">
+						<local_schema short_desc="Modul för GtkFileChooser">
+							<longdesc>Modul att använda som filsystemsmodellen för GtkFileChooser-widgeten. Möjliga värden är &quot;gio&quot;, &quot;gnome-vfs&quot; och &quot;gtk+&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="status_bar_meter_on_right">
+						<local_schema short_desc="Statusraden till höger">
+							<longdesc>Huruvida en statusradsmätare ska visas till höger.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_custom_font">
+						<local_schema short_desc="Använd anpassat typsnitt">
+							<longdesc>Huruvida ett anpassat typsnitt ska användas i gtk+-program.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="monospace_font_name">
+						<local_schema short_desc="Typsnitt med fast breddsteg">
+							<longdesc>Namn på ett typsnitt med fast breddsteg som kan användas på platser som exempelvis terminalfönster.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="document_font_name">
+						<local_schema short_desc="Dokumenttypsnitt">
+							<longdesc>Namn på standardtypsnittet som används för läsning av dokument.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk-im-module">
+						<local_schema short_desc="GTK IM-modul">
+							<longdesc>Namn på inmatningsmetodens modul som används av GTK+.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk-im-status-style">
+						<local_schema short_desc="GTK IM-statusstil">
+							<longdesc>Namn på GTK+-inmatningsmetodens statusstil som används av gtk+.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk-im-preedit-style">
+						<local_schema short_desc="GTK IM-förredigeringsstil">
+							<longdesc>Namn på GTK+-inmatningsmetodens förredigeringsstil som används av gtk+.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="font_name">
+						<local_schema short_desc="Standardtypsnitt">
+							<longdesc>Namn på standardtypsnittet som används av gtk+.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk_key_theme">
+						<local_schema short_desc="Gtk+-tema">
+							<longdesc>Basnamn för standardtemat som används av gtk+.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk_theme">
+						<local_schema short_desc="Gtk+-tema">
+							<longdesc>Basnamn för standardtemat som används av gtk+.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="icon_theme">
+						<local_schema short_desc="Ikontema">
+							<longdesc>Ikontema att använda för panelen, nautilus, osv.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="cursor_blink_time">
+						<local_schema short_desc="Blinktid för markör">
+							<longdesc>Längd på markörblinkcykeln, i millisekunder.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="cursor_blink">
+						<local_schema short_desc="Markörblinkning">
+							<longdesc>Huruvida markören ska blinka.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_icons_size">
+						<local_schema short_desc="Storlek på verktygsradsikoner">
+							<longdesc>Ikonstorlek i verktygsrader, antingen &quot;small-toolbar&quot; eller &quot;large-toolbar&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_detachable">
+						<local_schema short_desc="Verktygsrad är löstagbar">
+							<longdesc>Huruvida användaren kan ta loss verktygsrader och flytta runt dem.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menubar_detachable">
+						<local_schema short_desc="Menyrad är löstagbar">
+							<longdesc>Huruvida användaren kan ta loss menyrader och flytta runt dem.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="buttons_have_icons">
+						<local_schema short_desc="Knappar har ikoner">
+							<longdesc>Huruvida knappar kan visa en ikon i tillägg till knapptexten.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menus_have_icons">
+						<local_schema short_desc="Menyer har ikoner">
+							<longdesc>Huruvida menyer kan visa en ikon bredvid ett menyobjekt.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_style">
+						<local_schema short_desc="Verktygsradsstil">
+							<longdesc>Stil för verktygsrad. Giltiga värden är &quot;both&quot;, &quot;both-horiz&quot;, &quot;icons&quot; och &quot;text&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="can_change_accels">
+						<local_schema short_desc="Kan ändra snabbtangenter">
+							<longdesc>Huruvida användaren dynamiskt kan ange en ny snabbtangent när denne är positionerad över ett aktivt menyobjekt.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menus_have_tearoff">
+						<local_schema short_desc="Menyer har löstagningsflik">
+							<longdesc>Huruvida menyer ska ha en löstagningsflik.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="Aktivera animationer">
+							<longdesc>Huruvida animationer ska visas. Observera: Detta är en global nyckel, den ändrar beteendet på fönsterhanteraren, panelen osv.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="accessibility">
+						<local_schema short_desc="Aktivera tillgänglighet">
+							<longdesc>Huruvida Program-menyn ska ha tillgänglighetsstöd.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="background">
+					<entry name="color_shading_type">
+						<local_schema short_desc="Färgskuggningstyp">
+							<longdesc>Hur bakgrundsfärgen ska skuggas. Möjliga värden är &quot;horizontal-gradient&quot; (vågrät gradient), &quot;vertical-gradient&quot; (lodrät gradient) och &quot;solid&quot; (enfärgad).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="secondary_color">
+						<local_schema short_desc="Sekundär färg">
+							<longdesc>Höger eller nedre färg vid ritande av färgtoningar, används inte för enfärgat.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="primary_color">
+						<local_schema short_desc="Primär färg">
+							<longdesc>Vänster färg eller övre färg vid ritande av färgtoningar, eller den enda färgen vid enfärgat.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="picture_opacity">
+						<local_schema short_desc="Bildopacitet">
+							<longdesc>Opacitet med vilken bakgrundsbilden ska ritas.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="picture_filename">
+						<local_schema short_desc="Bildfilnamn">
+							<longdesc>Fil att använda som bakgrundsbild.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="picture_options">
+						<local_schema short_desc="Bildalternativ">
+							<longdesc>Bestämmer hur bilden som är angiven i wallpaper_filename renderas. Möjliga värden är &quot;none&quot;, &quot;wallpaper&quot;, &quot;centered&quot;, &quot;scaled&quot;, &quot;stretched&quot;, &quot;zoom&quot;, &quot;spanned&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="draw_background">
+						<local_schema short_desc="Rita skrivbordsbakgrund">
+							<longdesc>Låt GNOME rita ut skrivbordsbakgrunden.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="thumbnail_cache">
+					<entry name="maximum_size">
+						<local_schema>
+							<longdesc>Maximal storlek för miniatyrbildsmellanlagret, i megabyte. Ställ in till -1 för att inaktivera tömning.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="maximum_age">
+						<local_schema>
+							<longdesc>Maximal ålder för miniatyrbilder i mellanlagret, i dagar. Ställ in till -1 för att inaktivera tömning.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="typing_break">
+					<entry name="enabled">
+						<local_schema short_desc="Huruvida tangentbordslåsning är aktiverat">
+							<longdesc>Huruvida tangentbordslåsning är aktiverat.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="allow_postpone">
+						<local_schema short_desc="Tillåt senareläggning av pauser">
+							<longdesc>Huruvida skrivpausskärmen kan senareläggas.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="break_time">
+						<local_schema short_desc="Paustid">
+							<longdesc>Antal minnuter som skrivpausen ska vara.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="type_time">
+						<local_schema short_desc="Skrivtid">
+							<longdesc>Antal minuter med skrivtid innan pausläget börjar.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="sound">
+					<entry name="input_feedback_sounds">
+						<local_schema short_desc="Återkopplingsljud för inmatning">
+							<longdesc>Huruvida ljud ska spelas vid inmatningshändelser.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="theme_name">
+						<local_schema short_desc="Ljudtemanamn">
+							<longdesc>XDG-ljudtemat att använda för händelseljud.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="event_sounds">
+						<local_schema short_desc="Ljud för händelser">
+							<longdesc>Huruvida ljud ska spelas vid användarhändelser.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_esd">
+						<local_schema short_desc="Aktivera ESD">
+							<longdesc>Aktivera uppstart av ljudserver.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="default_mixer_tracks">
+						<local_schema short_desc="Standardmixerspår">
+							<longdesc>Standardmixerspåren som används av multimediatangentbindningarna.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="default_mixer_device">
+						<local_schema short_desc="Standardmixerenhet">
+							<longdesc>Standardmixerenheten som används av multimediatangentbindningarna.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="peripherals">
+					<dir name="keyboard">
+						<entry name="remember_numlock_state">
+							<local_schema short_desc="Kom ihåg NumLock-status">
+								<longdesc>När inställd till true kommer GNOME att komma ihåg status för NumLock-lampan mellan sessioner.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bell_custom_file">
+							<local_schema short_desc="Anpassat filnamn för tangentbordssignal">
+								<longdesc>Filnamn på signalen som ska spelas upp.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bell_mode">
+							<local_schema>
+								<longdesc>möjliga värden är &quot;on&quot;, &quot;off&quot; och &quot;custom&quot;.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="mouse">
+						<entry name="cursor_size">
+							<local_schema short_desc="Markörstorlek">
+								<longdesc>Storlek på pekaren som refereras till av cursor_theme.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="cursor_theme">
+							<local_schema short_desc="Markörtema">
+								<longdesc>Temanamn för pekare. Används endast av Xservers som stöder Xcursor, såsom XFree86 4.3 och senare.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="cursor_font">
+							<local_schema short_desc="Markörtypsnitt">
+								<longdesc>Typsnittsnamn för markören. Om det inte är inställt används standardtypsnittet. Detta värde propageras endast till X-serverstarten för varje session, så att ändra det mitt under en session kommer inte att ha någon effekt till dess att du loggar in nästa gång.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="locate_pointer">
+							<local_schema short_desc="Lokalisera pekare">
+								<longdesc>Markera den aktuella positionen för pekaren när control-tangenten trycks ned och släpps.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="double_click">
+							<local_schema short_desc="Tid för dubbelklick">
+								<longdesc>Längden på ett dubbelklick.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="drag_threshold">
+							<local_schema short_desc="Tröskelvärde för dragning">
+								<longdesc>Avstånd innan en dragning startas.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="motion_threshold">
+							<local_schema short_desc="Tröskelvärde för rörelse">
+								<longdesc>Avstånd i bildpunkter som pekaren måste flyttas innan accelerererad musrörelse aktiveras. Ett värde på -1 är systemets standardalternativ.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="motion_acceleration">
+							<local_schema short_desc="Enkelklick">
+								<longdesc>Accelerationsförstärkare för musrörelse. Ett värde på -1 är systemets standardalternativ.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="single_click">
+							<local_schema short_desc="Enkelklick">
+								<longdesc>Enkelklick för att öppna ikoner.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="left_handed">
+							<local_schema short_desc="Musknappsorientering">
+								<longdesc>Byt vänster och höger musknapp för vänsterhänt mus.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="lockdown">
+					<entry name="disable_application_handlers">
+						<local_schema short_desc="Inaktivera hanterare för URL- och MIME-typer">
+							<longdesc>Förhindra att hanterarprogram för URL- eller MIME-typer körs.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_lock_screen">
+						<local_schema short_desc="Inaktivera skärmlåsning">
+							<longdesc>Förhindra användaren från att låsa skärmen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_user_switching">
+						<local_schema short_desc="Inaktivera användarväxling">
+							<longdesc>Förhindra användaren från att växla till ett annat konto under tiden dennes session är aktiv.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_print_setup">
+						<local_schema short_desc="Inaktivera utskriftskonfiguration">
+							<longdesc>Förhindra att användaren ändrar utskriftsinställningar. Detta kan till exempel inaktivera åtkomst till alla programs &quot;Utskriftskonfiguration&quot;-dialogfönster.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_printing">
+						<local_schema short_desc="Inaktivera utskrifter">
+							<longdesc>Förhindra att användaren skriver ut. Detta kan till exempel inaktivera åtkomst till alla programs &quot;Skriv ut&quot;-dialogfönster.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_save_to_disk">
+						<local_schema short_desc="Inaktivera sparande av filer till disk">
+							<longdesc>Förhindra att användaren sparar filer på hårddisken. Detta kan till exempel inaktivera åtkomst till alla programs &quot;Spara som&quot;-dialogfönster.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_command_line">
+						<local_schema short_desc="Inaktivera kommandorad">
+							<longdesc>Förhindra att användaren kommer åt terminalfönster eller kan ange en kommandorad som ska köras. Detta kan till exempel inaktivera åtkomst till panelens &quot;Kör program&quot;-dialogfönster.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="file-views">
+					<entry name="icon_theme">
+						<local_schema short_desc="Filikontema">
+							<longdesc>Tema som används för visning av filikoner.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="accessibility">
+					<dir name="startup">
+						<entry name="exec_ats">
+							<local_schema short_desc="Starta program för hjälpmedelstekniker">
+								<longdesc>Lista över program för hjälpmedelstekniker som ska startas när inloggning sker till GNOME-skrivbordet.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="keyboard">
+						<entry name="stickykeys_modifier_beep">
+							<local_schema>
+								<longdesc>Pip när en modifierare trycks ned.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="stickykeys_two_key_off">
+							<local_schema>
+								<longdesc>Inaktivera om två tangenter trycks ned samtidigt.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="slowkeys_delay">
+							<local_schema short_desc="Minsta intervall i millisekunder">
+								<longdesc>Acceptera inte en tangent som trycks ned om den inte hålls nedtryckt i @delay millisekunder.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="mousekeys_init_delay">
+							<local_schema short_desc="Initiell fördröjning i millisekunder">
+								<longdesc>Hur många millisekunder att vänta innan musflyttningstangenter börjar fungera.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="mousekeys_accel_time">
+							<local_schema short_desc="Hur länge ska accelerering ske i millisekunder">
+								<longdesc>Hur många millisekunder det tar att gå från 0 till maximal hastighet.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="mousekeys_max_speed">
+							<local_schema short_desc="Bildpunkter per sekund">
+								<longdesc>Hur många bildpunkter per sekund att flytta vid maximal hastighet.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bouncekeys_delay">
+							<local_schema short_desc="minsta intervall i millisekunder">
+								<longdesc>Ignorera flera tryckningar på _samma_ tangent inom @delay millisekunder.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="thumbnailers">
+					<entry name="disable_all">
+						<local_schema short_desc="Inaktivera alla externa skapare av miniatyrbilder">
+							<longdesc>Ställ till sant för att inaktivera alla externa program som skapar miniatyrbilder, oavsett om de aktiveras/inaktiveras individuellt.</longdesc>
+						</local_schema>
+					</entry>
+					<dir name="application@vnd.sun.xml.math">
+						<entry name="command">
+							<local_schema short_desc="Kommando för miniatyrbild för OpenOffice 1.x Math-dokument">
+								<longdesc>Giltigt kommando plus argument för miniatyrbildskapare för OpenOffice 1.x Math-dokument</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Aktivera skapandet av miniatyrbilder för OpenOffice 1.x Math-dokument">
+								<longdesc>Booleska flaggor är tillgängliga, sant aktiverar miniatyrbilder och falskt inaktiverar skapandet av nya miniatyrbilder</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@vnd.sun.xml.draw">
+						<entry name="command">
+							<local_schema short_desc="Kommando för miniatyrbild för OpenOffice 1.x Calc-kalkylblad">
+								<longdesc>Giltigt kommando plus argument för miniatyrbildskapare för OpenOffice 1.x Drawing</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Aktivera skapandet av miniatyrbilder för OpenOffice 1.x Calc-kalkylblad">
+								<longdesc>Booleska flaggor är tillgängliga, sant aktiverar miniatyrbilder och falskt inaktiverar skapandet av nya miniatyrbilder</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@vnd.sun.xml.draw.template">
+						<entry name="command">
+							<local_schema short_desc="Kommando för miniatyrbild för OpenOffice 1.x Drawing-mallar">
+								<longdesc>Giltigt kommando plus argument för miniatyrbildskapare för OpenOffice 1.x Drawing-mallar</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Aktivera skapandet av miniatyrbilder för OpenOffice 1.x Drawing-mallar">
+								<longdesc>Booleska flaggor är tillgängliga, sant aktiverar miniatyrbilder och falskt inaktiverar skapandet av nya miniatyrbilder</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@vnd.sun.xml.writer">
+						<entry name="command">
+							<local_schema short_desc="Kommando för miniatyrbild för OpenOffice 1.x Writer-dokument">
+								<longdesc>Giltigt kommando plus argument för miniatyrbildskapare för OpenOffice 1.x Writer-dokument</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Aktivera skapandet av miniatyrbilder för OpenOffice 1.x Writer-dokument">
+								<longdesc>Booleska flaggor är tillgängliga, sant aktiverar miniatyrbilder och falskt inaktiverar skapandet av nya miniatyrbilder</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@vnd.sun.xml.writer.template">
+						<entry name="command">
+							<local_schema short_desc="Kommando för miniatyrbild för OpenOffice 1.x Writer-mallar">
+								<longdesc>Giltigt kommando plus argument för miniatyrbildskapare för OpenOffice 1.x Writer-mallar</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Aktivera skapandet av miniatyrbilder för OpenOffice 1.x Writer-mallar">
+								<longdesc>Booleska flaggor är tillgängliga, sant aktiverar miniatyrbilder och falskt inaktiverar skapandet av nya miniatyrbilder</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@vnd.sun.xml.writer.global">
+						<entry name="command">
+							<local_schema short_desc="Kommando för miniatyrbild för globala OpenOffice 1.x Writer-mallar">
+								<longdesc>Giltigt kommando plus argument för miniatyrbildskapare för globala OpenOffice 1.x Writer-mallar</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Aktivera skapandet av miniatyrbilder för globala OpenOffice 1.x Writer-mallar">
+								<longdesc>Booleska flaggor är tillgängliga, sant aktiverar miniatyrbilder och falskt inaktiverar skapandet av nya miniatyrbilder</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@vnd.sun.xml.calc">
+						<entry name="command">
+							<local_schema short_desc="Kommando för miniatyrbild för OpenOffice 1.x Calc-kalkylblad">
+								<longdesc>Giltigt kommando plus argument för miniatyrbildskapare för OpenOffice 1.x-kalkylblad</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Aktivera skapandet av miniatyrbilder för OpenOffice 1.x Calc-kalkylblad">
+								<longdesc>Booleska flaggor är tillgängliga, sant aktiverar miniatyrbilder och falskt inaktiverar skapandet av nya miniatyrbilder</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@vnd.sun.xml.calc.template">
+						<entry name="command">
+							<local_schema short_desc="Kommando för miniatyrbild för OpenOffice 1.x Spreadsheet-mallar">
+								<longdesc>Giltigt kommando plus argument för miniatyrbildskapare för OpenOffice 1.x Writer-mallar</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Aktivera skapandet av miniatyrbilder för OpenOffice 1.x-kalkylbladsmallar">
+								<longdesc>Booleska flaggor är tillgängliga, sant aktiverar miniatyrbilder och falskt inaktiverar skapandet av nya miniatyrbilder</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@vnd.sun.xml.impress">
+						<entry name="command">
+							<local_schema short_desc="Kommando för miniatyrbild för OpenOffice 1.x Impress-presentationer">
+								<longdesc>Giltigt kommando plus argument för miniatyrbildskapare för OpenOffice 1.x Impress-presentationer</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Aktivera skapandet av miniatyrbilder för OpenOffice 1.x Impress-presentationer">
+								<longdesc>Booleska flaggor är tillgängliga, sant aktiverar miniatyrbilder och falskt inaktiverar skapandet av nya miniatyrbilder</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@vnd.sun.xml.impress.template">
+						<entry name="command">
+							<local_schema short_desc="Kommando för miniatyrbild för OpenOffice 1.x Impress-presentationsmallar">
+								<longdesc>Giltigt kommando plus argument för miniatyrbildskapare för OpenOffice 1.x Impress-presentationsmallar</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Aktivera skapandet av miniatyrbilder för OpenOffice 1.x Impress-presentationsmallar">
+								<longdesc>Booleska flaggor är tillgängliga, sant aktiverar miniatyrbilder och falskt inaktiverar skapandet av nya miniatyrbilder</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@vnd.oasis.opendocument.formula">
+						<entry name="command">
+							<local_schema short_desc="Kommando för miniatyrbild för OpenDocument-formler">
+								<longdesc>Giltigt kommando plus argument för miniatyrbildskapare för OpenDocument-formel</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Aktivera skapandet av miniatyrbilder för OpenDocument-formler">
+								<longdesc>Booleska flaggor är tillgängliga, sant aktiverar miniatyrbilder och falskt inaktiverar skapandet av nya miniatyrbilder</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@vnd.oasis.opendocument.image">
+						<entry name="command">
+							<local_schema short_desc="Kommando för miniatyrbild för OpenDocument-bilder">
+								<longdesc>Giltigt kommando plus argument för miniatyrbildskapare för OpenDocument-bilder</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Aktivera skapandet av miniatyrbilder för OpenDocument-bilder">
+								<longdesc>Booleska flaggor är tillgängliga, sant aktiverar miniatyrbilder och falskt inaktiverar skapandet av nya miniatyrbilder</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@vnd.oasis.opendocument.chart">
+						<entry name="command">
+							<local_schema short_desc="Kommando för miniatyrbild för OpenDocument-diagram">
+								<longdesc>Giltigt kommando plus argument för miniatyrbildskapare för OpenDocument-diagram</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Aktivera skapandet av miniatyrbilder för OpenDocument-diagram">
+								<longdesc>Booleska flaggor är tillgängliga, sant aktiverar miniatyrbilder och falskt inaktiverar skapandet av nya miniatyrbilder</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@vnd.oasis.opendocument.graphics">
+						<entry name="command">
+							<local_schema short_desc="Kommando för miniatyrbild för OpenDocument-ritningar">
+								<longdesc>Giltigt kommando plus argument för miniatyrbildskapare för OpenDocument-ritningar</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Aktivera skapandet av miniatyrbilder för OpenDocument-ritningar">
+								<longdesc>Booleska flaggor är tillgängliga, sant aktiverar miniatyrbilder och falskt inaktiverar skapandet av nya miniatyrbilder</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@vnd.oasis.opendocument.graphics-template">
+						<entry name="command">
+							<local_schema short_desc="Kommando för miniatyrbild för OpenDocument-ritmallar">
+								<longdesc>Giltigt kommando plus argument för miniatyrbildskapare för OpenDocument-ritmallar</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Aktivera skapandet av miniatyrbilder för OpenDocument-ritmallar">
+								<longdesc>Booleska flaggor är tillgängliga, sant aktiverar miniatyrbilder och falskt inaktiverar skapandet av nya miniatyrbilder</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@vnd.oasis.opendocument.text">
+						<entry name="command">
+							<local_schema short_desc="Kommando för miniatyrbild för OpenDocument-dokument för ordbehandling">
+								<longdesc>Giltigt kommando plus argument för miniatyrbildskapare för OpenDocument-dokument för ordbehandling</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Aktivera skapandet av miniatyrbilder för OpenDocument-dokument för ordbehandling">
+								<longdesc>Booleska flaggor är tillgängliga, sant aktiverar miniatyrbilder och falskt inaktiverar skapandet av nya miniatyrbilder</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@vnd.oasis.opendocument.text-master">
+						<entry name="command">
+							<local_schema short_desc="Kommando för miniatyrbild för OpenDocument-huvuddokument för ordbehandling">
+								<longdesc>Giltigt kommando plus argument för miniatyrbildskapare för OpenDocument-huvuddokument för ordbehandling</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Aktivera skapandet av miniatyrbilder för OpenDocument-huvuddokument för ordbehandling">
+								<longdesc>Booleska flaggor är tillgängliga, sant aktiverar miniatyrbilder och falskt inaktiverar skapandet av nya miniatyrbilder</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@vnd.oasis.opendocument.text-template">
+						<entry name="command">
+							<local_schema short_desc="Kommando för miniatyrbild för OpenDocument-dokumentmallar för ordbehandling">
+								<longdesc>Giltigt kommando plus argument för miniatyrbildskapare för OpenDocument-dokumentmallar för ordbehandling</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Aktivera skapandet av miniatyrbilder för OpenDocument-dokumentmallar för ordbehandling">
+								<longdesc>Booleska flaggor är tillgängliga, sant aktiverar miniatyrbilder och falskt inaktiverar skapandet av nya miniatyrbilder</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@vnd.oasis.opendocument.spreadsheet">
+						<entry name="command">
+							<local_schema short_desc="Kommando för miniatyrbild för OpenDocument-kalkylblad">
+								<longdesc>Giltigt kommando plus argument för miniatyrbildskapare för OpenDocument-kalkylblad</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Aktivera skapandet av miniatyrbilder för OpenDocument-kalkylblad">
+								<longdesc>Booleska flaggor är tillgängliga, sant aktiverar miniatyrbilder och falskt inaktiverar skapandet av nya miniatyrbilder</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@vnd.oasis.opendocument.spreadsheet-template">
+						<entry name="command">
+							<local_schema short_desc="Kommando för miniatyrbild för OpenDocument-kalkylbladsmallar">
+								<longdesc>Giltigt kommando plus argument för miniatyrbildskapare för OpenDocument-kalkylbladsmallar</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Aktivera skapandet av miniatyrbilder för OpenDocument-kalkylbladsmallar">
+								<longdesc>Booleska flaggor är tillgängliga, sant aktiverar miniatyrbilder och falskt inaktiverar skapandet av nya miniatyrbilder</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@vnd.oasis.opendocument.presentation">
+						<entry name="command">
+							<local_schema short_desc="Kommando för miniatyrbild för OpenDocument-presentationer">
+								<longdesc>Giltigt kommando plus argument för miniatyrbildskapare för OpenDocument-presentationer</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Aktivera skapandet av miniatyrbilder för OpenDocument-presentationer">
+								<longdesc>Booleska flaggor är tillgängliga, sant aktiverar miniatyrbilder och falskt inaktiverar skapandet av nya miniatyrbilder</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@vnd.oasis.opendocument.presentation-template">
+						<entry name="command">
+							<local_schema short_desc="Kommando för miniatyrbild för OpenDocument-presentationsmallar">
+								<longdesc>Giltigt kommando plus argument för miniatyrbildskapare för OpenDocument-presentationsmallar</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Aktivera skapandet av miniatyrbilder för OpenDocument-presentationsmallar">
+								<longdesc>Booleska flaggor är tillgängliga, sant aktiverar miniatyrbilder och falskt inaktiverar skapandet av nya miniatyrbilder</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@vnd.openxmlformats-officedocument.wordprocessingml.document">
+						<entry name="command">
+							<local_schema short_desc="Kommando för miniatyrbild för Microsoft Word 2007-dokument">
+								<longdesc>Giltigt kommando plus argument för miniatyrbildskapare för Microsoft Word 2007</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Aktivera skapandet av miniatyrbilder för Microsoft Word 2007-dokument">
+								<longdesc>Booleska flaggor är tillgängliga, sant aktiverar miniatyrbilder och falskt inaktiverar skapandet av nya miniatyrbilder</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@msword">
+						<entry name="command">
+							<local_schema short_desc="Kommando för miniatyrbild för Microsoft Word-dokument">
+								<longdesc>Giltigt kommando plus argument för miniatyrbildskapare för Microsoft Word</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Aktivera skapandet av miniatyrbilder för Microsoft Word-dokument">
+								<longdesc>Booleska flaggor är tillgängliga, sant aktiverar miniatyrbilder och falskt inaktiverar skapandet av nya miniatyrbilder</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+						<entry name="command">
+							<local_schema short_desc="Kommando för miniatyrbild för Microsoft Excel 2007-kalkylblad">
+								<longdesc>Giltigt kommando plus argument för Microsoft Excel 2007-kalkylblad.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Aktivera skapandet av miniatyrbilder för Microsoft Excel 2007-kalkylblad">
+								<longdesc>Booleska flaggor är tillgängliga, sant aktiverar miniatyrbilder och falskt inaktiverar skapandet av nya miniatyrbilder</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@vnd.ms-excel">
+						<entry name="command">
+							<local_schema short_desc="Kommando för miniatyrbild för Microsoft Excel-kalkylblad">
+								<longdesc>Giltigt kommando plus argument för Microsoft Excel-kalkylblad.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Aktivera skapandet av miniatyrbilder för Microsoft Excel-kalkylblad">
+								<longdesc>Booleska flaggor är tillgängliga, sant aktiverar miniatyrbilder och falskt inaktiverar skapandet av nya miniatyrbilder</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@vnd.openxmlformats-officedocument.presentationml.presentation">
+						<entry name="command">
+							<local_schema short_desc="Kommando för miniatyrbild för Microsoft PowerPoint 2007-presentationer">
+								<longdesc>Giltigt kommando plus argument för miniatyrbildskapare för Microsoft PowerPoint 2007</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Aktivera skapandet av miniatyrbilder för Microsoft PowerPoint 2007-presentationer">
+								<longdesc>Booleska flaggor är tillgängliga, sant aktiverar miniatyrbilder och falskt inaktiverar skapandet av nya miniatyrbilder</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@vnd.ms-powerpoint">
+						<entry name="command">
+							<local_schema short_desc="Kommando för miniatyrbild för Microsoft PowerPoint-presentationer">
+								<longdesc>Giltigt kommando plus argument för miniatyrbildskapare för Microsoft PowerPoint</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Aktivera skapandet av miniatyrbilder för Microsoft PowerPoint-presentationer">
+								<longdesc>Booleska flaggor är tillgängliga, sant aktiverar miniatyrbilder och falskt inaktiverar skapandet av nya miniatyrbilder</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@x-gzpdf">
+						<entry name="command">
+							<local_schema short_desc="Miniatyrbildskommando för PDF-dokument">
+								<longdesc>Giltigt kommando plus argument för att skapa miniatyrbilder för PDF-dokument. Se Nautilus-dokumentationen för miniatyrbildsskapare för mer information.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Aktivera miniatyrbilder för PDF-dokument.">
+								<longdesc>Booleska alternativ tillgängliga: true aktiverar skapandet av miniatyrbilder och false inaktiverar skapandet av nya miniatyrbilder</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@x-bzpdf">
+						<entry name="command">
+							<local_schema short_desc="Miniatyrbildskommando för PDF-dokument">
+								<longdesc>Giltigt kommando plus argument för att skapa miniatyrbilder för PDF-dokument. Se Nautilus-dokumentationen för miniatyrbildsskapare för mer information.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Aktivera miniatyrbilder för PDF-dokument.">
+								<longdesc>Booleska alternativ tillgängliga: true aktiverar skapandet av miniatyrbilder och false inaktiverar skapandet av nya miniatyrbilder</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@pdf">
+						<entry name="command">
+							<local_schema short_desc="Miniatyrbildskommando för PDF-dokument">
+								<longdesc>Giltigt kommando plus argument för att skapa miniatyrbilder för PDF-dokument. Se Nautilus-dokumentationen för miniatyrbildsskapare för mer information.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Aktivera miniatyrbilder för PDF-dokument.">
+								<longdesc>Booleska alternativ tillgängliga: true aktiverar skapandet av miniatyrbilder och false inaktiverar skapandet av nya miniatyrbilder</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="url-handlers">
+					<dir name="ymsgr">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Kör kommandot i en terminal">
+								<longdesc>Sant om kommandot som används för att hantera denna sortens URLer ska köras i en terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Hanteraren för &quot;ymsgr&quot; URLer">
+								<longdesc>Kommandot för att hantera &quot;ymsgr&quot; URLer, om aktiverat.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Om det specifika kommandot ska hantera &quot;ymsgr&quot; URLer">
+								<longdesc>Sant om kommandot i nyckeln &quot;kommando&quot; ska hantera &quot;ymsgr&quot; URLer</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="xmpp">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Kör kommandot i en terminal">
+								<longdesc>Sant om kommandot som används för att hantera denna sortens URLer ska köras i en terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Hanteraren för &quot;xmpp&quot; URLer">
+								<longdesc>Kommandot för att hantera &quot;xmpp&quot; URLer, om aktiverat.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Om det specifika kommandot ska hantera &quot;xmpp&quot; URLer">
+								<longdesc>Sant om kommandot i nyckeln &quot;kommando&quot; ska hantera &quot;xmpp&quot; URLer</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="sip">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Kör kommandot i en terminal">
+								<longdesc>Sant om kommandot som används för att hantera denna sortens URLer ska köras i en terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Hanteraren för &quot;sip&quot; URLer">
+								<longdesc>Kommandot för att hantera &quot;sip&quot; URLer, om aktiverat.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Om det specifika kommandot ska hantera &quot;sip&quot; URLer">
+								<longdesc>Sant om kommandot i nyckeln &quot;kommando&quot; ska hantera &quot;sip&quot; URLer</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="msnim">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Kör kommandot i en terminal">
+								<longdesc>Sant om kommandot som används för att hantera denna sortens URLer ska köras i en terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Hanteraren för &quot;msnim&quot; URLer">
+								<longdesc>Kommandot för att hantera &quot;msnim&quot; URLer, om aktiverat.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Om det specifika kommandot ska hantera &quot;msnim&quot; URLer">
+								<longdesc>Sant om kommandot i nyckeln &quot;kommando&quot; ska hantera &quot;msnim&quot; URLer</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="irc">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Kör kommandot i en terminal">
+								<longdesc>Sant om kommandot som används för att hantera denna sortens URLer ska köras i en terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Hanteraren för &quot;irc&quot; URLer">
+								<longdesc>Kommandot för att hantera &quot;irc&quot; URLer, om aktiverat.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Om det specifika kommandot ska hantera &quot;irc&quot; URLer">
+								<longdesc>Sant om kommandot i nyckeln &quot;kommando&quot; ska hantera &quot;irc&quot; URLer</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="icq">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Kör kommandot i en terminal">
+								<longdesc>Sant om kommandot som används för att hantera denna sortens URLer ska köras i en terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Hanteraren för &quot;icq&quot; URLer">
+								<longdesc>Kommandot för att hantera &quot;icq&quot; URLer, om aktiverat.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Om det specifika kommandot ska hantera &quot;icq&quot; URLer">
+								<longdesc>Sant om kommandot i nyckeln &quot;kommando&quot; ska hantera &quot;icq&quot; URLer</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="gg">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Kör kommandot i en terminal">
+								<longdesc>Sant om kommandot som används för att hantera denna sortens URLer ska köras i en terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Hanteraren för &quot;gg&quot; URLer">
+								<longdesc>Kommandot för att hantera &quot;gg&quot; URLer, om aktiverat.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Om det specifika kommandot ska hantera &quot;gg&quot; URLer">
+								<longdesc>Sant om kommandot i nyckeln &quot;kommando&quot; ska hantera &quot;gg&quot; URLer</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="h323">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Kör kommandot i ett terminalfönster">
+								<longdesc>Sant om kommandot för att hantera denna typ av URL ska köras i ett terminalfönster.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Hanteraren för &quot;h323&quot;-URL:er">
+								<longdesc>Kommandot som används för att hantera &quot;h323&quot;-URL:er, om aktiverat.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Huruvida det angivna kommandot ska hantera &quot;h323&quot;-URL:er">
+								<longdesc>Sant om kommandot som är angivet i nyckeln &quot;command&quot; ska hantera &quot;h323&quot;-URL:er.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="callto">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Kör kommandot i ett terminalfönster">
+								<longdesc>Sant om kommandot för att hantera denna typ av URL ska köras i ett terminalfönster.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Hanteraren för &quot;callto&quot;-URL:er">
+								<longdesc>Kommandot som används för att hantera &quot;callto&quot;-URL:er, om aktiverat.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Huruvida det angivna kommandot ska hantera &quot;callto&quot;-URL:er">
+								<longdesc>Sant om kommandot som är angivet i nyckeln &quot;command&quot; ska hantera &quot;callto&quot;-URL:er.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="aim">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Kör kommandot i en terminal">
+								<longdesc>Sant om kommandot som används för att hantera denna sortens URLer ska köras i en terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Hanteraren för &quot;aim&quot; URLer">
+								<longdesc>Kommandot för att hantera &quot;aim&quot; URLer, om aktiverat.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Om det specifika kommandot ska hantera &quot;aim&quot; URLer">
+								<longdesc>Sant om kommandot i nyckeln &quot;kommando&quot; ska hantera &quot;aim&quot; URLer</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="mailto">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Kör kommandot i ett terminalfönster">
+								<longdesc>Sant om kommandot för att hantera denna typ av URL ska köras i ett terminalfönster.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Hanteraren för &quot;mailto&quot;-URL:er">
+								<longdesc>Kommandot som används för att hantera &quot;mailto&quot;-URL:er, om aktiverat.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Huruvida det angivna kommandot ska hantera &quot;mailto&quot;-URL:er">
+								<longdesc>Sant om kommandot som är angivet i nyckeln &quot;command&quot; ska hantera &quot;mailto&quot;-URL:er.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="https">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Kör kommandot i ett terminalfönster">
+								<longdesc>Sant om kommandot för att hantera denna typ av URL ska köras i ett terminalfönster.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Hanteraren för &quot;https&quot;-URL:er">
+								<longdesc>Kommandot som används för att hantera &quot;https&quot;-URL:er, om aktiverat.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Huruvida det angivna kommandot ska hantera &quot;https&quot;-URL:er">
+								<longdesc>Sant om kommandot som är angivet i nyckeln &quot;command&quot; ska hantera &quot;https&quot;-URL:er.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="http">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Kör kommandot i ett terminalfönster">
+								<longdesc>Sant om kommandot för att hantera denna typ av URL ska köras i ett terminalfönster.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Hanteraren för &quot;http&quot;-URL:er">
+								<longdesc>Kommandot som används för att hantera &quot;http&quot;-URL:er, om aktiverat.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Huruvida det angivna kommandot ska hantera &quot;http&quot;-URL:er">
+								<longdesc>Sant om kommandot som är angivet i nyckeln &quot;command&quot; ska hantera &quot;http&quot;-URL:er.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="man">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Kör kommandot i ett terminalfönster">
+								<longdesc>Sant om kommandot för att hantera denna typ av URL ska köras i ett terminalfönster.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Hanteraren för &quot;man&quot;-URL:er">
+								<longdesc>Kommandot som används för att hantera &quot;man&quot;-URL:er, om aktiverat.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Huruvida det angivna kommandot ska hantera &quot;man&quot;-URL:er">
+								<longdesc>Sant om kommandot som är angivet i nyckeln &quot;command&quot; ska hantera &quot;man&quot;-URL:er.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="info">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Kör kommandot i ett terminalfönster">
+								<longdesc>Sant om kommandot för att hantera denna typ av URL ska köras i ett terminalfönster.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Hanteraren för &quot;info&quot;-URL:er">
+								<longdesc>Kommandot som används för att hantera &quot;info&quot;-URL:er, om aktiverat.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Huruvida det angivna kommandot ska hantera &quot;info&quot;-URL:er">
+								<longdesc>Sant om kommandot som är angivet i nyckeln &quot;command&quot; ska hantera &quot;info&quot;-URL:er.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="ghelp">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Kör kommandot i ett terminalfönster">
+								<longdesc>Sant om kommandot för att hantera denna typ av URL ska köras i ett terminalfönster.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Hanteraren för &quot;ghelp&quot;-URL:er">
+								<longdesc>Kommandot som används för att hantera &quot;ghelp&quot;-URL:er, om aktiverat.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Huruvida det angivna kommandot ska hantera &quot;ghelp&quot;-URL:er">
+								<longdesc>Sant om kommandot som är angivet i nyckeln &quot;command&quot; ska hantera &quot;ghelp&quot;-URL:er.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="trash">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Kör kommandot i ett terminalfönster">
+								<longdesc>Sant om kommandot för att hantera denna typ av URL ska köras i ett terminalfönster.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Hanteraren för &quot;trash&quot;-URL:er">
+								<longdesc>Kommandot som används för att hantera &quot;trash&quot;-URL:er, om aktiverat.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Huruvida det angivna kommandot ska hantera &quot;trash&quot;-URL:er">
+								<longdesc>Sant om kommandot som är angivet i nyckeln &quot;command&quot; ska hantera &quot;trash&quot;-URL:er.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="applications">
+					<dir name="tasks">
+						<entry name="needs_term">
+							<local_schema short_desc="Uppgifter behöver terminal">
+								<longdesc>Huruvida standardprogram för uppgifter behöver en terminal för att köra</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="Standarduppgifter">
+								<longdesc>Standardprogram för uppgifter</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="calendar">
+						<entry name="needs_term">
+							<local_schema short_desc="Kalender behöver terminal">
+								<longdesc>Huruvida standardprogram för kalender behöver en terminal för att köra</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="Standardkalender">
+								<longdesc>Standardprogram för kalender</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="window_manager">
+						<entry name="workspace_names">
+							<local_schema short_desc="Namn på arbetsytorna (föråldrat)">
+								<longdesc>En lista med namn på de första fönsterhanterararbetsytorna. Denna nyckel har föråldrats sedan GNOME 2.12.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="number_of_workspaces">
+							<local_schema short_desc="Antalet arbetsytor (föråldrat)">
+								<longdesc>Antalet arbetsytor som fönsterhanteraren ska använda. Denna nyckel har föråldrats sedan GNOME 2.12.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="current">
+							<local_schema short_desc="Användarfönsterhanterare (föråldrat)">
+								<longdesc>Fönsterhanterare att prova först. Denna nyckel har föråldrats sedan GNOME 2.12.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="default">
+							<local_schema short_desc="Alternativ fönsterhanterare (föråldrat)">
+								<longdesc>Alternativ fönsterhanterare om användarfönsterhanteraren inte kan hittas. Denna nyckel har föråldrats sedan GNOME 2.12.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="browser">
+						<entry name="nremote">
+							<local_schema short_desc="Webbläsaren förstår fjärr">
+								<longdesc>Huruvida standardwebbläsaren förstår netscape-fjärr.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="needs_term">
+							<local_schema short_desc="Webbläsaren behöver terminal">
+								<longdesc>Huruvida standardwebbläsaren behöver en terminal för att köra.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="Standardwebbläsare">
+								<longdesc>Standardwebbläsare för alla URL:er.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="at">
+						<dir name="mobility">
+							<entry name="startup">
+								<local_schema short_desc="Starta föredraget program för hjälpmedelstekniker för rörelsehindrade">
+									<longdesc>GNOME ska starta föredraget program för hjälpmedelstekniker för rörelsehindrade under inloggning.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="exec">
+								<local_schema short_desc="Föredraget program för hjälpmedelstekniker för rörelsehindrade">
+									<longdesc>Föredraget program för hjälpmedelstekniker för rörelsehindrade att använda för inloggning, meny eller kommandorad.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+						<dir name="visual">
+							<entry name="startup">
+								<local_schema short_desc="Starta föredraget program för hjälpmedelstekniker för synskadade">
+									<longdesc>GNOME ska starta föredraget program för hjälpmedelstekniker för synskadade under inloggning.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="exec">
+								<local_schema short_desc="Föredraget program för hjälpmedelstekniker för synskadade">
+									<longdesc>Föredraget program för hjälpmedelstekniker för synskadade att använda för inloggning, meny eller kommandorad.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+					</dir>
+					<dir name="component_viewer">
+						<entry name="exec">
+							<local_schema short_desc="Standardprogram för komponentvisning">
+								<longdesc>Programmet som används för visning av filer som kräver en komponent för att visa dem. Parametern %s kommer att ersättas av filens URI:er, och parametern %c kommer att ersättas av komponent-IID.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="terminal">
+						<entry name="exec_arg">
+							<local_schema short_desc="Exec-argument">
+								<longdesc>Argument som används för att köra program i terminalen som anges av &quot;exec&quot;-nyckeln.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="Terminalprogram">
+								<longdesc>Terminalprogram att använda vid start av program som kräver ett.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+			</dir>
+		</dir>
+		<dir name="system">
+			<dir name="dns_sd">
+				<entry name="extra_domains">
+					<local_schema short_desc="Extra domäner som dns-sd-tjänster ska sökas i">
+						<longdesc>Kommaseparerad lista med dns-sd-domäner som ska synas på platsen &quot;network:///&quot;.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="display_local">
+					<local_schema short_desc="Hur den lokala DNS-SD-tjänsten ska visas">
+						<longdesc>Möjliga värden är &quot;merged&quot;, &quot;separate&quot; och &quot;disabled&quot;.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="smb">
+				<entry name="workgroup">
+					<local_schema short_desc="SMB-arbetsgrupp">
+						<longdesc>Windows-nätverksarbetsgruppen eller -domänen som användaren är del av. För att en ny arbetsgrupp ska börja gälla kan användaren behöva logga ut och in igen.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="proxy">
+				<entry name="autoconfig_url">
+					<local_schema short_desc="URL för automatisk proxykonfiguration">
+						<longdesc>URL som tillhandahåller proxykonfigurationsvärden.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="socks_port">
+					<local_schema short_desc="Port för SOCKS-proxyserver">
+						<longdesc>Porten på maskinen som definieras av &quot;/system/proxy/socks_host&quot; som du använder som proxyserver.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="socks_host">
+					<local_schema short_desc="Värdnamn för SOCKS-proxyserver">
+						<longdesc>Namnet på maskinen som ska agera proxyserver för socks.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="ftp_port">
+					<local_schema short_desc="Port för FTP-proxyserver">
+						<longdesc>Porten på maskinen som definieras av &quot;/system/proxy/ftp_host&quot; som du använder som proxyserver.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="ftp_host">
+					<local_schema short_desc="Värdnamn för FTP-proxyserver">
+						<longdesc>Namnet på maskinen som ska agera proxyserver för FTP.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="secure_port">
+					<local_schema short_desc="Port för säker HTTP-proxyserver">
+						<longdesc>Porten på maskinen som definieras av &quot;/system/proxy/secure_host&quot; som du använder som proxyserver.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="secure_host">
+					<local_schema short_desc="Värdnamn för säker HTTP-proxyserver">
+						<longdesc>Namnet på maskinen som ska agera proxyserver för säker HTTP.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="mode">
+					<local_schema short_desc="Proxykonfigurationsläge">
+						<longdesc>Välj proxykonfigurationsläget. Värden som stöds är &quot;none&quot;, &quot;manual&quot;, &quot;auto&quot;.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="http_proxy">
+				<entry name="ignore_hosts">
+					<local_schema short_desc="Värdnamn för ickeproxyvärdar">
+						<longdesc>Denna nyckel innehåller en lista med värdar som ansluts till direkt istället för att gå via proxyservern (om den är igång). Värdena kan vara värdnamn, domäner (genom användning av ett inledande jokertecken som *.blaha.se), IP-värdadresser (både IPv4 och IPv6) och nätverksadresser med en nätmask (någonting liknande 192.168.0.0/24).</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="authentication_password">
+					<local_schema short_desc="Lösenord för HTTP-proxyserver">
+						<longdesc>Lösenord att skicka som autentisering vid användning av HTTP-proxyserver.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="authentication_user">
+					<local_schema short_desc="Användarnamn för HTTP-proxyserver">
+						<longdesc>Användarnamn att skicka som autentisering vid användning av HTTP-proxyserver.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="use_authentication">
+					<local_schema short_desc="Autentisera proxyserveranslutningar">
+						<longdesc>Om detta är sant kräver anslutningarna till proxyservern autentisering. Användarnamn- och lösenordsparet definieras av &quot;/system/http_proxy/authentication_user&quot; och &quot;/system/http_proxy/authentication_password&quot;.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="port">
+					<local_schema short_desc="Port för HTTP-proxyserver">
+						<longdesc>Porten på maskinen som definieras av &quot;/system/http_proxy/host&quot; som du använder som proxyserver.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="host">
+					<local_schema short_desc="Värdnamn för HTTP-proxyserver">
+						<longdesc>Namnet på maskinen som ska agera proxyserver för HTTP.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="use_http_proxy">
+					<local_schema short_desc="Använd HTTP-proxyserver">
+						<longdesc>Aktiverar proxyinställningarna vid åtkomst av HTTP över Internet.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+		</dir>
+	</dir>
+</gconf>
