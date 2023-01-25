@@ -1,0 +1,1944 @@
+<?xml version="1.0"?>
+<gconf>
+	<dir name="schemas">
+		<dir name="apps">
+			<dir name="brasero">
+				<entry name="nautilus-extension-debug">
+					<local_schema short_desc="Nautilus বর্ধিতাংশের কি ডিবাগ বিবরণ আউটপুট হিসেবে দেয়া উচিত">
+						<longdesc>Nautilus বর্ধিতাংশের ডিবাগ বিবরণ আউটপুট হিসেবে দেয়া উচিত কি না। যদি উচিত হয় তবে এর মান true হিসেবে নির্ধারণ করতে হবে।</longdesc>
+					</local_schema>
+				</entry>
+				<dir name="filter">
+					<entry name="broken_sym">
+						<local_schema short_desc="ব্রাসেরো পরিশোধকের ভাঙ্গা চিহ্নসূচক লিংক পরিশোধন করা উচিত কিনা">
+							<longdesc>ব্রাসেরো পরিশোধকের ভাঙ্গা চিহ্নসূচক লিংক পরিশোধন করা উচিত কিনা। true নির্ধারণ করলে, ব্রাসেরো ভাঙ্গা চিহ্নসূচক লিংক পরিশোধন করবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="replace_sym">
+						<local_schema short_desc="চিহ্নসূচক লিংকসমূহকে তাদের লক্ষ্য দ্বারা প্রতিস্থাপন করা হবে">
+							<longdesc>ব্রাসেরো প্রকল্পের চিহ্নসূচক লিংককে তাদের মূল ফাইল দিয়ে প্রতিস্থাপন করবে কিনা। true নির্ধারণ করুন, ব্রাসেরো চিহ্নসূচক লিংক প্রতিস্থাপন করবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hidden">
+						<local_schema short_desc="ব্রাসেরোর কি লুকানো ফাইল পরিশোধন করা উচিত">
+							<longdesc>ব্রাসেরোর লুকানো ফাইল পরিশোধন করা প্রয়োজন কিনা। true নির্ধারণ করুন, ব্রাসেরো লুকানো ফাইল পরিশোধন করবে।</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="display">
+					<entry name="viewer">
+						<local_schema short_desc="ফাইল প্রাকদর্শন সক্রিয় করুন">
+							<longdesc>ফাইল প্রাকদর্শন প্রদর্শন করা হবে কিনা। এটি ব্যবহার করতে true নির্ধারণ করুন।</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="config">
+					<entry name="raw_flag">
+						<local_schema short_desc="cdrdao-তে &quot;--driver generic-mmc-raw&quot; ফ্ল্যাগ ব্যবহার করা হবে কিনা">
+							<longdesc>cdrdao-তে &quot;--driver generic-mmc-raw&quot; ফ্ল্যাগ ব্যবহার করা হবে কিনা। True নির্ধারণ করা হলে, ব্রাসেরো এটি ব্যবহার করবে; এটি হয়ত কিছু ড্রাইভ/সেটআপের জন্য কিছু সমস্যা সমাধান করতে পারবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="minbuf_value">
+						<local_schema short_desc="cdrecord-এর সাথে &quot;-immed&quot; ফ্ল্যাগ সহকারে কনজাংশনে ব্যবহৃত হয়">
+							<longdesc>cdrecord-এর সাথে &quot;-immed&quot; ফ্ল্যাগ সহকারে কনজাংশনে ব্যবহৃত হয়।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="dao_flag">
+						<local_schema short_desc="growisofs-তে &quot;-use-the-force-luke=dao&quot; ফ্ল্যাগ ব্যবহার করা হবে কিনা">
+							<longdesc>growisofs-তে &quot;-use-the-force-luke=dao&quot; ফ্ল্যাগ ব্যবহার করা হবে কিনা। false নির্ধারণ করা হলে, ব্রাসেরো এটি ব্যবহার করবেনা; এটি কিছু ড্রাইভার/সেটআপের জন্য কিছু সমস্যার সমাধান করবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="immed_flag">
+						<local_schema short_desc="cdrecord-এর সাথে &quot;-immed&quot;  ফ্ল্যাগ সক্রিয় করুন">
+							<longdesc>cdrecord-তে &quot;-immed&quot; ফ্ল্যাগ ব্যবহার করা হবে কিনা। সতর্কতাসহ ব্যবহার করুন (true নির্ধারণ করুন) যেহেতু এটি কিছু ড্রাইভার/সেটআপের জন্য কিছু সমস্যার সমাধান করবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="plugins">
+						<local_schema short_desc="ব্যবহার করার জন্য অতিরিক্ত প্লাগইনের সাদা তালিকা">
+							<longdesc>ডিস্ক বার্ন করার জন্য ব্রাসেরো অতিরিক্ত যেসব প্লাগইন ব্যবহার করবে তার তালিকা ধারণ করে। যদি NULL নির্ধারণ করা হয়, ব্রাসেরো সবগুলো লোড করবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="engine-group">
+						<local_schema short_desc="পছন্দনীয় বার্ন ইঞ্জিন">
+							<longdesc>ইনস্টল করা পছন্দনীয় বার্ন ইঞ্জিন স্যুটের নাম ধারণ করে। যদি সম্ভব হয় তবে এটি ব্যবহার করা হবে।</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnome-system-log">
+				<entry name="logfiles">
+					<local_schema short_desc="প্রারম্ভে খোলার উদ্দেশ্যে চিহ্নিত লগ ফাইল">
+						<longdesc>প্রারম্ভে খোলার উদ্দেশ্যে লগ ফাইলের তালিকা উল্লেখ করে। /etc/syslog.conf ফাইল থেকে একটি ডিফল্ট তালিকা নির্মিত হয়।</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="width">
+					<local_schema short_desc="প্রধান উইন্ডোর প্রস্থ, পিক্সেল অনুযায়ী নির্ধারিত">
+						<longdesc>লগ প্রদর্শনের প্রধান উইন্ডোর প্রস্থ, পিক্সেল অনুযায়ী নির্ধারিত হয়।</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="height">
+					<local_schema short_desc="প্রধান উইন্ডোর উচ্চতা, পিক্সেল অনুযায়ী নির্ধারিত">
+						<longdesc>লগ প্রদর্শনের প্রধান উইন্ডোর উচ্চতা, পিক্সেল অনুযায়ী নির্ধারিত হয়।</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="fontsize">
+					<local_schema short_desc="লগ প্রদর্শনের জন্য ব্যবহৃত ফন্টের মাপ">
+						<longdesc>মূল ট্রি-ভিউয়ের মধ্যে লগ প্রদর্শনের জন্য ব্যবহৃত স্থায়ী-প্রস্থের ফন্টের মাপ নির্ধারণ করে। টার্মিনালে ব্যবহৃত ডিফল্ট ফন্টের থেকে ডিফল্ট মান নির্ধারণ করা হয়।</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="logfile">
+					<local_schema short_desc="প্রারম্ভে খোলার উদ্দেশ্যে চিহ্নিত লগ ফাইল">
+						<longdesc>প্রারম্ভে খোলার উদ্দেশ্যে লগ ফাইল নির্ধারণ করে। ব্যবহৃত অপারেটিং সিস্টেমের উপর ভিত্তি করে ডিফল্টরূপে /var/adm/messages অথবা /var/log/messages প্রয়োগ করা হবে।</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="gnome-search-tool">
+				<entry name="look_in_folder">
+					<local_schema short_desc="চিহ্নিত ফোল্ডারে অনুসন্ধান করা হবে">
+						<longdesc>&quot;চিহ্নিত ফোল্ডারে অনুসন্ধান করা হবে&quot; উইজেটের ডিফল্ট মান এই কী দ্বারা নির্ধারিত হয়।</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default_window_maximized">
+					<local_schema short_desc="ডিফল্ট অবস্থায় উইন্ডো সর্বোচ্চ মাপে প্রদর্শিত">
+						<longdesc>এই কী দ্বারা নির্ধারিত হয় প্রারম্ভকালে অনুসন্ধানব্যবস্থার উইন্ডোর ক্ষেত্রে সর্বোচ্চ মাপ প্রয়োগ করা হবে কি না।</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default_window_height">
+					<local_schema short_desc="উইন্ডোর উচ্চতার ডিফল্ট মাপ">
+						<longdesc>এই কী-এর মান দ্বারা উইন্ডোর উচ্চতা নির্ধারণ করা হয় ও সেশান সমাপ্তির পরেও এই মান প্রয়োগ করা হয়। -1 মান ধার্য করা হলে, অনুসন্ধান সামগ্রীর জন্য ডিফল্ট উচ্চতার মাপ ব্যবহার করা হয়েছে।</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default_window_width">
+					<local_schema short_desc="উইন্ডোর প্রস্থের ডিফল্ট মাপ">
+						<longdesc>এই কী-এর মান দ্বারা উইন্ডোর প্রস্থ নির্ধারণ করা হয় ও সেশান সমাপ্তির পরেও এই মান প্রয়োগ করা হয়। -1 মান ধার্য করা হলে, অনুসন্ধান সামগ্রীর জন্য ডিফল্ট প্রস্থের মাপ ব্যবহার করা হয়েছে।</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="columns_order">
+					<local_schema short_desc="অনুসন্ধানের ফলাফলের সাধারণ অনুক্রম">
+						<longdesc>অনুসন্ধানের ফলাফলে প্রদর্শনের কলামের ক্ষেত্রে ব্যবহৃত অনুক্রম এই কী দ্বারা ধার্য করা হয়। ব্যবহারকারী দ্বারা এই কী পরিবর্তন করা হবে না।</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="quick_search_second_scan_excluded_paths">
+					<local_schema short_desc="দ্রুত অনুসন্ধান ও দ্বিতীয় স্ক্যান কর্মে উপেক্ষিত পাথ">
+						<longdesc>এই কী দ্বারা দ্রুত অনুসন্ধান ব্যবস্থায় দ্বিতীয় স্ক্যানের সময় উপেক্ষিত পাথগুলি নির্ধারিত হয়। দ্বিতীয় স্ক্যানের সময় find কমান্ডের সাহায্যে ফাইল অনুসন্ধান করা হয়। মূলত ইনডেক্স না করা ফাইল এই পদ্ধতিতে অনুসন্ধান করা হয়। &apos;*&apos; ও &apos;?&apos; ওয়াইল্ড-কার্ডগুলি ব্যবহার করা সম্ভব হবে। ডিফল্ট মান হলো, /।</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="disable_quick_search_second_scan">
+					<local_schema short_desc="দ্রুত অনুসন্ধান ও দ্বিতীয় স্ক্যান ব্যবস্থা নিষ্ক্রিয় করুন">
+						<longdesc>এই কী দ্বারা নির্ধারিত হয় দ্রুত অনুসন্ধানের পরে অনুসন্ধান ব্যবস্থার দ্বারা find কমান্ডের ব্যবহার নিষ্ক্রিয় করা হবে কি না।</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="quick_search_excluded_paths">
+					<local_schema short_desc="দ্রুত অনুসন্ধান কর্মে উপেক্ষিত পাথ">
+						<longdesc>এই কী দ্বারা দ্রুত অনুসন্ধান ব্যবস্থায় বর্জিত পাথগুলি নির্ধারিত হয়। &apos;*&apos; ও &apos;?&apos; ওয়াইল্ড-কার্ডগুলি ব্যবহার করা সম্ভব হবে। ডিফল্ট মান হলো, /mnt/*, /media/*, /dev/*, /tmp/*, /proc/* এবং /var/*।</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="disable_quick_search">
+					<local_schema short_desc="দ্রুত অনুসন্ধান ব্যবস্থা নিষ্ক্রিয় করা হবে">
+						<longdesc>এই কী দ্বারা নির্ধারিত হয় ফাইলের নাম অনুসারে সাধারণ অনুসন্ধানের সময় অনুসন্ধান ব্যবস্থার দ্বারা locate কমান্ডের ব্যবহার নিষ্ক্রিয় করা হবে কি না।</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="show_additional_options">
+					<local_schema short_desc="অতিরিক্ত অপশন প্রদর্শন করা হবে">
+						<longdesc>&quot;অতিরিক্ত অপশন নির্বাচন করুন&quot; বিভাগটি প্রসারিত হয়েছে কি না তা এই কী দ্বারা অনুসন্ধান ব্যবস্থা আরম্ভ কালে নির্ধারিত হয়।</longdesc>
+					</local_schema>
+				</entry>
+				<dir name="select">
+					<entry name="exclude_other_filesystems">
+						<local_schema short_desc="অনুসন্ধান কাজের &quot;অন্যান্য ফাইল-সিস্টম অন্তর্ভুক্ত করা হবে&quot; অপশন নির্বাচন করুন">
+							<longdesc>&quot;অন্যান্য ফাইল-সিস্টম অন্তর্ভুক্ত করা হবে&quot; অনুসন্ধান অপশনটি নির্বাচিত হয়েছে কি না তা এই কী দ্বারা অনুসন্ধান ব্যবস্থা আরম্ভ কালে নির্ধারিত হয়।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="follow_symbolic_links">
+						<local_schema short_desc="অনুসন্ধান কাজের &quot;সিম্বলিক লিঙ্ক অনুসরণ করা হবে&quot; অপশন নির্বাচন করুন">
+							<longdesc>&quot;সিম্বলিক লিঙ্ক অনুসরণ করা হবে&quot; অনুসন্ধান অপশনটি নির্বাচিত হয়েছে কি না তা এই কী দ্বারা অনুসন্ধান ব্যবস্থা আরম্ভ কালে নির্ধারিত হয়।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_hidden_files_and_folders">
+						<local_schema short_desc="অনুসন্ধান কাজের &quot;আড়াল করা ফাইল ও ফোল্ডার প্রদর্শন করা হবে&quot; বিকল্প নির্বাচন করুন">
+							<longdesc>&quot;আড়াল করা ফাইল ও ফোল্ডার প্রদর্শন করা হবে&quot; অনুসন্ধান অপশনটি নির্বাচিত হয়ে কি না তা এই কী দ্বারা অনুসন্ধান ব্যবস্থা আরম্ভ কালে নির্ধারিত হয়।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name_matches_regular_expression">
+						<local_schema short_desc="অনুসন্ধান কাজের &quot;রেগুলার এক্সপ্রেশনের সাথে মেলানো নাম&quot; অপশন নির্বাচন করুন">
+							<longdesc>&quot;রেগুলার এক্সপ্রেশনের সাথে মেলানো নাম&quot; অনুসন্ধান অপশনটি নির্বাচিত হয়ে কি না তা এই কী দ্বারা অনুসন্ধান ব্যবস্থা আরম্ভ কালে নির্ধারিত হয়।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name_does_not_contain">
+						<local_schema short_desc="অনুসন্ধান কাজের &quot;নামের মধ্যে অনুপস্থিত&quot; অপশন নির্বাচন করুন">
+							<longdesc>&quot;নামের মধ্যে অনুপস্থিত&quot; অনুসন্ধান অপশনটি নির্বাচিত হয়ে কি না তা এই কী দ্বারা অনুসন্ধান ব্যবস্থা আরম্ভ কালে নির্ধারিত হয়।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="owner_is_unrecognized">
+						<local_schema short_desc="অনুসন্ধান কাজের &quot;অজ্ঞাত মালিকের অধীন&quot; অপশন নির্বাচন করুন">
+							<longdesc>&quot;অজ্ঞাত মালিকের অধীনহ&quot; অনুসন্ধান অপশনটি নির্বাচিত হয়ে কি না তা এই কী দ্বারা অনুসন্ধান ব্যবস্থা আরম্ভ কালে নির্ধারিত হয়।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="owned_by_group">
+						<local_schema short_desc="অনুসন্ধান কাজের &quot;চিহ্নিত দলের মালিকানাধীন&quot; অপশন নির্বাচন করুন">
+							<longdesc>&quot;চিহ্নিত দলের মালিকানাধীন&quot; অনুসন্ধান অপশনটি নির্বাচিত হয়ে কি না তা এই কী দ্বারা অনুসন্ধান ব্যবস্থা আরম্ভ কালে নির্ধারিত হয়।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="owned_by_user">
+						<local_schema short_desc="অনুসন্ধান কাজের &quot;চিহ্নিত ব্যবহারকারীর মালিকানাধীন&quot; অপশন নির্বাচন করুন">
+							<longdesc>&quot;চিহ্নিত ব্যবহারকারীর মালিকানাধীন&quot; অনুসন্ধান অপশনটি নির্বাচিত হয়ে কি না তা এই কী দ্বারা অনুসন্ধান ব্যবস্থা আরম্ভ কালে নির্ধারিত হয়।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="file_is_empty">
+						<local_schema short_desc="অনুসন্ধান কাজের &quot;ফাঁকা ফাইল&quot; অপশন নির্বাচন করুন">
+							<longdesc>&quot;ফাঁকা ফাইল&quot; অনুসন্ধান অপশনটি নির্বাচিত হয়েছে কি না তা এই কী দ্বারা অনুসন্ধান ব্যবস্থা আরম্ভ কালে নির্ধারিত হয়।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size_at_most">
+						<local_schema short_desc="অনুসন্ধান কাজের &quot;সর্বাধিক মাপ&quot; বিকল্প নির্বাচন করুন">
+							<longdesc>&quot;সর্বাধিক মাপ&quot; অনুসন্ধান অপশনটি নির্বাচিত হয়ে কি না তা এই কী দ্বারা অনুসন্ধান ব্যবস্থা আরম্ভ কালে নির্ধারিত হয়।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size_at_least">
+						<local_schema short_desc="অনুসন্ধান কাজের &quot;ন্যূনতম মাপ&quot; বিকল্প নির্বাচন করুন">
+							<longdesc>&quot;ন্যূনতম মাপ&quot; অনুসন্ধান অপশনটি নির্বাচিত হয়ে কি না তা এই কী দ্বারা অনুসন্ধান ব্যবস্থা আরম্ভ কালে নির্ধারিত হয়।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="date_modified_more_than">
+						<local_schema short_desc="অনুসন্ধান কাজের &quot;সর্বশেষ পরিবর্তনের তারিখ চিহ্নিত সংখ্যার ঊর্ধ্বে&quot; অপশন নির্বাচন করুন">
+							<longdesc>&quot;সর্বশেষ পরিবর্তনের তারিখ চিহ্নিত সংখ্যার ঊর্ধ্বে&quot; অনুসন্ধান অপশনটি নির্বাচিত হয়েছে কি না তা এই কী দ্বারা অনুসন্ধান ব্যবস্থা আরম্ভ কালে নির্ধারিত হয়।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="date_modified_less_than">
+						<local_schema short_desc="অনুসন্ধান কাজের &quot;সর্বশেষ পরিবর্তনের তারিখ চিহ্নিত সংখ্যার মধ্যে&quot; অপশন নির্বাচন করুন">
+							<longdesc>&quot;সর্বশেষ পরিবর্তনের তারিখ চিহ্নিত সংখ্যার মধ্যে&quot; অনুসন্ধান অপশনটি নির্বাচিত হয়েছে কি না তা এই কী দ্বারা অনুসন্ধান ব্যবস্থা আরম্ভ কালে নির্ধারিত হয়।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="contains_the_text">
+						<local_schema short_desc=" অনুসন্ধান কাজের &quot;চিহ্নিত লেখাসহ&quot; অপশন নির্বাচন করুন">
+							<longdesc>&quot;চিহ্নিত লেখাসহ&quot; অনুসন্ধান অপশনটি নির্বাচিত হয়ে কি না তা এই কী দ্বারা অনুসন্ধান ব্যবস্থা আরম্ভ কালে নির্ধারিত হয়।</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnome-screenshot">
+				<entry name="border_effect">
+					<local_schema short_desc="সীমারেখার ইফেক্ট">
+						<longdesc>সীমারেখার বাহির অংশে যে ইফেক্ট প্রয়োগ করা হবে। সম্ভাব্য মান &quot;shadow (ছায়া)&quot;, &quot;none(শূণ্য)&quot; এবং &quot;black-line(কালো-রেখা)&quot;।</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="include_pointer">
+					<local_schema short_desc="পয়েন্টার অন্তর্ভুক্ত করা হবে">
+						<longdesc>পর্দার ছবিতে পয়েন্টার অন্তর্ভুক্ত করা হবে</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="include_border">
+					<local_schema short_desc="সীমরেখা অন্তর্ভুক্ত করা হবে">
+						<longdesc>স্ক্রিনশটের মধ্যে উইন্ডো পরিচালনব্যবস্থার সীমরেখা অন্তর্ভুক্ত করা হবে</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="last_save_directory">
+					<local_schema short_desc="স্ক্রিনশট ডিরেক্টরি">
+						<longdesc>স্ক্রিনশট সংরক্ষণের উদ্দেশ্যে ব্যবহৃত সর্বশেষ ফোল্ডার।</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="delay">
+					<local_schema short_desc="স্ক্রিনশট গ্রহণের পূর্বে অপেক্ষাকাল">
+						<longdesc>স্ক্রিনশট তোলার পূর্বে অপেক্ষার কাল, সেকেন্ড অনুযায়ী ধার্য।</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="take_window_shot">
+					<local_schema short_desc="উইন্ডোর ক্ষেত্রে নির্দিষ্ট স্ক্রিনশট (অবচিত)">
+						<longdesc>সম্পূর্ণ ডেস্কটপের পরিবর্তে, শুধুমাত্র বর্তমান উইন্ডোর ছবি গ্রহণ করা হবে। এই কী অনুমোদিত নয় এবং বর্তমানে ব্যবহার করা হয় না।</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="gnome-dictionary">
+				<entry name="sidebar-width">
+					<local_schema short_desc="সাইড-বারের প্রস্থ">
+						<longdesc>এই কী-এর মান দ্বারা সাইড-বারের প্রস্থ নির্ধারণ করা হয় ও সেশন সমাপ্তির পরেও এই মান প্রয়োগ করা হয়।</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="sidebar-page">
+					<local_schema short_desc="প্রদর্শনের জন্য চিহ্নিত সাইড-বারের পৃষ্ঠা">
+						<longdesc>এই কী-এর মান দ্বারা নির্ধারণ করা হয় সাইড-বারের কোনো পৃষ্ঠা প্রদর্শিত হবে ও সেশন সমাপ্তির পরেও এই বৈশিষ্ট্যের মান স্মরণে রাখা হবে। এই ক্ষেত্রে &quot;speller&quot; অথবা &quot;databases&quot; ধার্য করা যাবে।</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="statusbar-visible">
+					<local_schema short_desc="স্ট্যাটাস-বার দৃশ্যমান হবে কি না">
+						<longdesc>এই কী-এর মান দ্বারা নির্ধারণ করা হয় স্ট্যাটাস-বার দৃশ্যমান হবে কি না ও সেশন সমাপ্তির পরেও স্ট্যাটাস-বারের অবস্থা স্মরণে রাখা হবে। মান TRUE ধার্য করা হলে, স্ট্যাটাস-বার সর্বদা প্রদর্শিত হবে।</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="sidebar-visible">
+					<local_schema short_desc="সাইড-বার দৃশ্যমান হবে কি না">
+						<longdesc>এই কী-এর মান দ্বারা নির্ধারণ করা হয় সাইড-বার দৃশ্যমান হবে কি না ও সেশন সমাপ্তির পরেও সাইড-বারের অবস্থা স্মরণে রাখা হবে। মান TRUE ধার্য করা হলে, সাইড-বার সর্বদা প্রদর্শিত হবে।</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="window-is-maximized">
+					<local_schema short_desc="অ্যাপ্লিকেশন উইন্ডো সর্বোচ্চ মাপে প্রদর্শিত হবে কি না">
+						<longdesc>এই কী-এর মান দ্বারা নির্ধারণ করা হয় উইন্ডোর সর্বোচ্চ মান ধার্য করা হবে কি না ও সেশন সমাপ্তির পরেও উইন্ডোর অবস্থা স্মরণে রাখা হবে। মান TRUE ধার্য করা হলে, উইন্ডো সর্বদা সর্বোচ্চ মাপে প্রদর্শিত হবে।</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default-window-height">
+					<local_schema short_desc="অ্যাপ্লিকেশন উইন্ডোর উচ্চতার ডিফল্ট মাপ">
+						<longdesc>এই কী-এর মান দ্বারা উইন্ডোর উচ্চতা নির্ধারণ করা হয় ও সেশন সমাপ্তির পরেও এই মান প্রয়োগ করা হয়। -1 মান ধার্য করা হলে, ফন্টের মাপের ভিত্তিতে অভিধানের উইন্ডোর উচ্চতা নির্ধারণ করা হবে।</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default-window-width">
+					<local_schema short_desc="অ্যাপ্লিকেশন উইন্ডোর প্রস্থের ডিফল্ট মাপ">
+						<longdesc>এই কী-এর মান দ্বারা উইন্ডোর প্রস্থ নির্ধারণ করা হয় ও সেশন সমাপ্তির পরেও এই মান প্রয়োগ করা হয়। -1 মান ধার্য করা হলে, ফন্টের মাপের ভিত্তিতে অভিধানের উইন্ডোর প্রস্থ নির্ধারণ করা হবে।</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="source-name">
+					<local_schema short_desc="ব্যবহৃত অভিধান উৎসের নাম">
+						<longdesc>শব্দের সংজ্ঞা উদ্ধার করতে ব্যবহৃত অভিধান উৎসের নাম।</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="print-font">
+					<local_schema short_desc="মুদ্রণ করার সময় ব্যবহৃত ফন্ট">
+						<longdesc>সংজ্ঞা মুদ্রণ করার সময় ব্যবহৃত ফন্ট।</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="strategy">
+					<local_schema short_desc="অনুসন্ধান কর্মে ব্যবহৃত ডিফল্ট নীতি">
+						<longdesc>অভিধানের উৎস উপলব্ধ থাকলে, ব্যবহারযোগ্য ডিফল্ট অনুসন্ধান নীতির নাম। ডিফল্টরূপে ব্যবহৃড নীতি হল, &apos;exact&apos;, অর্থাৎ শব্দগুলি সম্পূর্ণরূপে মেলানো হবে।</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="database">
+					<local_schema short_desc="ব্যবহারের জন্য চিহ্নিত ডিফল্ট ডাটাবেস">
+						<longdesc>অভিধান সার্ভারে ব্যবহত স্বতন্ত্র ডাটাবেস অথবা মিটা-ডাটাবেসের নাম। বিস্ময়সূচক চিহ্নের (&quot;!&quot;)  সাহায্যে নির্দিষ্ট সার্ভারে উপস্থিত সকল ডাটাবেস অনুসন্ধানের নির্দেশ দেওয়া হয়।</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="smart">
+					<local_schema short_desc="বিশেষ অনুসন্ধান পদ্ধতি ব্যবহার করা হবে (অনুমোদিত নয়)">
+						<longdesc>বিশেষ অনুসন্ধান পদ্ধতি ব্যবহৃত হবে কিনা তা উল্লেখ করুন। অভিধানের সার্ভারে এই ব্যবস্থা সমর্থিত হলে এটি প্রয়োগ করা সম্ভব। ডিফল্ট মান হল TRUE। এটি বর্তমানে অনুমোদিত নয় এবং ব্যবহৃত হয় না।</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="port">
+					<local_schema short_desc="সার্ভারের সাথে সংযোগ স্থাপনের উদ্দেশ্যে ব্যবহৃত পোর্ট (অনুমোদিত নয়)">
+						<longdesc>সংযোগের উদ্দেশ্যে ব্যবহৃত পোর্ট সংখ্যা। ডিফল্ট পোর্ট হল ২৬২৮। এটি বর্তমানে অনুমোদিত নয় এবং ব্যবহৃত হয় না।</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="server">
+					<local_schema short_desc="অভিধানের সার্ভার (অনুমোদিত নয়)">
+						<longdesc>সংযোগ স্থাপনের উদ্দেশ্যে চিহ্নিত অভিধান সার্ভার। ডিফল্ট সার্ভার হলো dict.org। অন্যান্য সার্ভারের বিবরণ জানতে http://www.dict.org দেখুন। এটি বর্তমানে অবচিত এবং ব্যবহৃত হয় না।</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="baobab">
+				<dir name="properties">
+					<entry name="skip_scan_uri_list">
+						<local_schema short_desc="বাদ দেয়া পার্টিশানের URI ">
+							<longdesc>পার্টিশানের জন্য স্ক্যান করার সময় বাদ দিতে হবে এমন URI-র তালিকা।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_home_monitor">
+						<local_schema short_desc="ব্যক্তিগত ডিরেক্টরির পর্যবেক্ষণ সক্রিয় করা হবে">
+							<longdesc>ব্যক্তিগত ডিরেক্টরির মধ্যে কোনো পরিবর্তন পর্যবেক্ষন করা হবে কি না।</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="ui">
+					<entry name="baobab_subfoldertips_visible">
+						<local_schema short_desc="সাব-ফোল্ডারের টুল-টিপ দৃশ্যমান">
+							<longdesc>নির্বাচিত ফোল্ডারের সাব-ফোল্ডারের টুল-টিপ টেনে আনা হবে কি না।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="statusbar_visible">
+						<local_schema short_desc="স্ট্যাটাস-বার দৃশ্যমান">
+							<longdesc>প্রধান উইন্ডোর নিম্নাংশে স্ট্যাটাস-বার দৃশ্যমান হবে কি না।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_visible">
+						<local_schema short_desc="টুল-বার দৃশ্যমান">
+							<longdesc>প্রধান উইন্ডোর নিম্নাংশে টুল-বার দৃশ্যমান হবে কি না।</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="window_list_applet">
+				<dir name="prefs">
+					<entry name="maximum_size">
+						<local_schema short_desc="উইন্ডো তালিকার সর্বোচ্চ আকার">
+							<longdesc>GNOME 2.20-এ এই কী অবলোপ করা হয়েছে। পুরাতণ সংস্করণের সাথে সামঞ্জস্যের উদ্দেশ্যে স্কিমা বজায় রাখা হয়েছে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="minimum_size">
+						<local_schema short_desc="উইন্ডো তালিকার সর্বনিম্ন আকার">
+							<longdesc>GNOME 2.20-এ এই কী অবলোপ করা হয়েছে। পুরাতণ সংস্করণের সাথে সামঞ্জস্যের উদ্দেশ্যে স্কিমা বজায় রাখা হয়েছে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="move_unminimized_windows">
+						<local_schema short_desc="ছোট করা উইন্ডো বড় করার সময় বর্তমান কর্মপরিসরে পরিবর্তন করুন">
+							<longdesc>মান true হলে, ছোট করা উইন্ডো বড় করার সময় বর্তমান কর্মপরিসরে সরান। অন্যথায়, উইন্ডোটির কর্মপরিসরে পরিবর্তন করুন।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="group_windows">
+						<local_schema short_desc="উইন্ডো গ্রুপ করার সময়">
+							<longdesc>উইন্ডো তালিকায় একই অ্যাপ্লিকেশনের বিভিন্ন উইন্ডো কোন সময় গ্রুপ করা হবে তা নির্ধারণ করা হয়। সম্ভাব্য মান হলো &quot;কখনো না&quot;, &quot;স্বয়ংক্রিয়&quot; ও &quot;সবসময়&quot;।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_all_workspaces">
+						<local_schema short_desc="সমস্ত কর্মপরিসরের উইন্ডো প্রদর্শিত হবে">
+							<longdesc>মান true হলে, উইন্ডো তালিকায় সমস্ত কর্মপরিসরের উইন্ডো প্রদর্শিত হবে। অন্যথায়, শুধুমাত্র বর্তমান কর্মপরিসরের উইন্ডোগুলি প্রদর্শিত হবে।</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="workspace_switcher_applet">
+				<dir name="prefs">
+					<entry name="num_rows">
+						<local_schema short_desc="কর্মপরিসর পরিবর্তনকারী মধ্যে সারির সংখ্যা">
+							<longdesc>কর্মপরিসরের মধ্যে কর্মপরিসর পরিবর্তনকারী দ্বারা প্রদর্শিত সারি (অনুভূমিক বিন্যাস) অথবা কলাম (উল্লম্ব বিন্যাস) সংখ্যা এই কী দ্বারা নির্ধারিত হবে। display_all_workspaces কী true হলে এই কী  কার্যকরী হবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_all_workspaces">
+						<local_schema short_desc="সমস্ত কর্মপরিসর প্রদর্শিত হবে">
+							<longdesc>মান true (সত্য) হলে, কর্মপরিসর অদল-বদলকারীর মধ্যে সমস্ত কর্মপরিসর প্রদর্শিত হবে। অন্যথা শুধুমাত্র বর্তমান কর্মপরিসর প্রদর্শিত হবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_workspace_names">
+						<local_schema short_desc="কর্মপরিসরের নাম প্রদর্শিত হবে">
+							<longdesc>মান true (সত্য) হলে, কর্মপরিসর অদল-বদলকারীর মধ্যে উপস্থিত কর্মপরিসরগুলির নাম প্রদর্শিত হবে। অন্যথা প্রতিটি কর্মপরিসরের মধ্যে উপস্থিত উইন্ডোগুলি প্রদর্শিত হবে। শুধুমাত্র Metacity উইন্ডো পরিচালনব্যবস্থার সাথে এই বৈশিষ্ট্য ব্যবহার করা সম্ভব।</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="fish_applet">
+				<dir name="prefs">
+					<entry name="rotate">
+						<local_schema short_desc="উল্লম্ব প্যানেলে ঘোরানো হবে">
+							<longdesc>মান true হলে, মাছের অ্যানিমেশনটি ঘুরিয়ে উল্লম্ব প্যানেলে প্রদর্শিত হবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="speed">
+						<local_schema short_desc="প্রতি ফ্রেমে বিরতী">
+							<longdesc>এই কী দ্বারা প্রতি ফ্রেম কত সেকেন্ড ধরে প্রদর্শিত হবে তা নির্ধারণ করা হয়।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="frames">
+						<local_schema short_desc="মাছের অ্যানিমেশনে ফ্রেমের সংখ্যা">
+							<longdesc>এই কী দ্বারা মাছের অ্যানিমেশনে ফ্রেমের সংখ্যা নির্ধারণ করা হয়।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="command">
+						<local_schema short_desc="ক্লিক করার মাধ্যমে এক।সিকিউট করার কমান্ড">
+							<longdesc>মাছের উপরে ক্লিক করলে যে কমান্ডটি এক্সিকিউট করা হবে তা এই কী দ্বারা নির্ধারিত হয়।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="image">
+						<local_schema short_desc="মাছের অ্যানিমেশন পিক্সম্যাপ">
+							<longdesc>এই কী ফাইলের নাম নির্ধারণ করে যা পিক্সম্যাপ ডিরেক্টরি সম্পর্কিত মাছের অ্যাপ্লেটের প্রদর্শিত অ্যানিমেশনের জন্য ব্যবহৃত হবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name">
+						<local_schema short_desc="মাছের নাম">
+							<longdesc>নামহীন মাছ অত্যন্ত নির্জীব। আপনার মাছের নামকরণ করার মাধ্যমে জীবিত করুন।</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="clock_applet">
+				<dir name="prefs">
+					<entry name="speed_unit">
+						<local_schema short_desc="গতির একক">
+							<longdesc>বায়ুর গতি প্রদর্শনের জন্য ব্যবহৃত একক।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="temperature_unit">
+						<local_schema short_desc="তাপমাত্রার একক">
+							<longdesc>তাপমাত্রা প্রদর্শনের জন্য ব্যবহৃত একক।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="cities">
+						<local_schema short_desc="অবস্থানের তালিকা">
+							<longdesc>বর্ষপঞ্জির উইন্ডোর মধ্যে প্রদর্শন উপযোগী অবস্থানের তালিকা।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="internet_time">
+						<local_schema short_desc="ইন্টারনেট সময় ব্যবহৃত হবে">
+							<longdesc>GNOME 2.6-এ এই কী এর পরিবর্তে &apos;বিন্যাস&apos; নামক কী ব্যবহৃত হয়। পুরণো সংস্করণের সাথে সামঞ্জস্যের উদ্দেশ্যে স্কিমা বজায় রাখা হয়েছে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="unix_time">
+						<local_schema short_desc="UNIX সময় ব্যবহৃত হবে">
+							<longdesc>GNOME 2.6-এ এই কী এর পরিবর্তে &apos;বিন্যাস&apos; নামক কী ব্যবহৃত হয়। পুরণো সংস্করণের সাথে সামঞ্জস্যের উদ্দেশ্যে স্কিমা বজায় রাখা হয়েছে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hour_format">
+						<local_schema short_desc="ঘন্টার বিন্যাস">
+							<longdesc>GNOME 2.6-এ এই কী এর পরিবর্তে &apos;বিন্যাস&apos; নামক কী ব্যবহৃত হয়। পুরণো সংস্করণের সাথে সামঞ্জস্যের উদ্দেশ্যে স্কিমা বজায় রাখা হয়েছে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_locations">
+						<local_schema short_desc="অবস্থান তালিকা বিস্তৃত করুন">
+							<longdesc>মান true হলে, বর্ষপঞ্জি উইন্ডোর মধ্যে অবস্থান তালিকা বিস্তৃত করা হবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_weather">
+						<local_schema short_desc="আবহওয়ার তথ্য সম্পর্কিত তালিকা বিস্তৃত করুন">
+							<longdesc>মান true হলে, বর্ষপঞ্জি উইন্ডোর মধ্যে আবহাওয়ার তথ্যের তালিকা বিস্তৃত করা হবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_tasks">
+						<local_schema short_desc="কাজের তালিকা বিস্তৃত করুন">
+							<longdesc>মান true হলে, বর্ষপঞ্জির মধ্যে কাজের তালিকা বিস্তৃত করা হবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_birthdays">
+						<local_schema short_desc="জন্মদিনের তালিকা বিস্তৃত করুন">
+							<longdesc>মান true হলে, বর্ষপঞ্জি উইন্ডোর মধ্যে জন্মদিনের তালিকা বিস্তৃত করা হবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_appointments">
+						<local_schema short_desc="সাক্ষাৎকার সময়ের তালিকা বিস্তৃত করুন">
+							<longdesc>মান true হলে, বর্ষপঞ্জি উইন্ডোর মধ্যে সাক্ষাৎকার সময়ের তালিকা বিস্তৃত করা হবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_week_numbers">
+						<local_schema short_desc="বর্ষপঞ্জির মধ্যে সপ্তাহের সংখ্যা প্রদর্শিত হবে">
+							<longdesc>মান true হলে, বর্ষপঞ্জির মধ্যে সপ্তাহের সংখ্যা প্রদর্শিত হবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="config_tool">
+						<local_schema short_desc="সময় কনফিগারেশন  টুল">
+							<longdesc>সময় কনফিগারেশনের একটি অভ্যন্তরীণ সরঞ্জামের ব্যবহার আরম্ভের পরে GNOME ২.২২ সংস্করণে এই কী এর ব্যবহার অবলুপ্ত হয়েছে। পুরাতণ সংস্করণের সাথে সামঞ্জস্যের উদ্দেশ্যে স্কিমা বজায় রাখা হয়েছে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gmt_time">
+						<local_schema short_desc="UTC ব্যবহৃত হবে">
+							<longdesc>সময়স্থানের জন্য GNOME 2.28-এ এই কী এর ব্যবহার হ্রাস করা হয়েছে। পুরণো সংস্করণের সাথে সামঞ্জস্যের উদ্দেশ্যে স্কিমা বজায় রাখা হয়েছে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_temperature">
+						<local_schema short_desc="ঘড়ির মধ্যে তাপমাত্রা প্রদর্শিত হবে">
+							<longdesc>মান true হলে, আবহাওয়ার আইকনের পাশে তাপমাত্রা প্রদর্শিত হবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_weather">
+						<local_schema short_desc="ঘড়ির মধ্যে আবহাওয়ার তথ্য প্রদর্শিত হবে">
+							<longdesc>মান true হলে, আবহাওয়ার আইকন প্রদর্শিত হবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_tooltip">
+						<local_schema short_desc="টুলটিপে তারিখ প্রদর্শিত হবে">
+							<longdesc>মান true হলে, ঘড়ির উপরে মাউস নিয়ে গেলে টুলটিপে তারিখ প্রদর্শিত হবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_date">
+						<local_schema short_desc="ঘড়ির মধ্যে তারিখ প্রদর্শিত হবে">
+							<longdesc>মান true হলে, সময়ের সাথে ঘড়িতে তারিখ প্রদর্শিত হবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_seconds">
+						<local_schema short_desc="সেকেন্ডসহ সময় প্রদর্শিত হবে">
+							<longdesc>মান true হলে, সেকেন্ড অনুসারে সময় প্রদর্শিত হবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="custom_format">
+						<local_schema short_desc="ঘড়িতে ব্যবহারযোগ্য স্বনির্ধারিত বিন্যাস">
+							<longdesc>বিন্যাস কী &quot;স্বনির্ধারিত&quot; হলে ঘড়ির অ্যাপ্লেটে ব্যবহৃত বিন্যাস এই কী দ্বারা নির্ধারিত হবে। strftime()-র বোধগম্য পরিবর্তন নির্দেশক ব্যবহার করে একটি নির্দিষ্ট বিন্যাস তৈরি করা সম্ভব হবে। অধিক জানতে strftime() সংক্রান্ত নথি দেখুন।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="format">
+						<local_schema short_desc="ঘন্টার বিন্যাস">
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="panel">
+				<dir name="objects">
+					<entry name="action_type">
+						<local_schema short_desc="কাজের বোতামের ধরণ">
+							<longdesc>বাটনের দ্বারা চিহ্নিত কাজের ধরণ। সম্ভাব্য মান হল &quot;লক করুন&quot;, &quot;লগ আউট&quot;, &quot;চালনা&quot;, &quot;অনুসন্ধান করুন&quot; এবং &quot;স্ক্রিন শট&quot;। object_type কী এর মান &quot;action-applet&quot;  হিসাবে ধার্য হলে এই কী কার্যকরী হবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="launcher_location">
+						<local_schema short_desc="লঞ্চারের অবস্থান">
+							<longdesc>লঞ্চারের বিবরণ লেখা .desktop ফাইলের অবস্থান। object_type কী যদি &quot;launcher-object&quot; হয় তাহলে এই কী কার্যকরী হবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menu_path">
+						<local_schema short_desc="মেনু উপাদানের পাথ">
+							<longdesc>মেনুর বিষয়বস্তু নির্মাণের উদ্দেশ্যে ব্যবহৃত পাথ। object_type কী যদি  &quot;menu-object&quot; হয় এবং use_menu_path কী এর মান true হলে এই কী কার্যকরী হবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_menu_path">
+						<local_schema short_desc="মেনুর বিষয়বস্তুর জন্য স্বনির্ধারিত পাথ ব্যবহার করুন">
+							<longdesc>মান true হলে, menu_path কি-র মান অনুযায়ী মেনুর বিষয়বস্তু নির্মাণের উদ্দেশ্যে ব্যবহৃত মান নির্ধারণ করা হবে। মান false, menu_path কী অগ্রাহ্য করা হয়। object_type কী এর মান &quot;menu-object&quot;  হিসাবে ধার্য হলে এই কী কার্যকরী হবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="custom_icon">
+						<local_schema short_desc="বস্তুর বাটনে ব্যবহৃত আইকন">
+							<longdesc>এই অবজেক্টেটির বোতামে আইকন হিসাবে যে ছবিটি ব্যবহৃত হচ্ছে তার স্থান। object_type কী এর মান &quot;drawer-object&quot; অথবা &quot;menu-object&quot; হিসাবে ধার্য হলে এবং use_custom_icon কী এর মান true হলে এই কী কার্যকরী হবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_custom_icon">
+						<local_schema short_desc="বস্তুর বোতামের ক্ষেত্রে স্বনির্ধারিত আইকন ব্যবহার করা হবে">
+							<longdesc>মান true হলে, বাটনের ক্ষেত্রে পছন্দসই আইকনের জন্য custom_icon কী প্রয়োগ করা হয়। মান false, custom_icon কী অগ্রাহ্য করা হয়। object_type কী এর মান &quot;menu-object&quot; অথবা &quot;drawer-object&quot; হিসাবে ধার্য হলে উল্লিখিত কী কার্যকরী হবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="tooltip">
+						<local_schema short_desc="ড্রয়ার অথবা মেনুর জন্য প্রদর্শিত টুলটিপ">
+							<longdesc>এই মেনু অথবা ড্রয়ারের টুলটিপ হিসাবে প্রদর্শিত লেখা। object_type কী যদি &quot;menu-object&quot; অথবা &quot;drawer-object&quot; হয় তাহলে এই কী কার্যকরী হবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="attached_toplevel_id">
+						<local_schema short_desc="ড্রয়ারের সাথে যুক্ত প্যানেল">
+							<longdesc>নির্দিষ্ট ড্রয়ারের সাথে যুক্ত প্যানেলের আইডেন্টিফায়ার। object_type কী যদি &quot;drawer-object&quot;  হয় তাহলেই শুদুমাত্র এই কী কার্যকরী হবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="bonobo_iid">
+						<local_schema short_desc="অ্যাপ্লেট Bonobo IID">
+							<longdesc>অ্যাপ্লেটের Bonobo বাস্তবায়নের ID - যেমন  &quot;OAFIID:GNOME_ClockApplet&quot;। object_type কী যদি &quot;bonobo-applet&quot;  হয় তাহলেই শুধুমাত্র কী কার্যকরী হবে। </longdesc>
+						</local_schema>
+					</entry>
+					<entry name="locked">
+						<local_schema short_desc="প্যানেলের মধ্যে বস্তুটির স্থান লক করুন">
+							<longdesc>মান true হলে, &quot;আনলক করুন&quot; মেনুউপাদান ব্যবহার করে বস্তুটি প্রথমে আনলক না করে ব্যবহারকারী অ্যাপ্লেট সরাতে পারবেন না।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="panel_right_stick">
+						<local_schema short_desc="নীচের/ডানদিকের প্রান্ত অনুযায়ী স্থান নির্ধারণ করা হবে">
+							<longdesc>মান true হলে, প্যানেলের ডানদিকের (অথবা উল্লম্ব প্যানেলের ক্ষেত্রে নীচের প্রান্ত) প্রান্ত অনুযায়ী বস্তুর স্থান নির্ধারণ করা হবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="position">
+						<local_schema short_desc="প্যানেলে বস্তুটির অবস্থান">
+							<longdesc>প্যানেলের এই বস্তুটির অবস্থান। বাদিকের প্যানেলের (অথবা উল্লম্ব প্যানেলের ক্ষেত্রে উপরে) প্রান্ত থেকে পিক্সেলের সংখ্যা অনুযায়ী স্থান নির্ধারণ করা হয়।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toplevel_id">
+						<local_schema short_desc="বস্তু ধারণকারী ঊর্ধ্ব স্তরের প্যানেল">
+							<longdesc>বস্তু ধারণকারী ঊর্ধ্ব-স্তরের প্যানেলের আইডেন্টিফায়ার।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="object_type">
+						<local_schema short_desc="প্যানেলের বস্তুর ধরণ">
+							<longdesc>প্যানেলের বস্তুর ধরণ। এই সম্ভাব্য মান &quot;drawer-object&quot;, &quot;menu-object&quot;, &quot;launcher-object&quot;, &quot;bonobo-applet&quot;, &quot;action-applet&quot; এবং &quot;menu-bar&quot;.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="toplevels">
+					<entry name="animation_speed">
+						<local_schema short_desc="অ্যানিমেশনের গতি">
+							<longdesc>প্যানেল অ্যানিমেশনের গতি। সম্ভাব্য মান হলো &quot;স্বল্প গতি&quot;, &quot;মধ্যম গতি&quot; এবং &quot;দ্রুত গতি&quot;। enable_animations কী এর মান true হলে এটি কার্যকরী হবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_hide_size">
+						<local_schema short_desc="আড়াল করা প্যানেলের দৃশ্যমান পিক্সেলের সংখ্যা">
+							<longdesc>প্যানেলটি স্বয়ংক্রিয়ভাবে কোণায় আড়াল করা হলে যে সংখ্যক পিক্সেল প্রদর্শিত হবে তা উল্লেখ করে। auto_hide কী এর মান true হলে এটি কার্যকরী হবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="unhide_delay">
+						<local_schema short_desc="প্যানেল স্বয়ংক্রিয়ভাবে প্রদর্শন করার বিলম্ব">
+							<longdesc>প্যানেলের অঞ্চলে পয়েন্টার উপস্থিত হওয়ার পরে স্বয়ংক্রিয়ভাবে প্যানেলটি পুনরায় প্রদর্শন করার মধ্যবর্তী সময়ের ব্যবধান মিলিসেকেন্ডে উল্লেখ করে। auto_hide কী এর মান true হলে এটি কার্যকরী হবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hide_delay">
+						<local_schema short_desc="প্যানেল স্বয়ংক্রিয়ভাবে আড়াল করার বিলম্ব">
+							<longdesc>প্যানেলের অঞ্চল থেকে পয়েন্টার সরানোর পরে স্বয়ংক্রিয়ভাবে প্যানেলটি পুনরায় আড়াল করার মধ্যবর্তী সময়ের ব্যবধান মিলিসেকেন্ডে উল্লেখ করে। auto_hide কী এর মান true হলে এটি কার্যকরী হবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_arrows">
+						<local_schema short_desc="আড়াল করার বোতামে তীরচিহ্ন সক্রিয় করা হবে">
+							<longdesc>মান true হলে, আড়াল করার বোতামের উপরে তীরচিহ্ন স্থাপন করা হবে। enable_buttons-র মান true হলে এই বৈশিষ্ট্য ব্যবহার করা সম্ভব হবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_buttons">
+						<local_schema short_desc="আড়াল করার বোতাম সক্রিয় করা হবে">
+							<longdesc>মান true হলে, প্যানেলের প্রতি পাশে বোতাম স্থাপন করা হবে যেগুলির সাহায্যে প্যানেলটি পর্দার এক প্রান্তে সরানো হবে এবং শুধুমাত্র একটি বোতাম প্রদর্শিত হবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="অ্যানিমেশন সক্রিয় করা হবে">
+							<longdesc>মান true হলে, প্যানেলে আড়াল ও প্রদর্শন তৎ‌ক্ষনাৎ‌ না হয়ে অ্যানিমেশনের মাধ্যমে করা হবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_hide">
+						<local_schema short_desc="প্যানেলটি স্বয়ংক্রিয়ভাবে কোণায় আড়াল করা হবে">
+							<longdesc>মান true হলে, প্যানেলের উপর থেকে পয়েন্টার সরানো হলে প্যানেলটি স্বয়ংক্রিয়ভাবে পর্দায় প্রান্তে আড়াল করা হয়। সেই প্রান্তে পয়েন্টার নিয়ে যাওয়া হলে প্যানেল পুনরায় প্রদর্শিত হবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="y_centered">
+						<local_schema short_desc="y-অক্ষের কেন্দ্রে প্যানেল স্থাপন করা হবে">
+							<longdesc>মান true হলে y এবং y_right কী উপেক্ষা করা হবে এবং প্যানেলকে পর্দার y-অক্ষের মাঝখানে বসানো হবে। প্যানেলের আয়তন পরিবর্তিত হলে এটির অবস্থান অক্ষুণ্ণ থাকবে - অর্থাৎ দুই প্রান্তে প্যানেলটি বিস্তৃত হবে। মান false হলে y এবং y_right কী দ্বারা প্যানেলের অবস্থান নির্ণয় করা হবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="x_centered">
+						<local_schema short_desc="x-অক্ষের কেন্দ্রে প্যানেল স্থাপন করা হবে">
+							<longdesc>মান true হলে x এবং x_right কী উপেক্ষা করা হবে এবং প্যানেলকে পর্দার x-অক্ষের মাঝখানে স্থাপন করা হবে। প্যানেলের আয়তন পরিবর্তিত হলে এটির অবস্থান অক্ষুণ্ণ থাকবে - অর্থাৎ দুই প্রান্তে প্যানেলটি বিস্তৃত হবে। মান false হলে x এবল x_right কী দ্বারা প্যানেলের অবস্থান নির্ণয় করা হবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="y_bottom">
+						<local_schema short_desc="প্যানেলের Y স্থানাঙ্ক, পর্দার নীচের প্রান্ত থেকে শুরু করে">
+							<longdesc>পর্দার ডানপ্রান্ত থেকে আরম্ভ করে, প্যানেলে y-অক্ষ অনুযায়ী চিহ্নিত অবস্থান। মান -1 ধার্য করা হলে, মান অগ্রাহ্য করা হবে এবং y key-র জন্য প্রাপ্ত মান প্রয়োগ করা হবে। মান 0 থেকে বেশি হলে y key এর মান অগ্রাহ্য করা হবে। শুধুমাত্র অবুস্তৃত মোডে এই কি-র মান গণ্য করা হয়। বিস্তৃত মোডে এই কী এর মান উপেক্ষা করা হবে এবং স্থিতিবিন্যাস কী দ্বারা ধার্য মান অনুযায়ী পর্দার উপর প্যানেলের স্থান নির্ধারণ করা হবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="x_right">
+						<local_schema short_desc="প্যানেলের X স্থানাঙ্ক, পর্দার ডান প্রান্ত থেকে শুরু করে">
+							<longdesc>পর্দার ডানপ্রান্ত থেকে আরম্ভ করে, প্যানেলে x-অক্ষ অনুযায়ী চিহ্নিত অবস্থান। মান -1 ধার্য করা হলে, মান অগ্রাহ্য করা হবে এবং x key এর জন্য প্রাপ্ত মান প্রয়োগ করা হবে। মান 0 থেকে বেশি হলে x key এর মান অগ্রাহ্য করা হবে। শুধুমাত্র অবিস্তৃত মোডে এই কী এর মান গণ্য করা হয়। বিস্তৃত মোডে এই কী এর মান উপেক্ষা করা হবে এবং স্থিতিবিন্যাস কী দ্বারা ধার্য মান অনুযায়ী পর্দার উপর প্যানেলের স্থান নির্ধারণ করা হবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="y">
+						<local_schema short_desc="প্যানেলের Y স্থানাঙ্ক">
+							<longdesc>y-অক্ষের উপর প্যানেলের অবস্থান। শুধুমাত্র অবিস্তৃত মোডে এটি কার্যকরী হবে। বিস্তৃত মোডে এই কী এর মান অগ্রাহ্য করা হয় এবং প্যানেলের নির্ধারিত স্থিতিবিন্যাস অনুযায়ী পর্দার নির্দিষ্ট প্রান্তে তা স্থাপন করা হয়।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="x">
+						<local_schema short_desc="প্যানেলের X স্থানাঙ্ক">
+							<longdesc>x-অক্ষের উপর প্যানেলের অবস্থান। শুধুমাত্র অবিস্তৃত মোডে এটি কার্যকরী হবে। বিস্তৃত মোডে এই কী এর মান অগ্রাহ্য করা হয় এবং প্যানেলের নির্ধারিত স্থিতিবিন্যাস অনুযায়ী পর্দার নির্দিষ্ট প্রান্তে তা স্থাপন করা হয়।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size">
+						<local_schema short_desc="প্যানেলের আকার">
+							<longdesc>প্যানেলের উচ্চতা (উল্লম্ব প্যানেলের ক্ষেত্রে প্রস্থ)। রান টাইমে ফন্টের মাপ এবং অন্যান্য চিহ্ন অনুযায়ী প্যানেলটির সর্বনিম্ন মাপ স্বয়ংক্রিয়ভাবে নির্ধারণ করা হবে। সর্বোচ্চ মাপ স্ক্রিনের উচ্চতার (অথবা প্রস্থের) এক-চতুর্থাংশ নির্ধারণ করা হয়।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="orientation">
+						<local_schema short_desc="প্যানেলের স্থিতিবিন্যাস">
+							<longdesc>প্যানেলের স্থিতিবিন্যাস। সম্ভাব্য মান হল &quot;উপরে&quot;, &quot;নীচে&quot;, &quot;বাঁদিকে&quot;, &quot;ডানদিকে&quot;। বিস্তৃত মোডে এই মানের দ্বারা পর্দার উপর প্যানেলের প্রান্ত নির্ধারণ করা হয়। অবিস্তৃত  মোডে &quot;উপরে&quot; এবং &quot;নীচে&quot; মান দুটির মধ্যে পার্থক্য অতি তুচ্ছ-অনুভূমিক প্যানেল নির্দেশ করে-কিন্তু প্যানেলের স্থাপিত বস্তুর আচরণ সম্বন্ধে কিছু ইঙ্গিত প্রদান করে। উদাহরণ স্বরূপ, &quot;উপরে&quot; প্যানেলের মেনুর বোতামের দ্বারা প্রদর্শিত মেনু প্যানেলের নিচে দৃশ্যমান হবে এবং &quot;নীচে&quot; প্যানেলের মেনু প্যানেলের উপরে প্রদর্শিত হবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand">
+						<local_schema short_desc="সম্পূর্ণ পর্দার প্রস্থ জুড়ে প্রদর্শনের উদ্দেশ্যে বিস্তার করুন">
+							<longdesc>মান true হলে, প্যানেল পর্দার সম্পূর্ণ প্রস্থ (উল্লম্ব প্যানেলের ক্ষেত্রে দৈর্ঘ্য) জুড়ে থাকে। এই মোডে প্যানেল শুধুমাত্র পর্দার একটি প্রান্তে স্থাপন করা হবে। মান false হলে, প্যানেলটি শুধুমাত্র সমস্ত অ্যাপ্লেট, লঞ্চার ও বোতাম ধারণ করার জন্য প্রয়োজনীয় মাপ অনুযায়ী নির্মিত হবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="monitor">
+						<local_schema short_desc="প্যানেল প্রদর্শনকারী Xinerama মনিটর">
+							<longdesc>Xinerama সেটআপে, প্রত্যেকটি মনিটরে প্যানেল স্থাপন করা সম্ভব। বর্তমানে প্যানেল প্রদর্শনকারী মনিটর এই কী দ্বারা সনাক্ত করা হয়।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="screen">
+						<local_schema short_desc="প্যানেল প্রদর্শনকারী X পর্দা">
+							<longdesc>একাধিক পর্দাসহ সেটআপে আপনি প্রত্যেকটি পর্দার জন্য প্যানেল রাখতে পারেন। বর্তমানে প্যানেল প্রদর্শনকারী পর্দা সনাক্ত করতে এই কী ব্যবহৃত হবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name">
+						<local_schema short_desc="প্যানেল সনাক্তকরণের উদ্দেশ্যে ব্যবহৃত নাম">
+							<longdesc>এই পাঠযোগ্য নামের দ্বারা আপনি প্যানেলটিকে সনাক্ত করতে পারবেন। এর মূল উদ্দেশ্য প্যানেল উইন্ডোর শিরোনাম চিহ্নিত করা, যা প্যানেলের মধ্যে নেভিগেট করার সময় সাহায্য করে।</longdesc>
+						</local_schema>
+					</entry>
+					<dir name="background">
+						<entry name="rotate">
+							<local_schema short_desc="উল্লম্ব প্যানেলে চিত্র ঘোরানো হবে">
+								<longdesc>মান true (সত্য) হলে, উল্লম্ব দিশায় নির্ধারিত প্যানেলের ক্ষেত্রে পটভুমির ছবি ঘোরানো হবে।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="stretch">
+							<local_schema short_desc="প্যানেলের উপর ছবি প্রসারিত করুন">
+								<longdesc>মান true (সত্য) হলে, প্যানেলের মাপ অনুযায়ী ছবির মাত্রা নির্ধারিত হবে। ছবির অ্যাসপেক্ট অনুপাত রক্ষা করা হবে না।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="fit">
+							<local_schema short_desc="চিত্রটি প্যানেলের মাপসই করা হবে">
+								<longdesc>মান true (সত্য) হলে, প্যানেলের উচ্চতা (অনুভূমিকের ক্ষেত্রে) অনুসারে ছবির মাত্রা নির্ধারিত হবে (ছবির অ্যাসপেক্ট অনুমাত অক্ষুণ্ণ থাকবে)।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="image">
+							<local_schema short_desc="পটভুমির চিত্র">
+								<longdesc>পটভুমির ছবি হিসাবে ব্যবহৃত ফাইল উল্লেখ করা হয়। ছবির মধ্যে আলফা চ্যানেল উপস্থিত থাকলে ডেস্কটপ পটভুমির ছবি সাথে ছবিটি গঠিত হবে।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="opacity">
+							<local_schema short_desc="পটভুমির রঙের অস্বচ্ছতা">
+								<longdesc>পটভুমি রঙের অস্বচ্ছতা নির্ধারণ করতে ব্যবহৃত হয়। ব্যবহৃত রং পুরোপুরি অস্বচ্ছ না হলে (মান ৬৫৫৩৫-এর থেকে কম হলে) ডেস্কটপের পটভূমির ছবির সাথে রং মিশিয়ে নেওয়া হবে।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="color">
+							<local_schema short_desc="পটভুমির রং">
+								<longdesc>#RGB বিন্যাসে প্যানেলের পটভুমির রং নির্ধারণ করতে উল্লেখ করা হয়।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="type">
+							<local_schema short_desc="পটভুমির ধরণ">
+								<longdesc>এই প্যানেলের জন্য ব্যবহৃত পটভুমির প্রকৃতি। সম্ভাব্য মান হল &quot;gtk&quot; - ডিফল্ট GTK+ উইজেট‌ পটভুমি ব্যবহৃত হবে, &quot;রং&quot; - বাছাই করা রং পটভুমিতে ব্যবহৃত হবে অথবা &quot;চিত্র&quot; - নির্বাচিত ছবি পটভুমিতে ব্যবহৃত হবে।</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="general">
+					<entry name="profiles_migrated">
+						<local_schema short_desc="পুরনো প্রোফাইলে কনফিগারেশন মাইগ্রেট হয়েছে">
+							<longdesc>/apps/panel/profiles/default এর ব্যবহারকারীর পূর্ববর্তী কনফিগারেশন /apps/panel এর নতুন অবস্থানে অনুলিপি করা হয়েছে কিনা তা নির্দেশ করতে একটি বুলিয়ান ফ্ল্যাগ ব্যবহৃত হয়।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="object_id_list">
+						<local_schema short_desc="প্যানেলের অবজেক্ট ID তালিকা">
+							<longdesc>প্যানেল অবজেক্ট ID এর একটি তালিকা। প্রতিটি ID দ্বারা একটি প্যানেল অবজেক্ট (উদাহরণ, লঞ্চার, কাজ নির্দেশক বোতাম অথবা মেনু বোতাম/বার) শনাক্ত করা হবে। প্রতিটি অ্যাপ্লেটের সেটিং /apps/panel/objects/$(id) এ সংরক্ষিত থাকে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="applet_id_list">
+						<local_schema short_desc="প্যানেল অ্যাপ্লেট ID তালিকা">
+							<longdesc>প্যানেল অ্যাপ্লেট ID এর একটি তালিকা। প্রতিটি ID দ্বারা একটি প্যানেল অ্যাপ্লেট শনাক্ত করা হবে। প্রতিটি অ্যাপ্লেটের সেটিং /apps/panel/applets/$(id) এ সংরক্ষিত থাকে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toplevel_id_list">
+						<local_schema short_desc="প্যানেল ID তালিকা">
+							<longdesc>প্যানেল ID এর একটি তালিকা। প্রত্যেকটি ID দ্বারা ঊর্ধ্ব স্তরের একটি প্যানেল শনাক্ত করা হবে। প্রতিটি প্যানেলের সেটিং /apps/panel/toplevels/$(id)  এ সংরক্ষিত থাকে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_autocompletion">
+						<local_schema short_desc="&quot;অ্যাপ্লিকেশন চালনা&quot; ডায়ালগে স্বয়ংক্রিয় সম্পূর্ণকরণ সক্রিয় করুন।">
+							<longdesc>মান true হলে, &quot;অ্যাপ্লিকেশন চালনা&quot; ডায়ালগে স্বয়ংক্রিয় সম্পূর্ণকরণ উপস্থিত থাকে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_program_list">
+						<local_schema short_desc="&quot;অ্যাপ্লিকেশন চালনা&quot; ডায়ালগে প্রোগ্রাম তালিকা বিস্তৃত করা হবে।">
+							<longdesc>যদি মান true হয়, তাহলে ডায়ালগটি খোলার সময় &quot;অ্যাপ্লিকেশন চালনা&quot; ডায়ালগটিতে &quot;পরিচিত অ্যাপ্লিকেশন&quot; এর তালিকাটি বিস্তৃত হবে। enable_progam_list কী যদি true হয় তাহলেই শুধুমাত্র এটি কার্যকরী হবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_program_list">
+						<local_schema short_desc="&quot;অ্যাপ্লিকেশন চালনা&quot; ডায়ালগে প্রোগ্রাম তালিকা সক্রিয় করুন।">
+							<longdesc>যদি মান true হয়, তাহলে &quot;অ্যাপ্লিকেশন চালনা&quot; ডায়ালগে &quot;পরিচিত অ্যাপ্লিকেশন&quot; তালিকাটি থাকে। show-program-listing দ্বারা ডায়ালগটি প্রদর্শনের সময় এই তালিকাটি বিস্তৃত হতে পারে আবার নাও হতে পারে।</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="global">
+					<entry name="disable_force_quit">
+						<local_schema short_desc="জোরপূর্বক বন্ধ করা নিষ্ক্রিয় করা হবে">
+							<longdesc>মান true হলে, জোরপূর্বক বন্ধ করার বোতাম দ্বারা প্রবেশ অপশারণ করার মাধ্যমে প্যানেলটি ব্যবহারকারীকে জোরপূর্বক অ্যাপ্লিকেশন বন্ধ করার অনুমোদন করে না।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_log_out">
+						<local_schema short_desc="লগ আইট নিষ্ক্রিয় করা হবে">
+							<longdesc>মান true হলে, লগ আউট মেনুতে প্রবেশ অপসারণ করার মাধ্যমে প্যানেলটি ব্যবহারকারীর লগ আউট অনুমোদন করে না।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_lock_screen">
+						<local_schema short_desc="অবলোপ করা">
+							<longdesc>সঠিক লক-ডাউন কার্যকরী করার উদ্দেশ্যে এই কী ব্যবহার করা না যাওয়ার ফলে এটি অবলোপ করা হয়েছে। এর পরিবর্তে /desktop/gnome/lockdown/disable_lock_screen কী ব্যবহার করা হবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disabled_applets">
+						<local_schema short_desc="লোড করা থেকে প্রতিরোধ করার উদ্দেশ্যে IID অ্যাপ্লেট">
+							<longdesc>প্যানেলের দ্বারা অগ্রাহ্য করার জন্য অ্যাপ্লেট IID এর তালিকা। এই ব্যবস্থায় আপনি সুনির্দিষ্ট কিছু অ্যাপ্লেটকে মেনুর মধ্যে লোড অথবা প্রদর্শন করা হতে প্রতিরোধ করতে পারবেন। যেমন, mini-commander অ্যাপ্লেট নিষ্ক্রিয় করতে এই তালিকায় &apos;OAFIID:GNOME_MiniCommanderApplet&apos; যোগ করুন। এটি প্রয়োগ করতে প্যানেল পুনরায় আরম্ভ করা আবশ্যক।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="locked_down">
+						<local_schema short_desc="প্যানেল সম্পূর্ণভাবে লক করা">
+							<longdesc>মান true হলে, প্যানেলের কনফিগারেশন সংক্রান্ত কোনো পরিবর্তন করা সম্ভব হবে না। তথাপি, প্রতিটি অ্যাপ্লেট পৃথকভাবে লক করার প্রয়োজন দেখা দিতে পারে। এই প্রভাব প্রয়োগ করার জন্য প্যানেলটি পুনরায় আরম্ভ করা প্রয়োজন।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="highlight_launchers_on_mouseover">
+						<local_schema short_desc="লঞ্চারের উপরে মাউস স্থাপন করলে তা উজ্জ্বল করা হবে">
+							<longdesc>মান true হলে, ব্যবহারকারীর দ্বারা লঞ্চারের উপর পয়েন্টার স্থাপন করা হলে সেটির উজ্জ্বল হবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="confirm_panel_remove">
+						<local_schema short_desc="প্যানেল অপসারণ নিশ্চিতকরণ">
+							<longdesc>মান true হলে, প্যানেল অপসারণ করতে ব্যবহারকারী কর্তৃক নিশ্চিত করার অনুরোধ জানিয়ে ডায়ালগ বাক্স প্রদর্শিত হবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="drawer_autoclose">
+						<local_schema short_desc="ড্রয়ার স্বয়ংক্রিয়ভাবে বন্ধ হবে">
+							<longdesc>মান true হলে, ড্রয়ারের মধ্যে কোনো লঞ্চারে ক্লিক করা হলে স্বয়ংক্রিয়ভাবে ড্রয়ারটি বন্ধ হবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="window_screenshot_key">
+						<local_schema short_desc="অবলোপ করা">
+						</local_schema>
+					</entry>
+					<entry name="screenshot_key">
+						<local_schema short_desc="অবলোপ করা">
+						</local_schema>
+					</entry>
+					<entry name="run_key">
+						<local_schema short_desc="অবলোপ করা">
+						</local_schema>
+					</entry>
+					<entry name="menu_key">
+						<local_schema short_desc="অবলোপ করা">
+						</local_schema>
+					</entry>
+					<entry name="enable_key_bindings">
+						<local_schema short_desc="অবলোপ করা">
+						</local_schema>
+					</entry>
+					<entry name="panel_hide_delay">
+						<local_schema short_desc="অবলোপ করা">
+						</local_schema>
+					</entry>
+					<entry name="panel_animation_speed">
+						<local_schema short_desc="অবলোপ করা">
+						</local_schema>
+					</entry>
+					<entry name="panel_show_delay">
+						<local_schema short_desc="অবলোপ করা">
+						</local_schema>
+					</entry>
+					<entry name="panel_minimized_size">
+						<local_schema short_desc="অবলোপ করা">
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="অ্যানিমেশন সক্রিয় করা হবে">
+						</local_schema>
+					</entry>
+					<entry name="keep_menus_in_memory">
+						<local_schema short_desc="অবলোপ করা">
+						</local_schema>
+					</entry>
+					<entry name="tooltips_enabled">
+						<local_schema short_desc="টুলটিপ সক্রিয় করা হবে">
+							<longdesc>মান true হলে, প্যানেল অবজেক্টের জন্য টুলটিপ প্রদর্শিত হবে।</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gweather">
+				<dir name="prefs">
+					<entry name="radar">
+						<local_schema short_desc="রেডার ম্যাপের Url">
+							<longdesc>রেডার ম্যাপ প্রাপ্তির উদ্দেশ্যে ব্যবহৃত স্বনির্বাচিত url।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_custom_radar_url">
+						<local_schema short_desc="রেডার ম্যাপের জন্য স্বনির্বাচিত url ব্যবহৃত হবে">
+							<longdesc>মান true (সত্য) হলে &quot;radar&quot;-কি দ্বারা চিহ্নিত অবস্থান থেকে রেডার ম্যাপ প্রাপ্ত করা হবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="coordinates">
+						<local_schema short_desc="অবস্থানের স্থানাঙ্ক">
+						</local_schema>
+					</entry>
+					<entry name="location4">
+						<local_schema short_desc="শহরের আবহাওয়া">
+						</local_schema>
+					</entry>
+					<entry name="location3">
+						<local_schema short_desc="রেডারের অবস্থান">
+						</local_schema>
+					</entry>
+					<entry name="location2">
+						<local_schema short_desc="অঞ্চলের অবস্থান">
+						</local_schema>
+					</entry>
+					<entry name="location1">
+						<local_schema short_desc="পার্শ্ববর্তী সহর">
+						</local_schema>
+					</entry>
+					<entry name="location0">
+						<local_schema short_desc="অবস্থানের আবহওয়া সংক্রান্ত তথ্য">
+						</local_schema>
+					</entry>
+					<entry name="enable_radar_map">
+						<local_schema short_desc="রেডার ম্যাপ প্রদর্শন করা হবে">
+							<longdesc>প্রতিটি আপডেটের সময় রেডার ম্যাপ প্রাপ্ত করা হবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_detailed_forecast">
+						<local_schema short_desc="বর্তমানে অব্যবহৃত">
+						</local_schema>
+					</entry>
+					<entry name="temperature_unit">
+						<local_schema short_desc="তাপমাত্রার একক">
+							<longdesc>তাপমাত্রা মাপার একক।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="speed_unit">
+						<local_schema short_desc="গতির একক">
+							<longdesc>বায়ুর গতি মাপার একক।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="pressure_unit">
+						<local_schema short_desc="বায়ুচাপের একক">
+							<longdesc>চাপ মাপার একক।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="distance_unit">
+						<local_schema short_desc="দূরত্ব মাপার একক">
+							<longdesc>দৃষ্টিসীমা মাপার জন্য ব্যবহৃত একক।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_metric">
+						<local_schema short_desc="মেট্রিক একক ব্যবহৃত হবে">
+							<longdesc>ইংরেজ এককের পরিবর্তে মেট্রিক একক ব্যবহৃত হবে</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_update_interval">
+						<local_schema short_desc="আপডেটের মধ্যে বিরতী">
+							<longdesc>স্বয়ংক্রিয় আপডেটের মধ্যবর্তী বিরতি, সেকেন্ডে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_update">
+						<local_schema short_desc="স্বয়ংক্রিয়রূপে তথ্য আপডেট করা হবে">
+							<longdesc>অ্যাপ্লেট দ্বারা স্বয়ংক্রিয়রূপে আবহাওয়া সংক্রান্ত পরিসংখ্যান আপডেট করা হবে কিনা নির্ধারণ করতে ব্যবহৃত।</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnome-keyring">
+				<dir name="daemon-components">
+					<entry name="ssh">
+						<local_schema short_desc="জিনোম-কীরিং SSH এজেন্ট সক্রিয় কি না।">
+							<longdesc>এই অপশনের সাহায্যে জিনোম-কীরিং ডেমনের মধ্যে SSH এজেন্ট সক্রিয় করা হবে। জিনোম-কীরিং-ডেমন আরম্ভের সময় (অর্থাৎ, ব্যবহারকারী লগ-ইন করার সময়) এটি প্রয়োগ করা হবে। কমান্ড-লাইন থেকে প্রযোজ্য কিছু আর্গুমেন্ট এই ডেমনের ব্যবহারের জন্য উল্লেখ করা হলে এই বৈশিষ্ট্য উপেক্ষা করা যাবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="pkcs11">
+						<local_schema short_desc="জিনোম-কীরিং PKCS#11 সামগ্রী সক্রিয় কি না।">
+							<longdesc>এই অপশনের সাহায্যে জিনোম-কীরিং ডেমনের মধ্যে PKCS#11 সামগ্রী সক্রিয় করা হবে। জিনোম-কীরিং-ডেইমন আরম্ভের সময় (অর্থাৎ, ব্যবহারকারী লগ-ইন করার সময়) এটি প্রয়োগ করা হবে। কমান্ড-লাইন থেকে প্রযোজ্য কিছু আর্গুমেন্ট এই ডেমনের ব্যবহারের জন্য উল্লেখ করা হলে এই বৈশিষ্ট্য উপেক্ষা করা যাবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="secrets">
+						<local_schema short_desc="জিনোম-কীরিং SSH এজেন্ট সক্রিয় কি না।">
+							<longdesc>এই অপশনের সাহায্যে জিনোম-কীরিং ডেমনের মধ্যে গোপন সার্ভিস সামগ্রী সক্রিয় করা হবে। জিনোম-সেশন আরম্ভের সময় প্রভাব (অর্থাৎ, ব্যবহারকারী লগ-ইন করার সময়) প্রয়োগ করা হবে। কমান্ড-লাইন থেকে প্রযোজ্য কিছু আর্গুমেন্ট এই ডেমনের ব্যবহারের জন্য উল্লেখ করা হলে এই বৈশিষ্ট্য উপেক্ষা করা যেতে পারে।</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="evince">
+				<entry name="override_restrictions">
+					<local_schema short_desc="নথিতে আরোপিত নিষেধাজ্ঞা অগ্রাহ্য করুন">
+						<longdesc>নথিতে আরোপিত নিষেধাজ্ঞা, যেমন কপি বা মুদ্রণের উপর, অগ্রাহ্য করুন</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+		</dir>
+		<dir name="desktop">
+			<dir name="gnome">
+				<dir name="interface">
+					<entry name="show_unicode_menu">
+						<local_schema short_desc="&apos;ইউনিকোড কনট্রোল ক্যারেকটার&apos; শীর্ষক মেনু প্রদর্শন করা হবে">
+							<longdesc>এন্ট্রির কনটেক্সট মেনু ও টেক্সট প্রদর্শন ব্যবস্থার দ্বারা কন্ট্রোল ক্যারেক্টার সন্নিবেশের সুবিধা উপলব্ধ করা হবে কি না।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_input_method_menu">
+						<local_schema short_desc="&apos;ইনপুট পদ্ধতি&apos; নামক মেনু প্রদর্শিত হবে">
+							<longdesc>এন্ট্রির কনটেক্সট মেনু ও টেক্সট প্রদর্শন ব্যবস্থার দ্বারা ইনপুট পদ্ধতি পরিবর্তনের সুবিধা উপলব্ধ করা হবে কি না।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menubar_accel">
+						<local_schema short_desc="মেনু-বার অ্যাকসেলেরেটর">
+							<longdesc>মেনু-বার খুলতে ব্যবহৃত কীবোর্ড শর্টকাট।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="file_chooser_backend">
+						<local_schema short_desc="GtkFileChooser-এর মডিউল">
+							<longdesc>GtkFileChooser উইজেটের ক্ষেত্রে ফাইল-সিস্টেম মডিউলরূপে ব্যবহারযোগ্য মডিউল। সম্ভাব্য মান &quot;gio&quot;, &quot;gnome-vfs&quot; ও &quot;gtk+&quot;।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="status_bar_meter_on_right">
+						<local_schema short_desc="অবস্থাসূচক বার ডানদিকে অবস্থিত">
+							<longdesc>ডানদিকের অবস্থাসূচক-বারের মাত্রা প্রদর্শন করা হবে কি না।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_custom_font">
+						<local_schema short_desc="স্বনির্বাচিত ফন্ট ব্যবহার করা হবে">
+							<longdesc>gtk+ অ্যাপ্লিকেশনের ক্ষেত্রে স্বনির্ধারিত ফন্ট ব্যবহৃত হবে কি না।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="monospace_font_name">
+						<local_schema short_desc="মনো-স্পেস ফন্ট">
+							<longdesc>টার্মিনালের মত অবস্থানে ব্যবহারের জন্য মনোস্পেসযুক্ত (স্থায়ী-প্রস্থের) ফন্টের নাম।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="document_font_name">
+						<local_schema short_desc="ডকুমেন্টে ব্যবহৃত ফন্ট">
+							<longdesc>নথিপত্র পড়ার উদ্দেশ্যে ব্যবহৃত পূর্বনির্ধারিত ফন্টের নাম।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk-im-module">
+						<local_schema short_desc="GTK IM মডিউল">
+							<longdesc>GTK+ দ্বারা ব্যবহৃত ইনপুট পদ্ধতির মডিউল।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk-im-status-style">
+						<local_schema short_desc="GTK IM স্ট্যাটাস শৈলী">
+							<longdesc>gtk+ দ্বারা ব্যবহৃত GTK+ ইনপুট পদ্ধতির অবস্থার বিন্যাস।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk-im-preedit-style">
+						<local_schema short_desc="GTK IM প্রি-এডিট শৈলী">
+							<longdesc>gtk+ দ্বারা ব্যবহৃত GTK+ ইনপুট পদ্ধতির প্রি-এডিট বিন্যাস।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="font_name">
+						<local_schema short_desc="পূর্বনির্ধারিত ফন্ট">
+							<longdesc>gtk+ দ্বারা ব্যবহৃত পূর্বনির্ধারিত ফন্টের নাম।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk_key_theme">
+						<local_schema short_desc="Gtk+ থীম">
+							<longdesc>gtk+-এর দ্বারা ব্যবহৃত পূর্বনির্ধারিত থীমের বেসনেম।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk_theme">
+						<local_schema short_desc="Gtk+ থীম">
+							<longdesc>gtk+-এর দ্বারা ব্যবহৃত পূর্বনির্ধারিত থীমের বেসনেম।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="icon_theme">
+						<local_schema short_desc="আইকন থীম">
+							<longdesc>প্যানেল, nautilus প্রভৃতির জন্য ব্যবহৃত আইকনের থীম</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="cursor_blink_time">
+						<local_schema short_desc="কার্সারের মিটিমিটি জ্বলার সময়">
+							<longdesc>কার্সার মিটিমিটি জ্বলার সময়কালের দৈর্ঘ্য, মিলিসেকেন্ডে ব্যক্ত।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="cursor_blink">
+						<local_schema short_desc="কার্সারের মিটিমিটি জ্বলা">
+							<longdesc>কার্সার মিটিমিটি জ্বলানো হবে কি না।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_icons_size">
+						<local_schema short_desc="টুলবার আইকনের আকার">
+							<longdesc>টুলবারের মধ্যে উপস্থিত আইকনের মাপ, &quot;small-toolbar (ছোট-টুলবার)&quot; অথবা &quot;large-toolbar (বড়-টুলবার)&quot;।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_detachable">
+						<local_schema short_desc="টুল-বার বিচ্ছিন্ন করা সম্ভব">
+							<longdesc>ব্যবহারকারীর দ্বারা টুল-বার বিচ্ছিন্ন করে স্থানান্তর করা সম্ভব কি না।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menubar_detachable">
+						<local_schema short_desc="মেনু-বার বিচ্ছিন্ন করা সম্ভব">
+							<longdesc>ব্যবহারকারীর দ্বারা মেনু-বার বিচ্ছিন্ন করে স্থানান্তরণ করা সম্ভব কি না।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="buttons_have_icons">
+						<local_schema short_desc="আইকন সহ বোতাম">
+							<longdesc>বাটনের ক্ষেত্রে বাটনের লেখার পাশে আইকন প্রদর্শিত হবে কি না।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menus_have_icons">
+						<local_schema short_desc="মেনুর মধ্যে আইকন উপস্থিত">
+							<longdesc>মেনুর ক্ষেত্রে মেনুর বস্তুর পাশে আইকন প্রদর্শিত হবে কি না।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_style">
+						<local_schema short_desc="টুলবারের শৈলী">
+							<longdesc>টুল-বারের বিন্যাস। বৈধ মান হল &quot;both (উভয়)&quot;, &quot;both-horiz (উভয়-অনুভূমিক)&quot;, &quot;icons (প্রতীকচিহ্ন)&quot; ও &quot;text (টেক্সট)&quot;।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="can_change_accels">
+						<local_schema short_desc="অ্যাকসেলেরেটর পরির্তন করা সম্ভব">
+							<longdesc>ব্যবহারকারীর দ্বারা কোনো সক্রিয় মেনুর আইটেমের উপর পরিবর্তনশীল অবস্থায় নতুন অ্যাক্সিলেটর যোগ করা সম্ভব কি না।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menus_have_tearoff">
+						<local_schema short_desc="মেনু টিয়ার-অফ (অর্থাৎ অবস্থান পরিবর্তনের) বৈশিষ্ট্যযুক্ত">
+							<longdesc>মেনুর ক্ষেত্রে টিয়ার-অফ (অবস্থা পরিবর্তন) বৈশিষ্ট্য প্রয়োগ করা হবে কি না।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="অ্যানিমেশন সক্রিয় করা হবে">
+							<longdesc>অ্যানিমেশন প্রদর্শিত হবে কি না। টীকা: এটি একটি গ্লোবাল-কী এবং এর দ্বারা উইন্ডো ব্যবস্থাপক, প্যানেল প্রভৃতির মান প্রভাবিত হবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="accessibility">
+						<local_schema short_desc="বিশেষ ব্যবহারযোগ্যতা সক্রিয় করা হবে">
+							<longdesc>অ্যাপ্লিকেশনগুলির দ্বারা বিশেষ সহায়ক প্রযুক্তি সমর্থিত হবে কি না।</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="background">
+					<entry name="color_shading_type">
+						<local_schema short_desc="রং ভরাট করার প্রণালী">
+							<longdesc>পটভূমির রং সহযোগে ছায়ান্বিত করার পদ্ধতি। সম্ভাব্য মানসমূহ হলো &quot;অনুভূমিক-গ্রেডিয়েন্ট&quot;, &quot;উলম্ব-গ্রেডিয়েন্ট&quot; ও &quot;গাঢ়&quot;।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="secondary_color">
+						<local_schema short_desc="দ্বিতীয় রং">
+							<longdesc>পর্যায়ক্রমে প্রদর্শিত রং-এর ক্ষেত্রে নীচের অথবা ডানদিকের রং, গাঢ় রং-এর ক্ষেত্রে ব্যবহৃত হয় না।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="primary_color">
+						<local_schema short_desc="প্রাথমিক রং">
+							<longdesc>পর্যায়ক্রমে প্রদর্শিত রং-এর ক্ষেত্রে উপরের অথবা বাঁদিকের রং, অথবা গাঢ় রং।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="picture_opacity">
+						<local_schema short_desc="ছবির স্বচ্ছতা">
+							<longdesc>পটভুমির ছবি আঁকার উদ্দেশ্যে স্বচ্ছতার মাত্রা।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="picture_filename">
+						<local_schema short_desc="ছবির ফাইলের নাম">
+							<longdesc>পটভূমির ছবি রূপে ব্যবহারের জন্য চিহ্নিত ফাইল।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="picture_options">
+						<local_schema short_desc="ছবি সংক্রান্ত অপশন">
+							<longdesc>wallpaper_filename-এর মান দ্বারা চিহ্নিত প্রদর্শনের পদ্ধতি নির্ধারণ করতে ব্যবহৃত হয়। সম্ভাব্য মানসমূহ হলো &quot;none (কোনটি না)&quot;, &quot;wallpaper (ওয়ালপেপার)&quot;, &quot;centered (কেন্দ্রস্থিত)&quot;, &quot;scaled (আকার পরিবর্তিত)&quot;, &quot;stretched (প্রসারিত)&quot;, &quot;zoom (বর্ধিত)&quot;, &quot;spanned (স্প্যান্ড)&quot;।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="draw_background">
+						<local_schema short_desc="ডেস্কটপের পটভূমি আঁকুন">
+							<longdesc>GNOME-এর দ্বারা পটভূমির ছবি আঁকা হবে।</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="thumbnail_cache">
+					<entry name="maximum_size">
+						<local_schema>
+							<longdesc>ক্যাশের মধ্যে সংরক্ষণের উদ্দেশ্যে থাম্‌বনেইলের সর্বাধিক মাপ -মেগাবাইট হিসাবে নির্ধারিত। বর্জন প্রক্রিয়া নিষ্ক্রিয় করার জন্য -1 নির্ধারণ করুন।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="maximum_age">
+						<local_schema>
+							<longdesc>ক্যাশের মধ্যে উপস্থিত থাম্‌বনেইলের সর্বাধিক সংরক্ষণ কাল -দিন হিসাবে নির্ধারিত। বর্জন প্রক্রিয়া নিষ্ক্রিয় করার জন্য -1 নির্ধারণ করুন।</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="typing_break">
+					<entry name="enabled">
+						<local_schema short_desc="কীবোর্ড আবদ্ধ করার সুবিধা সক্রিয় রয়েছে কি না">
+							<longdesc>কীবোর্ড আবদ্ধ করার সুবিধা সক্রিয় রয়েছে কি না।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="allow_postpone">
+						<local_schema short_desc="বিরতিকাল মুলতুবি করার সুবিধা উপলব্ধ করা হবে">
+							<longdesc>টাইপের বিরতিকালে ষ্ক্রীন প্রদর্শনে বিরতি দেয়া হবে কি না।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="break_time">
+						<local_schema short_desc="বিরতিকাল">
+							<longdesc>টাইপের বিরতিকালের স্থিতিসময়, মিনিট অনুযায়ী ব্যক্ত।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="type_time">
+						<local_schema short_desc="টাইপ করার সময়">
+							<longdesc>বিরতিকাল আরম্ভের পূর্বের টাইপ করার সময়, মিনিট অনুযায়ী ব্যক্ত।</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="sound">
+					<entry name="input_feedback_sounds">
+						<local_schema short_desc="ইনপুট প্রতিক্রিয়ার জন্য শব্দ">
+							<longdesc>ইনপুট ইভেন্টের জন্য শব্দ বাজানো হবে কি না।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="theme_name">
+						<local_schema short_desc="শব্দের থীমের নাম">
+							<longdesc>ইভেন্টের শব্দ হিসাবে ব্যবহারযোগ্য XDG শব্দের থীম।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="event_sounds">
+						<local_schema short_desc="বিভিন্ন ইভেন্টের শব্দ">
+							<longdesc>ব্যবহারকারীদের ইভেন্টের জন্য শব্দ বাজানো হবে কি না।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_esd">
+						<local_schema short_desc="ESD সক্রিয় করা হবে">
+							<longdesc>প্রারম্ভিক সাউন্ড সার্ভার সক্রিয় করা হবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="default_mixer_tracks">
+						<local_schema short_desc="পূর্বনির্ধারিত মিক্সার ট্র্যাক">
+							<longdesc>মাল্টিমিডিয়া কী-বাইন্ডিং দ্বারা ব্যবহৃত পূর্বনির্ধারিত মিক্সার ট্র্যাক।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="default_mixer_device">
+						<local_schema short_desc="পূর্বনির্ধারিত মিক্সার ডিভাইস">
+							<longdesc>মাল্টিমিডিয়া কী-বাইন্ডিং দ্বারা ব্যবহৃত পূর্বনির্ধারিত মিক্সার ডিভাইস।</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="peripherals">
+					<dir name="keyboard">
+						<entry name="remember_numlock_state">
+							<local_schema short_desc="NumLock-এর সর্বশেষ অবস্থা মনে রাখা হবে">
+								<longdesc>মান true (সত্য) হলে, GNOME-এর দ্বারা বিভিন্ন সেশানে NumLock LED-এর সর্বশেষ অবস্থা সংরক্ষিত হবে।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bell_custom_file">
+							<local_schema short_desc="কীবোর্ড বেল রূপে ব্যবহৃত স্বনির্ধারিত ফাইলের নাম">
+								<longdesc>ঘন্টাধ্বনির জন্য ব্যবহৃত ফাইলের নাম।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bell_mode">
+							<local_schema>
+								<longdesc>সম্ভাব্য মান হল &quot;on (চালু)&quot;, &quot;off (বন্ধ)&quot; ও &quot;custom (স্বনির্বাচিত)&quot;।</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="mouse">
+						<entry name="cursor_size">
+							<local_schema short_desc="কার্সারের আকার">
+								<longdesc>cursor_theme-এর মান দ্বারা উল্লিখিত কার্সারের মাপ।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="cursor_theme">
+							<local_schema short_desc="কার্সারের থীম">
+								<longdesc>কার্সারের থীমের নাম। শুধুমাত্র Xcursor সমর্থনকারী Xservers যেমন XFree86 4.3 অথবা ঊর্ধ্বতন সংস্করণ দ্বারা সমর্থিত।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="cursor_font">
+							<local_schema short_desc="কার্সারের ফন্ট">
+								<longdesc>কার্সারের ফন্টের নাম। মান নির্ধারিত না হলে পূর্বনির্ধারিত ফন্ট ব্যবহৃত হবে। প্রতি সেশানে X সার্ভার আরম্ভের সময় এই মান প্রেরিত হয় এবং সেশানের মধ্যবর্তী কোনো সময়ে এই মান পরিবর্তনের ফলে মান পরিবর্তিত হবে না ও পুনরায় লগ-ইন করা আবশ্যক।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="locate_pointer">
+							<local_schema short_desc="পয়েন্টারের অবস্থান চিহ্নিতকরণ">
+								<longdesc>কন্ট্রোল-কী চেপে, ছেড়ে দেওয়ার পর পয়েন্টারের বর্তমান অবস্থান উজ্জ্বল করা হয়।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="double_click">
+							<local_schema short_desc="দুইবার ক্লিক করতে ব্যয়িত সময়">
+								<longdesc>ডবল ক্লিকের দৈর্ঘ্য।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="drag_threshold">
+							<local_schema short_desc="ড্র্যাগ করার সীমা">
+								<longdesc>ড্র্যাগ শুরু হওয়ার আগের অবধি মধ্যবর্তী দূরত্ব।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="motion_threshold">
+							<local_schema short_desc="গতিবিধির সীমা">
+								<longdesc>গতিবর্ধিত মাউস গতিবিধি সক্রিয় করার পূর্বে মাউস নির্দেশক স্থানান্তরণের ন্যূনতম দুরত্ব, পিক্সেল অনুসারে ব্যক্ত। সিস্টেমের পূর্বনির্ধারিত মান -1 (-১)।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="motion_acceleration">
+							<local_schema short_desc="একক ক্লিক">
+								<longdesc>মাউসের গতিবিধির ক্ষেত্রে প্রযোজ্য গতিবর্ধকের গুণক। সিস্টেমের পূর্বনির্ধারিত মান -1 (-১)।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="single_click">
+							<local_schema short_desc="একক ক্লিক">
+								<longdesc>আইকন খুলতে একটি ক্লিক ব্যবহার করা হবে।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="left_handed">
+							<local_schema short_desc="মাউস বোতামের স্থিতিবিন্যাস">
+								<longdesc>বাঁহাতি মাউসের ক্ষেত্রে ডান ও বাঁদিকের বাটন অদলবদল করা হবে।</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="lockdown">
+					<entry name="disable_application_handlers">
+						<local_schema short_desc="URL ও MIME টাইপ হ্যান্ডলার নিষ্ক্রিয় করা হবে">
+							<longdesc>কোনো ধরনের URL অথবা MIME টাইপ হ্যান্ডলার অ্যাপ্লিকেশনের সঞ্চালন বন্ধ করা হবে।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_lock_screen">
+						<local_schema short_desc="স্ক্রীন লক করার প্রক্রিয় নিষ্ক্রিয় করা হবে">
+							<longdesc>ব্যবহারকারীকে স্ক্রীন লক করতে দেওয়া হবে না।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_user_switching">
+						<local_schema short_desc="ব্যবহারকারী পরিবর্তনের প্রক্রিয়া নিষ্ক্রিয় করা হবে">
+							<longdesc>সক্রিয় সেশানের মধ্যে ব্যবহারকারীকে ভিন্ন অ্যাকউন্ট পরিবর্তন করতে দেওয়া হবে না।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_print_setup">
+						<local_schema short_desc="প্রিন্ট ব্যবস্থার বৈশিষ্ট্য নিষ্ক্রিয় করা হবে">
+							<longdesc>ব্যবহারকারীর দ্বারা প্রিন্ট সংক্রান্ত বৈশিষ্ট্য পরিবর্তনে প্রতিরোধ করা হবে। উদাহরণস্বরূপ, এর ফলে সর্বধরনের অ্যাপ্লিকেশনের &quot;প্রিন্ট কর্মের বৈশিষ্ট্য&quot; শীর্ষক ডায়লগ ব্যবহার করা যাবে না।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_printing">
+						<local_schema short_desc="প্রিন্ট ব্যবস্থা নিষ্ক্রিয় করা হবে">
+							<longdesc>ব্যবহারকারীকে প্রিন্ট করতে বাধা দেওয়া হবে। উদাহরণস্বরূপ, এর ফলে সর্বধরনের অ্যাপ্লিকেশনের &quot;প্রিন্ট&quot; ডায়লগ ব্যবহার করা যাবে না।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_save_to_disk">
+						<local_schema short_desc="ডিস্কে ফাইল সংরক্ষণ ব্যবস্থা নিষ্ক্রিয় করা হবে">
+							<longdesc>ব্যবহারকারীকে ডিস্কে ফাইল সংরক্ষণে বাধা দেওয়া হবে। উদাহরণস্বরূপ, এর ফলে সর্বধরনের অ্যাপ্লিকেশনের &quot;নতুন রূপে সংরক্ষণ&quot; ডায়লগ ব্যবহার করা যাবে না।</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_command_line">
+						<local_schema short_desc="কমান্ড লাইন নিষ্ক্রিয় করা হবে">
+							<longdesc>ব্যবহারকারীর দ্বারা টার্মিনাল অথবা কোনো কমান্ড-লাইন চালনা প্রতিরোধ করা হবে। উদাহরণস্বরূপ, এর ফলে প্যানেলের &quot;অ্যাপ্লিকেশন চালনা&quot; ডায়লগের ব্যবহার বন্ধ হবে।</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="file-views">
+					<entry name="icon_theme">
+						<local_schema short_desc="ফাইল আইকনের থীম">
+							<longdesc>ফাইল আইকন প্রদর্শনের জন্য ব্যবহৃত থীম।</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="accessibility">
+					<dir name="startup">
+						<entry name="exec_ats">
+							<local_schema short_desc="সহায়ক প্রযুক্তিগত অ্যাপ্লিকেশন আরম্ভ করা হবে">
+								<longdesc>GNOME ডেস্কটপে লগ-ইন করার পরে আরম্ভ করার উদ্দেশ্যে চিহ্নিত সহায়ক প্রযুক্তিগত অ্যাপ্লিকেশনের তালিকা।</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="keyboard">
+						<entry name="stickykeys_modifier_beep">
+							<local_schema>
+								<longdesc>কোনো পরিবর্তনকারী চাপা হলে বিপ শব্দ করা হবে।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="stickykeys_two_key_off">
+							<local_schema>
+								<longdesc>একযোগে দুটো কী চাপা হলে নিষ্ক্রিয় করা হবে।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="slowkeys_delay">
+							<local_schema short_desc="সর্বনিম্ন বিরতি, মিলিসেকেন্ডে ব্যক্ত">
+								<longdesc>@delay দ্বারা উল্লিখিত মিলিসেকেন্ডের কম সময়ের জন্য কী চাপা হলে গ্রহণ করা হবে না।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="mousekeys_init_delay">
+							<local_schema short_desc="প্রারম্ভিক বিলম্ব, মিলিসেকেন্ডে ব্যক্ত">
+								<longdesc>মাউসের কী নাড়ানোর পরে যে সংখ্যক মিলিসেকেন্ড অপেক্ষা করা হবে।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="mousekeys_accel_time">
+							<local_schema short_desc="যে সময় অবধি গতিবর্ধন করা হবে, মিলিসেকেন্ডে ব্যক্ত">
+								<longdesc>০ থেকে সর্বোচ্চ গতি অবধি পৌছাতে অতিক্রান্ত মিলিসেকেন্ড।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="mousekeys_max_speed">
+							<local_schema short_desc="প্রতি সেকেন্ডে পিক্সেল সংখ্যা">
+								<longdesc>সর্বোচ্চ গতিতে প্রতি সেকেন্ডে যে সংখ্যক পিক্সেল সরানো হবে।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bouncekeys_delay">
+							<local_schema short_desc="সর্বনিম্ন বিরতি, মিলিসেকেন্ডে ব্যক্ত">
+								<longdesc>@delay দ্বারা উল্লিখিত মিলিসেকেন্ডের মধ্যে _একই_ কী পুনরায় চাপা হলে তা অগ্রাহ্য করা হবে।</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="thumbnailers">
+					<entry name="disable_all">
+						<local_schema short_desc="সমস্ত বহিস্থিত থাম্ব-নেইল নিষ্ক্রিয় করা হবে">
+							<longdesc>থাম্ব-নেইল প্রোগ্রামগুলি স্বতন্ত্ররূপে নিষ্ক্রিয়/সক্রিয় থাকলেও সমস্ত বহিস্থিত থাম্ব-নেইল প্রোগ্রাম নিষ্ক্রিয় করতে মান true (সত্য) নির্ধারণ করুন।</longdesc>
+						</local_schema>
+					</entry>
+					<dir name="application@x-gzpdf">
+						<entry name="command">
+							<local_schema short_desc="PDF নথির থাম্বনেইল তৈরির কমান্ড">
+								<longdesc>PDF নথির থাম্বনেইলের জন্য কার্যকর কমান্ড ও কমান্ড-আর্গুমেন্ট। আরও বিস্তারিত তথ্যের জন্য নটিলাস-এর থাম্বনেইল প্রস্তুত প্রক্রিয়ার নথিটি দেখুন।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="PDF নথি থাম্বনেইল তৈরির প্রক্রিয়া সক্রিয় করুন">
+								<longdesc>বুলিয়ান অপশন বিদ্যমান: true হলে থাম্বলেইল সক্রিয় করা হবে এবং false হলে নতুন থাম্বনেইল তৈরি নিষ্ক্রিয় করা হবে</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@x-bzpdf">
+						<entry name="command">
+							<local_schema short_desc="PDF নথির থাম্বনেইল তৈরির কমান্ড">
+								<longdesc>PDF নথির থাম্বনেইলের জন্য কার্যকর কমান্ড ও কমান্ড-আর্গুমেন্ট। আরও বিস্তারিত তথ্যের জন্য নটিলাস-এর থাম্বনেইল প্রস্তুত প্রক্রিয়ার নথিটি দেখুন।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="PDF নথি থাম্বনেইল তৈরির প্রক্রিয়া সক্রিয় করুন">
+								<longdesc>বুলিয়ান অপশন বিদ্যমান: true হলে থাম্বলেইল সক্রিয় করা হবে এবং false হলে নতুন থাম্বনেইল তৈরি নিষ্ক্রিয় করা হবে</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@pdf">
+						<entry name="command">
+							<local_schema short_desc="PDF নথির থাম্বনেইল তৈরির কমান্ড">
+								<longdesc>PDF নথির থাম্বনেইলের জন্য কার্যকর কমান্ড ও কমান্ড-আর্গুমেন্ট। আরও বিস্তারিত তথ্যের জন্য নটিলাস-এর থাম্বনেইল প্রস্তুত প্রক্রিয়ার নথিটি দেখুন।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="PDF নথি থাম্বনেইল তৈরির প্রক্রিয়া সক্রিয় করুন">
+								<longdesc>বুলিয়ান অপশন বিদ্যমান: true হলে থাম্বলেইল সক্রিয় করা হবে এবং false হলে নতুন থাম্বনেইল তৈরি নিষ্ক্রিয় করা হবে</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="url-handlers">
+					<dir name="ymsgr">
+						<entry name="needs_terminal">
+							<local_schema short_desc="কমান্ডটি টার্মিনালে চালান">
+								<longdesc>সত্য, হবে যদি এই ধরনের URL নিয়ন্ত্রণ করতে ব্যবহৃত কমান্ডটি টার্মিনালে চলে। </longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="&quot;ymsgr&quot; এর URL-এর জন্য নিয়ন্ত্রণকারী">
+								<longdesc>যদি সক্রিয় থাকে, &quot;ymsgr&quot; এর URL নিয়ন্ত্রণ করতে ব্যবহৃত কমান্ড।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="উল্লেখিত কমান্ডটি &quot;ymsgr&quot; এর URL নিয়ন্ত্রণ করবে কিনা">
+								<longdesc>সত্য, যদি &quot;command&quot; কী-তে উল্লেখিত কমান্ডটি &quot;ymsgr&quot; এর URL নিয়ন্ত্রণ করে।</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="xmpp">
+						<entry name="needs_terminal">
+							<local_schema short_desc="কমান্ডটি টার্মিনালে চালান">
+								<longdesc>সত্য, হবে যদি এই ধরনের URL নিয়ন্ত্রণ করতে ব্যবহৃত কমান্ডটি টার্মিনালে চলে। </longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="‌‌‌&quot;xmpp&quot; এর URL-এর জন্য নিয়ন্ত্রণকারী">
+								<longdesc>যদি সক্রিয় থাকে,  &quot;xmpp&quot; এর URL নিয়ন্ত্রণ করতে ব্যবহৃত কমান্ড।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="উল্লেখিত কমান্ডটি &quot;xmpp&quot; এর URL নিয়ন্ত্রণ করবে কিনা">
+								<longdesc>সত্য, যদি &quot;command&quot; কী-তে উল্লেখিত কমান্ডটি &quot;xmpp&quot; এর URL নিয়ন্ত্রণ করে।</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="sip">
+						<entry name="needs_terminal">
+							<local_schema short_desc="কমান্ডটি টার্মিনালে চালান">
+								<longdesc>সত্য, হবে যদি এই ধরনের URL নিয়ন্ত্রণ করতে ব্যবহৃত কমান্ডটি টার্মিনালে চলে। </longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="‌‌‌&quot;sip&quot; এর URL-এর জন্য নিয়ন্ত্রণকারী">
+								<longdesc>যদি সক্রিয় থাকে, &quot;sip&quot; এর URL নিয়ন্ত্রণ করতে ব্যবহৃত কমান্ড।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="উল্লেখিত কমান্ডটি &quot;sip&quot; এর URL নিয়ন্ত্রণ করবে কিনা">
+								<longdesc>সত্য, যদি &quot;command&quot; কী-তে উল্লেখিত কমান্ডটি &quot;sip&quot; এর URL নিয়ন্ত্রণ করে।</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="msnim">
+						<entry name="needs_terminal">
+							<local_schema short_desc="কমান্ডটি টার্মিনালে চালান">
+								<longdesc>সত্য, হবে যদি এই ধরনের URL নিয়ন্ত্রণ করতে ব্যবহৃত কমান্ডটি টার্মিনালে চলে। </longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="‌‌‌&quot;msnim&quot; এর URL-এর জন্য নিয়ন্ত্রণকারী">
+								<longdesc>যদি সক্রিয় থাকে,  &quot;msnim&quot; এর URL নিয়ন্ত্রণ করতে ব্যবহৃত কমান্ড।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="উল্লেখিত কমান্ডটি &quot;msnim&quot; এর URL নিয়ন্ত্রণ করবে কিনা">
+								<longdesc>সত্য, যদি &quot;command&quot; কী-তে উল্লেখিত কমান্ডটি &quot;msnim&quot; এর URL নিয়ন্ত্রণ করে।</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="irc">
+						<entry name="needs_terminal">
+							<local_schema short_desc="কমান্ডটি টার্মিনালে চালান">
+								<longdesc>সত্য, হবে যদি এই ধরনের URL নিয়ন্ত্রণ করতে ব্যবহৃত কমান্ডটি টার্মিনালে চলে। </longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="‌‌‌&quot;irc&quot; এর URL-এর জন্য নিয়ন্ত্রণকারী">
+								<longdesc>যদি সক্রিয় থাকে,  &quot;irc&quot; এর URL নিয়ন্ত্রণ করতে ব্যবহৃত কমান্ড।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="উল্লেখিত কমান্ডটি &quot;irc&quot; এর URL নিয়ন্ত্রণ করবে কিনা">
+								<longdesc>সত্য, যদি &quot;command&quot; কী-তে উল্লেখিত কমান্ডটি &quot;irc&quot; এর URL নিয়ন্ত্রণ করে।</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="icq">
+						<entry name="needs_terminal">
+							<local_schema short_desc="কমান্ডটি টার্মিনালে চালান">
+								<longdesc>সত্য, হবে যদি এই ধরনের URL নিয়ন্ত্রণ করতে ব্যবহৃত কমান্ডটি টার্মিনালে চলে। </longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="‌‌‌&quot;icq&quot; এর URL-এর জন্য নিয়ন্ত্রণকারী">
+								<longdesc>যদি সক্রিয় থাকে,  &quot;icq&quot; এর URL নিয়ন্ত্রণ করতে ব্যবহৃত কমান্ড।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="উল্লেখিত কমান্ডটি &quot;icq&quot; এর URL নিয়ন্ত্রণ করবে কিনা">
+								<longdesc>সত্য, যদি &quot;command&quot; কী-তে উল্লেখিত কমান্ডটি &quot;icq&quot; এর URL নিয়ন্ত্রণ করে।</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="gg">
+						<entry name="needs_terminal">
+							<local_schema short_desc="কমান্ডটি টার্মিনালে চালান">
+								<longdesc>সত্য, হবে যদি এই ধরনের URL নিয়ন্ত্রণ করতে ব্যবহৃত কমান্ডটি টার্মিনালে চলে। </longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="‌‌‌&quot;gg&quot; এর URL-এর জন্য নিয়ন্ত্রণকারী">
+								<longdesc>যদি সক্রিয় থাকে,  &quot;gg&quot; এর URL নিয়ন্ত্রণ করতে ব্যবহৃত কমান্ড।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="উল্লেখিত কমান্ডটি &quot;gg&quot; এর URL নিয়ন্ত্রণ করবে কিনা">
+								<longdesc>সত্য, যদি &quot;command&quot; কী-তে উল্লেখিত কমান্ডটি &quot;gg&quot; এর URL নিয়ন্ত্রণ করে।</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="h323">
+						<entry name="needs_terminal">
+							<local_schema short_desc="কমান্ডটি টার্মিনালে চালান">
+								<longdesc>যে কমান্ড ব্যবহার করে এ ধরনের URL হ্যান্ডেল করা হবে তা যদি টার্মিনালে রান করা হয় তবে এর মান সত্য।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="&quot;h323&quot; URL-র জন্য হ্যান্ডলার">
+								<longdesc>যদি সক্রিয় থাকে, এই কমান্ডটি &quot;h323&quot; URL হ্যান্ডেলের জন্য ব্যবহৃত হয়।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="উল্লেখিত কমান্ড দ্বারা &quot;h323&quot; URL হ্যান্ডেল করা হবে কিনা">
+								<longdesc>যদি &quot;command&quot; কী তে নির্ধারিত কমান্ড ব্যবহার করে &quot;h323&quot; URL হ্যান্ডেল করা হয় তবে এর মান সত্য।</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="callto">
+						<entry name="needs_terminal">
+							<local_schema short_desc="কমান্ডটি টার্মিনালে চালান">
+								<longdesc>যে কমান্ড ব্যবহার করে এ ধরনের URL হ্যান্ডেল করা হবে তা যদি টার্মিনালে রান করা হয় তবে এর মান সত্য।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="&quot;callto&quot; URL-র জন্য হ্যান্ডলার">
+								<longdesc>যদি সক্রিয় থাকে, এই কমান্ডটি &quot;callto&quot; URL হ্যান্ডেলের জন্য ব্যবহৃত হয়।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="উল্লেখিত কমান্ড দ্বারা &quot;callto&quot; URL হ্যান্ডেল করা হবে কিনা">
+								<longdesc>যদি &quot;command&quot; কী তে নির্ধারিত কমান্ড ব্যবহার করে &quot;callto&quot; URL হ্যান্ডেল করা হয় তবে এর মান সত্য।</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="aim">
+						<entry name="needs_terminal">
+							<local_schema short_desc="কমান্ডটি টার্মিনালে চালান">
+								<longdesc>সত্য, হবে যদি এই ধরনের URL নিয়ন্ত্রণ করতে ব্যবহৃত কমান্ডটি টার্মিনালে চলে। </longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="‌‌‌&quot;aim&quot; এর URL-এর জন্য নিয়ন্ত্রণকারী">
+								<longdesc>যদি সক্রিয় থাকে, ‌‌&quot;aim&quot; এর URL নিয়ন্ত্রণ করতে ব্যবহৃত কমান্ড।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="উল্লেখিত কমান্ডটি &quot;aim&quot; এর URL নিয়ন্ত্রণ করবে কিনা">
+								<longdesc>সত্য, যদি &quot;command&quot; কী-তে উল্লেখিত কমান্ডটি &quot;aim&quot; এর URL নিয়ন্ত্রণ করে।</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="mailto">
+						<entry name="needs_terminal">
+							<local_schema short_desc="কমান্ডটি টার্মিনালে চালান">
+								<longdesc>যে কমান্ড ব্যবহার করে এ ধরনের URL হ্যান্ডেল করা হবে তা যদি টার্মিনালে রান করা হয় তবে এর মান সত্য।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="&quot;mailto&quot; URL-র জন্য হ্যান্ডলার">
+								<longdesc>যদি সক্রিয় থাকে, এই কমান্ডটি &quot;mailto&quot; URL হ্যান্ডেলের জন্য ব্যবহৃত হয়।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="উল্লেখিত কমান্ড দ্বারা &quot;mailto&quot; URL হ্যান্ডেল করা হবে কিনা">
+								<longdesc>যদি &quot;command&quot; কী তে নির্ধারিত কমান্ড ব্যবহার করে &quot;mailto&quot; URL হ্যান্ডেল করা হয় তবে এর মান সত্য।</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="https">
+						<entry name="needs_terminal">
+							<local_schema short_desc="কমান্ডটি টার্মিনালে চালান">
+								<longdesc>যে কমান্ড ব্যবহার করে এ ধরনের URL হ্যান্ডেল করা হবে তা যদি টার্মিনালে রান করা হয় তবে এর মান সত্য।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="&quot;https&quot; URL-র জন্য হ্যান্ডলার">
+								<longdesc>যদি সক্রিয় থাকে, এই কমান্ডটি &quot;https&quot; URL হ্যান্ডেলের জন্য ব্যবহৃত হয়।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="উল্লেখিত কমান্ড দ্বারা &quot;https&quot; URL হ্যান্ডেল করা হবে কিনা">
+								<longdesc>যদি &quot;command&quot; কী তে নির্ধারিত কমান্ড ব্যবহার করে &quot;https&quot; URL হ্যান্ডেল করা হয় তবে এর মান সত্য।</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="http">
+						<entry name="needs_terminal">
+							<local_schema short_desc="কমান্ডটি টার্মিনালে চালান">
+								<longdesc>যে কমান্ড ব্যবহার করে এ ধরনের URL হ্যান্ডেল করা হবে তা যদি টার্মিনালে রান করা হয় তবে এর মান সত্য।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="&quot;http&quot; URL-র জন্য হ্যান্ডলার">
+								<longdesc>যদি সক্রিয় থাকে, এই কমান্ডটি &quot;http&quot; URL হ্যান্ডেলের জন্য ব্যবহৃত হয়।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="উল্লেখিত কমান্ড দ্বারা &quot;http&quot; URL হ্যান্ডেল করা হবে কিনা">
+								<longdesc>যদি &quot;command&quot; কী তে নির্ধারিত কমান্ড ব্যবহার করে &quot;http&quot; URL হ্যান্ডেল করা হয় তবে এর মান সত্য।</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="man">
+						<entry name="needs_terminal">
+							<local_schema short_desc="কমান্ডটি টার্মিনালে চালান">
+								<longdesc>যে কমান্ড ব্যবহার করে এ ধরনের URL হ্যান্ডেল করা হবে তা যদি টার্মিনালে রান করা হয় তবে এর মান সত্য।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="&quot;man&quot; URL-র জন্য হ্যান্ডলার">
+								<longdesc>যদি সক্রিয় থাকে, এই কমান্ডটি &quot;man&quot; URL হ্যান্ডেলের জন্য ব্যবহৃত হয়।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="উল্লেখিত কমান্ড দ্বারা &quot;man&quot; URL হ্যান্ডেল করা হবে কিনা">
+								<longdesc>যদি &quot;command&quot; কী তে নির্ধারিত কমান্ড ব্যবহার করে &quot;man&quot; URL হ্যান্ডেল করা হয় তবে এর মান সত্য।</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="info">
+						<entry name="needs_terminal">
+							<local_schema short_desc="কমান্ডটি টার্মিনালে চালান">
+								<longdesc>যে কমান্ড ব্যবহার করে এ ধরনের URL হ্যান্ডেল করা হবে তা যদি টার্মিনালে রান করা হয় তবে এর মান সত্য।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="&quot;info&quot; URL-র জন্য হ্যান্ডলার">
+								<longdesc>যদি সক্রিয় থাকে, এই কমান্ডটি &quot;info&quot; URL হ্যান্ডেলের জন্য ব্যবহৃত হয়।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="উল্লেখিত কমান্ড দ্বারা &quot;info&quot; URL হ্যান্ডেল করা হবে কিনা">
+								<longdesc>যদি &quot;command&quot; কী তে নির্ধারিত কমান্ড ব্যবহার করে &quot;info&quot; URL হ্যান্ডেল করা হয় তবে এর মান সত্য।</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="ghelp">
+						<entry name="needs_terminal">
+							<local_schema short_desc="কমান্ডটি টার্মিনালে চালান">
+								<longdesc>যে কমান্ড ব্যবহার করে এ ধরনের URL হ্যান্ডেল করা হবে তা যদি টার্মিনালে রান করা হয় তবে এর মান সত্য।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="&quot;ghelp&quot; URL-র জন্য হ্যান্ডলার">
+								<longdesc>যদি সক্রিয় থাকে, এই কমান্ডটি &quot;ghelp&quot; URL হ্যান্ডেলের জন্য ব্যবহৃত হয়।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="উল্লেখিত কমান্ড দ্বারা &quot;ghelp&quot; URL হ্যান্ডেল করা হবে কিনা">
+								<longdesc>যদি &quot;command&quot; কী তে নির্ধারিত কমান্ড ব্যবহার করে &quot;ghelp&quot; URL হ্যান্ডেল করা হয় তবে এর মান সত্য।</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="trash">
+						<entry name="needs_terminal">
+							<local_schema short_desc="কমান্ডটি টার্মিনালে চালান">
+								<longdesc>যে কমান্ড ব্যবহার করে এ ধরনের URL হ্যান্ডেল করা হবে তা যদি টার্মিনালে রান করা হয় তবে এর মান সত্য।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="&quot;trash&quot; URL-র জন্য হ্যান্ডলার">
+								<longdesc>যদি সক্রিয় থাকে, এই কমান্ডটি &quot;trash&quot; URL হ্যান্ডেলের জন্য ব্যবহৃত হয়।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="উল্লেখিত কমান্ড দ্বারা &quot;trash&quot; URL হ্যান্ডেল করা হবে কিনা">
+								<longdesc>যদি &quot;command&quot; কী তে নির্ধারিত কমান্ড ব্যবহার করে &quot;trash&quot; URL হ্যান্ডেল করা হয় তবে এর মান সত্য।</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="applications">
+					<dir name="tasks">
+						<entry name="needs_term">
+							<local_schema short_desc="কাজের জন্য টার্মিনাল আবশ্যক">
+								<longdesc>পূর্বনির্ধারিত কাজের অ্যাপ্লিকেশনের জন্য টার্মিনাল প্রয়োগ করা আবশ্যক কি না</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="পূর্বনির্ধারিত কাজ">
+								<longdesc>পূর্বনির্ধারিত কাজের অ্যাপ্লিকেশন</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="calendar">
+						<entry name="needs_term">
+							<local_schema short_desc="বর্যপঞ্জির জন্য টার্মিনাল আবশ্যক">
+								<longdesc>পূর্বনির্ধারিত ক্যালেন্ডার ব্যবহারের জন্য টার্মিনাল প্রয়োগ করা আবশ্যক কি না</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="পূর্বনির্ধারিত ক্যালেন্ডার">
+								<longdesc>পূর্বনির্ধারিত ক্যালেন্ডার অ্যাপ্লিকেশন</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="window_manager">
+						<entry name="workspace_names">
+							<local_schema short_desc="কর্মপরিসরের নাম (অবচিত)">
+								<longdesc>প্রথম উইন্ডো ব্যবস্থাপক কর্মপরিসরের নামসহ একটি তালিকা। GNOME 2.12 সংস্করণের পরে এই কী অবচিত হয়েছে।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="number_of_workspaces">
+							<local_schema short_desc="কর্মপরিসরের সংখ্যা (অবচিত)">
+								<longdesc>উইন্ডো ব্যবস্থাপক দ্বারা ব্যবহৃত কর্মপরিসরের সংখ্যা। GNOME ২.১২ সংস্করণের পরে এই কী অবচিত হয়েছে।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="current">
+							<local_schema short_desc="ব্যবহারকারীর উইন্ডো ব্যবস্থাপক (অবচিত)">
+								<longdesc>প্রথমে ব্যবহারের জন্য চিহ্নিত উইন্ডো ব্যবস্থাপক। GNOME ২.১২ সংস্করণের পরে এই কী অবচিত হয়েছে।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="default">
+							<local_schema short_desc="ফলব্যাক উইন্ডো ব্যবস্থাপক (অবচিত)">
+								<longdesc>ব্যবহারকারীর উইন্ডো ব্যবস্থাপক অনুপস্থিত থাকলে ব্যবহৃত ফলব্যাক উইন্ডো ব্যবস্থাপক। GNOME ২.১২ সংস্করণের পরে এই কী অবচিত হয়েছে।</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="browser">
+						<entry name="nremote">
+							<local_schema short_desc="ব্রাউজারের দ্বারা দূরবর্তী কাজ বোধগম্য">
+								<longdesc>পূর্বনির্ধারিত ব্রাউজার দ্বারা netscape-এর দূরবর্তী কর্ম বোধগম্য কি না।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="needs_term">
+							<local_schema short_desc="ব্রাউজারের জন্য টার্মিনাল আবশ্যক">
+								<longdesc>পূর্বনির্ধারিত ব্রাউজার ব্যবহারের জন্য টার্মিনাল প্রয়োগ করা আবশ্যক কি না।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="পূর্বনির্ধারিত ব্রাউজার">
+								<longdesc>সব URL-এর জন্য ব্যবহৃত পূর্বনির্ধারিত ব্রাউজার।</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="at">
+						<dir name="mobility">
+							<entry name="startup">
+								<local_schema short_desc="চলাচলে সহায়ক প্রযুক্তিগত অ্যাপ্লিকেশনগুলি আরম্ভ করা হবে">
+									<longdesc>লগইনের সময় GNOME দ্বারা চলাচলে সহায়ক পছন্দসই প্রযুক্তিগত অ্যাপ্লিকেশন আরম্ভ করা হবে।</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="exec">
+								<local_schema short_desc="চলাচলে সহায়ক পছন্দসই প্রযুক্তিগত অ্যাপ্লিকেশন">
+									<longdesc>লগ-ইন, মেনু ও কমান্ড-লাইনে ব্যবহারযোগ্য চলাচলে সহায়ক পছন্দসই প্রযুক্তিগত অ্যাপ্লিকেশন।</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+						<dir name="visual">
+							<entry name="startup">
+								<local_schema short_desc="প্রদর্শনে সহায়ক প্রযুক্তিগত অ্যাপ্লিকেশনগুলি আরম্ভ করা হবে">
+									<longdesc>লগ-ইনের সময় GNOME দ্বারা চলাচলে সহায়ক পছন্দসই প্রযুক্তিগত অ্যাপ্লিকেশন আরম্ভ করা হবে।</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="exec">
+								<local_schema short_desc="প্রদর্শনে সহায়ক পছন্দসই প্রযুক্তিগত অ্যাপ্লিকেশন">
+									<longdesc>লগ-ইন, মেনু ও কমান্ড-লাইনে ব্যবহারযোগ্য প্রদর্শনে সহায়ক পছন্দসই প্রযুক্তিগত অ্যাপ্লিকেশন।</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+					</dir>
+					<dir name="component_viewer">
+						<entry name="exec">
+							<local_schema short_desc="পূর্বনির্ধারিত কম্পোনেন্ট প্রদর্শক অ্যাপ্লিকেশন">
+								<longdesc>যেসব ফাইল প্রদর্শনের জন্য কম্পোনেন্ট আবশ্যক সেসব ফাইল দেখার জন্য যে অ্যাপ্লিকেশন ব্যবহার করা হবে। প্যারামিটার %s ফাইলের URI দ্বারা প্রতিস্থাপিত হবে, প্যারামিটার %c কম্পোনেন্ট IID দ্বারা প্রতিস্থাপিত হবে।</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="terminal">
+						<entry name="exec_arg">
+							<local_schema short_desc="Exec আর্গুমেন্ট">
+								<longdesc>টার্মিনালে &apos;exec&apos; কী দ্বারা চিহ্নিত প্রোগ্রাম সঞ্চালনের জন্য ব্যবহৃত আর্গুমেন্ট।</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="টার্মিনাল অ্যাপ্লিকেশন">
+								<longdesc>আবশ্যকরূপে টার্মিনাল সহযোগে ব্যবহারের জন্য চিহ্নিত অ্যাপ্লিকেশন আরম্ভ করার সময় ব্যবহৃত টার্মিনাল প্রোগ্রাম।</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+			</dir>
+		</dir>
+		<dir name="system">
+			<dir name="dns_sd">
+				<entry name="extra_domains">
+					<local_schema short_desc="DNS-SD সার্ভিস খোঁজার জন্য অতিরিক্ত ডোমেইন">
+						<longdesc>DNS-SD ডোমেইনের কমা দ্বারা পৃথককৃত তালিকা যা &quot;network:///&quot; অবস্থানে দৃশ্যমান হওয়া উচিত।</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="display_local">
+					<local_schema short_desc="কিভাবে স্থানীয় DNS-SD সার্ভিস প্রদর্শন করা হবে">
+						<longdesc>সম্ভাব্য মানসমূহ হচ্ছে &quot;merged&quot;, &quot;separate&quot; এবং &quot;disabled&quot;।</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="smb">
+				<entry name="workgroup">
+					<local_schema short_desc="SMB ওয়ার্কগ্রুপ">
+						<longdesc>উইন্ডোজ নেটওয়ার্কিং ওয়ার্কগ্রুপ বা ডোমেইন, ব্যবহারকারী যার অংশ। নতুন কোনো ওয়ার্কগ্রুপ পুরোপুরি কার্যকর করার জন্য ব্যবহারকারীকে লগআউট করে আবার লগইন করতে হতে পারে।</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="proxy">
+				<entry name="autoconfig_url">
+					<local_schema short_desc="স্বয়ংক্রিয় প্রক্সি কনফিগারেশন URL">
+						<longdesc>যেসব URL প্রক্সি কনফিগারেশনের মান প্রদান করে।</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="socks_port">
+					<local_schema short_desc="SOCKS প্রক্সি পোর্ট">
+						<longdesc>মেশিনে উল্লেখিত &quot;/system/proxy/socks_host&quot; পোর্ট যার মধ্য দিয়ে প্রক্সি করা হবে।</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="socks_host">
+					<local_schema short_desc="SOCKS প্রক্সি হোস্টের নাম">
+						<longdesc>যে মেশিনের মধ্য দিয়ে socks প্রক্সি করা হবে।</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="ftp_port">
+					<local_schema short_desc="FTP প্রক্সি পোর্ট">
+						<longdesc>মেশিনে উল্লেখিত &quot;/system/proxy/ftp_host&quot; পোর্ট যার মধ্য দিয়ে প্রক্সি করা হবে।</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="ftp_host">
+					<local_schema short_desc="FTP প্রক্সি হোস্টের নাম">
+						<longdesc>যে মেশিনের মধ্য দিয়ে FTP প্রক্সি করা হবে।</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="secure_port">
+					<local_schema short_desc="নিরাপদ HTTP প্রক্সি পোর্ট">
+						<longdesc>মেশিনে উল্লেখিত &quot;/system/proxy/secure_host&quot; পোর্ট যার মধ্য দিয়ে প্রক্সি করা হবে।</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="secure_host">
+					<local_schema short_desc="নিরাপদ HTTP প্রক্সি হোস্টের নাম">
+						<longdesc>যে মেশিনের মধ্য দিয়ে নিরাপদ HTTP প্রক্সি করা হবে।</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="mode">
+					<local_schema short_desc="প্রক্সি কনফিগারেশন মোড">
+						<longdesc>প্রক্সি কনফিগারেশন মোড নির্বাচন করুন। সমর্থিত মানসমূহ হলো  &quot;none&quot;, &quot;manual&quot;, &quot;auto&quot;।</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="http_proxy">
+				<entry name="ignore_hosts">
+					<local_schema short_desc="যে হোস্টের জন্য প্রক্সি ব্যবহৃত হবে না">
+						<longdesc>এই কী হোস্ট তালিকা ধারণ করে, যারা প্রক্সি না হয়ে সরাসরি সংযুক্ত (যদি এটি সক্রিয় থাকে)। মান হতে পারে হোস্টেরনাম, ডোমেইন (যা *.foo.com-র মত প্রারম্ভিক ওয়াইল্ডকার্ড ব্যবহার করে), IP হোস্টের ঠিকানা (IPv4 এবং IPv6 উভয় ধরনের) এবং নেটমাস্ক সহ (১৯২.১৬৮.০.০/২৪-র মত) নেটওয়ার্কের ঠিকানা।</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="authentication_password">
+					<local_schema short_desc="HTTP প্রক্সি পাসওয়ার্ড">
+						<longdesc>HTTP প্রক্সি ব্যবহারের সময় প্রমাণীকরণ হিসেবে যে পাসওয়ার্ড প্রেরণ করা হবে।</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="authentication_user">
+					<local_schema short_desc="HTTP প্রক্সি ব্যবহারকারীর নাম">
+						<longdesc>HTTP প্রক্সি ব্যবহার করার সময় যে ব্যবহারকারীর নাম প্রমাণীকরণ হিসেবে প্রেরণ করা হবে।</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="use_authentication">
+					<local_schema short_desc="প্রক্সি সার্ভার কানেকশন প্রমাণ করা হবে">
+						<longdesc>যদি সত্য হয়, তবে প্রক্সি সার্ভার সংযোগের জন্য প্রমাণীকরণ আবশ্যক। ব্যবহারকারীর নাম/পাসওয়ার্ড কম্বো &quot;/system/http_proxy/authentication_user&quot; এবং &quot;/system/http_proxy/authentication_password&quot; দ্বারা নির্ধারিত।</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="port">
+					<local_schema short_desc="HTTP প্রক্সি পোর্ট">
+						<longdesc>মেশিনে উল্লেখিত &quot;/system/http_proxy/host&quot; পোর্ট যার মধ্য দিয়ে প্রক্সি করা হবে।</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="host">
+					<local_schema short_desc="HTTP প্রক্সি হোস্টের নাম">
+						<longdesc>যে মেশিনের মধ্য দিয়ে HTTP প্রক্সি করা হবে।</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="use_http_proxy">
+					<local_schema short_desc="HTTP প্রক্সি ব্যবহার">
+						<longdesc>ইন্টারনেটের মাধ্যমে HTTP-তে যোগাযোগ স্থাপন করার সময় প্রক্সি সেটিংস সক্রিয় করে।</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+		</dir>
+	</dir>
+</gconf>

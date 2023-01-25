@@ -39,6 +39,7 @@ If you are the author and you do not want this repository to be publicly availab
 * `komputerswiat-100-rozwiazan.iso` https://archive.org/details/ks-100-rozwiazan
 * `tunguska-20101211-182223-buildscripts.tbz` https://download.lesslinux.org/src/tunguska-20101211-182223-buildscripts.tbz
 * `lesslinux-search-and-rescue-uluru-20100527-082411-overlays-neutral.tar.bz2` https://download.lesslinux.org/overlays/lesslinux-search-and-rescue-uluru-20100527-082411-overlays-neutral.tar.bz2
+* `cbsicher-area51-20100702-093049.iso` https://download.lesslinux.org/testing/cbsicher/cbsicher-area51-20100702-093049.iso
 
 # Scripts
 * `1570_clamav.xml` https://github.com/mschlenker/lesslinux-builder/blob/master/scripts/stage03/1570_clamav.xml

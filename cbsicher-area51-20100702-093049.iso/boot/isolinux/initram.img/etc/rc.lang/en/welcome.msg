@@ -1,0 +1,6 @@
+printf "$bold \n"
+printf "$bold WELCOME TO LESSLINUX -- a distribution aimed to be light, embeddable, small\n"
+printf "$bold and scalable. Please note: this release is still alpha software. If you are\n"
+printf "$bold interested in the project take a look at: www.LESSLINUX.com\n"
+printf "\n"
+printf "$bold Running scripts in /etc/rc.d\n"

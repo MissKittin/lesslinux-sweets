@@ -1,0 +1,2235 @@
+<?xml version="1.0"?>
+<gconf>
+	<dir name="schemas">
+		<dir name="apps">
+			<dir name="brasero">
+				<dir name="filter">
+					<entry name="broken_sym">
+						<local_schema short_desc="Indica si Brasero tien de peñerar los enllaces simbólicos frañaos">
+							<longdesc>Indica si Brasero tien de peñerar los enllaces simbólicos frañaos. Si s&apos;activa, Brasero peñerará los enllaces simbólicos frañaos.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="replace_sym">
+						<local_schema short_desc="Camudar enllaces simbólicos polos sos destinos">
+							<longdesc>Indica si Brasero tien de trocar los enllaces simbólicos polos sos ficheros de destín nel proyeutu. Si s&apos;activa, Brasero trocará los enllaces simbólicos.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hidden">
+						<local_schema short_desc="Brasero tendría de fieltrar ficheros escondíos">
+							<longdesc>Brasero tendría de fieltrar ficheros escondíos. Establecíu a activu, brasero fieltrará los ficheros ocultos.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="display">
+					<entry name="viewer">
+						<local_schema short_desc="Activar vista previa de ficheru">
+							<longdesc>Si s&apos;amosará la vista previa de ficheros. Afítelu activu pa usalu.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="config">
+					<entry name="plugins">
+						<local_schema short_desc="Llista blanca de complementos adicionales qu&apos;usar">
+							<longdesc>Contién la llista de complementos adicionales que Brasero usará pa grabar discos. Si ta afitada a NULL, Brasero cargarálos toos.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="engine-group">
+						<local_schema short_desc="Motor de grabáu preferíu">
+							<longdesc>Contién el nome de los motores de grabación favoritos instalaos. Usaráse si ye dable.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnome-system-log">
+				<entry name="logfiles">
+					<local_schema short_desc="Ficheros de socesos qu&apos;abrir al aniciar">
+						<longdesc>Especifica una lista de registros de sucesos que abrir al inicio. Se crea una lista predeterminada leyendo /etc/syslog.conf.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="width">
+					<local_schema short_desc="Anchor de la ventana principal en píxeles">
+						<longdesc>Especifica l&apos;anchor de la ventana principal del visor de socesos en píxeles.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="height">
+					<local_schema short_desc="Altor de la ventana principal en píxeles">
+						<longdesc>Especifica l&apos;altor en píxeles de la ventana principal del visor de socesos.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="fontsize">
+					<local_schema short_desc="Tamañu de la tipografía usada p&apos;amosar el rexistru">
+						<longdesc>Especifica el tamañu de la tipografía d&apos;anchor fixu usáu p&apos;amosar el rexistru de socesos na vista del árbol principal. Lo predeterminao ye tomar el tamañu de la tipografía predetermináu del terminal.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="logfile">
+					<local_schema short_desc="Ficheru de socesos qu&apos;abrir al aniciar">
+						<longdesc>Especifica el ficheru de socesos amosáu al aniciu. Los predeterminaos son «/var/adm/messages» o «/var/log/messages», dependiendo del so sistema operativu.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="gnome-search-tool">
+				<entry name="default_window_maximized">
+					<local_schema short_desc="Ventana maximizada por omisión">
+						<longdesc>Esta clave determina si ventana de la ferramienta de gueta s&apos;aniciar n&apos;estáu maximizáu.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default_window_height">
+					<local_schema short_desc="Altor predetermináu de la ventana">
+						<longdesc>Esta clave define l&apos;altor de la ventana, y úsase pa remembrar el tamañu de la ferramienta de gueta ente les sesiones. Afitándola a -1 fadrá que la ferramienta de gueta use l&apos;altor predetermináu.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default_window_width">
+					<local_schema short_desc="Anchor predetermináu de la ventana">
+						<longdesc>Esta clave define l&apos;anchor de la ventana, y úsase pa remembrar el tamañu de la ferramienta de gueta ente les sesiones. Afitándola a -1 fadrá que la ferramienta de gueta use l&apos;anchor predetermináu.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="columns_order">
+					<local_schema short_desc="Orde de las columnes del resultáu de la gueta">
+						<longdesc>Esta clave define l&apos;orde de les columnes nos resultaos de la gueta. Esta clave nun tendría de modificase pol usuariu.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="quick_search_second_scan_excluded_paths">
+					<local_schema short_desc="Segundu analís de la gueta rápida de rutes excluyíes">
+						<longdesc>Esta clave define les rutes que la ferramienta de gueta excluyirá d&apos;un segundu analís al facer una gueta rápida. El segundu analís usa&apos;l comandu «find» pa guetar ficheros. L&apos;envís del segundu analís ye guetar ficheros que nun foron indizaos. Sopórtense los comodines «*X y «?». El valor predetermináu ye /.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="disable_quick_search_second_scan">
+					<local_schema short_desc="Desactivar el «Segundo analís de la gueta rápida»">
+						<longdesc>Esta clave determina si la ferramienta de gueta desactiva l&apos;usu del comandu «find» dempués de facer una gueta rápida.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="quick_search_excluded_paths">
+					<local_schema short_desc="Gueta rápida de rutes excluyíes">
+						<longdesc>Esta clave define les rutes que la ferramienta de gueta excluyirá d&apos;una gueta rápida. Los comodines «*» y «?» sopórtense. Los valores predeterminados son  /mnt/*, /media/*, /dev/*, /tmp/*, /proc/*, and /var/*.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="disable_quick_search">
+					<local_schema short_desc="Desactivar la «Gueta rápida»">
+						<longdesc>Esta ferramienta determina si desactiva l&apos;usu del comandu locate al facer guetes cencielles de nomes de ficheru.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="show_additional_options">
+					<local_schema short_desc="Amosar opciones adicionales">
+						<longdesc>Esta clave determina si la opción «Seleicionar más opciones» ta seleicionada cuando s&apos;anicia la ferramienta de gueta.</longdesc>
+					</local_schema>
+				</entry>
+				<dir name="select">
+					<entry name="follow_symbolic_links">
+						<local_schema short_desc="Seleicione la opción de gueta «Siguir enllaces simbólicos»">
+							<longdesc>Esta clave determina si la opción «Siguir enllaces simbólicos» ta seleicionada cuando s&apos;anicia la ferramienta de gueta.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_hidden_files_and_folders">
+						<local_schema short_desc="Seleicione la opción de gueta «Amosar ficheros y carpetes anubríos»">
+							<longdesc>Esta clave determina si la opción «Amosar ficheros y carpetes anubríos» ta seleicionada cuando s&apos;anicia la ferramienta de gueta.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name_matches_regular_expression">
+						<local_schema short_desc="Seleicione la opción de gueta «El nome concase cola expresión regular»">
+							<longdesc>Esta clave determina si la opción «El nome concasa cola expresión regular» ta seleicionada cuando s&apos;anicia la ferramienta de gueta.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name_does_not_contain">
+						<local_schema short_desc="Seleicione la opción de gueta «El nome nun contién»">
+							<longdesc>Esta clave determina si la opción «El nome nun contién» ta seleicionada cuando s&apos;anicia la ferramienta de gueta.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="owner_is_unrecognized">
+						<local_schema short_desc="Seleicione la opción de gueta «Propietariu desconocíu»">
+							<longdesc>Esta clave determina si la opción «Propietariu non reconocíu» ta seleicionada cuando s&apos;anicia la ferramienta de gueta.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="owned_by_group">
+						<local_schema short_desc="Seleicione la opción de gueta «Pertenez al grupu»">
+							<longdesc>Esta clave determina si la opción «Perteneciente al grupu» ta seleicionada cuando s&apos;anicia la ferramienta de gueta.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="owned_by_user">
+						<local_schema short_desc="Seleicione la opción de gueta «Pertenez al usuariu»">
+							<longdesc>Esta clave determina si la opción «Perteneciente al usuariu» ta seleicionada cuando s&apos;anicia la ferramienta de gueta.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="file_is_empty">
+						<local_schema short_desc="Seleicione la opción de gueta «El ficheru ta ermu»">
+							<longdesc>Esta clave determina si la opción «Ficheru ermu» ta seleicionada cuando s&apos;anicia la ferramienta de gueta.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size_at_most">
+						<local_schema short_desc="Seleicione la opción de gueta «Tamañu ye como muncho»">
+							<longdesc>Esta clave determina si la opción «Tamañu como muncho de» ta seleicionada cuando s&apos;anicia la ferramienta de gueta.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size_at_least">
+						<local_schema short_desc="Seleicione la opción de gueta «Tamañu ye a lo menos»">
+							<longdesc>Esta clave determina si la opción «Tamañu de a lo menos» ta seleicionada cuando s&apos;anicia la ferramienta de gueta.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="date_modified_more_than">
+						<local_schema short_desc="Seleicione la opción de gueta «Data de modificación posterior a»">
+							<longdesc>Esta clave determina si la opción «Data de modificación posterior a» ta seleicionada cuando s&apos;anicia la ferramienta de gueta.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="date_modified_less_than">
+						<local_schema short_desc="Seleicione la opción de gueta «Data de modificación anterior a»">
+							<longdesc>Esta clave determina si la opción «Data de modificación menor que» ta seleicionada cuando s&apos;anicia la ferramienta de gueta.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="contains_the_text">
+						<local_schema short_desc="Seleicione la opción de gueta «Contién el testu»">
+							<longdesc>Esta clave determina si la opción «Contién el testu» ta seleicionada cuando s&apos;anicia la ferramienta de gueta.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnome-screenshot">
+				<entry name="border_effect">
+					<local_schema short_desc="Efeutu del berbesu">
+						<longdesc>Efeutu p&apos;amestar al contornu exterior d&apos;un berbesu. Los valores dables son &quot;solombra&quot;, &quot;dengún&quot;, y &quot;berbesu&quot;.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="include_pointer">
+					<local_schema short_desc="Incluyir punteru">
+						<longdesc>Incluyir el punteru na captura de pantalla</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="include_border">
+					<local_schema short_desc="Incluyir Berbesu">
+						<longdesc>Incluyir el berbesu del xestor de ventanes xunto cola captura de pantalla</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="last_save_directory">
+					<local_schema short_desc="Direutoriu de captures">
+						<longdesc>El direutoriu au s&apos;atroxó la cabera captura.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="delay">
+					<local_schema short_desc="Retardu de la captura">
+						<longdesc>El númberu de segundos qu&apos;esperar enantes d&apos;obtener la captura.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="take_window_shot">
+					<local_schema short_desc="Captura específica de ventana (obsoleto)">
+						<longdesc>Capturar namái la ventana actual n&apos;arróu del escritoriu enteru. Esta clave ta obsoleta y nun s&apos;usará más.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="gnome-dictionary">
+				<entry name="sidebar-width">
+					<local_schema short_desc="L&apos;anchura de la barra llateral">
+						<longdesc>Esta clave define l&apos;anchura de la barra llateral y s&apos;emplega pa recordar l&apos;estáu de la barra llateral ente les sesiones.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="sidebar-page">
+					<local_schema short_desc="La páxina a amosar na barra llateral">
+						<longdesc>Esta clave define qué páxina de la barra llateral tien que vese y sirve p&apos;alcordase d&apos;esti axuste ente sesiones. Puede ser &quot;speller&quot; o &quot;databases&quot;.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="statusbar-visible">
+					<local_schema short_desc="Indica si la barra d&apos;estáu tien de ser visible">
+						<longdesc>Esta clave define si la barra d&apos;estáu tien que vese y sirve p&apos;alcordase de l&apos;estáu de la barra llateral ente sesiones. Conseñando TRUE fadrá que la barra d&apos;estáu se vea siempre.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="sidebar-visible">
+					<local_schema short_desc="Indica si barra llateral tendría de ser visible">
+						<longdesc>Esta clave define si la barra llateral tien que vese y sirve p&apos;alcordase de l&apos;estáu de la barra llateral ente sesiones. Conseñando TRUE fadrá que la barra llateral se vea siempre.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="window-is-maximized">
+					<local_schema short_desc="Indica si la ventana de la aplicación tendría de ser maximizada">
+						<longdesc>Esta clave define si el ventanu tien que tar maximizáu y sirve p&apos;alcordase de l&apos;estáu del ventanu de diccionariu ente sesiones. Conseñando TRUE fadrá que&apos;l  ventanu apaeza siempre maximizáu.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default-window-height">
+					<local_schema short_desc="L&apos;altor por omisión del ventanu de la aplicación">
+						<longdesc>Esta clave define l&apos;altor del ventanu y sirve pa alcordase del tamañu del ventanu de diccionariu ente sesiones. Conseñando -1 fadrá que&apos;l  ventanu de diccionariu use un altor basáu nel tamañu de fonte.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default-window-width">
+					<local_schema short_desc="L&apos;anchura predeterminada de la ventana de l&apos;aplicación">
+						<longdesc>Esta clave define l&apos;anchu del ventanu y sirve pa alcordase del tamañu del ventanu de diccionariu ente sesiones. Conseñando -1 fadrá que&apos;l  ventanu de diccionariu use un anchu basáu nel tamañu de fonte.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="source-name">
+					<local_schema short_desc="El nome de la fonte de diccionarios a emplegar">
+						<longdesc>El nome de la fonte de diccionarios emplegada pa obtener les definiciones de les pallabres.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="print-font">
+					<local_schema short_desc="La tipografía pa emplegar na imprensión">
+						<longdesc>La fonte que se usa pa imprentar una definición.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="strategy">
+					<local_schema short_desc="La estratexa de la gueta a emplegar">
+						<longdesc>El nome de la estratexa de gueta por omisión pa usar con una fonte de diccionariu, si ta disponible. La estratexa predeterminada ye &apos;exact&apos;, que ye concasar les pallabres exautamente.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="database">
+					<local_schema short_desc="La base de datos predeterminada">
+						<longdesc>El nome por omisión de la base de datos individual o meta-base de datos a usar pa una fonte de diccionariu. Un signu d&apos;esclamación (&quot;!&quot;) significa restolar en toes les bases de datos presentes na fonte de diccionariu</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="smart">
+					<local_schema short_desc="Usar la gueta intelixente (Obsoletu)">
+						<longdesc>Especifica si quiés usar el restolamientu intelixente. Esta clave depende de si el sirvidor de diccionariu soporta esta opción. El valor por omisión ye TRUE. Esta clave ta desaniciada y ya nun se usa.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="port">
+					<local_schema short_desc="Puertu usáu pa coneutase al sirvidor (obsoletu)">
+						<longdesc>El númberu de puertu al cual coneutase. El puertu predetermináu ye 2628. Esta clave ya nun s&apos;emplega y ye obsoleta.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="server">
+					<local_schema short_desc="Sirvidor de diccionariu (obsoletu)">
+						<longdesc>El sirvidor de diccionariu al que coneutase. El sirvidor por omisión ye dict.org. Mira en http://www.dict.org pa más detalles de otros sirvidores. Esta clave ta desaniciada y ya nun se usa.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="baobab">
+				<dir name="properties">
+					<entry name="enable_home_monitor">
+						<local_schema short_desc="Activar monitorización del direutoriu personal">
+							<longdesc>Conseña si cualesquier cambéu nel direutoriu personal tien de ser monitorizáu.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="ui">
+					<entry name="baobab_subfoldertips_visible">
+						<local_schema short_desc="Comentarios de los subdireutorios visibles">
+						</local_schema>
+					</entry>
+					<entry name="statusbar_visible">
+						<local_schema short_desc="La barra d&apos;estáu ye visible">
+							<longdesc>Conseña si la barra d&apos;estáu na estaya inferior de la ventana principal tien de ser adicable.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_visible">
+						<local_schema short_desc="Barra Ferramientes Visible">
+							<longdesc>Conseña si la barra de ferramientes tien de ser adicable na ventana principal.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="window_list_applet">
+				<dir name="prefs">
+					<entry name="maximum_size">
+						<local_schema short_desc="Tamañu máximu de la llista de ventanes">
+							<longdesc>L&apos;usu d&apos;esta clave foi declaráu obsoletu en GNOME 2.20. L&apos;esquema caltiénse por compatibilidá con versiones antigües.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="minimum_size">
+						<local_schema short_desc="Tamañu mínimu de la llista de ventanes">
+							<longdesc>L&apos;usu d&apos;esta clave foi declaráu obsoletu en GNOME 2.20. L&apos;esquema caltiénse por compatibilidá con versiones antigües.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="move_unminimized_windows">
+						<local_schema short_desc="Mover ventanes al espaciu de trabayu autual cuando nun tean minimizaes">
+							<longdesc>Si es «true», al restaurar una ventana, la mueve al área de trabajo actual. En otro caso, cambia al área de trabajo de la ventana.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="group_windows">
+						<local_schema short_desc="Cuándo agrupar ventanes">
+							<longdesc>Decide cuándo agrupar ventanes pa la mesma aplicación na llista de ventanes. Los valores dables son «never», «auto» y «always».</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_all_workspaces">
+						<local_schema short_desc="Amosar ventanes de tolos espacios de trabayu">
+							<longdesc>Si ye «true», la llista de ventanes amosará les ventanes de toles arees de trabayu, n&apos;otru casu, amosará ventanes namái pal área de trabayu autual.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="workspace_switcher_applet">
+				<dir name="prefs">
+					<entry name="num_rows">
+						<local_schema short_desc="Fileres nel cambiador d&apos;espacios de trabayu">
+							<longdesc>Esta clave especifica cuántes fileres (pa la distribución horizontal) o columnes (pa la distribución vertical) s&apos;amuesen dientro del seleutor d&apos;árees de trabayu. Esta clave namái ye relevante si&apos;l valor de la clave «display_all_workspaces» ye «true».</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_all_workspaces">
+						<local_schema short_desc="Amosar tolos espacios de trabayu">
+							<longdesc>Si ye «true», el cambiador de árees de trabayu amosará toles árees de trabayu. En caso contrariu namái s&apos;amosará l&apos;área de trabayu autual.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_workspace_names">
+						<local_schema short_desc="Amosar nomes d&apos;espacios de trabayu">
+							<longdesc>Si ye «true», les árees de trabayu nel seleutor d&apos;árees de trabayu amosarán los nomes de les árees de trabayu. En casu contrariu amosaránse les ventanes nel área de trabayu. Esti axuste namái funciona si Metacity ye&apos;l xestor de ventanes.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="fish_applet">
+				<dir name="prefs">
+					<entry name="rotate">
+						<local_schema short_desc="Rotar nos paneles verticales">
+							<longdesc>Si ye «true», l&apos;animación del pexe amosaráse rotada nos paneles verticales.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="speed">
+						<local_schema short_desc="Pausa por fotograma">
+							<longdesc>Esta clave especifica&apos;l númberu de segundos que ca fotograma s&apos;amosará.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="frames">
+						<local_schema short_desc="Fotogrames n&apos;animación del pexe">
+							<longdesc>Esta clave especifica la cantidá de fotogrames que s&apos;amosarán na animación del pexe.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="command">
+						<local_schema short_desc="Comandu a executar cuando calque">
+							<longdesc>Esta clave especifica&apos;l comandu qu&apos;intentará executase encalcando&apos;l pexe.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="image">
+						<local_schema short_desc="El mapa de pixels d&apos;animación del pexe">
+							<longdesc>Esta clave especifica&apos;l nome de ficheru del pixmap que s&apos;usará pa la animación que s&apos;amuesa na aplicación del pexe rellativu al direutoriu pixmap.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name">
+						<local_schema short_desc="El nome del pexe">
+							<longdesc>Un pexe ensin nome ye un pexe persosu. Deai-y vida al so pexe dando-y un nome.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="clock_applet">
+				<dir name="prefs">
+					<entry name="speed_unit">
+						<local_schema short_desc="Unidá de velocidá">
+							<longdesc>La unidá qu&apos;usar al amosar la velocidá del vientu.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="temperature_unit">
+						<local_schema short_desc="Unidá de temperatura">
+							<longdesc>La unidá qu&apos;usar al amosar temperatures.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="cities">
+						<local_schema short_desc="Llista d&apos;ubicaciones">
+							<longdesc>Una llista d&apos;ubicaciones qu&apos;amosar na ventana del calendariu.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="internet_time">
+						<local_schema short_desc="Usar tiempu d&apos;Internet">
+							<longdesc>L&apos;usu d&apos;esta clave acabó en GNOME 2.6 a favor de la clave «format». La estructura caltiense por compatibilidá con versiones vieyes.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="unix_time">
+						<local_schema short_desc="Usar tiempu UNIX">
+							<longdesc>L&apos;usu d&apos;esta clave acabó en GNOME 2.6 a favor de la clave «format». La estructura caltiense por compatibilidá con versiones vieyes.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hour_format">
+						<local_schema short_desc="Formatu d&apos;hora">
+							<longdesc>L&apos;usu d&apos;esta clave acabó en GNOME 2.6 a favor de la clave «format». La estructura caltiense por compatibilidá con versiones vieyes.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_locations">
+						<local_schema short_desc="Espandir la llista d&apos;ubicaciones">
+							<longdesc>Si ye «true», estenderexa la llista d&apos;ubicaciones na ventana del calendariu.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_weather">
+						<local_schema short_desc="Espandir la llista de la información meteorolóxica">
+							<longdesc>Si ye «true», estenderexa la llista de la información meteorolóxica na ventana del calendariu.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_tasks">
+						<local_schema short_desc="Espandir la llista de xeres">
+							<longdesc>Si ye «true», estenderexa la llista de xeres na ventana del calendariu.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_birthdays">
+						<local_schema short_desc="Espandir la llista de cumpleaños">
+							<longdesc>Si ye «true», espande la llista de cumpleaños na ventana del calendariu.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_appointments">
+						<local_schema short_desc="Espandir la llista de cites">
+							<longdesc>Si ye «true», amuesa la llista de cites na ventana del calendariu.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_week_numbers">
+						<local_schema short_desc="Amosar númberos de selmana nel calendariu">
+							<longdesc>Si ye verdá, amuesa los númberos de la selmana nel calendariu.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="config_tool">
+						<local_schema short_desc="Ferramienta de configuración d&apos;hora">
+						</local_schema>
+					</entry>
+					<entry name="gmt_time">
+						<local_schema short_desc="Usar UTC">
+						</local_schema>
+					</entry>
+					<entry name="show_temperature">
+						<local_schema short_desc="Amosar la temperatura nel reló.">
+							<longdesc>Si ye «true», amuesa la temperatura xunto al iconu meteorolóxicu.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_weather">
+						<local_schema short_desc="Amosar la meteoroloxía nel reló">
+							<longdesc>Si ye «true», amuesa un iconu meteorolóxicu.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_tooltip">
+						<local_schema short_desc="Amosar la fecha nel cuadrín">
+							<longdesc>Si ye verdaderu, amuesa la fecha nun cuadrín en cuantes el punteru ta per encima del reló.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_date">
+						<local_schema short_desc="Amosar la fecha nel reló">
+							<longdesc>Si ye verdaderu, amuesa la data nel reló, arriendes de la hora.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_seconds">
+						<local_schema short_desc="Amosar tiempu en segundos">
+							<longdesc>Si ye verdaderu, amuesa los segundos na hora.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="custom_format">
+						<local_schema short_desc="Formatu personalizáu del reló">
+							<longdesc>Esta clave especifica&apos;l formatu usáu pola miniaplicación reló cuando la clave del formatu s&apos;afita a «personalizáu». Pue usar especificadores de conversión qu&apos;atalante strftime() pa obtener un formatu específicu. Llea&apos;l manual de strftime() pa obtener más información.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="format">
+						<local_schema short_desc="Formatu d&apos;hora">
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="panel">
+				<dir name="objects">
+					<entry name="action_type">
+						<local_schema short_desc="Tipu de botón d&apos;aición">
+							<longdesc>El tipu d&apos;aición que representa esti botón. Los valores dables son «lock», «logout», «run», «search» y «screenshot». Esta clave namái ye relevante si&apos;l valor de la clave «object_type» ye «action-applet».</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="launcher_location">
+						<local_schema short_desc="Llocalización del llanzador">
+							<longdesc>L&apos;allugamientu del ficheru .desktop que describe&apos;l llanzador. Esta clave namái ye relevante si la clave object_type ye &quot;launcher-object&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menu_path">
+						<local_schema short_desc="Camín haza&apos;l conteníu del menú">
+							<longdesc>El camín dende&apos;l que se construye el conteníu del menú. Esta clave namái ye relevante si&apos;l valor de la clave «use_menu_path» ye «true» y el valor de la clave «object_type» ye «menu-object».</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_menu_path">
+						<local_schema short_desc="Usar un camín personalizáu pal conteníu del menú">
+							<longdesc>Si ye «true», la clave «menu_path» úsase como&apos;l camín dende&apos;l que&apos;l conteníu del mentú tendría de construyise. Si ye «false» la clave «menu_path» inórase. Esta clave namái ye relevante si la clave «object_type» contién «menu-object».</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="custom_icon">
+						<local_schema short_desc="Iconu usáu pal botón d&apos;oxetu">
+							<longdesc>L&apos;allugamientu del ficheru imaxe usáu como l&apos;iconu pal botón del oxetu. Esta clave namái ye relevante si la clave object_type ye &quot;menu-object&quot; o &quot;drawer-object&quot; y la clave use_custom_icon ye cierta.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_custom_icon">
+						<local_schema short_desc="Usar un iconu personalizáu pal botón del oxetu">
+							<longdesc>Si ye «true», la clave «custom_icon» úsase como un iconu personalizáu pal botón. Si ye «false» (falsu), la clave «custom_icon» inórase. Esta clave namái ye relevante si la clave «object_type» contién «menu-object» o «drawer-object».</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="tooltip">
+						<local_schema short_desc="Suxerencia amosada pal caxón o menú">
+							<longdesc>El testu a amosar nuna suxerencia pa esti caxón o esti menú. Esta clave namái ye relevante si la clave object_type ye &quot;drawer-object&quot; o &quot;menu-object&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="attached_toplevel_id">
+						<local_schema short_desc="Panel coneutáu caxón">
+							<longdesc>L&apos;identificador del panel coneutáu a esti caxón. Esta clave namái ye relevante si la clave object_type ye &quot;drawer-object&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="bonobo_iid">
+						<local_schema short_desc="Applet Bonobo IID">
+							<longdesc>El ID de la implementación de la miniaplicación Bonobo - ej. «OAFIID:GNOME_ClockApplet». Esta clave namái ye relevante si&apos;l valor de la clave «object_type» ye «bonobo-applet».</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="locked">
+						<local_schema short_desc="Bloquea l&apos;oxetu nel panel">
+							<longdesc>Si ye «true», l&apos;usuariu nun podrá mover la miniaplicación ensin enantes desbloquiar l&apos;oxetu usando la opción del menú «Desbloquiar».</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="panel_right_stick">
+						<local_schema short_desc="Interpreta la posición como rellativa al berbesu inferior/drechu">
+							<longdesc>Si ye «true», la posición del oxetu interprétase como rellativa al berbesu drechu (o inferior si ye vertical) del panel.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="position">
+						<local_schema short_desc="La posición del oxetu nel panel">
+							<longdesc>L&apos;allugamientu d&apos;esti oxetu del panel. L&apos;allugamientu  especifícase pol númberu de píxeles dende&apos;l berbesu esquierdu (o dende arriba si ye vertical) del panel.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toplevel_id">
+						<local_schema short_desc="Panel de nivel superior que contién un oxetu">
+							<longdesc>L&apos;identificador del panel de nivel superior que contién esti oxetu.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="object_type">
+						<local_schema short_desc="Tipu d&apos;oxetu del panel">
+							<longdesc>La triba d&apos;esti oxetu del panel. Los valores dables son &quot;drawer-object&quot;, &quot;menu-object&quot;, &quot;launcher-object&quot;, &quot;bonobo-applet&quot;, &quot;action-applet&quot; y &quot;menu-bar&quot;.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="toplevels">
+					<entry name="animation_speed">
+						<local_schema short_desc="Velocidá d&apos;animación">
+							<longdesc>La velocidá a la que tendríen de trescurrir les animaciones del panel. Los valores dables son «slow», «medium» y «fast». Esta clave namái ye relevante si&apos;l valor de la clave «enable_animations» ye «true».</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_hide_size">
+						<local_schema short_desc="Pixel visibles cuando tea escondíu">
+							<longdesc>Especifica la cantidá de píxeles visibles cuando&apos;l panel se sovera automáticamente nuna esquina. Esta clave namái ye relevante cuando&apos;l valor de la clave «auto_hide» ye «true».</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="unhide_delay">
+						<local_schema short_desc="Retrasu p&apos;autodesesconder panel">
+							<longdesc>Especifica la cantidá de milisegundos de retardu dempués de que&apos;l punteru entre nel área del panel enantes de que&apos;l panel se vuelva a amosar automáticamente. Esta clave namái ye relevante si&apos;l valor de la clave «auto_hide» ye «true».</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hide_delay">
+						<local_schema short_desc="Retrasu p&apos;autoesconder panel">
+							<longdesc>Especifica la cantidá de milisegundos de retardu dempués de que&apos;l punteru dexe l&apos;área del panel enantes de que&apos;l panel se vuelva a amosar automáticamente. Esta clave namái ye relevante si&apos;l valor de la clave «auto_hide» ye «true».</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_arrows">
+						<local_schema short_desc="Habilitar fleches nos botones escondíos">
+							<longdesc>Si ye «true», allugaránse fleches nos botones ocultos. Esta clave namái ye relevante si&apos;l valor de la clave «enable_buttons» ye «true».</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_buttons">
+						<local_schema short_desc="Habilitar botones d&apos;esconder">
+							<longdesc>Si ye «true», allugaránse botones a cada llau del panel, y ésto puen usase pa mover el panel al berbesu de la pantalla, dexando namái un botón visible.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="Habilitar animaciones">
+							<longdesc>Si ye «true», la ocultación y el descubrimientu d&apos;esti panel sedrá animada n&apos;arroú d&apos;asoceder de sópitu.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_hide">
+						<local_schema short_desc="Esconder panel na esquina automáticamente">
+							<longdesc>Si ye «true», el panel anubriráse automáticamente nuna esquina de la pantalla cuando&apos;l punteru dexa l&apos;área del panel. Al mover el punteru haza esa esquina el panel reapaecerá.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="y_centered">
+						<local_schema short_desc="Centrar panel nel axe y">
+							<longdesc>Si ye «true», les claves «y» e «y_bottom» inórense, y el panel allúgase nel centru del exe-y de la pantalla. Si&apos;l panel se redimensiona permanecerá nesa posición, polo que&apos;l panel medrará haza dambos llaos. Si ye «false» les claves «y» e «y_bottom» especifiquen la posición del panel.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="x_centered">
+						<local_schema short_desc="Centrar panel nel axe x">
+							<longdesc>Si ye «true», les claves «x» y «x_right» inoraránse y el panel allugaráse nel centru del exe-x de la pantalla. Si&apos;l panel se redimensiona permanecerá nesa posición, polo que&apos;l panel medrará haza dambos llaos. Si ye «false» les claves «x» y «x_right» especifiquen la posición del panel.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="y_bottom">
+						<local_schema short_desc="Coordenada Y del panel, entamando dende la parte inferior de la pantalla">
+							<longdesc>La posición del panel a lo llargo del exe-y, entamando pela parte inferior de la pantalla. Si ta afitada a -1, inórase&apos;l valor y úsase&apos;l valor de la clave «y». Si&apos;l valor ye mayor que 0, entós inórase&apos;l valor de la clave «y». Esta clave namái ye relevante nel mou non expandíu. Nel mou expandíu, esta clave inórase y el panel allúgase nel berbesu de la pantalla conseñáu pola clave «orientation».</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="x_right">
+						<local_schema short_desc="Coordenada X del panel, entamando dende la parte drecha de la pantalla">
+							<longdesc>La posición del panel a lo llargo del exe-x, entamando pela drecha de la pantalla. Si ta afitada a -1, inórase&apos;l valor y úsase&apos;l valor de la clave «x». Si&apos;l valor ye mayor que 0, entós inórase&apos;l valor de la clave «x». Esta clave namái ye relevante nel mou non expandíu. Nel mou expandíu, esta clave inórase y el panel allúgase nel berbesu de la pantalla conseñáu pola clave «orientation».</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="y">
+						<local_schema short_desc="Coordenades Y del panel">
+							<longdesc>La posición del panel a lo llargo del exe-y. Esta clave namái ye relevante nel mou non expandíu. Nel mou expandíu, esta clave inórase y el panel allúgase nel berbesu de la pantalla conseñáu pola clave «orientation».</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="x">
+						<local_schema short_desc="Coordenades X del panel">
+							<longdesc>La posición del panel a lo llargo del exe-x. Esta clave namái ye relevante nel mou non expandíu. Nel mou expandíu, esta clave inórase y el panel allúgase nel berbesu de la pantalla conseñáu pola clave «orientation».</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size">
+						<local_schema short_desc="Tamañu del panel">
+							<longdesc>L&apos;altor (anchor si se trata d&apos;un panel vertical) del panel. El panel determinará durante la execución el tamañu mínimo basáu nel tamañu de la tipografía y otros indicadores. El tamañu máximu fíxase a un cuartu de l&apos;altor de la pantalla (o anchor).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="orientation">
+						<local_schema short_desc="Orientación del panel">
+							<longdesc>La orientación del panel. Los valores dables son «top», «bottom», «left», «right». Nel mou expandíu, la clave especifica en qué berbesu de la pantalla ta&apos;l panel. Nel mou non expandíu, la diferencia ente «top» y «bottom» ye menos importante, dambos conseñen que ye un panel horizontal, pero entá da una indicación útil sobro cómo tendríen de comportase dalgunos oxetos de los paneles. Por exemplu, nún panel «top» (superior) un botón de menú amosará&apos;l so menú per debaxo del panel, mentantu que nún panel «bottom» (inferior) el menú amosaráse per enriba del panel.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand">
+						<local_schema short_desc="Espandir pa ocupar dafechu l&apos;anchu de la pantalla">
+							<longdesc>Si ye «true», el panel ocupará l&apos;anchor de tola pantalla (l&apos;altor si se trata d&apos;un panel vertical). Nesti mou, el panel namái pue allugase nel berbesu de la pantalla. Si ye «false» el panel namái sedrá lo suficientemente grande p&apos;acomodar les miniaplicaciones, llanzadores y botones nel panel.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="monitor">
+						<local_schema short_desc="Monitor xinerama onde s&apos;amuesa&apos;l panel">
+							<longdesc>Con una configuración Xinerama, pue tener paneles pa ca pantalla individual. Esta clave identifica la pantalla actual na que s&apos;amuesa&apos;l panel.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="screen">
+						<local_schema short_desc="Pantalla X onde s&apos;amuesa&apos;l panel">
+							<longdesc>Con una configuración multi-pantalla, pue tener paneles pa ca pantalla individual. Esta clave identifica la pantalla actual na que s&apos;amuesa&apos;l panel.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name">
+						<local_schema short_desc="Nome pa identificar panel">
+							<longdesc>Esto ye un nome entendible por persones que se pue utilizar pa identificar un panel. El so envís principal ye servir como&apos;l títulu de la ventana del panel, lo que pue resultar útil pa ñavegar ente paneles.</longdesc>
+						</local_schema>
+					</entry>
+					<dir name="background">
+						<entry name="rotate">
+							<local_schema short_desc="Rotar imaxe nos paneles verticales">
+								<longdesc>Si ye «true», la imaxe de fondu rotaráse cuando&apos;l panel s&apos;allugue n&apos;orientación vertical.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="stretch">
+							<local_schema short_desc="Axustar la imaxe al panel">
+								<longdesc>Si ye «true», la imaxe escalaráse a les dimensiones del panel. Nun se caltendrá la proporción de la imaxe.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="fit">
+							<local_schema short_desc="Encaxar la imaxe al panel">
+								<longdesc>Si ye «true», la imaxe escalaráse (calteniendo la proporción de la mesma) a l&apos;altor del panel (si ye horizontal).</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="image">
+							<local_schema short_desc="Imaxe de fondu">
+								<longdesc>Especifica&apos;l ficheru que se va a usar pa la imaxe del fondu. Si la imaxe contién un canal alfa combinaráse cola imaxe de fondu del escritoriu.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="opacity">
+							<local_schema short_desc="Opacidá de color de fondu">
+								<longdesc>Especifica la opacidá del formatu del color de fondu. Si&apos;l color nun ye opacu ensembre (un valor inferior a 65535), el color entemeceráse cola imaxe del fondu del escritoriu.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="color">
+							<local_schema short_desc="Color de fondu">
+								<longdesc>Especifica&apos;l color de fondu pal panel en formatu #RGB.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="type">
+							<local_schema short_desc="Tipu de fondu">
+								<longdesc>Qué tipu de fondu tendría d&apos;usase pa esti panel. Los valores dables son «gtk»; usaráse&apos;l fondu predetermináu del widget GTK+; «color» usaráse la clave «color» como color de fondu o «image» usaráse la imaxe especificada pola clave «image» como fondu.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="general">
+					<entry name="profiles_migrated">
+						<local_schema short_desc="Migróse la configuración de perfiles antigua">
+							<longdesc>Una señal booleana pa conseñar si la configuración anterior del usuariu en /apps/panel/profiles/default se copió al llugar nuevu en /apps/panel.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="object_id_list">
+						<local_schema short_desc="Llista de IDs d&apos;oxetos del panel">
+							<longdesc>Una llista d&apos;ID d&apos;oxetos de panel. Cada ID identifica un oxetu de panel individual (por exemplu, un llanzador, un botón d&apos;aición o una barra/botón de menú). Los valores pa cada ún d&apos;estos oxetos atróxense en /apps/panel/objects/$(id).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="applet_id_list">
+						<local_schema short_desc="Llista de IDs d&apos;aplicaciones del panel">
+							<longdesc>Una llista d&apos;ID de miniaplicaciones del panel. Cada ID identifica una miniaplicación del panel individual. Los valores pa cada una d&apos;estes miniaplicaciones atróxense en /apps/panel/applets/$(id).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toplevel_id_list">
+						<local_schema short_desc="Llista de IDs del Panel">
+							<longdesc>Una llista d&apos;ID de paneles. Cada ID identifica un panel individual de nivel superior. Los valores pa cada ún d&apos;estos paneles atróxense en /apps/panel/toplevels/$(id).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_autocompletion">
+						<local_schema short_desc="Activar autocompletáu nel diálogu «Executar una aplicación»">
+							<longdesc>Si ye «true», faise disponible l&apos;autocompletáu nel diálogu «Executar una aplicación».</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_program_list">
+						<local_schema short_desc="Estenderexa la llista de programes nel diálogu «Executar una aplicación»">
+							<longdesc>Si ye «true», estenderexaráse la llista «Aplicaciones conocíes» nel diálogu «Executar una aplicación» cuando s&apos;abra&apos;l diálogu. Esta clave namái ye relevante si&apos;l valor de la clave «enable_program_list» ye «true».</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_program_list">
+						<local_schema short_desc="Activa la llista de programes nel diálogu «Executar una aplicación»">
+							<longdesc>Si ye «true», fadráse disponible la llista «Aplicaciones conocíes» nel diálogu «Executar una aplicación». La clave «show_program_list» remana si la llista s&apos;alcuentra extenderexada o non cuando s&apos;amuesa&apos;l diálogu.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="global">
+					<entry name="disable_force_quit">
+						<local_schema short_desc="Deshabilitar Forzar Colar">
+							<longdesc>Si ye cierto, el panel nun dexará qu&apos;un usuariu fuercie la salida d&apos;una aplicación eliminando l&apos;accesu al botón de salida forzada.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_log_out">
+						<local_schema short_desc="Deshabilitar Desconeutar">
+							<longdesc>Si ye cierto, el panel nun dexará a un usuariu salir de la sesión, eliminando l&apos;accesu a les entraes de menú de la salida de sesión.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_lock_screen">
+						<local_schema short_desc="Depreciáu">
+						</local_schema>
+					</entry>
+					<entry name="disabled_applets">
+						<local_schema short_desc="IID de miniaplicaciones a les que se-yos desactivará la carga">
+							<longdesc>Una llista d&apos;IID de miniaplicaciones que&apos;l panel inorará. D&apos;esta miente pue desactivar la carga de dalgunes miniaplicaciones o que s&apos;amuesen nel menú. Por exemplu pa desactivar la miniaplicación mini-commander amiesta &apos;OAFIID:GNOME_MiniCommanderApplet&apos; a esta llista. El panel tien de reaniciase pa que faiga efeutu.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="locked_down">
+						<local_schema short_desc="Bloquéu total del panel">
+							<longdesc>Si ye «true», el panel nun permitirá dengún cambéu na so configuración. Dalgunas miniaplicaciones individuales seique necesiten bloquiase de miente independiente. El panel tien de reaniciase pa qu&apos;esto tenga efeutu.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="highlight_launchers_on_mouseover">
+						<local_schema short_desc="Rescamplar los llanzadores cuando&apos;l mur pase per enriba">
+							<longdesc>Si ye «true», rellumará un llanzador cuando l&apos;usuario mueva&apos;l punteru sobro ésti.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="confirm_panel_remove">
+						<local_schema short_desc="Confirmar l&apos;esborráu del panel">
+							<longdesc>Si ye «true», amuésase un diálogu solicitando una confirmación si l&apos;usuario quier esaniciar un panel.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="drawer_autoclose">
+						<local_schema short_desc="Autozarrar caxón">
+							<longdesc>Si ye «true», el caxón pesllarase automáticamente cuando l&apos;usuariu calque sobro un llanzador d&apos;ésti.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="window_screenshot_key">
+						<local_schema short_desc="Depreciáu">
+						</local_schema>
+					</entry>
+					<entry name="screenshot_key">
+						<local_schema short_desc="Depreciáu">
+						</local_schema>
+					</entry>
+					<entry name="run_key">
+						<local_schema short_desc="Depreciáu">
+						</local_schema>
+					</entry>
+					<entry name="menu_key">
+						<local_schema short_desc="Depreciáu">
+						</local_schema>
+					</entry>
+					<entry name="enable_key_bindings">
+						<local_schema short_desc="Depreciáu">
+						</local_schema>
+					</entry>
+					<entry name="panel_hide_delay">
+						<local_schema short_desc="Depreciáu">
+						</local_schema>
+					</entry>
+					<entry name="panel_animation_speed">
+						<local_schema short_desc="Depreciáu">
+						</local_schema>
+					</entry>
+					<entry name="panel_show_delay">
+						<local_schema short_desc="Depreciáu">
+						</local_schema>
+					</entry>
+					<entry name="panel_minimized_size">
+						<local_schema short_desc="Depreciáu">
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="Habilitar animaciones">
+						</local_schema>
+					</entry>
+					<entry name="keep_menus_in_memory">
+						<local_schema short_desc="Depreciáu">
+						</local_schema>
+					</entry>
+					<entry name="tooltips_enabled">
+						<local_schema short_desc="Habilitar cuadrinos">
+							<longdesc>Si ye cierto, amuésense les suxerencies pa los oxetos de los paneles.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gweather">
+				<dir name="prefs">
+					<entry name="radar">
+						<local_schema short_desc="Url pal mapa de radar">
+							<longdesc>La url personalizada pa sacar un mapa de radar.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_custom_radar_url">
+						<local_schema short_desc="Usar url personalizada pal mapa de radar">
+							<longdesc>Si ye &quot;true&quot; (verdá), entós apurre un mapa de radar dende les señes que se-y dió pola clave &quot;radar&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="coordinates">
+						<local_schema short_desc="Coordenaes de la zona">
+						</local_schema>
+					</entry>
+					<entry name="location4">
+						<local_schema short_desc="Meteoroloxía pa una ciudá">
+						</local_schema>
+					</entry>
+					<entry name="location3">
+						<local_schema short_desc="Llocalización del radar">
+						</local_schema>
+					</entry>
+					<entry name="location2">
+						<local_schema short_desc="Allugamientu de la zona">
+						</local_schema>
+					</entry>
+					<entry name="location1">
+						<local_schema short_desc="Ciudá cercana">
+						</local_schema>
+					</entry>
+					<entry name="location0">
+						<local_schema short_desc="Información meteorolóxica de una zona">
+						</local_schema>
+					</entry>
+					<entry name="enable_radar_map">
+						<local_schema short_desc="Amosar el mapa de radar">
+							<longdesc>Obtener un mapa de radar en cada anovamientu</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_detailed_forecast">
+						<local_schema short_desc="Yá nun s&apos;usa">
+						</local_schema>
+					</entry>
+					<entry name="temperature_unit">
+						<local_schema short_desc="Unidá de temperatura">
+							<longdesc>La unidá na que midir la temperatura.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="speed_unit">
+						<local_schema short_desc="Unidá de velocidá">
+							<longdesc>La unidá na que midir la velocidá del vientu.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="pressure_unit">
+						<local_schema short_desc="Unidá de presión">
+							<longdesc>La unidá na que midir la presión.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="distance_unit">
+						<local_schema short_desc="Unidá de distancia">
+							<longdesc>La unidá na que midir la visibilidá.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_metric">
+						<local_schema short_desc="Usar unidaes métriques">
+							<longdesc>Usar unidaes métriques n&apos;arróu d&apos;unidaes ingleses.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_update_interval">
+						<local_schema short_desc="Intervalu d&apos;actualización">
+							<longdesc>L&apos;intervalu, en segundos, ente anovamientos automáticos.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_update">
+						<local_schema short_desc="Anovar los datos automáticamente">
+							<longdesc>Determina si l&apos;aplicación anova automáticamente los datos del tiempu o non.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnome-keyring">
+				<dir name="daemon-components">
+					<entry name="ssh">
+						<local_schema short_desc="Conseña si l&apos;axente SSH del depósitu de claves ta activáu">
+							<longdesc>Esta opción activa l&apos;axente SSH nel demoniu del Depósitu de claves. Namái toma efeutu cuando s&apos;anicia gnome-keyring-daemon, (ex: cuando l&apos;usuariu entra nel sistema). Esti axuste pue sobreescribisae al pasar ciertos parámetros al demoniu a traviés de la llinia de comandos.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="pkcs11">
+						<local_schema short_desc="Conseña si&apos;l componente PKCS#11 del depósitu de claves ta activáu">
+							<longdesc>Esta opción activa&apos;l componente PKCS11 nel degorriu del Depósitu de claves. Namái toma efectu cuando s&apos;anicia gnome-session, (ex: cuando l&apos;usuariu entra nel sistema). Esti axuste pue sobroscribise al pasar ciertos parámetros al degorriu al traviés de la llinia de comandos.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="secrets">
+						<local_schema short_desc="Indica si&apos;l serviciu de secretos del depósitu de claves ta activáu.">
+							<longdesc>Esta opción activa&apos;l componente de serviciu de secretos nel degorriu del Depósitu de claves. Namái toma efectu cuando s&apos;anicia gnome-session, (ex: cuando l&apos;usuariu entra nel sistema). Esti axuste pue sobroscribise al pasar ciertos parámetros al degorriu al traviés de la llinia de comandos.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnome-settings">
+				<dir name="gnumeric">
+					<entry name="toolbar_style">
+						<local_schema short_desc="Estilu de la barra de ferramientes">
+							<longdesc>Estilu de la barra de ferramientes.  Los valores válidos son dambos, dambos_horiz, iconu y testu</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnumeric">
+				<dir name="plugin">
+					<dir name="latex">
+						<entry name="use-utf8">
+							<local_schema short_desc="Usar UTF-8 al esportar a LaTeX">
+								<longdesc>Esti axuste determina si los ficheros LaTeX criaos usen UTF-8 (unicode) o ISO-8859-1 (Latin1). Pa usar los ficheros UTF-8, debes tener el paquete LaTeX ucs instaláu.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="cut-and-paste">
+					<entry name="prefer-clipboard">
+						<local_schema short_desc="Preferir PORTAPAPELES sobro seleición PRIMARIA">
+							<longdesc>Cuando seya VERDADERO, Gnumeric preferirá la seleición moderna del PORTAPAPELES enantes que les seleiciones PRIMARIES heredaes. Afitálo a falso si tienes que tratar con otres aplicaciones, como Xterm o Emacs, qu&apos;afiten sólo la seleición PRIMARIA.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="core">
+					<dir name="sort">
+						<dir name="dialog">
+							<entry name="max-initial-clauses">
+								<local_schema short_desc="Númberu de cláusules automátiques">
+									<longdesc>Cuando seleiciones una rexón a ordenar nel diálogu d&apos;ordenación, les cláusules de gueta amestense automáticamente. Esti númberu determina&apos;l másimu númberu de cláusules que s&apos;amestarán automáticamente.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+						<dir name="default">
+							<entry name="ascending">
+								<local_schema short_desc="Ordenar ascendentemente">
+									<longdesc>Esta opción determina l&apos;estáu d&apos;aniciu del botón d&apos;ordenación nel diálogu d&apos;ordenación.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="retain-formats">
+								<local_schema short_desc="La ordenación caltién los formatos">
+									<longdesc>Al poner esta opción faeráse que los botones d&apos;ordenación de la barra de ferramientes conserven el formatu de les caxelles cuando s&apos;axeiten y determina l&apos;estáu d&apos;aniciu de la caxella de verificación «Preservar formatos» nel diálogu «Axeitar».</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="by-case">
+								<local_schema short_desc="La ordenación ye sensible a la capitalización">
+									<longdesc>Poner esta opción faerá que los botones d&apos;ordenamientu de la barra de ferramientes efectúen una ordenación sensible a mayúscules y determina l&apos;estáu d&apos;aniciu de la casilla de verificación «Sensible a mayúscules» nel diálogu «Ordenar».</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+					</dir>
+					<dir name="file">
+						<dir name="save">
+							<entry name="def-overwrite">
+								<local_schema short_desc="Sobroescribir ficheros por omisión">
+									<longdesc>Enantes de que un ficheru existente seya sobroescrito, gnumeric amosará un diálogu d&apos;alvertencia. Al poner esta opción faerase que&apos;l botón sobroescribir d&apos;esi diálogu seya&apos;l botón predetermináu.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="single_sheet">
+								<local_schema short_desc="Avisar cuando s&apos;esporte en formatu de fueya única">
+									<longdesc>Dalgunos formatos de ficheru caltienen sólo una única fueya. Esta variable determina si l&apos;usuariu será alvertíu si guardase sólo una única fueya d&apos;un llibru multi-fueya.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+					</dir>
+					<dir name="xml">
+						<entry name="compression-level">
+							<local_schema short_desc="Nivel de compresión predetermináu pa los ficheros de Gnumeric">
+								<longdesc>Esti enteru (ente 0 y 9) especifica la cantidá de compresión que Gnumeric aplica al guardar ficheros nel formatu de ficheru predetermináu. 0 ye ensin compresión y 9 ye compresión másima.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="gui">
+						<dir name="window">
+							<entry name="zoom">
+								<local_schema short_desc="Factor d&apos;ampliación preestablecíu">
+									<longdesc>El factor d&apos;ampliación d&apos;aniciu pa los llibros de cuentes nuevos.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="y">
+								<local_schema short_desc="Tamañu vertical de la ventana preestablecíu">
+									<longdesc>Esti númberu (ente 0,25 y 1,00) da la fracción vertical del tamañu de la pantalla cubiertu pola ventana predeterminada.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="x">
+								<local_schema short_desc="Tamañu horizontal predetermináu de la ventana">
+									<longdesc>Esti númberu (ente 0,25 y 1,00) da la fracción horizontal del tamañu de pantalla cubiertu pola ventana predeterminada.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+						<dir name="editing">
+							<entry name="transitionkeys">
+								<local_schema short_desc="Tecles de transición">
+									<longdesc>Esta variable determina si les claves de transición tan activaes. Les claves de transición son una vuelta atrás a la manipulación d&apos;eventos estilo 1-2-3. Convierten Ctrl-flecha en movimientu de páxines en llugar de saltar al entamu/fin de les series.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="recalclag">
+								<local_schema short_desc="Retardu del recálculu automáticu d&apos;espresiones">
+									<longdesc>Si &apos; retardu&apos; ye 0, gnumeric recalcula toles espresiones automátiques inmediatamente dempués de cada cambiu. Los valores distintos de cero de &apos;retardu&apos; permiten a gnumeric acumular más cambios enantes de cada recálculu. Si&apos;l &apos;retardu&apos; ye positivu, entós siempre qu&apos;aparezca un cambiu, gnumeric espera un &apos;retardu&apos; en milisegundos y dempués recalcula; si aparecen más cambios durante esi periodu, procesense tamién n&apos;esi tiempu. Si &apos;retardu&apos; ye negativu, entós el recálculu ocurre sólo dempués d&apos;un periodu d&apos;inactividá de |retardu| milisegundos.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="livescrolling">
+								<local_schema short_desc="Desplazamientu en direutu">
+									<longdesc>Esta variable determina si debe facese&apos;l desplazamientu en direuto (en llugar de diferíu).</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="autocomplete">
+								<local_schema short_desc="Autocompletar">
+									<longdesc>Esta variable determina si la autocompletación ta activada.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+						<dir name="toolbars">
+							<entry name="ObjectToolbar-position">
+								<local_schema>
+									<longdesc>Esta variable determina onde debe amosase la barra d&apos;oxetos. 0 ye manzorga, 1 ye mandrecha, 2 ye enrriba.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="ObjectToolbar">
+								<local_schema short_desc="Barra d&apos;oxetos visible">
+									<longdesc>Esta variable determina si la barra d&apos;oxetos debe tar visible nel entamu.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="FormatToolbar-position">
+								<local_schema>
+									<longdesc>Esta variable determina onde amosar la barra de formatu. 0 ye manzorga, 1 ye mandrecha, 2 ye enrriba.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="FormatToolbar">
+								<local_schema short_desc="Barra de formatu visible">
+									<longdesc>Esta variable determina si la barra de formatu debe tar visible nel entamu.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="StandardToolbar-position">
+								<local_schema short_desc="Posición de la barra standard">
+									<longdesc>Esta variable determina onde debe amosase la barra standard. 0 ye manzorga, 1 ye mandrecha, 2 ye enrriba.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="StandardToolbar">
+								<local_schema short_desc="Barra estándar visible">
+									<longdesc>Esta variable determina si la barra standard debe tar visible nel entamu.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+						<dir name="screen">
+							<entry name="verticaldpi">
+								<local_schema short_desc="Puntos per pulgada verticales">
+									<longdesc>Resolución de la pantalla en direición vertical.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="horizontaldpi">
+								<local_schema short_desc="Puntos per pulgada horizontales">
+									<longdesc>Resolución de la pantalla na direición horizontal.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+					</dir>
+					<dir name="workbook">
+						<entry name="n-sheet">
+							<local_schema short_desc="Númberu de fueyes predeterminaes">
+								<longdesc>El númberu de fueyes criaes nel entamu nun llibru de cuentes nuevu.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="defaultfont">
+						<entry name="italic">
+							<local_schema short_desc="La fonte predeterminada ye itálica.">
+								<longdesc>Esti valor determina si la fonte predeterminada pa un llibru de cuentes nuevu ye itálica.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bold">
+							<local_schema short_desc="La fonte predeterminada ye negrita.">
+								<longdesc>Esti valor determina si la fonte predeterminada pa un llibru de cuentes nuevu ye negrita.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="name">
+							<local_schema short_desc="Fonte predeterminada">
+							</local_schema>
+						</entry>
+						<entry name="size">
+							<local_schema short_desc="Tamañu de la fonte tipográfica predeterminada">
+								<longdesc>El tamañu de fonte d&apos;aniciu pa los llibros de cuentes nuevos.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="undo">
+					<entry name="max_descriptor_width">
+						<local_schema short_desc="Llonxitú de los descriptores de desfacer">
+							<longdesc>Esti valor indica la llonxitú másima de los descriptores de comandos nes cadenes facer y desfacer.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="maxnum">
+						<local_schema short_desc="Númberu d&apos;elementos a desfacer">
+							<longdesc>Esti valor determina&apos;l máximo númberu d&apos;elementos na llista facer/desfacer.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size">
+						<local_schema short_desc="Tamañu másimu a desfacer">
+							<longdesc>Esti valor determina la llonxitú de la cadena de desfacer. Cada aición d&apos;edición tien un tamañu asociáu con ella, pa comparalo colos requerimientos de memoria d&apos;una edición simple de caxella (tamañu 1). La llista de desfacer truncaráse cuando&apos;l so tamañu total esceda esti valor configurable.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_sheet_name">
+						<local_schema short_desc="Amosar nome de la fueya na llista desfacer">
+							<longdesc>Esti valor determina si amuesense los nomes de les fueyes nes llistes facer y desfacer.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="dialogs">
+					<dir name="rs">
+						<entry name="unfocused">
+							<local_schema short_desc="Dexar seleiciones de rangos ensin focu">
+								<longdesc>Dalgunos diálogos caltienen un únicu campu d&apos;entrada que dexa seleiciones de rangos nel llibru de cuentes. Definir esta variable a VERDADERO dirixe les seleiciones a esta entrada incluso cuando la entrada non tien el focu del tecláu.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="printsetup">
+					<entry name="hf-right">
+						<local_schema short_desc="Formatu de cabecera/pie de páxina (Porción mandrecha)">
+							<longdesc>Por favor, usa&apos;l diálogu «Configurar imprentación» pa editar esti valor.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hf-middle">
+						<local_schema short_desc="Formatu de cabecera/pie de páxina (Porción media)">
+							<longdesc>Por favor, usa&apos;l diálogu «Configurar imprentación» pa editar esti valor.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hf-left">
+						<local_schema short_desc="Formatu de cabecera/pie de páxina (Porción manzorga)">
+							<longdesc>Por favor, usa&apos;l diálogu «Configurar imprentación» pa editar esti valor.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="paper-orientation">
+						<local_schema short_desc="Papel">
+							<longdesc>Esta ye la orientación del papel predeterminada. Por favor, usa&apos;l diálogu «Configuración d&apos;imprentación» pa editar esti valor.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="paper">
+						<local_schema short_desc="Papel">
+							<longdesc>Esta ye la especificación de papel predeterminada. Por favor, usa&apos;l diálogu «Configuración d&apos;imprentación» pa editar esti valor.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="margin-gtk-right">
+						<local_schema short_desc="Marxe inferior predetermináu">
+							<longdesc>Esti valor da&apos;l númberu de puntos predetermináu dende la parte mandrecha d&apos;una páxina fasta la parte mandrecha del cuerpu. Por favor, usa&apos;l diálogu «Configuración d&apos;imprentación» pa editar esti valor.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="margin-gtk-left">
+						<local_schema short_desc="Marxe manzorga predetermináu">
+							<longdesc>Estie valor da&apos;l númberu de puntos predetermináu dende la parte manzorga d&apos;una páxina fasta la parte manzorga del cuerpu. Por favor, usa&apos;l diálogu «Configuración d&apos;imprentación» pa editar esti valor.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="margin-gtk-top">
+						<local_schema short_desc="Marxe cimeru esterior predetermináu">
+							<longdesc>Esti valor da&apos;l númberu de puntos predetermináu dende la parte cimera d&apos;una páxina fasta l&apos;entamu de la cabecera. Por favor, usa&apos;l diálogu «Configuración d&apos;imprentación» pa editar esti valor.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="margin-gtk-bottom">
+						<local_schema short_desc="Marxe inferior esterior predetermináu">
+							<longdesc>Esti valor da&apos;l númberu de puntos predetermináu dende la parte inferior d&apos;una páxina fasta final del pie de páxina. Por favor, usa&apos;l diálogu de «Configuración d&apos;imprentación» pa editar esti valor.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="margin-bottom">
+						<local_schema short_desc="Marxe inferior predetermináu">
+							<longdesc>Esti valor da&apos;l númberu de puntos predetermináu dende la parte inferior d&apos;una páxina no cabero del cuerpu. Por favor, usa&apos;l diálogu de «Configuración d&apos;imprentación» pa editar esti valor.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="margin-top">
+						<local_schema short_desc="Marxe cimeru predetermináu">
+							<longdesc>Esti valor da&apos;l númberu de puntos predetermináu dende la parte superior d&apos;una páxina al entamu del cuerpu. Por favor, usa&apos;l diálogu «Configuración d&apos;imprentación» pa editar esti valor.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="preferred-unit">
+						<local_schema short_desc="Unidá de pantalla preferida">
+							<longdesc>Esta cadena proporciona la unidá por defeutu usada nel diálogu de configuración de páxina.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="repeat-left">
+						<local_schema short_desc="Rexón manzorga repetida predeterminada">
+							<longdesc>Esta cadena da la rexón predeterminada que repetiráse na parte manzorga de cada fueya imprentada. Por favor, usa&apos;l diálogu de «Configuración d¡imprentación» pa editar esti valor.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="repeat-top">
+						<local_schema short_desc="Rexón cimera repetida predeterminada">
+							<longdesc>Esta cadena da la rexón predeterminada que repetiráse na parte superior de cada fueya imprentada. Por favor, usa&apos;l diálogu de «Configuración d&apos;imprentación» pa editar esti valor.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="scale-height">
+						<local_schema short_desc="Escaláu n&apos;altor predetermináu">
+						</local_schema>
+					</entry>
+					<entry name="scale-width">
+						<local_schema short_desc="Escaláu n&apos;anchu predetermináu">
+						</local_schema>
+					</entry>
+					<entry name="scale-percentage-value">
+						<local_schema short_desc="Porcentaxe d&apos;escaláu predetermináu">
+							<longdesc>Esti valor da&apos;l porcentaxe pol cual escalase cada páxina impresa. Por favor usa&apos;l diálogu de «Configuración d&apos;imprentación» pa editar esti valor.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="scale-percentage">
+						<local_schema short_desc="Tribes d&apos;escala predeterminaes">
+							<longdesc>Esti valor determina la configuración predeterminada nel diálogu de «Configuración d&apos;imprentación» pa indicar si deben escalase les páxines a un porcentaxe determináu. Usa&apos;l diálogu de «Configuración d&apos;imprentación» pa editar esti valor.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="across-then-down">
+						<local_schema short_desc="Direición d&apos;imprentación predeterminada">
+							<longdesc>Esti valor determina la configuración predeterminada nel diálogu de «Configuración d&apos;imprentación» pa indicar si debe imprimise primero&apos;l lláu mandrechu, lluéu p&apos;abaxo. Usa&apos;l diálogu de «Configuración d&apos;imprentación» pa editar esti valor.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="print-titles">
+						<local_schema short_desc="Imprentación de títulu predeterminada">
+							<longdesc>Esti valor determina&apos;l valor predetermináu nel diálogu de «Configuración d&apos;imprentación» qu&apos;indica si deben imprimise cabeceres de fileres y columnes. Usa&apos;l diálogu de «Configuración d&apos;imprentación» pa editar esti valor.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="print-black-n-white">
+						<local_schema short_desc="Imprentación predeterminada en blancu y negru">
+							<longdesc>Esti valor determina la configuración predeterminada nel diálogu de «Configuración d&apos;imprentación» pa indicar si deben imprimise sólo en blancu y negru. Usa&apos;l diálogu de «Configuración d&apos;imprentación» pa editar esti valor.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="print-even-if-only-styles">
+						<local_schema short_desc="Caxelles a imprentar de forma predeterminada con sólo estilos">
+							<longdesc>Esti valor determina la configuración predeterminada nel diálogu de «Configuración d&apos;imprentación» pa indicar si deben imprimise les caxelles ermes que tengan formatu. Usa&apos;l diálogu de «Configuración d&apos;imprentación» pa editar esti valor.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="print-grid-lines">
+						<local_schema short_desc="Imprentación de llínies de la rexiella predeterminada">
+							<longdesc>&gt;Esti valor determina l&apos;axuste predetermináu nel diálogu «Configuración d&apos;imprentación» indicando si debe imprimise la rexiella. Por favor usa&apos;l diálogu «Configuración d&apos;imprentación» pa editar esti valor.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="center-vertically">
+						<local_schema short_desc="Centráu vertical predetermináu">
+						</local_schema>
+					</entry>
+					<entry name="center-horizontally">
+						<local_schema short_desc="Centráu horizontal predetermináu">
+						</local_schema>
+					</entry>
+					<entry name="hf-font-italic">
+						<local_schema short_desc="La fonte predeterminada pa cabecera/pie de páxina ye itálica.">
+							<longdesc>Esti valor determina si la fonte predeterminada pa cabeceres y pies de páxina ye itálica.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hf-font-bold">
+						<local_schema short_desc="La fonte predeterminada pa cabecera/pie de páxina ye negrita.">
+							<longdesc>Esti valor determina si la fonte predeterminada pa cabeceres y pies de páxina ye negrita.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hf-font-name">
+						<local_schema short_desc="Fonte predeterminada pa cabecera/pie de páxina">
+						</local_schema>
+					</entry>
+					<entry name="hf-font-size">
+						<local_schema short_desc="Tamañu de la fonte predeterminada pa cabecera/pie de páxina">
+							<longdesc>El tamañu de fonte d&apos;aniciu pa les cabeceres y pies de páxina.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="footer">
+						<local_schema short_desc="Pie de páxina">
+							<longdesc>El pie de páxina predetermináu pa los documentos nuevos puede camudase usando&apos;l diálogu «Configuración de páxina».</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="header">
+						<local_schema short_desc="Cabecera de páxina">
+							<longdesc>La cabecera de páxina predeterminada pa los documentos nuevos puede camudase usando&apos;l diálogu «Configurar páxina».</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk-setting">
+						<local_schema short_desc="GTKPrintSetting">
+							<longdesc>Configuración de GTKPrintSetting. Non edites esta variable.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="all-sheets">
+						<local_schema short_desc="Aplicar la configuración d&apos;imprentación a toles fueyes">
+							<longdesc>Esti valor determina si de manera predeterminada&apos;l diálogu de «Configuración d&apos;imprentación» aplicase a toles fueyes simultáneamente.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="autoformat">
+					<entry name="usr-dir">
+						<local_schema short_desc="Direutoriu d&apos;usuariu pa autoformatos">
+							<longdesc>El direutoriu principal pa les plantilles específiques del usuariu.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="sys-dir">
+						<local_schema short_desc="Direutoriu del Sistema p&apos;Autoformatos">
+							<longdesc>Esti direutoriu caltién les plantilles d&apos;autoformatu preinstalaes.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="extra-dirs">
+						<local_schema short_desc="Llista de direutorios d&apos;autoformatu extra.">
+							<longdesc>Esta llista caltién tolos direutorios extra que caltienen plantilles d&apos;autoformatu.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="plugins">
+					<entry name="extra-dirs">
+						<local_schema short_desc="Llista de direutorios adicionales de complementos.">
+							<longdesc>Esta llista caltién tolos direutorios adicionales que caltienen complementos.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="file-states">
+						<local_schema short_desc="Llista d&apos;estaos de ficheros complementos.">
+							<longdesc>Esta llista caltién l&apos;estáu de tolos ficheros de complementos.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="known">
+						<local_schema short_desc="Llista de complementos conocíos.">
+							<longdesc>Esta llista caltién tolos complementos conocíos.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="active">
+						<local_schema short_desc="Llista de complementos activos.">
+							<longdesc>Esta llista caltién tolos complementos que suponense que s&apos;activan automáticamente.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="activate-new">
+						<local_schema short_desc="Activar complementos nuevos">
+							<longdesc>Esta variable determina si debe activase cada complementu nuevu atopáu.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="autocorrect">
+					<entry name="replace">
+						<local_schema short_desc="Autocorreición reemplaza">
+							<longdesc>Autocorreición reemplaza</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="names-of-days">
+						<local_schema short_desc="Autocorrexir los nomes de los díes">
+							<longdesc>Autocorrexir los nomes de los díes</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="first-letter-list">
+						<local_schema short_desc="Llista d&apos;esceiciones de primer lletra">
+							<longdesc>El motor d&apos;auto-correición non corrixe la primer lletra de les palabres d&apos;esta llista.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="first-letter">
+						<local_schema short_desc="Autocorrexir primer lletra">
+							<longdesc>Autocorrexir primer lletra</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="init-caps-list">
+						<local_schema short_desc="Llista d&apos;esceiciones de capitalización d&apos;aniciu">
+							<longdesc>El motor d&apos;auto-correición non corrixe les lletres nel aniciu pa les pallabres n&apos;esta llista.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="init-caps">
+						<local_schema short_desc="Autocorrexir mayúscules d&apos;aniciu">
+							<longdesc>Autocorrexir mayúscules d&apos;aniciu</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="functionselector">
+					<entry name="num-of-recent">
+						<local_schema short_desc="Másima llonxitú de la llista de funciones recientemente usaes">
+							<longdesc>El seleutor de funciones caltién una llista de funciones recientemente usaes. Esta ye la llonxitú másima d&apos;esta llista.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="recentfunctions">
+						<local_schema short_desc="Llista de funciones usaes recientemente.">
+							<longdesc>El seleutor de funciones caltién una llista de les funciones recientemente usaes. Esta ye esa llista.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="evince">
+				<entry name="override_restrictions">
+					<local_schema short_desc="Saltase les restricciones del documentu">
+						<longdesc>Saltase les restricciones del documentu, como restricción pa copiar o imprentar.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+		</dir>
+		<dir name="desktop">
+			<dir name="gnome">
+				<dir name="interface">
+					<entry name="show_unicode_menu">
+						<local_schema short_desc="Amosar el menú &apos;Caráuter de control Unicode&apos;">
+							<longdesc>Si los menús de contestu de les entráes y les vistes de testu han d&apos;ufrir inxertar carauteres de control.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_input_method_menu">
+						<local_schema short_desc="Amosar el menú &apos;Métodos d&apos;entrada&apos;">
+							<longdesc>Si los menús de contestu de les entráes y les vistes de testu han d&apos;ufrir camudar el métodu d&apos;entrada.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menubar_accel">
+						<local_schema short_desc="Acelerador de barra de menú">
+							<longdesc>Atayu de tecláu p&apos;abrir les barres de menú.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="file_chooser_backend">
+						<local_schema short_desc="Módulu pa GTKFileChooser">
+							<longdesc>Módulu pa usar como modelu de sistema de ficheros pal widget GtkFileChooser. Los valores posibles son &quot;gio&quot;, &quot;gnome-vfs&quot; y &quot;gtk+&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="status_bar_meter_on_right">
+						<local_schema short_desc="Barra d&apos;estáu a mandrecha">
+							<longdesc>Si s&apos;amuesa un mididor a mandrecha na barra d&apos;estáu.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_custom_font">
+						<local_schema short_desc="Usar fonte personalizada">
+							<longdesc>Si va usase una fonte personalizada nes aplicaciones gtk+.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="monospace_font_name">
+						<local_schema short_desc="Triba de lletra monoespaciada">
+							<longdesc>Nome d&apos;una triba de lletra monoespaciada (anchor fixu) pa usar en llugares como los terminales.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="document_font_name">
+						<local_schema short_desc="Fonte del documentu">
+							<longdesc>Nome de la triba de lletra por defeutu usada pa lleer documentos.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk-im-module">
+						<local_schema short_desc="Módulu GTK IM">
+							<longdesc>Nome del módulu de métodu d&apos;entrada usau por GTK+.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk-im-status-style">
+						<local_schema short_desc="Estilu del estáu de GTK IM">
+							<longdesc>Nome del métodu d&apos;entrada de GTK+ Status Style usáu por gtk+.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk-im-preedit-style">
+						<local_schema short_desc="Estilu preedit de GTK IM">
+							<longdesc>Nome del métodu d&apos;entrada de GTK+ Preedit Style usáu por gtk+.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="font_name">
+						<local_schema short_desc="Fonte por defeutu">
+							<longdesc>Nome de la triba de lletra por defeutu usada por gtk+.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk_key_theme">
+						<local_schema short_desc="Tema Gtk+">
+							<longdesc>Nome base del tema predetermináu usao per gtk+.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk_theme">
+						<local_schema short_desc="Tema Gtk+">
+							<longdesc>Nome base del tema predetermináu usao per gtk+.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="icon_theme">
+						<local_schema short_desc="Tema d&apos;iconos">
+							<longdesc>Tema d&apos;iconos que se van usar pal panel, nautilus, etc.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="cursor_blink_time">
+						<local_schema short_desc="Tiempu de parpaguéu del cursor">
+							<longdesc>Llonxitú del ciclu de parpaguéu del cursor, en milisegundos.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="cursor_blink">
+						<local_schema short_desc="Parpaguéu del cursor">
+							<longdesc>Si el cursor tien que parpaguiar.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_icons_size">
+						<local_schema short_desc="Tamañu de los iconos de la barra de ferramientes">
+							<longdesc>Tamañu de los iconos nes barres de ferramientes, pue ser &quot;small-toolbar&quot; o &quot;large-toolbar&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_detachable">
+						<local_schema short_desc="Barra de ferramientes separtable">
+							<longdesc>Si l&apos;usuariu puede soltar barres de ferramientes y moveles perende.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menubar_detachable">
+						<local_schema short_desc="Barra de menú separtable">
+							<longdesc>Si l&apos;usuariu puede soltar les barres de menú y moveles per ende.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="buttons_have_icons">
+						<local_schema short_desc="Los botones tienen iconos">
+							<longdesc>Si los botones pueden amosar un iconu amás del testu del botón.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menus_have_icons">
+						<local_schema short_desc="Los menús tienen iconos">
+							<longdesc>Si los menús pueden amosar un iconu xunto a la entrada de menú.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_style">
+						<local_schema short_desc="Estilu de la barra de ferramientes">
+							<longdesc>Estilu de la barra de ferramientes. Los valores válidos son &quot;both&quot;, &quot;both-horiz&quot;, &quot;icons&quot; y &quot;text&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="can_change_accels">
+						<local_schema short_desc="Pueden camudase los aceleradores">
+							<longdesc>Si l&apos;usuariu puede tecliar dinámicamente un acelerador nuevu tando enriba d&apos;un elementu de menú activu.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menus_have_tearoff">
+						<local_schema short_desc="Los menús tienen un tirador">
+							<longdesc>Si los menús tendrán un tirador.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="Activar animaciones">
+							<longdesc>Si hai qu&apos;amosar les animaciones. Nota: Esta ye una clave global, camuda el comportamientu del xestor de ventanos, del panel, etc.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="accessibility">
+						<local_schema short_desc="Activar accesibilidá">
+							<longdesc>Si les aplicaciones han tener sofitu pa accesibilidá.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="background">
+					<entry name="color_shading_type">
+						<local_schema short_desc="Tipu de solombráu de colores">
+							<longdesc>Como solombrar la color de fondu. Los valores posibles son &quot;horizontal-gradient&quot;, &quot;vertical-gradient&quot;, y &quot;solid&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="secondary_color">
+						<local_schema short_desc="Color secundariu">
+							<longdesc>Color derecha o fondera al dibuxar los dilíos, nun se usa pa color sólida.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="primary_color">
+						<local_schema short_desc="Color primariu">
+							<longdesc>Color cimera o esquierda al dibuxar los dilíos, o la color sólida.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="picture_opacity">
+						<local_schema short_desc="Opacidá de la imaxe">
+							<longdesc>Opacidá pa dibuxar la imaxe del fondu.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="picture_filename">
+						<local_schema short_desc="Nome del ficheru d&apos;imaxe">
+							<longdesc>Ficheru que se va usar pa la imaxe de fondu.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="picture_options">
+						<local_schema short_desc="Opciones d&apos;imaxe">
+							<longdesc>Determina cómo renderizar la imaxe conseñada por wallpaper_filename. Los valores posibles son &quot;none&quot;, &quot;wallpaper&quot;, &quot;centered&quot;, &quot;scaled&quot;, &quot;stretched&quot; y &quot;zoom&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="draw_background">
+						<local_schema short_desc="Dibuxar fondu d&apos;escritoriu">
+							<longdesc>Facer que GNOME dibuxe&apos;l fondu l&apos;escritoriu.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="thumbnail_cache">
+					<entry name="maximum_size">
+						<local_schema>
+							<longdesc>Tamañu máximu de la caché de miniatures, en megabytes. Ponlu a -1 pa desactivar la llimpieza.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="maximum_age">
+						<local_schema>
+							<longdesc>Antigüedá máxima pa les miniatures de la caché, en díes. Ponlu a -1 pa desactivar la llimpieza.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="typing_break">
+					<entry name="enabled">
+						<local_schema short_desc="Indica si ta activáu el bloquéu del tecláu">
+							<longdesc>Indica si ta activáu el bloquéu del tecláu.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="allow_postpone">
+						<local_schema short_desc="Permitir allanciar los descansos">
+							<longdesc>Indica si la pantalla de descansu de tecliar puede allanciase o non.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="break_time">
+						<local_schema short_desc="Tiempu de descansu">
+							<longdesc>Númberu de minutos que tien que durar el descansu de tecliar.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="type_time">
+						<local_schema short_desc="Tiempu de tecléu">
+							<longdesc>Númberu de minutos de tiempu pa tecliar enantes de qu&apos;entame&apos;l mou de descansu.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="sound">
+					<entry name="input_feedback_sounds">
+						<local_schema short_desc="Soníos de retornu d&apos;entrada">
+							<longdesc>Si se reproducen soníos nos eventos d&apos;entrada.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="theme_name">
+						<local_schema short_desc="Nome del tema de soníos">
+							<longdesc>Tema de soníu XDG a usar pa eventos de soníu.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="event_sounds">
+						<local_schema short_desc="Soníos pa los eventos">
+							<longdesc>Si se reproducen soníos nos eventos d&apos;usuariu.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_esd">
+						<local_schema short_desc="Activar l&apos;ESD">
+							<longdesc>Activar l&apos;entamu del sirvidor de soníu.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="default_mixer_tracks">
+						<local_schema short_desc="Pistes predetermináes del mecedor">
+							<longdesc>Les pistes predetermináes del mecedor usáes poles tecles multimedia.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="default_mixer_device">
+						<local_schema short_desc="Preséu mecedor predetermináu">
+							<longdesc>El preséu mecedor predetermináu usáu poles tecles multimedia.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="peripherals">
+					<dir name="keyboard">
+						<entry name="remember_numlock_state">
+							<local_schema short_desc="Recordar l&apos;estáu de BloqNum">
+								<longdesc>Si se conseña braero, GNOME recordará l&apos;estáu del LED de bloquéu numbéricu ente sesiones.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bell_custom_file">
+							<local_schema short_desc="Nome del ficheru personalizáu pa la campana del tecláu">
+								<longdesc>Nome del ficheru de soníu de campana a reproducir.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bell_mode">
+							<local_schema>
+								<longdesc>los valores posibles con &quot;on&quot;, &quot;off&quot; y &quot;custom&quot;</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="mouse">
+						<entry name="cursor_size">
+							<local_schema short_desc="Tamañu del cursor">
+								<longdesc>Tamañu del cursor indicáu por cursor_theme.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="cursor_theme">
+							<local_schema short_desc="Tema del cursor">
+								<longdesc>Nome del tema del cursor. Usáu namái polos servidores X que soporten Xcursor, como XFree86 4.3 y posteriores.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="cursor_font">
+							<local_schema short_desc="Fonte del cursor">
+								<longdesc>Nome de la fonte del cursor. Si nun ta afitada usase la fonte predeterminada. El valor propágase al sirvidor X sólo al entamu de cada sesión poro, cambealu nel mediu d&apos;una sesión nun tendrá efeutu hasta la siguiente vez que coneutes.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="locate_pointer">
+							<local_schema short_desc="Llocalizar el punteru">
+								<longdesc>Rescampla la posición actual del punteru al calcar y soltar la tecla Control.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="double_click">
+							<local_schema short_desc="Tiempu de doble clic">
+								<longdesc>Duración d&apos;un doble clic.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="drag_threshold">
+							<local_schema short_desc="Umbral d&apos;arrastre">
+								<longdesc>Distancia enantes d&apos;entamar un arrastre.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="motion_threshold">
+							<local_schema short_desc="Umbral de movimientu">
+								<longdesc>Distancia en pixels que tien que movese&apos;l punteru enantes d&apos;activar l&apos;aceleración del mur. El valor -1 ye&apos;l predetermináu del sistema.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="motion_acceleration">
+							<local_schema short_desc="Clic simple">
+								<longdesc>Multiplicador d&apos;aceleración pal movimientu del mur. El valor -1 ye&apos;l predetermináu del sistema.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="single_click">
+							<local_schema short_desc="Clic simple">
+								<longdesc>Clic simple p&apos;abrir iconos.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="left_handed">
+							<local_schema short_desc="Orientación de los botones del ratón">
+								<longdesc>Camuda los botones esquierdu y drechu del mur pa mures zurdos.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="lockdown">
+					<entry name="disable_application_handlers">
+						<local_schema short_desc="Desactivar remanadores d&apos;URL y tipu MIME">
+							<longdesc>Torgar la execución de cualquier aplicación que remane URL o tipu MIME.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_lock_screen">
+						<local_schema short_desc="Desactivar el candáu de pantalla">
+							<longdesc>Torgar al usuariu bloquiar la pantalla.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_user_switching">
+						<local_schema short_desc="Desactivar el trueque d&apos;usuariu">
+							<longdesc>Torga que l&apos;usuariu cambée a otra cuenta mientres so sesión siga activa.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_print_setup">
+						<local_schema short_desc="Desactivar la configuración de la imprentadora">
+							<longdesc>Torga que l&apos;usuariu modifique los axustes d&apos;impresión. Por exemplu, esto desactivaría l&apos;accesu a los diálogos «Configurar impresión» de toles aplicaciones.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_printing">
+						<local_schema short_desc="Desactivar imprentación">
+							<longdesc>Torga que&apos;l usuariu imprente. Por exemplu, esto desactivaría l&apos;accesu a los diálogos «Imprentar» de toles aplicaciones.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_save_to_disk">
+						<local_schema short_desc="Desactivar el guardáu de ficheros nel discu">
+							<longdesc>Torga que&apos;l usuariu atroxe ficheros nel discu. Por exemplu, esto desactivaría l&apos;accesu a los diálogos «Guardar como» de toles aplicaciones.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_command_line">
+						<local_schema short_desc="Desactivar llinia de comandos">
+							<longdesc>Torga l&apos;accesu al terminal del usuariu o que conseñe una llinia d&apos;ordes pa executase. Por exemplu, esto desactivaría l&apos;accesu al diálogu del panel &quot;Executar programa...&quot;.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="file-views">
+					<entry name="icon_theme">
+						<local_schema short_desc="Tema d&apos;iconos de ficheros">
+							<longdesc>Tema usáu p&apos;amosar los iconos de ficheros.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="accessibility">
+					<dir name="startup">
+						<entry name="exec_ats">
+							<local_schema short_desc="Aplicaciones de teunoloxía d&apos;asistencia nel aniciu">
+								<longdesc>Llista d&apos;aplicaciones de teunoloxía d&apos;asistencia qu&apos;entamar al entrar nel escritoriu GNOME.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="keyboard">
+						<entry name="stickykeys_modifier_beep">
+							<local_schema>
+								<longdesc>Pitar al calcar una tecla de modificador.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="stickykeys_two_key_off">
+							<local_schema>
+								<longdesc>Desactivar si se calquen dos tecles al empar.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="slowkeys_delay">
+							<local_schema short_desc="Intervalu mínimu en milisegundos">
+								<longdesc>Nun aceutar una tecla como calcada a nun ser que se caltenga más de @delay milisegundos.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="mousekeys_init_delay">
+							<local_schema short_desc="Allancia anicial en milisegundos">
+								<longdesc>Cuántos milisegundo esperar enantes de que les tecles de movimientu del ratón entamen a furrular.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="mousekeys_accel_time">
+							<local_schema short_desc="Cuánto acelerar en milisegundos">
+								<longdesc>Cuántos milisegundos lleva dir dende 0 hasta la velocidá máxima.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="mousekeys_max_speed">
+							<local_schema short_desc="Píxeles per segundu">
+								<longdesc>Cuántos píxeles per segundu se mueven a velocidá máxima.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bouncekeys_delay">
+							<local_schema short_desc="intervalu mínimu en milisegundos">
+								<longdesc>Inorar calcaos múltiples de la _mesma_ tecla durante @delay milisegundos.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="thumbnailers">
+					<entry name="disable_all">
+						<local_schema short_desc="Desactivar tolos miniaturizadores esternos">
+							<longdesc>Conseña &quot;true&quot; pa desactivar tolos programes miniaturizadores esternos, independientemente de si tan activaos o desactivaos pel so lláu.</longdesc>
+						</local_schema>
+					</entry>
+					<dir name="application@x-gzpdf">
+						<entry name="command">
+							<local_schema short_desc="Comandu pa sacar les miniatures pa los documentos PDF">
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Activar miniatures de documentos PDF">
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@x-bzpdf">
+						<entry name="command">
+							<local_schema short_desc="Comandu pa sacar les miniatures pa los documentos PDF">
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Activar miniatures de documentos PDF">
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@pdf">
+						<entry name="command">
+							<local_schema short_desc="Comandu pa sacar les miniatures pa los documentos PDF">
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Activar miniatures de documentos PDF">
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="url-handlers">
+					<dir name="h323">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Executar el comandu nún terminal">
+								<longdesc>Afitar a «true» si&apos;l programa que remana esta URL tien d&apos;executase nún terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="El remanador pa les URLs «h323»">
+								<longdesc>El comandu usáu pa remanar les URLs «h323», si tan activaes.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Conseña si&apos;l comandu especificáu tien de remanar les URLs «h323»">
+								<longdesc>Afitar a «true» si&apos;l programa especificáu na clave «comandu» tendría de remanar les URLs «h323».</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="callto">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Executar el comandu nún terminal">
+								<longdesc>Afitar a «true» si&apos;l programa que remana esta URL tien d&apos;executase nún terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="El remanador pa les URLs «callto»">
+								<longdesc>El comandu usáu pa remanar les URLs «callto», si ta habilitáu.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Conseña si&apos;l comandu especificáu tien de remanar les URLs «callto»">
+								<longdesc>Afitar a «true» si&apos;l programa especificáu na clave «comandu» tendría de remanar les URLs «callto».</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="aim">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Executar el comandu nún terminal">
+								<longdesc>Afitar a «true» si&apos;l programa que remana esta URL tien d&apos;executase nún terminal.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="mailto">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Executar el comandu nún terminal">
+								<longdesc>Afitar a «true» si&apos;l programa que remana esta URL tien d&apos;executase nún terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="El remanador pa les URLs «mailto»">
+								<longdesc>El comandu usáu pa remanar les URLs «mailto», si tan activaes.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Conseña si&apos;l comandu especificáu tien de remanar les URLs «mailto»">
+								<longdesc>Afitar a «true» si&apos;l programa especificáu na clave «comandu» tendría de remanar les URLs «mailto».</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="https">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Executar el comandu nún terminal">
+								<longdesc>Afitar a «true» si&apos;l programa que remana esta URL tien d&apos;executase nún terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="El remanador pa les URLs «https»">
+								<longdesc>El comandu usáu pa remanar les URLs «https», si tan activaes.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Conseña si&apos;l comandu especificáu tien de remanar les URLs «https»">
+								<longdesc>Afitar a «true» si&apos;l programa especificáu na clave «comandu» tendría de remanar les URLs «https».</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="http">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Executar el comandu nún terminal">
+								<longdesc>Afitar a «true» si&apos;l programa que remana esta URL tien d&apos;executase nún terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="El remanador pa les URLs «http»">
+								<longdesc>El comandu usáu pa remanar les URLs «http», si tan activaes.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Conseña si&apos;l comandu especificáu tien de remanar les URLs «http»">
+								<longdesc>Afitar a «true» si&apos;l programa especificáu na clave «comandu» tendría de remanar les URLs «http».</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="man">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Executar el comandu nún terminal">
+								<longdesc>Afitar a «true» si&apos;l programa que remana esta URL tien d&apos;executase nún terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="El remanador pa les URLs «man»">
+								<longdesc>El comandu usáu pa remanar les URLs «man», si tan activaes.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Conseña si&apos;l comandu especificáu tien de remanar les URLs «man»">
+								<longdesc>Afitar a «true» si&apos;l programa especificáu na clave «comandu» tendría de remanar les URLs «man».</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="info">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Executar el comandu nún terminal">
+								<longdesc>Afitar a «true» si&apos;l programa que remana esta URL tien d&apos;executase nún terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="El remanador pa les URLs «info»">
+								<longdesc>El comandu usáu pa remanar les URLs «info», si tan activaes.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Conseña si&apos;l comandu especificáu tien de remanar les URLs «info»">
+								<longdesc>Afitar a «true» si&apos;l programa especificáu na clave «comandu» tendría de remanar les URLs «info».</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="ghelp">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Executar el comandu nún terminal">
+								<longdesc>Afitar a «true» si&apos;l programa que remana esta URL tien d&apos;executase nún terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="El remanador pa les URLs «ghelp»">
+								<longdesc>El comandu usáu pa remanar los URLs «ghelp», si tan activaos.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Conseña si&apos;l comandu especificáu tien de remanar les URLs «ghelp»">
+								<longdesc>Afitar a «true» si&apos;l programa especificáu na clave «comandu» tendría de remanar les URLs «ghelp».</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="trash">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Executar el comandu nún terminal">
+								<longdesc>Afitar a «true» si&apos;l programa que remana esta URL tien d&apos;executase nún terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="El remanador pa les URLs «trash»">
+								<longdesc>El comandu usáu pa remanar les URLs «trash», si tan activaes.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Conseña si&apos;l comandu especificáu tien de remanar les URLs «trash»">
+								<longdesc>Afitar a «true» si&apos;l programa especificáu na clave «comandu» tendría de remanar les URLs «trash».</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="applications">
+					<dir name="tasks">
+						<entry name="needs_term">
+							<local_schema short_desc="Les xeres necesiten un terminal">
+								<longdesc>Si l&apos;aplicación predeterminada pa les xeres necesita un terminal pa executase.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="Xeres por defeutu">
+								<longdesc>Aplicación de xeres por defeutu</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="calendar">
+						<entry name="needs_term">
+							<local_schema short_desc="El repertoriu necesita un terminal">
+								<longdesc>Si l&apos;aplicación predeterminada de calendariu necesita un terminal pa executase.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="Repertoriu predetermináu">
+								<longdesc>Aplicación de repertoriu predeterminada</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="window_manager">
+						<entry name="workspace_names">
+							<local_schema short_desc="Nomes de los espacios de trabayu (obsoletu)">
+								<longdesc>Una llista con nomes de los primeros espacios de trabayu del xestor de ventanes. Esta clave ta obsoleta dende GNOME 2.12.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="number_of_workspaces">
+							<local_schema short_desc="El númberu d&apos;espacios de trabayu (obsoletu)">
+								<longdesc>El númberu d&apos;espacios de trabayu que&apos;l xesto de ventanes habría usar. Esta clave ta obsoleta dende GNOME 2.12.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="current">
+							<local_schema short_desc="Xestor de ventanes del usuariu (obsoletu)">
+								<longdesc>Remanador de ventanes que va probase primero. Esta clave ta arrumbada dende GNOME 2.12.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="default">
+							<local_schema short_desc="Remanador de ventanes de respaldu (arrumbao)">
+								<longdesc>Remanador de ventanes de respaldu si el remanador de l&apos;usuariu nun puede alcontrase. Esta clave ta arrumbada dende GNOME 2.12</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="browser">
+						<entry name="nremote">
+							<local_schema short_desc="El ñavegador entiende la opción remota">
+								<longdesc>Si el restolador predetermináu atalanta netscape remote.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="needs_term">
+							<local_schema short_desc="El navegador necesita un terminal">
+								<longdesc>Si el restolador predetermináu necesita un terminal pa executase.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="Navegador predetermináu">
+								<longdesc>Navegador predetermináu pa toles URL.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="at">
+						<dir name="mobility">
+							<entry name="startup">
+								<local_schema short_desc="Arrancar l&apos;aplicación preferida de teunoloxía d&apos;asistencia a la movilidá">
+									<longdesc>GNOME va arrancar l&apos;aplicación preferida de teunoloxía d&apos;asistencia a la movilidá durante l&apos;aniciu.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="exec">
+								<local_schema short_desc="Aplicación preferida de teunoloxía d&apos;asistencia a la movilidá">
+									<longdesc>Aplicación preferida de teunoloxía d&apos;asistencia a la movilidá a usar nel entamu, menú o llinia d&apos;ordes.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+						<dir name="visual">
+							<entry name="startup">
+								<local_schema short_desc="Entamar l&apos;aplicación preferida de teunoloxía d&apos;asistencia visual">
+									<longdesc>GNOME va arrancar l&apos;aplicación preferida de teunoloxía d&apos;asistencia visual durante l&apos;entamu.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="exec">
+								<local_schema short_desc="Aplicación preferida de teunoloxía d&apos;asistencia visual">
+									<longdesc>Aplicación preferida de teunoloxía d&apos;asistencia visual a usar nel entamu, menú o llinia d&apos;ordes.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+					</dir>
+					<dir name="component_viewer">
+						<entry name="exec">
+							<local_schema short_desc="Aplicación visualizadora del componente">
+								<longdesc>L&apos;aplicación que s&apos;usará p&apos;adicar ficheros que requieren un componente pa velos. El parámetru %s podrá ser reemplazáu polos URIs del ficheru, el parámetru %c sedrá reemplazáu pol IID del componente.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="terminal">
+						<entry name="exec_arg">
+							<local_schema short_desc="Argumentos d&apos;execución">
+								<longdesc>Argumentu usáu pa executar programes nel terminal definíu pola clave «exec».</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="Aplicación de terminal">
+								<longdesc>Programa de terminal a usar al aniciar aplicaciones que necesiten ún.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+			</dir>
+		</dir>
+		<dir name="system">
+			<dir name="dns_sd">
+				<entry name="extra_domains">
+					<local_schema short_desc="Dominios adicionales nos que buscar servicios DNS-SD">
+						<longdesc>Llista separtada por comes de dominios DNS-SD que tendríen de ser adicables nel llugar «network:///».</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="display_local">
+					<local_schema short_desc="Cómo amosar el serviciu DNS-SD llocal">
+						<longdesc>Los valores dables son «merged», «separate» y «disabled».</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="smb">
+				<entry name="workgroup">
+					<local_schema short_desc="Grea de trabayu SMB">
+						<longdesc>La grea/grupu de trabayu de rede de Windows o el dominiu del que l&apos;usuariu ye parte. Pa que un grupu nuevu tenga efeutu, l&apos;usuariu pue necesitar zarrar la sesión y entrar de nuevu.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="proxy">
+				<entry name="autoconfig_url">
+					<local_schema short_desc="URL de configuración automática del proxy">
+						<longdesc>URL que proporciona valores de configuración de proxy.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="socks_port">
+					<local_schema short_desc="Puertu del proxy SOCKS">
+						<longdesc>El puertu de la máquina definía por &quot;/system/proxy/socks_host&quot; que fai de proxy.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="socks_host">
+					<local_schema short_desc="Nome del host del proxy SOCKS">
+						<longdesc>El nome de la máquina pela que se fai proxy socks.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="ftp_port">
+					<local_schema short_desc="Puertu del proxy FTP">
+						<longdesc>El puertu de la máquina definía por &quot;/system/proxy/ftp_host&quot; que fai de proxy.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="ftp_host">
+					<local_schema short_desc="Nome del host del proxy FTP">
+						<longdesc>El nome de la máquina pola que se fai proxy FTP.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="secure_port">
+					<local_schema short_desc="Puertu del proxy HTTP seguru">
+						<longdesc>El puertu de la máquina definía por &quot;/system/proxy/secure_host&quot; que fai de proxy.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="secure_host">
+					<local_schema short_desc="Nome del host del proxy HTTP seguru">
+						<longdesc>El nome de la máquina pola que se fai proxy HTTP seguru.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="mode">
+					<local_schema short_desc="Mou de configuración del proxy">
+						<longdesc>Seleicione el mou de configuración del proxy.  Los valores sofitaos son &quot;none&quot;, &quot;manual&quot;, &quot;auto&quot;.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="http_proxy">
+				<entry name="ignore_hosts">
+					<local_schema short_desc="Hosts ensin proxy">
+						<longdesc>Esta clave contién una llista de hosts colos que ta coneutado direutamente, n&apos;arróu de per aciu del proxy (si ta activu). Los valores puen ser nomes de anfitrión, dominios (usando un comodín auxiliar como *.foo.com), direiciones IP de hosts (tantu IPv4 como IPv6) y direiciones de rede con una máscara (daqué como 192.168.0.0/24).</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="authentication_password">
+					<local_schema short_desc="Contraseña del proxy HTTP">
+						<longdesc>Contraseña pa usar como autenticación al coneutar col proxy HTTP.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="authentication_user">
+					<local_schema short_desc="Usuariu del proxy HTTP">
+						<longdesc>Nome d&apos;usuariu pa pasar como autenticación al facer proxy HTTP.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="use_authentication">
+					<local_schema short_desc="Autenticar conexones col servidor proxy">
+						<longdesc>Si ye «true» (braero), les conexones al servidor proxy requieren d&apos;autenticación. La combinación usuariu/contraseña defínses en &quot;/system/http_proxy/authentication_user&quot; y &quot;/system/http_proxy/authentication_password&quot;.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="port">
+					<local_schema short_desc="Puertu del proxy HTTP">
+						<longdesc>El puertu de la máquina definía por &quot;/system/HTTP_proxy/host&quot; que fai de proxy.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="host">
+					<local_schema short_desc="Nome del host del proxy HTTP">
+						<longdesc>El nome de la máquina pola que se fai proxy HTTP.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="use_http_proxy">
+					<local_schema short_desc="Usar proxy HTTP">
+						<longdesc>Activa los axustes del proxy al acceder per HTTP a Internet.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+		</dir>
+	</dir>
+</gconf>

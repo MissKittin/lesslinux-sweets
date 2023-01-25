@@ -1,0 +1,1956 @@
+<?xml version="1.0"?>
+<gconf>
+	<dir name="schemas">
+		<dir name="apps">
+			<dir name="brasero">
+				<entry name="nautilus-extension-debug">
+					<local_schema short_desc="Чи слід розширенню Nautilus виводити налагоджувальні вирази">
+						<longdesc>Чи слід розширенню Nautilus виводити налагоджувальні вирази. Якщо так, потрібно відмітити це поле.</longdesc>
+					</local_schema>
+				</entry>
+				<dir name="filter">
+					<entry name="broken_sym">
+						<local_schema short_desc="Чи слід brasero фільтрувати пошкоджені символічні посилання">
+							<longdesc>Чи слід brasero фільтрувати пошкоджені символічні посилання. Якщо відмітити, то brasero не буде показувати некоректні посилання.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="replace_sym">
+						<local_schema short_desc="Замінювати символьні посилання на їх цільові файли чи теки">
+							<longdesc>Чи слід Brasero замінювати символічні посилання на цільові файли. Якщо відмічено, то Brasero буде замінювати посилання на файли.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hidden">
+						<local_schema short_desc="Чи слід brasero фільтрувати приховані файли">
+							<longdesc>Чи слід brasero фільтрувати приховані файли. Якщо відмітити, то brasero не буде показувати приховані файли.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="display">
+					<entry name="viewer">
+						<local_schema short_desc="Увімкнути попередній перегляд">
+							<longdesc>Показувати зразки файлів. Відмітьте, що використовувати цю можливість.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="config">
+					<entry name="raw_flag">
+						<local_schema short_desc="Використовувати ключ «--driver generic-mmc-raw» для cdrdao">
+							<longdesc>Використовувати ключ «--driver generic-mmc-raw» для cdrdao. Використання цього ключа дозволяє працювати з деяким пристроєм.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="minbuf_value">
+						<local_schema short_desc="Використовується разом з аргументом «-immed» для cdrecord">
+							<longdesc>Використовується разом з аргументом «-immed» для cdrecord</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="dao_flag">
+						<local_schema short_desc="Використовувати ключ «-use-the-force-luke=dao» разом з с growisofs">
+							<longdesc>Використовувати ключ «-use-the-force-luke=dao» для growisofs. Скасування цього параметра може допомогти у роботі з деякими пристроями.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="immed_flag">
+						<local_schema short_desc="Увімкнути ключ «-immed» для cdrecord">
+							<longdesc>Чи використовувати ключ «-immed» для cdrecord. Використовуйте (тобто відмічайте) обережно, оскільки це потрібно лише для сумісності з деякими пристроями приводами.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="plugins">
+						<local_schema short_desc="«Білий» список додаткових модулів для використання">
+							<longdesc>Містить список додаткових модулів, які будуть використовуватися для запису дисків. Якщо встановлено у NULL, Brasero завантажить всі модулі.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="engine-group">
+						<local_schema short_desc="Додаткова програма для запису">
+							<longdesc>Містить назви вибраної додаткової програми для запису компакт-дисків. Вона буде використовуватись при можливості.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnome-system-log">
+				<entry name="logfiles">
+					<local_schema short_desc="Файли журналу, що відкриваються на початку">
+						<longdesc>Визначає список файлів журналів, що відкриватиметься на початку. Типовий список створюється при читанні /etc/syslog.conf.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="width">
+					<local_schema short_desc="Ширина у точках головного вікна">
+						<longdesc>Вказує у точках ширину вікна програми перегляду журналу.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="height">
+					<local_schema short_desc="Висота головного вікна у точках">
+						<longdesc>Вказує у точках висоту вікна перегляду журналу.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="fontsize">
+					<local_schema short_desc="Розмір шрифту для відображення журналу">
+						<longdesc>Визначає розмір моноширинного шрифту, що використовується для відображення журналу у  головному ієрархічному дереві. Типовий шрифт береться з параметру шрифту терміналу.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="logfile">
+					<local_schema short_desc="Файл журналу, що відкриватиметься на початку">
+						<longdesc>Визначає файл журналу що відкриватиметься на початку. Типово або /var/adm/messages, або /var/log/messages залежно від операційної системи.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="gnome-search-tool">
+				<entry name="look_in_folder">
+					<local_schema short_desc="Шукати у теці">
+						<longdesc>Цей ключ вказує первинне значення для елементу &quot;Шукати у теці&quot;</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default_window_maximized">
+					<local_schema short_desc="Типовий стан мінімізації вікна">
+						<longdesc>Цей ключ визначає чи програма запускається у розгорнутому стані.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default_window_height">
+					<local_schema short_desc="Типова висота вікна">
+						<longdesc>Ключ визначає висоту вікна, та використовується для запам&apos;ятовування розміру вікна пошуку між сеансами. Встановлення значення -1 призводить до використання типової висоти.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default_window_width">
+					<local_schema short_desc="Типова ширина вікна">
+						<longdesc>Ключ визначає ширину вікна, та використовується для запам&apos;ятовування розміру вікна пошуку між сеансами. Встановлення значення -1 призводить до використання типової ширини.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="columns_order">
+					<local_schema short_desc="Порядок стовпчиків результату пошуку">
+						<longdesc>Цей ключ визначає порядок стовпчиків при виведенні результатів пошуку. Користувачу не слід змінювати цей ключ.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="quick_search_second_scan_excluded_paths">
+					<local_schema short_desc="Шляхи, що виключені з другого проходу швидкого пошуку">
+						<longdesc>Цей ключ визначає шляхи, які програма пошуку буде виключати при другому проході. Другий прохід використовує команду &quot;find&quot; для пошуку файлів. Мета другого проходу - знайти файли, які не були проіндексовані. Підтримуються шаблони &apos;*&apos; и &apos;?&apos;. Типові значення - /.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="disable_quick_search_second_scan">
+					<local_schema short_desc="Вимкнути друге сканування швидкого пошуку">
+						<longdesc>Цей ключ визначає чи забороняє програма пошуку використання програми find для прискорення пошуку.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="quick_search_excluded_paths">
+					<local_schema short_desc="Шляхи, що виключені зі швидкого пошуку">
+						<longdesc>Цей ключ визначає шляхи, які будуть виключені з швидкого пошуку. Підтримуються шаблони &apos;*&apos; та &apos;?&apos;. Типові значення /mnt/*, /media/*, /dev/*, /tmp/*, /proc/*, and /var/*.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="disable_quick_search">
+					<local_schema short_desc="Вимкнути &quot;Швидкий пошук&quot;">
+						<longdesc>Цей ключ визначає, чи забороняє утиліта пошуку використання команди locate для прискорення пошуку.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="show_additional_options">
+					<local_schema short_desc="Показувати додаткові параметри">
+						<longdesc>Цей ключ визначає чи розгортати секцію &quot;Показати додаткові параметри&quot; при запуску програми пошуку.</longdesc>
+					</local_schema>
+				</entry>
+				<dir name="select">
+					<entry name="exclude_other_filesystems">
+						<local_schema short_desc="Встановлювати параметр пошуку &quot;Не шукати на інших файлових системах&quot;">
+							<longdesc>Цей ключ визначає чи буде вибрано параметр &quot;Не шукати на інших файлових системах&quot; при запуску програми пошуку.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="follow_symbolic_links">
+						<local_schema short_desc="Встановлювати параметр пошуку &quot;Переходити за символьними посиланнями&quot;">
+							<longdesc>Цей ключ визначає чи буде вибрано параметр &quot;Переходити за символічними посиланнями&quot; при запуску програми пошуку.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_hidden_files_and_folders">
+						<local_schema short_desc="Встановлювати параметр пошуку &quot;Показувати приховані файли та резервні копії файлів&quot;">
+							<longdesc>Цей ключ визначає чи буде вибрано параметр &quot;Показувати приховані файли та резервні копії файлів&quot; при запуску програми пошуку.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name_matches_regular_expression">
+						<local_schema short_desc="Встановлювати параметр пошуку &quot;Назва відповідає регулярному виразу&quot;">
+							<longdesc>Цей ключ визначає чи буде вибрано параметр &quot;Назва відповідає регулярному виразу&quot; при запуску програми пошуку.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name_does_not_contain">
+						<local_schema short_desc="Встановлювати параметр пошуку &quot;Назва не містить&quot;">
+							<longdesc>Цей ключ визначає чи буде вибрано параметр &quot;Назва не містить&quot; при запуску програми пошуку.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="owner_is_unrecognized">
+						<local_schema short_desc="Встановлювати параметр пошуку &quot;Власник невідомий&quot;">
+							<longdesc>Цей ключ визначає чи буде вибрано параметр &quot;Власник невідомий&quot; при запуску програми пошуку.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="owned_by_group">
+						<local_schema short_desc="Встановлювати параметр пошуку &quot;Належить групі&quot;">
+							<longdesc>Цей ключ визначає чи буде вибрано параметр &quot;Належить групі&quot; при запуску програми пошуку.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="owned_by_user">
+						<local_schema short_desc="Встановлювати параметр пошуку &quot;Належить користувачу&quot;">
+							<longdesc>Цей ключ визначає чи буде вибрано параметр &quot;Належить користувачу&quot; при запуску програми пошуку.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="file_is_empty">
+						<local_schema short_desc="Встановлювати параметр пошуку &quot;Файл порожній&quot;">
+							<longdesc>Цей ключ визначає чи буде вибрано параметр &quot;Файл порожній&quot; при запуску програми пошуку.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size_at_most">
+						<local_schema short_desc="Встановлювати параметр пошуку &quot;Розмір не більше&quot;">
+							<longdesc>Цей ключ визначає чи буде вибрано параметр &quot;Розмір не більше&quot; при запуску програми пошуку.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size_at_least">
+						<local_schema short_desc="Встановлювати параметр пошуку &quot;Розмір принаймні&quot;">
+							<longdesc>Цей ключ визначає чи буде вибрано параметр &quot;Розмір принаймні&quot; при запуску програми пошуку.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="date_modified_more_than">
+						<local_schema short_desc="Встановлювати параметр пошуку &quot;Дата останньої зміни більша за&quot;">
+							<longdesc>Цей ключ визначає чи буде вибрано параметр &quot;Дата останньої зміни більша за&quot; при запуску програми пошуку.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="date_modified_less_than">
+						<local_schema short_desc="Встановлювати параметр пошуку &quot;Дата останньої зміни менша за&quot;">
+							<longdesc>Цей ключ визначає чи буде вибрано параметр &quot;Дата останньої зміни менша за&quot; при запуску програми пошуку.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="contains_the_text">
+						<local_schema short_desc="Встановлювати параметр пошуку &quot;Містить текст&quot;">
+							<longdesc>Цей ключ визначає чи буде вибрано параметр &quot;Містить текст&quot; при запуску програми пошуку.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnome-screenshot">
+				<entry name="border_effect">
+					<local_schema short_desc="Ефекти рамки">
+						<longdesc>Ефект, що додається навколо рамки. Можливі варіанти: &quot;shadow&quot;, &quot;none&quot;, та &quot;border&quot;.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="include_pointer">
+					<local_schema short_desc="Увімкнути вказівник">
+						<longdesc>Включити вказівник миші у знімок екрану</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="include_border">
+					<local_schema short_desc="Увімкнути рамку">
+						<longdesc>Включити рамку віконного менеджера у знімок екрану</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="last_save_directory">
+					<local_schema short_desc="Каталог знімків екрану">
+						<longdesc>Каталог, що останній раз використовувався для збереження знімків.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="delay">
+					<local_schema short_desc="Затримка знімку екрану">
+						<longdesc>Число секунд, яке буде очікуватися до того, як буде зроблено знімок екрану.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="take_window_shot">
+					<local_schema short_desc="Знімок спеціального вікна (заборонено)">
+						<longdesc>Знімати лише поточне вікно, а не всю стільницю. Цей ключ заборонено, і він вже не використовується.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="gnome-dictionary">
+				<entry name="sidebar-width">
+					<local_schema short_desc="Ширина бічної панелі">
+						<longdesc>Цей ключ визначає ширину бічної панелі та використовується для запису її параметрів між сеансами.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="sidebar-page">
+					<local_schema short_desc="Сторінка бічної панелі, яка відображається">
+						<longdesc>Ключ визначає чи слід виводити вікно розгорнутим та використовується, щоб запам&apos;ятати розмір вікна словника між сеансами. При встановленні TRUE вікно програми буде завжди розгорнуте.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="statusbar-visible">
+					<local_schema short_desc="Відображати рядок стану">
+						<longdesc>Ключ визначає чи слід виводити рядок стану та використовується, щоб запам&apos;ятати розмір рядка стану між сеансами. При встановленні TRUE рядок стану  буде завжди розгорнуте.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="sidebar-visible">
+					<local_schema short_desc="Відображати бічну панель">
+						<longdesc>Ключ визначає чи слід відображати бічну панель та використовується, щоб запам&apos;ятати розмір бічної панелі між сеансами. При встановленні TRUE бічна панель буде завжди розгорнуте.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="window-is-maximized">
+					<local_schema short_desc="Відображати вікно програми згорнутим">
+						<longdesc>Ключ визначає чи слід виводити вікно розгорнутим та використовується, щоб запам&apos;ятати розмір вікна словника між сеансами. При встановленні TRUE вікно програми буде завжди розгорнуте.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default-window-height">
+					<local_schema short_desc="Типова висота вікна програми">
+						<longdesc>Ключ визначає висоту вікна та використовується, щоб запам&apos;ятати розмір вікна словника між сеансами. При встановленні -1 висота вікна словника буде залежати від розміру шрифту.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default-window-width">
+					<local_schema short_desc="Типова ширина вікна програми">
+						<longdesc>Ключ визначає ширину вікна та використовується, щоб запам&apos;ятати розмір вікна словника між сеансами. При встановленні -1 висота ширина словника буде залежати від розміру шрифту.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="source-name">
+					<local_schema short_desc="Назва сервера словника">
+						<longdesc>Назва словникового сервера, що використовується для отримання визначень слів.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="print-font">
+					<local_schema short_desc="Шрифт, що використовується при друкуванні">
+						<longdesc>Шрифт, що використовується при друкуванні.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="strategy">
+					<local_schema short_desc="Типова стратегія пошуку">
+						<longdesc>Назва типової стратегії пошуку для сервера словника, якщо доступно. Типова стратегія &apos;exact&apos;, тобто точна відповідність словам.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="database">
+					<local_schema short_desc="Типова база даних">
+						<longdesc>Назва типової індивідуальної бази даних або мета бази даних на словниковому сервері. Знак оклику (&quot;!&quot;) вказує, що пошук має відбуватись в усіх базах даних сервера</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="smart">
+					<local_schema short_desc="Використовувати розумний пошук (застаріло)">
+						<longdesc>Визначає чи використовувати розумний пошук. Цей ключ залежить від того, чи підтримує сервер цю можливість. Типове значення TRUE. Цей ключ застарів та більше не використовується.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="port">
+					<local_schema short_desc="Порт для з&apos;єднання з словниковим сервером (застаріло)">
+						<longdesc>До якого порту з&apos;єднуватись. Типовий порт 2628. Цей ключ застарілий та більше не використовується.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="server">
+					<local_schema short_desc="Словниковий сервер (застаріло)">
+						<longdesc>З яким словниковим сервером з&apos;єднуватись. Типово це сервер на dict.org. Докладніше про інші сервери дивіться на http://www.dict.org. Ключ застарів та більше не використовується.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="baobab">
+				<dir name="properties">
+					<entry name="skip_scan_uri_list">
+						<local_schema short_desc="URI виключених розділів">
+							<longdesc>Список URI для розділів, що не включаються у сканування.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_home_monitor">
+						<local_schema short_desc="Увімкнути контроль домашнього каталогу">
+							<longdesc>Чи контролювати зміни у домашньому каталозі.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="ui">
+					<entry name="baobab_subfoldertips_visible">
+						<local_schema short_desc="Показувати підтеки у підказках">
+							<longdesc>Чи будуть видимі підказки з назвами тек, вкладених одна у одну теку.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="statusbar_visible">
+						<local_schema short_desc="Рядок статусу видимий">
+							<longdesc>Чи видимий рядок стану знизу головного вікна.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_visible">
+						<local_schema short_desc="Панель видима">
+							<longdesc>Чи видима панель інструментів головного вікна.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="window_list_applet">
+				<dir name="prefs">
+					<entry name="maximum_size">
+						<local_schema short_desc="Максимальний розмір списку вікон">
+							<longdesc>Використання цього ключа небажане у GNOME 2.20. Даний ключ зберігається для сумісності з попередніми версіями.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="minimum_size">
+						<local_schema short_desc="Мінімальний розмір списку вікон">
+							<longdesc>Використання цього ключа небажане у GNOME 2.20. Даний ключ зберігається для сумісності з попередніми версіями.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="move_unminimized_windows">
+						<local_schema short_desc="Переносити мінімізовані вікна у поточну область">
+							<longdesc>Якщо встановлено, відновлення вікна буде відбуватись на поточну робочу область, а не на початкову.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="group_windows">
+						<local_schema short_desc="Умови групування вікон">
+							<longdesc>Визначає правила групування вікон програм у списку вікон. Можливими значеннями є &quot;never&quot;, &quot;auto&quot; і &quot;always&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_all_workspaces">
+						<local_schema short_desc="Показувати вікна з усіх робочих областей">
+							<longdesc>Якщо встановлено, то список вікон показуватиме вікна зі всіх робочих областей, а не лише з поточного.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="workspace_switcher_applet">
+				<dir name="prefs">
+					<entry name="num_rows">
+						<local_schema short_desc="Рядків у перемикачі робочих областей">
+							<longdesc>Цей параметр визначає, скільки рядків (при горизонтальному розміщенні) чи стовпчиків (при вертикальному), показує перемикач робочих областей. Цей параметр має сенс лише коли встановлено параметр display_all_workspaces.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_all_workspaces">
+						<local_schema short_desc="Показувати всі робочі області">
+							<longdesc>Якщо встановлено, то перемикач робочих областей показує всі області, а не лише поточну.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_workspace_names">
+						<local_schema short_desc="Показувати назви робочих областей">
+							<longdesc>Якщо встановлено, то перемикач робочих областей виводить їх назви, а не вікна в ньому. У іншому випадку будуть показані вікна робочої області. Параметр діє, лише за умови використання віконного менеджера Metacity.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="fish_applet">
+				<dir name="prefs">
+					<entry name="rotate">
+						<local_schema short_desc="Розвертати на вертикальних панелях">
+							<longdesc>Чи анімація рибки має повертатись на вертикальних панелях.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="speed">
+						<local_schema short_desc="Затримка на кадр">
+							<longdesc>Цей ключ визначає кількість секунд показу кожного кадру.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="frames">
+						<local_schema short_desc="Кадрів у анімації">
+							<longdesc>Цей параметр визначає кількість кадрів, що показуватимуться в анімації.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="command">
+						<local_schema short_desc="Команда, що виконуватиметься з клацанням на рибці">
+							<longdesc>Цей ключ визначає команду, що виконуватиметься при клацанні на рибці.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="image">
+						<local_schema short_desc="Анімаційне зображення рибки">
+							<longdesc>Цей параметр визначає назву файла зображення, що його буде застосовано в анімації.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name">
+						<local_schema short_desc="Ім&apos;я рибки">
+							<longdesc>Рибка без імені — нудна рибка. Додайте життя своїй рибці, давши їй ім&apos;я.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="clock_applet">
+				<dir name="prefs">
+					<entry name="speed_unit">
+						<local_schema short_desc="Одиниці швидкості">
+							<longdesc>Одиниці, що використовуються для виводу швидкості.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="temperature_unit">
+						<local_schema short_desc="Одиниці температури">
+							<longdesc>Одиниці, що використовуються для виводу температури.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="cities">
+						<local_schema short_desc="Перелік місцевостей">
+							<longdesc>Список місцевостей для показу у вікні календаря.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="internet_time">
+						<local_schema short_desc="Показувати час у стилі Інтернет">
+							<longdesc>Використання цього ключа небажане у GNOME 2.6, використовуйте ключ &apos;format&apos;. Даний ключ зберігається для сумісності з попередніми версіями.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="unix_time">
+						<local_schema short_desc="Показувати час у стилі UNIX">
+							<longdesc>Використання цього ключа небажане у GNOME 2.6, використовуйте ключ &apos;format&apos;. Даний ключ зберігається для сумісності з попередніми версіями.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hour_format">
+						<local_schema short_desc="Формат виводу часу">
+							<longdesc>Використання цього ключа небажане у GNOME 2.6, використовуйте ключ &apos;format&apos;. Даний ключ зберігається для сумісності з попередніми версіями.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_locations">
+						<local_schema short_desc="Розкривати список місцевостей">
+							<longdesc>Чи розкривати список місцевостей у календарі.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_weather">
+						<local_schema short_desc="Розкривати список інформації про погоду">
+							<longdesc>Чи розкривати інформацію про погоду у календарі.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_tasks">
+						<local_schema short_desc="Розкривати список задач">
+							<longdesc>Чи розкривати список завдань у календарі.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_birthdays">
+						<local_schema short_desc="Розкривати список днів народжень">
+							<longdesc>Чи виводити список днів народжень у вікні календаря.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_appointments">
+						<local_schema short_desc="Розкривати список зустрічей">
+							<longdesc>Чи виводити список зустрічей у вікні календаря.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_week_numbers">
+						<local_schema short_desc="Виводити номери тижнів в календарі">
+							<longdesc>Чи виводити номери тижнів у календарі.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="config_tool">
+						<local_schema short_desc="Засіб встановлення часу">
+							<longdesc>Використання цього ключа разом з внутрішньою програмою налаштування часу заборонено починаючи з GNOME 2.22. Даний ключ зберігається для сумісності з попередніми версіями.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gmt_time">
+						<local_schema short_desc="Показувати час за Гринвічем (UTC)">
+							<longdesc>Використання цього ключа небажане у GNOME 2.28 через використання часових поясів. Даний ключ зберігається для сумісності з попередніми версіями.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_temperature">
+						<local_schema short_desc="Виводити температуру в годиннику">
+							<longdesc>Чи виводити температуру поруч із значком погоди.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_weather">
+						<local_schema short_desc="Виводити погоду у годиннику">
+							<longdesc>Чи виводити значок погоди.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_tooltip">
+						<local_schema short_desc="Виводити дату в підказці">
+							<longdesc>Чи показувати дату в підказці, коли вказівник миші знаходиться над годинником.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_date">
+						<local_schema short_desc="Виводити дату в годиннику">
+							<longdesc>Чи виводити дату в годиннику, разом з часом.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_seconds">
+						<local_schema short_desc="Виводити секунди">
+							<longdesc>Чи виводити секунди в часі.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="custom_format">
+						<local_schema short_desc="Власний формат годинника">
+							<longdesc>Цей ключ вказує формат, який використовує аплет годинника, якщо тип ключа формату встановлено у &quot;custom&quot;. Для отримання бажаного формату можете використовувати параметри перетворення, що підтримуються функцією strftime(). Докладнішу інформацію дивіться у man-сторінці до strftime().</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="format">
+						<local_schema short_desc="Формат виводу часу">
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="panel">
+				<dir name="objects">
+					<entry name="action_type">
+						<local_schema short_desc="Тип дії кнопки">
+							<longdesc>Тип дії, що реалізує кнопка. Можливими значеннями є &quot;lock&quot;, &quot;logout&quot;, &quot;run&quot;, &quot;search&quot; і &quot;screenshot&quot;. Цей параметр має значення лише тоді, коли ключ типу об&apos;єкта (object_type) містить &quot;action-applet&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="launcher_location">
+						<local_schema short_desc="Положення кнопки запуску">
+							<longdesc>Місцезнаходження файла .desktop, що описує кнопку запуску. Цей параметр має сенс лише тоді, коли ключ типу об&apos;єкта (object_type) містить &quot;launcher-object&quot;&quot;&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menu_path">
+						<local_schema short_desc="Шлях до вмісту меню">
+							<longdesc>Шлях, з якого буде сконструйовано вміст меню. Параметр має сенс лише тоді, коли встановлено параметр use_menu_path і параметр object_type має значення &quot;menu-object&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_menu_path">
+						<local_schema short_desc="Використовувати вказаний користувачем шлях до вмісту меню">
+							<longdesc>Якщо встановлено, то значення параметра menu_path використовується , як шлях, з якого буде конструюватись меню. Якщо ж цей параметр не встановлено, то параметр menu_path ігнорується. Цей параметр має сенс лише тоді коли, тип об&apos;єкта містить значення &quot;menu-object&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="custom_icon">
+						<local_schema short_desc="Значок для кнопки об&apos;єкта">
+							<longdesc>Місцезнаходження файла зображення, що використовується в якості значка кнопки. Цей параметр має сенс лише тоді, коли тип об&apos;єкта (object_type) містить &quot;drawer-object&quot; або &quot;menu-object&quot; і встановлено параметр use_custom_icon.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_custom_icon">
+						<local_schema short_desc="Використовувати вказаний користувачем значок до кнопки об&apos;єкта">
+							<longdesc>Якщо встановлено, то значення з custom_icon використовується, як визначений користувачем значок для кнопки. Якщо ж цей параметр не встановлено, то значення custom_icon ігнорується. Цей параметр має сенс лише тоді, коли тип об&apos;єкта містить значення &quot;menu-object&quot; або &quot;drawer-object&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="tooltip">
+						<local_schema short_desc="Підказка для шухляди чи меню">
+							<longdesc>Текст, що використовуватиметься в якості підказки для даної шухляди або цього меню. Цей параметр має сенс лише тоді, коли object_type містить &quot;drawer-object&quot; або &quot;menu-object&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="attached_toplevel_id">
+						<local_schema short_desc="Приєднана до шухляди панель">
+							<longdesc>Ідентифікатор панелі приєднаної до цієї шухляди. Цей параметр має зміст лише тоді, коли ключ тип об&apos;єкта (object_type) містить &quot;drawer-object&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="bonobo_iid">
+						<local_schema short_desc="IID аплету Bonobo">
+							<longdesc>Ідентифікатор реалізації аплету Bonobo (Bonobo implementation ID) — наприклад, &quot;OAFIID:GNOME_ClockApplet&quot;.  Цей параметр має сенс лише тоді, коли типу об&apos;єкта містить &quot;bonobo-applet&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="locked">
+						<local_schema short_desc="Блокування положення об&apos;єкта на панелі">
+							<longdesc>Чи забороняти користувачу переносити аплет без його розблокування.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="panel_right_stick">
+						<local_schema short_desc="Інтерпретувати позицію відносно нижнього (правого) краю панелі.">
+							<longdesc>Чи інтерпретувати позицію об&apos;єкта відносно правого (або нижнього, для вертикальних панелей) краю панелі.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="position">
+						<local_schema short_desc="Положення об&apos;єкта на панелі">
+							<longdesc>Положення об&apos;єкта на панелі. Положення визначається кількістю точок від лівого (чи верхнього, для вертикальних панелей) краю панелі.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toplevel_id">
+						<local_schema short_desc="Панель верхнього рівня, що містить об&apos;єкт">
+							<longdesc>Ідентифікатор панелі верхнього рівня, що містить цей об&apos;єкт.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="object_type">
+						<local_schema short_desc="Тип об&apos;єкта панелі">
+							<longdesc>Тип об&apos;єкта панелі. Можливі значення: &quot;drawer-object&quot;, &quot;menu-object&quot;, &quot;launcher-object&quot;, &quot;bonobo-applet&quot;, &quot;action-applet&quot; і &quot;menu-bar&quot;.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="toplevels">
+					<entry name="animation_speed">
+						<local_schema short_desc="Швидкість анімації">
+							<longdesc>Швидкість, з якому має відбуватись анімація. Можливими значеннями є &quot;slow&quot; (повільно), &quot;medium&quot; (помірно), і &quot;fast&quot; (швидко). Цей параметр має зміст лише тоді, коли встановлено параметр enable_animations.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_hide_size">
+						<local_schema short_desc="Кількість видимих точок у схованої панелі">
+							<longdesc>Вказує кількість точок, видимих коли панель автоматично ховається за межі екрану. Цей параметр має зміст лише тоді, коли встановлено параметр auto_hide.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="unhide_delay">
+						<local_schema short_desc="Затримка автоматичного згортання панелі">
+							<longdesc>Вказує затримку в мілісекундах, яка має пройти між моментом коли вказівник миші з&apos;явиться в зоні панелі і автоматичним показуванням цієї панелі. Має сенс лише тоді, коли встановлено параметр auto_hide.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hide_delay">
+						<local_schema short_desc="Затримка автоматичного згортання панелі">
+							<longdesc>Вказує затримку в мілісекундах, яка має пройти між моментом коли вказівник миші залишить панель та автоматичним приховуванням цієї панелі. Має сенс лише тоді, коли встановлено параметр auto_hide.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_arrows">
+						<local_schema short_desc="Увімкнути стрілки на кнопках згортання">
+							<longdesc>Якщо встановлено, то на боках панелі буде розміщено кнопки приховування панелі. Цей параметр має сенс лише тоді, коли встановлено параметр enable_buttons.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_buttons">
+						<local_schema short_desc="Увімкнути кнопки згортання">
+							<longdesc>Якщо встановлено, то на боках панелі буде розміщено кнопки показу/приховування. Вони використовуються для перенесення панелі за межі екрану таким чином, що залишається лише кнопка, яка дозволяє знову розгорнути панель.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="Увімкнути анімацію">
+							<longdesc>Якщо встановлено, то приховування та показ панелі буде анімаційним, а не миттєвим.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_hide">
+						<local_schema short_desc="Автоматично ховати панель у куток">
+							<longdesc>Якщо встановлено, то в разі, коли вказівник миші залишає зону панелі, панель автоматично ховається за межі екрана. Переміщення вказівника миші до цієї межі викличе показ схованої панелі.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="y_centered">
+						<local_schema short_desc="Центрувати панель вертикально">
+							<longdesc>Якщо встановлено, ключі y та y_bottom ігноруються і панель розміщується у центрі екрану по осі Y. Якщо панель змінює розмір, вона, попри все, лишається на тому ж місці, тобто розширюється у обидві сторони.  Якщо ж параметр не встановлено, то значення y та y_bottom визначають положення панелі.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="x_centered">
+						<local_schema short_desc="Центрувати панель горизонтально">
+							<longdesc>Якщо встановлено, ключі x та x_right ігноруються і панель розміщується у центрі екрану по осі X. Якщо панель змінює розмір, вона, попри все лишається на тому ж місці, тобто розширюється у обидві сторони.  Якщо ж параметр не встановлено, то значення x та x_right визначабть положення панелі.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="y_bottom">
+						<local_schema short_desc="Y-координата панелі, починаючи з низу екрану">
+							<longdesc>Вертикальне положення панелі. починаючи з низу екрану.Якщо встановлено -1, значення ігнорується та використовується значення ключа y.Якщо значення більше за 0, тоді значення ключа y ігнорується. Це значення має зміст лише не у розширеному режимі. В розширеному це значення ігнорується, і панель розміщується на межі екрану у відповідності з орієнтацією.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="x_right">
+						<local_schema short_desc="X-координата панелі, починаючи з правої межі екрану">
+							<longdesc>Горизонтальне положення панелі, починаючи з правої межі екрану. Якщо встановлено -1, значення ігнорується та використовується значення ключа x.Якщо значення більше за 0, тоді значення ключа x ігнорується. Це значення має сенс лише не у розширеному режимі. В розширеному режимі це значення ігнорується, і панель розміщується на межі екрану у відповідності з орієнтацією.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="y">
+						<local_schema short_desc="Вертикальна координата панелі">
+							<longdesc>Вертикальне положення панелі. Це значення має зміст лише не у розширеному режимі. В розширеному це значення ігнорується, і панель розміщується на межі екрану у відповідності з орієнтацією.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="x">
+						<local_schema short_desc="Горизонтальна координата панелі">
+							<longdesc>Горизонтальне положення панелі. Це значення має сенс лише не у розширеному режимі. В розширеному режимі це значення ігнорується, і панель розміщується на межі екрану у відповідності з орієнтацією.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size">
+						<local_schema short_desc="Розмір панелі">
+							<longdesc>Висота панелі (чи ширина, якщо панель вертикально). Панель визначає мінімальний розмір в роботі, виходячи з розміру шрифту та інших індикаторів. Максимальний розмір обмежено чвертю висоти екрана (чи ширини, для вертикальних панелей).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="orientation">
+						<local_schema short_desc="Орієнтація панелі">
+							<longdesc>Орієнтація панелі. Можливими значеннями є &quot;top&quot; (вгорі), &quot;bottom&quot; (внизу), &quot;left&quot; (зліва), &quot;right&quot; (справа). У розширеному режимі значення визначає, біля якої сторони екрана розміщено панель. Не у розширеному — різниця між &quot;top&quot; і &quot;bottom&quot; те така важлива, обидва значення визначають, що це горизонтальна панель, але все ж визначає деякі аспекти поведінки об&apos;єктів на панелі. Наприклад, із значенням &quot;top&quot; меню кнопки буде зорієнтовано вниз, а із &quot;bottom&quot; — вгору.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand">
+						<local_schema short_desc="Розширювати до захоплення всієї ширини екрана">
+							<longdesc>Якщо встановлено, то панель займатиме всю ширину екрана (чи висоту, якщо панель вертикальна). Такі панелі можуть знаходитись лише по краях екрана. Якщо ж цей параметр не встановлено, то панель займатиме стільки простору, скільки буде необхідно для розміщення включених в неї аплетів і кнопок.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="monitor">
+						<local_schema short_desc="Монітор в системі Xinerama, на якому розміщено панель.">
+							<longdesc>Використовуючи систему Xinerama, можна розміщати панель на індивідуальний монітор. Цей параметр визначає поточний монітор, на якому розміщено панель.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="screen">
+						<local_schema short_desc="Екран системи X Window, на якому розміщено панель.">
+							<longdesc>В багатоекранному режимі, ви можете розміщувати панель на індивідуальний екран. Даний параметр визначає поточний екран, на якому розміщено панель.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name">
+						<local_schema short_desc="Назва панелі">
+							<longdesc>Призначена для читання людиною назва панелі. Назва має ідентифікувати панель. Основне призначення — служити заголовком вікна панелі, що корисно під час перемикання між панелями.</longdesc>
+						</local_schema>
+					</entry>
+					<dir name="background">
+						<entry name="rotate">
+							<local_schema short_desc="Повернути зображення на вертикальних панелях">
+								<longdesc>Якщо встановлено, то зображення тла буде повернуте, якщо панель зорієнтовано вертикально.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="stretch">
+							<local_schema short_desc="Розтягнути зображення по панелі">
+								<longdesc>Якщо встановлено, то зображення буде масштабоване до розмірів панелі. Відношення сторін зображення не зберігатиметься.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="fit">
+							<local_schema short_desc="Підігнати зображення під панель">
+								<longdesc>Якщо встановлено, то зображення буде масштабоване (із збереженням відношення сторін) до висоти панелі (якщо панель горизонтальна).</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="image">
+							<local_schema short_desc="Зображення на тлі">
+								<longdesc>Вказує файл, що використовується для зображення на тлі. Якщо зображення містить альфа-канал, то його буде суміщено на прозорих ділянках із зображенням на тлі робочого столу.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="opacity">
+							<local_schema short_desc="Непрозорість кольору тла">
+								<longdesc>Вказує ступінь непрозорості кольору тла. Якщо колір має якусь прозорість (значення менше 65535), то колір буде &quot;суміщено&quot; із зображенням тла робочого столу.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="color">
+							<local_schema short_desc="Колір тла">
+								<longdesc>Вказує колір тла панелі у форматі #RGB.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="type">
+							<local_schema short_desc="Тип тла">
+								<longdesc>Який тип тла використовувати для панелі. Можливими значеннями є &quot;gtk&quot; (системне тло віджетів GTK+), &quot;color&quot; (тло певного кольору) і &quot;image&quot; (в якості тла використовується зображення).</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="general">
+					<entry name="profiles_migrated">
+						<local_schema short_desc="Параметри старих профілів перенесені">
+							<longdesc>Логічна ознака, що вказує чи переносити попередню конфігурацію користувача з /apps/panel/profiles/default на нове місце у /apps</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="object_id_list">
+						<local_schema short_desc="Список ідентифікаторів об&apos;єктів панелі">
+							<longdesc>Список ідентифікаторів об&apos;єктів панелі, кожен з яких ідентифікує окремий об&apos;єкт панелі (наприклад, кнопку запуску, кнопку команди чи меню). Параметри для кожного з цих об&apos;єктів зберігаються в /apps/panel/objects/$(id).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="applet_id_list">
+						<local_schema short_desc="Список ідентифікаторів аплетів панелі">
+							<longdesc>Список ідентифікаторів аплетів панелі, кожен з яких ідентифікує окремий аплет панелі. Параметри для кожного з цих аплетів зберігаються в /apps/panel/applets/$(id).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toplevel_id_list">
+						<local_schema short_desc="Список ідентифікаторів панелей">
+							<longdesc>Список ідентифікаторів панелі, кожен з яких ідентифікує окрему панель верхнього рівня. Параметри для кожної панелі зберігаються в /apps/panel/toplevels/$(id).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_autocompletion">
+						<local_schema short_desc="Увімкнути автодоповнення у діалозі запуску програм.">
+							<longdesc>Якщо встановлено, у діалозі запуску програм доступне автодоповнення.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_program_list">
+						<local_schema short_desc="Розгортати список програм у діалозі запуску програм.">
+							<longdesc>Якщо встановлено, то список відомих програм у діалозі &quot;Запустити програму&quot; буде розгорнутим. Цей параметр має значення лише тоді, коли встановлено параметр enable_program_list.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_program_list">
+						<local_schema short_desc="Увімкнути список програм у діалозі запуску програм.">
+							<longdesc>Якщо встановлено, то в діалозі &quot;Запустити програму&quot; стає доступним список відомих програм. Чи буде він розгорнутим, чи ні — визначається параметром show_program_list.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="global">
+					<entry name="disable_force_quit">
+						<local_schema short_desc="Вимкнути примусове завершення">
+							<longdesc>Якщо встановлено, панель не буде дозволяти користувачу примусово завершувати програму, шляхом блокування доступу до кнопки примусового завершення.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_log_out">
+						<local_schema short_desc="Вимкнути вихід з сеансу">
+							<longdesc>Якщо встановлено, панель не буде дозволяти користувачу завершувати сеанс, шляхом видалення пунктів меню завершення сеансу.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_lock_screen">
+						<local_schema short_desc="Застаріло">
+							<longdesc>Цей ключ позначений застарілим, оскільки його не можна використовувати для реалізації lockdown. Натомість треба використовувати /desktop/gnome/lockdown/disable_lock_screen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disabled_applets">
+						<local_schema short_desc="Ідентифікатори (IID) аплетів, для вимкнення їх завантаження">
+							<longdesc>Перелік ідентифікаторів (IID) аплетів які панель ігноруватиме. Таким чином ви можете вимкнути завантаження деяких аплетів або їх показ у меню. Наприклад, щоб вимкнути аплет mini-commander додайте &apos;OAFIID:GNOME_MiniCommanderApplet&apos; у цей список. Для вступу змін у силу необхідно перезавантажити аплет.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="locked_down">
+						<local_schema short_desc="Повне блокування панелі">
+							<longdesc>Якщо встановлено, панель не буде дозволяти вносити зміни у її параметри. Проте індивідуальні аплети можуть потребувати окремого блокування. Щоб зміни ввійшли у силу необхідно перезапустити панель.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="highlight_launchers_on_mouseover">
+						<local_schema short_desc="Підсвічувати кнопку запуску під вказівником">
+							<longdesc>Чи підсвічувати кнопку запуску, коли вказівник миші знаходиться над нею.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="confirm_panel_remove">
+						<local_schema short_desc="Запитувати підтвердження на видалення панелі">
+							<longdesc>Чи запитувати підтвердження для знищення панелі.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="drawer_autoclose">
+						<local_schema short_desc="Автоматично закривати шухляду">
+							<longdesc>Чи закривати шухляду, коли користувач натискає на кнопці запуску в ній.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="window_screenshot_key">
+						<local_schema short_desc="Застаріло">
+						</local_schema>
+					</entry>
+					<entry name="screenshot_key">
+						<local_schema short_desc="Застаріло">
+						</local_schema>
+					</entry>
+					<entry name="run_key">
+						<local_schema short_desc="Застаріло">
+						</local_schema>
+					</entry>
+					<entry name="menu_key">
+						<local_schema short_desc="Застаріло">
+						</local_schema>
+					</entry>
+					<entry name="enable_key_bindings">
+						<local_schema short_desc="Застаріло">
+						</local_schema>
+					</entry>
+					<entry name="panel_hide_delay">
+						<local_schema short_desc="Застаріло">
+						</local_schema>
+					</entry>
+					<entry name="panel_animation_speed">
+						<local_schema short_desc="Застаріло">
+						</local_schema>
+					</entry>
+					<entry name="panel_show_delay">
+						<local_schema short_desc="Застаріло">
+						</local_schema>
+					</entry>
+					<entry name="panel_minimized_size">
+						<local_schema short_desc="Застаріло">
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="Увімкнути анімацію">
+						</local_schema>
+					</entry>
+					<entry name="keep_menus_in_memory">
+						<local_schema short_desc="Застаріло">
+						</local_schema>
+					</entry>
+					<entry name="tooltips_enabled">
+						<local_schema short_desc="Увімкнути підказки">
+							<longdesc>Чи показувати підказки для об&apos;єктів у панелях.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gweather">
+				<dir name="prefs">
+					<entry name="radar">
+						<local_schema short_desc="Адреса радарної мапи">
+							<longdesc>Власна адреса для отримання радарної мапи.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_custom_radar_url">
+						<local_schema short_desc="Використовувати власну адресу радарної мапи.">
+							<longdesc>Якщо увімкнено, радарну мапу отримувати з місця, вказаного в ключі &quot;radar&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="coordinates">
+						<local_schema short_desc="Локальні координати">
+						</local_schema>
+					</entry>
+					<entry name="location4">
+						<local_schema short_desc="Погода для міста">
+						</local_schema>
+					</entry>
+					<entry name="location3">
+						<local_schema short_desc="Розташування радарної мапи">
+						</local_schema>
+					</entry>
+					<entry name="location2">
+						<local_schema short_desc="Розташування часового поясу">
+						</local_schema>
+					</entry>
+					<entry name="location1">
+						<local_schema short_desc="Сусіднє місто">
+						</local_schema>
+					</entry>
+					<entry name="location0">
+						<local_schema short_desc="Інформація про погоду у місцевості">
+						</local_schema>
+					</entry>
+					<entry name="enable_radar_map">
+						<local_schema short_desc="Показувати радарну мапу">
+							<longdesc>Запитувати радарну мапу з кожним оновленням.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_detailed_forecast">
+						<local_schema short_desc="Більше не використовується">
+						</local_schema>
+					</entry>
+					<entry name="temperature_unit">
+						<local_schema short_desc="Одиниці температури">
+							<longdesc>Одиниці температури.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="speed_unit">
+						<local_schema short_desc="Одиниці швидкості">
+							<longdesc>Одиниці швидкості вітру.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="pressure_unit">
+						<local_schema short_desc="Одиниці тиску">
+							<longdesc>Одиниці тиску.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="distance_unit">
+						<local_schema short_desc="Одиниці відстані">
+							<longdesc>Одиниці видимості.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_metric">
+						<local_schema short_desc="Метрична система">
+							<longdesc>Використовувати метричну систему.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_update_interval">
+						<local_schema short_desc="Період оновлення">
+							<longdesc>Період між автоматичними оновленнями (в секундах).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_update">
+						<local_schema short_desc="Оновлювати дані автоматично">
+							<longdesc>Визначає, чи аплет погоди автоматично оновлює дані про погоду.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnome-keyring">
+				<dir name="daemon-components">
+					<entry name="ssh">
+						<local_schema short_desc="Чи увімкнено агента SSH служби gnome-keyring.">
+							<longdesc>Цей параметр вмикає агента SSH служби gnome-keyring. Він діє лише при запущеному gnome-keyring-daemon, (наприклад: коли користувач входить у сеанс). Цей параметр можна перевизначити передаванням певних аргументів команді запуску служби.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="pkcs11">
+						<local_schema short_desc="Чи увімкнено компонент PKCS#11 служби gnome-keyring.">
+							<longdesc>Цей параметр вмикає компонент PKCS#11 служби gnome-keyring. Він діє лише якщо запускається під час старту gnome-session, (наприклад: коли користувач входить у сеанс). Цей параметр можна перевизначити передаванням певних аргументів команді запуску служби.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="secrets">
+						<local_schema short_desc="Чи увімкнено компонент шифрування служби gnome-keyring.">
+							<longdesc>Цей параметр вмикає службу шифрування gnome-keyring. Він діє лише якщо запускається під час старту gnome-session, (наприклад: коли користувач входить у сеанс). Цей параметр можна перевизначити передаванням певних аргументів команді запуску служби.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnumeric">
+				<dir name="core">
+					<dir name="sort">
+						<dir name="default">
+							<entry name="ascending">
+								<local_schema short_desc="Зростаюче сортування">
+								</local_schema>
+							</entry>
+						</dir>
+					</dir>
+				</dir>
+			</dir>
+			<dir name="evince">
+				<entry name="override_restrictions">
+					<local_schema short_desc="Ігнорувати обмеження">
+						<longdesc>Ігнорувати обмеження документу, наприклад обмеження на друк чи копіювання.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+		</dir>
+		<dir name="desktop">
+			<dir name="gnome">
+				<dir name="interface">
+					<entry name="show_unicode_menu">
+						<local_schema short_desc="Показувати меню &quot;Керуючі символи Unicode&quot;">
+							<longdesc>Чи повинні контекстні меню елементів вводу тексту пропонувати вставити керуючі символи.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_input_method_menu">
+						<local_schema short_desc="Показувати меню &quot;Методи вводу&quot;">
+							<longdesc>Чи повинні контекстні меню елементів вводу тексту пропонувати змінити метод вводу.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menubar_accel">
+						<local_schema short_desc="Комбінація клавіш меню">
+							<longdesc>Комбінація клавіш для відкривання панелей меню.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="file_chooser_backend">
+						<local_schema short_desc="Модуль для GtkFileChooser">
+							<longdesc>Модуль, що використовуватиметься в якості моделі файлової системи для віджета GtkFileChooser. Можливими значеннями є &quot;gio&quot;, &quot;gnome-vfs&quot; та &quot;gtk+&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="status_bar_meter_on_right">
+						<local_schema short_desc="Панель стану праворуч">
+							<longdesc>Чи відображати панель стану праворуч.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_custom_font">
+						<local_schema short_desc="Використовувати інший шрифт">
+							<longdesc>Чи використовувати нетиповий шрифт у програмах GTK+.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="monospace_font_name">
+						<local_schema short_desc="Моноширинний шрифт">
+							<longdesc>Назва моноширинного шрифту (як у друкарської машинки), що використовується у програмах терміналу</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="document_font_name">
+						<local_schema short_desc="Шрифт документа">
+							<longdesc>Назва типового шрифту, що використовується для читання документів.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk-im-module">
+						<local_schema short_desc="Модуль GTK IM">
+							<longdesc>Назва методу вводу &quot;Стиль стану&quot; пакету  GTK+.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk-im-status-style">
+						<local_schema short_desc="Стиль стану методу GTK IM">
+							<longdesc>Назва методу вводу &quot;Стиль стану&quot; пакету  GTK+.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk-im-preedit-style">
+						<local_schema short_desc="Стиль передредагування методу GTK IM">
+							<longdesc>Назва методу вводу &quot;Стиль передредагування&quot; пакету  GTK+.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="font_name">
+						<local_schema short_desc="Типовий шрифт">
+							<longdesc>Назва типового шрифту GTK+.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk_key_theme">
+						<local_schema short_desc="Тема GTK+">
+							<longdesc>Базова назва типової теми для GTK+</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk_theme">
+						<local_schema short_desc="Тема GTK+">
+							<longdesc>Базова назва типової теми для GTK+</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="icon_theme">
+						<local_schema short_desc="Тема значків">
+							<longdesc>Тема значків, що використовуватиметься для панелі, &quot;Наутілуса&quot; тощо.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="cursor_blink_time">
+						<local_schema short_desc="Час блимання курсора">
+							<longdesc>Величина циклу блимання курсора (в мілісекундах).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="cursor_blink">
+						<local_schema short_desc="Блимання курсора">
+							<longdesc>Чи має курсор блимати.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_icons_size">
+						<local_schema short_desc="Розмір значків в панелях">
+							<longdesc>Розмір значків панелі інструментів - &quot;small-toolbar&quot; або &quot;large-toolbar&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_detachable">
+						<local_schema short_desc="Панелі інструментів можна від&apos;єднувати">
+							<longdesc>Чи може користувач від&apos;єднувати панелі інструментів і пересувати їх.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menubar_detachable">
+						<local_schema short_desc="Панелі меню можна від&apos;єднувати">
+							<longdesc>Чи може користувач від&apos;єднувати панелі меню і пересувати їх.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="buttons_have_icons">
+						<local_schema short_desc="Кнопки містять значки">
+							<longdesc>Чи можуть у кнопках відображатися значки поруч з текстом.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menus_have_icons">
+						<local_schema short_desc="Меню містять значки">
+							<longdesc>Чи можуть в меню відображатися значки поруч з текстом.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_style">
+						<local_schema short_desc="Стиль панелі інструментів">
+							<longdesc>Стиль панелі інструментів. Правильними значеннями є &quot;both&quot;, &quot;both-horiz&quot;, &quot;icons&quot;, та &quot;text&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="can_change_accels">
+						<local_schema short_desc="Можливість зміни комбінацій клавіш">
+							<longdesc>Чи може користувач динамічно вводити нову комбінацію клавіш, коли курсор знаходиться над меню.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menus_have_tearoff">
+						<local_schema short_desc="Меню можна від&apos;єднувати">
+							<longdesc>Чи може користувач відривати меню від панелі.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="Увімкнути анімацію">
+							<longdesc>Чи потрібно відображати анімацію. Зауважте, що це глобальний ключ, його зміна вплине на поведінку віконного менеджера, панелі тощо.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="accessibility">
+						<local_schema short_desc="Увімкнути спеціальні можливості">
+							<longdesc>Чи мають програми підтримувати спеціальні можливості.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="background">
+					<entry name="color_shading_type">
+						<local_schema short_desc="Тип кольорового переходу">
+							<longdesc>Тип згасання кольору тла. Можливі значення: &quot;horizontal-gradient&quot;, &quot;vertical-gradient&quot; і &quot;solid&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="secondary_color">
+						<local_schema short_desc="Вторинний колір">
+							<longdesc>Правий чи ніжній колір для малювання градієнтів, не використовується для суцільного кольору.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="primary_color">
+						<local_schema short_desc="Первинний колір">
+							<longdesc>Лівий чи верхній колір для малювання градієнтів, не використовується для суцільного кольору.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="picture_opacity">
+						<local_schema short_desc="Прозорість малюнка">
+							<longdesc>Прозорість зображення тла.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="picture_filename">
+						<local_schema short_desc="Файл малюнка">
+							<longdesc>Файл, що використовуватиметься для зображення тла.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="picture_options">
+						<local_schema short_desc="Параметри малюнка">
+							<longdesc>Визначає метод візуалізації зображення встановленого параметром wallpaper_filename. Можливі значення: &quot;none&quot;, &quot;wallpaper&quot;, &quot;centered&quot;, &quot;scaled&quot;, &quot;stretched&quot; та &quot;zoom&quot;,  &quot;spanned&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="draw_background">
+						<local_schema short_desc="Малювати тло робочого столу">
+							<longdesc>Чи має GNOME малювати тло робочого столу.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="thumbnail_cache">
+					<entry name="maximum_size">
+						<local_schema>
+							<longdesc>Максимальний розмір ескізів у кеші, у мегабайтах. Значення -1 вимикає очищення.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="maximum_age">
+						<local_schema>
+							<longdesc>Максимальний вік ескізів у кеші, у днях. Значення -1 вимикає очищення.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="typing_break">
+					<entry name="enabled">
+						<local_schema short_desc="Чи дозволяється блокування клавіатури">
+							<longdesc>Чи дозволяється блокування клавіатури.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="allow_postpone">
+						<local_schema short_desc="Дозволити відкладання перерви">
+							<longdesc>Чи дозволяється відкладати перерву.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="break_time">
+						<local_schema short_desc="Період перерви">
+							<longdesc>Тривалість перерви.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="type_time">
+						<local_schema short_desc="Період активності">
+							<longdesc>Кількість хвилин активності перед початком перерви.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="sound">
+					<entry name="input_feedback_sounds">
+						<local_schema short_desc="Звуки при вводі">
+							<longdesc>Чи відтворювати звуки під час подій вводу.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="theme_name">
+						<local_schema short_desc="Назва звукової теми">
+							<longdesc>Тема звуків XDG, що використовується озвучення подій.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="event_sounds">
+						<local_schema short_desc="Звуки до подій">
+							<longdesc>Чи відтворювати звуки під час визначених користувачем подій.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_esd">
+						<local_schema short_desc="Увімкнути ESD">
+							<longdesc>Увімкнути запуск звукового сервера</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="default_mixer_tracks">
+						<local_schema short_desc="Типові доріжки мікшера">
+							<longdesc>Типові доріжки мікшера, що використовуються мультимедійними комбінаціями клавіш.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="default_mixer_device">
+						<local_schema short_desc="Типовий пристрій мікшера звуку">
+							<longdesc>Типовий пристрій мікшера, що використовується мультимедійними комбінаціями клавіш.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="peripherals">
+					<dir name="keyboard">
+						<entry name="remember_numlock_state">
+							<local_schema short_desc="Запам&apos;ятовувати статус NumLock">
+								<longdesc>Якщо має значення true, GNOME буде зберігати стан NumLock між сеансами.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bell_custom_file">
+							<local_schema short_desc="Назва файлу звукового сигналу клавіатури">
+								<longdesc>Назва файлу звуку динаміку.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bell_mode">
+							<local_schema>
+								<longdesc>можливими значеннями є &quot;on&quot;, &quot;off&quot; та &quot;custom&quot;</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="mouse">
+						<entry name="cursor_size">
+							<local_schema short_desc="Розмір курсора">
+								<longdesc>Розмір курсору, на який посилається ключ cursor_theme.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="cursor_theme">
+							<local_schema short_desc="Тема курсора">
+								<longdesc>Назва теми курсору. Використовується лише якщо X-сервер підтримує Xcursor, XFree86 4.3 та старших версій.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="cursor_font">
+							<local_schema short_desc="Шрифт курсора">
+								<longdesc>Шрифт курсора. Якщо не встановлено, то буде використано типовий шрифт.Це значення передається системі X Window лише на початку кожного сеансу, так що зміни, внесені протягом сеансу, не матимуть ефекту до наступного входу в сеанс.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="locate_pointer">
+							<local_schema short_desc="Виявляти позицію вказівника">
+								<longdesc>Виділяти кольором поточне положення вказівника, коли натиснуто і відпущено клавішу &quot;Control&quot;.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="double_click">
+							<local_schema short_desc="Час подвійного клацання">
+								<longdesc>Величина подвійного клацання.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="drag_threshold">
+							<local_schema short_desc="Поріг початку переносу">
+								<longdesc>Відстань, перш ніж почнеться процес перетягування.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="motion_threshold">
+							<local_schema short_desc="Поріг руху">
+								<longdesc>Відстань в точках, на яку має пересунутись вказівник, перед тим, як розпочнеться прискорення руху миші. Системним початковим значенням є -1.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="motion_acceleration">
+							<local_schema short_desc="Одинарне клацання">
+								<longdesc>Множник прискорення миші. Системним початковим значенням є -1.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="single_click">
+							<local_schema short_desc="Одинарне клацання">
+								<longdesc>Одинарне клацання для відкривання значків.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="left_handed">
+							<local_schema short_desc="Орієнтація кнопок миші">
+								<longdesc>Міняти місцями ліву і праву кнопки для мишей під ліву руку.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="lockdown">
+					<entry name="disable_application_handlers">
+						<local_schema short_desc="Вимкнути обробники URL чи MIME">
+							<longdesc>Запобігати запуску будь-якоих програм обробки типів URL чи MIME.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_lock_screen">
+						<local_schema short_desc="Вимкнути блокування екрану">
+							<longdesc>Не давати користувачу можливість заблокувати екран.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_user_switching">
+						<local_schema short_desc="Вимкнути перемикання користувачів">
+							<longdesc>Перешкоджати перемиканню на інший реєстраційний запис, якщо його сеанс - активний.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_print_setup">
+						<local_schema short_desc="Вимкнути налаштовування друку">
+							<longdesc>Забороняє користувачу змінювати параметри друку. Наприклад, доступ до діалогового вікна &quot;Налаштовування друку&quot; буде вимкнено у всіх програмах.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_printing">
+						<local_schema short_desc="Вимкнути друк">
+							<longdesc>Забороняє користувачу друк. Наприклад, доступ до діалогового вікна &quot;Друк&quot; буде вимкнено у всіх програмах.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_save_to_disk">
+						<local_schema short_desc="Вимкнути збереження файлів на диск">
+							<longdesc>Забороняє користувачу збереження файлів на диск. Наприклад, доступ до діалогового вікна &quot;Зберегти як&quot; буде вимкнено у всіх програмах.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_command_line">
+						<local_schema short_desc="Вимкнути командний рядок">
+							<longdesc>Забороняє користувачу доступ до термінала або командного рядка. Наприклад доступ до діалогового вікна панелі &quot;Виконання програми&quot; буде вимкнено.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="file-views">
+					<entry name="icon_theme">
+						<local_schema short_desc="Тема файлових значків">
+							<longdesc>Тема, що використовуватиметься для відображення значків файлів.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="accessibility">
+					<dir name="startup">
+						<entry name="exec_ats">
+							<local_schema short_desc="Виконувані при вході програми зі спеціальними можливостями">
+								<longdesc>Перелік програм для людей с обмеженими можливостями, що запускаються при вході в сеанс середовища GNOME.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="keyboard">
+						<entry name="stickykeys_modifier_beep">
+							<local_schema>
+								<longdesc>Подавати звуковий сигнал при натисканні модифікатора.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="stickykeys_two_key_off">
+							<local_schema>
+								<longdesc>Вимкнути, якщо дві клавіші натиснуто одночасно</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="slowkeys_delay">
+							<local_schema short_desc="Мінімальний інтервал у мілісекундах">
+								<longdesc>Не приймати натиснуту клавішу, якщо вона не утримувалась протягом @delay мілісекунд.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="mousekeys_init_delay">
+							<local_schema short_desc="Початкова затримка у мілісекундах">
+								<longdesc>Затримка, в мілісекундах, перед початком опрацювання клавіш руху мишею.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="mousekeys_accel_time">
+							<local_schema short_desc="Як довго прискорюватися (у мілісекундах)">
+								<longdesc>Час розгону, в мілісекундах, від 0 до максимальної швидкості.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="mousekeys_max_speed">
+							<local_schema short_desc="Точок за секунду">
+								<longdesc>Максимальна швидкість руху в точках на секунду.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bouncekeys_delay">
+							<local_schema short_desc="мінімальний інтервал у мілісекундах">
+								<longdesc>Не зважати на багаторазове натиснення однієї клавіші протягом @delay мілісекунд.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="thumbnailers">
+					<entry name="disable_all">
+						<local_schema short_desc="Вимкнути всі зовнішні програми створення мініатюр">
+							<longdesc>Відмітьте, для вимикання всіх зовнішніх програм створення мініатюр, незалежно від того, чи вони ввімкнені іншими способами.</longdesc>
+						</local_schema>
+					</entry>
+					<dir name="application@x-gzpdf">
+						<entry name="command">
+							<local_schema short_desc="Команда створення мініатюр для документів PDF">
+								<longdesc>Команда та аргументи для запуску програми створення мініатюр документа PDF. Додаткову інформацію дивіться у документації з nautilus.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Увімкнути перегляд документів PDF">
+								<longdesc>Можливе логічне значення: true вмикає створення мініатюр, а false вимикає</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@x-bzpdf">
+						<entry name="command">
+							<local_schema short_desc="Команда створення мініатюр для документів PDF">
+								<longdesc>Команда та аргументи для запуску програми створення мініатюр документа PDF. Додаткову інформацію дивіться у документації з nautilus.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Увімкнути перегляд документів PDF">
+								<longdesc>Можливе логічне значення: true вмикає створення мініатюр, а false вимикає</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@pdf">
+						<entry name="command">
+							<local_schema short_desc="Команда створення мініатюр для документів PDF">
+								<longdesc>Команда та аргументи для запуску програми створення мініатюр документа PDF. Додаткову інформацію дивіться у документації з nautilus.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Увімкнути перегляд документів PDF">
+								<longdesc>Можливе логічне значення: true вмикає створення мініатюр, а false вимикає</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="url-handlers">
+					<dir name="ymsgr">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Запустити команду в терміналі">
+								<longdesc>Так, якщо команда, що використовується для обробки цього типу URL-посилань, має бути запущена у терміналі.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Обробник URL-посилань &quot;ymsgr&quot;">
+								<longdesc>Команда використовується для обробки &quot;ymsgr&quot; URL-адрес, якщо увімкнено.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Чи визначена команда має оброблювати &quot;ymsgr&quot; URL-посилання">
+								<longdesc>Так, якщо команда визначена у &quot;command&quot; має обробляти &quot;ymsgr&quot; URL-посилання.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="xmpp">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Запустити команду в терміналі">
+								<longdesc>Так, якщо команда, що використовується для обробки цього типу URL-посилань, має бути запущена у терміналі.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Обробник URL-посилань &quot;xmpp&quot;">
+								<longdesc>Команда використовується для обробки &quot;xmpp&quot; URL-адрес, якщо увімкнено.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Чи визначена команда має оброблювати &quot;xmpp&quot; URL-посилання">
+								<longdesc>Так, якщо команда визначена у &quot;command&quot; має обробляти &quot;xmpp&quot; URL-посилання.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="sip">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Запустити команду в терміналі">
+								<longdesc>Так, якщо команда, що використовується для обробки цього типу URL-посилань, має бути запущена у терміналі.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Обробник URL-посилань &quot;sip&quot;">
+								<longdesc>Команда використовується для обробки &quot;sip&quot; URL-адрес, якщо увімкнено.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Чи визначена команда має оброблювати &quot;sip&quot; URL-посилання">
+								<longdesc>Так, якщо команда визначена у &quot;command&quot; має обробляти &quot;sip&quot; URL-посилання.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="msnim">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Запустити команду в терміналі">
+								<longdesc>Так, якщо команда, що використовується для обробки цього типу URL-посилань, має бути запущена у терміналі.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Обробник URL-посилань &quot;msnim&quot;">
+								<longdesc>Команда використовується для обробки &quot;msnim&quot; URL-адрес, якщо увімкнено.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Чи визначена команда має оброблювати &quot;msnim&quot; URL-посилання">
+								<longdesc>Так, якщо команда визначена у &quot;command&quot; має обробляти &quot;msnim&quot; URL-посилання.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="irc">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Запустити команду в терміналі">
+								<longdesc>Так, якщо команда, що використовується для обробки цього типу URL-посилань, має бути запущена у терміналі.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Обробник URL-посилань &quot;irc&quot;">
+								<longdesc>Команда використовується для обробки &quot;irc&quot; URL-адрес, якщо увімкнено.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Чи визначена команда має оброблювати &quot;irc&quot; URL-посилання">
+								<longdesc>Так, якщо команда визначена у &quot;command&quot; має обробляти &quot;irc&quot; URL-посилання.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="icq">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Запустити команду в терміналі">
+								<longdesc>Так, якщо команда, що використовується для обробки цього типу URL-посилань, має бути запущена у терміналі.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Обробник URL-посилань &quot;icq&quot;">
+								<longdesc>Команда використовується для обробки &quot;icq&quot; URL-адрес, якщо увімкнено.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Чи визначена команда має оброблювати &quot;icq&quot; URL-посилання">
+								<longdesc>Так, якщо команда визначена у &quot;command&quot; має обробляти &quot;icq&quot; URL-посилання.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="gg">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Запустити команду в терміналі">
+								<longdesc>Так, якщо команда, що використовується для обробки цього типу URL-посилань, має бути запущена у терміналі.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Обробник URL-посилань &quot;gg&quot;">
+								<longdesc>Команда використовується для обробки &quot;gg&quot; URL-адрес, якщо увімкнено.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Чи визначена команда має оброблювати &quot;gg&quot; URL-посилання">
+								<longdesc>Так, якщо команда визначена у &quot;command&quot; має обробляти &quot;gg&quot; URL-посилання.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="h323">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Виконувати команду у терміналі">
+								<longdesc>Ввімкнено, якщо програма, вказана для обробки посилань (URL) повинна запускатись у терміналі.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Обробник URL типу &quot;h323&quot;">
+								<longdesc>Якщо ввімкнено, команда використовується для обробки URL типу &quot;h323&quot;.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Чи повинна вказана команда обробляти посилання(URL) типу &quot;h323&quot;">
+								<longdesc>Якщо команда вказана у ключі &quot;command&quot;, програма буде обробляти посилання (URL) типу &quot;h323&quot;.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="callto">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Виконувати команду у терміналі">
+								<longdesc>Ввімкнено, якщо програма, вказана для обробки посилань (URL) повинна запускатись у терміналі.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Обробник URL типу &quot;callto&quot;">
+								<longdesc>Якщо ввімкнено, команда використовується для обробки URL типу &quot;callto&quot;.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Чи повинна вказана команда обробляти посилання(URL) типу &quot;callto&quot;">
+								<longdesc>Якщо команда вказана у ключі &quot;command&quot;, програма буде обробляти посилання (URL) типу &quot;callto&quot;.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="aim">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Запустити команду в терміналі">
+								<longdesc>Так, якщо команда, що використовується для обробки цього типу URL-посилань, має бути запущена у терміналі.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Обробник URL-посилань &quot;aim&quot;">
+								<longdesc>Команда використовується для обробки &quot;aim&quot; URL-адрес, якщо увімкнено.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Чи визначена команда має оброблювати &quot;aim&quot; URL-посилання">
+								<longdesc>Так, якщо команда визначена у &quot;command&quot; має обробляти &quot;aim&quot; URL-посилання.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="mailto">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Виконувати команду у терміналі">
+								<longdesc>Ввімкнено, якщо програма, вказана для обробки посилань (URL) повинна запускатись у терміналі.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Обробник URL типу &quot;mailto&quot;">
+								<longdesc>Якщо ввімкнено, команда використовується для обробки URL типу &quot;mailto&quot;.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Чи повинна вказана команда обробляти посилання(URL) типу &quot;mailto&quot;">
+								<longdesc>Якщо команда вказана у ключі &quot;command&quot;, програма буде обробляти посилання (URL) типу &quot;mailto&quot;.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="https">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Виконувати команду у терміналі">
+								<longdesc>Ввімкнено, якщо програма, вказана для обробки посилань (URL) повинна запускатись у терміналі.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Обробник URL типу &quot;https&quot;">
+								<longdesc>Якщо ввімкнено, команда використовується для обробки URL типу &quot;https&quot;.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Чи повинна вказана команда обробляти посилання(URL) типу &quot;https&quot;">
+								<longdesc>Якщо команда вказана у ключі &quot;command&quot;, програма буде обробляти посилання (URL) типу &quot;https&quot;.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="http">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Виконувати команду у терміналі">
+								<longdesc>Ввімкнено, якщо програма, вказана для обробки посилань (URL) повинна запускатись у терміналі.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Обробник URL типу &quot;http&quot;">
+								<longdesc>Якщо ввімкнено, команда використовується для обробки URL типу &quot;http&quot;.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Чи повинна вказана команда обробляти посилання(URL) типу &quot;http&quot;">
+								<longdesc>Якщо команда вказана у ключі &quot;command&quot;, програма буде обробляти посилання (URL) типу &quot;http&quot;.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="man">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Виконувати команду у терміналі">
+								<longdesc>Ввімкнено, якщо програма, вказана для обробки посилань (URL) повинна запускатись у терміналі.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Обробник URL типу &quot;man&quot;">
+								<longdesc>Якщо ввімкнено, команда використовується для обробки URL типу &quot;man&quot;.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Чи повинна вказана команда обробляти посилання(URL) типу &quot;man&quot;">
+								<longdesc>Якщо команда вказана у ключі &quot;command&quot;, програма буде обробляти посилання (URL) типу &quot;man&quot;.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="info">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Виконувати команду у терміналі">
+								<longdesc>Ввімкнено, якщо програма, вказана для обробки посилань (URL) повинна запускатись у терміналі.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Обробник URL типу &quot;info&quot;">
+								<longdesc>Якщо ввімкнено, команда використовується для обробки URL типу &quot;info&quot;.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Чи повинна вказана команда обробляти посилання(URL) типу &quot;info&quot;">
+								<longdesc>Якщо команда вказана у ключі &quot;command&quot;, програма буде обробляти посилання (URL) типу &quot;info&quot;.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="ghelp">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Виконувати команду у терміналі">
+								<longdesc>Ввімкнено, якщо програма, вказана для обробки посилань (URL) повинна запускатись у терміналі.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Обробник URL типу &quot;ghelp&quot;">
+								<longdesc>Якщо ввімкнено, команда використовується для обробки URL типу &quot;ghelp&quot;.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Чи повинна вказана команда обробляти посилання(URL) типу &quot;ghelp&quot;">
+								<longdesc>Якщо команда вказана у ключі &quot;command&quot;, програма буде обробляти посилання (URL) типу &quot;ghelp&quot;.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="trash">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Виконувати команду у терміналі">
+								<longdesc>Ввімкнено, якщо програма, вказана для обробки посилань (URL) повинна запускатись у терміналі.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Обробник URL типу &quot;trash&quot;">
+								<longdesc>Якщо ввімкнено, команда використовується для обробки URL типу &quot;trash&quot;.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Чи повинна вказана команда обробляти посилання(URL) типу &quot;trash&quot;">
+								<longdesc>Якщо команда вказана у ключі &quot;command&quot;, програма буде обробляти посилання (URL) типу &quot;trash&quot;.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="applications">
+					<dir name="tasks">
+						<entry name="needs_term">
+							<local_schema short_desc="Програмі задач потрібен термінал">
+								<longdesc>Чи потрібен термінал для запуску програми задач.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="Типові задачі">
+								<longdesc>Типова програма задач</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="calendar">
+						<entry name="needs_term">
+							<local_schema short_desc="Програмі календаря потрібен термінал">
+								<longdesc>Чи потрібен термінал для запуску програми календаря.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="Типовий календар">
+								<longdesc>Типова програма календаря</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="window_manager">
+						<entry name="workspace_names">
+							<local_schema short_desc="Назви робочих областей (застарілий)">
+								<longdesc>Список з назвами робочих областей першого віконного менеджера. Цей ключ позначений застарілим починаючи з GNOME 2.12.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="number_of_workspaces">
+							<local_schema short_desc="Кількість робочих областей (застарілий)">
+								<longdesc>Кількість робочих областей, що має використовувати віконний менеджер. Цей ключ позначений застарілим починаючи з GNOME 2.12.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="current">
+							<local_schema short_desc="Віконний менеджер, визначений користувачем (застарілий)">
+								<longdesc>Менеджер вікон, що пробується першим. Цей ключ позначений застарілим починаючи з GNOME 2.12.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="default">
+							<local_schema short_desc="Аварійний віконний менеджер (застарілий)">
+								<longdesc>Аварійний віконний менеджер, на випадок, коли не вдасться знайти вказаний користувачем. Цей ключ позначений застарілим починаючи з GNOME 2.12.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="browser">
+						<entry name="nremote">
+							<local_schema short_desc="Переглядач підтримує віддалене керування">
+								<longdesc>Чи типовий переглядач підтримує інтерфейс віддаленого керування Netscape.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="needs_term">
+							<local_schema short_desc="Програмі перегляду потрібен термінал">
+								<longdesc>Чи типовому переглядачу потрібен термінал для запуску.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="Типовий переглядач">
+								<longdesc>Типовий переглядач для всіх типів URL.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="at">
+						<dir name="mobility">
+							<entry name="startup">
+								<local_schema short_desc="Запускати вибрану програму Mobility для спеціальних можливостей">
+									<longdesc>Чи запускати під час входу у GNOME програму Mobility для спеціальних можливостей.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="exec">
+								<local_schema short_desc="Програма Mobility для спеціальних можливостей">
+									<longdesc>Програма Mobility для спеціальних можливостей, що використовується для входу у сеанс, роботи з меню та у командному рядку.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+						<dir name="visual">
+							<entry name="startup">
+								<local_schema short_desc="Запускати вибрану програму Visual для спеціальних можливостей">
+									<longdesc>Чи запускати під час входу у GNOME програму Visual для спеціальних можливостей.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="exec">
+								<local_schema short_desc="Програма Visual для спеціальних можливостей">
+									<longdesc>Програма Visual для спеціальних можливостей, що використовується для входу у сеанс, роботи з меню та у командному рядку.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+					</dir>
+					<dir name="component_viewer">
+						<entry name="exec">
+							<local_schema short_desc="Типова програма перегляду компонентів">
+								<longdesc>Програма, що використовується для перегляду файлів, для перегляду яких потрібен компонент. Параметр %s буде замінений адресою (URI) файлу, параметр %c - ідентифікатором (IID) компоненту.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="terminal">
+						<entry name="exec_arg">
+							<local_schema short_desc="Аргументи параметра exec">
+								<longdesc>Аргумент, що буде передано програмі в терміналі через параметр &quot;exec&quot;.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="Термінальна програма">
+								<longdesc>Термінал, що використовуватиметься коли він потрібен програмі.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+			</dir>
+		</dir>
+		<dir name="system">
+			<dir name="dns_sd">
+				<entry name="extra_domains">
+					<local_schema short_desc="Додаткові домени для пошуку у них служб DNS-SD">
+						<longdesc>Перелік розділених комою доменів DNS-SD, які повинні бути видимими за адресою &quot;network:///&quot;.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="display_local">
+					<local_schema short_desc="Як відображати локальну службу DNS-SD">
+						<longdesc>Можливими значеннями є &quot;merged&quot;, &quot;separate&quot; and &quot;disabled&quot;.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="smb">
+				<entry name="workgroup">
+					<local_schema short_desc="Робоча група протоколу SMB">
+						<longdesc>Робоча група чи домен Windows, членом якого є користувач. При вказуванні нової робочої групи для набрання змінами повної сили користувачу може знадобитись вийти з сенсу та увійти знову.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="proxy">
+				<entry name="autoconfig_url">
+					<local_schema short_desc="Посилання (URL) на автоматичне налаштовування проксі-служби">
+						<longdesc>Посилання (URL), що забезпечує значення для автоматичного налаштовування проксі-служби.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="socks_port">
+					<local_schema short_desc="Порт проксі-служби протоколу SOCKS">
+						<longdesc>Порт на вузлі проксі-сервера, що визначений ключем &quot;/system/proxy/socks_host&quot;.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="socks_host">
+					<local_schema short_desc="Вузол проксі-служби протоколу SOCKS">
+						<longdesc>Назва вузла проксі-сервера протоколу SOCKS.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="ftp_port">
+					<local_schema short_desc="Порт проксі-сервера протоколу FTP">
+						<longdesc>Порт на вузлі проксі-сервера, що визначений ключем &quot;/system/proxy/ftp_host&quot;.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="ftp_host">
+					<local_schema short_desc="Назва вузла проксі-сервера протоколу FTP">
+						<longdesc>Назва вузла проксі-сервера протоколу FTP.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="secure_port">
+					<local_schema short_desc="Порт проксі-сервера захищеного протоколу HTTP">
+						<longdesc>Порт на вузлі проксі-сервера, що визначений ключем &quot;/system/proxy/secure_host&quot;.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="secure_host">
+					<local_schema short_desc="Назва вузла проксі-сервера захищеного протоколу HTTP">
+						<longdesc>Назва вузла проксі-сервера захищеного протоколу HTTP.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="mode">
+					<local_schema short_desc="Режим налаштовування проксі-служби">
+						<longdesc>Виберіть режим налаштовування проксі-служби. Можливі значення &quot;none&quot;, (немає) &quot;manual&quot;, (вручну) &quot;auto&quot; (автоматично).</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="http_proxy">
+				<entry name="ignore_hosts">
+					<local_schema short_desc="Вузли поза проксі-службою">
+						<longdesc>Цей ключ містить перелік вузлів, з&apos;єднання з якими встановлюється безпосередньо, обминаючи проксі-службу (якщо вона активна). Значення можуть бути іменами вузлів, доменами (з використанням шаблонів подібних до *.foo.com), IP адресами вузлів (як IPv4, так і IPv6) та адресами мереж з використанням маски (щось схоже не, 192.168.0.0/24).</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="authentication_password">
+					<local_schema short_desc="Пароль для проксі-сервера протоколу HTTP">
+						<longdesc>Пароль для автентифікації проксі-службою протоколу HTTP.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="authentication_user">
+					<local_schema short_desc="Ім&apos;я користувача проксі-сервера протоколу HTTP">
+						<longdesc>Ім&apos;я користувача, що використовується при автентифікацій проксі-службою протоколу HTTP.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="use_authentication">
+					<local_schema short_desc="З&apos;єднання з проксі-сервером вимагають автентифікації">
+						<longdesc>Якщо ввімкнено, з&apos;єднання з проксі-сервером вимагатимуть аутентифікації. Пара параметрів ім&apos;я/пароль визначається ключами &quot;/system/http_proxy/authentication_user&quot; та &quot;/system/http_proxy/authentication_password&quot;.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="port">
+					<local_schema short_desc="Порт проксі-сервера протоколу HTTP">
+						<longdesc>Порт на вузлі проксі-сервера, що визначений ключем &quot;/system/http_proxy/host&quot;.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="host">
+					<local_schema short_desc="Назва вузла проксі-сервера протоколу HTTP">
+						<longdesc>Назва вузла проксі-сервера протоколу HTTP.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="use_http_proxy">
+					<local_schema short_desc="Використовувати HTTP проксі">
+						<longdesc>Вмикає параметри проксі-служби для протоколу HTTP через Інтернет.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+		</dir>
+	</dir>
+</gconf>

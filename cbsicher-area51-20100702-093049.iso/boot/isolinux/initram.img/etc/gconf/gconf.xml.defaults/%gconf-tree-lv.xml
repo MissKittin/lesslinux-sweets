@@ -1,0 +1,1752 @@
+<?xml version="1.0"?>
+<gconf>
+	<dir name="schemas">
+		<dir name="apps">
+			<dir name="brasero">
+				<entry name="nautilus-extension-debug">
+					<local_schema short_desc="Vai Nautilus paplašinājumam vajadzētu izvadīt atkļūdošanas ziņojumus">
+						<longdesc>Iestatiet šo vērtību par patiesu, ja vēlaties, lai Nautilus paplašinājums izvada atkļūdošanas ziņojumus.</longdesc>
+					</local_schema>
+				</entry>
+				<dir name="filter">
+					<entry name="broken_sym">
+						<local_schema short_desc="Vai Brasero filtrēt nederīgas simboliskās saites">
+							<longdesc>Vai filtrēt bojātas simboliskās saites - ja šī opcija ieslēgta, Brasero neierakstīs nederīgas simboliskās saites.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="replace_sym">
+						<local_schema short_desc="Aizvietot simboliskās saites ar to mērķa failiem">
+							<longdesc>Vai aizvietot simboliskās saites ar mērķfailiem - ja ieslēgts, Brasero katru simbolisko saiti aizstās ar to failu vai mapi, uz kuru tā norāda.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hidden">
+						<local_schema short_desc="Vai Brasero filtrēt slēptos failus">
+							<longdesc>Vai filtrēt slēptos failus - ja ieslēgts, Brasero neierakstīs slēptos failus.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="display">
+					<entry name="viewer">
+						<local_schema short_desc="Ieslēgt failu priekšskatījumu">
+							<longdesc>Vai rādīt failu priekšskatījumus. Izvēlieties, lai aktivizētu šo iespēju.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="config">
+					<entry name="raw_flag">
+						<local_schema short_desc="Vai lietot &quot;--driver generic-mmc-raw&quot; slēdzi ar cdrdao">
+							<longdesc>Ja šī iespēja ieslēgta, Brasero lietos &quot;--driver generic-mmc-raw&quot; slēdzi ar cdrdao. Tas varētu atrisināt problēmas ar dažiem diskdziņiem.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="minbuf_value">
+						<local_schema short_desc="Izmanto kopā ar cdrecord &quot;-immed&quot; slēdzi">
+							<longdesc>Izmanto kopā ar cdrecord &quot;-immed&quot; slēdzi.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="dao_flag">
+						<local_schema short_desc="Vai lietot &quot;-use-the-force-luke=dao&quot; slēdzi ar growisofs">
+							<longdesc>Ja šī iespēja ieslēgta, Brasero NElietos &quot;-use-the-force-luke=dao&quot; slēdzi ar growisofs. Tas varētu atrisināt problēmas ar dažiem diskdziņiem.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="immed_flag">
+						<local_schema short_desc="Aktivizēt cdrecord &quot;-immed&quot; slēdzi">
+							<longdesc>Vai cdrecord izmantot ar &quot;-immed&quot; slēdzi. Izmantojiet (izvēlieties šo iespēju) uzmanīgi, jo tas domāts tikai dažām diskiekārtām/iestatnēm.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="plugins">
+						<local_schema short_desc="Papildus spraudņu saraksts, ko lietot">
+							<longdesc>Satur papildu spraudņu sarakstu, ko Brasero lietos disku rakstīšanai. Ja tas ir NULL, Brasero ielādēs visus spraudņus.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="engine-group">
+						<local_schema short_desc="Iecienītākais rakstīšanas dzinis">
+							<longdesc>Satur iecienītā ierakstīšanas dzinēja nosaukumu. Ja iespējams, tas tiks izmantots.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnome-system-log">
+				<entry name="logfiles">
+					<local_schema short_desc="Žurnālu faili, kurus atvērt pēc palaišanas">
+						<longdesc>Norāda pēc palaišanas atveramo žurnālu failu sarakstu. Noklusētais saraksts tiek izveidots nolasot /etc/syslog.conf.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="width">
+					<local_schema short_desc="Galvenā loga platums pikseļos">
+						<longdesc>Norāda žurnālu skatītāja galvenā loga platumu pikseļos.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="height">
+					<local_schema short_desc="Galvenā loga augstums pikseļos">
+						<longdesc>Norāda žurnālu skatītāja galvenā loga augstumu pikseļos.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="fontsize">
+					<local_schema short_desc="Žurnāla rādīšanai izmantotais fonts">
+						<longdesc>Norāda fiksētā platuma fonta izmēru, kurš tiek lietots žurnāla rādīšanai galvenā koka skatā. Noklusētā vērtība tiek ņemta no termināļa noklusētā fonta izmēra.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="logfile">
+					<local_schema short_desc="Žurnālfails, ko atvērt pie sāknēšanas">
+						<longdesc>Norāda pēc palaišanas rādāmo žurnāla failu. Noklusētais ir vai nu /var/adm/messages vai arī /var/log/messages, atkarībā  no jūsu operāciju sistēmas.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="gnome-search-tool">
+				<entry name="default_window_maximized">
+					<local_schema short_desc="Maksimizēts logs pēc noklusējuma">
+						<longdesc>Šī vērtība nosaka vai meklēšanas rīka logs tiek startēts maksimizēts.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default_window_height">
+					<local_schema short_desc="Noklusētais loga augstums">
+						<longdesc>Šī vērtība nosaka loga augstumu, to izmanto, lai saglabātu loga izmēru starp sesijām. Iestatot to uz -1 meklēšanas rīks izmantos noklusēto augstumu.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default_window_width">
+					<local_schema short_desc="Noklusētais loga platums">
+						<longdesc>Šī vērtība nosaka loga platumu, to izmanto, lai saglabātu loga izmēru starp sesijām. Iestatot to uz -1 meklēšanas rīks izmantos noklusēto platumu.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="columns_order">
+					<local_schema short_desc="Meklēšanas rezultātu kolonnu secība">
+						<longdesc>Šī vērtība nosaka meklēšanas rezultātu kolonnu secību. Šo atslēgu lietotājam nevajadzētu mainīt.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="quick_search_second_scan_excluded_paths">
+					<local_schema short_desc="Ātrās meklēšanas otrās pārlases izslēgtie ceļi">
+						<longdesc>Šī vērtība nosaka ceļus, kurus meklēšanas rīks izslēgs no ātrās meklēšanas otrās pārlases. Otrā pārlase izmanto find komandu, lai meklētu failus. Otrās pārlases mērķis ir atrast neindeksētos failus. Aizstājēji &apos;*&apos; un &apos;?&apos; ir izmantojami. Noklusētā vērtība ir /.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="disable_quick_search_second_scan">
+					<local_schema short_desc="Atslēgt ātrās meklēšanas otru pārlasi">
+						<longdesc>Šī vērtība nosaka vai meklēšanas rīks atslēdz find komandas lietošanu pēc ātrās meklēšanas izpildes.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="quick_search_excluded_paths">
+					<local_schema short_desc="Izslēgto direktoriju ātrā meklēšana">
+						<longdesc>Šī vērtība nosaka ceļus, kurus meklēšanas rīks izslēgs no ātrās meklēšanas. Aizstājēji &apos;*&apos; un &apos;?&apos; ir izmantojami. Noklusētās vērtības ir /mnt/*, /media/*, /dev/*, /tmp/*, /proc/* un /var/*.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="disable_quick_search">
+					<local_schema short_desc="Atslēgt ātro meklēšanu">
+						<longdesc>Šī vērtība nosaka vai meklēšanas rīks atslēdz locate komandas lietošanu vienkāršas failu meklēšanā.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="show_additional_options">
+					<local_schema short_desc="Parādīt papildus iespējas">
+						<longdesc>Šī vērtība nosaka vai &quot;Izvēlēties vairāk iespējas&quot; sekcija ir atvērta startējot meklēšanas rīku.</longdesc>
+					</local_schema>
+				</entry>
+				<dir name="select">
+					<entry name="follow_symbolic_links">
+						<local_schema short_desc="Izvēlieties meklēšanas iespēju &quot;Sekot simboliskajām saitēm&quot;">
+							<longdesc>Šī vērtība nosaka vai &quot;Sekot simboliskajām saitēm&quot; meklēšanas iespēja ir iezīmēta startējot meklēšanas rīku.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_hidden_files_and_folders">
+						<local_schema short_desc="Izvēlieties meklēšanas iespēju &quot;Parādīt slēptos failus un mapes&quot;">
+							<longdesc>Šī vērtība nosaka vai &quot;Meklēt slēptos failus un mapes&quot; meklēšanas iespēja ir iezīmēta startējot meklēšanas rīku.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name_matches_regular_expression">
+						<local_schema short_desc="Izvēlieties meklēšanas iespēju &quot;Nosaukums sakrīt ar regulāru izteiksmi&quot;">
+							<longdesc>Šī vērtība nosaka vai &quot;Nosaukums sakrīt ar regulāru izteiksmi&quot; meklēšanas iespēja ir iezīmēta startējot meklēšanas rīku.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name_does_not_contain">
+						<local_schema short_desc="Izvēlieties meklēšanas iespēju &quot;Nosaukums nesatur&quot;">
+							<longdesc>Šī vērtība nosaka vai &quot;Nosaukums nesatur&quot; meklēšanas iespēja ir iezīmēta startējot meklēšanas rīku.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="owner_is_unrecognized">
+						<local_schema short_desc="Izvēlieties meklēšanas iespēju &quot;Īpašnieks ir nepazīstams&quot;">
+							<longdesc>Šī vērtība nosaka vai &quot;Īpašnieks ir nepazīstams&quot; meklēšanas iespēja ir iezīmēta startējot meklēšanas rīku.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="owned_by_group">
+						<local_schema short_desc="Izvēlieties meklēšanas iespēju &quot;Pieder grupai&quot;">
+							<longdesc>Šī vērtība nosaka vai &quot;Pieder grupai&quot; meklēšanas iespēja ir iezīmēta startējot meklēšanas rīku.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="owned_by_user">
+						<local_schema short_desc="Izvēlieties meklēšanas iespēju &quot;Pieder īpašniekam&quot;">
+							<longdesc>Šī vērtība nosaka vai &quot;Pieder lietotājam&quot; meklēšanas iespēja ir iezīmēta startējot meklēšanas rīku.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="file_is_empty">
+						<local_schema short_desc="Izvēlieties meklēšanas iespēju &quot;Fails ir tukšs&quot;">
+							<longdesc>Šī vērtība nosaka vai &quot;Fails ir tukšs&quot; meklēšanas iespēja ir iezīmēta startējot meklēšanas rīku.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size_at_most">
+						<local_schema short_desc="Izvēlieties meklēšanas iespēju &quot;Izmērs ne lielāks par&quot;">
+							<longdesc>Šī vērtība nosaka vai &quot;Izmērs ne lielāks par&quot; meklēšanas iespēja ir iezīmēta startējot meklēšanas rīku.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size_at_least">
+						<local_schema short_desc="Izvēlieties meklēšanas iespēju &quot;Izmērs ne mazāks par&quot;">
+							<longdesc>Šī vērtība nosaka vai &quot;Izmērs ne mazāks par&quot; meklēšanas iespēja ir iezīmēta startējot meklēšanas rīku.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="date_modified_more_than">
+						<local_schema short_desc="Izvēlieties meklēšanas iespēju &quot;izmaiņu datums lielāks par&quot;">
+							<longdesc>Šī vērtība nosaka vai &quot;Izmaiņu datums lielāks par&quot; meklēšanas iespēja ir iezīmēta startējot meklēšanas rīku.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="date_modified_less_than">
+						<local_schema short_desc="Izvēlieties meklēšanas iespēju &quot;Izmaiņu datums mazāks par&quot;">
+							<longdesc>Šī vērtība nosaka vai &quot;Izmaiņu datums mazāks par&quot; meklēšanas iespēja ir iezīmēta startējot meklēšanas rīku.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="contains_the_text">
+						<local_schema short_desc="Izvēlieties meklēšanas iespēju &quot;Satur tekstu&quot;">
+							<longdesc>Šī vērtība nosaka vai &quot;Satur tekstu&quot; meklēšanas iespēja ir iezīmēta startējot meklēšanas rīku.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnome-screenshot">
+				<entry name="border_effect">
+					<local_schema short_desc="Rāmja efekts">
+						<longdesc>Rāmja ārpusē pievienojamais efekts. Iespējamās vērtības ir &quot;shadow&quot;, &quot;none&quot;, un &quot;border&quot;.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="include_pointer">
+					<local_schema short_desc="Iekļaut kursoru">
+						<longdesc>Iekļaut kursoru ekrānattēlā</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="include_border">
+					<local_schema short_desc="Iekļaut rāmi">
+						<longdesc>Iekļaut logu pārvaldītāja rāmi ekrānattēlā</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="last_save_directory">
+					<local_schema short_desc="Ekrānattēla direktorija">
+						<longdesc>Direktorija, kurā tika saglabāts pēdējais ekrānattēls.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="delay">
+					<local_schema short_desc="Ekrānattēla aizture">
+						<longdesc>Sekunžu skaits ko nogaidīt pirms ekrānattēla uzņemšanas</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="take_window_shot">
+					<local_schema short_desc="Konkrēta loga ekrānattēls (novecojis)">
+						<longdesc>Satvert tikai aktīvo logu, nevis visu darbvirsmu. Šī vērtība ir novecojusi un vairs netiek izmantota.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="gnome-dictionary">
+				<entry name="sidebar-width">
+					<local_schema short_desc="Sānu joslas platums">
+						<longdesc>Šī vērtība nosaka sānu joslas platumu un tā tiek izmantota, lai atcerētos iestatījumus starp sesijām.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="sidebar-page">
+					<local_schema short_desc="Sānu joslā rādāmā lapa">
+						<longdesc>Šī vērtība nosaka kura lapa tiks rādīta sānu joskā. Šī lauka vērtība var būt &quot;speller&quot; vai &quot;databases&quot;.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="statusbar-visible">
+					<local_schema short_desc="Vai statusa josla būš redzama">
+						<longdesc>Šī vēŗtība nosaka vai statusa josla būš redzama un tā tiek izmantota, lai atcerētos iestatījumus starp sesijām. Iestatījums PATIESS padarīs statusa joslu redzamu.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="sidebar-visible">
+					<local_schema short_desc="Vai sānu josla būš redzama">
+						<longdesc>Šī vērtība nosaka vai sānu josla būs redzama un tā tiek izmantota, lai atcerētos iestatījumus starp sesijām. Iestatījums PATIESS padarīs sānu joslu redzamu.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="window-is-maximized">
+					<local_schema short_desc="Vai lietotnes logam vajadzētu būt maksimizētam">
+						<longdesc>Šī vērtība nosaka vai logam jābūt maksimizētam un tā tiek izmantota, lai atcerēties vārdnīcas loga stāvokli sesiju laikā. Iestatot to uz PATIESS, liks logam visu laiku būt maksimizētam.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default-window-height">
+					<local_schema short_desc="Noklusētais lietojumprogrammas loga augstums">
+						<longdesc>Šī vērtība nosaka loga augstumu un tā tiek izmantota, lai atcerēties vārdnīcas loga izmēru sesiju laikā. Iestatot to uz -1 vārdnīcas logs mainīs augstumu atkarībā no burtu fonta izmēra.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default-window-width">
+					<local_schema short_desc="Noklusētais lietojumpragrammas loga platums">
+						<longdesc>Šī vērtība nosaka loga platumu un tā tiek izmantota, lai atcerēties vārdnīcas loga izmēru sesiju laikā. Iestatot to uz -1 vārdnīcas logs mainīs platumu atkarībā no burtu fonta izmēra.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="source-name">
+					<local_schema short_desc="Vārdnīcas avota nosakums, kas tiek izmantots">
+						<longdesc>Vārdnīcas avota nosaukums, kas tiek izmantots, lai atgūt vārdu definīcijas.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="print-font">
+					<local_schema short_desc="Fonts, kura izmantos printējot">
+						<longdesc>Fonts, kuru izmantos, printējot definīcju.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="strategy">
+					<local_schema short_desc="Noklusētā meklēšanas stratēģija, kuru lietot">
+						<longdesc>Noklusētās meklēšanas sratēģijas nosaukums, kuru izmantot vārdnīcas avotā, ja tas ir pieejams. Noklusētā stratēģija ir &apos;exact&apos;, kas nozīmē, lai vārdi precīzi sakrīt.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="database">
+					<local_schema short_desc="Noklusētā datubāze , kuru lietot">
+						<longdesc>Noklusētās individuālās datubāzes vai meta-datubāzes nosaukums, kuru izmantot vārdnīcas avotā. Izsaukuma zīme (&quot;!&quot;) nozīmē, ka vajag pārmeklēt visas datubāzes, kuras atrodas vārdnīcas avotā</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="smart">
+					<local_schema short_desc="Lietot gudro meklēšanu (Vairs netiek izmantots)">
+						<longdesc>Norādie, vai lietot gudro meklēšanu. Šī iespēja ir atkarīga no tā, vai vārdnīcas serveris atbalsta šo iespēju. Noklusējumā ir PATIESS. This key is deprecated and no longer in use.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="port">
+					<local_schema short_desc="Ports tiek lietots, lai pieslēgtos serverim (Vairs netiek izmantots)">
+						<longdesc>Porta umurs, kuram pieslēgties. Noklusētais ir 2628. This key is deprecated and no longer in use.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="server">
+					<local_schema short_desc="Vārdnīcas serveris (Vairs netiek izmantots)">
+						<longdesc>Vārdnīcas serveris, kuram pieslēgties. Noklusētais serveris ir dict.org. Apskatieties http://www.dict.org, lai uzzinātu par citiem serveriem. This key is deprecated and no longer in use.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="baobab">
+				<dir name="properties">
+					<entry name="enable_home_monitor">
+						<local_schema short_desc="Aktivizēt no mājas mapes pārlūkošanu">
+							<longdesc>Vai būtu jāpārlūko izmaiņas mājas mapē.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="ui">
+					<entry name="baobab_subfoldertips_visible">
+						<local_schema short_desc="Apakšmapju paskaidres redzamas">
+						</local_schema>
+					</entry>
+					<entry name="statusbar_visible">
+						<local_schema short_desc="Statusa josla ir redzama">
+							<longdesc>Vai statusa joslai ekrāna apakšā būtu jābūt redzamai.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_visible">
+						<local_schema short_desc="Rīkjosla ir redzama">
+							<longdesc>Vai rīkjoslai būtu jābūt redzamai.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="window_list_applet">
+				<dir name="prefs">
+					<entry name="maximum_size">
+						<local_schema short_desc="Maksimālais logu saraksta izmērs">
+							<longdesc>Kopš GNOME 2.20 šis elements vairs netiek lietots. Šī shēma ir saglabāta, lai nodrošinātu savietojamību ar vecākām versijām.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="minimum_size">
+						<local_schema short_desc="Minimālais logu saraksta izmērs">
+							<longdesc>Kopš GNOME 2.20 šis elements vairs netiek lietots. Šī shēma ir saglabāta, lai nodrošinātu savietojamību ar vecākām versijām.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="move_unminimized_windows">
+						<local_schema short_desc="Atjaunojot pārvietot logus uz pašreizējo darba vietu">
+							<longdesc>Ja patiess, tad, kad atjauno logu, pārvietot to uz pašreizējo darba vietu. Pretējā gadījumā pāriet uz loga darba vietu.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="group_windows">
+						<local_schema short_desc="Kad grupēt logus">
+							<longdesc>Lemj, kad grupēt vienas programmas logus &quot;Logu sarakstā&quot;. Pieļaujamās  vērtības ir &quot;never&quot;, &quot;auto&quot; un &quot;always&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_all_workspaces">
+						<local_schema short_desc="Rādīt logus no visām darba vietām">
+							<longdesc>Ja šī vērtība ir patiesa, &quot;Logu saraksts&quot; parādīs visus logus no visām darba vietām. Pretējā gadījumā tas parādīs logus tikai no pašreizējās darbvirsmas.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="workspace_switcher_applet">
+				<dir name="prefs">
+					<entry name="num_rows">
+						<local_schema short_desc="Rindu skaits darba vietu pārslēdzējā">
+							<longdesc>Šī vērtība nosaka cik daudz rindās (horizontālam izkārtojumam) vai kolonās (vertikālajam izkārtojumam) Darba vietu pārslēgs parāda darba vietas. Šī vērtība ir aktuāla vienīgi, ja ir izvēlēts display_all_workspaces.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_all_workspaces">
+						<local_schema short_desc="Rādīt visas darba vietas">
+							<longdesc>Ja patiess, Darba vietu pārslēgs rādīs visas darba vietas, pretējā gadījumā tas rādīs tikai pašreizējo darba vietu.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_workspace_names">
+						<local_schema short_desc="Rādīt darba vietu nosaukumus">
+							<longdesc>Ja šī vērtība ir patiesa, darba vietas Darba vietu pārslēgā rādīs arī darba vietu nosaukumus, Pretējā gadījumā tās rādīs darba vietas saturu. Šis iestatījums strādā vienīgi, ja logu pārvaldnieks ir Metacity.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="fish_applet">
+				<dir name="prefs">
+					<entry name="rotate">
+						<local_schema short_desc="Rotēt vertikālajos paneļos">
+							<longdesc>Ja šis ir atzīmēts, zivtiņas animācija tiks rādīta sagriezta vertikālajā panelī.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="speed">
+						<local_schema short_desc="Pauze uz kadru">
+							<longdesc>Šī vērtība nosaka, cik sekundes tiks rādīts katrs kadrs.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="frames">
+						<local_schema short_desc="Kadru skaits zivtiņas animācijā">
+							<longdesc>Šī vērtība nosaka, cik kadru būs zivtiņas animācijā.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="command">
+						<local_schema short_desc="Komanda, ko palaist, kad tiek klikšķināts uz zivtiņas">
+							<longdesc>Šī vērtība nosaka kāda komanda tiks palaista, kad tiek klikšķināts uz zivtiņas.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="image">
+						<local_schema short_desc="Zivtiņas animācijas bitkarte">
+							<longdesc>Šī vērtība nosaka tā attēla faila nosaukumu, kas tiks lietots zivtiņas animācijā faila atrašanās vieta ir relatīva attiecībā pret attēlkaršu (pixmap) mapi.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name">
+						<local_schema short_desc="Zivtiņas vārds">
+							<longdesc>Zivs bez vārda ir diezgan garlaicīga zivs. Ved to dzīvē, dodot tai vārdu.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="clock_applet">
+				<dir name="prefs">
+					<entry name="speed_unit">
+						<local_schema short_desc="Ātruma vienība">
+							<longdesc>Kādās mērvienībās rādīt vēja ātrumu.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="temperature_unit">
+						<local_schema short_desc="Temperatūras vienība">
+							<longdesc>Kādās mērvienībās rādīt temperatūru.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="cities">
+						<local_schema short_desc="Vietu saraksts">
+							<longdesc>Kalendāra logā rādāmo vietu saraksts.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="internet_time">
+						<local_schema short_desc="Lietot Interneta laiku">
+							<longdesc>Kopš GNOME 2.6 šis elements vairs netiek lietots, tā vietā tiek izmantots &apos;formāts&apos; elements. Šī shēma ir saglabāta, lai nodrošinātu savietojamību ar vecākām versijām.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="unix_time">
+						<local_schema short_desc="Lietot UNIX laiku">
+							<longdesc>Kopš GNOME 2.6 šis elements vairs netiek lietots, tā vietā tiek izmantots &apos;formāts&apos; elements. Šī shēma ir saglabāta, lai nodrošinātu savietojamību ar vecākām versijām.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hour_format">
+						<local_schema short_desc="Stundu formāts">
+							<longdesc>Kopš GNOME 2.6 šis elements vairs netiek lietots, tā vietā tiek izmantots &apos;formāts&apos; elements. Šī shēma ir saglabāta, lai nodrošinātu savietojamību ar vecākām versijām.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_locations">
+						<local_schema short_desc="Izvērst atrašanās vietu sarakstu">
+							<longdesc>Ja patiess, izvērst atrašanās vietu sarakstu kalendāra logā.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_weather">
+						<local_schema short_desc="Izvērst laikapstākļu informāciju">
+							<longdesc>Ja patiess, izvērst laikapstākļu informāciju kalendāra logā.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_tasks">
+						<local_schema short_desc="Izvērst uzdevumu sarakstu">
+							<longdesc>Ja patiess, izvērst uzdevumu sarakstu kalendāra logā.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_birthdays">
+						<local_schema short_desc="Izvērst dzimšanas dienu sarakstu">
+							<longdesc>Ja patiess, izvērst dzimšanas dienu sarakstu kalendāra logā.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_appointments">
+						<local_schema short_desc="Izvērst tikšanos sarakstu">
+							<longdesc>Ja patiess, izvērst tikšanos sarakstu kalendāra logā.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_week_numbers">
+						<local_schema short_desc="Rādīt kalendārā arī nedēļu numurus">
+							<longdesc>Ja patiess, rādīt kalendārā arī nedēļu numurus.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="config_tool">
+						<local_schema short_desc="Laika konfigurēšanas rīks">
+							<longdesc>Kopš GNOME 2.22 šī atslēga ir norakstīta kopš tiek izmantots iekšējais laika konfigurēšanas rīks. Šī shēma ir saglabāta, lai nodrošinātu savietojamību ar vecākām versijām.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gmt_time">
+						<local_schema short_desc="Pieskaņot UTC">
+							<longdesc>Kopš GNOME 2.22 šī atslēga ir norakstīta, tā vietā tiek izmantota laika josla. Šī shēma ir saglabāta, lai nodrošinātu savietojamību ar vecākām versijām.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_temperature">
+						<local_schema short_desc="Rādīt temperatūru pulkstenī">
+							<longdesc>Ja patiess, blakus laikapstākļu ikonai tiks rādīta temperatūra.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_weather">
+						<local_schema short_desc="Rādīt laikapstākļus pulkstenī">
+							<longdesc>Ja patiess, rādīt laikapstākļu ikonu.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_tooltip">
+						<local_schema short_desc="Parādīt datumu paskaidrē">
+							<longdesc>Ja patiess, parādīt datumu paskaidrē, kad peles kursors tiek novietots virs pulksteņa.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_date">
+						<local_schema short_desc="Pie pulksteņa rādīt arī datumu">
+							<longdesc>Ja patiess, bez laika rādīt pulkstenī arī datumu.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_seconds">
+						<local_schema short_desc="Rādīt laiku ar sekundēm">
+							<longdesc>Ja patiess, rādīt pulkstenī arī sekundes.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="custom_format">
+						<local_schema short_desc="Pielāgots pulksteņa formāts">
+							<longdesc>Šī atslēga nosaka, kādu laika formātu lietot pulksteņa sīkiletotnē, kad kā formāts ir norādīts &quot;pielāgots&quot;. Jūs varat lietot konvertācijas apzīmētājus, lai iegūtu ar strftime() savietojamu formātu. Papildus informāciju meklējiet strftime() dokumentācijā.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="format">
+						<local_schema short_desc="Stundu formāts">
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="panel">
+				<dir name="objects">
+					<entry name="action_type">
+						<local_schema short_desc="Darbības pogas tips">
+							<longdesc>Šīs pogas piedāvātās darbības. Iespējamās vērtības ir &quot;saslēgt&quot;, &quot;beigt darbu&quot;, &quot;palaist&quot;, &quot;meklēt&quot; un &quot;ekrānattēls&quot;. Šī vērtība ir aktuāla vienīgi, ja object_type vērtība ir &quot;action-applet&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="launcher_location">
+						<local_schema short_desc="Palaidēja atrašanās vieta">
+							<longdesc>Palaidēju aprakstošā .desktop faila atrašanās vieta. Šī vērtība ir aktuāla vienīgi, ja object_type vērtība ir &quot;launcher-object&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menu_path">
+						<local_schema short_desc="Izvēlnes satura ceļš">
+							<longdesc>Ceļš uz vietu no kuras tiek veidots izvēlnes saturs. Šī vērtība ir aktuāla vienīgi, ja use_menu_path vērtība ir patiess un object_type vērtība ir &quot;menu-object&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_menu_path">
+						<local_schema short_desc="Lietot pielāgotu ceļu līdz izvēlnes saturam">
+							<longdesc>Ja patiess, menu_path vērtība tiek lietota, lai no tās ielādētu izvēlnes saturu. Ja aplams, tā tiek ignorēta. Šī vērtība ir aktuāla vienīgi tad, ja object_type atslēga ir &quot;menu-object&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="custom_icon">
+						<local_schema short_desc="Objekta pogai lietojamā ikona">
+							<longdesc>To attēlu atrašanās vieta, kas tiek lietoti, kā objektu pogu ikonas. Šī vērtība ir svarīga vienīgi, ja object_type vērtība ir &quot;drawer-object&quot; vai &quot;menu-object&quot; un use_custom_icon vērtība ir patiess.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_custom_icon">
+						<local_schema short_desc="Objekta pogai izmantot pielāgotu ikonu">
+							<longdesc>Ja patiess, custom_icon vērtība tiks lietota pogas ikonai. Ja aplams, tad custom_icon vērtība tiek ignorēta. Šī vērtība ir aktuāla vienīgi, ja object_type vērtība ir &quot;menu-object&quot; vai &quot;drawer-object&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="tooltip">
+						<local_schema short_desc="Atvilktnes vai izvēlnes apraksts">
+							<longdesc>Šīs atvilktnes vai izvēlnes apraksts. šī vērtība ir aktuāla tikai, ja object_type vērtība ir &quot;drawer-object&quot; vai &quot;menu-object&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="attached_toplevel_id">
+						<local_schema short_desc="Panelis piesaistīts atvilktnei">
+							<longdesc>Šai atvilktnei piesaistītā paneļa identifikators. Šī vērtība ir aktuāla vienīgi, ja object_type vērtība ir &quot;drawer-object&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="bonobo_iid">
+						<local_schema short_desc="Bonobo sīklietotnes IID">
+							<longdesc>Bonobo implementācijas sīklietotnes ID - piem. &quot;OAFIID:GNOME_ClockApplet&quot;. Šī vērtība ir aktuāla vienīgi, ja object_type vērtība ir &quot;bonobo-applet&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="locked">
+						<local_schema short_desc="Pieslēgt objektu panelim">
+							<longdesc>Ja patiess, lietotājs nevar pārvietot sīklietotnes, iepriekš tās neatslēdzot izmantojot &quot;Atslēgt&quot; izvēlnes elementu.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="panel_right_stick">
+						<local_schema short_desc="Interpretēt novietojumu attiecībā pret apakšējo/labo malu">
+							<longdesc>Ja patiess, objektu novietojums tiek interpretēts attiecībā pret labo paneļa malu (vai apakšējo malu vertikālajos paneļos).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="position">
+						<local_schema short_desc="Objekta novietojums panelī">
+							<longdesc>Šī paneļa objekta novietojums. Objekta novietojumu apraksta pikseļu skaits no paneļa labās malas (vai augšas, ja tas ir vertikāls).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toplevel_id">
+						<local_schema short_desc="Objektu saturošais virsējā līmeņa panelis">
+							<longdesc>Šo dokumentu saturošā augstākā līmeņa paneļa identifikators.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="object_type">
+						<local_schema short_desc="Paneļa objekta tips">
+							<longdesc>Šī paneļa objekta tips. Iespējamās vērtības ir &quot;drawer-object&quot;, &quot;menu-object&quot;, &quot;launcher-object&quot;, &quot;bonobo-applet&quot;, &quot;action-applet&quot; un &quot;menu-bar&quot;.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="toplevels">
+					<entry name="animation_speed">
+						<local_schema short_desc="Animācijas ātrums">
+							<longdesc>Ātrums, kādā būtu jānotiek paneļa animācijām. Iespējamās vērtības ir &quot;slow&quot;, &quot;medium&quot; un &quot;fast&quot;. Šī vērtība ir aktuāla vienīgi, ja ir aktivizētas animācijas (enable_animations = true).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_hide_size">
+						<local_schema short_desc="Paslēptam panelim redzamie pikseļi">
+							<longdesc>Norāda redzamo pikseļu skaitu, kad panelis tiek paslēpts stūrī. Šī vērtība ir aktuāla vienīgi, ja auto_hide atslēga ir patiesa.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="unhide_delay">
+						<local_schema short_desc="Pauze pirms paneļa automātiskās parādīšanas">
+							<longdesc>Norāda milisekunžu skaitu pirms panelis tiks parādīts, kad tā teritorijā tiek novietots peles kursors. Šī vērtība ir aktuāla vienīgi, ja auto_hide atslēga ir patiesa.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hide_delay">
+						<local_schema short_desc="Pauze pirms paneļa automātiskās paslēpšanas">
+							<longdesc>Norāda milisekunžu skaitu pirms panelis tiks paslēpts, kad tā teritoriju pamet peles kursors. Šī vērtība ir aktuāla vienīgi, ja auto_hide atslēga ir patiesa.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_arrows">
+						<local_schema short_desc="Rādīt bultas uz paneļa paslēpšanas pogām">
+							<longdesc>Ja patiess, uz paneļa slēpšanas pogām tiks novietotas arī bultiņas. Šī vērtība ir aktuāla vienīgi, ja enable_buttons vērtība ir patiess.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_buttons">
+						<local_schema short_desc="Aktivizēt paneļa paslēpšanas pogas">
+							<longdesc>Ja patiess, abās paneļa malās tiks pievienotas pogas, kas ļaus pilnībā noslēpt paneli, redzamu atstājot tikai pogu, lai atkal parādītu paslēpto paneli.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="Aktivizēt animācijas">
+							<longdesc>Ja patiess, paneļa parādīšana un paslēpšana notiek kustīgi, nevis pēkšņi parādoties un pazūdot.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_hide">
+						<local_schema short_desc="Automātiski slēpt šo paneli stūrī">
+							<longdesc>Ja patiess, panelis tiks automātiski paslēpts ik reizi, kad peles kursors neatradīsies tā teritorijā.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="y_centered">
+						<local_schema short_desc="Centrēt paneli pa y-asi">
+							<longdesc>Ja patiess, tad y un y_bottom vērtības tiks ignorētas un panelis tiks novietots ekrāna y-ass centrā. Ja paneļa izmērs tiks mainīts tas vienalga paliks tajā pat vietā. Pretējā gadījumā y un y_bottom vērtības nosaka paneļa atrašanās vietu.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="x_centered">
+						<local_schema short_desc="Centrēt paneli pa x-asi">
+							<longdesc>Ja patiess, x un x_right atslēgas tiek ignorētas un panelis atrodas ekrāna x-ass centrā. Ja paneļa izmēri tiek mainīti, tas tik un tā atradīsies ekrāna centrā. Pretējā gadījumā x un x_right vērtības nosaka paneļa atrašanās vietu.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="y_bottom">
+						<local_schema short_desc="Paneļa Y koordināta sākot no ekrāna apakšas">
+							<longdesc>Paneļa atrašanās vieta gar y-asi, sākot ar ekrāna apakšu. Ja vērtība ir -1, tā tiek ignorēta un tās vietā tiek izmantota y vērtība. Ja vērtība ir lielāka par 0, y vērtība tiks ignorēta.Šī vērtība ir aktuāla tikai neizvērstā stāvoklī. Izvērstā stāvoklī šī vērtība tiek ignorēta un panelis tiek novietots pie kādas no ekrāna malām.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="x_right">
+						<local_schema short_desc="Paneļa X koordināta sākot no ekrāna labās malas">
+							<longdesc>Paneļa atrašanās vieta gar x-asi, sākot ar ekrāna labo malu. Ja vērtība ir -1, tā tiek ignorēta un tās vietā tiek izmantota x vērtība. Ja vērtība ir lielāka par 0, x vērtība tiks ignorēta. Šī vērtība ir aktuāla tikai neizvērstā stāvoklī. Izvērstā stāvoklī šī vērtība tiek ignorēta un panelis tiek novietots pie kādas no ekrāna malām.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="y">
+						<local_schema short_desc="Paneļa Y koordināta">
+							<longdesc>Paneļa atrašanās vieta gar y-asi. Šī vērtība ir aktuāla tikai neizvērstā stāvoklī. Izvērstā stāvoklī šī vērtība tiek ignorēta un panelis tiek novietots pie kādas no ekrāna malām.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="x">
+						<local_schema short_desc="Paneļa X koordināta">
+							<longdesc>Paneļa atrašanās vieta gar x-asi. Šī vērtība ir aktuāla tikai neizvērstā stāvoklī. Izvērstā stāvoklī šī vērtība tiek ignorēta un panelis tiek novietots pie kādas no ekrāna malām.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size">
+						<local_schema short_desc="Paneļa izmērs">
+							<longdesc>Paneļa augstums (vai platums, ja tas ir vertikāls). Vadoties pēc fonta izmēra un citiem faktoriem, izpildes laikā automātiski tiks noteikts paneļa maksimālais izmērs. Paneļa maksimālais izmērs nevar būt lielāks par ceturto daļu no ekrāna izmēra.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="orientation">
+						<local_schema short_desc="Paneļa novietojums">
+							<longdesc>Paneļa atrašanās vieta. Iespējamās vērtības ir &quot;top&quot;, &quot;bottom&quot;, &quot;left&quot;, &quot;right&quot;. Izvērstā stāvoklī šī vērtība nosaka pie kuras ekrāna malas atradīsies attiecīgais panelis. Neizvērstā stāvoklī starpība starp &quot;top&quot; un &quot;bottom&quot; nav īpaši liela - abas tās norāda, ka konkrētais panelis ir horizontāls - taču tik un tā sniedz mums vērtīgu informāciju, kā vajadzētu uzvesties dažiem paneļa objektiem.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand">
+						<local_schema short_desc="Izvērst, lai aizpildītu visu ekrāna platumu">
+							<longdesc>Ja patiess, panelis aizņems visu ekrāna platumu (vai augstumu, ja tas ir vertikāls). Šajā režīmā paneli var novietot vienīgi ekrāna malās. Pretējā gadījumā panelis būs tikai tik liels, lai uz tā satilptu viss tā saturs.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="monitor">
+						<local_schema short_desc="Xinerama monitors, uz kura būs redzams konkrētais panelis">
+							<longdesc>Xinerama gadījumā jums var būt vairāki paneļi, kas katrs atrodas uz sava monitora. Šī vērtība nosaka uz kura no monitoriem šobrīd tiks attēlots attiecīgais panelis.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="screen">
+						<local_schema short_desc="X ekrāns, kurā ir redzams attiecīgais panelis">
+							<longdesc>Gadījumā, ja jums ir vairāki ekrāni, jūs atsevišķus paneļus varat novietot katrā no tiem. Šī lauka vērtība norāda, kurā no ekrāniem šobrīd ir redzams konkrētais panelis.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name">
+						<local_schema short_desc="Paneļa nosaukums">
+							<longdesc>Šis ir cilvēkiem viegli saprotams nosaukums, ko jūs varat lietot, lai identificētu konkrētu paneli. Tā galvenais uzdevums ir būt par paneļa loga virsrakstu, kas varētu noderēt, pārvietojoties starp vairākiem paneļiem.</longdesc>
+						</local_schema>
+					</entry>
+					<dir name="background">
+						<entry name="rotate">
+							<local_schema short_desc="Rotēt attēlus vertikālajos paneļos">
+								<longdesc>Ja patiess, fona attēls vertikālajiem paneļiem tiks pagriezts.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="stretch">
+							<local_schema short_desc="Izstiept attēlu pa visu paneli">
+								<longdesc>Ja patiess, attēls, nesaglabājot tā proporcijas, tiks pielāgots paneļa izmēriem.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="fit">
+							<local_schema short_desc="Ietilpināt attēlu panelī">
+								<longdesc>Ja patiess, attēls, neizmainot tā proporcijas, tiks piemērots paneļa izmēriem.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="image">
+							<local_schema short_desc="Fona attēls">
+								<longdesc>Norāda failu, kas tiks izmantots par fona attēlu. Ja attēlam ir alfa kanāls, tas un fona attēls pārklāsies.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="opacity">
+							<local_schema short_desc="Fona krāsas caurspīdība">
+								<longdesc>Norāda fona krāsas caurspīdību. Ja krāsa nav pilnīgi caurspīdīga (caurspīdības vērtība ir mazāka par 65535), krāsa pārklāsies ar fona attēlu.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="color">
+							<local_schema short_desc="Fona krāsa">
+								<longdesc>Norāda paneļa fona krāsu (#RGB formātā).</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="type">
+							<local_schema short_desc="Fona tips">
+								<longdesc>Kādu fona tipu vajadzētu lietot šim panelim. Iespējamās vērtības ir &quot;gtk&quot; - GTK+ noklusētā vērtība, &quot;color&quot; - tiks lietota krāsas lauka vērtība, &quot;image&quot; - tiks lietots attēls uz ko norāda fona attēla lauka vērtība.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="general">
+					<entry name="profiles_migrated">
+						<local_schema short_desc="Vecā profila konfigurācija pārnesta">
+							<longdesc>Loģiskais karodziņš, kas nosaka, vai lietotāja iepriekšējā konfigurācija no /apps/panel/profiles/default ir pārkopēta uz jauno atrašanās vietu /apps/panel.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="object_id_list">
+						<local_schema short_desc="Paneļa objektu ID saraksts">
+							<longdesc>Paneļa objektu ID saraksts. Katrs ID identificē atsevišķu objektu (palaidēju, pogu vai izvēlni/joslu). Katra objekta iestatījumi glabājas /apps/panel/objects/$(id).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="applet_id_list">
+						<local_schema short_desc="Paneļa sīklietotņu ID saraksts">
+							<longdesc>Paneļu sīklietotņu ID saraksts. Katrs ID identificē atsevišķu sīklietotni. Katras sīklietotnes iestatījumi glabājas /apps/panel/applets/$(id).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toplevel_id_list">
+						<local_schema short_desc="Paneļu ID saraksts">
+							<longdesc>Paneļu ID saraksts. Katrs ID identificē atsevišķu augstākā līmeņa paneli. Katra paneļa iestatījumi glabājas /apps/panel/toplevels/$(id).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_autocompletion">
+						<local_schema short_desc="Aktivizēt automātisko pabeigšanu &quot;Palaist lietotni&quot; dialogā">
+							<longdesc>Ja patiess, automātiskā pabeigšana būs pieejama &quot;Palaist lietotni&quot; dialogā.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_program_list">
+						<local_schema short_desc="Izvērst programmu sarakstu &quot;Palaist lietotni&quot; dialogā">
+							<longdesc>Ja patiess, &quot;Zināmo lietotņu&quot; saraksts &quot;Palaist lietotni&quot; dialogā tiks izvērsts. Šī vērtība ir aktuāla vienīgi, ja ir aktivizēta enable_program_list.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_program_list">
+						<local_schema short_desc="Aktivizēt programmu sarakstu &quot;Palaist lietotni&quot; dialogā">
+							<longdesc>Ja patiess, &quot;Zināmo lietotņu&quot; saraksts būs pieejams &quot;Palaist lietotni&quot; dialogā. To, vai šis saraksts būs izvērsts, kontrolē show_program_list.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="global">
+					<entry name="disable_force_quit">
+						<local_schema short_desc="Deaktivizēt piespiedu aizvēršanu">
+							<longdesc>Ja patiess, panelis neļaus lietotājiem veikt programmu piespiedu aizvēršanu, liedzot piekļuvi piespiedu aizvēršanas pogai.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_log_out">
+						<local_schema short_desc="Deaktivizēt iziešanu no sistēmas">
+							<longdesc>Ja patiess, panelis neļaus lietotājiem beigt darbu, liedzot piekļuvi darba beigšanas elementam izvēlnēs.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_lock_screen">
+						<local_schema short_desc="Norakstīts">
+							<longdesc>Šī atslēga ir norakstīta, jo to nevar izmantot, lai veiktu kārtīgu noslēgšanu. Vajadzētu izmantot /desktop/gnome/lockdown/disable_lock_screen atslēgu.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disabled_applets">
+						<local_schema short_desc="Sīklietotņu IID, kuras netiks ielādētas">
+							<longdesc>Sīklietotņu ID saraksts, kuras panelis ignorēs. Šādi jūs varat panākt, ka zināmas sīklietotnes netiek ielādētas un neparādās izvēlnēs. Piemēram, lai atslēgtu mini komandrindas sīklietotni, pievienojiet sarakstam &apos;OAFIID:GNOME_MiniCommanderApplet&apos;. Lai izmaiņas stātos spēkā, nepieciešams pārstartēt paneli.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="locked_down">
+						<local_schema short_desc="Pilna paneļa noslēgšana">
+							<longdesc>Ja patiess, panelis neļaus lietotājiem veikt izmaiņas paneļa konfigurācijā. Iespējams, ka atsevišķas sīklietotnes būs jānoslēdz atsevišķi. Lai izmaiņas stātos spēkā, paneli nāksies pārstartēt.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="highlight_launchers_on_mouseover">
+						<local_schema short_desc="Izgaismot palaidējus, kad uz tiem ir peles kursors">
+							<longdesc>Ja patiess, palaidēji tiks automātiski izgaismoti, kad pār tiem tiks novietots peles kursors.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="confirm_panel_remove">
+						<local_schema short_desc="Apstipriniet paneļa noņemšanu">
+							<longdesc>Ja patiess, pirms paneļa izņemšanas lietotājam tiks parādīts logs, kurā būs jāapstiprina šī izvēle.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="drawer_autoclose">
+						<local_schema short_desc="Automātiski aizvērt atvilktni">
+							<longdesc>Ja patiess, atvilktne, pēc uzklikšķināšanas uz tajā esošajiem palaidējiem, tiks automātiski aizvērta.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="window_screenshot_key">
+						<local_schema short_desc="Norakstīts">
+						</local_schema>
+					</entry>
+					<entry name="screenshot_key">
+						<local_schema short_desc="Norakstīts">
+						</local_schema>
+					</entry>
+					<entry name="run_key">
+						<local_schema short_desc="Norakstīts">
+						</local_schema>
+					</entry>
+					<entry name="menu_key">
+						<local_schema short_desc="Norakstīts">
+						</local_schema>
+					</entry>
+					<entry name="enable_key_bindings">
+						<local_schema short_desc="Norakstīts">
+						</local_schema>
+					</entry>
+					<entry name="panel_hide_delay">
+						<local_schema short_desc="Norakstīts">
+						</local_schema>
+					</entry>
+					<entry name="panel_animation_speed">
+						<local_schema short_desc="Norakstīts">
+						</local_schema>
+					</entry>
+					<entry name="panel_show_delay">
+						<local_schema short_desc="Norakstīts">
+						</local_schema>
+					</entry>
+					<entry name="panel_minimized_size">
+						<local_schema short_desc="Norakstīts">
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="Aktivizēt animācijas">
+						</local_schema>
+					</entry>
+					<entry name="keep_menus_in_memory">
+						<local_schema short_desc="Norakstīts">
+						</local_schema>
+					</entry>
+					<entry name="tooltips_enabled">
+						<local_schema short_desc="Aktivizēt paskaidres">
+							<longdesc>Ja patiess, paneļa objektiem tiks rādītas paskaidres.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gweather">
+				<dir name="prefs">
+					<entry name="radar">
+						<local_schema short_desc="URL rada kartei">
+							<longdesc>Pielāgotais URL, no kura iegūt radara karti.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_custom_radar_url">
+						<local_schema short_desc="Lietot pielāgotu adresi radara kartei">
+							<longdesc>Ja patiesi (true), tad iegūt radara karti no vietas, kas norādīta &quot;radar&quot; atslēgā.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="coordinates">
+						<local_schema short_desc="Atrašanās vietas koordinātes">
+						</local_schema>
+					</entry>
+					<entry name="location4">
+						<local_schema short_desc="Laika ziņas pilsētai">
+						</local_schema>
+					</entry>
+					<entry name="location3">
+						<local_schema short_desc="Radara atrašanās vieta">
+						</local_schema>
+					</entry>
+					<entry name="location2">
+						<local_schema short_desc="Zonas atrašanās vieta">
+						</local_schema>
+					</entry>
+					<entry name="location1">
+						<local_schema short_desc="Tuvējā pilsēta">
+						</local_schema>
+					</entry>
+					<entry name="location0">
+						<local_schema short_desc="Laika ziņas atrašanās vietai">
+						</local_schema>
+					</entry>
+					<entry name="enable_radar_map">
+						<local_schema short_desc="Rādīt radara karti">
+							<longdesc>Iegūt radara karti pie katra atjauninājuma.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_detailed_forecast">
+						<local_schema short_desc="Vairs netiek lietots">
+						</local_schema>
+					</entry>
+					<entry name="temperature_unit">
+						<local_schema short_desc="Temperatūras vienība">
+							<longdesc>Vienība, ko izmantot temperatūras norādīšanai.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="speed_unit">
+						<local_schema short_desc="Ātruma vienība">
+							<longdesc>Vienība, ko izmantot vēja ātruma norādīšanai.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="pressure_unit">
+						<local_schema short_desc="Spiediena vienība">
+							<longdesc>Vienība, ko izmantot spiediena norādīšanai.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="distance_unit">
+						<local_schema short_desc="Distances vienība">
+							<longdesc>Vienība, ko izmantot redzamības norādīšanai.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_metric">
+						<local_schema short_desc="Lietot metriskās sistēmas vienības">
+							<longdesc>Lietot metriskās sistēmas vienības britu vienību vietā.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_update_interval">
+						<local_schema short_desc="Atjaunināšanas intervāls">
+							<longdesc>Intervāls sekundēs starp automātiskajām atjaunināšanām.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_update">
+						<local_schema short_desc="Atjaunināt datus automātiski">
+							<longdesc>Nosaka, vai sīklietotne automātiski atjaunina tās informāciju par laika apstākļiem vai nē.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnome-keyring">
+				<dir name="daemon-components">
+					<entry name="ssh">
+						<local_schema short_desc="Vai gnome-keyring SSH aģents ir aktivizēts.">
+							<longdesc>Šī opcija aktivizē gnome-keyring dēmona SSH aģentu. Tā stāja spēkā tikai ar gnome-keyring-daemon startēšanos (t.i., kad lietotājs piesakās sistēmā).Šis iestatījums var tikt aizstāts ar noteiktiem dēmonam padotiem komandrindas argumentiem.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="pkcs11">
+						<local_schema short_desc="Vai gnome-keyring PKCS#11 komponente ir aktivizēta.">
+							<longdesc>Šī opcija aktivizē gnome-keyring dēmona PKCS#11 komponenti. Tā stājas spēkā tikai ar gnome-session startēšanos (t.i., kad lietotājs piesakās sistēmā). Šis iestatījums var tikt aizstāts ar noteiktiem dēmonam padotiem komandrindas argumentiem.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="secrets">
+						<local_schema short_desc="Vai gnome-keyring slepenais serviss ir aktivizēts.">
+							<longdesc>Šī opcija aktivizē gnome-keyring dēmona slepenā servisa komponenti. Tā stājas spēkā tikai ar gnome-session startēšanos (t.i., kad lietotājs piesakās sistēmā). Šis iestatījums var tikt aizstāts ar noteiktiem dēmonam padotiem komandrindas argumentiem.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="evince">
+				<entry name="override_restrictions">
+					<local_schema short_desc="Ignorēt dokumenta ierobežojumus">
+						<longdesc>Ignorēt dokumenta (piemēram, kopēšanas vai drukāšanas) ierobežojumus.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+		</dir>
+		<dir name="desktop">
+			<dir name="gnome">
+				<dir name="interface">
+					<entry name="show_unicode_menu">
+						<local_schema short_desc="Rādīt izvēlni &apos;Unicode kontroles simbols&apos;">
+						</local_schema>
+					</entry>
+					<entry name="show_input_method_menu">
+						<local_schema short_desc="Rādīt izvēlni &apos;Ievades metodes&apos;">
+						</local_schema>
+					</entry>
+					<entry name="menubar_accel">
+						<local_schema short_desc="Izvēlnes joslas paātrinātājs">
+							<longdesc>Izvēlnes joslas atvēršanai izmantojamās taustiņu kombinācijas.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="file_chooser_backend">
+						<local_schema short_desc="GtkFileChooser modulis">
+						</local_schema>
+					</entry>
+					<entry name="status_bar_meter_on_right">
+						<local_schema short_desc="Statusjosla pa labi">
+						</local_schema>
+					</entry>
+					<entry name="use_custom_font">
+						<local_schema short_desc="Izmantot lietotāja izvēlētu fontu">
+							<longdesc>Vai lietot lietotāja izvēlētu fontu gtk+ aplikācijās.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="monospace_font_name">
+						<local_schema short_desc="Fiksēta platuma fonts">
+							<longdesc>Tādās vietās kā terminālis izmantojamā fiksētā platuma fonta nosaukums.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="document_font_name">
+						<local_schema short_desc="Dokumenta fonts">
+						</local_schema>
+					</entry>
+					<entry name="gtk-im-module">
+						<local_schema short_desc="GTK IM modulis">
+						</local_schema>
+					</entry>
+					<entry name="gtk-im-status-style">
+						<local_schema short_desc="GTK IM statusa stils">
+							<longdesc>GTK+ ievades metodes statusa stila nosaukums, ko lieto gtk+.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk-im-preedit-style">
+						<local_schema short_desc="GTK IM pirmsrediģēšanas stils">
+							<longdesc>GTK+ ievades metodes pirmsrediģēšanas stila nosaukums, ko lieto gtk+.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="font_name">
+						<local_schema short_desc="Noklusējuma fonts">
+							<longdesc>Noklusējuma fonta nosaukums, ko lieto gtk+.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk_key_theme">
+						<local_schema short_desc="Gtk+ tēma">
+							<longdesc>Bāzes nosaukums nolusējuma tēmai, ko lieto gtk+.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk_theme">
+						<local_schema short_desc="Gtk+ tēma">
+							<longdesc>Bāzes nosaukums nolusējuma tēmai, ko lieto gtk+.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="icon_theme">
+						<local_schema short_desc="Ikonas tēma">
+							<longdesc>Ikonas tēma, ko lietot panelim, nautilus utt.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="cursor_blink_time">
+						<local_schema short_desc="Kursora mirgošanas laiks">
+						</local_schema>
+					</entry>
+					<entry name="cursor_blink">
+						<local_schema short_desc="Kursora mirgošana">
+						</local_schema>
+					</entry>
+					<entry name="toolbar_icons_size">
+						<local_schema short_desc="Rīkjoslas ikonas izmērs">
+						</local_schema>
+					</entry>
+					<entry name="toolbar_detachable">
+						<local_schema short_desc="Atdalāmas rīkjoslas">
+						</local_schema>
+					</entry>
+					<entry name="menubar_detachable">
+						<local_schema short_desc="Atdalāma izvēlnes josla">
+						</local_schema>
+					</entry>
+					<entry name="buttons_have_icons">
+						<local_schema short_desc="Pogām ir ikonas">
+							<longdesc>Vai pogas var attēlot ikonas blakus tekstiem.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menus_have_icons">
+						<local_schema short_desc="Izvēlnēm ir ikonas">
+						</local_schema>
+					</entry>
+					<entry name="toolbar_style">
+						<local_schema short_desc="Rīkjoslas stils">
+						</local_schema>
+					</entry>
+					<entry name="can_change_accels">
+						<local_schema short_desc="Var mainīt paātrinājumu">
+						</local_schema>
+					</entry>
+					<entry name="menus_have_tearoff">
+						<local_schema short_desc="Izvēlnes ir pārceļamas">
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="Aktivizēt animācijas">
+							<longdesc>Vai būtu jāattēlo animācijas. Piezīme: šī ir globāla atslēga, tā izmaina logu pārvaldnieka, paneļa u.c. uzvedību.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="accessibility">
+						<local_schema short_desc="Aktivizēt pieejamību">
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="background">
+					<entry name="color_shading_type">
+						<local_schema short_desc="Krāsas ēnošanas tips">
+						</local_schema>
+					</entry>
+					<entry name="secondary_color">
+						<local_schema short_desc="Sekundārā krāsa">
+							<longdesc>Labā vai Apakšas krāsa, kad zīmē pārejas, netiek lietota viendabīgai krāsai.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="primary_color">
+						<local_schema short_desc="Primārā krāsa">
+							<longdesc>Kreisā vai augšējā krāsa (kad tiek izmantota pāreja), vai viendabīga krāsa.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="picture_opacity">
+						<local_schema short_desc="Attēla necaurredzamība">
+						</local_schema>
+					</entry>
+					<entry name="picture_filename">
+						<local_schema short_desc="Attēla faila nosaukums">
+						</local_schema>
+					</entry>
+					<entry name="picture_options">
+						<local_schema short_desc="Attēla opcijas">
+						</local_schema>
+					</entry>
+					<entry name="draw_background">
+						<local_schema short_desc="Zīmēt darbvirsmas fonu">
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="typing_break">
+					<entry name="enabled">
+						<local_schema short_desc="Vai klaviatūras aizslēgšana ir iespējota">
+							<longdesc>Vai klaviatūras aizslēgšana ir iespējota.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="allow_postpone">
+						<local_schema short_desc="Ļaut pārcelt rakstīšanas pārtraukumus">
+							<longdesc>Vai rakstīšanas pauzes ekrānu var pārcelt uz vēlāku laiku.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="break_time">
+						<local_schema short_desc="Pārtraukuma laiks">
+							<longdesc>Cik garai būtu jābūt rakstīšanas pauzei (minūtēs).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="type_time">
+						<local_schema short_desc="Rakstīšanas laiks">
+							<longdesc>Pēc cik ilga rakstīšanas laika minūtēs sāksies pārtraukuma režīms.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="sound">
+					<entry name="theme_name">
+						<local_schema short_desc="Skaņu tēmas nosaukums">
+						</local_schema>
+					</entry>
+					<entry name="event_sounds">
+						<local_schema short_desc="Skaņas notikumiem">
+							<longdesc>Vai atskaņot skaņas pie lietotāja notikumiem.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_esd">
+						<local_schema short_desc="Aktivizēt ESD">
+							<longdesc>Aktivizēt skaņas servera sāknēšanu.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="default_mixer_tracks">
+						<local_schema short_desc="Miksera celiņi pēc noklusējuma">
+						</local_schema>
+					</entry>
+					<entry name="default_mixer_device">
+						<local_schema short_desc="Miksera ierīce pēc noklusējuma">
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="peripherals">
+					<dir name="keyboard">
+						<entry name="remember_numlock_state">
+							<local_schema short_desc="Atcerēties NumLock stāvokli">
+								<longdesc>Šo aktivizējot, GNOME atcerēsies NumLock taustiņa stāvokli, mainot sesijas.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bell_custom_file">
+							<local_schema short_desc="Faila nosaukums lietotāja izvēlētajam klaviatūras zvanam">
+							</local_schema>
+						</entry>
+						<entry name="bell_mode">
+							<local_schema>
+								<longdesc>iespējamās vērtības ir &quot;on&quot;, &quot;off&quot;, un &quot;custom&quot;.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="mouse">
+						<entry name="cursor_size">
+							<local_schema short_desc="Kursora izmērs">
+								<longdesc>Cursor_theme norādītais kursora izmērs.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="cursor_theme">
+							<local_schema short_desc="Kursora tēma">
+								<longdesc>Kursora tēmas nosaukums. To izmanto tikai Xservers, kas atbalsta Xcursor, kā, piemēram, Xfree86 4.3 un vēlāki.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="cursor_font">
+							<local_schema short_desc="Kursora fonts">
+								<longdesc>Kursora fonta nosaukums. Ja nieiestatīts, tiek lietots noklusējuma fonts. Šī vērtība tiek novirzīta uz X serveri tikai sāknējot katru sesiju, tāpēc, mainot to sesijas vidū, nekas nenotiks līdz nākamajai reizei, kad jūs iereģistrēsieties.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="locate_pointer">
+							<local_schema short_desc="Sameklēt kursoru">
+							</local_schema>
+						</entry>
+						<entry name="double_click">
+							<local_schema short_desc="Dubultklikšķa laiks">
+								<longdesc>Dubultklikšķa ilgums.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="drag_threshold">
+							<local_schema short_desc="Vilkšanas slieksnis">
+							</local_schema>
+						</entry>
+						<entry name="motion_threshold">
+							<local_schema short_desc="Kustības slieksnis">
+								<longdesc>Distance pikseļos, kas kursoram ir jānoiet, pirms paātrinātā peles kustība tiek aktivizēta. Sistēmas noklusējuma vērtība ir -1.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="motion_acceleration">
+							<local_schema short_desc="Viens klikšķis">
+								<longdesc>Paātrinātāja reizinātājs peles kustībai. Sistēmas noklusējuma vērtība ir -1.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="single_click">
+							<local_schema short_desc="Viens klikšķis">
+								<longdesc>Viens klikšķis, lai atvērtu ikonas.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="left_handed">
+							<local_schema short_desc="Peles pogas orientācija">
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="lockdown">
+					<entry name="disable_lock_screen">
+						<local_schema short_desc="Deaktivizēt ekrāna bloķēšanas iespēju">
+							<longdesc>Neļaut lietotājam aizslēgt savu ekrānu.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_user_switching">
+						<local_schema short_desc="Atspējot lietotāju nomaiņu">
+							<longdesc>Neļaut lietotājam pārslēgties uz cita lietotāja kontu, kamēr viņa paša sesija ir aktīva.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_print_setup">
+						<local_schema short_desc="Atspējot drukāšanas iestatīšanu">
+							<longdesc>Neļauj lietotājam izmainīt drukāšanas iestatījumus. Piemēram, tiks atspējota &quot;Drukāšanas iestatīšana&quot; visos aplikāciju logos.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_printing">
+						<local_schema short_desc="Atspējot drukāšanu">
+							<longdesc>Neļauj lietotājam drukāt. Piemēram, tiks apstējota pieeja visu aplikāciju &quot;Drukāt&quot; logam.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_save_to_disk">
+						<local_schema short_desc="Atspējot failu saglabāšanu diskā">
+							<longdesc>Neļauj lietotājam saglabāt failus diskā. Piemēram, tiks astpējota pieeja &quot;Saglabāt kā&quot; logam visās aplikācijās.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_command_line">
+						<local_schema short_desc="Atspējot komandrindu">
+							<longdesc>Neļauj lietotājam piekļūt terminālim vai likt izpildīt komandrindu. Piemēram, tas atspējotu pieeju paneļa logam &quot;Palaist aplikāciju&quot;.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="file-views">
+					<entry name="icon_theme">
+						<local_schema short_desc="Faila ikonas tēma">
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="accessibility">
+					<dir name="startup">
+						<entry name="exec_ats">
+							<local_schema short_desc="Sāknēšanas palīgtehnoloģiju aplikācijas">
+								<longdesc>Saraksts ar palīdzošajām programmām, ko būtu jāpalaiž pieslēdzoties GNOME videi.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="keyboard">
+						<entry name="stickykeys_modifier_beep">
+							<local_schema>
+								<longdesc>Nopīkstēties, kad nospiests modifikator taustiņš.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="stickykeys_two_key_off">
+							<local_schema>
+								<longdesc>Dezaktivēt, kad divi taustiņi tiek nospiesti vienlaicīgi.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="slowkeys_delay">
+							<local_schema short_desc="Minimālais intervāls milisekundēs">
+								<longdesc>Uztvert taustiņa spiedienu tikai, ja tas paturēts @delay sekundes.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="mousekeys_init_delay">
+							<local_schema short_desc="Sākotnējā aizture milisekundēs">
+								<longdesc>Cik milisekundes gaidīt pirms peles kustības taustiņi sāk darboties.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="mousekeys_accel_time">
+							<local_schema short_desc="Paātrinājuma ilgums milisekundēs">
+								<longdesc>Cik milisekundēs jāuzņem ātrums no 0 līdz maksimālajam.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="mousekeys_max_speed">
+							<local_schema short_desc="Pikseļi sekundē">
+								<longdesc>Cik pikseļus sekundē bīdīt pie maksimālā ātruma.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bouncekeys_delay">
+							<local_schema short_desc="minimālais intervāls milisekundēs">
+								<longdesc>Ignorēt _tā paša_ taustiņa spiedienus, ja tie atkārtojas intervālā, mazāka par @delay milisekundēm.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="thumbnailers">
+					<entry name="disable_all">
+						<local_schema short_desc="Atspējot visus ārējos sīktēlu veidotājus">
+							<longdesc>Ieslēdziet šo opciju, lai atspējotu visas ārējās sīktēlu veidošanas programmas, neatkarīgi no tā, vai tās ir atsevišķi iespējotas/atspējotas.</longdesc>
+						</local_schema>
+					</entry>
+					<dir name="application@x-gzpdf">
+						<entry name="command">
+							<local_schema short_desc="PDF dokumentu sīktēlu komanda">
+								<longdesc>PDF sīktēlu veidotāja komanda ar argumentiem. Papildu informācijai aplūkojiet Nautilus sīktēlu veidotāja dokumentāciju.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Aktivizēt PDF dokumentu sīktēlu veidošanu">
+								<longdesc>Pieejamās iespējas: patiess aktivizē sīktēlošanu, nepatiess atslēdz sīktēlu veidošanu</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@x-bzpdf">
+						<entry name="command">
+							<local_schema short_desc="PDF dokumentu sīktēlu komanda">
+								<longdesc>PDF sīktēlu veidotāja komanda ar argumentiem. Papildu informācijai aplūkojiet Nautilus sīktēlu veidotāja dokumentāciju.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Aktivizēt PDF dokumentu sīktēlu veidošanu">
+								<longdesc>Pieejamās iespējas: patiess aktivizē sīktēlošanu, nepatiess atslēdz sīktēlu veidošanu</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@pdf">
+						<entry name="command">
+							<local_schema short_desc="PDF dokumentu sīktēlu komanda">
+								<longdesc>PDF sīktēlu veidotāja komanda ar argumentiem. Papildu informācijai aplūkojiet Nautilus sīktēlu veidotāja dokumentāciju.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Aktivizēt PDF dokumentu sīktēlu veidošanu">
+								<longdesc>Pieejamās iespējas: patiess aktivizē sīktēlošanu, nepatiess atslēdz sīktēlu veidošanu</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="url-handlers">
+					<dir name="h323">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Palaist komandu terminālī">
+								<longdesc>Patiess, ja komandai, kas izmantota, lai apietos ar šo URL tipu, jāpalaižas terminālī.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="&quot;h323&quot; URL apstrādātājs">
+								<longdesc>Komanda, kas tiek izmantota apejoties ar &quot;h323&quot; URL,ja ieslēgta.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Vai norādītai komandai nepieciešams apieties ar &quot;h323&quot; URL">
+								<longdesc>Patiess, ja komandai norādītai &quot;komanda&quot; atslēgā vajadzētu apieties ar &quot;h323&quot; URL.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="callto">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Palaist komandu terminālī">
+								<longdesc>Patiess, ja komandai, kas izmantota, lai apietos ar šo URL tipu, jāpalaižas terminālī.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="&quot;callto&quot; URL apstrādātājs">
+								<longdesc>Komanda, kas tiek izmantota apejoties ar &quot;callto&quot; URL,ja ieslēgta.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Vai norādītai komandai nepieciešams apieties ar &quot;callto&quot; URL">
+								<longdesc>Patiess, ja komandai norādītai &quot;komanda&quot; atslēgā vajadzētu apieties ar &quot;callto&quot; URL.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="aim">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Palaist komandu terminālī">
+								<longdesc>Patiess, ja komandai, kas izmantota, lai apietos ar šo URL tipu, jāpalaižas terminālī.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="&quot;aim&quot; URL apstrādātājs">
+								<longdesc>Komanda, kas tiek izmantota apejoties ar &quot;aim&quot; URL,ja ieslēgta.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Vai norādītai komandai nepieciešams apieties ar  &quot;aim&quot; URL">
+								<longdesc>Patiess, ja komandai norādītai &quot;komanda&quot; atslēgā vajadzētu apieties ar &quot;aim&quot; URL.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="mailto">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Palaist komandu terminālī">
+								<longdesc>Patiess, ja komandai, kas izmantota, lai apietos ar šo URL tipu, jāpalaižas terminālī.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="&quot;mailto&quot; URL apstrādātājs">
+								<longdesc>Komanda, kas tiek izmantota apejoties ar &quot;mailto&quot; URL,ja ieslēgta.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Vai norādītai komandai nepieciešams apieties ar  &quot;mailto&quot; URL">
+								<longdesc>Patiess, ja komandai norādītai &quot;komanda&quot; atslēgā vajadzētu apieties ar &quot;mailto&quot; URL.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="https">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Palaist komandu terminālī">
+								<longdesc>Patiess, ja komandai, kas izmantota, lai apietos ar šo URL tipu, jāpalaižas terminālī.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="&quot;https&quot; URL apstrādātājs">
+								<longdesc>Komanda, kas tiek izmantota apejoties ar &quot;https&quot; URL,ja ieslēgta.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Vai norādītai komandai nepieciešams apieties ar &quot;https&quot; URL">
+								<longdesc>Patiess, ja komandai norādītai &quot;komanda&quot; atslēgā vajadzētu apieties ar &quot;https&quot; URL.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="http">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Palaist komandu terminālī">
+								<longdesc>Patiess, ja komandai, kas izmantota, lai apietos ar šo URL tipu, jāpalaižas terminālī.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="&quot;http&quot; URL apstrādātājs">
+								<longdesc>Komanda, kas tiek izmantota apejoties ar &quot;http&quot; URL,ja ieslēgta.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Vai norādītai komandai nepieciešams apieties ar &quot;http&quot; URL">
+								<longdesc>Patiess, ja komandai norādītai &quot;komanda&quot; atslēgā vajadzētu apieties ar &quot;http&quot; URL.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="man">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Palaist komandu terminālī">
+								<longdesc>Patiess, ja komandai, kas izmantota, lai apietos ar šo URL tipu, jāpalaižas terminālī.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc=" &quot;man&quot; URL apstrādātājs">
+								<longdesc>Komanda, kas tiek izmantota apejoties ar &quot;man&quot; URL,ja ieslēgta.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Vai norādītai komandai nepieciešams apieties ar  &quot;man&quot; URL">
+								<longdesc>Patiess, ja komandai norādītai &quot;komanda&quot; atslēgā vajadzētu apieties ar &quot;man&quot; URL.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="info">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Palaist komandu terminālī">
+								<longdesc>Patiess, ja komandai, kas izmantota, lai apietos ar šo URL tipu, jāpalaižas terminālī.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="&quot;info&quot; URL apstrādātājs">
+								<longdesc>Komanda, kas tiek izmantota apejoties ar &quot;info&quot; URL,ja ieslēgta.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Vai norādītai komandai nepieciešams apieties ar &quot;info&quot; URL">
+								<longdesc>Patiess, ja komandai norādītai &quot;komanda&quot; atslēgā vajadzētu apieties ar &quot;info&quot; URL.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="ghelp">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Palaist komandu terminālī">
+								<longdesc>Patiess, ja komandai, kas izmantota, lai apietos ar šo URL tipu, jāpalaižas terminālī.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="&quot;ghelp&quot; URL apstrādātājs">
+								<longdesc>Komanda, kas tiek izmantota apejoties ar &quot;ghelp&quot; URL,ja ieslēgta.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Vai norādītai komandai nepieciešams apieties ar &quot;ghelp&quot; URL">
+								<longdesc>Patiess, ja komandai norādītai &quot;komanda&quot; atslēgā vajadzētu apieties ar &quot;ghelp&quot; URL.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="trash">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Palaist komandu terminālī">
+								<longdesc>Patiess, ja komandai, kas izmantota, lai apietos ar šo URL tipu, jāpalaižas terminālī.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="&quot;miskastes&quot; URL apstrādātājs">
+								<longdesc>Komanda, kas tiek izmantota apejoties ar &quot;miskastes&quot; URL,ja ieslēgta.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Vai norādītai komandai nepieciešams apieties ar &quot;miskastes&quot; URL">
+								<longdesc>Patiess, ja komandai norādītai &quot;komanda&quot; atslēgā vajadzētu apieties ar &quot;miskastes&quot; URL.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="applications">
+					<dir name="tasks">
+						<entry name="needs_term">
+							<local_schema short_desc="Uzdevumam nepieciešama komandrinda">
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="Noklusētie uzdevumi">
+								<longdesc>Noklusētā uzdevumu programma</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="calendar">
+						<entry name="needs_term">
+							<local_schema short_desc="Kalendāram nepieciešama komandrinda">
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="Noklusētais kalendārs">
+								<longdesc>Noklusētā kalendāra programma</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="window_manager">
+						<entry name="workspace_names">
+							<local_schema short_desc="Darba vietu vārdi (novecojis)">
+								<longdesc>Pirmā logu pārvaldnieka nosaukumu saraksts. Šī atslēga netiek lietota kopš GNOME 2.12.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="number_of_workspaces">
+							<local_schema short_desc="Darba vietu skaits (novecojis)">
+								<longdesc>Darba vietu skaits, ko logu pārvaldniekam būtu jāizmanto. Šī atslēga netiek izmantota kopš GNOME 2.12.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="current">
+							<local_schema short_desc="Lietotāja logu pārvaldnieks (novecojis)">
+								<longdesc>Vispirms mēģināmais logu pārvaldnieks. Šī atslēga netiek izmantota kopš GNOME 2.12.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="default">
+							<local_schema short_desc="Logu rezerves pārvaldnieks (novecojis)">
+								<longdesc>Logu rezerves pārvaldnieks gadījumam, ja lietotāja logu pārvaldnieks nav atrodams. Šī atslēga vairs netiek lietota kopš GNOME 2.12.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="browser">
+						<entry name="nremote">
+							<local_schema short_desc="Pārlūks saprot attālināti">
+								<longdesc>Vai noklusētais pārlūks saprot netskape tālvadību.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="needs_term">
+							<local_schema short_desc="Pārlūkam nepieciešams terminālis">
+								<longdesc>Vai noklusētajam pārlūkam ir nepieciešama komandrinda, lai darbotos.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="Noklusētais pārlūks">
+								<longdesc>Noklusētais pārlūks visām adresēm.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="at">
+						<dir name="mobility">
+							<entry name="startup">
+								<local_schema short_desc="Palaist izvēlēto Mobilitātes palīdzības programmu">
+									<longdesc>GNOME ielādes laikā palaižamās izvēlētās mobilitātes programmas.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="exec">
+								<local_schema short_desc="Izvēlēta Mobilitātes palīdzības programma">
+								</local_schema>
+							</entry>
+						</dir>
+						<dir name="visual">
+							<entry name="startup">
+								<local_schema short_desc="Palaist izvēlēto Vizuālās palīdzības programmu">
+								</local_schema>
+							</entry>
+							<entry name="exec">
+								<local_schema short_desc="Izvēlētā Vizuālās palīdzības programma">
+								</local_schema>
+							</entry>
+						</dir>
+					</dir>
+					<dir name="component_viewer">
+						<entry name="exec">
+							<local_schema short_desc="Noklusēta komponente pārlūka lietotnei">
+								<longdesc>Lietotne, ko izmanto, lai aplūkotu datnes, kas pieprasa komponenti, lai aplūkotu tās. Parametrs %s būs aizvietots ar datnes URI, parametrs %c būs aizvietots ar komponenta IID.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="terminal">
+						<entry name="exec_arg">
+							<local_schema short_desc="Exec argumenti">
+								<longdesc>Argumenti, kas izmantoti, lai izpildītu programmas terminālī, definētā ar &apos;exec&apos; atslēgu.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="Termināļa aplikācija">
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+			</dir>
+		</dir>
+		<dir name="system">
+			<dir name="dns_sd">
+				<entry name="extra_domains">
+					<local_schema short_desc="Papildus domēni,  DNS-SD servisu meklēšanai">
+						<longdesc>Komata atdalīts DNS-SD domēnu saraksts, ko vajadzētu redzēt šeit: &quot;network:///&quot;.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="display_local">
+					<local_schema short_desc="Kā attēlot vietējo DNS-SD servisu">
+						<longdesc>Iespējamās vērtības ir &quot;merged&quot;, &quot;separate&quot; un &quot;disabled&quot;.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="smb">
+				<entry name="workgroup">
+					<local_schema short_desc="SMB darba grupa">
+						<longdesc>Windows tīklošanas darba grupa vai domēns, kura sastāvā ir lietotājs. Lai jaunā darba grupa strādātu pilnīgi, lietotājam vajadzētu iziet no sistēmas un ienākt atpakaļ.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="proxy">
+				<entry name="autoconfig_url">
+					<local_schema short_desc="Automātiska starpnieka konfigurācija URL">
+						<longdesc>URL kas apgādā ar starpniekkonfigurācijas vērtībām.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="socks_port">
+					<local_schema short_desc="SOCKS starpnieka ports">
+						<longdesc>Mašīnas ports definēts &quot;/system/proxy/socks_host&quot; , lai jūs varētu iziet cauri starpniekam.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="socks_host">
+					<local_schema short_desc="SOCKS starpnieka saimniekdatora vārds">
+						<longdesc>Mašīnas vārds, lai starpietu cauri.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="ftp_port">
+					<local_schema short_desc="FTP starpnieka ports">
+						<longdesc>Mašīnas ports definēts &quot;/system/proxy/ftp_host&quot; , lai jūs varētu iziet cauri starpniekam.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="ftp_host">
+					<local_schema short_desc="FTP starpnieka saimniekdatora vārds">
+						<longdesc>Mašīnas vārds, lai starpietu cauri FTP.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="secure_port">
+					<local_schema short_desc="Drošs HTTP starpnieka ports">
+						<longdesc>Mašīnas ports definēts &quot;/system/proxy/secure_host&quot;  ,lai jūs varētu iziet cauri starpniekam.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="secure_host">
+					<local_schema short_desc="Drošs HTTP starpnieka saimniekdatora vārds">
+						<longdesc>Mašīnas vārds, lai starpietu cauri drošu HTTP.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="mode">
+					<local_schema short_desc="Starpnieka konfigurācijas režīms">
+						<longdesc>Izvēlieties starpnieka konfigurācijas režīmu. Atbalstītās vērtības ir &quot;none&quot;, &quot;manual&quot;, &quot;auto&quot;.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="http_proxy">
+				<entry name="ignore_hosts">
+					<local_schema short_desc="Ne-starpnieka saimniekdatori">
+						<longdesc>Šī atslēga satur resursdatoru sarakstu, kas ir savienoti tieši, labāk nekā caur starpnieku (ja tas ir aktīvs). Vērtības var būt saimniekdatoru vārdi, domēni (izmantojot aizstājējzīmes, kā *.foo.com), resursdatoru IP adreses (kā IPv4 un IPv6) un tīklu adreses ar tīkla masku (piemēram, 192.168.0.0/24).</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="authentication_password">
+					<local_schema short_desc="HTTP starpnieka parole">
+						<longdesc>Parole identificējoties, veicot HTTP starpniekošanu.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="authentication_user">
+					<local_schema short_desc="HTTP starpnieka lietotāja vārds">
+						<longdesc>Lietotāja vārds, lai izietu identifikāciju,veicot HTTP starpniekošanu (proxying).</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="use_authentication">
+					<local_schema short_desc="Identificējiet starpnieka servera savienojumus">
+						<longdesc>Ja patiess, tad savienojumiem ar starpniekserveri, nepieciešama identifikācija. Lietotāja vārds/parole kombinācija ir definēta ar &quot;/system/http_proxy/authentication_user&quot; un &quot;/system/http_proxy/authentication_password&quot;.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="port">
+					<local_schema short_desc="HTTP starpnieka ports">
+						<longdesc>Mašīnas ports definēts &quot;/system/http_proxy/host&quot; , lai jūs varētu iziet cauri starpniekam.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="host">
+					<local_schema short_desc="HTTP starpnieka saimniekdatora vārds">
+						<longdesc>Mašīnas vārds, lai starpietu cauri HTTP.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="use_http_proxy">
+					<local_schema short_desc="Izmantot HTTP starpnieku">
+						<longdesc>Ieslēdz starpnieka uzstādījumus, kad piekļūst HTTP cauri tīmeklim.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+		</dir>
+	</dir>
+</gconf>

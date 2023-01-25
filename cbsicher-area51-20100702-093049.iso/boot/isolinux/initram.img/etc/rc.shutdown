@@ -1,0 +1,143 @@
+#!/static/bin/ash
+		
+PATH=/static/bin:/static/sbin:/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin:/usr/local/sbin
+export PATH
+
+# set this to prevent faults if not set in /etc/rc.defaults
+ultraquiet=0
+
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors
+. /etc/rc.lang/en/messages.sh
+[ -f "/etc/rc.lang/$lang/messages.sh" ] && . /etc/rc.lang/$lang/messages.sh
+. /etc/lesslinux/branding/branding.en.sh
+[ -f "/etc/lesslinux/branding/branding.${lang}.sh" ] && . /etc/lesslinux/branding/branding.${lang}.sh
+
+# define some common functions
+
+free_loop() {
+    for i in /dev/loop[0-9]* ; do
+	losetup -d "$i" > /dev/null 2>&1
+    done
+}
+
+# Clear the terminal with empty newlines
+for i in ` seq 50 ` ; do echo "" ; done
+
+if ls /dev/mapper/lesslinux_crypt > /dev/null 2>&1 ; then
+    [ "$ultraquiet" -gt 0 ] || printf "$bold---> Saving some settings $normal\n" 
+    cat /etc/lesslinux/overlay_save | while read filename
+	do
+	    case $filename in
+		'#'*|'')
+		    true
+		;;
+		*)
+		    test -f "$filename" && tar -C / -cf - "$filename" 2>/dev/null | tar -C /home/.overlay -xf - 2>/dev/null
+		;;
+	    esac
+	done
+fi
+
+printf "${bold}${stop_remaining}${normal}\n"
+
+[ "$ultraquiet" -gt 0 ] || printf "$bold---> Running rc scripts in reverse order $normal\n" 
+
+for i in ` ls /etc/rc.d/[0-9][0-9][0-9][0-9]-*.?? | tac `
+do
+    provides="` cat $i | grep '#lesslinux provides' | awk '{print $3}' `"
+    if [ -z "$provides" ] ; then
+        [ "$ultraquiet" -gt 0 ] && $i stop > /dev/null 2>&1
+	[ "$ultraquiet" -gt 0 ] || $i stop
+    else
+        if echo "$skipservices" | grep '|'$provides'|' > /dev/null 2>&1 ; then 
+	    [ "$ultraquiet" -gt 0 ] || printf "$bold---> Skipping $provides \n" 
+        else
+	    [ "$ultraquiet" -gt 0 ] && $i stop > /dev/null 2>&1
+	    [ "$ultraquiet" -gt 0 ] || $i stop
+        fi
+    fi
+done
+
+# first find and unmount all fuseblk devices
+fuseblks=` cat /proc/mounts | grep ' fuseblk ' | awk '{print $2}' ` 
+for i in 1 2 3 ; do
+    for j in $fuseblks ; do
+	umount "$j"
+	free_loop
+    done
+done
+
+# finding and closing cryptdevices
+if [ -d "/dev/mapper" ] ; then 
+    for i in 1 2 3 4 5 6 ; do
+	for j in /dev/mapper/* ; do
+		if [ "$j" '!=' "/dev/mapper/control" ] ; then
+			mountpoint=` mount | grep $j | awk '{print $3}' `
+			[ "$i" -lt 4 ] && mountpoint -q "$mountpoint" && fuser -km "$mountpoint" > /dev/null 2>&1
+			[ "$i" -gt 3 ] && mountpoint -q "$mountpoint" && fuser -km -9 "$mountpoint" > /dev/null 2>&1
+			umount "$j" > /dev/null 2>&1
+			cryptsetup luksClose "$j" > /dev/null 2>&1
+		fi
+	done
+    done
+fi
+
+# Free some loop devices not used anymore
+free_loop
+
+# After freeing loop devices we might do one round of unmounting
+mntpnts=` mount | grep '^/' | awk '{print $3}' `
+for i in $mntpnts ; do
+    umount $i > /dev/null 2>&1
+done
+
+# Free some loop devices not used anymore
+free_loop
+
+# Now forcibly kill all processes residing in mountpoints of our loop devices
+# remember to unmount subdirectories!
+lomntpnts=` mount | grep '^/dev/loop' | awk '{print $3}'` 
+for i in $lomntpnts ; do
+	mntsubdirs=` mount | awk '{print $3}' | grep '^'$i | sort -r `
+	for j in $mntsubdirs ; do
+		umount $j > /dev/null 2>&1
+		mountpoint -q $j && fuser -km -9 $j > /dev/null 2>&1
+		umount $j > /dev/null 2>&1
+	done
+done
+
+# Free some loop devices not used anymore
+free_loop
+
+# Now get weird, seven rounds of killing and umounting everything
+for n in 0 1 2 3 4 5 6 ; do
+    mntpnts=` mount | grep -E '^/|^tmpfs' | awk '{print $3}' ` 
+    for i in $mntpnts ; do
+	mntsubdirs=` mount | awk '{print $3}' | grep '^'$i | sort -r `
+	for j in $mntsubdirs ; do
+	    mountpoint -q $j && fuser -km -9 $j > /dev/null 2>&1
+	    umount $j > /dev/null 2>&1
+	done
+	free_loop
+	sleep 1 
+    done
+done
+
+[ "$ultraquiet" -gt 0 ] || printf "$bold---> Still mounted $normal \n"
+[ "$ultraquiet" -gt 0 ] || cat /proc/mounts
+
+# debug
+# sleep 60
+
+for i in ` seq 60 ` ; do
+    [ "$ultraquiet" -gt 0 ] && printf "\n"
+done
+
+shutdown_msg=` echo $shut_down_in | sed 's/COUNT/10/g' ` 
+printf "\n${bold}${shutdown_msg}${normal}\n\n"
+sleep 10
+printf "\n${bold}${shut_down_now}${normal}\n\n"
+
+# THE END		

@@ -1,0 +1,68 @@
+[Entry 3]
+Name=Firefox: Disable installation of extensions
+Name[de]=Firefox: Addon-Installation verbieten
+Name[en]=Firefox: Disable installation of extensions
+Name[ru]=Firefox: отключить установку дополнений
+Name[es]=Firefox: Deshabilitar instalación de extensiones
+Name[pl]=Firefox: Zablokuj instalację rozszerzeń
+Comment=
+Icon=stock_stop
+Exec=ll_ff_prevent_install
+Path=/home/surfer
+Terminal=false
+StartupNotify=false
+
+[Global]
+MoveFirst=false
+ArrowPosition=0
+
+[Entry 0]
+Name=Web Browser
+Name[ru]=Веб-браузер
+Name[es]=Navegador
+Name[pl]=Przeglądarka internetowa
+Comment[ru]=Веб-браузер
+Comment[en]=Surf the internet
+Comment[de]=Surfen Sie im Internet
+Comment[es]=Navegador
+Comment[pl]=Przeglądarka internetowa
+Icon=/opt/firefox/lib/firefox/icons/mozicon128.png
+Exec=exo-open --launch WebBrowser
+Path=/home/surfer
+Terminal=false
+StartupNotify=false
+
+[Entry 1]
+Name=Activate Adobe Flash
+Name[de]=Adobe Flash Plugin aktivieren
+Name[pl]=Aktywuj Adobe Flash
+Icon=applications-multimedia
+Exec=sudo ll_ff_enable_flash
+Path=/home/surfer
+Terminal=false
+StartupNotify=false
+
+[Entry 2]
+Name=Activate Gnash (safer Flash replacement)
+Name[de]=Gnash (sicherer Flash-Ersatz) aktivieren
+Name[pl]=Aktywuj Gnash (bezpieczny zamiennik Flasha)
+Icon=applications-development
+Exec=sudo ll_ff_disable_flash
+Path=/home/surfer
+Terminal=false
+StartupNotify=false
+
+[Entry 4]
+Name=Firefox: Enable installation of extensions
+Name[de]=Firefox: Addon-Installation zulassen
+Name[es]=Firefox: Habilitar instalación de extensiones 
+Name[en]=Firefox: Enable installation of extensions
+Name[ru]=Firefox: включить установку дополнений
+Name[pl]=Firefox: Zezwól na instalację rozszerzeń
+Comment=
+Icon=stock_down
+Exec=ll_ff_allow_install
+Path=/home/surfer
+Terminal=false
+StartupNotify=false
+

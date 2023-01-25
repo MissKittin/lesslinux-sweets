@@ -1,0 +1,2562 @@
+<?xml version="1.0"?>
+<gconf>
+	<dir name="schemas">
+		<dir name="apps">
+			<dir name="brasero">
+				<entry name="nautilus-extension-debug">
+					<local_schema short_desc="Nautilus 延伸功能是否應輸出除錯陳述">
+						<longdesc>Nautilus 延伸功能是否應輸出除錯陳述。此數值應在必要時設為 true。</longdesc>
+					</local_schema>
+				</entry>
+				<dir name="filter">
+					<entry name="broken_sym">
+						<local_schema short_desc="brasero 是否要過濾損壞的符號連結檔案">
+							<longdesc>是否要讓 Brasero 過濾損壞的符號連結。若設為 true，Brasero 將過濾損壞的符號連結。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="replace_sym">
+						<local_schema short_desc="將符號連結置換為它們的目標">
+							<longdesc>是否要讓 Brasero 將專案中的符號連結替換為它們的目標檔案。若設為 true，Brasero 會替換符號連結。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hidden">
+						<local_schema short_desc="brasero 是否過濾隱藏檔案">
+							<longdesc>是否要讓brasero過濾隱藏檔案。如此設定，brasero將過濾隱藏檔案。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="display">
+					<entry name="viewer">
+						<local_schema short_desc="啟用檔案預覽">
+							<longdesc>是否顯示檔案預覽。若設為 true 則啟用。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="config">
+					<entry name="raw_flag">
+						<local_schema short_desc="是否使用 cdrdao 的「--driver generic-mmc-raw」旗標">
+							<longdesc>是否使用 cdrdao 的「--driver generic-mmc-raw」旗標。若設為 True，brasero 會使用它；但它只是一些光碟機/設定的權宜措施。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="minbuf_value">
+						<local_schema short_desc="和 cdrecord 的「-immed」旗標一起使用">
+							<longdesc>和 cdrecord 的「-immed」旗標一起使用。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="dao_flag">
+						<local_schema short_desc="是否使用 growisofs 的「-use-the-force-luke=dao」旗標">
+							<longdesc>是否使用 growisofs 的「-use-the-force-luke=dao」旗標。若設為 false，brasero 不會使用它；但它只是一些光碟機/設定的權宜措施。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="immed_flag">
+						<local_schema short_desc="在 cdrecord 中啟用「-immed」旗標">
+							<longdesc>是否使用 cdrecord 的「-immed」旗標。小心使用（設為 true） ，因為它只是一些光碟機/設定的權宜措施。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="plugins">
+						<local_schema short_desc="額外使用的外掛程式白名單">
+							<longdesc>包含 Brasero 用來燒錄光碟的其他外掛清單。如設定為 NULL，Brasero 將會載入所有的外掛程式。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="engine-group">
+						<local_schema short_desc="偏好燒錄引擎">
+							<longdesc>包含已安裝的慣用燒錄引擎套件清單，如果可能的話會使用。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnome-system-log">
+				<entry name="logfiles">
+					<local_schema short_desc="啟動時開啟的日誌檔案">
+						<longdesc>指定啟動時預設開啟的日誌檔案清單。預設清單會根據 /etc/syslog.conf 來建構。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="width">
+					<local_schema short_desc="主視窗的寬度（像素）">
+						<longdesc>指定日誌檢視主視窗的寬度（像素）</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="height">
+					<local_schema short_desc="主視窗的高度（像素）">
+						<longdesc>指定日誌檢視主視窗的高度（像素）</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="fontsize">
+					<local_schema short_desc="顯示日誌時所使用的字型大小">
+						<longdesc>指定在主要樹狀檢視中顯示日誌的等寬字大小。預設為預設終於機的字型大小。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="logfile">
+					<local_schema short_desc="啟動程式時開啟的日誌">
+						<longdesc>指定啟動時預設開啟的日誌。預設值可能是 /var/adm/messages 或 /var/log/messages，取決於所使用的作業系統。</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="gnome-search-tool">
+				<entry name="look_in_folder">
+					<local_schema short_desc="在資料夾中搜尋">
+						<longdesc>這個設定鍵定義了「在資料夾中搜尋」元件的預設數值。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default_window_maximized">
+					<local_schema short_desc="預設視窗最大化">
+						<longdesc>本設定鍵決定搜尋工具起始時是否最大化</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default_window_height">
+					<local_schema short_desc="預設視窗高度">
+						<longdesc>本設定鍵定義視窗的高度，而且用來在不同的執行階段間記住搜尋工具的大小。如果將它的值設為 -1 則會讓搜尋工具使用預設的高度。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default_window_width">
+					<local_schema short_desc="預設視窗寬度">
+						<longdesc>本設定鍵定義視窗的寬度，而且用來在不同的執行階段間記住搜尋工具的大小。如果將它的值設為 -1 則會讓搜尋工具使用預設的寬度。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="columns_order">
+					<local_schema short_desc="以行為順序的搜尋結果">
+						<longdesc>本設定鍵定義搜尋結果的行順序，它不應該被使用者修改。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="quick_search_second_scan_excluded_paths">
+					<local_schema short_desc="不包含路徑的快速搜尋第二次掃描">
+						<longdesc>本設定鍵決定搜尋工具在進行快速搜尋第二次掃描會忽略的路徑。快速搜尋第二次掃描是做用 find 指令來尋找檔案。第二次掃描的目的是尋找那些沒有建構索引的檔案。支援萬用字元‘*’及‘?’。預設的數值是 ./。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="disable_quick_search_second_scan">
+					<local_schema short_desc="停用快速搜尋第二次掃描功能">
+						<longdesc>本設定鍵決定搜尋工具在進行快速搜尋後不使用 find 指令</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="quick_search_excluded_paths">
+					<local_schema short_desc="不包含路徑的快速搜尋">
+						<longdesc>本設定鍵決定搜尋工具在進行快速搜尋時會忽略的路徑。支援萬用字元‘*’及‘?’。預設的數值是 /mnt/*，/media/*，/dev/*，/tmp/*，/proc/*及/var/*。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="disable_quick_search">
+					<local_schema short_desc="停用快速搜尋功能">
+						<longdesc>本設定鍵決定搜尋工具在進行的檔案名稱搜尋時不使用 locate 指令。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="show_additional_options">
+					<local_schema short_desc="顯示額外選項">
+						<longdesc>本設定鍵決定在搜尋工具開始時「顯示更多選項」的部份會展開。</longdesc>
+					</local_schema>
+				</entry>
+				<dir name="select">
+					<entry name="exclude_other_filesystems">
+						<local_schema short_desc="選擇搜尋選項「排除其他檔案系統」">
+							<longdesc>本設定鍵決定在搜尋工具開始搜尋時已選用了「排除其他檔案系統」選項。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="follow_symbolic_links">
+						<local_schema short_desc="選擇搜尋選項「跟隨符號連結」">
+							<longdesc>本設定鍵決定在搜尋工具開始搜尋時已選用了「跟隨符號連結」選項。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_hidden_files_and_folders">
+						<local_schema short_desc="選擇搜尋選項「顯示隱藏檔案及資料夾」">
+							<longdesc>本設定鍵決定在搜尋工具開始搜尋時已選用了「顯示隱藏檔案及資料夾」選項。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name_matches_regular_expression">
+						<local_schema short_desc="選擇搜尋選項「檔名符合正規表示式」">
+							<longdesc>本設定鍵決定在搜尋工具開始搜尋時已選用了「檔名符合正規表示式」選項。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name_does_not_contain">
+						<local_schema short_desc="選擇搜尋選項「名稱中沒有」">
+							<longdesc>本設定鍵決定在搜尋工具開始搜尋時已選用了「名稱中沒有」選項。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="owner_is_unrecognized">
+						<local_schema short_desc="選擇搜尋選項「無法識別擁有者」">
+							<longdesc>本設定鍵決定在搜尋工具開始搜尋時已選用了「無法識別擁有者」選項。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="owned_by_group">
+						<local_schema short_desc="選擇搜尋選項「屬於指定群組」">
+							<longdesc>本設定鍵決定在搜尋工具開始搜尋時已選用了「屬於指定群組」選項。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="owned_by_user">
+						<local_schema short_desc="選擇搜尋選項「由指定使用者擁有」">
+							<longdesc>本設定鍵決定在搜尋工具開始搜尋時已選用了「由指定使用者擁有」選項。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="file_is_empty">
+						<local_schema short_desc="選擇搜尋選項「檔案是空白的」">
+							<longdesc>本設定鍵決定在搜尋工具開始搜尋時已選用了「檔案是空白的」選項。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size_at_most">
+						<local_schema short_desc="選擇搜尋選項「檔案大小上限」">
+							<longdesc>本設定鍵決定在搜尋工具開始搜尋時已選用了「檔案大小上限」選項。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size_at_least">
+						<local_schema short_desc="選擇搜尋選項「檔案大小下限」">
+							<longdesc>本設定鍵決定在搜尋工具開始搜尋時已選用了「檔案大小下限」選項。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="date_modified_more_than">
+						<local_schema short_desc="選擇搜尋選項「最後修改時間多於」">
+							<longdesc>本設定鍵決定在搜尋工具開始搜尋時已選用了「最後修改時間多於」選項。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="date_modified_less_than">
+						<local_schema short_desc="選擇搜尋選項「最後修改時間少於」">
+							<longdesc>本設定鍵決定在搜尋工具開始搜尋時已選用了「最後修改時間少於」選項。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="contains_the_text">
+						<local_schema short_desc="選擇搜尋選項「包含指定的文字」">
+							<longdesc>本設定鍵決定在搜尋工具開始搜尋時已選用了「包含指定的文字」選項。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnome-screenshot">
+				<entry name="border_effect">
+					<local_schema short_desc="邊框效果">
+						<longdesc>加到邊框外的效果。可用的數值有：“shadow”，“none”及“border”。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="include_pointer">
+					<local_schema short_desc="包含滑鼠指標">
+						<longdesc>螢幕截圖包含包含滑鼠指標</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="include_border">
+					<local_schema short_desc="包含邊框">
+						<longdesc>螢幕截圖包含視窗管理員邊框</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="last_save_directory">
+					<local_schema short_desc="螢幕截圖目錄">
+						<longdesc>上次螢幕截圖擷取程式用作儲存的目錄</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="delay">
+					<local_schema short_desc="螢幕截圖延遲">
+						<longdesc>在照下螢幕截圖前等待的秒數。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="take_window_shot">
+					<local_schema short_desc="指定視窗的螢幕截圖 (已廢棄)">
+						<longdesc>只抓取目前的視窗，而非整個桌面。這個設定鍵已廢棄，因此不再使用了。</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="gnome-dictionary">
+				<entry name="sidebar-width">
+					<local_schema short_desc="側面窗格的寬度">
+						<longdesc>本設定鍵定義側面窗格的寬度，及記錄其在其它作業階段的設定</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="sidebar-page">
+					<local_schema short_desc="側面窗格顯示的頁次">
+						<longdesc>本設定鍵決定側面窗格會顯示那一頁次，及記錄其在其它作業階段中的設定。可用的數值為“speller”或“databases”。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="statusbar-visible">
+					<local_schema short_desc="應否顯示狀態列">
+						<longdesc>本設定鍵決定是否顯示狀態列，及記錄其在其它作業階段的狀態。如設定為 TRUE 則總會顯示狀態列。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="sidebar-visible">
+					<local_schema short_desc="應否顯示側面窗格">
+						<longdesc>本設定鍵決定是否顯示側面窗格，及記錄其在其它作業階段的狀態。如設定為 TRUE 則總會顯示側面窗格。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="window-is-maximized">
+					<local_schema short_desc="應用程式視窗是否該被最大化">
+						<longdesc>本設定鍵定義視窗是否最大化，及記錄其在其它作業階段中字典視窗的狀態。如設定為 TRUE 則會使視窗總是會以保持最大化形式顯示。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default-window-height">
+					<local_schema short_desc="應用程式視窗預設高度">
+						<longdesc>本設定鍵定義視窗的高度，及記錄其在其它作業階段中字典視窗的大小。如果將其值設為 -1，則會使視窗根據字型大小來決定高度。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default-window-width">
+					<local_schema short_desc="應用程式視窗的預設寬度">
+						<longdesc>這個關鍵字解釋視窗的寬度，而且在不同的執行階段間記住字典典視窗的大小。如果將它的值設為 -1 則會使視窗根據字型大小來決定寬度。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="source-name">
+					<local_schema short_desc="在字典來源中所使用的名稱。">
+						<longdesc>在字典伺服器中用來擷取字詞解釋的資料庫名稱。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="print-font">
+					<local_schema short_desc="輸出時所使用的字型">
+						<longdesc>輸出解釋時所使用的字型</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="strategy">
+					<local_schema short_desc="預設使用的搜尋方法">
+						<longdesc>在字典伺服器中所使用的預設的搜尋方式名稱（如果這個名稱存在的話）。預設的搜尋方式是‘exact’，它會完整比對字詞。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="database">
+					<local_schema short_desc="預設使用的資料庫">
+						<longdesc>指定在字典來源所預設使用的資料庫或後設資料庫名稱。“!”表示 gnome-dictionary 會搜尋指字典來源中所有的資料庫。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="smart">
+					<local_schema short_desc="使用智慧型檢索（不建議再使用）">
+						<longdesc>是否使用智慧型檢索。本設定鍵會否生效取決於字典伺服器是否支援這個選項。預設為 TRUE。本設定鍵被認定為過時而且不再被使用。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="port">
+					<local_schema short_desc="連接至伺服器所用的連接埠（不建議再使用）">
+						<longdesc>連線至指定的連接埠。預設連接埠為 2628。本設定鍵被認定為過時而且不再被使用。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="server">
+					<local_schema short_desc="字典伺服器（不建議再使用）">
+						<longdesc>要連接的字典伺服器。預設的伺服器為 dict.org。請瀏覽 http://www.dict.org 獲取有關其它伺服器的詳情。本設定鍵被認定為過時而且不再被使用。</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="baobab">
+				<dir name="properties">
+					<entry name="skip_scan_uri_list">
+						<local_schema short_desc="已排除分割區 URI">
+							<longdesc>掃描時排除的分割區 URI 清單。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_home_monitor">
+						<local_schema short_desc="啟用個人資料夾監察">
+							<longdesc>應否監察個人資料夾的任何變更。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="ui">
+					<entry name="baobab_subfoldertips_visible">
+						<local_schema short_desc="子資料夾工具提示可見性">
+							<longdesc>是否顯示選取的資料夾之子資料夾工具提示。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="statusbar_visible">
+						<local_schema short_desc="顯示狀態列">
+							<longdesc>應否顯示在主視窗底部的狀態列。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_visible">
+						<local_schema short_desc="顯示工具列">
+							<longdesc>應否顯示在主視窗中的工具列</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="window_list_applet">
+				<dir name="prefs">
+					<entry name="maximum_size">
+						<local_schema short_desc="視窗清單數目上限">
+							<longdesc>此設定鍵在 GNOME 2.20 已不再使用。它的存在純粹是為了和舊版本相容。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="minimum_size">
+						<local_schema short_desc="視窗清單數目下限">
+							<longdesc>此設定鍵在 GNOME 2.20 已不再使用。它的存在純粹是為了和舊版本相容。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="move_unminimized_windows">
+						<local_schema short_desc="視窗由最小化狀態還原時，會在目前的工作區顯示">
+							<longdesc>如設定為‘true’，當視窗由最小化還原時，會在目前的工作區顯示。否則會切換至視窗原來的工作區來顯示。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="group_windows">
+						<local_schema short_desc="何時合併同類的視窗">
+							<longdesc>決定是否在「視窗清單」中合併同類應用程式的視窗。有效的值為“never”、“auto”及 “always”。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_all_workspaces">
+						<local_schema short_desc="顯示所有工作區中的視窗">
+							<longdesc>如設定為‘true’，「視窗清單」會顯示所有工作區中的視窗，否則只會顯示目前工作區中的視窗。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="workspace_switcher_applet">
+				<dir name="prefs">
+					<entry name="num_rows">
+						<local_schema short_desc="工作區切換程式的列數">
+							<longdesc>本設定鍵會決定「工作區切換程式」使用多少列（水平排列）或多少行（垂直排列）來顯示工作區。本設定鍵會在 display_all_workspaces key 設定為‘true’時才生效。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_all_workspaces">
+						<local_schema short_desc="顯示所有工作區">
+							<longdesc>如設定為‘true’，就會在「工作區切換程式」中顯示所有工作區，否則只會顯示目前的工作區。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_workspace_names">
+						<local_schema short_desc="顯示工作區名稱">
+							<longdesc>如果設為‘true’，就會在「工作區切換程式」中顯示各工作區的名稱，否則會顯示它們的畫面內容。這個設定值只有在視窗管理程式為 Metacity 時才有效。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="fish_applet">
+				<dir name="prefs">
+					<entry name="rotate">
+						<local_schema short_desc="使用垂直面板時會旋轉程式顯示">
+							<longdesc>如設定為‘true’，在垂直面板中，動畫會以垂直方向顯示。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="speed">
+						<local_schema short_desc="每格的暫停時間">
+							<longdesc>本設定鍵指定每格動畫顯示的時間</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="frames">
+						<local_schema short_desc="小魚的動畫格數">
+							<longdesc>本設定鍵指定了小魚的動畫格數</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="command">
+						<local_schema short_desc="按下小魚時執行的指令">
+							<longdesc>本設定鍵指定按下小魚時執行的指令。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="image">
+						<local_schema short_desc="小魚的動畫 pixmap">
+							<longdesc>本設定鍵指定小魚面板程式在顯示動畫時使用的 pixmap 檔的檔案名稱。它應該是 pixmap 目錄下的相對路徑。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name">
+						<local_schema short_desc="小魚的名稱">
+							<longdesc>沒有名稱的魚兒是比較呆滯的。請為魚兒命名，為它帶來一點生氣。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="clock_applet">
+				<dir name="prefs">
+					<entry name="speed_unit">
+						<local_schema short_desc="速度單位">
+							<longdesc>在顯示風速時使用的單位。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="temperature_unit">
+						<local_schema short_desc="溫度單位">
+							<longdesc>在顯示溫度時使用的單位。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="cities">
+						<local_schema short_desc="位置的清單">
+							<longdesc>要在行事曆視窗中顯示的位置清單。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="internet_time">
+						<local_schema short_desc="使用 Internet 時間">
+							<longdesc>此設定鍵在 GNOME 2.6 已不再使用，及已被‘format’設定鍵取代。它的存在純粹是為了和舊版本相容。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="unix_time">
+						<local_schema short_desc="使用 UNIX 時間">
+							<longdesc>此設定鍵在 GNOME 2.6 已不再使用，及已被‘format’設定鍵取代。它的存在純粹是為了和舊版本相容。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hour_format">
+						<local_schema short_desc="小時格式">
+							<longdesc>此設定鍵在 GNOME 2.6 已不再使用，及已被‘format’設定鍵取代。它的存在純粹是為了和舊版本相容。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_locations">
+						<local_schema short_desc="展開位置的清單">
+							<longdesc>如果為‘true’，展開行事曆中的位置清單。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_weather">
+						<local_schema short_desc="展開天氣資訊清單">
+							<longdesc>如果為‘true’，展開行事曆視窗中的天氣資訊清單。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_tasks">
+						<local_schema short_desc="展開工作清單">
+							<longdesc>如果為‘true’，展開行事曆視窗中的工作清單。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_birthdays">
+						<local_schema short_desc="展開生日清單">
+							<longdesc>如果為‘true’，展開行事曆視窗中的生日清單。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_appointments">
+						<local_schema short_desc="展開約會清單">
+							<longdesc>如果為‘true’，展開行事曆視窗中的約會清單。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_week_numbers">
+						<local_schema short_desc="在日曆中顯示週中日數（即週六、週日）">
+							<longdesc>如設定為‘true’，會在日曆中顯示週中日數（即週六、週日）。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="config_tool">
+						<local_schema short_desc="時間設置工具">
+							<longdesc>此設定鍵在 GNOME 2.22 已不再使用，改為內部時刻組態工具。它的存在純粹是為了和舊版本相容。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gmt_time">
+						<local_schema short_desc="使用世界協調時(UTC)">
+							<longdesc>此設定鍵在 GNOME 2.28 已不再使用，改為使用時區。它的存在純粹是為了和舊版本相容。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_temperature">
+						<local_schema short_desc="在時鐘內顯示溫度">
+							<longdesc>如果為‘true’，在天氣圖示旁顯示溫度。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_weather">
+						<local_schema short_desc="在時鐘內顯示天氣">
+							<longdesc>如果為‘true’，顯示天氣圖示。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_tooltip">
+						<local_schema short_desc="在工具提示中顯示日期">
+							<longdesc>如設定為‘true’，將游標移至時鐘上時，在工具提示中顯示日期。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_date">
+						<local_schema short_desc="在時鐘內顯示日期">
+							<longdesc>如設定為‘true’，除了在時鐘內顯示時間外還顯示日期。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_seconds">
+						<local_schema short_desc="顯示秒數">
+							<longdesc>如設定為‘true’，在時間中顯示秒數。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="custom_format">
+						<local_schema short_desc="自訂的時鐘格式">
+							<longdesc>此設定鍵是在時鐘面板程式的‘format’設定鍵被設為‘custom’時使用的自訂格式。您可以用可被 strftime() 理解的轉換規範來取得所指定的格式。請查閱 strftime() 手冊以獲取更多資訊。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="format">
+						<local_schema short_desc="小時格式">
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="panel">
+				<dir name="objects">
+					<entry name="action_type">
+						<local_schema short_desc="行動按鈕的類型">
+							<longdesc>該按鈕所代表的特殊操作程序。可接受的值為“lock”、“logout”、“run”、“search”及“screenshot”。只有在 object_type 是“action-applet”時，本設定鍵方會生效。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="launcher_location">
+						<local_schema short_desc="啟動圖示的位置">
+							<longdesc>該啟動圖示的 .desktop 檔案位置。只有在 object_type 是“launcher-object”時，本設定方會生效。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menu_path">
+						<local_schema short_desc="選單內容的路徑">
+							<longdesc>使用哪個路徑作為根目錄來產生選單。只有在 use_menu_path 為‘true’及 object_type 是“menu-object”時，本設定鍵方會生效。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_menu_path">
+						<local_schema short_desc="使用自訂的路徑作為選單內容">
+							<longdesc>如設定為‘true’，則會使用 menu_path 設定中指定的路徑作為基礎來產生選單，否則不會理會 menu_path 設定。只有 object_type 是“menu-object”時，本設定鍵方會生效。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="custom_icon">
+						<local_schema short_desc="按鈕所用的圖示">
+							<longdesc>圖片檔位置，作為代表該物件的圖示。只有 object_type 是“drawer-object”或“menu-object”及 use_custom_icon 為‘true’時，本設定鍵方會生效。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_custom_icon">
+						<local_schema short_desc="在按鈕中使用自訂圖示">
+							<longdesc>如設定為‘true’，則會使用 custom_icon 設定中指定的圖示作為按鈕圖示，否則不會理會 custom_icon 設定。只有 object_type 是“menu-object”或“drawer-object”時，本設鍵定方會生效。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="tooltip">
+						<local_schema short_desc="抽屜或選單中顯示的工具提示">
+							<longdesc>本抽屜物件或選單中顯示的工具提示文字。只有在 object_type 是“drawer-object”或者“menu-object”時，本設定方會生效。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="attached_toplevel_id">
+						<local_schema short_desc="本抽屜所連接的面板">
+							<longdesc>該抽屜物件所連接的面板的識別碼。只有在 object_type 是“drawer-object”的時候，本設定鍵方會生效。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="bonobo_iid">
+						<local_schema short_desc="面板程式的 Bonobo IID">
+							<longdesc>面板程式的 Bonobo implementation ID - 例如“OAFIID:GNOME_ClockApplet”。只有 object_type 是“bonobo-applet”時本設定鍵方會生效。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="locked">
+						<local_schema short_desc="將面板中的物件鎖定位置">
+							<longdesc>如設定為‘true’，使用者必須在選單中選取「不鎖定位置」，才可以移動面板程式。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="panel_right_stick">
+						<local_schema short_desc="從右邊/底部開始計算面板物件的位置">
+							<longdesc>如設定為‘true’，面板物件的位置會從面板的右邊（或者垂直面板的底部）開始計算。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="position">
+						<local_schema short_desc="物件在面板中的位置">
+							<longdesc>該面板物件的位置。位置是從面板的左邊（或者垂直面板的頂部）開始計算。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toplevel_id">
+						<local_schema short_desc="載有該物件的面板">
+							<longdesc>包含本物件的的上層面板的識別碼。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="object_type">
+						<local_schema short_desc="面板物件類型">
+							<longdesc>本面板物件的類型。可接受的值為：“drawer-object”、“menu-object”、“launcher-object”、“bonobo-applet”、“action-applet”及“menu-bar”。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="toplevels">
+					<entry name="animation_speed">
+						<local_schema short_desc="平滑移動速度">
+							<longdesc>面板平滑移動的速度。可接受的值有三個：“slow”、“medium”及“fast”。只有啟用了 enable_animation 的時候，本選項方會生效。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_hide_size">
+						<local_schema short_desc="面板隱藏後仍然顯示的像素數目">
+							<longdesc>當面板隱藏在角落裡時，顯示多少個像素。只有啟用了 auto_hide 選項的時候，本選項方會生效。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="unhide_delay">
+						<local_schema short_desc="取消隱藏面板的延遲時間">
+							<longdesc>指定當鼠標移動至面板，相隔多少毫秒後面板才會完全顯示。只有在設定鍵 auto_hide 為‘true’時，本設定鍵方會生效。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hide_delay">
+						<local_schema short_desc="隱藏面板的延遲時間">
+							<longdesc>指定當鼠標離開面板後，相隔多少毫秒後面板才會完全隱藏。只有在設定鍵 auto_hide 為‘true’時，本設定鍵方會生效。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_arrows">
+						<local_schema short_desc="在隱藏按鈕中顯示箭頭">
+							<longdesc>如設定為‘true’，會在隱藏按鈕中顯示箭頭。只有設定鍵 enable_buttons 為‘true’時，設定鍵才會生效。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_buttons">
+						<local_schema short_desc="啟用隱藏按鈕">
+							<longdesc>如設定為‘true’，會在面板兩邊顯示按鈕，而這些按鈕可以用來隱藏面板。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="啟用動畫">
+							<longdesc>如設定為‘true’，隱藏或取消隱藏面板不會即時發生，而是以平滑移動的方式進行。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_hide">
+						<local_schema short_desc="自動將面板隱藏至角落">
+							<longdesc>如設定為‘true’，當鼠標離開面板後，面板就會自動隱藏在畫面的角落裡。當鼠標移至該角落，面板就會重新顯示。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="y_centered">
+						<local_schema short_desc="面板會在垂直方向置中">
+							<longdesc>如果設為‘true’，將會忽略 y 及 y_bottom 設定鍵，而面板會放置在畫面垂直方向的中央位置。如果面板尺寸有改動，它會保持在中央位置，即是說面板會向上下兩個方向加長。如果不選用本設定鍵，則由 y 及 y_bottom 設定鍵來決定面板的位置。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="x_centered">
+						<local_schema short_desc="面板會在水平方向置中">
+							<longdesc>如果設為‘true’，將會忽略 x 及 x_right 設定鍵，而面板會放置在畫面水平方向的中央位置。如果面板尺寸有改動，它會保持在中央位置，即是說面板會向左右兩邊加長。如果不選用本設定鍵，則由 x 及 x_right 設定鍵來決定面板的位置。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="y_bottom">
+						<local_schema short_desc="面板的 Y 坐標，自螢幕底部算起">
+							<longdesc>面板的垂直位置。如果設為 -1，則此數值會被忽略並使用 y 設定鍵的數值。如果此數值大於 0，則 y 設定鍵的數值會被忽略。只有在不是擴大模式的面板中，本數值才會適用。在擴大模式中，本數值將不予理會，而面板會放在 orientation 設定鍵中指定的畫面邊緣。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="x_right">
+						<local_schema short_desc="面板的 X 坐標，自螢幕右邊算起">
+							<longdesc>面板的水平位置，從螢幕的右邊算起。如果設為 -1，則此數值會被忽略並使用 x 設定鍵的數值。如果此數值大於 0，則 x 設定鍵的數值會被忽略。只有在不是擴大模式的面板中，本數值才會適用。在擴大模式中，本數值將不予理會，而面板會放在 orientation 設定鍵中指定的畫面邊緣。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="y">
+						<local_schema short_desc="面板的垂直座標">
+							<longdesc>面板的垂直位置。只有在不是擴大模式的面板中，本數值才會適用。在擴大模式中，本數值將不予理會，而面板會放在 orientation 設定鍵中指定的畫面邊緣。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="x">
+						<local_schema short_desc="面板的水平座標">
+							<longdesc>面板的水平位置。只有在不是擴大模式的面板中，本數值才會適用。在擴大模式中，本數值將不予理會，而面板會放在 orientation 設定鍵中指定的畫面邊緣。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size">
+						<local_schema short_desc="面板大小">
+							<longdesc>面板高度 (或者垂直面板的寬度)。面板會根據字型大小及其它因素來決定面板本身的尺寸下限。面板尺寸上限則固定在畫面的四分之一高度 (或寬度)。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="orientation">
+						<local_schema short_desc="面板方向">
+							<longdesc>面板的方向。可接受的值有四個：“top”、“bottom”、“left”及“right”。在完全擴展的面板中，本選項指定面板位於螢幕的哪一邊。在沒有擴展的面板中，“top”與“bottom”的分別不大(兩者都表示面板是水平放置的)，但仍然提供了提示給某些面板物件，讓它們知道怎樣運作。例如，在“top”面板中，按下選單按鈕後，選單會在面板下方顯示；而在“bottom”面板中，則會在面板上方顯示選單。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand">
+						<local_schema short_desc="擴展至佔用整個螢幕的寬度">
+							<longdesc>如設定為‘true’，面板會佔用整個螢幕的寬度（垂直面板則佔用整個高度）。在這種模式下，面板只能放在螢幕邊緣。否則，面板的尺寸只會足夠容納所有面板程式、啟動圖示及按鈕。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="monitor">
+						<local_schema short_desc="面板所在的 Xinerama 螢幕">
+							<longdesc>在 Xinerama 設定中，每個螢幕都可以有獨立的面板。這設定鍵指定了面板會在哪一個螢幕顯示。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="screen">
+						<local_schema short_desc="面板所在的 X 畫面">
+							<longdesc>在一個多螢幕的硬體設定中，每個螢幕可以有不同的面板。本設定鍵識別面板應該在哪個螢幕顯示。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name">
+						<local_schema short_desc="用來識別本面板的名稱">
+							<longdesc>您可以為每個面板命名，以資識別。它的用途主要是作為視窗標題使用，當在不同面板之間切換時會有用。</longdesc>
+						</local_schema>
+					</entry>
+					<dir name="background">
+						<entry name="rotate">
+							<local_schema short_desc="在垂直面板中旋轉圖片">
+								<longdesc>如設定為‘true’，在垂直面板中背景圖案會旋轉 90 度顯示。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="stretch">
+							<local_schema short_desc="將圖片伸展至符合面板尺寸">
+								<longdesc>如設定為‘true’，會將圖片縮放至符合面板的尺寸，而且不會理會圖片的長寬比。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="fit">
+							<local_schema short_desc="令圖片符合面板大小">
+								<longdesc>如設定為‘true’，圖片會縮放至符合面板高度 (如果是水平面板)，同時保留長寬比。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="image">
+							<local_schema short_desc="背景圖片">
+								<longdesc>指定作為面板背景圖案的檔案名稱。如果該圖案有透明色版，顯示該圖案時，會將它和桌面背景組合在一起計算。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="opacity">
+							<local_schema short_desc="背景顏色的透明度">
+								<longdesc>指定背景顏色的透明度。如果顏色不是絕對不透明（數值小於 65535），該顏色會和桌面背景的圖案組合在一起來計算。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="color">
+							<local_schema short_desc="背景顏色">
+								<longdesc>以 #RGB 格式指定面板的底色。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="type">
+							<local_schema short_desc="背景類型">
+								<longdesc>本面板使用哪一種背景。可接受的 3 個值為：
+”gtk”：使用預設 GTK+ 視窗元件背景
+”color”：使用自選的顏色作為背景顏色
+”imagei”：使用自選的圖片作為背景圖片</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="general">
+					<entry name="profiles_migrated">
+						<local_schema short_desc="舊的設定組合已轉移">
+							<longdesc>布林值的旗標是用作指示使用者以前在 /apps/panel/profiles/default 的設定是否複製到新的位置 /apps/panel。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="object_id_list">
+						<local_schema short_desc="面板物件識別碼清單">
+							<longdesc>面板物件識別碼的清單。每個識別碼都代表一個面板物件（例如啟動圖示、行動按鈕或選單按鈕/選單列）。而這些面板物件的設定都存放在 /apps/panel/objects/$(id)。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="applet_id_list">
+						<local_schema short_desc="面板程式識別碼清單">
+							<longdesc>面板程式識別碼的清單。每個識別碼都代表一個面板程式。而這些面板程式的設定都存放在 /apps/panel/applets/$(id)。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toplevel_id_list">
+						<local_schema short_desc="面板識別碼清單">
+							<longdesc>一系列的面板識別碼。每個識別碼都代表一個面板。而這些面板的設定都存放在 /apps/panel/toplevels/$(id)。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_autocompletion">
+						<local_schema short_desc="在「執行程式」對話方塊中啟用自動完成功能">
+							<longdesc>如設定為‘true’，自動完成功能可以在「執行程式」對話方塊中使用。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_program_list">
+						<local_schema short_desc="在「執行程式」對話方塊中顯示並展開完整的程式清單">
+							<longdesc>如設定為‘true’，顯示「執行程式」對話方塊時，會展開「已知的應用程式」清單中的內容。本設定鍵會在 enable_program_list 設定鍵為‘true’時才生效。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_program_list">
+						<local_schema short_desc="在「執行程式」對話方塊中允許顯示程式清單">
+							<longdesc>如設定為‘true’，「執行程式」對話方塊中會顯示「已知的應用程式」清單。至於顯示對話方塊時會否展開清單中的內容，則是由 show_program_list 設定鍵決定。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="global">
+					<entry name="disable_force_quit">
+						<local_schema short_desc="不使用「強行結束」">
+							<longdesc>如設定為‘true’，面板將隱藏「強行結束」按鈕以防止使用者強行結束執行中的程式。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_log_out">
+						<local_schema short_desc="不使用「登出」">
+							<longdesc>如設定為‘true’，面板將隱藏選單中的「登出」項以防止使用者登出。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_lock_screen">
+						<local_schema short_desc="不建議再使用">
+							<longdesc>這個設定鍵已廢棄，因為它不能用來實作正確的封鎖。應該使用 /desktop/gnome/lockdown/disable_lock_screen 來代替。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disabled_applets">
+						<local_schema short_desc="不被載入的面板程式 IID">
+							<longdesc>這裡列出了面板會忽略不理的面板程式 IID。您可以在此設定不載入或不在選單中顯示的面板程式。例如，要停用 mini-commander 面板程式，只需在此清單加入 &apos;OAFIID:GNOME_MiniCommanderApplet&apos; 即可。任何更改在面板重新啟動後才會生效。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="locked_down">
+						<local_schema short_desc="鎖定所有面板">
+							<longdesc>如設定為‘true’，面板將不允許任何對其設定的更改。然而，個別面板程式的鎖定則要分開執行。任何更改在面板重新啟動後才會生效。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="highlight_launchers_on_mouseover">
+						<local_schema short_desc="滑鼠移動至啟動圖示上面時，加強顯示啟動圖示">
+							<longdesc>如設定為‘true’，滑鼠移動至啟動圖示上面時，會加強顯示啟動圖示。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="confirm_panel_remove">
+						<local_schema short_desc="移除面板要先得到確認">
+							<longdesc>如設定為‘true’，當用戶準備移除面板時，會顯示對話方塊要求使用者確認。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="drawer_autoclose">
+						<local_schema short_desc="自動關閉抽屜">
+							<longdesc>如設定為‘true’，當使用者按下抽屜中的啟動圖示後，抽屜會自動關閉。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="window_screenshot_key">
+						<local_schema short_desc="不建議再使用">
+						</local_schema>
+					</entry>
+					<entry name="screenshot_key">
+						<local_schema short_desc="不建議再使用">
+						</local_schema>
+					</entry>
+					<entry name="run_key">
+						<local_schema short_desc="不建議再使用">
+						</local_schema>
+					</entry>
+					<entry name="menu_key">
+						<local_schema short_desc="不建議再使用">
+						</local_schema>
+					</entry>
+					<entry name="enable_key_bindings">
+						<local_schema short_desc="不建議再使用">
+						</local_schema>
+					</entry>
+					<entry name="panel_hide_delay">
+						<local_schema short_desc="不建議再使用">
+						</local_schema>
+					</entry>
+					<entry name="panel_animation_speed">
+						<local_schema short_desc="不建議再使用">
+						</local_schema>
+					</entry>
+					<entry name="panel_show_delay">
+						<local_schema short_desc="不建議再使用">
+						</local_schema>
+					</entry>
+					<entry name="panel_minimized_size">
+						<local_schema short_desc="不建議再使用">
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="啟用動畫">
+						</local_schema>
+					</entry>
+					<entry name="keep_menus_in_memory">
+						<local_schema short_desc="不建議再使用">
+						</local_schema>
+					</entry>
+					<entry name="tooltips_enabled">
+						<local_schema short_desc="會顯示工具提示">
+							<longdesc>如設定為‘true’，面板上的物件會顯示工具提示。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gweather">
+				<dir name="prefs">
+					<entry name="radar">
+						<local_schema short_desc="雷達圖的 URL">
+							<longdesc>自行指定在哪個 URL 擷取雷達圖</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_custom_radar_url">
+						<local_schema short_desc="使用自行指定的 URL 作為雷達圖位置">
+							<longdesc>如設定為‘true’，則從“radar”設定鍵中所指定的位置擷取雷達圖。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="coordinates">
+						<local_schema short_desc="位置坐標">
+						</local_schema>
+					</entry>
+					<entry name="location4">
+						<local_schema short_desc="城市的天氣">
+						</local_schema>
+					</entry>
+					<entry name="location3">
+						<local_schema short_desc="雷達位置">
+						</local_schema>
+					</entry>
+					<entry name="location2">
+						<local_schema short_desc="區域位置">
+						</local_schema>
+					</entry>
+					<entry name="location1">
+						<local_schema short_desc="附近城市">
+						</local_schema>
+					</entry>
+					<entry name="location0">
+						<local_schema short_desc="天氣位置資訊">
+						</local_schema>
+					</entry>
+					<entry name="enable_radar_map">
+						<local_schema short_desc="顯示雷達圖">
+							<longdesc>每次更新時都擷取雷達圖。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_detailed_forecast">
+						<local_schema short_desc="這項設定已不再使用">
+						</local_schema>
+					</entry>
+					<entry name="temperature_unit">
+						<local_schema short_desc="溫度單位">
+							<longdesc>溫度所使用的單位。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="speed_unit">
+						<local_schema short_desc="速度單位">
+							<longdesc>風速所使用的單位。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="pressure_unit">
+						<local_schema short_desc="氣壓單位">
+							<longdesc>氣壓所使用的單位。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="distance_unit">
+						<local_schema short_desc="距離單位">
+							<longdesc>能見度所使用的單位。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_metric">
+						<local_schema short_desc="使用公制單位">
+							<longdesc>使用公制單位而不用英制單位。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_update_interval">
+						<local_schema short_desc="更新周期">
+							<longdesc>每隔指定時間（分鐘）自動更新。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_update">
+						<local_schema short_desc="自動更新資料">
+							<longdesc>決定面板程式會否自動更新天氣資料。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnome-keyring">
+				<dir name="daemon-components">
+					<entry name="ssh">
+						<local_schema short_desc="是否啟用 gnome-keyring SSH 代理程式。">
+							<longdesc>這個選項會啟用 gnome-keyring 伺服程式中的 SSH 代理程式。它只會在 gnome-keyring-daemon 啟動時生效，(例如使用者登入時)。這個設定值在傳送某些命令列引數給伺服程式時可能會被覆蓋。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="pkcs11">
+						<local_schema short_desc="是否啟用 gnome-keyring PKCS#11 元件。">
+							<longdesc>這個選項會啟用 gnome-keyring 伺服程式中的 PKCS#11 元件。它只會在與 gnome-session 啟動時生效，(例如使用者登入時)。這個設定值在傳送某些命令列引數給伺服程式時可能會被覆蓋。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="secrets">
+						<local_schema short_desc="是否啟用 gnome-keyring 保密服務。">
+							<longdesc>這個選項會啟用 gnome-keyring 伺服程式中的保密服務元件。它只會在與 gnome-session 啟動時生效，(例如使用者登入時)。這個設定值在傳送某些命令列引數給伺服程式時可能會被覆蓋。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnome-settings">
+				<dir name="gnumeric">
+					<entry name="toolbar_style">
+						<local_schema short_desc="工具列樣式">
+							<longdesc>工具列樣式。有效的值為 both、both_horiz、icon、text</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnumeric">
+				<dir name="plugin">
+					<dir name="latex">
+						<entry name="use-utf8">
+							<local_schema short_desc="匯出為 LaTeX 時使用 UTF-8 編碼">
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="core">
+					<dir name="sort">
+						<dir name="default">
+							<entry name="ascending">
+								<local_schema short_desc="遞增排序">
+								</local_schema>
+							</entry>
+							<entry name="retain-formats">
+								<local_schema short_desc="排序時會保留格式">
+								</local_schema>
+							</entry>
+							<entry name="by-case">
+								<local_schema short_desc="排序時會區分大小寫">
+								</local_schema>
+							</entry>
+						</dir>
+					</dir>
+					<dir name="file">
+						<dir name="save">
+							<entry name="def-overwrite">
+								<local_schema short_desc="預設為覆寫檔案">
+								</local_schema>
+							</entry>
+							<entry name="single_sheet">
+								<local_schema>
+									<longdesc>某些檔案格式只能容納一張工作表。在一本有多張工作表的活頁簿中，當只能儲存一張工作表時，本變數決定是否向使用者發出警告。</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+					</dir>
+					<dir name="xml">
+						<entry name="compression-level">
+							<local_schema short_desc="Gnumeric 檔案的預設壓縮程度">
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="gui">
+						<dir name="window">
+							<entry name="zoom">
+								<local_schema short_desc="預設縮放倍率">
+									<longdesc>一本新的活頁簿中預設的縮放倍率。</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="y">
+								<local_schema short_desc="預設視窗垂直尺寸">
+									<longdesc>本數字 (介乎 0.25 至 1.00 之間) 是預設開啟視窗時視窗所佔的螢幕垂直長度的比例。</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="x">
+								<local_schema short_desc="預設視窗水平尺寸">
+									<longdesc>本數字 (介乎 0.25 至 1.00 之間) 是預設開啟視窗時視窗所佔的螢幕水平長度的比例。</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+						<dir name="editing">
+							<entry name="autocomplete">
+								<local_schema short_desc="自動完成">
+								</local_schema>
+							</entry>
+						</dir>
+						<dir name="toolbars">
+							<entry name="ObjectToolbar-position">
+								<local_schema>
+									<longdesc>本變數決定是否顯示物件工具列。0 為左面、1 為右面、2 為置上。</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="ObjectToolbar">
+								<local_schema short_desc="物件工具列可見">
+									<longdesc>本變數決定起始時是否顯示物件工具列。</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="FormatToolbar-position">
+								<local_schema>
+									<longdesc>本變數決定是否顯示格式工具列。0 為左面、1 為右面、2 為置上。</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="FormatToolbar">
+								<local_schema short_desc="格式工具列可見">
+									<longdesc>本變數決定起始時是否顯示格式工具列。</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="StandardToolbar-position">
+								<local_schema short_desc="標準工具列位置">
+									<longdesc>本變數決定是否顯示標準工具列。0 為左面、1 為右面、2 為置上。</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="StandardToolbar">
+								<local_schema short_desc="標準工具列可見">
+									<longdesc>本變數決定起始時是否顯示標準工具列。</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+						<dir name="screen">
+							<entry name="verticaldpi">
+								<local_schema short_desc="垂直 DPI">
+									<longdesc>垂直方向的螢幕解析度。</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="horizontaldpi">
+								<local_schema short_desc="水平 DPI">
+									<longdesc>水平方向的螢幕解析度。</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+					</dir>
+					<dir name="workbook">
+						<entry name="n-sheet">
+							<local_schema short_desc="預設的工作表數目">
+								<longdesc>一本新的活頁簿中預設的工作表數目。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="defaultfont">
+						<entry name="italic">
+							<local_schema short_desc="預設的字型是斜體字。">
+							</local_schema>
+						</entry>
+						<entry name="bold">
+							<local_schema short_desc="預設的字型是粗體字。">
+							</local_schema>
+						</entry>
+						<entry name="name">
+							<local_schema short_desc="預設字型名稱">
+							</local_schema>
+						</entry>
+						<entry name="size">
+							<local_schema short_desc="預設字型大小">
+								<longdesc>一本新的活頁簿中預設的字型大小。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="undo">
+					<entry name="maxnum">
+						<local_schema short_desc="可復原操作的次數">
+						</local_schema>
+					</entry>
+					<entry name="size">
+						<local_schema short_desc="復原次數上限">
+						</local_schema>
+					</entry>
+					<entry name="show_sheet_name">
+						<local_schema short_desc="在復原清單中顯示工作表名稱">
+							<longdesc>本變數決定是否在復原/取消復原清單中顯示工作表名稱。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="printsetup">
+					<entry name="hf-right">
+						<local_schema short_desc="頁首/頁尾格式（右面部分）">
+							<longdesc>請使用列印設定對話方塊編輯此值。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hf-middle">
+						<local_schema short_desc="頁首/頁尾格式（中間部分）">
+							<longdesc>請使用列印設定對話方塊編輯此值。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hf-left">
+						<local_schema short_desc="頁首/頁尾格式（左面部分）">
+							<longdesc>請使用列印設定對話方塊編輯此值。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="paper-orientation">
+						<local_schema short_desc="紙張">
+						</local_schema>
+					</entry>
+					<entry name="paper">
+						<local_schema short_desc="紙張">
+						</local_schema>
+					</entry>
+					<entry name="margin-gtk-right">
+						<local_schema short_desc="預設底邊距">
+						</local_schema>
+					</entry>
+					<entry name="margin-gtk-left">
+						<local_schema short_desc="預設靠左">
+						</local_schema>
+					</entry>
+					<entry name="margin-gtk-top">
+						<local_schema short_desc="預設頂外邊距">
+						</local_schema>
+					</entry>
+					<entry name="margin-gtk-bottom">
+						<local_schema short_desc="預設底外邊距">
+						</local_schema>
+					</entry>
+					<entry name="margin-bottom">
+						<local_schema short_desc="預設底邊距">
+						</local_schema>
+					</entry>
+					<entry name="margin-top">
+						<local_schema short_desc="預設頂邊距">
+						</local_schema>
+					</entry>
+					<entry name="preferred-unit">
+						<local_schema short_desc="偏好的顯示單位">
+						</local_schema>
+					</entry>
+					<entry name="scale-height">
+						<local_schema short_desc="預設縮放高度">
+						</local_schema>
+					</entry>
+					<entry name="scale-width">
+						<local_schema short_desc="預設縮放寬度">
+						</local_schema>
+					</entry>
+					<entry name="scale-percentage-value">
+						<local_schema short_desc="預設縮放百分比">
+						</local_schema>
+					</entry>
+					<entry name="scale-percentage">
+						<local_schema short_desc="預設縮放類型">
+						</local_schema>
+					</entry>
+					<entry name="across-then-down">
+						<local_schema short_desc="預設列印方向">
+						</local_schema>
+					</entry>
+					<entry name="print-titles">
+						<local_schema short_desc="預設標題列印">
+						</local_schema>
+					</entry>
+					<entry name="print-black-n-white">
+						<local_schema short_desc="預設黑白列印">
+						</local_schema>
+					</entry>
+					<entry name="print-grid-lines">
+						<local_schema short_desc="預設列印格線">
+						</local_schema>
+					</entry>
+					<entry name="center-vertically">
+						<local_schema short_desc="預設垂直置中">
+						</local_schema>
+					</entry>
+					<entry name="center-horizontally">
+						<local_schema short_desc="預設水平置中">
+						</local_schema>
+					</entry>
+					<entry name="hf-font-italic">
+						<local_schema short_desc="預設的頁首/頁尾字型是斜體字。">
+							<longdesc>本變數決定頁首/頁尾預設字型是否斜體字。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hf-font-bold">
+						<local_schema short_desc="預設的頁首/頁尾字型是粗體字。">
+							<longdesc>本變數決定頁首/頁尾預設字型是否粗體字。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hf-font-name">
+						<local_schema short_desc="預設頁首/頁尾字型名稱">
+						</local_schema>
+					</entry>
+					<entry name="hf-font-size">
+						<local_schema short_desc="預設頁首/頁尾字型大小">
+							<longdesc>預設的頁首/頁尾字型大小。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="footer">
+						<local_schema short_desc="頁尾">
+						</local_schema>
+					</entry>
+					<entry name="header">
+						<local_schema short_desc="頁首">
+						</local_schema>
+					</entry>
+					<entry name="gtk-setting">
+						<local_schema short_desc="GTK列印設定">
+							<longdesc>「GTK列印設定」組態。請勿修改本變數。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="all-sheets">
+						<local_schema short_desc="將列印設定套用於所有工作表">
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="plugins">
+					<entry name="extra-dirs">
+						<local_schema short_desc="額外增效模組目錄的清單。">
+							<longdesc>本清單列出了所有載有增效模組的目錄。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="file-states">
+						<local_schema short_desc="增效模組檔案狀態清單。">
+							<longdesc>本清單列出了所有增效模組檔案的狀態。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="known">
+						<local_schema short_desc="已知增效模組的清單。">
+							<longdesc>本清單列出了所有已知的增效模組。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="active">
+						<local_schema short_desc="使用中的增效模組的清單。">
+						</local_schema>
+					</entry>
+					<entry name="activate-new">
+						<local_schema short_desc="啟用新的增效模組">
+							<longdesc>本變數決定是否啟用每個新的增效模組。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="autocorrect">
+					<entry name="names-of-days">
+						<local_schema short_desc="自動修正日期名稱">
+							<longdesc>自動修正日期名稱</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="first-letter-list">
+						<local_schema>
+							<longdesc>自動修正功能不會修正本清單中所有字詞的第一個字母。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="first-letter">
+						<local_schema short_desc="自動修正第一個字母">
+							<longdesc>自動修正第一個字母</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="functionselector">
+					<entry name="num-of-recent">
+						<local_schema>
+							<longdesc>函數選擇程序中保留了最近使用的函數紀錄清單。這裡是清單長度上限。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="recentfunctions">
+						<local_schema short_desc="最近使用函數的清單">
+							<longdesc>函數選擇程序中保留了最近使用的函數紀錄清單。這裡是清單本身的內容。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="evince">
+				<entry name="override_restrictions">
+					<local_schema short_desc="不理會文件的限制">
+						<longdesc>不理會文件的限制，例如不准複製或列印</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+		</dir>
+		<dir name="desktop">
+			<dir name="gnome">
+				<dir name="interface">
+					<entry name="show_unicode_menu">
+						<local_schema short_desc="顯示「統一碼控制字元」選單">
+							<longdesc>項目和文字檢視的快顯選單中應否提供插入統一碼控制字元的選擇。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_input_method_menu">
+						<local_schema short_desc="顯示「輸入法」選單">
+							<longdesc>項目和文字檢視的快顯選單中應否顯示輸入法選擇。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menubar_accel">
+						<local_schema short_desc="選單列捷徑鍵">
+							<longdesc>用來開啟選單列的鍵盤快捷鍵。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="file_chooser_backend">
+						<local_schema short_desc="GtkFileChooser 所使用的模組">
+							<longdesc>GtkFileChooser 元件所使用的檔案系統模組。可能的值為“gio”、“gnome-vfs”以及“gtk+”。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="status_bar_meter_on_right">
+						<local_schema short_desc="狀態列在右邊">
+							<longdesc>進度列是否在右邊顯示。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_custom_font">
+						<local_schema short_desc="使用自選字型">
+							<longdesc>gtk+ 程式會否使用自選字型。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="monospace_font_name">
+						<local_schema short_desc="固定寬度字型">
+							<longdesc>在例如終端機等地方使用的固定寬度字型</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="document_font_name">
+						<local_schema short_desc="文件字型">
+							<longdesc>閱讀文件的預設字型名稱。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk-im-module">
+						<local_schema short_desc="GTM IM 模組">
+							<longdesc>GTK+ 輸入法模組所使用的名稱。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk-im-status-style">
+						<local_schema short_desc="GTK 輸入法狀態樣式">
+							<longdesc>GTK+ 輸入法所使用的「狀態區域」樣式的名稱。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk-im-preedit-style">
+						<local_schema short_desc="GTK 輸入法 Preedit 區域樣式">
+							<longdesc>GTK+ 輸入法所使用的 Preedit 區域樣式的名稱。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="font_name">
+						<local_schema short_desc="預設字型">
+							<longdesc>gtk+ 選用的預設字型名稱。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk_key_theme">
+						<local_schema short_desc="Gtk+ 佈景主題">
+							<longdesc>gtk+ 預設使用的佈景主題的名稱。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk_theme">
+						<local_schema short_desc="Gtk+ 佈景主題">
+							<longdesc>gtk+ 預設使用的佈景主題的名稱。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="icon_theme">
+						<local_schema short_desc="圖示佈景主題">
+							<longdesc>在面板、nautilus 等等中使用的圖示主題</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="cursor_blink_time">
+						<local_schema short_desc="游標閃爍時間">
+							<longdesc>游標閃爍的周期，以毫秒計算。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="cursor_blink">
+						<local_schema short_desc="閃爍游標">
+							<longdesc>游標可否閃爍。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_icons_size">
+						<local_schema short_desc="工具列圖示大小">
+							<longdesc>工具列中圖示的大小，可以是「small-toolbar」或「large-toolbar」。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_detachable">
+						<local_schema short_desc="工具列可卸離視窗">
+							<longdesc>用戶可否卸離及移動工具列。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menubar_detachable">
+						<local_schema short_desc="選單列可卸離視窗">
+							<longdesc>用戶可否卸離及移動選單列。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="buttons_have_icons">
+						<local_schema short_desc="按鈕加圖示">
+							<longdesc>是否要在按鈕文字旁顯示圖示。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menus_have_icons">
+						<local_schema short_desc="選單可出現圖示">
+							<longdesc>選單項目旁邊應否顯示圖示。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_style">
+						<local_schema short_desc="工具列樣式">
+							<longdesc>工具列的風格。可用的數值有「both」、「both-horiz」、「icons」與「text」。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="can_change_accels">
+						<local_schema short_desc="可更改捷徑鍵">
+							<longdesc>當位置在使用中選單項目上時使用者能否在中隨時設定捷徑鍵。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menus_have_tearoff">
+						<local_schema short_desc="顯示可將選單卸離選單列的元件">
+							<longdesc>應否顯示可讓選單卸離選單列的元件。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="啟用動畫">
+							<longdesc>應否平滑地移動桌面的各種視窗元件。請注意：這是整體的設定，它會更改視窗總管、面板等等的運作方式。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="accessibility">
+						<local_schema short_desc="啟用無障礙環境">
+							<longdesc>應用程式應否支援無障礙環境。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="background">
+					<entry name="color_shading_type">
+						<local_schema short_desc="背景顏色顯示方式">
+							<longdesc>繪畫背景顏色的方式。可使用的值為“horizontal-gradient”、“vertical-gradient”及“solid”。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="secondary_color">
+						<local_schema short_desc="第二種顏色">
+							<longdesc>當繪畫漸層時選用的右邊或底部顏色，繪畫單色時不會使用本選項。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="primary_color">
+						<local_schema short_desc="第一種顏色">
+							<longdesc>指定當顯示漸層時左邊或頂部的顏色，或是顯示單色時使用的顏色。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="picture_opacity">
+						<local_schema short_desc="圖案透明度">
+							<longdesc>繪畫背景圖案時選用的透明度。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="picture_filename">
+						<local_schema short_desc="圖案檔案名稱">
+							<longdesc>用作背景圖案的檔案。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="picture_options">
+						<local_schema short_desc="圖案選項">
+							<longdesc>決定 wallpaper_filename 中指定的圖像如何顯示。可使用的值為：“none”、“wallpaper”、“centered”、“scaled”、“stretched”、“zoom”、“spanned”。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="draw_background">
+						<local_schema short_desc="繪畫桌布">
+							<longdesc>顯示 GNOME 桌面的桌布。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="thumbnail_cache">
+					<entry name="maximum_size">
+						<local_schema>
+							<longdesc>縮圖快取中的大小上限，以 MB 計。設為 -1 則停用清除功能。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="maximum_age">
+						<local_schema>
+							<longdesc>縮圖保留在快取中最長的期限，以天數計。設為 -1 則停用清除功能。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="typing_break">
+					<entry name="enabled">
+						<local_schema short_desc="是否鎖定鍵盤">
+							<longdesc>是否鎖定鍵盤</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="allow_postpone">
+						<local_schema short_desc="允許暫時放棄休息">
+							<longdesc>可否暫時延後進入休息畫面的時間。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="break_time">
+						<local_schema short_desc="休息時間">
+							<longdesc>工作時間中必須間歇性地休息指定的時間，以分鐘計算</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="type_time">
+						<local_schema short_desc="工作時間">
+							<longdesc>開始休息時間之前可以工作（打字）的時間，以分鐘計算</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="sound">
+					<entry name="input_feedback_sounds">
+						<local_schema short_desc="輸入回饋音效">
+							<longdesc>是否播放輸入事件的音效。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="theme_name">
+						<local_schema short_desc="音效主題名稱">
+							<longdesc>在事件音效中使用的 XDG 音效主題</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="event_sounds">
+						<local_schema short_desc="代表事件的音效">
+							<longdesc>當出現不同事件時播放代表該事件的音效。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_esd">
+						<local_schema short_desc="啟用 ESD">
+							<longdesc>啟動時開啟音效伺服程式。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="default_mixer_tracks">
+						<local_schema short_desc="預設混音聲道">
+							<longdesc>多媒體按鍵組合使用的預設混音聲道</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="default_mixer_device">
+						<local_schema short_desc="預設混音裝置">
+							<longdesc>多媒體按鍵組合使用的預設混音裝置</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="peripherals">
+					<dir name="keyboard">
+						<entry name="remember_numlock_state">
+							<local_schema short_desc="記憶 NumLock 狀態">
+								<longdesc>如設定為“true”，GNOME 會在下次進入桌面時回復上次的 NumLock 鍵狀態。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bell_custom_file">
+							<local_schema short_desc="鍵盤響聲音效檔">
+								<longdesc>應播放的響聲音效檔名稱。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bell_mode">
+							<local_schema>
+								<longdesc>可使用的值為“on”、“off”及“custom”。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="mouse">
+						<entry name="cursor_size">
+							<local_schema short_desc="鼠標大小">
+								<longdesc>cursor_theme 中指定的鼠標主題的大小。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="cursor_theme">
+							<local_schema short_desc="鼠標主題">
+								<longdesc>這個是鼠標主題名稱，只適用於支援 Xcursor 的 X 伺服程式，例如 XFree86 4.3 或以後的版本。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="cursor_font">
+							<local_schema short_desc="鼠標字型檔">
+								<longdesc>載有鼠標的檔案名稱。如果沒有設定，會使用預設的鼠標檔。本設定值只會在作業階段開始時傳送至 X 伺服程式，因此使用 X Window 時更改設定是不會生效的，必須登出再登入後才會生效。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="locate_pointer">
+							<local_schema short_desc="標示鼠標位置">
+								<longdesc>當按下及放開 Control 鍵後，加強顯示目前游標的位置。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="double_click">
+							<local_schema short_desc="雙擊時間">
+								<longdesc>雙擊的時間長度。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="drag_threshold">
+							<local_schema short_desc="拖曳距離界限">
+								<longdesc>滑鼠移動指定的距離才視為拖曳。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="motion_threshold">
+							<local_schema short_desc="移動距離界限">
+								<longdesc>鼠標加速前所需的移動距離（像素）。-1 表示使用系統預設值。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="motion_acceleration">
+							<local_schema short_desc="單次點擊">
+								<longdesc>滑鼠移動的加速度。-1 表示使用系統的預設值。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="single_click">
+							<local_schema short_desc="單次點擊">
+								<longdesc>點擊一下滑鼠按鈕即開啟圖示。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="left_handed">
+							<local_schema short_desc="左右手滑鼠模式">
+								<longdesc>在左手滑鼠模式中，左右按鈕的功能會互換。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="lockdown">
+					<entry name="disable_application_handlers">
+						<local_schema short_desc="停用 URL 與 MIME 類型處理程式">
+							<longdesc>避免執行任何 URL 與 MIME 類型處理程式。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_lock_screen">
+						<local_schema short_desc="停用畫面上鎖">
+							<longdesc>防止使用者鎖定螢幕。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_user_switching">
+						<local_schema short_desc="停用使用者切換">
+							<longdesc>當作業階段正在使用時，防止使用者切換到另一個帳戶。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_print_setup">
+						<local_schema short_desc="禁止更改列印設定">
+							<longdesc>禁止用戶修改列印設定。譬如說，本設定會令所有應用軟體的「列印設定」對話方塊失效。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_printing">
+						<local_schema short_desc="禁止列印">
+							<longdesc>禁止用戶列印。譬如說，本設定會令所有應用軟體的「列印」對話方塊失效。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_save_to_disk">
+						<local_schema short_desc="禁止將檔案儲存至磁碟">
+							<longdesc>禁止用戶將檔案儲存進磁碟。譬如說，本設定會令所有應用軟體的「另存新檔」對話方塊失效。</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_command_line">
+						<local_schema short_desc="禁止使用指令列">
+							<longdesc>禁止用戶使用虛擬終端機或者從指令列執行指令。譬如說，本設定會令面板中的「執行程式」對話方塊失效。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="file-views">
+					<entry name="icon_theme">
+						<local_schema short_desc="檔案圖示主題">
+							<longdesc>顯示檔案圖示所使用的圖示主題。</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="accessibility">
+					<dir name="startup">
+						<entry name="exec_ats">
+							<local_schema short_desc="進入桌面時啟動的輔助技術程式">
+								<longdesc>當登入 GNOME 桌面時，會啟動這些有輔助技術的程式。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="keyboard">
+						<entry name="stickykeys_modifier_beep">
+							<local_schema>
+								<longdesc>當按下 Ctrl、Shift、Alt 等特殊按鍵時發出聲響。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="stickykeys_two_key_off">
+							<local_schema>
+								<longdesc>如果同時按下兩個鍵則停止功能。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="slowkeys_delay">
+							<local_schema short_desc="時間間隔下限（毫秒）">
+								<longdesc>除非按下某鍵持續超過 @delay 毫秒，否則作廢。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="mousekeys_init_delay">
+							<local_schema short_desc="開始前的延遲時間（毫秒）">
+								<longdesc>等待指定的毫秒數目後，滑鼠移動鍵才會生效。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="mousekeys_accel_time">
+							<local_schema short_desc="加速所需的毫秒數目">
+								<longdesc>從靜止加速至最高速度需要多少毫秒。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="mousekeys_max_speed">
+							<local_schema short_desc="像素（每秒）">
+								<longdesc>最高速度時每秒可移動多少像素。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bouncekeys_delay">
+							<local_schema short_desc="時間間隔下限（毫秒）">
+								<longdesc>若在 @delay 毫秒內多次按下同一按鍵，則第一次以後的按鍵作廢。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="thumbnailers">
+					<entry name="disable_all">
+						<local_schema short_desc="停止使用任何製作縮圖的程式">
+							<longdesc>如設定為“true”，會停止產生任何縮圖，而不理會各種製作縮圖的程式是否已經個別被啟用或者停止使用</longdesc>
+						</local_schema>
+					</entry>
+					<dir name="application@vnd.sun.xml.math">
+						<entry name="command">
+							<local_schema short_desc="用作產生 OpenOffice 1.x 算式縮圖的指令">
+								<longdesc>產生 OpenOffice 1.x 算式縮圖所用的指令加上參數。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="啟用產生 OpenOffice 1.x 算式檔的縮圖的功能">
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@vnd.sun.xml.draw">
+						<entry name="command">
+							<local_schema short_desc="用作產生 OpenOffice 1.x 試算表縮圖的指令">
+								<longdesc>產生 OpenOffice 1.x 繪圖縮圖所用的指令加上參數。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="啟用產生 OpenOffice 1.x 試算表的縮圖的功能">
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@vnd.sun.xml.draw.template">
+						<entry name="command">
+							<local_schema short_desc="用作產生 OpenOffice 1.x 繪圖縮圖的指令">
+								<longdesc>產生 OpenOffice 1.x 繪圖樣式縮圖所用的指令加上參數。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="啟用產生 OpenOffice 1.x 繪圖樣式的縮圖的功能">
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@vnd.sun.xml.writer">
+						<entry name="command">
+							<local_schema short_desc="用作產生 OpenOffice 1.x 文書縮圖的指令">
+								<longdesc>產生 OpenOffice 1.x 文書縮圖所用的指令加上參數。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="啟用產生 OpenOffice 1.x 文書的縮圖的功能">
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@vnd.sun.xml.writer.template">
+						<entry name="command">
+							<local_schema short_desc="用作產生 OpenOffice 1.x 文書樣式縮圖的指令">
+								<longdesc>產生 OpenOffice 1.x 文書樣式縮圖所用的指令加上參數。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="啟用產生 OpenOffice 1.x 文書樣式的縮圖的功能">
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@vnd.sun.xml.calc">
+						<entry name="command">
+							<local_schema short_desc="用作產生 OpenOffice 1.x 試算表縮圖的指令">
+								<longdesc>產生 OpenOffice 1.x 試算表縮圖所用的指令加上參數。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="啟用產生 OpenOffice 1.x 試算表的縮圖的功能">
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@vnd.sun.xml.calc.template">
+						<entry name="command">
+							<local_schema short_desc="用作產生 OpenOffice 1.x 試算表縮圖的指令">
+								<longdesc>產生 OpenOffice 1.x 文書樣式縮圖所用的指令加上參數。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="啟用產生 OpenOffice 1.x 試算表樣式的縮圖的功能">
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@vnd.sun.xml.impress">
+						<entry name="command">
+							<local_schema short_desc="用作產生 OpenOffice 1.x 簡報縮圖的指令">
+								<longdesc>產生 OpenOffice 1.x 簡報縮圖所用的指令加上參數。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="啟用產生 OpenOffice 1.x 簡報的縮圖的功能">
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@vnd.sun.xml.impress.template">
+						<entry name="command">
+							<local_schema short_desc="用作產生 OpenOffice 1.x 簡報樣式縮圖的指令">
+								<longdesc>產生 OpenOffice 1.x 簡報樣式縮圖所用的指令加上參數。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="啟用產生 OpenOffice 1.x 簡報樣式的縮圖的功能">
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@vnd.oasis.opendocument.formula">
+						<entry name="command">
+							<local_schema short_desc="用作產生 OpenDocument 算式縮圖的指令">
+								<longdesc>產生 OpenDocument 算式縮圖所用的指令加上參數。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="啟用產生 OpenDocument 算式的縮圖的功能">
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@vnd.oasis.opendocument.image">
+						<entry name="command">
+							<local_schema short_desc="用作產生 OpenDocument 圖片縮圖的指令">
+								<longdesc>產生 OpenDocument 圖片縮圖所用的指令加上參數。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="啟用產生 OpenDocument 圖片的縮圖的功能">
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@vnd.oasis.opendocument.chart">
+						<entry name="command">
+							<local_schema short_desc="用作產生 OpenDocument 圖表縮圖的指令">
+								<longdesc>產生 OpenDocument 圖表縮圖所用的指令加上參數。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="啟用產生 OpenDocument 圖表的縮圖的功能">
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@vnd.oasis.opendocument.graphics">
+						<entry name="command">
+							<local_schema short_desc="用作產生 OpenDocument 繪圖縮圖的指令">
+								<longdesc>產生 OpenDocument 繪圖縮圖所用的指令加上參數。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="啟用產生 OpenDocument 繪圖樣式的縮圖的功能">
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@vnd.oasis.opendocument.graphics-template">
+						<entry name="command">
+							<local_schema short_desc="用作產生 OpenDocument 繪圖樣式縮圖的指令">
+								<longdesc>產生 OpenDocument 繪圖樣式縮圖所用的指令加上參數。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="啟用產生 OpenDocument 繪圖檔的縮圖的功能">
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@vnd.oasis.opendocument.text">
+						<entry name="command">
+							<local_schema short_desc="用作產生 OpenDocument 文書縮圖的指令">
+								<longdesc>產生 OpenDocument 文書縮圖所用的指令加上參數。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="啟用產生 OpenDocument 文書的縮圖的功能">
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@vnd.oasis.opendocument.text-master">
+						<entry name="command">
+							<local_schema short_desc="用作產生 OpenDocument 主控文件縮圖的指令">
+								<longdesc>產生 OpenDocument 主控文件縮圖所用的指令加上參數。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="啟用產生 OpenDocument 主控文件的縮圖的功能">
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@vnd.oasis.opendocument.text-template">
+						<entry name="command">
+							<local_schema short_desc="用作產生 OpenDocument 文書樣式縮圖的指令">
+								<longdesc>產生 OpenDocument 文書樣式縮圖所用的指令加上參數。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="啟用產生 OpenDocument 文書樣式的縮圖的功能">
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@vnd.oasis.opendocument.spreadsheet">
+						<entry name="command">
+							<local_schema short_desc="用作產生 OpenDocument 試算表縮圖的指令">
+								<longdesc>產生 OpenDocument 試算表縮圖所用的指令加上參數。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="啟用產生 OpenDocument 試算表的縮圖的功能">
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@vnd.oasis.opendocument.spreadsheet-template">
+						<entry name="command">
+							<local_schema short_desc="用作產生 OpenDocument 試算表樣式縮圖的指令">
+								<longdesc>產生 OpenDocument 試算表樣式縮圖所用的指令加上參數。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="啟用產生 OpenDocument 試算表樣式的縮圖的功能">
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@vnd.oasis.opendocument.presentation">
+						<entry name="command">
+							<local_schema short_desc="用作產生 OpenDocument 簡報縮圖的指令">
+								<longdesc>產生 OpenDocument 簡報縮圖所用的指令加上參數。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="啟用產生 OpenDocument 簡報的縮圖的功能">
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@vnd.oasis.opendocument.presentation-template">
+						<entry name="command">
+							<local_schema short_desc="用作產生 OpenDocument 簡報樣式縮圖的指令">
+								<longdesc>產生 OpenDocument 簡報樣式縮圖所用的指令加上參數。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="啟用產生 OpenDocument 簡報樣式的縮圖的功能">
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@msword">
+						<entry name="command">
+							<local_schema short_desc="用作產生微軟 Word 文件縮圖的指令">
+								<longdesc>產生微軟 Word 文書縮圖所用的指令加上參數。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="啟用產生微軟 Word 文件的縮圖的功能">
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@vnd.ms-excel">
+						<entry name="command">
+							<local_schema short_desc="用作產生微軟 Excel 試算表縮圖的指令">
+								<longdesc>產生微軟 Excel 試算表縮圖所用的指令加上參數。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="啟用產生微軟 Excel 試算表的縮圖的功能">
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@vnd.ms-powerpoint">
+						<entry name="command">
+							<local_schema short_desc="用作產生微軟 PowerPoint 簡報縮圖的指令">
+								<longdesc>產生微軟 PowerPoint 簡報縮圖所用的指令加上參數。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="啟用產生微軟 PowerPoint 簡報的縮圖的功能">
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@x-gzpdf">
+						<entry name="command">
+							<local_schema short_desc="PDF 文件的縮圖命令">
+								<longdesc>正確的指令加上代表 PDF 文件縮圖的引數。請參見 Nautilus 縮圖文件以得到更多資訊。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="啟動 PDF 文件的縮圖功能">
+								<longdesc>可用的布林選項：“true”會開啟縮圖功能，而“false”會停止建立新的縮圖</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@x-bzpdf">
+						<entry name="command">
+							<local_schema short_desc="PDF 文件的縮圖命令">
+								<longdesc>正確的指令加上代表 PDF 文件縮圖的引數。請參見 Nautilus 縮圖文件以得到更多資訊。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="啟動 PDF 文件的縮圖功能">
+								<longdesc>可用的布林選項：“true”會開啟縮圖功能，而“false”會停止建立新的縮圖</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@pdf">
+						<entry name="command">
+							<local_schema short_desc="PDF 文件的縮圖命令">
+								<longdesc>正確的指令加上代表 PDF 文件縮圖的引數。請參見 Nautilus 縮圖文件以得到更多資訊。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="啟動 PDF 文件的縮圖功能">
+								<longdesc>可用的布林選項：“true”會開啟縮圖功能，而“false”會停止建立新的縮圖</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="url-handlers">
+					<dir name="ymsgr">
+						<entry name="needs_terminal">
+							<local_schema short_desc="在終端機執行指令">
+								<longdesc>如數值為「真」，則表示處理這種網址的指令須在終端機執行。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="處理「ymsgr」網址的指令">
+								<longdesc>處理「ymsgr」網址的指令（如有啟用）</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="指令是否應處理「ymsgr」網址">
+								<longdesc>如數值為「真」，則表示「command」欄的指令應處理「ymsgr」網址。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="xmpp">
+						<entry name="needs_terminal">
+							<local_schema short_desc="在終端機執行指令">
+								<longdesc>如數值為「真」，則表示處理這種網址的指令須在終端機執行。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="處理「xmpp」網址的指令">
+								<longdesc>處理「xmpp」網址的指令（如有啟用）</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="指令是否應處理「xmpp」網址">
+								<longdesc>如數值為「真」，則表示「command」欄的指令應處理「xmpp」網址。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="sip">
+						<entry name="needs_terminal">
+							<local_schema short_desc="在終端機執行指令">
+								<longdesc>如數值為「真」，則表示處理這種網址的指令須在終端機執行。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="處理「sip」網址的指令">
+								<longdesc>處理「sip」網址的指令（如有啟用）</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="指令是否應處理「sip」網址">
+								<longdesc>如數值為「真」，則表示「command」欄的指令應處理「sip」網址。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="msnim">
+						<entry name="needs_terminal">
+							<local_schema short_desc="在終端機執行指令">
+								<longdesc>如數值為「真」，則表示處理這種網址的指令須在終端機執行。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="處理「msnim」網址的指令">
+								<longdesc>處理「msnim」網址的指令（如有啟用）</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="指令是否應處理「msnim」網址">
+								<longdesc>如數值為「真」，則表示「command」欄的指令應處理「msnim」網址。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="irc">
+						<entry name="needs_terminal">
+							<local_schema short_desc="在終端機執行指令">
+								<longdesc>如數值為「真」，則表示處理這種網址的指令須在終端機執行。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="處理「irc」網址的指令">
+								<longdesc>處理「irc」網址的指令（如有啟用）</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="指令是否應處理「irc」網址">
+								<longdesc>如數值為「真」，則表示「command」欄的指令應處理「irc」網址。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="icq">
+						<entry name="needs_terminal">
+							<local_schema short_desc="在終端機執行指令">
+								<longdesc>如數值為「真」，則表示處理這種網址的指令須在終端機執行。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="處理「icq」網址的指令">
+								<longdesc>處理「icq」網址的指令（如有啟用）</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="指令是否應處理「icq」網址">
+								<longdesc>如數值為「真」，則表示「command」欄的指令應處理「icq」網址。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="gg">
+						<entry name="needs_terminal">
+							<local_schema short_desc="在終端機執行指令">
+								<longdesc>如數值為「真」，則表示處理這種網址的指令須在終端機執行。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="處理「gg」網址的指令">
+								<longdesc>處理「gg」網址的指令（如有啟用）</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="指令是否應處理「gg」網址">
+								<longdesc>如數值為「真」，則表示「command」欄的指令應處理「gg」網址。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="h323">
+						<entry name="needs_terminal">
+							<local_schema short_desc="在終端機中執行指令">
+								<longdesc>如設定為‘TRUE’，處理此 URL 的程式必須在終端機中執行。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="處理“h323”URL 的處理程序">
+								<longdesc>若有啟用，用來處理“h323”URL 的指令。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="指定的指令應否處理“h323”URL">
+								<longdesc>如設定為「TRUE」，在「command」(指令)欄中的指令為處理「h323」URL 的程式。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="callto">
+						<entry name="needs_terminal">
+							<local_schema short_desc="在終端機中執行指令">
+								<longdesc>如設定為‘TRUE’，處理此 URL 的程式必須在終端機中執行。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="處理“callto”URL 的處理程序">
+								<longdesc>若有啟用，用來處理“callto”URL 的指令。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="指定的指令應否處理“callto”URL">
+								<longdesc>如設定為「TRUE」，在「command」(指令)中的指令為處理「callto」URL 的程式。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="aim">
+						<entry name="needs_terminal">
+							<local_schema short_desc="在終端機執行指令">
+								<longdesc>如數值為「真」，則表示處理這種網址的指令須在終端機執行。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="處理「aim」網址的指令">
+								<longdesc>處理「aim」網址的指令（如有啟用）</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="指令是否應處理「aim」網址">
+								<longdesc>如數值為「真」，則表示「command」欄的指令應處理「aim」網址。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="mailto">
+						<entry name="needs_terminal">
+							<local_schema short_desc="在終端機中執行指令">
+								<longdesc>如設定為‘TRUE’，處理此 URL 的程式必須在終端機中執行。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="處理“mailto”URL 的處理程序">
+								<longdesc>若有啟用，用來處理“mailto”URL 的指令。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="指定的指令應否處理“mailto”URL">
+								<longdesc>如設定為「TRUE」，在「command」(指令)欄中的指令為處理「mailto」URL 的程式。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="https">
+						<entry name="needs_terminal">
+							<local_schema short_desc="在終端機中執行指令">
+								<longdesc>如設定為‘TRUE’，處理此 URL 的程式必須在終端機中執行。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="處理“https”URL 的處理程序">
+								<longdesc>若有啟用，用來處理“https”URL 的指令。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="指定的指令應否處理“https”URL">
+								<longdesc>如設定為「TRUE」，在「command」(指令)欄中的指令為處理「https」URL 的程式。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="http">
+						<entry name="needs_terminal">
+							<local_schema short_desc="在終端機中執行指令">
+								<longdesc>如設定為‘TRUE’，處理此 URL 的程式必須在終端機中執行。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="處理“http”URL 的處理程序">
+								<longdesc>若有啟用，用來處理“http”URL 的指令。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="指定的指令應否處理“http”URL">
+								<longdesc>如設定為「TRUE」，在「command」(指令)欄中的指令為處理「http」URL 的程式。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="man">
+						<entry name="needs_terminal">
+							<local_schema short_desc="在終端機中執行指令">
+								<longdesc>如設定為‘TRUE’，處理此 URL 的程式必須在終端機中執行。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="處理“man”URL 的處理程序">
+								<longdesc>若有啟用，用來處理“man”URL 的指令。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="指定的指令應否處理“man”URL">
+								<longdesc>如設定為「TRUE」，在「command」(指令)欄中的指令為處理「man」URL 的程式。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="info">
+						<entry name="needs_terminal">
+							<local_schema short_desc="在終端機中執行指令">
+								<longdesc>如設定為‘TRUE’，處理此 URL 的程式必須在終端機中執行。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="處理“info”URL 的處理程序">
+								<longdesc>若有啟用，用來處理“info”URL 的指令。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="指定的指令應否處理“info”URL">
+								<longdesc>如設定為「TRUE」，在「command」(指令)欄中的指令為處理「info」URL 的程式。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="ghelp">
+						<entry name="needs_terminal">
+							<local_schema short_desc="在終端機中執行指令">
+								<longdesc>如設定為‘TRUE’，處理此 URL 的程式必須在終端機中執行。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="處理“ghelp”URL 的處理程序">
+								<longdesc>若有啟用，用來處理“ghelp”URL 的指令。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="指定的指令應否處理“ghelp”URL">
+								<longdesc>如設定為「TRUE」，在「command」(指令)欄中的指令為處理「ghelp」URL 的程式。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="trash">
+						<entry name="needs_terminal">
+							<local_schema short_desc="在終端機中執行指令">
+								<longdesc>如設定為‘TRUE’，處理此 URL 的程式必須在終端機中執行。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="處理“trash”URL 的處理程序">
+								<longdesc>若有啟用，用來處理“trash”URL 的指令。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="指定的指令應否處理“trash”URL">
+								<longdesc>如設定為「TRUE」，在「command」(指令)欄中的指令為處理「trash」URL 的程式。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="applications">
+					<dir name="tasks">
+						<entry name="needs_term">
+							<local_schema short_desc="工作需要終端機">
+								<longdesc>預設的工作是否需要終端機方可運行</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="預設工作">
+								<longdesc>預設的工作應用程式</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="calendar">
+						<entry name="needs_term">
+							<local_schema short_desc="行事曆需要終端機">
+								<longdesc>預設的行事曆是否需要終端機方可運行</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="預設行事曆">
+								<longdesc>預設的行事曆應用程式</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="window_manager">
+						<entry name="workspace_names">
+							<local_schema short_desc="工作區名稱（不鼓勵再使用）">
+								<longdesc>一系列視窗總管預設使用的工作區名稱。這設定鍵自 GNOME 2.12 已不鼓勵再使用。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="number_of_workspaces">
+							<local_schema short_desc="工作區數目（不鼓勵再使用）">
+								<longdesc>視窗總管應開啟的工作區數目，這設定鍵自 GNOME 2.12 已不鼓勵再使用。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="current">
+							<local_schema short_desc="用戶首選的視窗總管（不鼓勵再使用）">
+								<longdesc>首選的視窗總管。這設定鍵自 GNOME 2.12 已不鼓勵再使用。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="default">
+							<local_schema short_desc="後備視窗總管（不鼓勵再使用）">
+								<longdesc>當找不到用戶首選的視窗總管時，執行這裡指定的後備視窗總管。這設定鍵自 GNOME 2.12 已不鼓勵再使用。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="browser">
+						<entry name="nremote">
+							<local_schema short_desc="瀏覽器可辨認 remote 協定">
+								<longdesc>預設的瀏覽器可否辨認 netscape remote 協定。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="needs_term">
+							<local_schema short_desc="瀏覽器需要終端機方可運作">
+								<longdesc>預設的瀏覽器是否需要終端機方可運行。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="預設瀏覽器">
+								<longdesc>所有 URL 的預設瀏覽器。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="at">
+						<dir name="mobility">
+							<entry name="startup">
+								<local_schema short_desc="執行偏好的行動輔助科技程式">
+									<longdesc>在登入時 GNOME 會執行偏好的行動輔助科技</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="exec">
+								<local_schema short_desc="偏好的行動輔助科技程式">
+									<longdesc>偏好的行動輔助科技可以用作於登入、選單及命令列。</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+						<dir name="visual">
+							<entry name="startup">
+								<local_schema short_desc="執行偏好的視覺輔助科技程式">
+									<longdesc>在登入時 GNOME 會執行偏好的視覺輔助科技。</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="exec">
+								<local_schema short_desc="偏好的視覺輔助科技程式">
+									<longdesc>用於登入、選單及命令列的偏好視覺輔助科技。</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+					</dir>
+					<dir name="component_viewer">
+						<entry name="exec">
+							<local_schema short_desc="預設的元件檢視程式">
+								<longdesc>有些檔案需要有一個元件來檢視它們，這裡指定檢視所用的程式。參數 %s 會被檔案的 URI 所取代，參數 %c 會被元件 IID 所取代。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="terminal">
+						<entry name="exec_arg">
+							<local_schema short_desc="執行指令的參數">
+								<longdesc>執行‘exec’設定鍵所指定的終端機時，需要哪些參數來執行其它程式。</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="終端機程式">
+								<longdesc>當啟動的程式需要終端機時，使用哪個終端機程式。</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+			</dir>
+		</dir>
+		<dir name="system">
+			<dir name="dns_sd">
+				<entry name="extra_domains">
+					<local_schema short_desc="找尋 DNS-SD 服務的額外網域">
+						<longdesc>在“network:///”位置中顯示的 DNS-SD 網域清單，以逗號隔開。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="display_local">
+					<local_schema short_desc="如何顯示本地端的 DNS-SD 服務">
+						<longdesc>可能值為“merged”,“separate”以及“disabled”。</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="smb">
+				<entry name="workgroup">
+					<local_schema short_desc="SMB 工作群組">
+						<longdesc>使用者所屬的 Windows 網路群組或網域。新的群組可能要等使用者再登入後才能完全生效，</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="proxy">
+				<entry name="autoconfig_url">
+					<local_schema short_desc="自動代理伺服器組態網址">
+						<longdesc>提供代理伺服器組態的網址。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="socks_port">
+					<local_schema short_desc="SOCKS 代理伺服器連接埠">
+						<longdesc>在“/system/proxy/socks_host’中定義的代理伺服器的埠號。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="socks_host">
+					<local_schema short_desc="SOCKS 代理伺服器主機名稱">
+						<longdesc>socks 代理伺服器主機名稱。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="ftp_port">
+					<local_schema short_desc="FTP 代理伺服器埠號">
+						<longdesc>在“/system/proxy/ftp_host’中定義的代理伺服器的埠號。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="ftp_host">
+					<local_schema short_desc="FTP 代理伺服器主機名稱">
+						<longdesc>FTP 代理伺服器主機名稱。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="secure_port">
+					<local_schema short_desc="安全式 HTTP 代理伺服器連接埠">
+						<longdesc>在“/system/proxy/secure_host’中定義的代理伺服器的埠號。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="secure_host">
+					<local_schema short_desc="安全式 HTTP 代理伺服器主機名稱">
+						<longdesc>用在安全式 HTTP 的代理伺服器主機名稱。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="mode">
+					<local_schema short_desc="代理伺服器組態模式">
+						<longdesc>選擇代理伺服器設置模式。支援的值有“none”、“manual”、“auto”。</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="http_proxy">
+				<entry name="ignore_hosts">
+					<local_schema short_desc="不使用代理伺服器的主機">
+						<longdesc>這個鍵值包含了要直接連線，不透過代理伺服器（如果有使用）的主機。數值可以為主機名稱、網域（開頭使用萬用字元如 *.foo.com）、IP 位址（IPv4 和 IPv6 皆可）或帶有子網路遮罩的位址（像是 192.168.0.0/24）。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="authentication_password">
+					<local_schema short_desc="HTTP 代理伺服器密碼">
+						<longdesc>使用 HTTP 代理伺服器時進行認證的密碼。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="authentication_user">
+					<local_schema short_desc="HTTP 代理伺服器使用者名稱">
+						<longdesc>使用 HTTP 代理伺服器時用來驗證的使用者名稱。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="use_authentication">
+					<local_schema short_desc="驗證代理伺服器連線">
+						<longdesc>如設定為“true”，那麼連接到代理伺服器時需要認證。使用者/密碼的組合在
+“/system/http_proxy/authentication_user”和“/system/http_proxy/authentication_password”中設定。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="port">
+					<local_schema short_desc="HTTP 代理伺服器連接埠">
+						<longdesc>在“/system/http_proxy/host’中定義的代理伺服器的埠號。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="host">
+					<local_schema short_desc="HTTP 代理伺服器主機名稱">
+						<longdesc>HTTP 代理伺服器主機名稱。</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="use_http_proxy">
+					<local_schema short_desc="使用 HTTP 代理伺服器">
+						<longdesc>經網際網路存取 HTTP 時啟用代理伺服器設定。</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+		</dir>
+	</dir>
+</gconf>

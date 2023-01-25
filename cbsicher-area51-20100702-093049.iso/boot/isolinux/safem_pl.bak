@@ -1,0 +1,92 @@
+LABEL back
+MENU LABEL <- Back to main menu
+KERNEL /boot/isolinux/menu.c32
+APPEND /boot/isolinux/isolinux.cfg
+
+LABEL full
+MENU LABEL Full start
+MENU DISABLE
+
+LABEL 0
+MENU LABEL Safe ACPI settings + VESA graphics 1024x768
+MENU INDENT 2
+KERNEL /boot/isolinux/l2632px
+APPEND initrd=/boot/isolinux/devs.img,/boot/isolinux/initram.img,/boot/isolinux/i2632px.img ramdisk_size=100000 vga=788 ultraquiet=1 security=smack skipcheck=1 quiet lang=pl  toram=800000 ejectonumass=1 skipservices=|installer|xconfgui|roothash|monitortest| xorgconf=/etc/X11/xorg.conf.vesa xorgscreen=Screen_TFT_1024x768 hwid=unknown noacpi acpi=no noapic nolapic usbsettle=20
+
+LABEL 1
+MENU LABEL Safe ACPI settings + VESA graphics auto
+MENU INDENT 2
+KERNEL /boot/isolinux/l2632px
+APPEND initrd=/boot/isolinux/devs.img,/boot/isolinux/initram.img,/boot/isolinux/i2632px.img ramdisk_size=100000 vga=788 ultraquiet=1 security=smack skipcheck=1 quiet lang=pl  toram=800000 ejectonumass=1 skipservices=|installer|xconfgui|roothash|monitortest| xorgconf=/etc/X11/xorg.conf.vesa xorgscreen=default_screen hwid=unknown noacpi acpi=no noapic nolapic usbsettle=20
+
+LABEL 2
+MENU LABEL Safe ACPI settings + Xorg graphics auto
+MENU INDENT 2
+KERNEL /boot/isolinux/l2632px
+APPEND initrd=/boot/isolinux/devs.img,/boot/isolinux/initram.img,/boot/isolinux/i2632px.img ramdisk_size=100000 vga=788 ultraquiet=1 security=smack skipcheck=1 quiet lang=pl  toram=800000 ejectonumass=1 skipservices=|installer|xconfgui|roothash|  hwid=unknown noacpi acpi=no noapic nolapic usbsettle=20
+
+LABEL 3
+MENU LABEL VESA graphics 1024x768
+MENU INDENT 2
+KERNEL /boot/isolinux/l2632px
+APPEND initrd=/boot/isolinux/devs.img,/boot/isolinux/initram.img,/boot/isolinux/i2632px.img ramdisk_size=100000 vga=788 ultraquiet=1 security=smack skipcheck=1 quiet lang=pl  toram=800000 ejectonumass=1 skipservices=|installer|xconfgui|roothash|monitortest| xorgconf=/etc/X11/xorg.conf.vesa xorgscreen=Screen_TFT_1024x768 hwid=unknown 
+
+LABEL 4
+MENU LABEL VESA graphics auto
+MENU INDENT 2
+KERNEL /boot/isolinux/l2632px
+APPEND initrd=/boot/isolinux/devs.img,/boot/isolinux/initram.img,/boot/isolinux/i2632px.img ramdisk_size=100000 vga=788 ultraquiet=1 security=smack skipcheck=1 quiet lang=pl  toram=800000 ejectonumass=1 skipservices=|installer|xconfgui|roothash|monitortest| xorgconf=/etc/X11/xorg.conf.vesa xorgscreen=default_screen hwid=unknown
+
+##############################
+
+LABEL quick
+MENU LABEL Quick start
+MENU DISABLE
+
+LABEL 5
+MENU LABEL Safe ACPI settings + VESA graphics 1024x768
+MENU INDENT 2
+KERNEL /boot/isolinux/l2632px
+APPEND initrd=/boot/isolinux/devs.img,/boot/isolinux/initram.img,/boot/isolinux/i2632px.img ramdisk_size=100000 vga=788 ultraquiet=1 security=smack skipcheck=1 quiet lang=pl toram=999999999 ejectonumass=1 skipservices=|hwproto|xconfgui|installer|runtimeconf|roothash| xorgconf=/etc/X11/xorg.conf.vesa xorgscreen=Screen_TFT_1024x768 hwid=unknown noacpi acpi=no noapic nolapic usbsettle=20
+
+LABEL 6
+MENU LABEL Safe ACPI settings + VESA graphics auto
+MENU INDENT 2
+KERNEL /boot/isolinux/l2632px
+APPEND initrd=/boot/isolinux/devs.img,/boot/isolinux/initram.img,/boot/isolinux/i2632px.img ramdisk_size=100000 vga=788 ultraquiet=1 security=smack skipcheck=1 quiet lang=pl toram=999999999 ejectonumass=1 skipservices=|hwproto|xconfgui|installer|runtimeconf|roothash| xorgconf=/etc/X11/xorg.conf.vesa xorgscreen=default_screen hwid=unknown noacpi acpi=no noapic nolapic usbsettle=20
+
+LABEL 7
+MENU LABEL Safe ACPI settings + Xorg graphics auto
+MENU INDENT 2
+KERNEL /boot/isolinux/l2632px
+APPEND initrd=/boot/isolinux/devs.img,/boot/isolinux/initram.img,/boot/isolinux/i2632px.img ramdisk_size=100000 vga=788 ultraquiet=1 security=smack skipcheck=1 quiet lang=pl toram=999999999 ejectonumass=1 skipservices=|hwproto|xconfgui|installer|runtimeconf|roothash| xorgconf=/etc/X11/xorg.conf.xorg xorgscreen=default_screen hwid=unknown noacpi acpi=no noapic nolapic usbsettle=20
+
+LABEL 8
+MENU LABEL VESA graphics 1024x768
+MENU INDENT 2
+KERNEL /boot/isolinux/l2632px
+APPEND initrd=/boot/isolinux/devs.img,/boot/isolinux/initram.img,/boot/isolinux/i2632px.img ramdisk_size=100000 vga=788 ultraquiet=1 security=smack skipcheck=1 quiet lang=pl toram=999999999 ejectonumass=1 skipservices=|hwproto|xconfgui|installer|runtimeconf|roothash| xorgconf=/etc/X11/xorg.conf.vesa xorgscreen=Screen_TFT_1024x768 hwid=unknown 
+
+LABEL 9
+MENU LABEL VESA graphics auto
+MENU INDENT 2
+KERNEL /boot/isolinux/l2632px
+APPEND initrd=/boot/isolinux/devs.img,/boot/isolinux/initram.img,/boot/isolinux/i2632px.img ramdisk_size=100000 vga=788 ultraquiet=1 security=smack skipcheck=1 quiet lang=pl toram=999999999 ejectonumass=1 skipservices=|hwproto|xconfgui|installer|runtimeconf|roothash| xorgconf=/etc/X11/xorg.conf.vesa xorgscreen=default_screen hwid=unknown
+
+##############################
+
+LABEL install
+MENU LABEL Installation
+MENU DISABLE
+
+LABEL 10
+MENU LABEL Safe ACPI settings + VESA graphics 1024x768
+MENU INDENT 2
+KERNEL /boot/isolinux/l2632px
+APPEND initrd=/boot/isolinux/devs.img,/boot/isolinux/initram.img,/boot/isolinux/i2632px.img ramdisk_size=100000 vga=788 ultraquiet=1 security=smack skipcheck=1 quiet lang=pl toram=9999999999  skipservices=|mountumass|xconfgui|dbus|wicd|runtimeconf|alsaprepare|ffprep|roothash|  hwid=unknown xorgconf=/etc/X11/xorg.conf.vesa xorgscreen=Screen_TFT_1024x768 hwid=unknown noacpi acpi=no noapic nolapic usbsettle=20
+
+LABEL 11
+MENU LABEL Safe ACPI settings + VESA graphics auto
+MENU INDENT 2
+KERNEL /boot/isolinux/l2632px
+APPEND initrd=/boot/isolinux/devs.img,/boot/isolinux/initram.img,/boot/isolinux/i2632px.img ramdisk_size=100000 vga=788 ultraquiet=1 security=smack skipcheck=1 quiet lang=pl toram=9999999999  skipservices=|mountumass|xconfgui|dbus|wicd|runtimeconf|alsaprepare|ffprep|roothash|  hwid=unknown xorgconf=/etc/X11/xorg.conf.vesa xorgscreen=default_screen hwid=unknown noacpi acpi=no noapic nolapic usbsettle=20

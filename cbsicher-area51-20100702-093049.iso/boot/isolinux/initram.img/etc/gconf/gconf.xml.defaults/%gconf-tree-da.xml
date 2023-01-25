@@ -1,0 +1,1967 @@
+<?xml version="1.0"?>
+<gconf>
+	<dir name="schemas">
+		<dir name="apps">
+			<dir name="brasero">
+				<entry name="nautilus-extension-debug">
+					<local_schema short_desc="Skal Nautilus-udvidelsen udskrive fejlsøgningsbeskeder">
+						<longdesc>Skal Nautilus-udvidelsen udskrive fejlsøgningsbeskeder. Værdien skal sættes til sand, hvis den skal.</longdesc>
+					</local_schema>
+				</entry>
+				<dir name="filter">
+					<entry name="broken_sym">
+						<local_schema short_desc="Skal Brasero filtrere ugyldige symbolske links">
+							<longdesc>Skal Brasero filtrere ugyldige symbolske links. Hvis sat til sand, så vil Brasero filtrere ugyldige symbolske links.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="replace_sym">
+						<local_schema short_desc="Erstat symbolske links med deres målfiler">
+							<longdesc>Skal Brasero erstatte symbolske links med deres målfiler i projektet? Hvis sat til sand, så vil Brasero erstatte symbolske links.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hidden">
+						<local_schema short_desc="Skal Brasero filtrere skjulte filer">
+							<longdesc>Skal Brasero filtrere skjulte filer? Hvis sat til sand, så vil Brasero filtrere skjulte filer.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="display">
+					<entry name="viewer">
+						<local_schema short_desc="Aktivér forhåndsvisning af filer">
+							<longdesc>Hvorvidt filer skal forhåndsvises. Sæt til sand for at forhåndsvise.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="config">
+					<entry name="raw_flag">
+						<local_schema short_desc="Hvorvidt &quot;--driver generic-mmc-raw&quot;-flaget skal bruges med cdrdao">
+							<longdesc>Hvorvidt &quot;--driver generic-mmc-raw&quot;-flaget skal bruges med cdrdao. Hvis sat til sand, så vil Brasero bruge det; det kan være en alternativ løsning for visse drev/opsætninger.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="minbuf_value">
+						<local_schema short_desc="Bruges sammen med &quot;-immed&quot;-flaget med cdrecord">
+							<longdesc>Bruges sammen med &quot;-immed&quot;-flaget med cdrecord.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="dao_flag">
+						<local_schema short_desc="Hvorvidt &quot;-use-the-force-luke=dao&quot;-flaget skal bruges med growisofs">
+							<longdesc>Hvorvidt &quot;-use-the-force-luke=dao&quot;-flaget skal bruges med growisofs. Hvis sat til falsk, så vil Brasero ikke bruge det; det kan være en alternativ løsning for visse drev/opsætninger.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="immed_flag">
+						<local_schema short_desc="Aktivér &quot;-immed&quot;-flaget med cdrecord">
+							<longdesc>Hvorvidt &quot;-immed&quot;-flaget med cdrecord skal bruges. Brug med forsigtighed (sat til sand), da det kun er en alternativ løsning for visse drev/opsætninger.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="plugins">
+						<local_schema short_desc="Hvidliste med yderligere udvidelsesmoduler, som skal bruges">
+							<longdesc>Indeholder listen over ekstra udvidelsesmoduler, som Brasero vil bruge til at brænde diske. Hvis sat til NULL, vil Brasero indlæse dem alle.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="engine-group">
+						<local_schema short_desc="Foretrukken brændingsmotor">
+							<longdesc>Indeholder navnet på den foretrukne brændingsmotor, som er installeret. Den vil om muligt blive benyttet.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnome-system-log">
+				<entry name="logfiles">
+					<local_schema short_desc="Logfiler der skal åbnes ved start">
+						<longdesc>Angiver en liste af logfiler der skal åbnes når programmet startes. En standardliste oprettes ved at læse /etc/syslog.conf.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="width">
+					<local_schema short_desc="Bredde af hovedvinduet i pixler">
+						<longdesc>Angiver bredden af log-fremviserens hovedvindue i pixler.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="height">
+					<local_schema short_desc="Højden af hovedvinduet i pixler">
+						<longdesc>Angiver en højde af logfremviserens hovedvindue i pixler.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="fontsize">
+					<local_schema short_desc="Skriftstørrelse hvormed loggen vises">
+						<longdesc>Angiver størrelsen af den monospatierede skrifttype der bruges til at vise loggen i hovedtrævisningen. Terminalskrifttypens standardstørrelse benyttes som forvalg.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="logfile">
+					<local_schema short_desc="Logfil der skal åbnes ved start">
+						<longdesc>Angiver logfilen der skal vises når programmet startes. Forvalg er enten /var/adm/messages eller /var/log/messages, afhængigt af din styresystem.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="gnome-search-tool">
+				<entry name="look_in_folder">
+					<local_schema short_desc="Kig i mappe">
+						<longdesc>Denne nøgle definerer standardværdien af &quot;Look in Folder&quot;-kontrollen.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default_window_maximized">
+					<local_schema short_desc="Standardvindue maksimeret">
+						<longdesc>Denne nøgle bestemmer om søgeværktøjets vindue er maximeret fra begyndelsen.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default_window_height">
+					<local_schema short_desc="Standardvindueshøjde">
+						<longdesc>Denne nøgle definerer vindueshøjden, og den bruges til at huske størrelsen af søgeværktøjet på tværs af sessioner. Sættes den til -1, vil søgeværktøjet bruge standardhøjden.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default_window_width">
+					<local_schema short_desc="Forvalgt vinduesbredde">
+						<longdesc>Denne nøgle bestemmer vinduesbredden, og den bruges til at huske størrelsen af søgeværktøjet på tværs af sessioner. Sættes den til -1, vil søgeværktøjet bruge standardbredden.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="columns_order">
+					<local_schema short_desc="Kolonnerækkefølge for søgeresultater">
+						<longdesc>Denne nøgle bestemmer rækkefølgen af kolonner i søgeresultaterne. Denne nøgle bør ikke blive modificeret af brugeren.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="quick_search_second_scan_excluded_paths">
+					<local_schema short_desc="Ekskluderede stier for anden skanning i hurtigsøgning">
+						<longdesc>Denne nøgle definerer stierne som søgeværktøjet ekskluderer fra den anden skanning ved udførsel af en hurtigsøgning. Den anden skanning bruger find-kommandoen til at søge efter filer. Formåelt med denne anden skanning er at finde filer som ikke er blevet indekseret. Jokerne &quot;*&quot; og &quot;?&quot; er understøttet. Den forvalgte værdi er /.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="disable_quick_search_second_scan">
+					<local_schema short_desc="Deaktivér anden skanning i hurtigsøgning">
+						<longdesc>Denne nøgle bestemmer om søgeværktøjet deaktiverer brugen af find-kommandoen efter udførsel af en hurtigsøgning.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="quick_search_excluded_paths">
+					<local_schema short_desc="Ekskluderede stier i hurtigsøgning">
+						<longdesc>Denne nøgle definerer stierne som søgeværktøjet ekskluderer fra hurtigsøgningen. Jokerne &quot;*&quot; og &quot;?&quot; er understøttet. De forvalgte værdier er /mnt/*, /media/*, /dev/*, /tmp/*, /proc/* og /var/*.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="disable_quick_search">
+					<local_schema short_desc="Deaktivér hurtigsøgning">
+						<longdesc>Denne nøgle bestemmer om søgeværktøjet deaktiverer brugen af locate-kommandoen ved udførsel af simple filnavnsøgninger.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="show_additional_options">
+					<local_schema short_desc="Vis flere indstillinger">
+						<longdesc>Denne nøgle bestemmer om sektionen &quot;Vælg flere indstillinger&quot; er foldet ud når søgeværktøjet startes.</longdesc>
+					</local_schema>
+				</entry>
+				<dir name="select">
+					<entry name="exclude_other_filesystems">
+						<local_schema short_desc="Vælg søgevalgmuligheden &quot;Medtag andre filsystemer&quot;">
+							<longdesc>Denne nøgle bestemmer om søgevalgmuligheden &quot;Medtag andre filsystemer&quot; er udvalgt når søgeværktøjet startes.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="follow_symbolic_links">
+						<local_schema short_desc="Udvælg søgevalgmuligheden &quot;Følg symbolske henvisninger&quot;">
+							<longdesc>Denne nøgle bestemmer om søgevalgmuligheden &quot;Følg symbolske henvisninger&quot; er udvalgt når søgeværktøjet startes.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_hidden_files_and_folders">
+						<local_schema short_desc="Udvælg søgevalgmuligheden &quot;Vis skjulte filer og mapper&quot;">
+							<longdesc>Denne nøgle bestemmer om søgevalgmuligheden &quot;Vis skjulte filer og mapper&quot; er udvalgt når søgeværktøjet startes.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name_matches_regular_expression">
+						<local_schema short_desc="Udvælg søgevalgmuligheden &quot;Navn matcher regulært udtryk&quot;">
+							<longdesc>Denne nøgle bestemmer om søgevalgmuligheden &quot;Navn matcher regulært udtryk&quot; er udvalgt når søgeværktøjet startes.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name_does_not_contain">
+						<local_schema short_desc="Udvælg søgevalgmuligheden &quot;Navn indeholder ikke&quot;">
+							<longdesc>Denne nøgle bestemmer om søgevalgmuligheden &quot;Navn indeholder ikke&quot; er udvalgt når søgeværktøjet startes.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="owner_is_unrecognized">
+						<local_schema short_desc="Udvælg søgevalgmuligheden &quot;Ejer er ukendt&quot;">
+							<longdesc>Denne nøgle bestemmer om søgevalgmuligheden &quot;Ejer er ukendt&quot; er udvalgt når søgeværktøjet startes.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="owned_by_group">
+						<local_schema short_desc="Udvælg søgevalgmuligheden &quot;Ejet af gruppe&quot;">
+							<longdesc>Denne nøgle bestemmer om søgevalgmuligheden &quot;Ejet af gruppe&quot; er udvalgt når søgeværktøjet startes.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="owned_by_user">
+						<local_schema short_desc="Udvælg søgevalgmuligheden &quot;Ejet af bruger&quot;">
+							<longdesc>Denne nøgle bestemmer om søgevalgmuligheden &quot;Ejet af bruger&quot; er udvalgt når søgeværktøjet startes.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="file_is_empty">
+						<local_schema short_desc="Udvælg søgevalgmuligheden &quot;Fil er tom&quot;">
+							<longdesc>Denne nøgle bestemmer om søgevalgmuligheden &quot;Fil er tom&quot; er udvalgt når søgeværktøjet startes.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size_at_most">
+						<local_schema short_desc="Udvælg søgevalgmuligheden &quot;Størrelse højst&quot;">
+							<longdesc>Denne nøgle bestemmer om søgevalgmuligheden &quot;Størrelse højst&quot; er udvalgt når søgeværktøjet startes.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size_at_least">
+						<local_schema short_desc="Udvælg søgevalgmuligheden &quot;Størrelse mindst&quot;">
+							<longdesc>Denne nøgle bestemmer om søgevalgmuligheden &quot;Størrelse mindst&quot; er udvalgt når søgeværktøjet startes.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="date_modified_more_than">
+						<local_schema short_desc="Udvælg søgevalgmuligheden &quot;Dato ændret længere tilbage end&quot;">
+							<longdesc>Denne nøgle bestemmer om søgevalgmuligheden &quot;Dato ændret længere tilbage end&quot; er udvalgt når søgeværktøjet startes.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="date_modified_less_than">
+						<local_schema short_desc="Udvælg søgevalgmuligheden &quot;Dato ændret inden for&quot;">
+							<longdesc>Denne nøgle bestemmer om søgevalgmuligheden &quot;Dato ændret inden for&quot; er udvalgt når søgeværktøjet startes.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="contains_the_text">
+						<local_schema short_desc="Udvælg søgevalgmuligheden &quot;Indeholder teksten&quot;">
+							<longdesc>Denne nøgle bestemmer om søgevalgmuligheden &quot;Indeholder teksten&quot; er udvalgt når søgeværktøjet startes.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnome-screenshot">
+				<entry name="border_effect">
+					<local_schema short_desc="Effekt for ramme">
+						<longdesc>Effekt for ydersiden af en ramme. Mulige værdier er &quot;shadow&quot;, &quot;none&quot; og &quot;border&quot;.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="include_pointer">
+					<local_schema short_desc="Inkludér markør">
+						<longdesc>Inkludér markøren i skærmbilledet</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="include_border">
+					<local_schema short_desc="Inkludér ramme">
+						<longdesc>Inkludér vindueshåndteringsrammen i skærmbilledet</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="last_save_directory">
+					<local_schema short_desc="Mappe til skærmbillede">
+						<longdesc>Mappen som sidste skærmbillede blev gemt i.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="delay">
+					<local_schema short_desc="Ventetid før skærmbillede">
+						<longdesc>Antallet af sekunder, der ventes før skærmbilledet tages.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="take_window_shot">
+					<local_schema short_desc="Vinduesspecifikt skærmbillede (deprecieret)">
+						<longdesc>Tag kun det aktuelle vindue frem for hele skrivebordet. Denne nøgle er deprecieret og bruges ikke længere.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="gnome-dictionary">
+				<entry name="sidebar-width">
+					<local_schema short_desc="Bredden af sidepanelet">
+						<longdesc>Denne nøgle bestemmer bredden af sidepanelet, og den bruges til at huske indstillingen på tværs af sessioner.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="sidebar-page">
+					<local_schema short_desc="Siden der vises i sidepanelet">
+						<longdesc>Denne nøgle bestemmer hvilken side der skal vises i sidepanelet, og den bruges til at huske indstillingen på tværs af sessioner. Den kan være enten &quot;speller&quot; eller &quot;databases&quot;.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="statusbar-visible">
+					<local_schema short_desc="Om statusbjælken skal være synlig">
+						<longdesc>Denne nøgle bestemmer om statusbjælken skal være synlig, og den bruges til at huske statusbjælkens tilstand på tværs af sessioner. Sættes den til &quot;TRUE&quot;, vil statusbjælken altid blive vist.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="sidebar-visible">
+					<local_schema short_desc="Om sidepanelet skal være synligt">
+						<longdesc>Denne nøgle bestemmer om sidepanelet skal være synligt, og den bruges til at huske sidepanelets tilstand på tværs af sessioner. Sættes den til &quot;TRUE&quot;, vil sidepanelet altid blive vist.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="window-is-maximized">
+					<local_schema short_desc="Om applikationsvinduet skal være maksimeret">
+						<longdesc>Denne nøgle bestemmer om vinduet skal være maksimeret, og den bruges til at huske ordbogsvinduets tilstand på tværs af sessioner. Sættes den til &quot;TRUE&quot;, vil vinduet altid være maksimeret fra start.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default-window-height">
+					<local_schema short_desc="Standardhøjden af applikationsvinduet">
+						<longdesc>Denne nøgle bestemmer vindueshøjden, og den bruges til at huske størrelsen af ordbogsvinduet på tværs af sessioner. Sættes den til -1, vil ordbogsvinduet bruge en højde baseret på skriftstørrelsen.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="default-window-width">
+					<local_schema short_desc="Standardbredden af applikationsvinduet">
+						<longdesc>Denne nøgle bestemmer vinduesbredden, og den bruges til at huske størrelsen af ordbogsvinduet på tværs af sessioner. Sættes den til -1, vil ordbogsvinduet bruge en bredde baseret på skriftstørrelsen.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="source-name">
+					<local_schema short_desc="Navnet på den benyttede ordbogskilde">
+						<longdesc>Navnet på ordbogskilden der benyttes til at hente orddefinitioner.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="print-font">
+					<local_schema short_desc="Skrifttypen der bruges når der printes">
+						<longdesc>Skrifttypen der bruges når en definition udskrives.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="strategy">
+					<local_schema short_desc="Standardsøgestrategi der skal benyttes">
+						<longdesc>Navnet af standardsøgestrategien der benyttes på en ordbogskilde, hvis tilgængelig. Standardstrategien er &quot;exact&quot;, det vil sige træf identiske ord.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="database">
+					<local_schema short_desc="Standarddatabasen der skal benyttes">
+						<longdesc>Navnet på den forvalgte individuelle database eller meta-database der skal bruges på ordbogskilde. Et udråbstegn (&quot;!&quot;) angiver at alle databaserne fra en given kilde skal søges</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="smart">
+					<local_schema short_desc="Benyt smarte opslag (afskrevet)">
+						<longdesc>Angiv om der skal bruges smarte opslag. Denne nøgle afhænger af om ordbogsserveren understøtter denne funktionalitet. Standardværdien er TRUE. Denne nøgle er afskrevet og bruges ikke længere.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="port">
+					<local_schema short_desc="Port der bruges til at forbinde til serveren (afskrevet)">
+						<longdesc>Portnummeret der skal forbindes til. Standardporten er 2628. Denne nøgle er afskrevet og ikke længere i brug.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="server">
+					<local_schema short_desc="Ordbogsserver (afskrevet)">
+						<longdesc>Den ordbogsserver der skal forbindes til. Den forvalgte server er dict.org. Se http://www.dict.org for oplysninger om andre servere. Denne nøgle er afskrevet og ikke længere i brug.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="baobab">
+				<dir name="properties">
+					<entry name="skip_scan_uri_list">
+						<local_schema short_desc="URI&apos;er for ekskluderede partitioner">
+							<longdesc>En liste af URI&apos;er for partitioner, der ekskluderes fra scanning.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_home_monitor">
+						<local_schema short_desc="Aktivér overvågning af hjemmemappe">
+							<longdesc>Om enhver ændring af hjemmemappen skal overvåges.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="ui">
+					<entry name="baobab_subfoldertips_visible">
+						<local_schema short_desc="Værktøjstip synlige for undermapper">
+							<longdesc>Om værktøjstip for undermapper af den valgte mappe tegnes.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="statusbar_visible">
+						<local_schema short_desc="Statusbjælken er synlig">
+							<longdesc>Om statusbjælken i bunden af hovedvinduet skal være synlig.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_visible">
+						<local_schema short_desc="Værktøjslinjen er synlig">
+							<longdesc>Om værktøjslinjen skal være synlig i hovedvinduet.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="window_list_applet">
+				<dir name="prefs">
+					<entry name="maximum_size">
+						<local_schema short_desc="Maksimal vindueslistestørrelse">
+							<longdesc>Brugen af denne nøgle blev forældet i Gnome 2.20. Dette schema bevares af hensyn til kompatibilitet med ældre versioner.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="minimum_size">
+						<local_schema short_desc="Minimal vindueslistestørrelse">
+							<longdesc>Brugen af denne nøgle blev forældet i Gnome 2.20. Dette schema bevares af hensyn til kompatibilitet med ældre versioner.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="move_unminimized_windows">
+						<local_schema short_desc="Flyt vinduer til det aktive arbejdsområde ved gendannelse">
+							<longdesc>Hvis sand, bringes et vindue der bliver gendannet efter en minimering, til det aktive arbejdsområde. Ellers skiftes til arbejdsområdet for vinduet.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="group_windows">
+						<local_schema short_desc="Hvornår vinduer skal grupperes">
+							<longdesc>Bestemmer hvornår vinduer fra det samme program skal grupperes i vindueslisten. Gyldige værdier er &quot;never&quot;, &quot;auto&quot; og &quot;always&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_all_workspaces">
+						<local_schema short_desc="Vis vinduer fra alle arbejdsområder">
+							<longdesc>Hvis sand, viser vindueslisten vinduer fra alle arbejdsområder, ellers vises kun vinduer fra det aktive arbejdsområde.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="workspace_switcher_applet">
+				<dir name="prefs">
+					<entry name="num_rows">
+						<local_schema short_desc="Rækker i arbejdsområdeskifter">
+							<longdesc>Ved visning af alle arbejdsområder afgør dette hvor mange rækker (ved vandrette paneler) eller kolonner (ved lodrette paneler) skifteren viser arbejdsområderne i. Nøglen er kun relevant hvis display_all_workspaces er sand.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_all_workspaces">
+						<local_schema short_desc="Vis alle arbejdsområder">
+							<longdesc>Hvis sand, vil arbejdsområdeskifteren vise alle arbejdsområder, ellers vises kun den aktive.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="display_workspace_names">
+						<local_schema short_desc="Vis arbejdsområdenavne">
+							<longdesc>Hvis sand, vil felterne i arbejdsområdeskifteren vise arbejdsområdernes navne. Ellers vises vinduerne på arbejdsområderne. Denne indstilling virker kun når vindueshåndteringen Metacity benyttes.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="fish_applet">
+				<dir name="prefs">
+					<entry name="rotate">
+						<local_schema short_desc="Vend om på lodrette paneler">
+							<longdesc>Om fiskeanimationen skal roteres på lodrette paneler.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="speed">
+						<local_schema short_desc="Pause pr. billede">
+							<longdesc>Antallet af sekunder som hver billede vil blive vist.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="frames">
+						<local_schema short_desc="Antallet af billeder i fiskens animation">
+							<longdesc>Antallet af billeder som vil blive vist i fiskens animation.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="command">
+						<local_schema short_desc="Kommando som udføres ved klik">
+							<longdesc>Kommando som forsøges udført når der klikkes på fisken.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="image">
+						<local_schema short_desc="Fiskens animeringsbillede">
+							<longdesc>Filnavnet for det billede som bruges til animationen i fiskepanelprogrammet, i forhold til pixmap-mappen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name">
+						<local_schema short_desc="Fiskens navn">
+							<longdesc>En fisk uden navn er en ret kedelig fisk. Giv din fisk liv ved at navngive den.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="clock_applet">
+				<dir name="prefs">
+					<entry name="speed_unit">
+						<local_schema short_desc="Fartenhed">
+							<longdesc>Enheden hvormed vindhastighed angives.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="temperature_unit">
+						<local_schema short_desc="Temperaturenhed">
+							<longdesc>Enheden hvormed temperaturer angives.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="cities">
+						<local_schema short_desc="Liste af steder">
+							<longdesc>En liste af steder, der vises i kalendervinduet.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="internet_time">
+						<local_schema short_desc="Benyt internettid">
+							<longdesc>Brugen af denne nøgle blev forældet i Gnome 2.6 til fordel for nøglen &quot;format&quot;. Skemaet er bevaret af hensyn til kompatibilitet med ældre versioner.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="unix_time">
+						<local_schema short_desc="Benyt UNIX-tid">
+							<longdesc>Brugen af denne nøgle blev forældet i Gnome 2.6 til fordel for nøglen &quot;format&quot;. Skemaet er bevaret af hensyn til kompatibilitet med ældre versioner.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hour_format">
+						<local_schema short_desc="Timeformat">
+							<longdesc>Brugen af denne nøgle blev forældet i Gnome 2.6 til fordel for nøglen &quot;format&quot;. Skemaet er bevaret af hensyn til kompatibilitet med ældre versioner.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_locations">
+						<local_schema short_desc="Fold listen af steder ud">
+							<longdesc>Hvis sand, så fold listen af steder i kalendervinduet ud.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_weather">
+						<local_schema short_desc="Fold listen af vejrinformation ud">
+							<longdesc>Hvis sand, så fold listen over vejrinformation i kalendervinduet ud.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_tasks">
+						<local_schema short_desc="Fold listen af opgaver ud">
+							<longdesc>Hvis sand, så fold listen af opgaver i kalendervinduet ud.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_birthdays">
+						<local_schema short_desc="Fold listen af fødselsdage ud">
+							<longdesc>Hvis sand, så fold listen af fødselsdage i kalendervinduet ud.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand_appointments">
+						<local_schema short_desc="Fold listen af aftaler ud">
+							<longdesc>Hvis sand, så fold listen af aftaler i kalendervinduet ud.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_week_numbers">
+						<local_schema short_desc="Vis ugenumre i kalenderen">
+							<longdesc>Hvis sand, så vis ugenumre i kalenderen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="config_tool">
+						<local_schema short_desc="Tidskonfigureringsværktøj">
+							<longdesc>Brugen af denne nøgle blev forældet i Gnome 2.22 til fordel for et internt konfigurationsværktøj. Skemaet bevares af hensyn til kompatibilitet med ældre versioner.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gmt_time">
+						<local_schema short_desc="Benyt UTC">
+							<longdesc>Brugen af denne nøgle blev forældet i Gnome 2.28 til fordel for tidszoner. Skemaet bevares af hensyn til kompatibilitet med ældre versioner.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_temperature">
+						<local_schema short_desc="Vis temperaturen i uret">
+							<longdesc>Hvis sand, så vis temperaturen ved siden af vejrikonet.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_weather">
+						<local_schema short_desc="Vis vejret i uret">
+							<longdesc>Hvis sand, så vis et vejrikon.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_tooltip">
+						<local_schema short_desc="Vis dato i værktøjstip">
+							<longdesc>Hvis sand, så vis dato i et værktøjstip når musen er over uret.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_date">
+						<local_schema short_desc="Vis dato i ur">
+							<longdesc>Hvis sand, så vis dato i uret foruden tiden.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_seconds">
+						<local_schema short_desc="Vis tid med sekunder">
+							<longdesc>Hvis sand, så vis sekunder i tidsangivelsen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="custom_format">
+						<local_schema short_desc="Brugerdefineret format for uret">
+							<longdesc>Denne nøgle angiver formatet for urpanelprogrammet når &quot;format&quot;-nøglen er sat til &quot;custom&quot;. Du kan bruge de konverteringsangivelser der forstås af strftime() til at opnå et specifikt format. Se manualen for strftime() for yderligere information.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="format">
+						<local_schema short_desc="Timeformat">
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="panel">
+				<dir name="objects">
+					<entry name="action_type">
+						<local_schema short_desc="Handlingsknaptype">
+							<longdesc>Den handlingstype som denne knap repræsenterer. Mulige værdier er &quot;lock&quot;, &quot;logout&quot;, &quot;run&quot;, &quot;search&quot; og &quot;screenshot&quot;. Denne nøgle er kun relevant hvis nøglen object_type er &quot;action-applet&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="launcher_location">
+						<local_schema short_desc="Placering af genvej">
+							<longdesc>Placeringen af .desktop-filen som beskriver genvejen. Denne nøgle er kun relevant hvis nøglen object_type er &quot;launcher-object&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menu_path">
+						<local_schema short_desc="Menuindholdssti">
+							<longdesc>Den sti som menuindholdet konstrueres ud fra. Denne nøgle er kun relevant hvis nøglen use_menu_path er sand og nøglen object_type er &quot;menu-object&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_menu_path">
+						<local_schema short_desc="Benyt brugerdefineret sti til menuindhold">
+							<longdesc>Hvis sand bliver nøglen menu_path brugt som den sti som menuindholdet skal konstrueres fra. Hvis falsk bliver nøglen menu_path ignoreret. Denne nøgle er kun relevant hvis nøglen object_type er &quot;menu-object&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="custom_icon">
+						<local_schema short_desc="Ikon som benyttes til objektets knap">
+							<longdesc>Placeringen af billedfilen som skal bruges som ikon for objektets knap. Denne nøgle er kun relevant hvis nøglen object_type er &quot;drawer-object&quot; eller &quot;menu-object&quot; og nøglen use_custom_icon er sand.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_custom_icon">
+						<local_schema short_desc="Benyt brugerdefineret ikon til objektets knap">
+							<longdesc>Hvis sand bliver nøglen custom_icon brugt til et brugerdefineret ikon til knappen. Hvis falsk bliver nøglen custom_icon ignoreret. Denne nøgle er kun relevant hvis nøglen object_type er &quot;menu-object&quot; eller &quot;drawer-object&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="tooltip">
+						<local_schema short_desc="Værktøjstip som vises for skuffe eller menu">
+							<longdesc>Den tekst som skal vises i et værktøjstip for denne skuffe eller menu. Denne nøgle er kun relevant hvis nøglen object_type er &quot;drawer-object&quot; eller &quot;menu-object&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="attached_toplevel_id">
+						<local_schema short_desc="Panel som hænger sammen med skuffe">
+							<longdesc>Id&apos;en for det panel som denne skuffe hænger sammen med. Denne nøgle er kun relevant hvis nøglen object_type er &quot;drawer-object&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="bonobo_iid">
+						<local_schema short_desc="Panelprogram-Bonobo-id">
+							<longdesc>Bonobo-implementerings-id&apos;en for panelprogrammet - f.eks. &quot;OAFIID:GNOME_ClockApplet&quot;. Denne nøgle er kun relevant hvis nøglen object_type er &quot;bonobo-applet&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="locked">
+						<local_schema short_desc="Lås objektet til panelet">
+							<longdesc>Om brugeren ikke kan flytte objektet uden først at låse det op med menupunktet &quot;Lås op&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="panel_right_stick">
+						<local_schema short_desc="Fortolk placering relativt til nederste/højre kant">
+							<longdesc>Om placeringen af objektet skal fortolkes relativt til højre kant (eller nederste kant hvis lodret) af panelet.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="position">
+						<local_schema short_desc="Objektets placering på panelet">
+							<longdesc>Placeringen af dette panelobjekt. Placeringen er angivet som antallet af punkter fra venstre panelkant (eller øverste hvis lodret).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toplevel_id">
+						<local_schema short_desc="Topniveau panel som indeholder objekt">
+							<longdesc>Id&apos;en for det topniveau-panel som indeholder dette objekt.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="object_type">
+						<local_schema short_desc="Panelobjekttype">
+							<longdesc>Typen af dette panelobjekt. Mulige værdier er &quot;drawer-object&quot;, &quot;menu-object&quot;, &quot;launcher-object&quot;, &quot;bonobo-applet&quot;, &quot;action-applet&quot; og &quot;menu-bar&quot;.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="toplevels">
+					<entry name="animation_speed">
+						<local_schema short_desc="Animationsfart">
+							<longdesc>Den fart som panelanimationer skal foregå med. Mulige værdier er &quot;slow&quot;, &quot;medium&quot; og &quot;fast&quot;. Denne nøgle er kun relevant hvis nøglen enable_animations er sand.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_hide_size">
+						<local_schema short_desc="Synlige punkter når skjult">
+							<longdesc>Angiver antallet af punkter der er synlige når panelet er skjult automatisk i et hjørne. Denne nøgle er kun relevant hvis nøglen auto_hide er sand.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="unhide_delay">
+						<local_schema short_desc="Automatisk opdukningsventetid for panel">
+							<longdesc>Angiver antallet af millisekunderse ventetid efter markøren går ind i panelområdet før panelet vises automatisk igen. Denne nøgle er kun relevant hvis nøglen auto_hide er sand.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="hide_delay">
+						<local_schema short_desc="Automatisk skjulningsventetid for panel">
+							<longdesc>Angiver antallet af millisekunderse ventetid efter markøren forlader panelområdet før panelet bliver skjult automatisk. Denne nøgle er kun relevant hvis nøglen auto_hide er sand.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_arrows">
+						<local_schema short_desc="Aktivér pile på skjuleknapper">
+							<longdesc>Om pile skal placeres på skjuleknapperne. Denne nøgle er kun relevant hvis nøglen enable_buttons er sand.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_buttons">
+						<local_schema short_desc="Aktivér skjuleknapper">
+							<longdesc>Om knapper til at flytte panelet til kanten af skærmen skal vises.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="Aktivér animationer">
+							<longdesc>Om skjulning og genvisning af dette panel skal animeres i stedet for at ske med det samme.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_hide">
+						<local_schema short_desc="Skjul automatisk panelet i hjørne">
+							<longdesc>Om panelet automatisk skal skjules i et hjørne af skærmen når markøren forlader panelområdet. Hvis markøren flyttes til det hjørne igen, dukker panelet op igen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="y_centered">
+						<local_schema short_desc="Centrér panelet på y-aksen">
+							<longdesc>Hvis sand, bliver nøglerne &quot;y&quot; og &quot;y_bottom&quot; ignoreret, og panelet anbringes i midten af x-aksen på skærmen. Hvis panelets størrelse ændres, forbliver det på den position - dvs. det gror til begge sider. Hvis falsk, angiver nøglerne &quot;y&quot; og &quot;y_bottom&quot; placeringen af panelet.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="x_centered">
+						<local_schema short_desc="Centrér panelet på x-aksen">
+							<longdesc>Hvis sand, bliver nøglerne &quot;x&quot; og &quot;x_right&quot; ignoreret, og panelet anbringes i midten af x-aksen på skærmen. Hvis panelets størrelse ændres, forbliver det på den position - dvs. det gror til begge sider. Hvis falsk, angiver nøglerne &quot;x&quot; og &quot;x_right&quot; placeringen af panelet.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="y_bottom">
+						<local_schema short_desc="Panelets y-koordinat, målt fra skærmens bund">
+							<longdesc>Placeringen af panelet langs y-aksen, målt fra skærmens bund. Hvis denne sættes til -1, vil værdien blive ignoreret, og værdien af nøglen &quot;y&quot; blive brugt. Hvis værdien er større end 0, så vil værdien af nøglen &quot;y&quot; blive ignoreret. Denne nøgle er kun relevant i ikke-udvidet tilstand. I udvidet tilstand ignoreres denne nøgle, og panelet placeres ved skærmens kant som angivet af nøglen &quot;orientation&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="x_right">
+						<local_schema short_desc="Panelets x-koordinat, målt fra skærmens højre kant">
+							<longdesc>Placeringen af panelet langs x-aksen, målt fra skærmens højre side. Hvis denne sættes til -1, vil værdien blive ignoreret, og værdien af nøglen &quot;x&quot; blive brugt. Hvis værdien er større end 0, så vil værdien af nøglen &quot;x&quot; blive ignoreret. Denne nøgle er kun relevant i ikke-udvidet tilstand. I udvidet tilstand ignoreres denne nøgle, og panelet placeres ved skærmens kant som angivet af nøglen &quot;orientation&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="y">
+						<local_schema short_desc="Lodret koordinat for panel">
+							<longdesc>Placeringen af panelet langs y-aksen. Denne nøgle er kun relevant i ikke-udvidet tilstand. I udvidet tilstand er denne nøgle ignoreret og panelet placeres ved skærmkanten som angivet af nøglen orientation.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="x">
+						<local_schema short_desc="Vandret koordinat for panel">
+							<longdesc>Placeringen af panelet langs x-aksen. Denne nøgle er kun relevant i ikke-udvidet tilstand. I udvidet tilstand er denne nøgle ignoreret og panelet placeres ved skærmkanten som angivet af nøglen orientation.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="size">
+						<local_schema short_desc="Panelstørrelse">
+							<longdesc>Højden (bredden for et lodret panel) af panelet. Panelet vil afgøre på kørselstidspunktet en mindste størrelse baseret på skrifttypestørrelsen og andre ting. Den maksimale størrelse er fast på det kvarte af skærmhøjden (eller -bredden).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="orientation">
+						<local_schema short_desc="Panelorientering">
+							<longdesc>Orienteringen af panelet. Mulige værdier er &quot;top&quot;, &quot;bottom&quot;, &quot;left&quot; og &quot;right&quot;. I udvidet tilstand angiver nøglen hvilken skærmkant som panelet er på. I ikke-udvidet tilstand er forskellen mellem &quot;top&quot; og &quot;bottom&quot; mindre vigtig - begge indikerer at dette er et vandret panel - men giver alligevel et brugbart hint til hvordan visse panelobjekter skal opføre sig. F.eks. vil en menuknap vise sin menu under panelet på et &quot;top&quot;-panel, mens den vises over panelet på et &quot;bottom&quot;-panel.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="expand">
+						<local_schema short_desc="Udvid for at udfylde hele skærmbredden">
+							<longdesc>Om panelet skal optage hele skærmbredden (eller højden hvis det er et lodret panel). I denne tilstand kan panelet kun placeres ved en skærmkant. Ellers vil panelet kun være stort nok til at have plads til panelprogrammerne, genvejene og knapperne på panelet.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="monitor">
+						<local_schema short_desc="Xinerama-skærm som panel vises på">
+							<longdesc>I en Xinerama-opsætning kan du have paneler på hver enkelt skærm. Denne nøgle angiver den aktuelle skærm som panelet er placeret på.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="screen">
+						<local_schema short_desc="X-skærm som panel vises på">
+							<longdesc>I en Xinerama-opsætning kan du have paneler på hver enkelt skærm. Denne nøgle angiver den aktuelle skærm som panelet er placeret på.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="name">
+						<local_schema short_desc="Navn til identifikation af panel">
+							<longdesc>Dette er et menneskeligt læsbart navn som du kan bruge til at identificere et panel. Hovedformålet er at tjene til panelets vinduestitel ved navigering mellem paneler.</longdesc>
+						</local_schema>
+					</entry>
+					<dir name="background">
+						<entry name="rotate">
+							<local_schema short_desc="Rotér billede på lodrette paneler">
+								<longdesc>Om baggrundsbilledet skal roteres når panelet vender lodret.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="stretch">
+							<local_schema short_desc="Stræk billede til panel">
+								<longdesc>Om billedet skal skaleres til panelets størrelse. Formatforholdet for billedet bevares ikke.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="fit">
+							<local_schema short_desc="Tilpas billede til panelet">
+								<longdesc>Om billedet skal skaleres (med samme formatforhold) til panelets højde (hvis panelet er vandret).</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="image">
+							<local_schema short_desc="Baggrundsbillede">
+								<longdesc>Angiver den fil som bruges til baggrundsbillede. Hvis billedet indeholder en alfakanal, bliver det sat sammen med skrivebordets baggrundsbillede.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="opacity">
+							<local_schema short_desc="Ugennemsigtigheden af baggrundsfarve">
+								<longdesc>Angiver ugennemsigtigheden af baggrundsfarveformatet. Hvis farven ikke er fuldstændig ugennemsigtig (dvs. har en værdi mindre end 65535), vil farven blive sat sammen med skrivebordets baggrundsbillede.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="color">
+							<local_schema short_desc="Baggrundsfarve">
+								<longdesc>Angiver baggrundsfarven for panelet i #RGB-format.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="type">
+							<local_schema short_desc="Baggrundstype">
+								<longdesc>Hvilken type baggrund der skal bruges til panelet. Mulige værdier er &quot;gtk&quot; - standard-GTK+-kontrolbaggrunden benyttes, &quot;color&quot; - nøglen color vil blive brugt som baggrundsfarve eller &quot;image&quot; - det billede som er angivet af nøglen image vil blive brugt som baggrund.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="general">
+					<entry name="profiles_migrated">
+						<local_schema short_desc="Gamle profilindstillinger migreret">
+							<longdesc>Et flag til at indikere om en brugers forrige opsætning i /apps/panel/profiles/default er blevet kopieret til det nye sted i /apps/panel.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="object_id_list">
+						<local_schema short_desc="Panelobjekt-id-liste">
+							<longdesc>En liste af panelobjekt-id&apos;er. Hver id identificerer et enkelt panelobjekt (f.eks. en genvej, en handlingsknap eller en menuknap/-linje). Opsætningen for hver af disse objekter er gemt i /apps/panel/ojbects/$(id).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="applet_id_list">
+						<local_schema short_desc="Panelprogram-id-liste">
+							<longdesc>En liste af panelprogram-id&apos;er. Hver id identificerer et enkelt panelprogram. Opsætningen for hver af disse programmer er gemt i /apps/panel/applets/$(id).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toplevel_id_list">
+						<local_schema short_desc="Panel-id-liste">
+							<longdesc>En liste af panel-id&apos;er. Hver id identificerer et enkelt topniveau-panel. Opsætningen for hver af disse paneler er gemt i /apps/panel/toplevels/$(id).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_autocompletion">
+						<local_schema short_desc="Aktivér autofuldførelse i &quot;Kør program&quot;-vinduet">
+							<longdesc>Hvis sand, vil autofuldførelse være tilgængelig i dialogen &quot;Kør program&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_program_list">
+						<local_schema short_desc="Udvid programlisten i &quot;Kør program&quot;-vinduet">
+							<longdesc>Om listen over kendte program i &quot;Kør program&quot;-vinduet skal være udvidet når vinduet åbnes. Denne nøgle er kun relevant hvis nøglen enable_program_list er sand.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_program_list">
+						<local_schema short_desc="Aktivér programlisten i &quot;Kør program&quot;-vinduet">
+							<longdesc>Hvis sand, bliver listen over kendte programmer i &quot;Kør program&quot;-vinduet synlig. Om listen er udvidet når vinduet er vist, kontrolleres af &quot;show_program_list&quot;-nøglen.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="global">
+					<entry name="disable_force_quit">
+						<local_schema short_desc="Deaktiver gennemtving afslutning">
+							<longdesc>Hvis sand vil panelet ikke tillade en bruger at gennemtvinge at et program afslutter (ved at fjerne tilgangen til knappen tving afslut).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_log_out">
+						<local_schema short_desc="Deaktiver log ud">
+							<longdesc>Hvis sand vil panelet ikke tillade en bruger at logge ud (ved at fjerne tilgangen til log ud-menupunkterne).</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_lock_screen">
+						<local_schema short_desc="Forældet">
+							<longdesc>Denne nøgle er forældet og kan ikke bruges til at implementere nedlåsning korrekt. Brug i stedet nøglen /desktop/gnome/lockdown/disable_lock_screen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disabled_applets">
+						<local_schema short_desc="Panelprogram-iid&apos;er som ikke skal indlæses">
+							<longdesc>En liste af panelprogram-iid&apos;er som panelet vil ignorere. På denne måde kan du deaktivere visse panelprogrammer således at de ikke bliver indlæst eller dukker op i menuen. For eksempel, for at deaktivere panelprogrammet mini-commander, skal &quot;OAFIID:GNOME_MiniCommanderApplet&quot; føjes til denne liste. Panelet skal genstartes før dette træder i kraft.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="locked_down">
+						<local_schema short_desc="Lås panelet fuldstændigt">
+							<longdesc>Hvis sand, vil panelet ikke tillade nogen ændringer i konfigurationen af panelet. Individuelle panelprogrammer skal dog muligvis låses ned separat. Panel skal genstartes før dette træder i kraft.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="highlight_launchers_on_mouseover">
+						<local_schema short_desc="Fremhæv genveje når mus over">
+							<longdesc>Om en genvej skal fremhæves når brugeren bevæger markøren hen over den.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="confirm_panel_remove">
+						<local_schema short_desc="Bekræft panelfjernelse">
+							<longdesc>Om et vindue der spørger efter bekræftelse hvis brugeren ønsker at fjerne et panel, skal vises.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="drawer_autoclose">
+						<local_schema short_desc="Luk automatisk skuffe">
+							<longdesc>Om en skuffe automatisk skal lukkes når brugeren klikker på en genvej i den.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="window_screenshot_key">
+						<local_schema short_desc="Forældet">
+						</local_schema>
+					</entry>
+					<entry name="screenshot_key">
+						<local_schema short_desc="Forældet">
+						</local_schema>
+					</entry>
+					<entry name="run_key">
+						<local_schema short_desc="Forældet">
+						</local_schema>
+					</entry>
+					<entry name="menu_key">
+						<local_schema short_desc="Forældet">
+						</local_schema>
+					</entry>
+					<entry name="enable_key_bindings">
+						<local_schema short_desc="Forældet">
+						</local_schema>
+					</entry>
+					<entry name="panel_hide_delay">
+						<local_schema short_desc="Forældet">
+						</local_schema>
+					</entry>
+					<entry name="panel_animation_speed">
+						<local_schema short_desc="Forældet">
+						</local_schema>
+					</entry>
+					<entry name="panel_show_delay">
+						<local_schema short_desc="Forældet">
+						</local_schema>
+					</entry>
+					<entry name="panel_minimized_size">
+						<local_schema short_desc="Forældet">
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="Aktivér animationer">
+						</local_schema>
+					</entry>
+					<entry name="keep_menus_in_memory">
+						<local_schema short_desc="Forældet">
+						</local_schema>
+					</entry>
+					<entry name="tooltips_enabled">
+						<local_schema short_desc="Aktivér værktøjstip">
+							<longdesc>Om værktøjstip vises for objekter i paneler.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gweather">
+				<dir name="prefs">
+					<entry name="radar">
+						<local_schema short_desc="URL for radarkort">
+							<longdesc>Brugerdefineret adresse som radarkort skal hentes fra.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_custom_radar_url">
+						<local_schema short_desc="Benyt brugerdefineret adresse til radarkortet">
+							<longdesc>Hvis sand, hentes et radarkort fra placeringen angivet ved nøglen &quot;radar&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="coordinates">
+						<local_schema short_desc="Koordinater for sted">
+						</local_schema>
+					</entry>
+					<entry name="location4">
+						<local_schema short_desc="Vejrudsigt for en by">
+						</local_schema>
+					</entry>
+					<entry name="location3">
+						<local_schema short_desc="Radarplacering">
+						</local_schema>
+					</entry>
+					<entry name="location2">
+						<local_schema short_desc="Zoneplacering">
+						</local_schema>
+					</entry>
+					<entry name="location1">
+						<local_schema short_desc="Nærmeste by">
+						</local_schema>
+					</entry>
+					<entry name="location0">
+						<local_schema short_desc="Vejrudsigtsoplysninger">
+						</local_schema>
+					</entry>
+					<entry name="enable_radar_map">
+						<local_schema short_desc="Vis radarkort">
+							<longdesc>Hent et radarkort ved hver opdatering.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_detailed_forecast">
+						<local_schema short_desc="Bruges ikke mere">
+						</local_schema>
+					</entry>
+					<entry name="temperature_unit">
+						<local_schema short_desc="Temperaturenhed">
+							<longdesc>Enheden der skal bruges for temperatur.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="speed_unit">
+						<local_schema short_desc="Fartenhed">
+							<longdesc>Enheden der skal bruges for vindhastighed.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="pressure_unit">
+						<local_schema short_desc="Trykenhed">
+							<longdesc>Enheden der skal bruges for tryk.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="distance_unit">
+						<local_schema short_desc="Afstandsenhed">
+							<longdesc>Enheden der skal bruges for sigtbarhed.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_metric">
+						<local_schema short_desc="Benyt metriske mål">
+							<longdesc>Benyt metriske mål i stedet for Engelske enheder.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_update_interval">
+						<local_schema short_desc="Opdateringsinterval">
+							<longdesc>Intervallet i sekunder mellem automatiske opdateringer.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="auto_update">
+						<local_schema short_desc="Opdatér data automatisk">
+							<longdesc>Om panelprogrammet automatisk opdaterer vejrstatistikken.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnome-keyring">
+				<dir name="daemon-components">
+					<entry name="ssh">
+						<local_schema short_desc="Om SSH-agenten i gnome-keyring er aktiveret.">
+							<longdesc>Dette aktiverer SSH-agenten i gnome-keyring-dæmonen. Dette træder kun i kraft når gnome-keyring-daemon startes (f.eks. når brugeren logger ind). Denne indstilling bliver måske overskrevet når visse kommandolinje-tilvalg gives til dæmonen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="pkcs11">
+						<local_schema short_desc="Om PKCS#11-komponenten i gnome-keyring er aktiveret.">
+							<longdesc>Dette aktiverer PKCS#11-komponenten i gnome-keyring-dæmonen. Dette træder kun i kraft når gnome-keyring-daemon startes (f.eks. når brugeren logger ind). Denne indstilling bliver måske overskrevet når visse kommandolinje-tilvalg gives til dæmonen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="secrets">
+						<local_schema short_desc="Om secret service til gnome-keyring er aktiveret.">
+							<longdesc>Dette aktiverer secret service-komponenten i gnome-keyring-dæmonen. Dette træder kun i kraft når gnome-keyring-daemon startes (f.eks. når brugeren logger ind). Denne indstilling bliver måske tilsidesat når visse kommandolinje-tilvalg gives til dæmonen.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="gnumeric">
+				<dir name="core">
+					<dir name="sort">
+						<dir name="default">
+							<entry name="ascending">
+								<local_schema short_desc="Sortér stigende">
+								</local_schema>
+							</entry>
+							<entry name="by-case">
+								<local_schema short_desc="Skeln mellem store og små bogstaver">
+								</local_schema>
+							</entry>
+						</dir>
+					</dir>
+				</dir>
+				<dir name="autocorrect">
+					<entry name="replace">
+						<local_schema short_desc="Automatiske rettelser">
+							<longdesc>Automatiske rettelser</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+			</dir>
+			<dir name="evince">
+				<entry name="override_restrictions">
+					<local_schema short_desc="Ignorér dokumentbegrænsninger">
+						<longdesc>Ignorér dokumentbegrænsninger såsom begrænsninger på at kopiere eller udskrive.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+		</dir>
+		<dir name="desktop">
+			<dir name="gnome">
+				<dir name="interface">
+					<entry name="show_unicode_menu">
+						<local_schema short_desc="Vis menuen &quot;Unicode-kontroltegn&quot;">
+							<longdesc>Om kontekstmenuen i indtastnings- og tekstfelter skal gøre det muligt at indsætte kontroltegn.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="show_input_method_menu">
+						<local_schema short_desc="Vis menuen &quot;Indtastningsmetoder&quot;">
+							<longdesc>Om kontekstmenuerne i indtastnings- og tekstfelter skal gøre det muligt at ændre indtastningsmetoden.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menubar_accel">
+						<local_schema short_desc="Menulinje-genvej">
+							<longdesc>Tastaturgenvej for at åbne menulinjerne.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="file_chooser_backend">
+						<local_schema short_desc="Modul for GtkFileChooser">
+							<longdesc>Modul som skal bruges som filsystemsmodellen for GtkFileChooser-kontrollen. Mulige værdier er &quot;gio&quot;, &quot;gnome-vfs&quot; og &quot;gtk+&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="status_bar_meter_on_right">
+						<local_schema short_desc="Statuslinje til højre">
+							<longdesc>Om der skal vises en statuslinjemåler til højre.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="use_custom_font">
+						<local_schema short_desc="Benyt brugerdefineret skrifttype">
+							<longdesc>Om der skal benyttes en brugerdefineret skrifttype i GTK+-programmer.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="monospace_font_name">
+						<local_schema short_desc="Fast bredde-skrifttype">
+							<longdesc>Navn på fast bredde skrifttype til brug i f.eks. terminaler.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="document_font_name">
+						<local_schema short_desc="Dokument-skrifttype">
+							<longdesc>Navn på den forvalgte skrifttype der benyttes til dokumenter.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk-im-module">
+						<local_schema short_desc="GTK IM-modul">
+							<longdesc>Navn på indtastningsmetode-modulet, der bruges af GTK+.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk-im-status-style">
+						<local_schema short_desc="GTK IM-statusstil">
+							<longdesc>Navn på den statusstil der benyttes af GTK+, til GTK+-indtastningsmetoden.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk-im-preedit-style">
+						<local_schema short_desc="GTK IM-præredigeringsstil">
+							<longdesc>Navn på den præredigeringsstil der benyttes af GTK+, til GTK+-indtastningsmetoden.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="font_name">
+						<local_schema short_desc="Forvalgt skrifttype">
+							<longdesc>Navn på den forvalgte skrifttype der benyttes af GTK+.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk_key_theme">
+						<local_schema short_desc="GTK+-tema">
+							<longdesc>Grundnavn til det forvalgte tema som benyttes af GTK+.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="gtk_theme">
+						<local_schema short_desc="GTK+-tema">
+							<longdesc>Grundnavn til det forvalgte tema som benyttes af GTK+.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="icon_theme">
+						<local_schema short_desc="Ikontema">
+							<longdesc>Ikontema der skal benyttes til panelet, Nautilus osv.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="cursor_blink_time">
+						<local_schema short_desc="Markørblinkningstid">
+							<longdesc>Længde af markørblinkningscyklus, i millisekunder.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="cursor_blink">
+						<local_schema short_desc="Markør blinker">
+							<longdesc>Om markøren skal blinke.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_icons_size">
+						<local_schema short_desc="Ikonstørrelse for værktøjslinjer">
+							<longdesc>Størrelse af ikoner i værktøjsbjælker, enten &quot;small-toolbar&quot; eller &quot;large-toolbar&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_detachable">
+						<local_schema short_desc="Værktøjslinjer kan frigøres">
+							<longdesc>Om brugeren kan frigøre værktøjslinjer og flytte dem omkring.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menubar_detachable">
+						<local_schema short_desc="Menulinjer kan frigøres">
+							<longdesc>Om brugeren kan frigøre menulinjer og flytte dem omkring.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="buttons_have_icons">
+						<local_schema short_desc="Knapper har ikoner">
+							<longdesc>Om knapper kan vise et ikon ud over knapteksten.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menus_have_icons">
+						<local_schema short_desc="Menuer har ikoner">
+							<longdesc>Om menuer kan vise et ikon ved siden af et menupunkt.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="toolbar_style">
+						<local_schema short_desc="Stil for værktøjslinjer">
+							<longdesc>Værktøjslinjestil. Gyldige værdier er &quot;both&quot;, &quot;both-horiz&quot;, &quot;icons&quot;, og &quot;text&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="can_change_accels">
+						<local_schema short_desc="Kan ændre genveje">
+							<longdesc>Om brugeren dynamisk kan indtaste en ny genvej ved position over et aktivt menupunkt.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="menus_have_tearoff">
+						<local_schema short_desc="Menuer har afrivningslinjer">
+							<longdesc>Om menuer skal kunne afrives.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_animations">
+						<local_schema short_desc="Aktivér animationer">
+							<longdesc>Om animationer skal vises. Bemærk: dette er en global nøgle, den ændrer opførslen for vindueshåndteringen, panelet osv.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="accessibility">
+						<local_schema short_desc="Aktivér tilgængelighed">
+							<longdesc>Om programmer skal have tilgængelighedsunderstøttelse.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="background">
+					<entry name="color_shading_type">
+						<local_schema short_desc="Farvelægningstype">
+							<longdesc>Hvordan baggrundsfarven skal tegnes. Mulige værdier er &quot;horizontal-gradient&quot;, &quot;vertical-gradient&quot; og &quot;solid&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="secondary_color">
+						<local_schema short_desc="Sekundær farve">
+							<longdesc>Højre eller nederste farve ved tegning af farveovergange, benyttes ikke til ved ensfarvet baggrund.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="primary_color">
+						<local_schema short_desc="Primær farve">
+							<longdesc>Venstre eller øverste farve ved tegning af farveovergange, eller blot den enkelte farve hvis ensfarvet.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="picture_opacity">
+						<local_schema short_desc="Billeduigennemsigtighed">
+							<longdesc>Uigennemsigtighedsgrad som baggrundsbilledet skal tegnes med.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="picture_filename">
+						<local_schema short_desc="Billedfilnavn">
+							<longdesc>Fil der skal bruges som baggrundsbillede.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="picture_options">
+						<local_schema short_desc="Billedindstillinger">
+							<longdesc>Afgør hvordan billedet der er sat af wallpaper_filename optegnes. Mulige værdier er &quot;none&quot;, &quot;wallpaper&quot;, &quot;centered&quot;, &quot;scaled&quot;, &quot;stretched&quot;, &quot;zoom&quot;, &quot;spanned&quot;.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="draw_background">
+						<local_schema short_desc="Optegn skrivebordsbaggrund">
+							<longdesc>Lad Gnome optegne skrivebordsbaggrunden.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="thumbnail_cache">
+					<entry name="maximum_size">
+						<local_schema>
+							<longdesc>Maksimumstørrelse af miniature-mellemlager i megabyte. Sæt til -1 for at slå oprydning fra.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="maximum_age">
+						<local_schema>
+							<longdesc>Maksimumsalder for miniaturer i mellemlager i dage. Sæt til -1 for at slå oprydning fra.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="typing_break">
+					<entry name="enabled">
+						<local_schema short_desc="Om tastaturlås er aktiveret">
+							<longdesc>Om tastaturlås er aktiveret.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="allow_postpone">
+						<local_schema short_desc="Tillad udsættelse af pauser">
+							<longdesc>Om tastepause-skærmen kan udsættes.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="break_time">
+						<local_schema short_desc="Pausetid">
+							<longdesc>Antal minutter som indtastningspausen skal vare.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="type_time">
+						<local_schema short_desc="Indtastningstid">
+							<longdesc>Antal minutters indtastningstid før pausetilstand begynder.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="sound">
+					<entry name="input_feedback_sounds">
+						<local_schema short_desc="Inddata-tilbagemeldingslyde">
+							<longdesc>Om der skal afspilles lyde ved inddatahændelser.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="theme_name">
+						<local_schema short_desc="Lydtemanavn">
+							<longdesc>Det XDG-lydtema som skal bruges til begivenhedslyde.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="event_sounds">
+						<local_schema short_desc="Lyde for hændelser">
+							<longdesc>Om der skal afspilles lyde ved brugerhændelser.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="enable_esd">
+						<local_schema short_desc="Aktivér ESD">
+							<longdesc>Aktivér start af lydserver.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="default_mixer_tracks">
+						<local_schema short_desc="Forvalgt mixerspor">
+							<longdesc>Det forvalgte mixerspor der skal bruges af multimedie-tastebindingerne.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="default_mixer_device">
+						<local_schema short_desc="Forvalgt mixerenhed">
+							<longdesc>Den forvalgte mixerenhed der skal bruges af multimedie-tastebindingerne.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="peripherals">
+					<dir name="keyboard">
+						<entry name="remember_numlock_state">
+							<local_schema short_desc="Husk NumLock-tilstand">
+								<longdesc>Hvis sand vil Gnome huske tilstanden af NumLock-lyset mellem sessioner.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bell_custom_file">
+							<local_schema short_desc="Brugerdefineret filnavn til tastaturklokke">
+								<longdesc>Filnavn for den klokkelyd der skal afspilles.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bell_mode">
+							<local_schema>
+								<longdesc>mulige værdier er &quot;on&quot;, &quot;off&quot; og &quot;custom&quot;.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="mouse">
+						<entry name="cursor_size">
+							<local_schema short_desc="Markørstørrelse">
+								<longdesc>Størrelsen af den markør som bliver refereret til at af cursor_theme.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="cursor_theme">
+							<local_schema short_desc="Markørtema">
+								<longdesc>Markørtemaets navn. Bruges kun af X-servere der understøtter Xcursor såsom XFree86 4.3 og senere.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="cursor_font">
+							<local_schema short_desc="Markørskrifttype">
+								<longdesc>Skrifttypenavn for markøren. Hvis ikke sat, benyttes standardskrifttypen. Denne værdi bliver kun sendt til X-serveren ved begyndelsen af hver session så en ændring under en session træder først i kraft næste gang der logges på.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="locate_pointer">
+							<local_schema short_desc="Lokalisér markør">
+								<longdesc>Fremhæv den aktuelle placering af markøren når Ctrl-tasten trykkes ned og slippes.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="double_click">
+							<local_schema short_desc="Dobbeltkliktid">
+								<longdesc>Længden af et dobbeltklik.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="drag_threshold">
+							<local_schema short_desc="Trækketærskel">
+								<longdesc>Afstand før en træk-og-slip påbegyndes.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="motion_threshold">
+							<local_schema short_desc="Bevægelsestærskel">
+								<longdesc>Afstand i punkter som markøren skal flytte sig før den accelererede musebevægelse aktiveres. En værdi på -1 er systemets standard.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="motion_acceleration">
+							<local_schema short_desc="Enkeltklik">
+								<longdesc>Accelerationsfaktor for musebevægelser. En værdi på -1 er systemets standard.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="single_click">
+							<local_schema short_desc="Enkeltklik">
+								<longdesc>Enkeltklik for at åbne ikoner.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="left_handed">
+							<local_schema short_desc="Museknapsorientering">
+								<longdesc>Ombyt venstre og højre museknapper til venstrehåndsmus.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="lockdown">
+					<entry name="disable_application_handlers">
+						<local_schema short_desc="Deaktivér URL- og MIME-typehåndtering">
+							<longdesc>Forhindr kørsel af URL- og MIME-typehåndteringsprogrammer.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_lock_screen">
+						<local_schema short_desc="Deaktivér låsning af skærm">
+							<longdesc>Forhindr brugeren i at låse skærmen.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_user_switching">
+						<local_schema short_desc="Deaktivér brugerskift">
+							<longdesc>Forhindr brugeren i at skifte til en anden konto mens hans session er aktiv.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_print_setup">
+						<local_schema short_desc="Deaktivér udskriftsopsætning">
+							<longdesc>Forhindr brugeren i at ændre udskriftsindstillingerne. Dette vil f.eks. forhindre tilgang til alle programmers &quot;Udskriftsopsætning&quot;-vinduer.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_printing">
+						<local_schema short_desc="Deaktivér udskrivning">
+							<longdesc>Forhindr brugeren i at udskrive. Dette vil f.eks. forhindre tilgang til alle programmers &quot;Udskriv&quot;-vinduer.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_save_to_disk">
+						<local_schema short_desc="Deaktivér gemning af filer på disken">
+							<longdesc>Forhindr brugeren i at gemme filer på disken. Dette vil f.eks. deaktivere tilgang til alle progammers &quot;Gem som&quot;-vinduer.</longdesc>
+						</local_schema>
+					</entry>
+					<entry name="disable_command_line">
+						<local_schema short_desc="Deaktivér kommandolinje">
+							<longdesc>Forhindr brugeren i at tilgå terminalen eller angive en kommandolinje der skal køres. Dette vil f.eks. forhindre tilgangen til panelets &quot;Kør program&quot;-vindue.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="file-views">
+					<entry name="icon_theme">
+						<local_schema short_desc="Filikontema">
+							<longdesc>Tema som benyttes til at vise filikoner.</longdesc>
+						</local_schema>
+					</entry>
+				</dir>
+				<dir name="accessibility">
+					<dir name="startup">
+						<entry name="exec_ats">
+							<local_schema short_desc="Assisterende teknologier ved start">
+								<longdesc>List af assisterende teknologier som skal startes når der logges ind.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="keyboard">
+						<entry name="stickykeys_modifier_beep">
+							<local_schema>
+								<longdesc>Bip når der trykkes på modifikationstast.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="stickykeys_two_key_off">
+							<local_schema>
+								<longdesc>Deaktivér hvis to taster trykkes ned på samme tid.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="slowkeys_delay">
+							<local_schema short_desc="Minimalt interval i millisekunder">
+								<longdesc>Acceptér ikke en tast som værende trykket ned medmindre den holdes @delay antal millisekunder.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="mousekeys_init_delay">
+							<local_schema short_desc="Begyndelsesventetid i millisekunder">
+								<longdesc>Hvor mange millisekunder der skal ventes før museflytningstasterne begynder at virke.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="mousekeys_accel_time">
+							<local_schema short_desc="Hvor lang tid der accelereres i millisekunder">
+								<longdesc>Hvor mange millisekunder det tager at gå fra 0 til maksimal fart.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="mousekeys_max_speed">
+							<local_schema short_desc="Punkter pr. sekund">
+								<longdesc>Hvor mange punkter pr. sekund der skal flyttes ved maksimal fart.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="bouncekeys_delay">
+							<local_schema short_desc="minimalt interval i millisekunder">
+								<longdesc>Ignorér flere tryk på den _samme_ tast inden for @delay millisekunder.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="thumbnailers">
+					<entry name="disable_all">
+						<local_schema short_desc="Deaktivér alle eksterne miniaturegenereringer">
+							<longdesc>Om alle eksterne miniaturegenereringer skal deaktiveres, uafhængigt af om de bliver deaktiveret/aktiveret hver for sig.</longdesc>
+						</local_schema>
+					</entry>
+					<dir name="application@x-gzpdf">
+						<entry name="command">
+							<local_schema short_desc="Miniature-kommando til PDF-dokumenter">
+								<longdesc>Gyldig kommando plus parametre til miniaturegenerering af PDF-dokumenter. Se dokumentationen for Nautilus&apos; miniaturegenerering for flere oplysninger.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Aktivér miniaturer for PDF-dokumenter">
+								<longdesc>Booleske valgmuligheder: Hvis sand aktiveres generering af miniaturer, hvis falsk deaktiveres genereringen af nye miniaturer</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@x-bzpdf">
+						<entry name="command">
+							<local_schema short_desc="Miniature-kommando til PDF-dokumenter">
+								<longdesc>Gyldig kommando plus parametre til miniaturegenerering af PDF-dokumenter. Se dokumentationen for Nautilus&apos; miniaturegenerering for flere oplysninger.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Aktivér miniaturer for PDF-dokumenter">
+								<longdesc>Booleske valgmuligheder: Hvis sand aktiveres generering af miniaturer, hvis falsk deaktiveres genereringen af nye miniaturer</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="application@pdf">
+						<entry name="command">
+							<local_schema short_desc="Miniature-kommando til PDF-dokumenter">
+								<longdesc>Gyldig kommando plus parametre til miniaturegenerering af PDF-dokumenter. Se dokumentationen for Nautilus&apos; miniaturegenerering for flere oplysninger.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enable">
+							<local_schema short_desc="Aktivér miniaturer for PDF-dokumenter">
+								<longdesc>Booleske valgmuligheder: Hvis sand aktiveres generering af miniaturer, hvis falsk deaktiveres genereringen af nye miniaturer</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="url-handlers">
+					<dir name="ymsgr">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Kør kommandoen i en terminal">
+								<longdesc>Sand hvis kommandoen brugt til at håndtere denne type af adresse skal køres i en terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Håndteringen af &quot;ymsgr&quot;-adresser">
+								<longdesc>Kommandoen brugt til at håndtere &quot;ymsgr&quot;-adresser, hvis aktiveret.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Hvorledes den angivne kommando skal håndtere &quot;ymsgr&quot;-adresser">
+								<longdesc>Sand hvis kommandoen angivet i &quot;kommando&quot;-nøglen skulle håndtere &quot;ymsgr&quot;-adresser.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="xmpp">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Kør kommandoen i en terminal">
+								<longdesc>Sand hvis kommandoen brugt til at håndtere denne type af adresse skal køres i en terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Håndteringen af &quot;xmpp&quot;-adresser">
+								<longdesc>Kommandoen brugt til at håndtere &quot;xmpp&quot;-adresser, hvis aktiveret.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Hvorledes den angivne kommando skal håndtere &quot;xmpp&quot;-adresser">
+								<longdesc>Sand hvis kommandoen angivet i &quot;kommando&quot;-nøglen skulle håndtere &quot;xmpp&quot;-adresser.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="sip">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Kør kommandoen i en terminal">
+								<longdesc>Sand hvis kommandoen brugt til at håndtere denne type af adresse skal køres i en terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Håndteringen af &quot;sip&quot;-adresser">
+								<longdesc>Kommandoen brugt til at håndtere &quot;sip&quot;-adresser, hvis aktiveret.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Hvorledes den angivne kommando skal håndtere &quot;sip&quot;-adresser">
+								<longdesc>Sand hvis kommandoen angivet i &quot;kommando&quot;-nøglen skulle håndtere &quot;sip&quot;-adresser.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="msnim">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Kør kommandoen i en terminal">
+								<longdesc>Sand hvis kommandoen brugt til at håndtere denne type af adresse skal køres i en terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Håndteringen af &quot;msnim&quot;-adresser">
+								<longdesc>Kommandoen brugt til at håndtere &quot;msnim&quot;-adresser, hvis aktiveret.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Hvorledes den angivne kommando skal håndtere &quot;msnim&quot;-adresser">
+								<longdesc>Sand hvis kommandoen angivet i &quot;kommando&quot;-nøglen skulle håndtere &quot;msnim&quot;-adresser.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="irc">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Kør kommandoen i en terminal">
+								<longdesc>Sand hvis kommandoen brugt til at håndtere denne type af adresse skal køres i en terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Håndteringen af &quot;irc&quot;-adresser">
+								<longdesc>Kommandoen brugt til at håndtere &quot;irc&quot;-adresser, hvis aktiveret.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Hvorledes den angivne kommando skal håndtere &quot;irc&quot;-adresser">
+								<longdesc>Sand hvis kommandoen angivet i &quot;kommando&quot;-nøglen skulle håndtere &quot;irc&quot;-adresser.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="icq">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Kør kommandoen i en terminal">
+								<longdesc>Sand hvis kommandoen brugt til at håndtere denne type af adresse skal køres i en terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Håndteringen af &quot;icq&quot;-adresser">
+								<longdesc>Kommandoen brugt til at håndtere &quot;icq&quot;-adresser, hvis aktiveret.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Hvorledes den angivne kommando skal håndtere &quot;icq&quot;-adresser">
+								<longdesc>Sand hvis kommandoen angivet i &quot;kommando&quot;-nøglen skulle håndtere &quot;icq&quot;-adresser.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="gg">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Kør kommandoen i en terminal">
+								<longdesc>Sand hvis kommandoen brugt til at håndtere denne type af adresse skal køres i en terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Håndteringen af &quot;gg&quot;-adresser">
+								<longdesc>Kommandoen brugt til at håndtere &quot;gg&quot;-adresser, hvis aktiveret.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Hvorledes den angivne kommando skal håndtere &quot;gg&quot;-adresser">
+								<longdesc>Sand hvis kommandoen angivet i &quot;kommando&quot;-nøglen skulle håndtere &quot;gg&quot;-adresser.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="h323">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Kør kommandoen i en terminal">
+								<longdesc>Sand hvis kommandoen til at håndtere denne adresse skal køres i en terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Håndtering af &quot;h323&quot;-adresser">
+								<longdesc>Kommandoen der bruges til at håndtere &quot;h323&quot;-adresser, hvis aktiveret.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Om den specificerede kommando skal håndtere &quot;h323&quot;-adresser">
+								<longdesc>Sand hvis kommandoen angivet i &quot;command&quot;-nøglen håndterer &quot;h323&quot;-adresser.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="callto">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Kør kommandoen i en terminal">
+								<longdesc>Sand hvis kommandoen til at håndtere denne adresse skal køres i en terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Håndtering af &quot;callto&quot;-adresser">
+								<longdesc>Kommandoen der bruges til at håndtere &quot;callto&quot;-adresser, hvis aktiveret.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Om den specificerede kommando skal håndtere &quot;callto&quot;-adresser">
+								<longdesc>Sand hvis kommandoen angivet i &quot;command&quot;-nøglen håndterer &quot;callto&quot;-adresser.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="aim">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Kør kommandoen i en terminal">
+								<longdesc>Sand hvis kommandoen brugt til at håndtere denne type af adresse skal køres i en terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Håndtering af &quot;aim&quot;-adresser">
+								<longdesc>Kommandoen brugt til at håndtere &quot;aim&quot;-adresser, hvis aktiveret.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Hvorledes den angivne kommando skal håndtere &quot;aim&quot;-adresser">
+								<longdesc>Sand hvis kommandoen angivet i &quot;kommando&quot;-nøglen skulle håndtere &quot;aim&quot;-adresser.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="mailto">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Kør kommandoen i en terminal">
+								<longdesc>Sand hvis kommandoen til at håndtere denne adresse skal køres i en terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Håndtering af &quot;mailto&quot;-adresser">
+								<longdesc>Kommandoen der bruges til at håndtere &quot;mailto&quot;-adresser, hvis aktiveret.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Om den specificerede kommando skal håndtere &quot;mailto&quot;-adresser">
+								<longdesc>Sand hvis kommandoen angivet i &quot;command&quot;-nøglen håndterer &quot;mailto&quot;-adresser.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="https">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Kør kommandoen i en terminal">
+								<longdesc>Sand hvis kommandoen til at håndtere denne adresse skal køres i en terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Håndtering af &quot;https&quot;-adresser">
+								<longdesc>Kommandoen der bruges til at håndtere &quot;https&quot;-adresser, hvis aktiveret.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Om den specificerede kommando skal håndtere &quot;https&quot;-adresser">
+								<longdesc>Sand hvis kommandoen angivet i &quot;command&quot;-nøglen håndterer &quot;https&quot;-adresser.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="http">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Kør kommandoen i en terminal">
+								<longdesc>Sand hvis kommandoen til at håndtere denne adresse skal køres i en terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Håndtering af &quot;http&quot;-adresser">
+								<longdesc>Kommandoen der bruges til at håndtere &quot;http&quot;-adresser, hvis aktiveret.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Om den specificerede kommando skal håndtere &quot;http&quot;-adresser">
+								<longdesc>Sand hvis kommandoen angivet i &quot;command&quot;-nøglen håndterer &quot;http&quot;-adresser.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="man">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Kør kommandoen i en terminal">
+								<longdesc>Sand hvis kommandoen til at håndtere denne adresse skal køres i en terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Håndtering af &quot;man&quot;-adresser">
+								<longdesc>Kommandoen der bruges til at håndtere &quot;man&quot;-adresser, hvis aktiveret.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Om den specificerede kommando skal håndtere &quot;man&quot;-adresser">
+								<longdesc>Sand hvis kommandoen angivet i &quot;command&quot;-nøglen håndterer &quot;man&quot;-adresser.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="info">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Kør kommandoen i en terminal">
+								<longdesc>Sand hvis kommandoen til at håndtere denne adresse skal køres i en terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Håndtering af &quot;info&quot;-adresser">
+								<longdesc>Kommandoen der bruges til at håndtere &quot;info&quot;-adresser, hvis aktiveret.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Om det specificerde program skal håndtere &quot;info&quot;-adresser">
+								<longdesc>Sand hvis kommandoen angivet i &quot;command&quot;-nøglen håndterer &quot;info&quot;-adresser.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="ghelp">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Kør kommandoen i en terminal">
+								<longdesc>Sand hvis kommandoen til at håndtere denne adresse skal køres i en terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Håndtering af &quot;ghelp&quot;-adresser">
+								<longdesc>Kommandoen der bruges til at håndtere &quot;ghelp&quot;-adresser, hvis aktiveret.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Om den specificerede kommando skal håndtere &quot;ghelp&quot;-adresser">
+								<longdesc>Sand hvis kommandoen angivet i &quot;command&quot;-nøglen håndterer &quot;ghelp&quot;-adresser.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="trash">
+						<entry name="needs_terminal">
+							<local_schema short_desc="Kør kommandoen i en terminal">
+								<longdesc>Sand hvis kommandoen til at håndtere denne adresse skal køres i en terminal.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="command">
+							<local_schema short_desc="Håndtering af &quot;trash&quot;-adresser">
+								<longdesc>Kommandoen der bruges til at håndtere &quot;trash&quot;-adresser, hvis aktiveret.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="enabled">
+							<local_schema short_desc="Om den specificerede kommando skal håndtere &quot;trash&quot;-adresser">
+								<longdesc>Sand hvis kommandoen angivet i &quot;command&quot;-nøglen håndterer &quot;trash&quot;-adresser.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+				<dir name="applications">
+					<dir name="tasks">
+						<entry name="needs_term">
+							<local_schema short_desc="Opgaveprogram kræver terminal">
+								<longdesc>Om det forvalgte opgaveprogram skal bruge en terminal for at køre</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="Standardopgaver">
+								<longdesc>Standardopgaveprogram</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="calendar">
+						<entry name="needs_term">
+							<local_schema short_desc="Kalender kræver terminal">
+								<longdesc>Om det forvalgte kalenderprogram skal bruge en terminal for at køre</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="Standardkalender">
+								<longdesc>Standardkalenderprogram</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="window_manager">
+						<entry name="workspace_names">
+							<local_schema short_desc="Navne på arbejdsområderne (forældet)">
+								<longdesc>En liste med navne over de første arbejdsområder. Denne nøgle har været forældet siden Gnome 2.12.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="number_of_workspaces">
+							<local_schema short_desc="Antallet af arbejdsområder (forældet)">
+								<longdesc>Antallet af arbejdsområder som vindueshåndteringen skal benytte. Denne nøgle har været forældet siden Gnome-2.12.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="current">
+							<local_schema short_desc="Brugervindueshåndtering (forældet)">
+								<longdesc>Den vindueshåndtering der skal prøves først. Denne nøgle har være forældet siden Gnome 2.12.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="default">
+							<local_schema short_desc="Vindueshåndtering at falde tilbage på (forældet)">
+								<longdesc>Den vindueshåndtering der skal faldes tilbage på hvis brugerens vindueshåndtering ikke kan findes. Denne nøgle har været forældet siden Gnome 2.12.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="browser">
+						<entry name="nremote">
+							<local_schema short_desc="Browser forstår fjernbetjening">
+								<longdesc>Om standardbrowseren forstår Netscape-fjernbetjening.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="needs_term">
+							<local_schema short_desc="Browser kræver terminal">
+								<longdesc>Om standardbrowseren skal bruge en terminal for at køre.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="Standardbrowser">
+								<longdesc>Standardbrowser for alle URL&apos;er.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="at">
+						<dir name="mobility">
+							<entry name="startup">
+								<local_schema short_desc="Start foretrukne program til mobilitets-assisterende teknologier">
+									<longdesc>GNOME skal starte foretrukne program til mobilitets-assisterende teknologier under logind.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="exec">
+								<local_schema short_desc="Foretrukne program til mobilitets-assisterende teknologier">
+									<longdesc>Foretrukne program til mobilitets-assisterende teknologier som bruges til login, menu eller kommandolinje.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+						<dir name="visual">
+							<entry name="startup">
+								<local_schema short_desc="Start foretrukne program til visuelt-assisterende teknologier">
+									<longdesc>GNOME skal starte foretrukne program til visuelt-assisterende teknologier under logind.</longdesc>
+								</local_schema>
+							</entry>
+							<entry name="exec">
+								<local_schema short_desc="Foretrukne program til visuelt-assisterende teknologier">
+									<longdesc>Foretrukne program til visuelt-assisterende teknologier som bruges til login, menu eller kommandolinje.</longdesc>
+								</local_schema>
+							</entry>
+						</dir>
+					</dir>
+					<dir name="component_viewer">
+						<entry name="exec">
+							<local_schema short_desc="Forvalgt komponentfremviser">
+								<longdesc>Det program der skal bruges til at vise filer der kræver en komponent for at vise dem. Parameteren %s vil blive erstattet af filens adresser, parameteren %c vil blive erstattet med komponentens IID.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+					<dir name="terminal">
+						<entry name="exec_arg">
+							<local_schema short_desc="Kørselsparametre">
+								<longdesc>Parameter der benyttes til at køre programmer i terminalen defineret af &quot;exec&quot;-nøglen.</longdesc>
+							</local_schema>
+						</entry>
+						<entry name="exec">
+							<local_schema short_desc="Terminalprogram">
+								<longdesc>Terminalprogram der benyttes ved start af programmer der kræver terminal.</longdesc>
+							</local_schema>
+						</entry>
+					</dir>
+				</dir>
+			</dir>
+		</dir>
+		<dir name="system">
+			<dir name="dns_sd">
+				<entry name="extra_domains">
+					<local_schema short_desc="Ekstra domæner til at kigge efter DNS-SD-tjenester i">
+						<longdesc>Komma-adskilt liste af DNS-SD-domæner som skal være synlige i &quot;network:///&quot;-stedet.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="display_local">
+					<local_schema short_desc="Hvordan en lokal DNS-SD-tjeneste skal vises">
+						<longdesc>Mulige værdier er &quot;merged&quot;, &quot;separate&quot; og &quot;disabled&quot;.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="smb">
+				<entry name="workgroup">
+					<local_schema short_desc="SMB-arbejdsgruppe">
+						<longdesc>Windows netværks-arbejdsgruppen eller domænet som brugeren er en del af. For at en ny arbejdsgruppe er komplet aktiveret skal brugeren muligvis logge ud og logge ind igen.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="proxy">
+				<entry name="autoconfig_url">
+					<local_schema short_desc="Automatisk mellemværtskonfigurationsadresse">
+						<longdesc>Adresse som tilbyder konfigurationsværdier for mellemvært.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="socks_port">
+					<local_schema short_desc="SOCKS-mellemværtsport">
+						<longdesc>Porten på den maskine defineret af &quot;/system/proxy/socks_host&quot; som trafikken skal gå gennem.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="socks_host">
+					<local_schema short_desc="SOCKS-mellemværtsnavn">
+						<longdesc>Maskinnavn som SOCKS-trafik skal gå gennem.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="ftp_port">
+					<local_schema short_desc="FTP-mellemværtsport">
+						<longdesc>Porten på den maskine defineret af &quot;/system/proxy/ftp_host&quot; som trafikken skal gå gennem.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="ftp_host">
+					<local_schema short_desc="FTP-mellemværtsnavn">
+						<longdesc>Maskinnavn som FTP-trafik skal gå gennem.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="secure_port">
+					<local_schema short_desc="Sikker HTTP-mellemværtsport">
+						<longdesc>Porten på den maskine defineret af &quot;/system/proxy/secure_host&quot; som trafikken skal gå gennem.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="secure_host">
+					<local_schema short_desc="Sikker HTTP-mellemværtsnavn">
+						<longdesc>Maskinnavn som sikker HTTP-trafik skal gå gennem.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="mode">
+					<local_schema short_desc="Mellemværtstilstand">
+						<longdesc>Vælg mellemværtkonfigurationen. Mulige værdier er &quot;none&quot;, &quot;manual&quot;, &quot;auto&quot;.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+			<dir name="http_proxy">
+				<entry name="ignore_hosts">
+					<local_schema short_desc="Værter uden mellemvært">
+						<longdesc>Denne nøgle indeholder en liste af værter som der skal tilsluttes til direkte i stedet for gennem mellemværten (hvis den er aktiv). Værdierne kan være værtsnavne, domæner (med et indledende jokertegn som f.eks. *.foo.dk), IP-værtsadresser (både IPv4 og IPv6) og netværksadresser med et netmaske (som f.eks. 192.168.0.0/24).</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="authentication_password">
+					<local_schema short_desc="HTTP-mellemværtsadgangskode">
+						<longdesc>Adgangskode der skal gives som brugergodkendelse for HTTP-mellemvært.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="authentication_user">
+					<local_schema short_desc="HTTP-mellemværtsbrugernavn">
+						<longdesc>Brugernavn der skal videregives til brugergodkendelse til HTTP-mellemvært.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="use_authentication">
+					<local_schema short_desc="Brugergodkendelse ved mellemværtstilslutninger">
+						<longdesc>Hvis sand, kræver tilslutningerne til mellemværten brugergodkendelse. Brugernavn-/adgangskodekombinationen er defineret i &quot;/system/http_proxy/authentication_user&quot; og &quot;/system/http_proxy/authentication_password&quot;.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="port">
+					<local_schema short_desc="HTTP-mellemværtsport">
+						<longdesc>Porten på den maskine defineret af &quot;/system/http_proxy/host&quot; som trafikken skal gå gennem.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="host">
+					<local_schema short_desc="HTTP-mellemværtsnavn">
+						<longdesc>Maskinnavn som HTTP-trafik skal gå gennem.</longdesc>
+					</local_schema>
+				</entry>
+				<entry name="use_http_proxy">
+					<local_schema short_desc="Benyt HTTP-mellemvært">
+						<longdesc>Aktivér mellemværtsindstillingerne ved HTTP over internettet.</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+		</dir>
+	</dir>
+</gconf>
