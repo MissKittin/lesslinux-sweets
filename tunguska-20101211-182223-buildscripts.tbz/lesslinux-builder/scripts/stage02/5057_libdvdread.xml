@@ -1,0 +1,65 @@
+<llpackages>
+	<package 
+		name="libdvdread"
+		version="0.9.7"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>
+				<pkg sha1="b2c2ede36cff9d56205747d3740c50fd32669e21">libdvdread-0.9.7.tar.gz</pkg>
+				<mirror>http://www.dtek.chalmers.se/groups/dvd/dist/</mirror>
+			</file>
+			<check>
+				<page html="http://www.dtek.chalmers.se/groups/dvd/dist/">
+					<atext linktext="libdvdread-0.9.8.tar.gz" />
+					<atext linktext="libdvdread-0.9.9.tar.gz" />
+					<atext linktext="libdvdread-0.9.10.tar.gz" />
+					<atext linktext="libdvdread-0.10.tar.gz" />
+					<atext linktext="libdvdread-0.10.0.tar.gz" />
+					<atext linktext="libdvdread-1.0.tar.gz" />
+					<atext linktext="libdvdread-1.0.0.tar.gz" />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>coreutils</dep>
+                        <dep>diffutils</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <dep>inetutils</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>sed</dep>
+                        <dep>util-linux-ng</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --sysconfdir=/etc
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

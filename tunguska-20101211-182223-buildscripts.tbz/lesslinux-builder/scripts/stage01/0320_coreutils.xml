@@ -1,0 +1,51 @@
+<llpackages>
+	<package 
+		name="coreutils"
+		version="8.6"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>          
+				<pkg sha1="08e6777cbf6ecda7b16b01d244e5a9b1290d2874">coreutils-8.6.tar.gz</pkg>
+				<mirror>http://ftp.gnu.org/gnu/coreutils/</mirror>
+			</file>
+			<check>
+				<page html="http://ftp.gnu.org/gnu/coreutils/">
+					<atext linktext="coreutils-8.7." />
+					<atext linktext="coreutils-8.8." />
+					<atext linktext="coreutils-8.9." />
+					<atext linktext="coreutils-9." />
+				</page>
+			</check>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			]]>
+		</unpack>
+		<!-- <patch>
+			<![CDATA[
+			# echo 'Nothing to do!'
+			cd ${PKGNAME}-${PKGVERSION}
+			cat ${SRCDIR}/${PKGNAME}-${PKGVERSION}-i18n-1.patch | patch -p1
+			cat ${SRCDIR}/${PKGNAME}-${PKGVERSION}-uname-1.patch | patch -p1
+			]]>
+		</patch> -->
+		<build>
+			<![CDATA[ 
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/tools --enable-install-program=hostname && make
+			]]>
+		</build>
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			cp -v src/su /tools/bin/su-tools
+			for i in cat echo pwd stty ; do
+				ln -sv /tools/bin/$i ${CHROOTDIR}/bin/$i
+			done
+			]]>
+		</install>
+	</package>
+</llpackages>

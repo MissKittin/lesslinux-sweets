@@ -1,0 +1,47 @@
+<llpackages>
+	<package 
+		name="clamav_signatures"
+		version="20100921"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>
+				<pkg sha1="abe7fb66ed0ad9f41fb377966cb78c6c8ce2d86e">clamav-daily-v11985.cvd</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+			<file>   
+				<pkg sha1="69e0c68091b840e43a778b4aacf6e49ad4604c64">clamav-main-v52.cvd</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+		</sources>
+		<builddeps>
+			<dep>bash</dep>
+			<dep>clamav</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			
+			echo 'Nothing to unpack'
+			
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			
+			echo 'Nothing to build'
+			
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			
+			install -m 0644 -o clamav -g clamav ${SRCDIR}/clamav-main-v52.cvd /opt/share/clamav/main.cvd
+			install -m 0644 -o clamav -g clamav ${SRCDIR}/clamav-daily-v11743.cvd /opt/share/clamav/daily.cvd
+			
+			]]>
+		</install>
+	</package>
+</llpackages>

@@ -1,0 +1,66 @@
+<llpackages>
+	<package 
+		name="bison"
+		version="2.4.3"
+		class="devel"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>
+				<pkg sha1="2345d568c1ab7fdfbf4e3ae9e08fc8a82790ba3a">bison-2.4.3.tar.bz2</pkg>
+				<mirror>http://ftp.gnu.org/gnu/bison/</mirror>
+			</file>
+			<check>
+				<page html="http://ftp.gnu.org/gnu/bison/">
+					<atext linktext="bison-2.4.4." />
+					<atext linktext="bison-2.4.5." />
+					<atext linktext="bison-2.4.6." />
+					<atext linktext="bison-2.5." />
+					<atext linktext="bison-3." />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>linux_headers</dep>
+			<dep>glibc</dep>
+			<dep>man-pages</dep>
+			<dep>readjust</dep>
+			<dep>zlib</dep>
+			<dep>binutils</dep>
+			<dep>gmp</dep>
+			<dep>mpfr</dep>
+			<dep>mpc</dep>
+			<dep>gcc</dep>
+			<dep>sed</dep>
+			<dep>util-linux-ng</dep>
+			<dep>coreutils</dep>
+			<dep>m4</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr
+			echo '#define YYENABLE_NLS 1' >> config.h
+			make
+			]]>
+		</build>
+		<test>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make check
+			]]>
+		</test>
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

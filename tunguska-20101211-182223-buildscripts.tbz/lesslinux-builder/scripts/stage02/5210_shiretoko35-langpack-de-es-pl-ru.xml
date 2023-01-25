@@ -1,0 +1,158 @@
+<llpackages>
+	<package 
+		name="shiretoko-langpack-de-es-pl-ru"
+		version="3.6.12"
+		class="user"
+		>
+		<!-- FIXME: correctly generate distribution.ini -->
+		<!--
+		
+# Partner Distribution Configuration File
+# Mozilla Firefox for Computerbild.de
+
+[Global]
+id=computerbild
+version=1.0
+about=Mozilla Firefox for Computerbild.de
+
+[Preferences]
+app.distributor="Computerbild"
+app.distributor.channel="Smart Pax"
+app.partner.computerbild="computerbild"
+		
+		-->
+		<license>GPLv2</license>
+		<!-- official branding -->
+		<sources>
+			<!-- <file>
+				<pkg sha1="55862d6b69c20b43de21a42dae11b368ba0c3747">firefox-3.5.5.source-de-es-pl-ru-20091110.tar.bz2</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file> -->
+			<file>
+				<pkg sha1="731793392f2ecd59732af38f98dc68fd925059a7">firefox-3.6.source-shiretoko-de-es-pl-ru-20090129.tar.bz2</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+			<check>
+				<page html="http://releases.mozilla.org/pub/mozilla.org/firefox/releases/">
+					<atext linktext="3.6.13" />
+					<atext linktext="3.6.14" />
+					<atext linktext="3.7" />
+					<atext linktext="4.0/" />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>GConf</dep>
+                        <dep>ORBit2</dep>
+                        <dep>Python</dep>
+                        <dep>alsa-lib</dep>
+                        <dep>atk</dep>
+                        <dep>autoconf</dep>
+                        <dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>cairo</dep>
+                        <dep>coreutils</dep>
+                        <dep>dbus-glib</dep>
+                        <dep>dbus</dep>
+                        <dep>diffutils</dep>
+                        <dep>findutils</dep>
+                        <dep>fontconfig</dep>
+                        <dep>freetype</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>gdk-pixbuf</dep>
+                        <dep>glib</dep>
+                        <dep>glibc</dep>
+                        <dep>gnome-vfs</dep>
+                        <dep>grep</dep>
+                        <dep>gtk+</dep>
+                        <dep>inetutils</dep>
+                        <dep>libICE</dep>
+                        <dep>libIDL</dep>
+                        <dep>libSM</dep>
+                        <dep>libX11</dep>
+                        <dep>libXau</dep>
+                        <dep>libXext</dep>
+                        <dep>libXrender</dep>
+                        <dep>libXt</dep>
+                        <dep>libnotify</dep>
+                        <dep>libpthread-stubs</dep>
+                        <dep>libxcb</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>pango</dep>
+                        <dep>perl</dep>
+                        <dep>pixman</dep>
+                        <dep>pkg-config</dep>
+                        <dep>pygobject</dep>
+                        <dep>sed</dep>
+                        <dep>tar</dep>
+                        <dep>unzip</dep>
+                        <dep>util-linux-ng</dep>
+                        <dep>which</dep>
+                        <dep>wireless_tools</dep>
+                        <dep>xproto-base</dep>
+                        <dep>zip</dep>
+			<dep>unzip</dep>
+			<dep>shiretoko-source</dep>
+			<!-- soft -->
+			 <dep>imake</dep>
+			 <dep>makedepend</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/firefox-3.6.source-shiretoko-de-es-pl-ru-20090129.tar.bz2
+			]]>
+		</unpack>
+		<!-- <patch>
+			<![CDATA[ 
+			
+			cd mozilla-1.9.2
+			for packlang in de es-ES pl ru ; do
+				cp -v toolkit/locales/en-US/chrome/global/aboutRights.dtd ${packlang}/mail/chrome/global
+				cp -v toolkit/locales/en-US/chrome/global/aboutRights.dtd ${packlang}/toolkit/chrome/global
+				cp -v toolkit/locales/en-US/chrome/global/aboutRights.properties ${packlang}/toolkit/chrome/global
+				cp -v browser/locales/en-US/chrome/browser/aboutSupport.dtd ${packlang}/browser/chrome/browser
+				
+				# In this case the german version seems to match
+				# cp -v ${packlang}/mail/chrome/messenger/aboutRights.dtd ${packlang}/mail/chrome/global
+				# In this case the german version seems to match
+				# cp -v ${packlang}/suite/chrome/branding/aboutRights.dtd ${packlang}/toolkit/chrome/global
+				# In this case the german version seems to match
+				# cp -v ${packlang}/suite/chrome/branding/aboutRights.properties ${packlang}/toolkit/chrome/global
+				# In this case no respective version seems to exist
+				# cp -v browser/locales/en-US/chrome/browser/aboutSupport.dtd ${packlang}/browser/chrome/browser
+			done
+			
+			]]>
+		</patch> -->
+		<build>
+			<![CDATA[
+			cd mozilla-1.9.2
+			cp .mozconfig.de .mozconfig
+			make -f client.mk clean
+			make -f client.mk configure
+			make -f client.mk build
+			cd ff-build/browser/locales
+			for packlang in de es-ES pl ru ; do
+				make langpack-${packlang}
+			done
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			
+			mkdir -m 0755 /usr/share/mozilla-localization
+			for packlang in de es-ES pl ru ; do
+				rm -rf /opt/firefox35/lib/firefox-${PKGVERSION}/extensions/langpack-${packlang}'@firefox.mozilla.org'
+				install -m 0644 mozilla-1.9.2/ff-build/dist/install/firefox-3.6.${packlang}.langpack.xpi /usr/share/mozilla-localization
+				mkdir -p /opt/firefox35/lib/firefox-${PKGVERSION}/extensions/langpack-${packlang}'@firefox.mozilla.org'
+				( cd /opt/firefox35/lib/firefox-${PKGVERSION}/extensions/langpack-${packlang}'@firefox.mozilla.org'
+				unzip /usr/share/mozilla-localization/firefox-3.6.${packlang}.langpack.xpi )
+			done
+			
+			]]>
+		</install>
+	</package>
+</llpackages>

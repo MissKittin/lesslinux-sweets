@@ -1,0 +1,55 @@
+<llpackages>
+	<package 
+		name="expect"
+		version="5.44.1.15"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<!-- <file>
+				<pkg sha1="ba903a7d04b4faa13c8b9db75e1537f55f28e82b">expect-5.43.0-spawn-1.patch</pkg>
+				<mirror>http://www.linuxfromscratch.org/patches/lfs/development/</mirror>
+			</file> -->
+			<file> 
+				<pkg sha1="89c1cf1a77b644b6b231dde7cfbede7fa3287505">expect-5.44.1.15-no_tk-1.patch</pkg>
+				<mirror>http://www.linuxfromscratch.org/patches/lfs/development/</mirror>
+			</file>
+			<file>  
+				<pkg sha1="946c3591d16c216f409882f294378fc53e4f6c0a">expect-5.44.1.15.tar.bz2</pkg>
+				<mirror>http://downloads.sourceforge.net/project/expect/Expect/5.44.1.15/</mirror>
+			</file>
+			<!-- <check>
+				<page html="http://expect.nist.gov/">
+					<atext linktext="expect-5.44.1.tar.gz" />
+					<atext linktext="expect-5.44.2.tar.gz" />
+					<atext linktext="expect-5.45.0.tar.gz" />
+				</page>
+			</check> -->
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/expect-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch>
+			<![CDATA[ 
+			cd expect-${PKGVERSION}
+			# cat ${SRCDIR}/expect-${PKGVERSION}-spawn-1.patch | patch -p1
+			cat ${SRCDIR}/expect-5.44.1.15-no_tk-1.patch | patch -p1
+			cp -v configure{,.orig}
+			sed 's:/usr/local/bin:/bin:' configure.orig > configure
+			]]>
+		</patch>
+		<build>
+			<![CDATA[ 
+			cd expect-${PKGVERSION}
+			./configure --prefix=/tools --with-tcl=/tools/lib --with-tclinclude=/tools/include --with-tk=no && make
+			]]>
+		</build>
+		<install>
+			<![CDATA[
+			cd expect-${PKGVERSION}
+			make SCRIPTS="" install
+			]]>
+		</install>
+	</package>
+</llpackages>

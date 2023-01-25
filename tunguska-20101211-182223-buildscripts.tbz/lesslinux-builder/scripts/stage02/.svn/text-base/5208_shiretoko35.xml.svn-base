@@ -1,0 +1,226 @@
+<llpackages>
+	<package 
+		name="shiretoko-source"
+		version="3.6.12"
+		class="user"
+		>
+		<!-- FIXME: correctly generate distribution.ini -->
+		<!--
+		
+# Partner Distribution Configuration File
+# Mozilla Firefox for Computerbild.de
+
+[Global]
+id=computerbild
+version=1.0
+about=Mozilla Firefox for Computerbild.de
+
+[Preferences]
+app.distributor="Computerbild"
+app.distributor.channel="Smart Pax"
+app.partner.computerbild="computerbild"
+		
+		-->
+		<license>GPLv2</license>
+		<!-- official branding -->
+		<sources>
+			<!-- <file>  
+				<pkg sha1="83b2625eb74e81b473ac40ac52505e5fc9a497eb">firefox-3.5.3.source.tar.bz2</pkg>
+				<mirror>ftp://ftp.mozilla.org/pub/mozilla.org/firefox/releases/3.5.3/source/</mirror>
+			</file>-->
+			<file>      
+				<pkg sha1="1cc3885687dd5ad21167d9d45f76eb1458f46bdd">firefox-3.6.12.source.tar.bz2</pkg>
+				<mirror>http://ftp.mozilla.org/pub/mozilla.org/firefox/releases/3.6.12/source/</mirror>
+			</file>
+			<!-- <file>
+				<pkg sha1="941e2194c592b8fc3d0a61d058740ac0f263711d">mozconfig-firefox-3.5.4-20091028</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file> -->
+			<file>  /mnt/archiv/LessLinux/src/
+				<pkg sha1="e940c5d9806e458d92fa7938087d920a2f538ffd">mozconfig-firefox-shiretoko-3.5.5-20091208</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+			<check>
+				<page html="http://releases.mozilla.org/pub/mozilla.org/firefox/releases/">
+					<atext linktext="3.6.13" />
+					<atext linktext="3.6.14" />
+					<atext linktext="3.6.15" />
+					<atext linktext="3.6.16" />
+					<atext linktext="3.7" />
+					<atext linktext="4.0/" />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>GConf</dep>
+                        <dep>ORBit2</dep>
+                        <dep>Python</dep>
+                        <dep>alsa-lib</dep>
+                        <dep>atk</dep>
+                        <dep>autoconf</dep>
+                        <dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>cairo</dep>
+                        <dep>coreutils</dep>
+                        <dep>dbus-glib</dep>
+                        <dep>dbus</dep>
+                        <dep>diffutils</dep>
+                        <dep>findutils</dep>
+                        <dep>fontconfig</dep>
+                        <dep>freetype</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>gdk-pixbuf</dep>
+                        <dep>glib</dep>
+                        <dep>glibc</dep>
+                        <dep>gnome-vfs</dep>
+                        <dep>grep</dep>
+                        <dep>gtk+</dep>
+                        <dep>inetutils</dep>
+                        <dep>libICE</dep>
+                        <dep>libIDL</dep>
+                        <dep>libSM</dep>
+                        <dep>libX11</dep>
+                        <dep>libXau</dep>
+                        <dep>libXext</dep>
+                        <dep>libXrender</dep>
+                        <dep>libXt</dep>
+                        <dep>libnotify</dep>
+                        <dep>libpthread-stubs</dep>
+                        <dep>libxcb</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>pango</dep>
+                        <dep>perl</dep>
+                        <dep>pixman</dep>
+                        <dep>pkg-config</dep>
+                        <dep>pygobject</dep>
+                        <dep>sed</dep>
+                        <dep>tar</dep>
+                        <dep>unzip</dep>
+                        <dep>util-linux-ng</dep>
+                        <dep>which</dep>
+                        <dep>wireless_tools</dep>
+                        <dep>xproto-base</dep>
+                        <dep>zip</dep>
+			<!-- soft -->
+			 <dep>imake</dep>
+			 <dep>makedepend</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/firefox-${PKGVERSION}.source.tar.bz2
+			]]>
+		</unpack>
+		<patch>
+		<![CDATA[
+			cp ${SRCDIR}/mozconfig-firefox-shiretoko-3.5.5-20091208 mozilla-1.9.2/.mozconfig
+		]]>
+		</patch>
+		<build>
+			<![CDATA[
+			cd mozilla-1.9.2
+			make -f client.mk clean
+			make -f client.mk configure
+			make -f client.mk build
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd mozilla-1.9.2
+			make -f client.mk install
+
+rm /opt/firefox35/lib/firefox
+ln -sf /opt/firefox35/lib/firefox-${PKGVERSION} /opt/firefox35/lib/firefox
+mkdir -m 0755 /opt/firefox35/lib/firefox-${PKGVERSION}/distribution
+
+## echo -n '' > /opt/firefox35/lib/firefox-${PKGVERSION}/distribution/distribution.ini
+## cat >> /opt/firefox35/lib/firefox-${PKGVERSION}/distribution/distribution.ini << DISTINI
+## # Partner Distribution Configuration File
+## # Mozilla Firefox for Computerbild.de
+## 
+## [Global]
+## id=computerbild
+## version=1.0
+## about=Mozilla Firefox for Computerbild.de
+##
+## [Preferences]
+## app.distributor="Computerbild"
+## app.distributor.channel="Smart Pax"
+## app.partner.computerbild="computerbild"
+##
+## DISTINI
+
+echo -n '' > /usr/bin/firefox36
+cat >> /usr/bin/firefox36 << FFRUN
+#!/bin/sh
+
+PATH=/static/bin:/static/sbin:\$PATH
+export PATH
+
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+
+langopts=""
+echo "\$LANGUAGE" | grep '^de' >/dev/null && langopts="-contentLocale de-DE -UILocale de-DE"
+echo "\$LANGUAGE" | grep '^pl' >/dev/null && langopts="-contentLocale pl-PL -UILocale pl-PL"
+echo "\$LANGUAGE" | grep '^es' >/dev/null && langopts="-contentLocale es-ES -UILocale es-ES"
+echo "\$LANGUAGE" | grep '^ru' >/dev/null && langopts="-contentLocale ru-RU -UILocale ru-RU"
+
+[ "\$security" '!=' "smack" ] && exec /opt/firefox35/bin/firefox \$langopts \$@
+
+if [ "\$#" -lt 1 ] ; then
+    exec sudo /opt/firefox35/bin/firefox_smack
+else
+    if ps waux | grep 'surfer   /opt/.*/firefox-bin' | grep -v grep ; then
+        /opt/firefox35/bin/firefox \$@
+    else
+        sudo /opt/firefox35/bin/firefox_smack &
+	sleep 5
+	exec /opt/firefox35/bin/firefox \$@
+    fi
+fi
+FFRUN
+
+rm /usr/bin/firefox
+ln -sf /usr/bin/firefox36 /usr/bin/firefox
+chmod a+rx /usr/bin/firefox36
+
+echo -n '' > /opt/firefox35/bin/firefox_smack
+cat >> /opt/firefox35/bin/firefox_smack << FFSMACK
+#!/static/bin/ash
+
+langopts=""
+echo "\$LANGUAGE" | grep '^de' >/dev/null && langopts="-contentLocale de-DE -UILocale de-DE"
+echo "\$LANGUAGE" | grep '^pl' >/dev/null && langopts="-contentLocale pl-PL -UILocale pl-PL"
+echo "\$LANGUAGE" | grep '^es' >/dev/null && langopts="-contentLocale es-ES -UILocale es-ES"
+echo "\$LANGUAGE" | grep '^ru' >/dev/null && langopts="-contentLocale ru-RU -UILocale ru-RU"
+
+/static/sbin/newsmack internet /static/bin/su surfer -c "/opt/firefox35/bin/firefox \$langopts"
+
+FFSMACK
+
+chmod a+rx /opt/firefox35/bin/firefox_smack
+			
+			/sbin/paxctl -m -r /opt/firefox35/lib/firefox-${PKGVERSION}/firefox-bin
+			
+			echo '// Read LessLinux defaults' >> /opt/firefox35/lib/firefox-${PKGVERSION}/greprefs/all.js
+			echo '// oops, this is buggy in 3.6.6' >> /opt/firefox35/lib/firefox-${PKGVERSION}/greprefs/all.js
+			echo '// pref("general.config.filename", "lesslinux.cfg");' >> /opt/firefox35/lib/firefox-${PKGVERSION}/greprefs/all.js
+			echo '// pref("general.config.obscure_value", 0);' >> /opt/firefox35/lib/firefox-${PKGVERSION}/greprefs/all.js
+			
+			mkdir /opt/firefox35/lib/firefox-${PKGVERSION}/lesslinux
+			
+			echo '//' >> /opt/firefox35/lib/firefox-${PKGVERSION}/lesslinux/lesslinux.cfg
+			echo 'pref("xpinstall.enabled", false);' >> /opt/firefox35/lib/firefox-${PKGVERSION}/lesslinux/lesslinux.cfg
+			echo 'lockPref("xpinstall.enabled", false);' >> /opt/firefox35/lib/firefox-${PKGVERSION}/lesslinux/lesslinux.cfg
+			
+			ln -sf /opt/firefox35/lib/firefox-${PKGVERSION}/lesslinux/lesslinux.cfg /opt/firefox35/lib/firefox-${PKGVERSION}/lesslinux.cfg
+			
+			chown -R 0:0 /opt/firefox35
+			
+			]]>
+		</install>
+	</package>
+</llpackages>

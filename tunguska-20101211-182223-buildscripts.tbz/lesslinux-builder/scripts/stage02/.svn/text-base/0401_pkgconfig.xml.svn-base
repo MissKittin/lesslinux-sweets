@@ -1,0 +1,62 @@
+<llpackages>
+	<package 
+		name="pkg-config"
+		version="0.25"
+		class="devel"
+		>
+		<!--
+		
+		BE CAREFUL! pkg-config 0.24 breaks Xorg xf86-video-ati and xf86-video-nv as of 2010-05-26
+		So for now keep version 0.23 and wait for 0.25
+		
+		-->
+		<license>GPLv2</license>
+		<sources>
+			<file>       
+				<pkg sha1="8922aeb4edeff7ed554cc1969cbb4ad5a4e6b26e">pkg-config-0.25.tar.gz</pkg>
+				<mirror>http://pkgconfig.freedesktop.org/releases/</mirror>
+			</file>
+			<check>
+				<page html="http://pkgconfig.freedesktop.org/releases/">
+					<atext linktext="pkg-config-0.26.t" />
+					<atext linktext="pkg-config-0.27.t" />
+					<atext linktext="pkg-config-0.28.t" />
+					<atext linktext="pkg-config-1." />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>linux_headers</dep>
+			<dep>glibc</dep>
+			<dep>man-pages</dep>
+			<dep>readjust</dep>
+			<dep>zlib</dep>
+			<dep>binutils</dep>
+			<dep>gmp</dep>
+			<dep>mpfr</dep>
+			<dep>mpc</dep>
+			<dep>gcc</dep>
+			<dep>sed</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

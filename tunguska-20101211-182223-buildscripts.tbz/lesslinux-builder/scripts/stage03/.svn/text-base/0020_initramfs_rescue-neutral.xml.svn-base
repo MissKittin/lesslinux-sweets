@@ -1,0 +1,83 @@
+<llpackages>
+	<links>
+		<!-- blue theme used in Sicher Surfen 2009 -->
+		<!-- <softlink target="/usr/share/themes/Xfce/gtk-2.0/gtkrc">/root/.gtkrc</softlink>
+		<softlink target="/usr/share/themes/Xfce/gtk-2.0/gtkrc">/root/.gtkrc-2.0</softlink> -->
+		<!-- green theme used in Notfall-CD 2.0 -->
+		<softlink target="/usr/share/themes/Xfce-dawn/gtk-2.0/gtkrc">/root/.gtkrc</softlink>
+		<softlink target="/usr/share/themes/Xfce-dawn/gtk-2.0/gtkrc">/root/.gtkrc-2.0</softlink>
+	</links>
+	<scripts>
+		<scriptdata location="/etc/lesslinux/xinitrc" mode="0755" group="0" owner="0">
+		<![CDATA[#!/static/bin/ash	
+
+PATH=/bin:/sbin:/usr/bin:/usr/sbin:/static/bin:/static/sbin:/opt/bin:/opt/sbin
+		
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors		
+
+# Uncomment to debug
+# /usr/bin/Terminal &
+# /usr/bin/xterm &
+
+# Set the appropriate keyboard
+setxkbmap -rules xorg -model pc105 -layout "$xkbmap"
+		
+# Replace changed wicd icon path
+sed -i 's/=wicd-client/=wicd-gtk/g' /home/surfer/Desktop/005_wicd.desktop		
+
+# Add an icon for the LessLinux web page
+
+if [ -f /home/surfer/.lesslinux/lesslinux_link_created ] ; then
+    echo 'LessLinux Link already exists'
+else
+cat >> /home/surfer/Desktop/lesslinux.desktop << LLWWW
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Type=Application
+Name=LessLinux
+Comment=Visit the LessLinux website
+Comment[de]=Zur LessLinux-Webseite
+Categories=Application;
+Exec=/usr/bin/firefox http://www.lesslinux.de/ 
+Icon=www
+Terminal=false
+StartupNotify=true
+
+
+LLWWW
+    mkdir /home/surfer/.lesslinux
+    touch /home/surfer/.lesslinux/lesslinux_link_created
+fi
+
+setxkbmap -rules xorg -model pc105 -layout "$xkbmap"
+/usr/bin/xfce4-session
+		
+		]]>
+		</scriptdata>
+	</scripts> 
+	<package name="initramfs-rescue-neutral" version="20100716" allowfail="yes">
+		<sources>
+			<file>            
+				<pkg sha1="904502f9124d39d45d9aaf3f35986cecc1bc1775">surfer-neutral-20100716.tgz</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+		</sources>
+		<unpack>
+		<![CDATA[ 
+	
+echo 'nothing to do!'
+
+		]]>
+		</unpack>
+		<install>
+		<![CDATA[ 
+		
+install -m 0644 ${SRCDIR}/surfer-neutral-${PKGVERSION}.tgz ${INITRAMFS}/etc/lesslinux/skel/surfer.tgz
+		
+		]]>
+		</install>
+	</package>
+</llpackages>

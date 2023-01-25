@@ -1,0 +1,55 @@
+<llpackages>
+	<package 
+		name="util-macros"
+		version="1.10.1"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file> 
+				<pkg sha1="e0c7fcb952ac0638d28d89c4b1f3eb65219f34c8">util-macros-1.10.1.tar.bz2</pkg>
+				<mirror>http://xorg.freedesktop.org/archive/individual/util/</mirror>
+			</file>
+			<check>
+				<page html="http://xorg.freedesktop.org/archive/individual/util/">
+					<atext linktext="util-macros-1.10.2." />
+					<atext linktext="util-macros-1.10.3." />
+					<atext linktext="util-macros-1.10.4." />
+					<atext linktext="util-macros-1.11." />
+					<atext linktext="util-macros-1.12." />
+					<atext linktext="util-macros-1.13." />
+					<atext linktext="util-macros-2." />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+                        <dep>bash</dep>
+                        <dep>coreutils</dep>
+                        <dep>diffutils</dep>
+                        <dep>gawk</dep>
+                        <dep>grep</dep>
+                        <dep>inetutils</dep>
+                        <dep>make</dep>
+                        <dep>sed</dep>
+                        <dep>util-linux-ng</dep>
+                </builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --sysconfdir=/etc && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

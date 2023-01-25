@@ -1,0 +1,72 @@
+<llpackages>
+	<package 
+		name="libisoburn"
+		version="0.6.4.pl00"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>             
+				<pkg sha1="74fdf5b774d603dd26a175293fc191e4815ef0a5">libisoburn-0.6.4.pl00.tar.gz</pkg>
+				<mirror>http://files.libburnia-project.org/releases/</mirror>
+			</file>
+			<check>
+				<page html="http://files.libburnia-project.org/releases/">
+					<atext linktext="libisoburn-0.6.4.pl01" />
+					<atext linktext="libisoburn-0.6.4.pl02" />
+					<atext linktext="libisoburn-0.6.6." />
+					<atext linktext="libisoburn-0.6.8." />
+					<atext linktext="libisoburn-0.6.10." />
+					<atext linktext="libisoburn-0.7." />
+					<atext linktext="libisoburn-0.8." />
+					<atext linktext="libisoburn-1." />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>coreutils</dep>
+                        <dep>diffutils</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <dep>inetutils</dep>
+                        <dep>libburn</dep>
+                        <dep>libisofs</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>pkg-config</dep>
+                        <dep>readline</dep>
+                        <dep>sed</dep>
+                        <dep>util-linux-ng</dep>
+                        <dep>zlib</dep>
+			<!-- soft -->
+			 <dep>attr</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-0.6.4
+			./configure --sysconfdir=/etc --prefix=/usr && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-0.6.4
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

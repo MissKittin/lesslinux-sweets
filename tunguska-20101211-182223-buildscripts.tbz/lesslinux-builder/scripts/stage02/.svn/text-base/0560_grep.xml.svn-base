@@ -1,0 +1,72 @@
+<llpackages>
+	<package 
+		name="grep"
+		version="2.7"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>  
+			<file> 
+				<pkg sha1="8a5a4a14129d8f3f663b17e68e438881f5b95ac3">grep-2.7.tar.gz</pkg>
+				<mirror>http://ftp.gnu.org/gnu/grep/</mirror>
+			</file>
+			<check>
+				<page html="http://ftp.gnu.org/gnu/grep/">
+					<atext linktext="grep-2.7.1.t" />
+					<atext linktext="grep-2.7.2.t" />
+					<atext linktext="grep-2.7.3.t" />
+					<atext linktext="grep-2.8." />
+					<atext linktext="grep-3." />
+				</page>
+			</check>
+			<!-- <file>
+				<pkg sha1="77b5967bc0aa25fa827f892cd0f4625e18d0361f">grep-2.5.4-debian_fixes-1.patch</pkg>
+				<mirror>http://www.linuxfromscratch.org/patches/lfs/development/</mirror>
+			</file> -->
+		</sources>
+		<builddeps>
+			<dep>linux_headers</dep>
+			<dep>glibc</dep>
+			<dep>man-pages</dep>
+			<dep>readjust</dep>
+			<dep>zlib</dep>
+			<dep>binutils</dep>
+			<dep>gmp</dep>
+			<dep>mpfr</dep>
+			<dep>mpc</dep>
+			<dep>gcc</dep>
+			<dep>sed</dep>
+			<dep>util-linux-ng</dep>
+			<dep>coreutils</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			]]>
+		</unpack>
+		<!-- <patch>
+			<![CDATA[ 
+			cd ${PKGNAME}-${PKGVERSION}
+			cat ${SRCDIR}/${PKGNAME}-${PKGVERSION}-debian_fixes-1.patch | patch -p1
+			]]>
+		</patch> -->
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --bindir=/bin && make
+			]]>
+		</build>
+		<test>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make check
+			]]>
+		</test>
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

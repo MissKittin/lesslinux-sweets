@@ -1,0 +1,12 @@
+#!/static/bin/ash
+	
+PATH=/static/bin:/static/sbin:/bin:/sbin:/usr/bin:/usr/sbin
+export PATH
+
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors
+
+/usr/bin/Esetroot /usr/local/xconfgui/testbild.png > /dev/null 2>&1
+/usr/bin/matchbox-window-manager -force_dialogs Monitortest > /dev/null 2>&1 &
+/usr/bin/ruby /usr/local/xconfgui/monitortest.rb > /dev/null 2>&1

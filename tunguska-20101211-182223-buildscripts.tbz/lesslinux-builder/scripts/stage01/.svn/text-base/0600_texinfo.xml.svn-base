@@ -1,0 +1,42 @@
+<llpackages>
+	<package 
+		name="texinfo"
+		version="4.13"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>
+				<pkg sha1="a1533cf8e03ea4fa6c443b73f4c85e4da04dead0">texinfo-4.13a.tar.gz</pkg>
+				<mirror>http://ftp.gnu.org/gnu/texinfo/</mirror>
+			</file>
+			<check>
+				<page html="http://ftp.gnu.org/gnu/texinfo/">
+					<atext linktext="texinfo-4.13b.tar.gz" />
+					<atext linktext="texinfo-4.13c.tar.gz" />
+					<atext linktext="texinfo-4.14.tar.gz" />
+					<atext linktext="texinfo-4.15.tar.gz" />
+					<atext linktext="texinfo-5.0.tar.gz" />
+					<atext linktext="texinfo-5.00.tar.gz" />
+				</page>
+			</check>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}a.tar.gz
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[ 
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/tools && make
+			]]>
+		</build>
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

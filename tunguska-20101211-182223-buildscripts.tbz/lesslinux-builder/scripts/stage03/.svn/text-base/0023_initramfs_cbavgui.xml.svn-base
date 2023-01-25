@@ -1,0 +1,143 @@
+<llpackages>
+	<links>
+		<!-- blue theme used in Sicher Surfen 2009 -->
+		<!-- <softlink target="/usr/share/themes/Xfce/gtk-2.0/gtkrc">/root/.gtkrc</softlink>
+		<softlink target="/usr/share/themes/Xfce/gtk-2.0/gtkrc">/root/.gtkrc-2.0</softlink> -->
+		<!-- green theme used in Notfall-CD 2.0 -->
+		<softlink target="/usr/share/themes/Xfce-dawn/gtk-2.0/gtkrc">/root/.gtkrc</softlink>
+		<softlink target="/usr/share/themes/Xfce-dawn/gtk-2.0/gtkrc">/root/.gtkrc-2.0</softlink>
+	</links>
+	<scripts>
+		<scriptdata location="/etc/inittab" mode="0644" group="0" owner="0">
+		<![CDATA[::sysinit:/etc/rc
+tty1::respawn:/static/bin/show_placeholder
+tty2::askfirst:/static/sbin/getty -l /static/bin/login 38400 tty2
+tty3::askfirst:/static/sbin/getty -l /static/bin/login 38400 tty3
+tty4::respawn:/static/bin/ash
+tty5::askfirst:/bin/bash
+tty6::respawn:/static/bin/x_user_start
+tty8::respawn:/static/bin/show_placeholder
+::ctrlaltdel:/static/sbin/reboot
+::shutdown:/etc/rc.shutdown]]>
+		</scriptdata>
+		<scriptdata location="/etc/lesslinux/fbsplash.cfg" mode="0644" group="0" owner="0">
+		<![CDATA[# progress bar position
+BAR_LEFT=200
+BAR_TOP=310
+BAR_WIDTH=560
+BAR_HEIGHT=20
+# progress bar color
+BAR_R=3
+BAR_G=123
+BAR_B=173
+]]>
+		</scriptdata>
+		<scriptdata location="/etc/lesslinux/placeholder_monitor" mode="0644" group="0" owner="0">
+		<![CDATA[
+Wenn Sie dies sehen koennen...
+
+ * ... haben Sie entweder mit der Tastenkombination Strg+Alt+F1 auf die
+   Systemkonsole gewechselt - mit Strg+Alt+F7 wechseln Sie zurueck in die
+   grafische Oberflaeche, oder...
+   
+ * ... die grafische Oberflaeche konnte nicht richtig gestartet werden.
+   In diesem Fall starten Sie das System bitte mit der Tastenkombination
+   Strg+Alt+Entf neu.
+   
+Wenn der Startbildschirm des DE Cleaner Rettungssystems erscheint, druecken
+Sie die Taste 'Esc' und geben dann 'safemode' ein, gefolgt von der Eingabe-
+taste, Sie erhalten dann ein Startmenu, in dem Sie die Treiberauswahl
+beeinflussen koennen.
+
+Sollte das Problem erneut auftreten, wenden Sie sich mit moeglicht detail-
+lierten Angaben zur Hardware per Email an support@mattiasschlenker.de.
+]]>
+		</scriptdata>
+		<scriptdata location="/etc/lesslinux/placeholder_container" mode="0644" group="0" owner="0">
+		<![CDATA[
+System nicht gefunden
+
+Ein Fehler ist aufgetreten: Das Systemlaufwerk wurde nicht gefunden! Die wahr-
+scheinlichsten Ursachen sind ein nicht unterstuetzter Chipsatz oder ein bes-
+chaedigtes Startmedium. Bitte gehen Sie wie folgt vor:
+
+ * Falls Sie von einer selbst gebrannten CD starten: Brennen Sie die CD
+   erneut, verwenden Sie den Brennmodus DAO und brennen Sie langsamer
+   
+ * Bei Start von USB-Stick: Moeglicherweise ist der Stick defekt, verwenden
+   Sie einen anderen oder lesen Sie die Hinweise zur Erstellung eines 
+   ISO-Hybrid-Sticks
+   
+ * Bei Start von CD: Probieren Sie ein anderes Laufwerk, beispielsweise ein
+   per USB statt per SATA angebundenes
+   
+Sollte das Problem erneut auftreten, wenden Sie sich mit moeglicht detail-
+lierten Angaben zur Hardware per Email an support@mattiasschlenker.de.
+]]>
+		</scriptdata>
+		<scriptdata location="/etc/lesslinux/xinitrc_cbavgui" mode="0755" group="0" owner="0">
+		<![CDATA[#!/static/bin/ash	
+
+PATH=/bin:/sbin:/usr/bin:/usr/sbin:/static/bin:/static/sbin:/opt/bin:/opt/sbin
+		
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors		
+
+ln -sf /usr/share/themes/Xfce-dawn/gtk-2.0/gtkrc /home/surfer/.gtkrc
+ln -sf /usr/share/themes/Xfce-dawn/gtk-2.0/gtkrc /home/surfer/.gtkrc-2.0
+
+memtotal=` cat /proc/meminfo | grep 'MemTotal' | awk '{print $2}' `
+
+if [ -f /etc/lesslinux/branding/desktop-de-cleaner.png ] ; then
+	esetroot -scale /etc/lesslinux/branding/desktop-de-cleaner.png
+else
+	esetroot /usr/share/lesslinux/cbavgui/bck_rescuecd_final.png
+fi
+
+# Weird...
+rm /home/surfer/.mozilla/firefox/3kou39rr.default/places.sqlite*
+
+xfsettingsd
+
+# Uncomment to debug
+# sudo /usr/bin/Terminal &
+
+setxkbmap -rules xorg -model pc105 -layout "$xkbmap"
+/usr/bin/matchbox-window-manager &
+
+if [ "$memtotal" -lt 768000 ] ; then
+	zenity --warning --text "Ihr Computer verfügt über weniger als 768MB RAM. Dies kann zur Folge haben, dass er - je nach gewählten Einstellungen - während eines Virenscans einfriert und durch Drücken der Reset-Taste neu gestartet werden muss."
+fi
+
+# Show the disclaimer
+cbavdisclaimer.rb
+esetroot -scale /usr/share/lesslinux/cbavgui/bck_rescuecd_final.png
+sudo /usr/bin/cbavgui.rb
+		
+		]]>
+		</scriptdata>
+	</scripts> 
+	<package name="initramfs-cbavgui" version="20100815" allowfail="yes">
+		<sources>
+			<file>       
+				<pkg sha1="fccc789dd65b6820b26cf97bda3f7c3f33f78553">surfer-cbavira-20100815.tgz</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+		</sources>
+		<unpack>
+		<![CDATA[ 
+	
+echo 'nothing to do!'
+
+		]]>
+		</unpack>
+		<install>
+		<![CDATA[ 
+		
+install -m 0644 ${SRCDIR}/surfer-cbavira-${PKGVERSION}.tgz ${INITRAMFS}/etc/lesslinux/skel/surfer.tgz
+		
+		]]>
+		</install>
+	</package>
+</llpackages>

@@ -1,0 +1,73 @@
+<llpackages>
+	<package 
+		name="coreutils"
+		version="8.7"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>          
+				<pkg sha1="09e71f2b8ecfbc2c08682f9641504c836489183f">coreutils-8.7.tar.gz</pkg>
+				<mirror>http://ftp.gnu.org/gnu/coreutils/</mirror>
+			</file>
+			<check>
+				<page html="http://ftp.gnu.org/gnu/coreutils/">
+					<atext linktext="coreutils-8.8." />
+					<atext linktext="coreutils-8.9." />
+					<atext linktext="coreutils-8.10." />
+					<atext linktext="coreutils-9." />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>linux_headers</dep>
+			<dep>glibc</dep>
+			<dep>man-pages</dep>
+			<dep>readjust</dep>
+			<dep>zlib</dep>
+			<dep>binutils</dep>
+			<dep>gmp</dep>
+			<dep>mpfr</dep>
+			<dep>mpc</dep>
+			<dep>gcc</dep>
+			<dep>sed</dep>
+			<dep>pkg-config</dep>
+			<dep>ncurses</dep>
+			<dep>ncurses-8bit</dep>
+			<dep>util-linux-ng</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			]]>
+		</unpack>
+		<!-- <patch>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			case `uname -m` in
+			i?86 | x86_64) 
+				cat ${SRCDIR}/${PKGNAME}-${PKGVERSION}-uname-2.patch | patch -p1
+				;;
+			esac
+			]]>
+		</patch> -->
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --enable-no-install-program=kill,uptime && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			/tools/bin/mv -v /usr/bin/{cat,chgrp,chmod,chown,cp,date,dd,df,echo} /bin
+			/tools/bin/mv -v /usr/bin/{false,ln,ls,mkdir,mknod,mv,pwd,rm} /bin
+			/tools/bin/mv -v /usr/bin/{rmdir,stty,sync,true,uname} /bin
+			/tools/bin/mv -v /usr/bin/chroot /usr/sbin
+			/tools/bin/mv -v /usr/bin/{head,sleep,nice} /bin
+			]]>
+		</install>
+	</package>
+</llpackages>

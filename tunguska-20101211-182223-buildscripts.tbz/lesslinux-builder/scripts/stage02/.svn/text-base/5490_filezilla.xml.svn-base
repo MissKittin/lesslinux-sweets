@@ -1,0 +1,128 @@
+<llpackages>
+	<package 
+		name="FileZilla"
+		version="3.3.4.1"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>       
+				<pkg sha1="0b6ce2b46480dc64d959dced54dcc1eaaa08e82a">FileZilla_3.3.4.1_src.tar.bz2</pkg>
+				<mirror>http://d10xg45o6p6dbl.cloudfront.net/projects/f/filezilla/</mirror>
+			</file>
+		</sources>
+		<builddeps>
+                        <dep>atk</dep>
+                        <dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>cairo</dep>
+                        <dep>coreutils</dep>
+                        <dep>dbus</dep>
+                        <dep>diffutils</dep>
+                        <dep>expat</dep>
+                        <dep>findutils</dep>
+                        <dep>fontconfig</dep>
+                        <dep>freetype</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>gdk-pixbuf</dep>
+                        <dep>gettext</dep>
+                        <dep>glib</dep>
+                        <dep>glibc</dep>
+                        <dep>gnutls</dep>
+                        <dep>grep</dep>
+                        <dep>gtk+</dep>
+                        <dep>inetutils</dep>
+                        <dep>jpegsrc</dep>
+                        <dep>libICE</dep>
+                        <dep>libSM</dep>
+                        <dep>libX11</dep>
+                        <dep>libXau</dep>
+                        <dep>libXrender</dep>
+                        <dep>libgcrypt</dep>
+                        <dep>libgpg-error</dep>
+                        <dep>libidn</dep>
+                        <dep>libpng-stable</dep>
+                        <dep>libpthread-stubs</dep>
+                        <dep>libxcb</dep>
+                        <dep>libxml2</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>pango</dep>
+                        <dep>pixman</dep>
+                        <dep>pkg-config</dep>
+                        <dep>sed</dep>
+                        <dep>tiff</dep>
+                        <dep>util-linux-ng</dep>
+                        <dep>wxWidgets</dep>
+                        <dep>xdg-utils</dep>
+                        <dep>xproto-base</dep>
+                </builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}_${PKGVERSION}_src.tar.bz2
+			]]>
+		</unpack>
+		<build>
+			<![CDATA[
+			cd filezilla-${PKGVERSION}
+			PATH=${PATH}:/usr/local/wxWidgets-2.8.11/bin LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/wxWidgets-2.8.11/lib ./configure \
+				--disable-shared --prefix=/opt --sysconfdir=/etc --with-tinyxml=builtin && \
+			PATH=${PATH}:/usr/local/wxWidgets-2.8.11/bin LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/wxWidgets-2.8.11/lib make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd filezilla-${PKGVERSION}
+			make install
+			paxctl -m /opt/bin/filezilla
+			
+echo -n '' > /usr/bin/filezilla
+cat >> /usr/bin/filezilla << FZRUN
+#!/bin/sh
+
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+
+[ "\$security" '!=' "smack" ] && exec /opt/bin/filezilla \$@
+exec sudo /opt/bin/filezilla_smack \$@
+
+FZRUN
+			
+echo -n '' > /opt/bin/filezilla_smack
+cat >> /opt/bin/filezilla_smack << FZSMACK
+#!/static/bin/ash
+
+/static/sbin/newsmack internet /static/bin/su surfer -c "/opt/bin/filezilla \$@"
+
+FZSMACK
+
+chmod 0755 /usr/bin/filezilla
+chmod 0755 /opt/bin/filezilla_smack
+
+
+# Icon erstellen
+#			
+#cat >> /usr/share/applications/filezilla.desktop << FZICON
+#
+#[Desktop Entry]
+#Version=1.0
+#Encoding=UTF-8
+#Type=Application
+#Name=FileZilla
+#Comment=
+#Categories=CB-Other;
+#Exec=/opt/bin/filezilla
+#Icon=gnome-fs-network
+#Terminal=false
+#StartupNotify=true
+#
+#
+#FZICON
+
+			
+			]]>
+		</install>
+	</package>
+</llpackages>

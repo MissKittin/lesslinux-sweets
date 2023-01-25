@@ -1,0 +1,69 @@
+<llpackages>
+	<package 
+		name="libdrm"
+		version="2.4.22"
+		class="lib"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                             
+				<pkg sha1="b9ead56fcea883d818dfc744edc96a768ebcf91e">libdrm-2.4.22.tar.bz2</pkg>
+				<mirror>http://dri.freedesktop.org/libdrm/</mirror>
+			</file>
+			<check>
+				<page html="http://dri.freedesktop.org/libdrm/">
+					<atext linktext="libdrm-2.4.23." />
+					<atext linktext="libdrm-2.4.24." />
+					<atext linktext="libdrm-2.4.25." />
+					<atext linktext="libdrm-2.5." />
+					<atext linktext="libdrm-2.6." />
+					<atext linktext="libdrm-2.7." />
+					<atext linktext="libdrm-3." />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>coreutils</dep>
+                        <dep>diffutils</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <dep>inetutils</dep>
+                        <dep>libpthread-stubs</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>pkg-config</dep>
+                        <dep>sed</dep>
+                        <dep>udev</dep>
+                        <dep>util-linux-ng</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			# FIXME, this is i386 only!
+			export CFLAGS="-march=i686 -O2"
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --sysconfdir=/etc  --enable-intel --enable-nouveau-experimental-api --enable-radeon-experimental-api && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

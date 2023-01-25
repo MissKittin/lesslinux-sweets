@@ -1,0 +1,80 @@
+<llpackages>
+	<package 
+		name="libgtop"
+		version="2.28.2"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                     
+				<pkg sha1="5139d3d2a98c39c36b5b61352629bf16d54dc68a">libgtop-2.28.2.tar.bz2</pkg>
+				<mirror>http://ftp.gnome.org/pub/GNOME/sources/libgtop/2.28/</mirror>
+			</file>
+			<check>
+				<page html="http://ftp.gnome.org/pub/GNOME/sources/libgtop/2.28/">
+					<atext linktext="libgtop-2.28.3." />
+					<atext linktext="libgtop-2.28.4." />
+					<atext linktext="libgtop-2.28.5." />
+					<atext linktext="libgtop-2.28.6." />
+					<atext linktext="libgtop-2.28.7." />
+				</page>
+				<page html="http://ftp.gnome.org/pub/GNOME/sources/libgtop/">
+					<atext linktext="2.30" />
+					<atext linktext="2.32" />
+					<atext linktext="2.34" />
+					<atext linktext="3." />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>coreutils</dep>
+                        <dep>diffutils</dep>
+                        <dep>findutils</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>gettext</dep>
+                        <dep>glib</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <dep>inetutils</dep>
+                        <dep>intltool</dep>
+                        <dep>libX11</dep>
+                        <dep>libXau</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>p5-xml</dep>
+                        <dep>perl</dep>
+                        <dep>pkg-config</dep>
+                        <dep>sed</dep>
+                        <dep>util-linux-ng</dep>
+                        <dep>xproto-base</dep>
+			<!-- soft -->
+			 <dep>imake</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --sysconfdir=/etc --prefix=/usr && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

@@ -1,0 +1,49 @@
+<llpackages>
+	<package 
+		name="pycairo"
+		version="1.8.10"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>   
+				<pkg sha1="7497700ddf25158f63f501c9ecbbdd3d9a4c717b">pycairo-1.8.10.tar.bz2</pkg>
+				<mirror>http://cairographics.org/releases/</mirror>
+			</file>
+			<check>
+				<page html="http://cairographics.org/releases/">
+					<atext linktext="pycairo-1.8.12." />
+					<atext linktext="pycairo-1.8.14." />
+					<atext linktext="pycairo-1.8.16." />
+					<atext linktext="pycairo-1.10." />
+					<atext linktext="pycairo-1.12." />
+					<atext linktext="pycairo-2." />
+				</page>
+			</check>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./waf configure --prefix=/usr
+			./waf make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./waf install
+			]]>
+		</install>
+	</package>
+</llpackages>

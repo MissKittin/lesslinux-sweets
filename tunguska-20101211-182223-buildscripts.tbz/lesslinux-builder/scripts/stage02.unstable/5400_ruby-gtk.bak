@@ -1,0 +1,68 @@
+<llpackages>
+	<package 
+		name="ruby-gnome2-all"
+		version="0.90.2"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                 
+				<pkg sha1="a91a2cda9b90192eb9c8b2a84125059859342e1a">ruby-gnome2-all-0.90.2.tar.gz</pkg>
+				<mirror>http://downloads.sourceforge.net/project/ruby-gnome2/ruby-gnome2/ruby-gnome2-0.90.2/</mirror>
+			</file>
+			<!-- <file>
+				<pkg sha1="0ab34c99a720da4bf7e2d6f6f05d126417fe41ca">ruby-gnome2-all-0.19.4-glib-mkenums.patch</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file> -->
+			<check>
+				<page html="http://sourceforge.net/projects/ruby-gnome2/files/">
+					<atext linktext="ruby-gnome2-all-0.19.5." />
+					<atext linktext="ruby-gnome2-all-0.19.6." />
+					<atext linktext="ruby-gnome2-all-0.19.7." />
+					<atext linktext="ruby-gnome2-all-0.20.0." />
+					<atext linktext="ruby-gnome2-all-0.20.1." />
+					<atext linktext="ruby-gnome2-all-0.20.2." />
+					<atext linktext="ruby-gnome2-all-0.20.3." />
+					<atext linktext="ruby-gnome2-all-0.21." />
+					<atext linktext="ruby-gnome2-all-0.22." />
+					<atext linktext="ruby-gnome2-all-0.23" />
+					<atext linktext="ruby-gnome2-all-0.3." />
+					<atext linktext="ruby-gnome2-all-0.90.3." />
+					<atext linktext="ruby-gnome2-all-0.90.4." />
+					<atext linktext="ruby-gnome2-all-0.90.5." />
+					<atext linktext="ruby-gnome2-all-0.90.6." />
+					<atext linktext="ruby-gnome2-all-0.90.7." />
+					<atext linktext="ruby-gnome2-all-1." />
+				</page>
+			</check>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<!-- <patch>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			cat ${SRCDIR}/${PKGNAME}-${PKGVERSION}-glib-mkenums.patch | patch -p1
+			]]>
+		</patch> -->
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			ruby extconf.rb && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

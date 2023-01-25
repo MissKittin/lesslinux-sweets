@@ -1,0 +1,45 @@
+<llpackages>
+	<package 
+		name="flash_player"
+		version="10.1.102.65" 
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>      
+				<pkg sha1="d7addfbb4a541817933d195fd20718aaa7c6ffcc">install_flash_player_10.1.102.65_linux.tar.gz</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+		</sources>
+		<builddeps>
+			<dep>ruby</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+		
+			mkdir ${PKGNAME}-${PKGVERSION}
+			cd ${PKGNAME}-${PKGVERSION}
+			tar xvzf ${SRCDIR}/install_${PKGNAME}_${PKGVERSION}_linux.tar.gz
+		
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+		
+			echo 'Nothing to do.'
+		
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			
+			cd ${PKGNAME}-${PKGVERSION}
+			mkdir -p -m 0755 /usr/lib/browserplugins/
+			install -m 0755 libflashplayer.so /usr/lib/browserplugins/
+			
+			]]>
+		</install>
+	</package>
+</llpackages>

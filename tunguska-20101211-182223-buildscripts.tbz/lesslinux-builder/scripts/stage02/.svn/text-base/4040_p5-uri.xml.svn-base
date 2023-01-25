@@ -1,0 +1,51 @@
+<llpackages>
+	<package 
+		name="p5-uri"
+		version="1.56"
+		class="lib"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>       
+				<pkg sha1="86b2dcd534f946754a2e714ff488a50cf15183e3">URI-1.56.tar.gz</pkg>
+				<mirror>http://search.cpan.org/CPAN/authors/id/G/GA/GAAS/</mirror>
+			</file>
+			<check>
+				<page html="http://cpan.cpantesters.org/authors/id/G/GA/GAAS/">
+					<atext linktext="URI-1.57." />
+					<atext linktext="URI-1.58." />
+					<atext linktext="URI-1.59." />
+					<atext linktext="URI-1.6" />
+					<atext linktext="URI-1.7" />
+					<atext linktext="URI-2." />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>bash</dep>
+                        <dep>coreutils</dep>
+                        <dep>make</dep>
+                        <dep>perl</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/URI-${PKGVERSION}.tar.gz
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd URI-${PKGVERSION}
+			/usr/bin/perl Makefile.PL 
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd URI-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

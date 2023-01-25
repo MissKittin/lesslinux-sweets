@@ -1,0 +1,59 @@
+<llpackages>
+	<package 
+		name="iproute2"
+		version="2.6.34"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>         
+				<pkg sha1="b57f98e284c68a464b9c3e132d29760de6331688">iproute2-2.6.34.tar.bz2</pkg>
+				<mirror>http://developer.osdl.org/dev/iproute2/download/</mirror>
+			</file>
+			<check>
+				<page html="http://developer.osdl.org/dev/iproute2/download/">
+					<atext linktext="iproute2-2.6.35." />
+					<atext linktext="iproute2-2.6.36." />
+					<atext linktext="iproute2-2.7." />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>bison</dep>
+                        <dep>coreutils</dep>
+                        <dep>flex</dep>
+                        <dep>gcc</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <dep>linux_headers</dep>
+                        <dep>m4</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch>
+			<![CDATA[ 
+			cd ${PKGNAME}-${PKGVERSION}
+			sed -i '/^TARGETS/s@arpd@@g' misc/Makefile
+			]]>
+		</patch>
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make DESTDIR=
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make DESTDIR= SBINDIR=/sbin MANDIR=/usr/share/man DOCDIR=/usr/share/doc/${PKGNAME}-${PKGVERSION} install
+			mv -v /sbin/arpd /usr/sbin
+			]]>
+		</install>
+	</package>
+</llpackages>

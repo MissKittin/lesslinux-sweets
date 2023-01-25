@@ -1,0 +1,88 @@
+<llpackages>
+	<package 
+		name="flex"
+		version="2.5.35"
+		class="devel"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>
+				<pkg sha1="c507095833aaeef2d6502e12638e54bf7ad2f24a">flex-2.5.35.tar.bz2</pkg>
+				<mirror>http://prdownloads.sourceforge.net/flex/</mirror>
+			</file>
+			<file>
+				<pkg sha1="68ac2b16f2710f9c3bf1e3e90ad833b6f554afe2">flex-2.5.35-gcc44-1.patch</pkg>
+				<mirror>http://www.linuxfromscratch.org/patches/lfs/development/</mirror>
+			</file>
+			<check>
+				<page html="http://sourceforge.net/projects/flex/files/">
+					<atext linktext="flex-2.5.36.tar.bz2" />
+					<atext linktext="flex-2.5.37.tar.bz2" />
+					<atext linktext="flex-2.5.38.tar.bz2" />
+					<atext linktext="flex-2.5.39.tar.bz2" />
+					<atext linktext="flex-2.6.tar.bz2" />
+					<atext linktext="flex-2.6.0.tar.bz2" />
+					<atext linktext="flex-3.0.tar.bz2" />
+					<atext linktext="flex-3.0.0.tar.bz2" />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>bison</dep>
+                        <dep>coreutils</dep>
+                        <dep>diffutils</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <dep>inetutils</dep>
+                        <dep>linux_headers</dep>
+                        <dep>m4</dep>
+                        <dep>sed</dep>
+                        <dep>util-linux-ng</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch>
+			<![CDATA[ 
+			cd ${PKGNAME}-${PKGVERSION}
+			cat ${SRCDIR}/${PKGNAME}-${PKGVERSION}-gcc44-1.patch | patch -p1
+			]]>
+		</patch>
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr && make
+			]]>
+		</build>
+		<test>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make check
+			]]>
+		</test>
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			ln -sv libfl.a /usr/lib/libl.a
+			cat > /usr/bin/lex << "EOF"
+#!/bin/sh
+# Begin /usr/bin/lex
+
+exec /usr/bin/flex -l "$@"
+
+# End /usr/bin/lex
+EOF
+			chmod -v 755 /usr/bin/lex
+			mkdir -v /usr/share/doc/${PKGNAME}-${PKGVERSION}
+			cp    -v doc/flex.pdf /usr/share/doc/${PKGNAME}-${PKGVERSION}
+			]]>
+		</install>
+	</package>
+</llpackages>

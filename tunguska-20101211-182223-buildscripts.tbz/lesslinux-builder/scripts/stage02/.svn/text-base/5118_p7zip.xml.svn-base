@@ -1,0 +1,74 @@
+<llpackages>
+	<package 
+		name="p7zip"
+		version="9.13"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>  
+				<pkg sha1="81da0729561ce123c0a82656ec96a04ad5bfa522">p7zip_9.13_src_all.tar.bz2</pkg>
+				<mirror>http://downloads.sourceforge.net/project/p7zip/p7zip/9.13/</mirror>
+			</file>
+			<check>
+				<page html="http://sourceforge.net/projects/p7zip/files/">
+					<atext linktext="p7zip_9.14_src_all.tar.bz2" />
+					<atext linktext="p7zip_9.15_src_all.tar.bz2" />
+					<atext linktext="p7zip_9.16_src_all.tar.bz2" />
+					<atext linktext="p7zip_9.17_src_all.tar.bz2" />
+					<atext linktext="p7zip_9.18_src_all.tar.bz2" />
+					<atext linktext="p7zip_9.19_src_all.tar.bz2" />
+					<atext linktext="p7zip_9.20_src_all.tar.bz2" />
+					<atext linktext="p7zip_9.21_src_all.tar.bz2" />
+					<atext linktext="p7zip_9.22_src_all.tar.bz2" />
+					<atext linktext="p7zip_9.23_src_all.tar.bz2" />
+					<atext linktext="p7zip_9.24_src_all.tar.bz2" />
+					<atext linktext="p7zip_9.25_src_all.tar.bz2" />
+					<atext linktext="p7zip_9.26_src_all.tar.bz2" />
+					<atext linktext="p7zip_9.27_src_all.tar.bz2" />
+					<atext linktext="p7zip_9.28_src_all.tar.bz2" />
+					<atext linktext="p7zip_9.29_src_all.tar.bz2" />
+					<atext linktext="p7zip_10." />
+					
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>coreutils</dep>
+                        <dep>gcc</dep>
+                        <dep>glibc</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}_${PKGVERSION}_src_all.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}_${PKGVERSION}_src_all.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}_${PKGVERSION}_src_all.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch>
+			<![CDATA[
+			cd ${PKGNAME}_${PKGVERSION}
+			sed -i 's/DEST_HOME=\/usr\/local/DEST_HOME=\/usr/g' install.sh
+			]]>
+		</patch>
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}_${PKGVERSION}
+			make all
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}_${PKGVERSION}
+			make DEST_HOME=/usr install
+			]]>
+		</install>
+	</package>
+</llpackages>

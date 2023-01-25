@@ -1,0 +1,105 @@
+<llpackages>
+	<package 
+		name="xfwm4"
+		version="4.6.2"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>  
+			<file> 
+				<pkg sha1="34514db4531e95a7dbcd7d73c8d97e5cb9d1bf89">xfwm4-4.6.2.tar.bz2</pkg>
+				<mirror>http://www.xfce.org/archive/xfce-4.6.2/src/</mirror>
+			</file>
+			<check>
+				<page html="http://www.xfce.org/archive/xfce/">
+					<atext linktext="xfce-4.6.3" />
+					<atext linktext="xfce-4.6.4" />
+					<atext linktext="xfce-4.6.5" />
+					<atext linktext="xfce-4.8" />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>atk</dep>
+                        <dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>cairo</dep>
+                        <dep>compositeproto</dep>
+                        <dep>coreutils</dep>
+                        <dep>dbus-glib</dep>
+                        <dep>dbus</dep>
+                        <dep>diffutils</dep>
+                        <dep>fontconfig</dep>
+                        <dep>freetype</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>gdk-pixbuf</dep>
+                        <dep>gettext</dep>
+                        <dep>glib</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <dep>gtk+</dep>
+                        <dep>inetutils</dep>
+                        <dep>intltool</dep>
+                        <dep>libICE</dep>
+                        <dep>libSM</dep>
+                        <dep>libX11</dep>
+                        <dep>libXau</dep>
+                        <dep>libXcomposite</dep>
+                        <dep>libXdamage</dep>
+                        <dep>libXext</dep>
+                        <dep>libXfixes</dep>
+                        <dep>libXrandr</dep>
+                        <dep>libXrender</dep>
+                        <dep>libglade</dep>
+                        <dep>libpng-stable</dep>
+                        <dep>libpthread-stubs</dep>
+                        <dep>libwnck</dep>
+                        <dep>libxcb</dep>
+                        <dep>libxfce4util</dep>
+                        <dep>libxfcegui4</dep>
+                        <dep>libxml2</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>pango</dep>
+                        <dep>perl</dep>
+                        <dep>pixman</dep>
+                        <dep>pkg-config</dep>
+                        <dep>sed</dep>
+                        <dep>startup-notification</dep>
+                        <dep>tar</dep>
+                        <dep>util-linux-ng</dep>
+                        <dep>xfconf</dep>
+                        <dep>xproto-base</dep>
+			<!-- soft -->
+			 <dep>imake</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			paxctl -m /usr/bin/xfwm4-settings
+			paxctl -m /usr/bin/xfwm4-workspace-settings 
+			paxctl -m /usr/bin/xfwm4-tweaks-settings
+			paxctl -m /usr/bin/xfwm4
+			]]>
+		</install>
+	</package>
+</llpackages>

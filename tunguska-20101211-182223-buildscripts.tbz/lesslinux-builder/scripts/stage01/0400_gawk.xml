@@ -1,0 +1,41 @@
+<llpackages>
+	<package 
+		name="gawk"
+		version="3.1.8"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>    
+				<pkg sha1="da1091cc39089c320f53d21fd2112bd7ce407de5">gawk-3.1.8.tar.bz2</pkg>
+				<mirror>http://ftp.gnu.org/gnu/gawk/</mirror>
+			</file>
+			<check>
+				<page html="http://ftp.gnu.org/gnu/gawk/">
+					<atext linktext="gawk-3.1.9.tar." />
+					<atext linktext="gawk-3.1.10.tar." />
+					<atext linktext="gawk-3.2." />
+					<atext linktext="gawk-3.3." />
+					<atext linktext="gawk-4.0." />
+				</page>
+			</check>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[ 
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/tools && make
+			]]>
+		</build>
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

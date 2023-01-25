@@ -1,0 +1,75 @@
+<llpackages>
+	<package 
+		name="dbus-python"
+		version="0.83.1"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>  
+				<pkg sha1="a209de26ade2546251e5877f3b650789870755a4">dbus-python-0.83.1.tar.gz</pkg>
+				<mirror>http://dbus.freedesktop.org/releases/dbus-python/</mirror>
+			</file>
+			<check>
+				<page html="http://dbus.freedesktop.org/releases/dbus-python/">
+					<atext linktext="dbus-python-0.83.2.tar.gz" />
+					<atext linktext="dbus-python-0.83.3.tar.gz" />
+					<atext linktext="dbus-python-0.83.4.tar.gz" />
+					<atext linktext="dbus-python-0.83.5.tar.gz" />
+					<atext linktext="dbus-python-0.84.0.tar.gz" />
+					<atext linktext="dbus-python-0.84.1.tar.gz" />
+					<atext linktext="dbus-python-0.84.2.tar.gz" />
+					<atext linktext="dbus-python-0.90.0.tar.gz" />
+					<atext linktext="dbus-python-0.90.1.tar.gz" />
+					<atext linktext="dbus-python-0.90.2.tar.gz" />
+					<atext linktext="dbus-python-1.0.tar.gz" />
+					<atext linktext="dbus-python-1.0.0.tar.gz" />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>Python</dep>
+                        <dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>coreutils</dep>
+                        <dep>dbus-glib</dep>
+                        <dep>dbus</dep>
+                        <dep>diffutils</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>glib</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <dep>inetutils</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>pkg-config</dep>
+                        <dep>sed</dep>
+                        <dep>util-linux-ng</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

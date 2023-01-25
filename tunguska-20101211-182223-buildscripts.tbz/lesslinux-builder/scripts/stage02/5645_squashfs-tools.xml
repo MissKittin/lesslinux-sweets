@@ -1,0 +1,67 @@
+<llpackages>
+	<package 
+		name="squashfs-tools"
+		version="4.1"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<!-- <file>           
+				<pkg sha1="8b34951d7a01eb608e8f6520db6a274aacd7c21a">squashfs-20100915.tar.bz2</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file> -->
+			<file>           
+				<pkg sha1="7f9b1f9839b3638882f636fd170fd817d650f856">squashfs4.1.tar.gz</pkg>
+				<mirror>http://downloads.sourceforge.net/project/squashfs/squashfs/squashfs4.1/</mirror>
+			</file>
+			<file>           
+				<pkg sha1="aeb87bbf687f93addda64b1d664894d9f684c5ce">squashfs-20100915-lzo-lzma.patch</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+			<!--<check>
+				<page html="http://sourceforge.net/projects/grsync/files/">
+					<atext linktext="grsync-1.1.2." />
+					<atext linktext="grsync-1.2." />
+					<atext linktext="grsync-2." />
+				</page>
+			</check>-->
+		</sources>
+		<builddeps>
+                        <dep>attr</dep>
+                        <dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>gcc</dep>
+                        <dep>glibc</dep>
+                        <dep>linux_headers</dep>
+                        <dep>lzo</dep>
+                        <dep>make</dep>
+                        <dep>xz</dep>
+                        <dep>zlib</dep>
+                </builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/squashfs${PKGVERSION}.tar.gz
+			]]>
+		</unpack>
+		<patch>
+			<![CDATA[
+			cd squashfs${PKGVERSION}
+			cat ${SRCDIR}/squashfs-20100915-lzo-lzma.patch | patch -p1
+			]]>
+		</patch>
+		<build>
+			<![CDATA[
+			cd squashfs${PKGVERSION}/${PKGNAME}
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd squashfs${PKGVERSION}/${PKGNAME}
+			install -m 0755 mksquashfs /usr/bin
+			install -m 0755 unsquashfs /usr/bin
+			]]>
+		</install>
+	</package>
+</llpackages>

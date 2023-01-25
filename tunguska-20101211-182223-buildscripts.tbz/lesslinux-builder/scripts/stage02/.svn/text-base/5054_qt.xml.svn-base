@@ -1,0 +1,98 @@
+<llpackages>
+	<package 
+		name="qt-everywhere-opensource-src"
+		version="4.7.1"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>     
+				<pkg sha1="fcf764d39d982c7f84703821582bd10c3192e341">qt-everywhere-opensource-src-4.7.1.tar.gz</pkg>
+				<mirror>http://get.qt.nokia.com/qt/source/</mirror>
+			</file>
+			<check>
+				<page html="http://get.qt.nokia.com/qt/source/">
+					<atext linktext="qt-everywhere-opensource-src-4.7.2." />
+					<atext linktext="qt-everywhere-opensource-src-4.7.3." />
+					<atext linktext="qt-everywhere-opensource-src-4.7.4." />
+					<atext linktext="qt-everywhere-opensource-src-4.8." />
+					<atext linktext="qt-everywhere-opensource-src-4.9." />
+					<atext linktext="qt-everywhere-opensource-src-5." />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>Mesa</dep>
+                        <dep>alsa-lib</dep>
+                        <dep>atk</dep>
+                        <dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>cairo</dep>
+                        <dep>coreutils</dep>
+                        <dep>dbus</dep>
+                        <dep>diffutils</dep>
+                        <dep>findutils</dep>
+                        <dep>fontconfig</dep>
+                        <dep>freetype</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>gdk-pixbuf</dep>
+                        <dep>glib</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <dep>gtk+</dep>
+                        <dep>jpegsrc</dep>
+                        <dep>libICE</dep>
+                        <dep>libSM</dep>
+                        <dep>libX11</dep>
+                        <dep>libXau</dep>
+                        <dep>libXext</dep>
+                        <dep>libXfixes</dep>
+                        <dep>libXi</dep>
+                        <dep>libXrandr</dep>
+                        <dep>libXrender</dep>
+                        <dep>libXv</dep>
+                        <dep>libpng-stable</dep>
+                        <dep>libpthread-stubs</dep>
+                        <dep>libxcb</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>openssl</dep>
+                        <dep>pango</dep>
+                        <dep>perl</dep>
+                        <dep>pixman</dep>
+                        <dep>pkg-config</dep>
+                        <dep>sed</dep>
+                        <dep>tiff</dep>
+                        <dep>which</dep>
+                        <dep>xproto-base</dep>
+                        <dep>zlib</dep>
+			<!-- soft -->
+			 <dep>makedepend</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			yes yes | ./configure --prefix=/usr --sysconfdir=/etc -gtkstyle  -opensource -release -silent -nomake examples -nomake demos
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

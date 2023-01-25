@@ -1,0 +1,37 @@
+<llpackages>
+	<package 
+		name="pciids"
+		version="20100804"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>          
+				<pkg sha1="42dc0f33d76c1b36a4e9c39f7cdd07a4c46d8715">pciids-20100804.bz2</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+		</sources>
+		<builddeps>
+			<dep>bash</dep>
+			<dep>pciutils</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			echo 'Nothing to do!'
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			echo 'Nothing to do!'
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			mkdir -p /var/lib/misc/
+			bunzip2 -c ${SRCDIR}/pciids-${PKGVERSION}.bz2 > /var/lib/misc/pci.ids
+			]]>
+		</install>
+	</package>
+</llpackages>

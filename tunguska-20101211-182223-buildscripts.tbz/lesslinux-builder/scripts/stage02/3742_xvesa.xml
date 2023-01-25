@@ -1,0 +1,90 @@
+<llpackages>
+	<package 
+		name="xvesa"
+		version="1.7.7"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>             
+				<pkg sha1="0f1b71363843b7e394d6de62d0db5b74d3e645ef">xorg-server-1.7.7.tar.bz2</pkg>
+				<mirror>http://xorg.freedesktop.org/archive/individual/xserver/</mirror>
+			</file>
+			<check>
+				<page html="http://xorg.freedesktop.org/archive/individual/xserver/">
+					<atext linktext="xorg-server-1.7.8." />
+					<atext linktext="xorg-server-1.7.9." />
+					<atext linktext="xorg-server-1.8." />
+					<atext linktext="xorg-server-1.9." />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>Mesa</dep>
+                        <dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>bison</dep>
+                        <dep>coreutils</dep>
+                        <dep>diffutils</dep>
+                        <dep>flex</dep>
+                        <dep>freetype</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <dep>inetutils</dep>
+                        <dep>libX11</dep>
+                        <dep>libXau</dep>
+                        <dep>libXdmcp</dep>
+                        <dep>libXext</dep>
+                        <dep>libXfixes</dep>
+                        <dep>libXfont</dep>
+                        <dep>libXi</dep>
+                        <dep>libXmu</dep>
+                        <dep>libXrender</dep>
+                        <dep>libXv</dep>
+                        <dep>libdrm</dep>
+                        <dep>libfontenc</dep>
+                        <dep>libpthread-stubs</dep>
+                        <dep>libxcb</dep>
+                        <dep>libxkbfile</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>openssl</dep>
+                        <dep>pixman</dep>
+                        <dep>pkg-config</dep>
+                        <dep>sed</dep>
+                        <dep>util-linux-ng</dep>
+                        <dep>xproto-base</dep>
+                        <dep>xtrans</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/xorg-server-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<!-- <patch>
+			<![CDATA[ 
+			cd xorg-server-${PKGVERSION}
+			# patch -p1 < ${SRCDIR}/xorg-server-${PKGVERSION}-kdrive.patch
+			]]>
+		</patch> -->
+		<build>
+			<![CDATA[
+			cd xorg-server-${PKGVERSION}
+			./configure --prefix=/usr --enable-kdrive --disable-dri \
+			    --disable-xorg --disable-xorgcfg --disable-glx \
+			    --disable-xinerama && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd xorg-server-${PKGVERSION}
+			make install
+			chmod +s /usr/bin/Xvesa
+			chmod +s /usr/bin/Xfbdev
+			]]>
+		</install>
+	</package>
+</llpackages>

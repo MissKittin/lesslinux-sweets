@@ -1,0 +1,77 @@
+<llpackages>
+	<package 
+		name="gdk-pixbuf"
+		version="2.22.1"
+		class="lib"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                    
+				<pkg sha1="b452208963ddd84f7280865695b50255fcafaa2e">gdk-pixbuf-2.22.1.tar.bz2</pkg>
+				<mirror>http://ftp.gnome.org/pub/gnome/sources/gdk-pixbuf/2.22/</mirror>
+			</file>
+			<check>
+				<page html="http://ftp.gnome.org/pub/gnome/sources/gdk-pixbuf/2.22/">
+					<atext linktext="gdk-pixbuf-2.22.2." />
+					<atext linktext="gdk-pixbuf-2.22.3." />
+					<atext linktext="gdk-pixbuf-2.22.4." />
+				</page>
+				<page html="http://ftp.gnome.org/pub/gnome/sources/gdk-pixbuf/">
+					<atext linktext="2.24" />
+					<atext linktext="2.26" />
+					<atext linktext="3." />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>Python</dep>
+                        <dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>coreutils</dep>
+                        <dep>diffutils</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>gettext</dep>
+                        <dep>glib</dep>
+                        <dep>glibc</dep>
+                        <dep>gobject-introspection</dep>
+                        <dep>grep</dep>
+                        <dep>inetutils</dep>
+                        <dep>jpegsrc</dep>
+                        <dep>libX11</dep>
+                        <dep>libXau</dep>
+                        <dep>libffi</dep>
+                        <dep>libpng-stable</dep>
+                        <dep>libpthread-stubs</dep>
+                        <dep>libxcb</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>perl</dep>
+                        <dep>pkg-config</dep>
+                        <dep>sed</dep>
+                        <dep>tiff</dep>
+                        <dep>util-linux-ng</dep>
+                        <dep>xproto-base</dep>
+                        <dep>zlib</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --sysconfdir=/etc --prefix=/usr && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

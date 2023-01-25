@@ -1,0 +1,66 @@
+<llpackages>
+	<package 
+		name="wget"
+		version="1.12"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>           
+				<pkg sha1="1a059b3736ef908b68acac91670f9df576d1a061">wget-1.12.tar.bz2</pkg>
+				<mirror>http://ftp.gnu.org/gnu/wget/</mirror>
+			</file>
+			<check>
+				<page html="http://ftp.gnu.org/gnu/wget/">
+					<atext linktext="wget-1.12.1." />
+					<atext linktext="wget-1.12.2." />
+					<atext linktext="wget-1.12.3." />
+					<atext linktext="wget-1.12.4." />
+					<atext linktext="wget-1.13." />
+					<atext linktext="wget-1.14." />
+					<atext linktext="wget-1.15." />
+					<atext linktext="wget-2." />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+                        <dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>coreutils</dep>
+                        <dep>diffutils</dep>
+                        <dep>flex</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>gettext</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <dep>gzip</dep>
+                        <dep>inetutils</dep>
+                        <dep>libidn</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>openssl</dep>
+                        <dep>perl</dep>
+                        <dep>sed</dep>
+                        <dep>util-linux-ng</dep>
+                </builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --sysconfdir=/etc  && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

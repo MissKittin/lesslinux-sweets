@@ -1,0 +1,164 @@
+<llpackages>
+	<package 
+		name="thunderbird-source"
+		version="3.1.6"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>     
+				<pkg sha1="d9c089c64cc7a784e128d9c594ef649a35babe30">thunderbird-3.1.6.source.tar.bz2</pkg>
+				<mirror>ftp://ftp.mozilla.org/pub/mozilla.org/thunderbird/releases/3.1.6/source/</mirror>
+			</file>  
+			<file>
+				<pkg sha1="b94c4e094487725619fcb8f81c958236636383fc">mozconfig-thunderbird-neutral-3.1-20100628</pkg>
+				<mirror>http//distfiles.lesslinux.org/</mirror>
+			</file>
+			<check>
+				<page html="http://releases.mozilla.org/pub/mozilla.org/thunderbird/releases/">
+					<atext linktext="3.1.7" />
+					<atext linktext="3.1.8" />
+					<atext linktext="3.1.9" />
+					<atext linktext="3.1.10" />
+					<atext linktext="3.1.11" />
+					<atext linktext="3.2" />
+					<atext linktext="4.0" />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>GConf</dep>
+                        <dep>ORBit2</dep>
+                        <dep>Python</dep>
+                        <dep>alsa-lib</dep>
+                        <dep>atk</dep>
+                        <dep>autoconf</dep>
+                        <dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>cairo</dep>
+                        <dep>coreutils</dep>
+                        <dep>dbus-glib</dep>
+                        <dep>dbus</dep>
+                        <dep>diffutils</dep>
+                        <dep>findutils</dep>
+                        <dep>fontconfig</dep>
+                        <dep>freetype</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>gdk-pixbuf</dep>
+                        <dep>glib</dep>
+                        <dep>glibc</dep>
+                        <dep>gnome-vfs</dep>
+                        <dep>grep</dep>
+                        <dep>gtk+</dep>
+                        <dep>inetutils</dep>
+                        <dep>libICE</dep>
+                        <dep>libIDL</dep>
+                        <dep>libSM</dep>
+                        <dep>libX11</dep>
+                        <dep>libXau</dep>
+                        <dep>libXext</dep>
+                        <dep>libXrender</dep>
+                        <dep>libXt</dep>
+                        <dep>libnotify</dep>
+                        <dep>libpthread-stubs</dep>
+                        <dep>libxcb</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>pango</dep>
+                        <dep>perl</dep>
+                        <dep>pixman</dep>
+                        <dep>pkg-config</dep>
+                        <dep>pygobject</dep>
+                        <dep>sed</dep>
+                        <dep>tar</dep>
+                        <dep>unzip</dep>
+                        <dep>util-linux-ng</dep>
+                        <dep>wireless_tools</dep>
+                        <dep>xproto-base</dep>
+                        <dep>zip</dep>
+			<!-- soft -->
+			 <dep>imake</dep>
+			 <dep>makedepend</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/thunderbird-${PKGVERSION}.source.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd comm-1.9.2
+			cp ${SRCDIR}/mozconfig-thunderbird-neutral-3.1-20100628 .mozconfig
+			
+			make -f client.mk clean
+			make -f client.mk configure
+			make -f client.mk build
+			
+			# cd ../thunderbird-obj/mail/locales
+			# make langpack-de
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+
+cd comm-1.9.2
+make -f client.mk install
+
+rm /opt/thunderbird31/lib/thunderbird
+ln -sf /opt/thunderbird31/lib/thunderbird-${PKGVERSION} /opt/thunderbird31/lib/thunderbird
+			
+echo -n '' > /usr/bin/thunderbird
+cat >> /usr/bin/thunderbird << TBRUN
+#!/bin/sh
+
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+
+langopts=""
+echo "\$LANGUAGE" | grep '^de' >/dev/null && langopts="-contentLocale de-DE -UILocale de-DE"
+echo "\$LANGUAGE" | grep '^pl' >/dev/null && langopts="-contentLocale pl-PL -UILocale pl-PL"
+echo "\$LANGUAGE" | grep '^es' >/dev/null && langopts="-contentLocale es-ES -UILocale es-ES"
+echo "\$LANGUAGE" | grep '^ru' >/dev/null && langopts="-contentLocale ru-RU -UILocale ru-RU"
+
+[ "\$security" '!=' "smack" ] && exec /opt/thunderbird31/bin/thunderbird \$langopts \$@
+
+if [ "\$#" -lt 1 ] ; then
+    exec sudo /opt/thunderbird31/bin/thunderbird_smack
+else
+    if ps waux | grep 'surfer   /opt/.*/thunderbird-bin' | grep -v grep ; then
+        /opt/thunderbird31/bin/thunderbird \$@
+    else
+        sudo /opt/thunderbird31/bin/thunderbird_smack &
+	sleep 5
+	exec /opt/thunderbird31/bin/thunderbird \$@
+    fi
+fi
+
+TBRUN
+
+chmod a+rx /usr/bin/thunderbird
+	
+echo -n '' > /opt/thunderbird31/bin/thunderbird_smack
+cat >> /opt/thunderbird31/bin/thunderbird_smack << TBSMACK
+#!/static/bin/ash
+
+langopts=""
+echo "\$LANGUAGE" | grep '^de' >/dev/null && langopts="-contentLocale de-DE -UILocale de-DE"
+echo "\$LANGUAGE" | grep '^pl' >/dev/null && langopts="-contentLocale pl-PL -UILocale pl-PL"
+echo "\$LANGUAGE" | grep '^es' >/dev/null && langopts="-contentLocale es-ES -UILocale es-ES"
+echo "\$LANGUAGE" | grep '^ru' >/dev/null && langopts="-contentLocale ru-RU -UILocale ru-RU"
+
+/static/sbin/newsmack internet /static/bin/su surfer -c "/opt/thunderbird31/bin/thunderbird \$langopts"
+
+TBSMACK
+
+chmod a+rx /opt/thunderbird31/bin/thunderbird_smack
+/sbin/paxctl -m -r /opt/thunderbird31/lib/thunderbird-${PKGVERSION}/thunderbird-bin
+
+]]>
+		</install>
+	</package>
+</llpackages>

@@ -1,0 +1,63 @@
+<llpackages>
+	<package 
+		name="rsync"
+		version="3.0.7"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>     
+				<pkg sha1="63426a1bc71991d93159cd522521fbacdafb7a61">rsync-3.0.7.tar.gz</pkg>
+				<mirror>http://samba.anu.edu.au/ftp/rsync/src/</mirror>
+			</file>
+			<check>
+				<page html="http://samba.anu.edu.au/ftp/rsync/src/">
+					<atext linktext="rsync-3.0.8.tar.gz" />
+					<atext linktext="rsync-3.0.9.tar.gz" />
+					<atext linktext="rsync-3.0.10.tar.gz" />
+					<atext linktext="rsync-3.1.tar.gz" />
+					<atext linktext="rsync-3.1.0.tar.gz" />
+					<atext linktext="rsync-4.0.tar.gz" />
+					<atext linktext="rsync-4.0.0.tar.gz" />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>coreutils</dep>
+                        <dep>diffutils</dep>
+                        <dep>gcc</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <dep>inetutils</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>perl</dep>
+                        <dep>sed</dep>
+                        <dep>util-linux-ng</dep>
+			<!-- soft -->
+			 <dep>attr</dep>
+			 <dep>popt</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --docdir=/usr/doc/${PKGNAME}-${PKGVERSION} && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

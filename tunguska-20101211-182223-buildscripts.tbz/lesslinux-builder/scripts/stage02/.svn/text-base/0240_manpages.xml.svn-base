@@ -1,0 +1,46 @@
+<llpackages>
+	<package 
+		name="man-pages"
+		version="3.29"
+		class="doc"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>        
+				<pkg sha1="059958ebe07a7581fff65ac95be39fd050ef0da2">man-pages-3.29.tar.bz2</pkg>
+				<mirror>http://www.kernel.org/pub/linux/docs/manpages/Archive/</mirror>
+			</file>
+			<check>
+				<page html="http://www.kernel.org/pub/linux/docs/manpages/Archive/">
+					<atext linktext="man-pages-3.30." />
+					<atext linktext="man-pages-3.31." />
+					<atext linktext="man-pages-3.32." />
+					<atext linktext="man-pages-3.33." />
+					<atext linktext="man-pages-4." />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>linux_headers</dep>
+			<dep>glibc</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[ 
+			echo 'Nothing to do!'
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

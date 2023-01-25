@@ -1,0 +1,77 @@
+<llpackages>
+	<package 
+		name="memtest86+"
+		version="4.10"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>  
+				<pkg sha1="a5a912be36d27e8886a07ae3ab2a2531711eca1e">memtest86+-4.10.tar.gz</pkg>
+				<mirror>http://www.memtest.org/download/4.10/</mirror>
+			</file>
+			<!-- <file>    
+				<pkg sha1="f7cb7eed0d794010e89c09922c0a9b69a9600be0">memtest86+-4.10-remove-img.patch</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file> -->
+			<check>
+				<page html="http://www.memtest.org/download/">
+					<atext linktext="4.11" />
+					<atext linktext="4.12" />
+					<atext linktext="4.13" />
+					<atext linktext="4.2" />
+					<atext linktext="4.3" />
+					<atext linktext="4.4" />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>coreutils</dep>
+                        <dep>gcc</dep>
+                        <dep>glibc</dep>
+                        <dep>make</dep>
+			<dep>nasm</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<!-- <patch>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			cat ${SRCDIR}/${PKGNAME}-${PKGVERSION}-remove-img.patch | patch -p1
+			]]>
+		</patch> -->
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make
+			# enlarge the size of memtest.bin
+			SIZE=$(wc -c memtest.bin | awk '{print $1}')
+			FILL=$((1474560 - $SIZE))
+			dd if=/dev/zero of=fill.tmp bs=$FILL count=1
+			cat memtest.bin fill.tmp > memtest.img
+			rm -f fill.tmp
+
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			# install -m 0644 memtest.bin /boot
+			mkdir -m 0755 /usr/share/memtest
+			install -m 0644 memtest.img /boot
+			install -m 0644 memtest.bin /usr/share/memtest
+			install -m 0644 memtest /usr/share/memtest
+			]]>
+		</install>
+	</package>
+</llpackages>

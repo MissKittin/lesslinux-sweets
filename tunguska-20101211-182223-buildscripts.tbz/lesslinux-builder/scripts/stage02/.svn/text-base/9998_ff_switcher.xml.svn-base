@@ -1,0 +1,35 @@
+<llpackages>
+	<package 
+		name="ffswitchers"
+		version="20100217"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>
+				<pkg sha1="1433c52224822b46429a034b74d2b461f38b73db">ffswitchers-20100217.tar.gz</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			echo 'Nothing to do!'
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}
+			for i in ll_ff_prevent_install ll_ff_allow_install ll_ff_enable_flash ll_ff_disable_flash ; do
+				install -m 0755 $i /usr/bin
+			done
+			]]>
+		</install>
+	</package>
+</llpackages>

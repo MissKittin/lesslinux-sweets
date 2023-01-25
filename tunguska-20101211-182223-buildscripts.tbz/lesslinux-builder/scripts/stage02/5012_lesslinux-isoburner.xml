@@ -1,0 +1,37 @@
+<llpackages>
+	<package 
+		name="lesslinux-isoburner"
+		version="20091026"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>             
+				<pkg sha1="3e2769d374b5d737691b42a8f9f38c10236e5ac4">lesslinux-isoburner-20091026.tar.bz2</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+		</sources>
+		<builddeps>
+			<dep>bash</dep>
+			<dep>ruby</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			echo 'Nothing to do!'
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd isoburner
+			install -m 0755 isoburner.rb /usr/bin
+			]]>
+		</install>
+	</package>
+</llpackages>

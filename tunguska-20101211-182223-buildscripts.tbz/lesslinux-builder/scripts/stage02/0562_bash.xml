@@ -1,0 +1,78 @@
+<llpackages>
+	<package 
+		name="bash"
+		version="4.1"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>  
+				<pkg sha1="3bd1ec9c66f3689f6b3495bdaaf9077b2e5dc150">bash-4.1.tar.gz</pkg>
+				<mirror>http://ftp.gnu.org/gnu/bash/</mirror>
+			</file>
+			<file>      
+				<pkg sha1="c3d62b4e55e156fd3e6c4e2ee19fb63575dc99fd">bash-4.1-fixes-2.patch</pkg>
+				<mirror>http://www.linuxfromscratch.org/patches/lfs/development/</mirror>
+			</file>
+			<check>
+				<page html="http://ftp.gnu.org/gnu/bash/">
+					<atext linktext="bash-4.2.tar.gz" />
+					<atext linktext="bash-4.3.tar.gz" />
+					<atext linktext="bash-5.0.tar.gz" />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>linux_headers</dep>
+			<dep>glibc</dep>
+			<dep>man-pages</dep>
+			<dep>readjust</dep>
+			<dep>zlib</dep>
+			<dep>binutils</dep>
+			<dep>gmp</dep>
+			<dep>mpfr</dep>
+			<dep>mpc</dep>
+			<dep>gcc</dep>
+			<dep>sed</dep>
+			<dep>util-linux-ng</dep>
+			<dep>coreutils</dep>
+			<dep>ncurses</dep>
+			<dep>ncurses-8bit</dep>
+			<dep>readline</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			]]>
+		</unpack>
+		<patch>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			cat ${SRCDIR}/${PKGNAME}-${PKGVERSION}-fixes-2.patch | patch -p1
+			]]>
+		</patch>
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --bindir=/bin --htmldir=/usr/share/doc/bash-4.1 --without-bash-malloc --with-installed-readline \
+			&& make
+			]]>
+		</build>
+		<!--<test />-->
+		<test>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			sed -i 's/LANG/LC_ALL/' tests/intl.tests
+			sed -i 's@tests@& </dev/tty@' tests/run-test
+			make tests
+			]]>
+		</test>
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			ln -sfv /bin/bash /bin/sh
+			]]>
+		</install>
+	</package>
+</llpackages>

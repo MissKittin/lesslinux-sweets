@@ -1,0 +1,87 @@
+<llpackages>
+	<package 
+		name="firmware_ralink"
+		version="20101119"
+		class="user"
+		>
+		<license>proprietary</license>
+		<sources>
+			<file>   
+				<pkg sha1="f6a55fa11337ce8b1bfcc8260799267db3f01abb">2010_0709_RT2870_Linux_STA_v2.4.0.1.tar.bz2</pkg>
+				<mirror>http://www.ralinktech.com.tw/data/drivers/</mirror>
+			</file>
+			<file>  
+				<pkg sha1="0b409c8dd335e10f6b0312982a3273f23ac2ddd7">2010_07_16_RT2860_Linux_STA_v2.4.0.0.tar.bz2</pkg>
+				<mirror>http://www.ralinktech.com.tw/data/drivers/</mirror>
+			</file>
+			<file>  
+				<pkg sha1="20dd7c743cb8d65a77908427f5079c5d3f28e6b3">2010_1029_RT5390_LinuxSTA_V2.4.0.1_WiFiBTCombo_DPO.bz2</pkg>
+				<mirror>http://www.ralinktech.com.tw/data/drivers/</mirror>
+			</file>
+			<file>  
+				<pkg sha1="080badacb886813ac5033f6ef1c9b88601ada132">DPO_RT3090_LinuxSTA_V2.4.0.1_20101110_WiFiBTCombo_RFKill.tar.bz2</pkg>
+				<mirror>http://www.ralinktech.com.tw/data/drivers/</mirror>
+			</file>
+			<file>
+				<pkg sha1="51541bec5cf2fe6ff46e46a0bb157b774d2ff050">RT71W_Firmware_V1.8.zip</pkg>
+				<mirror>http://www.ralinktech.com.tw/data/</mirror>
+			</file>
+			<file>
+				<pkg sha1="8a50899160d1ef1cd9770e4f0426930fb2b42a1b">RT61_Firmware_V1.2.zip</pkg>
+				<mirror>http://www.ralinktech.com.tw/data/</mirror>
+			</file>
+		</sources>
+		<builddeps>
+			<dep>bash</dep>
+			<dep>unzip</dep>
+			<dep>coreutils</dep>
+                        <dep>diffutils</dep>
+			<dep>rsync</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			
+			tar xvjf ${SRCDIR}/2010_0709_RT2870_Linux_STA_v2.4.0.1.tar.bz2
+			tar xvzf ${SRCDIR}/2010_07_16_RT2860_Linux_STA_v2.4.0.0.tar.bz2
+			tar xvjf ${SRCDIR}/2010_1029_RT5390_LinuxSTA_V2.4.0.1_WiFiBTCombo_DPO.bz2
+			tar xvjf ${SRCDIR}/DPO_RT3090_LinuxSTA_V2.4.0.1_20101110_WiFiBTCombo_RFKill.tar.bz2
+			for i in RT71W_Firmware_V1.8 RT61_Firmware_V1.2 ; do
+				mkdir ${i}_zip
+				cd ${i}_zip 
+				/usr/bin/unzip ${SRCDIR}/${i}.zip
+				cd ..
+			done
+			
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			echo 'Nothing to build!'
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			
+			mkdir /lib/firmware 
+			install -m 0755 2010_07_16_RT2860_Linux_STA_v2.4.0.0/common/rt2860.bin /lib/firmware/
+			install -m 0755 2010_0709_RT2870_Linux_STA_v2.4.0.1/common/rt2870.bin /lib/firmware/
+			install -m 0755 2010_1029_RT5390_LinuxSTA_V2.4.0.1_WiFiBTCombo_DPO/common/rt2860.bin /lib/firmware/rt5390.bin
+			install -m 0755 DPO_RT3090_LinuxSTA_V2.4.0.1_20101110_WiFiBTCombo_RFKill/common/rt2860.bin /lib/firmware/rt3090.bin
+			ln -sf /lib/firmware/rt2870.bin /lib/firmware/rt3070.bin
+			ln -sf /lib/firmware/rt2870.bin /lib/firmware/rt3570.bin
+			ln -sf /lib/firmware/rt2870.bin /lib/firmware/rt3572.bin
+			for i in RT71W_Firmware_V1.8 RT61_Firmware_V1.2 ; do
+				cd ${i}_zip/${i}
+				for j in *.bin ; do
+					install -m 0755 ${j} /lib/firmware/
+				done
+				cd ../..
+			done
+			chown -R 0:0 /lib/firmware/
+			
+			]]>
+		</install>
+	</package>
+</llpackages>

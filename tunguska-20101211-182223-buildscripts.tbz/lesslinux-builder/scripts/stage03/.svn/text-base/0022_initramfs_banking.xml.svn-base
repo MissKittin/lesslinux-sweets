@@ -1,0 +1,246 @@
+<llpackages>
+	<dirs>
+	        <dir mode="0755">/etc/wicd</dir>
+		<dir mode="0755">/etc/smack</dir>
+		<dir mode="0755">/etc/smack/banks</dir>
+	</dirs>
+	<links>
+		<!-- blue theme used in Sicher Surfen 2009 -->
+		<softlink target="/usr/share/themes/Xfce/gtk-2.0/gtkrc">/root/.gtkrc</softlink>
+		<softlink target="/usr/share/themes/Xfce/gtk-2.0/gtkrc">/root/.gtkrc-2.0</softlink>
+		<!-- green theme used in Notfall-CD 2.0 -->
+		<!-- <softlink target="/usr/share/themes/Xfce-saltlake/gtk-2.0/gtkrc">/root/.gtkrc</softlink>
+		<softlink target="/usr/share/themes/Xfce-saltlake/gtk-2.0/gtkrc">/root/.gtkrc-2.0</softlink> -->
+	</links>
+	<scripts>
+		<scriptdata location="/etc/rc.defaults.override" mode="0755" group="0" owner="0">
+		<![CDATA[#
+rootpwhash='!'
+clean_rootpwhash='!'
+userpwhash='!'
+clean_userpwhash='!'		
+wlan=''
+#		]]>
+		</scriptdata>
+		<scriptdata location="/etc/lesslinux/xinitrc" mode="0755" group="0" owner="0">
+		<![CDATA[#!/static/bin/ash	
+
+PATH=/bin:/sbin:/usr/bin:/usr/sbin:/static/bin:/static/sbin
+		
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors		
+		
+# /usr/bin/xterm &
+setxkbmap -rules xorg -model pc105 -layout "$xkbmap"
+
+# replace old path for background file on COMPUTERBILD edition
+sed -i 's/\/etc\/lesslinux\/branding\/computerbild\/desktop-cb-20090707\.jpg/\/etc\/lesslinux\/branding\/desktop.jpg/' /home/surfer/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml
+sed -i 's/\/opt\/firefox\/lib/\/opt\/firefox35\/lib/g' /home/surfer/.config/xfce4/panel/launcher-10.rc
+sed -i 's/\/opt\/firefox\/lib/\/opt\/firefox35\/lib/g' /home/surfer/Desktop/010_firefox.desktop
+sed -i 's/etc\/lesslinux\/branding\/computerbild\/firstrun.html/etc\/lesslinux\/branding\/browser_startup.html/g' \
+/home/surfer/.mozilla/firefox/kqe39h9l.default/prefs.js
+		
+sed -i 's/layouts=us,ru/layouts='"${xkbmap}"',us/g' /home/surfer/.config/xfce4/panel/xkb-plugin-12581166590.rc
+sed -i 's/display_type=0/display_type=1/g' /home/surfer/.config/xfce4/panel/xkb-plugin-12581166590.rc
+sed -i 's/variants=,winkeys/variants=,/g' /home/surfer/.config/xfce4/panel/xkb-plugin-12581166590.rc
+
+# FIXME! Should not be hardcoded!
+
+if mountpoint -q /media/bank2010_vol ; then
+	ln -s /media/bank2010_vol "/home/surfer/Desktop/Dokumente"
+	echo "user_pref(\"browser.download.dir\", \"/home/surfer/Desktop/Dokumente\");" >> /home/surfer/.mozilla/firefox/default_profile/prefs.js
+else
+	rm -f "/home/surfer/Desktop/Dokumente"
+	echo "user_pref(\"browser.download.dir\", \"/home/surfer/Desktop\");" >> /home/surfer/.mozilla/firefox/default_profile/prefs.js
+fi
+
+# FIXME! Firefox might do it itself!
+
+if grep 'version="3.5"' /home/surfer/.mozilla/firefox/default_profile/extensions/langpack-de\@firefox.mozilla.org/install.rdf ; then
+	rm -rf /home/surfer/.mozilla/firefox/default_profile/extensions/langpack-de\@firefox.mozilla.org
+fi
+
+sed -i 's/rv:1\.9\.1\.5/rv:1.9.2.2/g' /home/surfer/.mozilla/firefox/default_profile/prefs.js
+sed -i 's/rv:1\.9\.2\.2/rv:1.9.2.6/g' /home/surfer/.mozilla/firefox/default_profile/prefs.js
+sed -i 's/3\.5\.5/3.6.2/g' /home/surfer/.mozilla/firefox/default_profile/prefs.js
+sed -i 's/3\.6\.2/3.6.6/g' /home/surfer/.mozilla/firefox/default_profile/prefs.js
+
+mkdir /home/surfer/.lesslinux
+
+if  [ -L "/home/surfer/Desktop/Dokumente" ] ; then
+	if [ '!' -f /home/surfer/.lesslinux/doc_copied ] ; then
+		cp /etc/lesslinux/branding/Anleitung.pdf /home/surfer/Desktop/Dokumente/
+		touch /home/surfer/.lesslinux/doc_copied
+	fi
+else
+	if [ '!' -f /home/surfer/.lesslinux/doc_copied ] ; then
+		cp /etc/lesslinux/branding/Anleitung.pdf /home/surfer/Desktop/
+		touch /home/surfer/.lesslinux/doc_copied
+	fi
+fi
+		
+# Temporary fixes!
+		
+if [ -f /home/surfer/Desktop/bankcrawler.desktop ] ; then
+	echo "Skipping bank crawler"
+else
+	cat > /home/surfer/Desktop/bankcrawler.desktop << CRWL
+	
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Type=Application
+Name=Bank verwalten
+Comment=
+Categories=Application;
+Exec=/usr/bin/bankselector_wrapper.sh
+Icon=xfce-internet
+Terminal=false
+StartupNotify=false
+
+CRWL
+
+
+fi
+		
+[ -f /home/surfer/.config/Trolltech.conf ] || cp /etc/lesslinux/branding/misc/Trolltech.conf /home/surfer/.config/
+
+mkdir /home/surfer/Downloads
+
+if [ "$lang" = "ru" ] ; then
+	setxkbmap -rules xorg -model pc105 -layout us,ru -variant ,winkeys -option grp:alt_shift_toggle,grp_led:scroll
+else
+	setxkbmap -rules xorg -model pc105 -layout "$xkbmap"
+fi
+
+ln -sf /home/surfer/.mozilla/firefox/sv6s0ikf.default /home/surfer/.mozilla/firefox/default_profile
+
+# Start Firefox with the warning page...
+
+decay=20110114 
+today=` date '+%Y%m%d' ` 
+
+if [ "$today" -gt "$decay" ] ; then
+	firefox file:///etc/lesslinux/branding/browser_too_old.html &
+fi
+
+/usr/bin/xfce4-session
+		
+		]]>
+		</scriptdata>
+		<scriptdata location="/etc/smack/accesses" mode="0644" group="0" owner="0">
+		<![CDATA[internet	_		rwxa
+_ 		internet	rwxa
+internet	usrbin		r---
+_		usrbin		r-x-
+netmgr		usrbin		r-x-
+netmgr          _               rwxa
+netmgr          bankcfg         rwxa
+bankcfg         netmgr          rw--
+_		netmgr		rwx-
+internet	outgoing	rw--
+netmgr		outgoing	rw--
+outgoing	internet	rw--
+outgoing	netmgr          rw--]]>
+		</scriptdata>
+		<scriptdata location="/etc/rc.d/0060-earlynet.sh" mode="0755" group="0" owner="0">
+		<![CDATA[#!/static/bin/ash
+
+#lesslinux provides netdummy
+
+exit 0
+
+# END		]]>
+		</scriptdata>
+		<scriptdata location="/etc/rc.d/0300-earlynet.sh" mode="0755" group="0" owner="0">
+		<![CDATA[#!/static/bin/ash
+
+#lesslinux provides earlynet
+
+PATH=/static/bin:/static/sbin:/bin:/sbin:/usr/bin:/usr/sbin
+export PATH
+
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors
+
+# Start Networking
+
+case $1 in 
+  start)
+    if [ "$nonet" -gt 0 ] ; then
+      printf "$bold===> Skipping networking $normal\n"
+    else
+      if [ "$dhcp" -gt 0 ] ; then
+          printf "$bold===> Setting up networking (DHCP) $normal\n"
+	  for i in 0 1 2 3 4 5 6 7 8 9
+          do
+	      udhcpc -q -s /static/share/udhcpc/default.script -i eth$i > /dev/null 2>&1 &
+	  done
+      else
+	  # staticnet=|iface|ip|mask|dns|gateway|
+	  netif=` echo "$staticnet" | awk -F '|' '{print $2}' `
+	  ip=` echo "$staticnet" | awk -F '|' '{print $3}' `
+	  mask=` echo "$staticnet" | awk -F '|' '{print $4}' `
+	  dns=` echo "$staticnet" | awk -F '|' '{print $5}' `
+	  gw=` echo "$staticnet" | awk -F '|' '{print $6}' ` 
+          printf "$bold===> Setting up networking (static)                              "
+          ifconfig $netif inet $ip netmask $mask
+          echo "nameserver $dns" > /etc/resolv.conf
+          route add default gw $gw
+          if ifconfig $netif > /dev/null 2>&1 ; then
+              printf "$success"
+          else       
+              printf "$failed"
+          fi
+      fi
+    fi
+  ;;
+  stop)
+    printf "$bold===> Stopping ethernet networking                                "
+    if ifconfig $netif down > /dev/null 2>&1 ; then
+      printf "$success"
+    else
+      printf "$failed"
+    fi  
+  ;;
+esac    
+
+printf "$normal"
+
+# END		]]>
+		</scriptdata>
+		<scriptdata location="/etc/inittab" mode="0644" group="0" owner="0">
+		<![CDATA[::sysinit:/etc/rc
+tty1::respawn:/static/bin/show_placeholder
+tty2::respawn:/static/sbin/getty -l /static/bin/login 38400 tty2
+tty3::respawn:/static/bin/x_user_start
+::ctrlaltdel:/static/sbin/reboot
+::shutdown:/etc/rc.shutdown]]>
+		</scriptdata>
+	</scripts>
+	
+	<package name="initramfs_cbbanking" version="20091209-01" allowfail="yes">
+		<sources>
+			<file>               
+				<pkg sha1="c0967daa87777ed8a2059690da4913406c2cd51d">surfer-cbsicher-20091209.tar.gz</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+		</sources>
+		<unpack>
+		<![CDATA[ 
+	
+echo 'nothing to do!'
+
+		]]>
+		</unpack>
+		<install>
+		<![CDATA[ 
+		
+install -m 0644 ${SRCDIR}/surfer-cbsicher-20091209.tar.gz ${INITRAMFS}/etc/lesslinux/skel/surfer.tgz
+		
+		]]>
+		</install>
+	</package>
+</llpackages>

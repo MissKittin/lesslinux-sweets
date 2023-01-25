@@ -1,0 +1,111 @@
+for i in `cat /proc/cmdline`
+do
+   # echo $i
+   case $i in 
+     nonet=*)
+        nonet=`echo $i | awk -F '=' '{print $2}'`   
+     ;;
+     netif=*)
+        nonet=`echo $i | awk -F '=' '{print $2}'`
+     ;;
+     dhcp=*)
+        dhcp=`echo $i | awk -F '=' '{print $2}'`
+     ;;
+     ip=*)
+        ip=`echo $i | awk -F '=' '{print $2}'`
+     ;;
+     mask=*)
+        mask=`echo $i | awk -F '=' '{print $2}'`
+     ;;
+     dns=*)
+        dns=`echo $i | awk -F '=' '{print $2}'`
+     ;;
+     gw=*)
+        gw=`echo $i | awk -F '=' '{print $2}'`
+     ;; 
+     hostname=*)
+        hostname=`echo $i | awk -F '=' '{print $2}'`
+     ;;
+     nologin=*)
+        nologin=`echo $i | awk -F '=' '{print $2}'`
+     ;;
+     rootpwhash=*)
+        rootpwhash=`echo $i | awk -F '=' '{print $2}'`
+     ;;
+     rootshell=*)
+        rootshell=`echo $i | awk -F '=' '{print $2}'`
+     ;;
+     sshd=*)
+        sshd=`echo $i | awk -F '=' '{print $2}'`
+     ;;
+     autokeys=*)
+        autokeys=`echo $i | awk -F '=' '{print $2}'`
+     ;;   
+     sshport=*)
+        sshport=`echo $i | awk -F '=' '{print $2}'`
+     ;;
+     gethostkey=*)
+        gethostkey=`echo $i | awk -F '=' '{print $2}'`
+     ;;
+     keyserver=*)
+        keyserver=`echo $i | awk -F '=' '{print $2}'`
+     ;;
+     dsspub=*)
+        dsspub=`echo $i | awk -F '=' '{print $2}'`
+     ;;
+     dsspriv=*)
+        dsspriv=`echo $i | awk -F '=' '{print $2}'`
+     ;;
+     rsspub=*)
+        rsspub=`echo $i | awk -F '=' '{print $2}'`
+     ;;
+     rsspriv=*)
+        rsspriv=`echo $i | awk -F '=' '{print $2}'`
+     ;;
+     rootgetkey=*)
+        rootgetkey=`echo $i | awk -F '=' '{print $2}'`
+     ;;
+     rootkeyserver=*)
+        rootkeyserver=`echo $i | awk -F '=' '{print $2}'` 
+     ;;
+     rootpublogin=*)
+        rootpublogin=`echo $i | awk -F '=' '{print $2}'`
+     ;;        
+     rootauthkeys=*)
+        rootauthkeys=`echo $i | awk -F '=' '{print $2}'`
+     ;;
+     rootprivkey=*)
+        rootprivkey=`echo $i | awk -F '=' '{print $2}'`
+     ;;
+     rootpubkey=*)
+        rootpubkey=`echo $i | awk -F '=' '{print $2}'`
+     ;;
+     runfromcd=*)
+        runfromcd=`echo $i | awk -F '=' '{print $2}'`
+     ;;
+     volid=*)
+        volid=`echo $i | awk -F '=' '{print $2}'`
+     ;;
+     cdscript=*)
+        cdscript=`echo $i | awk -F '=' '{print $2}'`
+     ;;
+     runfromnet=*)
+        runfromnet=`echo $i | awk -F '=' '{print $2}'`
+     ;;
+     runproto=*)
+        runproto=`echo $i | awk -F '=' '{print $2}'`
+     ;;
+     runserver=*)
+         runserver=`echo $i | awk -F '=' '{print $2}'`
+     ;;
+     runpath=*)
+        runpath=`echo $i | awk -F '=' '{print $2}'`
+     ;;
+     verbose=*)
+        verbose=`echo $i | awk -F '=' '{print $2}'` 
+     ;;
+     mdev=*)   
+        mdev=`echo $i | awk -F '=' '{print $2}'`   
+     ;;        
+   esac     
+done

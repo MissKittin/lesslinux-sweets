@@ -1,0 +1,53 @@
+<llpackages>
+	<package 
+		name="lesslinux-bankgui"
+		version="20100602"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file> 
+				<pkg sha1="743715f7f88b1d88ab1cf12244dd286f93ff8470">lesslinux-bankgui-20100602.tar.bz2</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+		</sources>
+		<builddeps>
+			<dep>bash</dep>
+			<dep>ruby</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			echo 'Nothing to do!'
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			mkdir -m 0755 -p /etc/lesslinux/banking/descs
+			mkdir -m 0755 -p /usr/share/lesslinux/banking/descs
+			cd lesslinux-bankgui
+			install -m 0644 blzlist.xml /etc/lesslinux/banking
+			install -m 0755 bankselector.rb /usr/bin
+			install -m 0755 smack_bankrules.rb /usr/bin
+			install -m 0755 bankselector.sh /usr/bin
+			install -m 0755 bankcrawler.rb /usr/share/lesslinux/banking
+			install -m 0644 certs.sqs /usr/share/lesslinux/banking
+			install -m 0644 money.png /usr/share/icons
+			install -m 0755 bankselector_wrapper.sh /usr/bin
+			install -m 0755 writesmackrules.sh /usr/bin
+			install -m 0755 ff_bankwrapper.sh /usr/bin
+			cd blzxmls
+			install -m 0644 *.xml /usr/share/lesslinux/banking/descs
+			cd ..
+			tar -C / -xvf ca-certificates.tar
+			
+			]]>
+		</install>
+	</package>
+</llpackages>

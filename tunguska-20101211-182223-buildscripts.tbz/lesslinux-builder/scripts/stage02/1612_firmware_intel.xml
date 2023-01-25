@@ -1,0 +1,135 @@
+<llpackages>
+	<package 
+		name="firmware_intel"
+		version="20100726"
+		class="user"
+		>
+	<!-- <package 
+		name="firmware_intel"
+		version="20090625"
+		class="user"
+		>-->
+		<license>proprietary</license>
+		<sources>
+			<!-- 3945 -->
+			<file>    
+				<pkg sha1="0e53846a25b9ec5f6f56559f6cc0778227e5564c">iwlwifi-3945-ucode-15.32.2.9.tgz</pkg>
+				<mirror>http://intellinuxwireless.org/iwlwifi/downloads/</mirror>
+			</file>
+			<file>    
+				<pkg sha1="13af981c19035d35f41df9a238f08bbf56ec1044">iwlwifi-3945-ucode-15.28.1.8.tgz</pkg>
+				<mirror>http://intellinuxwireless.org/iwlwifi/downloads/</mirror>
+			</file>
+			<file>    
+				<pkg sha1="c715e4f0ab4ddddb45f6b5c36644e13dc0cd0b2c">iwlwifi-3945-ucode-2.14.4.tgz</pkg>
+				<mirror>http://intellinuxwireless.org/iwlwifi/downloads/</mirror>
+			</file>
+			<!-- 4965 -->  
+			<file>      
+				<pkg sha1="1d67aabf37a8693cb57a2559597e4674e08823b9">iwlwifi-4965-ucode-228.61.2.24.tgz</pkg>
+				<mirror>http://intellinuxwireless.org/iwlwifi/downloads/</mirror>
+			</file>
+			<file>      
+				<pkg sha1="fc98e4bdf6edb9681cc1b6de6cea31e27cbcab06">iwlwifi-4965-ucode-228.57.1.21.tgz</pkg>
+				<mirror>http://intellinuxwireless.org/iwlwifi/downloads/</mirror>
+			</file>
+			<file>      
+				<pkg sha1="955d8718419dc2670d9b8167e22df118a36666a5">iwlwifi-4965-ucode-4.44.17.tgz</pkg>
+				<mirror>http://intellinuxwireless.org/iwlwifi/downloads/</mirror>
+			</file>
+			<!-- 5000 -->  
+			<file>        
+				<pkg sha1="e7b2fdf2cf004201b0830e1e21c5b6d830b19a35">iwlwifi-5000-ucode-8.24.2.12.tgz</pkg>
+				<mirror>http://intellinuxwireless.org/iwlwifi/downloads/</mirror>
+			</file>
+			<file>        
+				<pkg sha1="83877e8a2f62367271108f39f7413898dde14447">iwlwifi-5000-ucode-5.4.A.11.tar.gz</pkg>
+				<mirror>http://intellinuxwireless.org/iwlwifi/downloads/</mirror>
+			</file>  
+			<!-- 5150 -->
+			<file>          
+				<pkg sha1="55322f06b114036d1a72e662f614c5a147a346b8">iwlwifi-5150-ucode-8.24.2.2.tgz</pkg>
+				<mirror>http://intellinuxwireless.org/iwlwifi/downloads/</mirror>
+			</file>
+			<!-- 1000 -->
+			<file>            
+				<pkg sha1="e0cd78b199b671f0775decaf99b62f1553cd2077">iwlwifi-1000-ucode-128.50.3.1.tgz</pkg>
+				<mirror>http://intellinuxwireless.org/iwlwifi/downloads/</mirror>
+			</file>
+			<!-- 6000 -->
+			<!-- <file>                
+				<pkg sha1="6878dc15a767dbbbf2c288847ce0040a46a30b1f">iwlwifi-6000-ucode-9.193.4.1.tgz</pkg>
+				<mirror>http://intellinuxwireless.org/iwlwifi/downloads/</mirror>
+			</file> -->
+			<file>                
+				<pkg sha1="a888cf54974702594e82bcbfca20c26d8f906e9f">iwlwifi-6000-ucode-9.221.4.1.tgz</pkg>
+				<mirror>http://intellinuxwireless.org/iwlwifi/downloads/</mirror>
+			</file>
+			<!-- 6500 -->
+			<file>                  
+				<pkg sha1="5f9620624344e17ebf0d7b7f4b10de4dfd469c4e">iwlwifi-6050-ucode-9.201.4.1.tgz</pkg>
+				<mirror>http://intellinuxwireless.org/iwlwifi/downloads/</mirror>
+			</file>
+			<!-- 2200 -->
+			<file>            
+				<pkg sha1="7fd3a2dacc20d2b7a8fa4fa223cb330844cec947">ipw2200-fw-3.1.tgz</pkg>
+				<mirror>http://bughost.org/firmware/</mirror>
+			</file>
+		</sources>
+		<builddeps>
+			<dep>bash</dep>
+			<dep>unzip</dep>
+			<dep>coreutils</dep>
+                        <dep>diffutils</dep>
+			<dep>rsync</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[
+			for i in 3945-ucode-15.32.2.9 \
+				 3945-ucode-15.28.1.8 \
+				 3945-ucode-2.14.4 \
+				 4965-ucode-228.61.2.24 \
+				 4965-ucode-228.57.1.21 \
+				 4965-ucode-4.44.17 \
+				 5000-ucode-8.24.2.12 \
+				 5150-ucode-8.24.2.2 \
+				 1000-ucode-128.50.3.1 \
+				 6000-ucode-9.221.4.1 \
+				 6050-ucode-9.201.4.1 ; do
+				tar xvzf ${SRCDIR}/iwlwifi-${i}.tgz || tar xvzf ${SRCDIR}/iwlwifi-${i}.tar.gz
+			done
+			tar xvzf ${SRCDIR}/ipw2200-fw-3.1.tgz
+			tar xvzf ${SRCDIR}/iwlwifi-5000-ucode-5.4.A.11.tar.gz
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			echo 'Nothing to do!'
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			mkdir /lib/firmware
+			for i in iwlwifi-3945-ucode-15.32.2.9/iwlwifi-3945-2.ucode \
+			         iwlwifi-3945-ucode-15.28.1.8/iwlwifi-3945-1.ucode \
+				 iwlwifi-3945-ucode-2.14.4/iwlwifi-3945.ucode \
+				 iwlwifi-4965-ucode-228.61.2.24/iwlwifi-4965-2.ucode \
+				 iwlwifi-4965-ucode-228.57.1.21/iwlwifi-4965-1.ucode \
+				 iwlwifi-4965-ucode-4.44.17/iwlwifi-4965.ucode \
+				 iwlwifi-5000-ucode-5.4.A.11/iwlwifi-5000-1.ucode \
+				 iwlwifi-5000-ucode-8.24.2.12/iwlwifi-5000-2.ucode \
+				 iwlwifi-5150-ucode-8.24.2.2/iwlwifi-5150-2.ucode \
+				 iwlwifi-1000-ucode-128.50.3.1/iwlwifi-1000-3.ucode \
+				 iwlwifi-6000-ucode-9.221.4.1/iwlwifi-6000-4.ucode \
+				 iwlwifi-6050-ucode-9.201.4.1/iwlwifi-6050-4.ucode ; do
+				install -m 0755 ${i} /lib/firmware/
+			done
+			install -m 0755 ipw2200-fw-3.1/*.fw /lib/firmware/
+			# chmod 0755 /lib/firmware/*.ucode
+			chown -R 0:0 /lib/firmware/
+			]]>
+		</install>
+	</package>
+</llpackages>

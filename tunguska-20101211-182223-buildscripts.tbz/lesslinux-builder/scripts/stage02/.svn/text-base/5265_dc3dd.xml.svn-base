@@ -1,0 +1,69 @@
+<llpackages>
+	<package 
+		name="dc3dd"
+		version="6.12.4-r458"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                       
+				<pkg sha1="cf4a5b0a6503373f1c3d4e1bc41a27f23ebe6bbb">dc3dd-6.12.4-r458.tar.gz</pkg>
+				<mirror>http://downloads.sourceforge.net/project/dc3dd/dc3dd/6.12.4/</mirror>
+			</file>
+			<check>
+				<page html="http://sourceforge.net/projects/dc3dd/files/">
+					<atext linktext="dc3dd-6.12.5.tar.gz" />
+					<atext linktext="dc3dd-6.12.6.tar.gz" />
+					<atext linktext="dc3dd-6.12.7.tar.gz" />
+					<atext linktext="dc3dd-6.12.8.tar.gz" />
+					<atext linktext="dc3dd-6.13.0.tar.gz" />
+					<atext linktext="dc3dd-6.14.0.tar.gz" />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>autoconf</dep>
+                        <dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>coreutils</dep>
+                        <dep>diffutils</dep>
+                        <dep>findutils</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>gettext</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <dep>gzip</dep>
+                        <dep>inetutils</dep>
+                        <dep>linux_headers</dep>
+                        <dep>m4</dep>
+                        <dep>make</dep>
+                        <dep>perl</dep>
+                        <dep>sed</dep>
+                        <dep>util-linux-ng</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --sysconfdir=/etc --prefix=/usr && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

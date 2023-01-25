@@ -1,0 +1,23 @@
+git clone git://anongit.freedesktop.org/git/libreoffice/build
+mv build libreoffice-build-git
+export JAVA_HOME=/usr/src/jdk1.6.0_22
+./autogen.sh --with-git --with-num-cpus=2 --disable-kde --with-ant-home=/usr/src/apache-ant-1.8.1 --with-lang="en-US de-DE de-AT de-CH pl ru es-ES" --without-junit
+
+#!/bin/bash
+cd /usr/src/libreoffice-build-git/build/libreoffice-3.2.99.2
+source ./LinuxX86Env.Set.sh
+cd pyuno
+build verbose=yes
+cd source/module/
+g++ -Wl,-z,noexecstack -Wl,-z,combreloc -Wl,-Bsymbolic-functions -Wl,--dynamic-list-cpp-new -Wl,--dynamic-list-cpp-typeinfo -Wl,--hash-style=both -Wl,-rpath,'$ORIGIN:$ORIGIN/../ure-link/lib' -shared -L../../unxlngi6.pro/lib -L../lib -L/usr/src/libreoffice-build-git/build/libreoffice-3.2.99.2/solenv/unxlngi6/lib -L/usr/src/libreoffice-build-git/build/libreoffice-3.2.99.2/solver/330/unxlngi6.pro/lib -L/usr/src/libreoffice-build-git/build/libreoffice-3.2.99.2/solenv/unxlngi6/lib -L/usr/src/jdk1.6.0_22/lib -L/usr/src/jdk1.6.0_22/jre/lib/i386 -L/usr/src/jdk1.6.0_22/jre/lib/i386/client -L/usr/src/jdk1.6.0_22/jre/lib/i386/native_threads -L/usr/lib ../../unxlngi6.pro/slo/pyuno_version.o -o ../../unxlngi6.pro/lib/libpyuno.so ../../unxlngi6.pro/slo/pyuno_runtime.o ../../unxlngi6.pro/slo/pyuno.o ../../unxlngi6.pro/slo/pyuno_callable.o ../../unxlngi6.pro/slo/pyuno_module.o ../../unxlngi6.pro/slo/pyuno_type.o ../../unxlngi6.pro/slo/pyuno_util.o ../../unxlngi6.pro/slo/pyuno_except.o ../../unxlngi6.pro/slo/pyuno_adapter.o ../../unxlngi6.pro/slo/pyuno_gc.o -luno_cppu -luno_cppuhelpergcc3 -luno_sal -lpython2.6 -Wl,--as-needed -ldl -lpthread -lm -Wl,--no-as-needed -Wl,-Bdynamic -lstlport_gcc -lutil
+
+
+
+
+make
+
+
+mv /usr/src/libreoffice-build-git/build/libreoffice-3.2.99.2/pyuno/unxlngi6.pro/misc/pyuno.libpyuno_1.cmd{,.orig}
+sed 's/-lstlport_gcc/-lstlport_gcc -lutil/g' < /usr/src/libreoffice-build-git/build/libreoffice-3.2.99.2/pyuno/unxlngi6.pro/misc/pyuno.libpyuno_1.cmd.orig > /usr/src/libreoffice-build-git/build/libreoffice-3.2.99.2/pyuno/unxlngi6.pro/misc/pyuno.libpyuno_1.cmd
+
+make
