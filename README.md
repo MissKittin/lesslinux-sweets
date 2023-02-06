@@ -42,6 +42,7 @@ If you are the author and you do not want this repository to be publicly availab
 * `cbsicher-area51-20100702-093049.iso` https://download.lesslinux.org/testing/cbsicher/cbsicher-area51-20100702-093049.iso
 * `lesslinux-desktop-entries-20091019.tar.bz2` https://distfiles.lesslinux.org/lesslinux-desktop-entries-20091019.tar.bz2
 * `lesslinux-desktop-entries-20100716.tar.bz2` https://distfiles.lesslinux.org/lesslinux-desktop-entries-20100716.tar.bz2
+* `lesslinux-desktop-entries-20101209.tar.bz2` https://distfiles.lesslinux.org/lesslinux-desktop-entries-20101209.tar.bz2
 
 # Scripts
 * `1570_clamav.xml` https://github.com/mschlenker/lesslinux-builder/blob/master/scripts/stage03/1570_clamav.xml
