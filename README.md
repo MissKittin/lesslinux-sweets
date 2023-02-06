@@ -46,6 +46,7 @@ If you are the author and you do not want this repository to be publicly availab
 * `lesslinux-desktop-entries-20130811.tar.bz2` https://distfiles.lesslinux.org/lesslinux-desktop-entries-20130811.tar.bz2
 * `lesslinux-emergencytools-20100719.tar.bz2` https://distfiles.lesslinux.org/lesslinux-emergencytools-20100719.tar.bz2
 * `lesslinux-emergencytools-20171206.tar.bz2` https://distfiles.lesslinux.org/lesslinux-emergencytools-20171206.tar.bz2
+* `stickcheck-20091014.tar.bz2` https://distfiles.lesslinux.org/stickcheck-20091014.tar.bz2
 
 # Scripts
 * `1570_clamav.xml` https://github.com/mschlenker/lesslinux-builder/blob/master/scripts/stage03/1570_clamav.xml
