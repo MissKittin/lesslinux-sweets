@@ -1,0 +1,86 @@
+<llpackages>
+	<package 
+		name="gnutls"
+		version="2.12.20"
+		class="user"
+		install="destdir">
+		<license>GPLv2</license>
+		<sources>
+			<file>                                                                                           
+				<pkg sha1="a8a7bb1f51b4da45d32242bd2e843ab3a66f63f6">gnutls-2.12.20.tar.bz2</pkg>
+				<mirror>http://ftp.gnu.org/pub/gnu/gnutls/</mirror>
+			</file>
+			<manualcheck date="20120624" interval="180" page="http://ftp.gnu.org/pub/gnu/gnutls/" />
+			<check>
+				<page html="http://ftp.gnu.org/pub/gnu/gnutls/">
+					<atext linktext="gnutls-2.12.21." />
+					<atext linktext="gnutls-2.12.22." />
+					<atext linktext="gnutls-2.12.23." />
+					<atext linktext="gnutls-2.12.24." />
+					<atext linktext="gnutls-2.13." />
+					<atext linktext="gnutls-2.14." />
+					<atext linktext="gnutls-2.15." />
+					<atext linktext="gnutls-2.16." />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+                        <dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>coreutils</dep>
+                        <dep>diffutils</dep>
+                        <dep>findutils</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>gettext</dep>
+                        <dep>glibc</dep>
+                        <dep>gmp</dep>
+                        <dep>grep</dep>
+                        <dep>gzip</dep>
+                        <dep>inetutils</dep>
+                        <dep>libgcrypt</dep>
+                        <dep>libgpg-error</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>nettle</dep>
+			<dep>openssl</dep>
+                        <dep>pkg-config</dep>
+                        <dep>readline</dep>
+                        <dep>sed</dep>
+                        <dep>util-linux-ng</dep>
+                        <dep>zlib</dep>
+			<dep>p11-kit</dep>
+			<dep>guile</dep>
+			<dep>gnutls3</dep>
+                </builddeps>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			# ./configure --sysconfdir=/etc --prefix=/usr --without-p11-kit && make
+			./configure --sysconfdir=/etc/compat.old --prefix=/usr/compat.old --without-p11-kit && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install DESTDIR=${TGTDIR}
+			]]>
+		</install>
+		<clean>
+			<![CDATA[
+			rm -rf ${PKGNAME}-${PKGVERSION}
+			]]>
+		</clean>
+	</package>
+</llpackages>

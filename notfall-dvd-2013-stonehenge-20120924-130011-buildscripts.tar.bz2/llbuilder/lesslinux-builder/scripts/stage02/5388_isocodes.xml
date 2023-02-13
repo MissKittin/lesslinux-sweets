@@ -1,0 +1,58 @@
+<llpackages>
+	<package 
+		name="iso-codes"
+		version="3.31"
+		class="user"
+		install="destdir"
+		>
+		<license>GPLv2</license>
+		<sources>  
+			<file>                                                                                  
+				<pkg sha1="68e986bcc80ebb6025cab4257cb2365148238033">iso-codes_3.31.orig.tar.bz2</pkg>
+				<mirror>http://ftp.de.debian.org/debian/pool/main/i/iso-codes/</mirror>
+			</file>
+			<manualcheck date="20111219" interval="90" page="http://packages.debian.org/source/unstable/iso-codes" />
+		</sources>
+		 <builddeps>
+                        <dep>bash</dep>
+                        <dep>coreutils</dep>
+                        <dep>diffutils</dep>
+                        <dep>gawk</dep>
+                        <dep>gettext</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <dep>inetutils</dep>
+                        <dep>make</dep>
+                        <dep>sed</dep>
+                        <dep>util-linux-ng</dep>
+                </builddeps>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}_${PKGVERSION}.orig.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}_${PKGVERSION}.orig.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}_${PKGVERSION}.orig.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --sysconfdir=/etc && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install DESTDIR=${TGTDIR}
+			]]>
+		</install>
+		<clean>
+			<![CDATA[
+			rm -rf ${PKGNAME}-${PKGVERSION}
+			]]>
+		</clean>
+	</package>
+</llpackages>

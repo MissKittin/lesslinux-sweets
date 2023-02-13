@@ -1,0 +1,103 @@
+<llpackages>
+	<package 
+		name="exo"
+		version="0.8.0"
+		class="lib"
+		install="destdir"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                                                                  
+				<pkg sha1="31604e576de3443920af68e2dd6416e1ff670430">exo-0.8.0.tar.bz2</pkg>
+				<mirror>http://archive.xfce.org/src/xfce/exo/0.8/</mirror>
+			</file>
+			<manualcheck date="20120611" interval="180" page="http://archive.xfce.org/src/xfce/exo/0.8/" />
+			<check>
+				<page html="http://archive.xfce.org/src/xfce/exo/0.8/">
+					<atext linktext="exo-0.8.1" />
+					<atext linktext="exo-0.8.2" />
+					<atext linktext="exo-0.8.3" />
+					<atext linktext="exo-0.8.4" />
+				</page>
+				<page html="http://archive.xfce.org/src/xfce/exo/">
+					<atext linktext="0.9" />
+					<atext linktext="0.10" />
+					<atext linktext="0.11" />
+					<atext linktext="0.12" />
+					<atext linktext="1.0" />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+                        <dep>Python</dep>
+                        <dep>atk</dep>
+                        <dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>cairo</dep>
+                        <dep>coreutils</dep>
+                        <dep>diffutils</dep>
+                        <dep>expat</dep>
+                        <dep>fontconfig</dep>
+                        <dep>freetype</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>gdk-pixbuf</dep>
+                        <dep>gettext</dep>
+                        <dep>glib</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <dep>gtk</dep>
+                        <dep>imake</dep>
+                        <dep>inetutils</dep>
+                        <dep>intltool</dep>
+                        <dep>libICE</dep>
+                        <dep>libSM</dep>
+                        <dep>libX11</dep>
+                        <dep>libXau</dep>
+                        <dep>libXdmcp</dep>
+                        <dep>libXrender</dep>
+                        <dep>libffi</dep>
+                        <dep>libgnomecanvas</dep>
+                        <dep>libpng14</dep><dep>libpng15</dep>
+                        <dep>libpthread-stubs</dep>
+                        <dep>libxcb</dep>
+                        <dep>libxfce4util</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>p5-uri</dep>
+                        <dep>pango</dep>
+                        <dep>perl</dep>
+                        <dep>pixman</dep>
+                        <dep>pkg-config</dep>
+                        <dep>pygobject</dep>
+                        <dep>pygtk</dep>
+                        <dep>sed</dep>
+                        <dep>util-linux-ng</dep>
+                        <dep>xorg-cf-files</dep>
+                        <dep>xproto-base</dep>
+                </builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --sysconfdir=/etc --prefix=/usr && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install DESTDIR=${TGTDIR}
+			paxctl -m ${TGTDIR}/usr/bin/exo-desktop-item-edit
+			paxctl -m ${TGTDIR}/usr/bin/exo-open
+			paxctl -m ${TGTDIR}/usr/libexec/exo-helper-0.3
+			paxctl -m ${TGTDIR}/usr/libexec/exo-helper-0.6
+			]]>
+		</install>
+	</package>
+</llpackages>

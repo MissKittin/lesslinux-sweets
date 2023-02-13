@@ -1,0 +1,103 @@
+<llpackages>
+	<package 
+		name="xfce-utils"
+		version="4.8.3"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                                                                   
+				<pkg sha1="159d445b689ebbf73462a4b4baf5cce4e04afaab">xfce-utils-4.8.3.tar.bz2</pkg>
+				<mirror>http://archive.xfce.org/src/xfce/xfce-utils/4.8/</mirror>
+			</file>
+			<check>
+				<page html="http://archive.xfce.org/src/xfce/xfce-utils/4.8/">
+					<atext linktext="xfce-utils-4.8.4" />
+					<atext linktext="xfce-utils-4.8.5" />
+					<atext linktext="xfce-utils-4.8.6" />
+					<atext linktext="xfce-utils-4.8.7" />
+				</page>
+				<page html="http://archive.xfce.org/src/xfce/xfce-utils/">
+					<atext linktext="4.9" />
+					<atext linktext="4.10" />
+					<atext linktext="4.11" />
+					<atext linktext="5.0" />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+                        <dep>atk</dep>
+                        <dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>cairo</dep>
+                        <dep>coreutils</dep>
+                        <dep>dbus-glib</dep>
+                        <dep>dbus</dep>
+                        <dep>diffutils</dep>
+                        <dep>expat</dep>
+                        <dep>fontconfig</dep>
+                        <dep>freetype</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>gdk-pixbuf</dep>
+                        <dep>gettext</dep>
+                        <dep>glib</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <dep>gtk</dep>
+                        <dep>imake</dep>
+                        <dep>inetutils</dep>
+                        <dep>intltool</dep>
+                        <dep>libICE</dep>
+                        <dep>libSM</dep>
+                        <dep>libX11</dep>
+                        <dep>libXau</dep>
+                        <dep>libXdmcp</dep>
+                        <dep>libXrender</dep>
+                        <dep>libpng14</dep><dep>libpng15</dep>
+                        <dep>libpthread-stubs</dep>
+                        <dep>libxcb</dep>
+                        <dep>libxfce4ui</dep>
+                        <dep>libxfce4util</dep>
+                        <dep>libxfcegui4</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>p5-xml</dep>
+                        <dep>pango</dep>
+                        <dep>perl</dep>
+                        <dep>pixman</dep>
+                        <dep>pkg-config</dep>
+                        <dep>sed</dep>
+                        <dep>startup-notification</dep>
+                        <dep>util-linux-ng</dep>
+                        <dep>xorg-cf-files</dep>
+                        <dep>xproto-base</dep>
+                </builddeps>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --sysconfdir=/etc && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			paxctl -m  /usr/bin/xfce4-about
+			paxctl -m  /usr/bin/xfrun4
+			
+			]]>
+		</install>
+	</package>
+</llpackages>

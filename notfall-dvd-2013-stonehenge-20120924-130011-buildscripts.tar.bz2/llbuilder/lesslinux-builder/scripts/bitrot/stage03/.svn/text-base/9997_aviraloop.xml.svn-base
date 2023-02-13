@@ -1,0 +1,249 @@
+<llpackages>
+	<package 
+		name="aviraloop"
+		version="20111028"
+		class="user"
+		allowfail="yes"
+		>
+	</package>
+	<dirs>
+		<dir mode="0755">/etc/avira</dir>
+		<dir mode="0755">/etc/lesslinux/branding/postisoconvert.d</dir>
+	</dirs>
+	<scripts>
+		<scriptdata location="/etc/avira/scancl.conf" mode="0644" group="0" owner="0">
+		<![CDATA[
+]]>
+		</scriptdata>
+		<scriptdata location="/etc/avira/avupdate.sh" mode="0755" group="0" owner="0">
+		<![CDATA[#!/bin/bash
+
+cd /AntiVirUpdate
+echo "Updating, please wait ... "	
+./avupdate.bin --config=/AntiVirUpdate/avupdate.conf \
+	--product-file=/idx/rescuesystem-linux_glibc22-en.idx \
+	--product-info-file=/idx/rescuesystem-linux_glibc22-en.info.gz \
+	--skip-master-file
+
+]]>
+		</scriptdata>
+		<scriptdata location="/etc/avira/avupdate.conf" mode="0755" group="0" owner="0">
+		<![CDATA[
+		
+# Please DO NOT CHANGE this file. If yes, you will probalby fuck it up.
+# The list of Internet update servers.
+internet-srvs=http://professional.avira-update.com/update,http://professional.avira-update.net/update
+
+# Specifies the master.idx file.
+master-file=/idx/master.idx
+
+# Specifies the installation directory for updated product files.
+# install-dir=../../antivir
+install-dir=/AntiVir
+
+# Temporary directory for downloading update files.
+temp-dir=avira_update
+
+# Specify a full path with a filename to which AntiVir Avupdate
+# will write its log messages.
+log=avupdate.log
+
+# Append to log file (By default, the log is overwritten).
+log-append
+
+]]>
+		</scriptdata>
+		<!--  /etc/lesslinux/branding/postisoconvert.d/*.sh -->
+		<scriptdata location="/etc/lesslinux/branding/postisoconvert.d/0300-antivir.sh" mode="0755" group="0" owner="0">
+		<![CDATA[#!/static/bin/ash
+		
+PATH=/static/bin:/static/sbin:/bin:/sbin:/usr/bin:/usr/sbin:
+export PATH
+
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors
+		
+# first check, if the files needed exist
+[ -f /lesslinux/cdrom/lesslinux/blob/antivir_workstation*.tar.* ] || exit 1
+[ -f /lesslinux/cdrom/lesslinux/blob/scancl-linux*.tar.* ]        || exit 1
+# they do, so start
+# FIXME: Change contdir!
+mkdir -p /lesslinux/data/${contdir}/blob
+freespace=` df -k /lesslinux/data | tail -n1 | awk '{print $4}' `
+freespace=` expr $freespace - 1024 ` 
+if [ "$freespace" -lt 262144 ] ; then
+	exit 0
+fi
+contsize=240
+echo '---> Creating container for Avira' > /dev/tty8
+echo -n '0%' > /dev/tty8
+for i in ` seq 0 $contsize ` ; do
+	percentage=` expr ${i}00 / ${contsize} `
+	printf '\033[10D' > /dev/tty8 
+	printf "${percentage}" > /dev/tty8
+	echo -n '%' > /dev/tty8
+	dd if=/dev/zero bs=1048576 count=1 seek=${i} of=/lesslinux/data/${contdir}/blob/antivir.ext
+done
+exit 0
+
+# FIXME Remove!!!
+
+		]]>
+		</scriptdata>
+		<scriptdata location="/etc/rc.d/0700-aviraloop.sh" mode="0755" group="0" owner="0">
+		<![CDATA[#!/bin/bash
+		
+#lesslinux provides avloop
+#lesslinux license BSD
+#lesslinux description
+# Find and mount an Avira or Antibot image to use its avira CLI scanner
+
+PATH=/bin:/sbin:/usr/bin:/usr/sbin:/static/bin:/static/sbin
+export PATH
+
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors
+
+install_antivir() {
+	mkdir -p /tmp/avira
+	tar -C /tmp/avira -xzf /lesslinux/blob/antivir_workstation*.tar.*
+	rsync -avHP /tmp/avira/antivir-workstation-*/bin/linux_glibc22/ /AntiVir/
+	rsync -avHP /tmp/avira/antivir-workstation-*/vdf/ /AntiVir/
+	tar -C /tmp/avira -xzf /lesslinux/blob/scancl-linux*.tar.*
+	rsync -avHP /tmp/avira/scancl-*/scancl /AntiVir/
+	rsync -avHP /tmp/avira/scancl-*/scancl.conf /AntiVir/
+	if [ -L /lesslinux/blob/hbedv.key ] ; then
+		install -m 0644 /lesslinux/blob/hbedv.key /AntiVir/hbedv.key 
+		install -m 0644 /lesslinux/blob/hbedv.key /AntiVir/rescue_cd.key 
+	fi
+	# FIXME! Add avupdate script
+	install -m 0755 /tmp/avira/antivir-workstation-*/bin/linux_glibc22/avupdate.bin /AntiVirUpdate/
+	install -m 0644 /tmp/avira/antivir-workstation-*/bin/linux_glibc22/avupdate_msg.avr /AntiVirUpdate/
+	install -m 0644 /etc/avira/avupdate.conf /AntiVirUpdate/
+	install -m 0755 /etc/avira/avupdate.sh /AntiVirUpdate/avupdate
+	# sed -i 's§install-dir=/usr/lib/AntiVir§install-dir=/AntiVir§g' /AntiVirUpdate/avupdate.conf
+	# sed -i 's§log=/var/log/avupdate.log§log=/tmp/avupdate.log§g' /AntiVirUpdate/avupdate.conf 
+	rm -rf /tmp/avira
+}
+
+keydate='197001010300'
+
+case $1 in 
+    start)
+	mountpoint -q /AntiVir && exit 1
+	[ -d /lesslinux/blob ] || exit 1
+	printf "$bold===> Preparing Avira $normal\n"
+	mkdir -m 0755 -p /AntiVir
+	mkdir -m 0755 -p /AntiVirUpdate
+	mkdir -m 0755 -p /var/log/AntiVir
+	mkdir -m 0755 -p /media
+	mkdir -m 0700 -p /tmp/.empty # dummy directory for scan of boot sectors
+	optboot=1
+	if grep -qv sr /var/run/lesslinux/install_source ; then
+		optboot=0
+	fi
+	# FIXME! Find Avira outside of blob directory
+	if [ -d /lesslinux/blob/antivir ] ; then
+		echo "Not yet implemented"
+		exit 0
+	elif [ -f /lesslinux/blob/antivir.ext ] ; then
+		mkdir -p /lesslinux/antivir
+		if mount -o loop,relatime -t ext4 /lesslinux/blob/antivir.ext /lesslinux/antivir ; then
+			mount --bind /lesslinux/antivir/AntiVir /AntiVir
+			mount --bind /lesslinux/antivir/AntiVirUpdate /AntiVirUpdate
+		else
+			freeloop=` losetup -f `
+			losetup "$freeloop" /lesslinux/blob/antivir.ext
+			mkfs.ext2 "$freeloop"
+			mount -o relatime -t ext4 "$freeloop" /lesslinux/antivir
+			mkdir -p /lesslinux/antivir/AntiVir
+			mkdir -p /lesslinux/antivir/AntiVirUpdate
+			mount --bind /lesslinux/antivir/AntiVir /AntiVir
+			mount --bind /lesslinux/antivir/AntiVirUpdate /AntiVirUpdate
+			install_antivir
+		fi
+	elif [ -f /lesslinux/blob/antivir_workstation*.tar.* ] ; then
+		mount -t tmpfs -o mode=0755 tmpfs /AntiVir
+		mount -t tmpfs -o mode=0755 tmpfs /AntiVirUpdate
+		install_antivir
+	elif [ "$optboot" -lt 1 ] ; then
+		parent=` cat /var/run/lesslinux/install_source | sed 's/[0-9]$//g' | sed 's%/dev/%%g' `
+		bootpart=` cat /var/run/lesslinux/install_source | sed 's%/dev/%%g' `
+		parts=` cat /proc/partitions | grep "${parent}"'[0-9]' | grep -v "$bootpart" | awk '{print $4} ` 
+		mkdir -p /lesslinux/antivir
+		# assume vfat
+		avirafound=0
+		for p in $parts ; do
+			if [ "$avirafound" -lt 1 ] ; then
+				mount -t vfat -o mode=0755,uid=0 /dev/$p /lesslinux/antivir
+				if [ -d /lesslinux/antivir/antivir ] ; then
+					avirafound=1
+					mount --bind /lesslinux/antivir/antivir /AntiVir
+					mount --bind /lesslinux/antivir/avupdate /AntiVirUpdate
+					for f in avupdate avupdate.bin avupdate_msg.avr ; do
+						[ -f "/AntiVirUpdate/$f" ] || install -m 0755 "/lesslinux/antivir/avupdate/unix/$f" /AntiVirUpdate
+					done
+				else
+					umount /lesslinux/antivir
+				fi
+			fi
+		done
+	elif [ -d /lesslinux/toram/antivir -o -d /lesslinux/cdrom/antivir -o -d /lesslinux/isoloop/antivir ] ; then
+		mount -t tmpfs -o mode=0755 tmpfs /AntiVir
+		mount -t tmpfs -o mode=0755 tmpfs /AntiVirUpdate
+		if [ -d /lesslinux/toram/antivir ] ; then
+			fldr='toram'
+			tar -C /lesslinux/$fldr/antivir -cf - . | tar -C /AntiVir -xf -
+			tar -C /lesslinux/$fldr/avupdate -cf - . | tar -C /AntiVirUpdate -xf -
+		elif [ -d /lesslinux/cdrom/antivir ] ; then
+		        fldr='cdrom'
+			tar -C /lesslinux/$fldr/antivir -cf - . | tar -C /AntiVir -xf -
+			tar -C /lesslinux/$fldr/avupdate -cf - . | tar -C /AntiVirUpdate -xf -
+		elif [ -d /lesslinux/isoloop/antivir ] ; then
+			fldr='isoloop'
+			tar -C /lesslinux/$fldr/antivir -cf - . | tar -C /AntiVir -xf -
+			tar -C /lesslinux/$fldr/avupdate -cf - . | tar -C /AntiVirUpdate -xf -
+			for i in avupdate avupdate.bin avupdate_msg.avr ; do
+				install -m 0755 "/lesslinux/$fldr/avupdate/unix/$i" /AntiVirUpdate
+			done
+		fi
+		chown -R root:root /AntiVir 
+		chown -R root:root /AntiVirUpdate		
+	else
+		exit 1
+	fi
+	echo '' >> /etc/sudoers
+	echo '# added by /etc/rc.d/0700-aviraloop.sh' >> /etc/sudoers
+	echo 'surfer  ALL = NOPASSWD: /AntiVirUpdate/avupdate' >> /etc/sudoers
+	if [ "$laxsudo" -gt 0 ] ; then
+		echo 'surfer  ALL = NOPASSWD: /AntiVir/scancl' >> /etc/sudoers
+		echo 'surfer  ALL = NOPASSWD: /usr/share/lesslinux/avfrontend/virusfrontend' >> /etc/sudoers
+		echo 'surfer  ALL = NOPASSWD: /usr/bin/cbavgui.rb' >> /etc/sudoers
+		echo 'surfer  ALL = NOPASSWD: /usr/bin/chvt' >> /etc/sudoers
+	else
+		echo 'surfer  ALL = /AntiVir/scancl' >> /etc/sudoers
+		echo 'surfer  ALL = /usr/share/lesslinux/avfrontend/virusfrontend' >> /etc/sudoers
+	fi
+    ;;
+    stop)
+        printf "$bold===> Unmounting Avira $normal\n"
+	mount -o remount,rw /lesslinux/cdrom
+	# Write back updated signatures! Just try it...
+	if mountpoint -q /lesslinux/cdrom && [ -d /AntiVir ] ; then
+	    mkdir /lesslinux/cdrom/antivir
+	    tar -C /AntiVir -cvf - . | tar -C /lesslinux/cdrom/antivir -xf -
+	fi
+	umount /AntiVir
+	umount /AntiVirUpdate
+	umount /lesslinux/antivir
+	mount -o remount,ro /lesslinux/cdrom
+	# FIXME: You might want to manually unmount /AntiVir and AntiVirUpdate
+    ;;
+esac
+
+		]]>
+		</scriptdata>
+	</scripts>
+</llpackages>

@@ -1,0 +1,80 @@
+<llpackages>
+	<package 
+		name="Python"
+		version="2.7.3"
+		class="user"
+		install="destdir">
+		<license>GPLv2</license>
+		<sources>
+			<file>                                                      
+				<pkg sha1="b2b0ada7ebed4a8204a855193afbdb3aa3308357">Python-2.7.3.tar.xz</pkg>
+				<mirror>http://python.org/ftp/python/2.7.3/</mirror>
+			</file>
+			<manualcheck date="20120511" interval="120" page="http://www.python.org/" />
+			<check>
+				<page html="http://python.org/ftp/python/">
+					<atext linktext="2.7.7" />
+					<atext linktext="2.7.4" />
+					<atext linktext="2.7.5" />
+					<atext linktext="2.7.6" />
+					<atext linktext="3.2.5" />
+					<atext linktext="3.2.4" />
+					<atext linktext="3.3.3" />
+					<atext linktext="3.3.1" />
+					<atext linktext="3.3.2" />
+				</page>
+			</check>
+		</sources> 
+		<builddeps>
+			<dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>bzip2</dep>
+                        <dep>coreutils</dep>
+                        <dep>diffutils</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <dep>inetutils</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>ncurses</dep>
+                        <dep>openssl</dep>
+                        <dep>readline</dep>
+                        <dep>sed</dep>
+                        <dep>util-linux-ng</dep>
+                        <dep>zlib</dep>
+			<!-- soft -->
+			<dep>sqlite</dep>
+			<!-- creates cycle -->
+			<!-- <dep>subversion</dep> -->
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			unxz -c ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.xz | tar xf -
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install DESTDIR=${TGTDIR}
+			ln -sf python2.7 ${TGTDIR}/usr/bin/python
+			/sbin/paxctl -m ${TGTDIR}/usr/bin/python2.7
+			]]>
+		</install>
+		<clean>
+			<![CDATA[
+			rm -rf ${PKGNAME}-${PKGVERSION}
+			]]>
+		</clean>
+	</package>
+</llpackages>

@@ -1,0 +1,55 @@
+<llpackages>
+	<package 
+		name="docutils"
+		version="0.9.1"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                                                                                   
+				<pkg sha1="c55d1ccabe2de82dd93d0f14884d07bbe10a3d40">docutils-0.9.1.tar.gz</pkg>
+				<mirror>http://downloads.sourceforge.net/project/docutils/docutils/0.9.1/</mirror>
+			</file>
+			<manualcheck date="20120625" interval="180" page="http://sourceforge.net/projects/docutils/files/docutils/" />
+			<check>
+				<page html="http://sourceforge.net/projects/docutils/files/docutils/">
+					<atext linktext="0.9.2" />
+					<atext linktext="0.9.3" />
+					<atext linktext="0.9.4" />
+					<atext linktext="0.9.5" />
+					<atext linktext="0.10" />
+					<atext linktext="1.0" />
+					<atext linktext="1.1" />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+                        <dep>Python</dep>
+                        <dep>bash</dep>
+                        <dep>pygobject</dep>
+                </builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			]]>
+		</unpack>
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			python setup.py config
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			python setup.py install
+			]]>
+		</install>
+		<clean>
+			<![CDATA[
+			rm -rf ${PKGNAME}-${PKGVERSION}
+			]]>
+		</clean>
+	</package>
+</llpackages>

@@ -1,0 +1,90 @@
+<llpackages>
+	<package 
+		name="gcc46"
+		version="4.6.1"
+		install="destdir"
+		providedeps="no"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                                                                  
+				<pkg sha1="8bf66f7a71534ba564563a0ba0b2517aead8ac30">gcc-4.6.1.tar.bz2</pkg>
+				<mirror>ftp://ftp.mpi-sb.mpg.de/pub/gnu/mirror/gcc.gnu.org/pub/gcc/releases/gcc-4.6.1/</mirror>
+			</file>
+			<check>
+				<page html="http://ftp.gnu.org/gnu/gcc/">
+					<atext linktext="gcc-4.6.2" />
+					<atext linktext="gcc-4.6.3" />
+					<atext linktext="gcc-4.6.4" />
+					<atext linktext="gcc-4.7." />
+					<atext linktext="gcc-4.8." />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>linux_headers</dep>
+			<dep>glibc</dep>
+			<dep>man-pages</dep>
+			<dep>readjust</dep>
+			<dep>zlib</dep>
+			<dep>binutils</dep>
+			<dep>gmp</dep>
+			<dep>mpfr</dep>
+			<dep>mpc</dep>
+			<dep>gcc</dep>
+			<dep>zip</dep>
+			<dep>unzip</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/gcc-${PKGVERSION}.tar.bz2
+			mkdir ${PKGNAME}-build
+			]]>
+		</unpack>
+		<patch>
+			<![CDATA[
+			cd gcc-${PKGVERSION}
+			sed -i 's/install_to_$(INSTALL_DEST) //' libiberty/Makefile.in
+			case `uname -m` in
+				i?86) 
+					sed -i 's/^T_CFLAGS =$/& -fomit-frame-pointer/' gcc/Makefile.in
+				;;
+			esac
+			sed -i 's@\./fixinc\.sh@-c true@' gcc/Makefile.in
+			# sed -i 's/getline/get_line/' libiberty/testsuite/test-demangle.c
+			
+			]]>
+		</patch>
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-build
+			
+			../gcc-${PKGVERSION}/configure --prefix=/usr/local/${PKGNAME} \
+				--enable-shared \
+				--enable-threads=posix --enable-__cxa_atexit \
+				--enable-clocale=gnu --enable-languages=c,c++,fortran,java,lto,objc,obj-c++,go \
+				--disable-multilib --with-system-zlib --program-suffix=46
+			make bootstrap
+			]]>
+		</build>
+		<test>
+			<![CDATA[
+			cd ${PKGNAME}-build
+			make -k check
+			../gcc-${PKGVERSION}/contrib/test_summary
+			]]>
+		</test>
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-build
+			make install DESTDIR=${TGTDIR}
+			]]>
+		</install>
+		<clean>
+			 <![CDATA[
+			rm -rf gcc-${PKGVERSION}
+			rm -rf ${PKGNAME}-build
+			]]>
+		</clean>
+	</package>
+</llpackages>

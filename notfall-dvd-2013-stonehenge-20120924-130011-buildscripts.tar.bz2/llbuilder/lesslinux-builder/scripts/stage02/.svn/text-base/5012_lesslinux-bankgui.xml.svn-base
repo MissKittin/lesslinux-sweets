@@ -1,0 +1,59 @@
+<llpackages>
+	<package 
+		name="lesslinux-bankgui"
+		version="20111216-01"
+		class="user"
+		install="destdir"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                                                                                         
+				<pkg sha1="32b2b75210e0bff2c914565ede9c83e3671170f4">lesslinux-bankgui-20111216-01.tar.bz2</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+		</sources>
+		<builddeps>
+			<dep>bash</dep>
+			<dep>ruby</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			echo 'Nothing to do!'
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			mkdir -m 0755 -p ${TGTDIR}/etc/lesslinux/banking/descs
+			mkdir -m 0755 -p ${TGTDIR}/usr/share/lesslinux/banking/descs
+			mkdir -m 0755 -p ${TGTDIR}/usr/share/lesslinux/banking/descs_pl
+			mkdir -m 0755 -p ${TGTDIR}/usr/bin
+			cd lesslinux-bankgui
+			install -m 0644 blzlist.xml ${TGTDIR}/etc/lesslinux/banking
+			install -m 0644 blzlist_pl.xml ${TGTDIR}/etc/lesslinux/banking
+			install -m 0755 bankselector.rb ${TGTDIR}/usr/bin
+			install -m 0755 smack_bankrules.rb ${TGTDIR}/usr/bin
+			install -m 0755 bankselector.sh ${TGTDIR}/usr/bin
+			install -m 0755 bankcrawler.rb ${TGTDIR}/usr/share/lesslinux/banking
+			install -m 0644 certs.sqs ${TGTDIR}/usr/share/lesslinux/banking
+			install -m 0644 money.png ${TGTDIR}/usr/share/icons
+			install -m 0755 bankselector_wrapper.sh ${TGTDIR}/usr/bin
+			install -m 0755 writesmackrules.sh ${TGTDIR}/usr/bin
+			install -m 0755 ff_bankwrapper.sh ${TGTDIR}/usr/bin
+			cd blzxmls
+			install -m 0644 *.xml ${TGTDIR}/usr/share/lesslinux/banking/descs
+			cd ../blzxmls_pl
+			install -m 0644 *.xml ${TGTDIR}/usr/share/lesslinux/banking/descs_pl
+			cd ..
+			tar -C ${TGTDIR}/ -xvf ca-certificates.tar
+			
+			]]>
+		</install>
+	</package>
+</llpackages>

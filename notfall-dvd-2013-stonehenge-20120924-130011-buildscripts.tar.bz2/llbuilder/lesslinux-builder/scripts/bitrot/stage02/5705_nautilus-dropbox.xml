@@ -1,0 +1,92 @@
+<llpackages>
+	<package 
+		name="nautilus-dropbox"
+		version="20111030"
+		class="user"
+		install="destdir"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                                                                               
+				<pkg sha1="77ce777bd342eaf7ada3e3a4f6664f66ca4189fb">nautilus-dropbox-0.6.7.tar.bz2</pkg>
+				<mirror>http://www.dropbox.com/download?dl=packages/</mirror>
+			</file>
+			<file>                                                                               
+				<pkg sha1="a402e138b21b282ab905b6939e361c492852a31d">dropboxstart-20111030.sh</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+		</sources>
+		<builddeps>
+                        <dep>Python</dep>
+                        <dep>atk</dep>
+                        <dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>cairo</dep>
+                        <dep>coreutils</dep>
+                        <dep>diffutils</dep>
+                        <dep>docutils</dep>
+                        <dep>expat</dep>
+                        <dep>fontconfig</dep>
+                        <dep>freetype</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>gdk-pixbuf</dep>
+                        <dep>glib</dep>
+                        <dep>glibc</dep>
+                        <dep>gobject-introspection</dep>
+                        <dep>grep</dep>
+                        <dep>gtk+</dep>
+                        <dep>inetutils</dep>
+                        <dep>libX11</dep>
+                        <dep>libXau</dep>
+                        <dep>libXdmcp</dep>
+                        <dep>libXrender</dep>
+                        <dep>libpng12</dep><dep>libpng14</dep>
+                        <dep>libpthread-stubs</dep>
+                        <dep>libxcb</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>nautilus</dep>
+                        <dep>pango</dep>
+                        <dep>pixman</dep>
+                        <dep>pkg-config</dep>
+                        <dep>pycairo</dep>
+                        <dep>pygobject</dep>
+                        <dep>pygtk</dep>
+                        <dep>sed</dep>
+                        <dep>util-linux-ng</dep>
+                        <dep>xproto-base</dep>
+                </builddeps>
+		<unpack>
+			<![CDATA[ 
+			
+			tar xjf ${SRCDIR}/${PKGNAME}-0.6.7.tar.bz2
+			# echo "Nothing to do."
+			
+			]]>
+		</unpack>
+		<build>
+			<![CDATA[
+			
+			cd ${PKGNAME}-0.6.7
+			./configure --prefix=/usr --sysconfdir=/etc && make
+			# echo "Nothing to do."
+			
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			
+			cd ${PKGNAME}-0.6.7
+			make install DESTDIR="${TGTDIR}"
+			mkdir -p "${TGTDIR}/usr/bin"
+			install -m 0755 ${SRCDIR}/dropboxstart-${PKGVERSION}.sh ${TGTDIR}/usr/bin/dropboxstart
+			sed -i 's%dropbox start -i%dropboxstart%g' ${TGTDIR}/usr/share/applications/dropbox.desktop
+			mkdir -p ${TGTDIR}/usr/share/dropbox/.dropbox-dist
+			touch ${TGTDIR}/usr/share/dropbox/.dropbox-dist/intentionally_empty 
+			
+			]]>
+		</install>
+	</package>
+</llpackages>

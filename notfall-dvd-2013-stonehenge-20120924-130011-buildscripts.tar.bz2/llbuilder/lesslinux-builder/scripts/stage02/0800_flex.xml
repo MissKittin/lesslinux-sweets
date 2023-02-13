@@ -1,0 +1,97 @@
+<llpackages>
+	<package 
+		name="flex"
+		version="2.5.37"
+		class="devel"
+		install="destdir"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>
+				<pkg sha1="db4b140f2aff34c6197cab919828cc4146aae218">flex-2.5.37.tar.bz2</pkg>
+				<mirror>http://prdownloads.sourceforge.net/flex/</mirror>
+			</file>
+			<file>
+				<pkg sha1="cee45a4498d24feb0f93d5d7240fe814742f713c">flex-2.5.37-bison-2.6.1-1.patch</pkg>
+				<mirror>http://www.linuxfromscratch.org/patches/lfs/development/</mirror>
+			</file>
+			<manualcheck date="20120822" interval="120" page="http://sourceforge.net/projects/flex/files/" />
+			<check>
+				<page html="http://sourceforge.net/projects/flex/files/">
+					<atext linktext="flex-2.5.40." />
+					<atext linktext="flex-2.5.41." />
+					<atext linktext="flex-2.5.38." />
+					<atext linktext="flex-2.5.39." />
+					<atext linktext="flex-2.6." />
+					<atext linktext="flex-2.7." />
+					<atext linktext="flex-3." />
+					<atext linktext="flex-4." />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>bison</dep>
+                        <dep>coreutils</dep>
+                        <dep>diffutils</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <dep>inetutils</dep>
+                        <dep>linux_headers</dep>
+                        <dep>m4</dep>
+                        <dep>sed</dep>
+                        <dep>util-linux-ng</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch>
+			<![CDATA[ 
+			cd ${PKGNAME}-${PKGVERSION}
+			cat ${SRCDIR}/${PKGNAME}-${PKGVERSION}-bison-2.6.1-1.patch | patch -p1
+			]]>
+		</patch>
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr && make
+			]]>
+		</build>
+		<test>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make check
+			]]>
+		</test>
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			mkdir -p ${TGTDIR}/usr/lib
+			mkdir -p ${TGTDIR}/usr/bin
+			make install DESTDIR=${TGTDIR}
+			ln -sv libfl.a ${TGTDIR}/usr/lib/libl.a
+			cat > ${TGTDIR}/usr/bin/lex << "EOF"
+#!/bin/sh
+# Begin /usr/bin/lex
+
+exec /usr/bin/flex -l "$@"
+
+# End /usr/bin/lex
+EOF
+			chmod -v 755 ${TGTDIR}/usr/bin/lex
+			mkdir -pv ${TGTDIR}/usr/share/doc/${PKGNAME}-${PKGVERSION}
+			cp    -v doc/flex.pdf ${TGTDIR}/usr/share/doc/${PKGNAME}-${PKGVERSION}
+			]]>
+		</install>
+		<clean>
+			<![CDATA[
+			rm -rf ${PKGNAME}-${PKGVERSION}
+			]]>
+		</clean>
+	</package>
+</llpackages>

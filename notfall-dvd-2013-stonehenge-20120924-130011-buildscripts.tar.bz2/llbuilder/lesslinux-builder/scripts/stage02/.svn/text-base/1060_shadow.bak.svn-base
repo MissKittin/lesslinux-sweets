@@ -1,0 +1,75 @@
+<llpackages>
+	<package 
+		name="shadow"
+		version="4.1.4.2"
+		class="skel"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>   
+				<pkg sha1="43e29471057c671de51360b10e3ee2b419c78ffa">shadow-4.1.4.2.tar.bz2</pkg>
+				<mirror>ftp://pkg-shadow.alioth.debian.org/pub/pkg-shadow/</mirror>
+			</file>
+			<check>
+				<page html="http://pkg-shadow.alioth.debian.org/">
+					<atext linktext="shadow-4.1.4.3.NEWS" />
+					<atext linktext="shadow-4.1.4.4.NEWS" />
+					<atext linktext="shadow-4.1.4.5.NEWS" />
+					<atext linktext="shadow-4.1.5.NEWS" />
+					<atext linktext="shadow-4.1.5.0.NEWS" />
+					<atext linktext="shadow-4.1.5.1.NEWS" />
+					<atext linktext="shadow-4.2.0.NEWS" />
+					<atext linktext="shadow-4.2.0.0.NEWS" />
+					<atext linktext="shadow-4.2.0.1.NEWS" />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>bison</dep>
+                        <dep>coreutils</dep>
+                        <dep>diffutils</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>gettext</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <dep>inetutils</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>sed</dep>
+                        <dep>util-linux-ng</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			
+			sed -i 's/groups$(EXEEXT) //' src/Makefile.in
+			find man -name Makefile.in -exec sed -i 's/groups\.1 / /' {} \;
+			sed -i -e 's@#ENCRYPT_METHOD DES@ENCRYPT_METHOD MD5@' -e 's@/var/spool/mail@/var/mail@' etc/login.defs
+			sed -i -e 's/ ko//' -e 's/ zh_CN zh_TW//' man/Makefile.in
+	
+			]]>
+		</patch>
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --sysconfdir=/etc && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			mv -v /usr/bin/passwd /bin
+			]]>
+		</install>
+	</package>
+</llpackages>

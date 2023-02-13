@@ -1,0 +1,53 @@
+<llpackages>
+	<package 
+		name="bash"
+		version="4.2"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                                                          
+				<pkg sha1="487840ab7134eb7901fbb2e49b0ee3d22de15cb8">bash-4.2.tar.gz</pkg>
+				<mirror>http://ftp.gnu.org/gnu/bash/</mirror>
+			</file>
+			<file>                                                     
+				<pkg sha1="b4ad6abd342f78db215e58f8b338c225d76c14ae">bash-4.2-fixes-7.patch</pkg>
+				<mirror>http://www.linuxfromscratch.org/patches/lfs/development/</mirror>
+			</file>
+			<manualcheck date="20120321" interval="120" page="http://ftp.gnu.org/gnu/bash/" />
+			<check>
+				<page html="http://ftp.gnu.org/gnu/bash/">
+					<atext linktext="bash-4.2.1." />
+					<atext linktext="bash-4.3." />
+					<atext linktext="bash-4.4." />
+					<atext linktext="bash-5." />
+				</page>
+			</check>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			]]>
+		</unpack>
+		<patch>
+			<![CDATA[ 
+			cd ${PKGNAME}-${PKGVERSION}
+			cat ${SRCDIR}/${PKGNAME}-${PKGVERSION}-fixes-7.patch | patch -p1
+			]]>
+		</patch>
+		<build>
+			<![CDATA[ 
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/tools --without-bash-malloc && make
+			]]>
+		</build>
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			ln -vsf bash /tools/bin/sh
+			ln -vsf /tools/bin/bash ${CHROOTDIR}/bin/sh
+			ln -vsf /tools/bin/bash ${CHROOTDIR}/bin/bash
+			]]>
+		</install>
+	</package>
+</llpackages>

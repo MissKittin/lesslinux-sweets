@@ -1,0 +1,71 @@
+<llpackages>
+	<package 
+		name="pcsc-lite"
+		version="1.8.4"
+		class="user"
+		install="destdir">
+		<license>GPLv2</license>
+		<sources>
+			<file>                       
+				<pkg sha1="711d7bcecc868a7f8d353c685da7f38d5e20be05">pcsc-lite-1.8.4.tar.bz2</pkg>
+				<mirror>http://alioth.debian.org/frs/download.php/3082/</mirror>
+			</file>
+			<!-- <check>
+				<page html="http://download.enlightenment.org/releases/">
+					<atext linktext="eina-1.0.1." />
+					<atext linktext="eina-1.0.2." />
+					<atext linktext="eina-1.0.3." />
+					<atext linktext="eina-1.1." />
+					<atext linktext="eina-1.2." />
+				</page>
+			</check> -->
+		</sources>
+		<builddeps>
+                        <dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>coreutils</dep>
+                        <dep>dbus</dep>
+                        <dep>diffutils</dep>
+                        <dep>flex</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <!-- <dep>hal</dep> -->
+                        <dep>inetutils</dep>
+                        <dep>linux_headers</dep>
+			<dep>libusb</dep>
+			<dep>libusb-compat</dep>
+                        <dep>make</dep>
+                        <dep>pkg-config</dep>
+                        <dep>sed</dep>
+                        <dep>util-linux-ng</dep>
+			<dep>udev</dep>
+                </builddeps> 
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --sysconfdir=/etc --disable-libhal && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install DESTDIR=${TGTDIR}
+			mkdir -p ${TGTDIR}/usr/pcsc/drivers 
+			touch ${TGTDIR}/usr/pcsc/drivers/.intentionally_empty
+			]]>
+		</install>
+		<clean>
+			<![CDATA[
+			rm -rf ${PKGNAME}-${PKGVERSION}
+			]]>
+		</clean>
+	</package>
+</llpackages>

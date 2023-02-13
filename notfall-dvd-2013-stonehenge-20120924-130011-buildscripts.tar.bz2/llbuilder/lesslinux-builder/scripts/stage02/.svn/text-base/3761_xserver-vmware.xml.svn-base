@@ -1,0 +1,71 @@
+<llpackages>
+	<package 
+		name="xf86-video-vmware"
+		version="12.0.2"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                                                      
+				<pkg sha1="efa47f365d88da245804a9934719ff860ed04f95">xf86-video-vmware-12.0.2.tar.bz2</pkg>
+				<mirror>http://xorg.freedesktop.org/archive/individual/driver/</mirror>
+			</file>
+			<check>
+				<page html="http://xorg.freedesktop.org/archive/individual/driver/">
+					<atext linktext="xf86-video-vmware-12.0.3." />
+					<atext linktext="xf86-video-vmware-12.0.4." />
+					<atext linktext="xf86-video-vmware-12.0.5." />
+					<atext linktext="xf86-video-vmware-12.0.6." />
+					<atext linktext="xf86-video-vmware-12.1." />
+					<atext linktext="xf86-video-vmware-12.2." />
+					<atext linktext="xf86-video-vmware-13." />
+					<atext linktext="xf86-video-vmware-14." />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>coreutils</dep>
+                        <dep>diffutils</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <dep>inetutils</dep>
+                        <dep>libpciaccess</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>pixman</dep>
+                        <dep>pkg-config</dep>
+                        <dep>sed</dep>
+                        <dep>util-linux-ng</dep>
+                        <dep>xineramaproto</dep>
+                        <dep>xorg-server</dep>
+                        <dep>xproto-base</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --sysconfdir=/etc && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

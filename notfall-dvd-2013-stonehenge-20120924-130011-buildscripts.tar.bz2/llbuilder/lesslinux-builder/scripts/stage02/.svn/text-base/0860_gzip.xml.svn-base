@@ -1,0 +1,70 @@
+<llpackages>
+	<package 
+		name="gzip"
+		version="1.5"
+		class="user"
+		install="destdir"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>    
+				<pkg sha1="473aaac6a48445221fd5b03fde52f0236c7486ab">gzip-1.5.tar.xz</pkg>
+				<mirror>http://ftp.gnu.org/gnu/gzip/</mirror>
+			</file>
+			<manualcheck date="20120621" interval="180" page="http://ftp.gnu.org/gnu/gzip/" />
+			<check>
+				<page html="http://ftp.gnu.org/gnu/gzip/">
+					<atext linktext="gzip-1.5.1.t" />
+					<atext linktext="gzip-1.6." />
+					<atext linktext="gzip-1.7." />
+					<atext linktext="gzip-2." />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>coreutils</dep>
+                        <dep>diffutils</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <dep>inetutils</dep>
+                        <dep>linux_headers</dep>
+                        <dep>sed</dep>
+                        <dep>util-linux-ng</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			unxz -c ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.xz | tar xf - 
+			]]>
+		</unpack>
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --bindir=/bin && make
+			]]>
+		</build>
+		<test>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make check
+			]]>
+		</test>
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			mkdir -p ${TGTDIR}/usr/bin
+			make install DESTDIR=${TGTDIR}
+			mv -v ${TGTDIR}/bin/{gzexe,uncompress,zcmp,zdiff,zegrep} ${TGTDIR}/usr/bin
+			mv -v ${TGTDIR}/bin/{zfgrep,zforce,zgrep,zless,zmore,znew} ${TGTDIR}/usr/bin
+			]]>
+		</install>
+		<clean>
+			<![CDATA[
+			rm -rf ${PKGNAME}-${PKGVERSION}
+			]]>
+		</clean>
+	</package>
+</llpackages>

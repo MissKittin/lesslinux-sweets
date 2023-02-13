@@ -1,0 +1,40 @@
+<llpackages>
+	<package 
+		name="lesslinux-desktop-entries"
+		version="20120710"
+		class="user"
+		install="destdir">
+		<license>GPLv2</license>
+		<sources>
+			<file>                                                                                         
+				<pkg sha1="711d82b4ea3832b2cf69344685b611b6f3b9a709">lesslinux-desktop-entries-20120710.tar.bz2</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			echo 'Nothing to do!'
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			mkdir -p ${TGTDIR}/usr/share/applications
+			mkdir -p ${TGTDIR}/usr/share/desktop-directories
+			cd lesslinux-desktop-entries
+			for i in ???_*.desktop ; do
+				install -m 0644 $i ${TGTDIR}/usr/share/applications/
+			done
+			for i in *.directory ; do
+				install -m 0644 $i ${TGTDIR}/usr/share/desktop-directories/
+			done
+			]]>
+		</install>
+	</package>
+</llpackages>

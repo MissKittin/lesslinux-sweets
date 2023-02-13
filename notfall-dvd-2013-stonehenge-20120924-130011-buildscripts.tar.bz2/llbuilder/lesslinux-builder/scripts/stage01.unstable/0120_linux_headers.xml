@@ -1,0 +1,59 @@
+<llpackages>
+	<package 
+		name="linux_headers"
+		version="3.4.11"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                                                                                                 
+				<pkg sha1="4b225a1fd01056c54d1caf690de13f92bfed1156">linux-3.4.tar.xz</pkg>
+				<mirror>http://www.kernel.org/pub/linux/kernel/v3.x/</mirror>
+			</file>
+			<file>                                                                                                                           
+				<pkg sha1="a92b235010de000987c87a433a020694da5561be">patch-3.4.11.xz</pkg>
+				<mirror>http://www.kernel.org/pub/linux/kernel/v3.x/</mirror>
+			</file>
+			<manualcheck date="20120917" interval="60" page="http://www.kernel.org/" />
+			<check>
+				<page html="http://www.kernel.org/pub/linux/kernel/v3.x/">
+					<atext linktext="patch-3.4.13." />
+					<atext linktext="patch-3.4.14." />
+					<atext linktext="patch-3.4.12." />
+					<atext linktext="patch-3.5." />
+					<atext linktext="patch-3.6." />
+				</page>
+			</check>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			unxz -c ${SRCDIR}/linux-3.4.tar.xz | tar xf -
+			]]>
+		</unpack>
+		<patch>
+			<![CDATA[ 
+			
+			cd linux-3.4
+			unxz -c ${SRCDIR}/patch-${PKGVERSION}.xz | patch -p1
+			cd ..
+			mv -v linux-3.4 linux-${PKGVERSION}
+			
+			]]>
+		</patch>
+		<build>
+			<![CDATA[ 
+			cd linux-${PKGVERSION}
+			make headers_check
+			]]>
+		</build>
+		<install>
+			<![CDATA[
+			
+			mkdir -p /tools/include
+			cd linux-${PKGVERSION}
+			make INSTALL_HDR_PATH=dest headers_install
+			cp -rv dest/include/* /tools/include
+			
+			]]>
+		</install>
+	</package>
+</llpackages>

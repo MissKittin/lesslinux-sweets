@@ -1,0 +1,41 @@
+<llpackages>
+	<package 
+		name="m4"
+		version="1.4.16"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                                              
+				<pkg sha1="0390c77780ab4cd65b07fe4e2d23e4e39769f967">m4-1.4.16.tar.bz2</pkg>
+				<mirror>http://ftp.gnu.org/gnu/m4/</mirror>
+			</file>
+			<check>
+				<page html="http://ftp.gnu.org/gnu/m4/">
+					<atext linktext="m4-1.4.16.1." />
+					<atext linktext="m4-1.4.17." />
+					<atext linktext="m4-1.4.18." />
+					<atext linktext="m4-1.5." />
+					<atext linktext="m4-2." />
+				</page>
+			</check>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[ 
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/tools && make
+			]]>
+		</build>
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

@@ -1,0 +1,70 @@
+<llpackages>
+	<package 
+		name="glibc_pass1"
+		version="2.12.2"
+		buildas="unpriv"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                                                                                     
+				<pkg sha1="3ef6d36eee2dc7c4351f215f689e6a04c161a35e">glibc-2.12.2.tar.bz2</pkg>
+				<mirror>http://ftp.gnu.org/gnu/glibc/</mirror>
+			</file>
+			<file>                             
+				<pkg sha1="41a88bf6a20926a4a1e9792ae5eb2a9854dc44af">glibc-2.12.2-gcc_fix-1.patch</pkg>
+				<mirror>http://www.linuxfromscratch.org/patches/lfs/development/</mirror>
+			</file>
+			<check>
+				<page html="http://ftp.gnu.org/gnu/glibc/">
+					<atext linktext="glibc-2.12.3." />
+					<atext linktext="glibc-2.12.4." />
+					<atext linktext="glibc-2.12.5." />
+					<atext linktext="glibc-2.12.6." />
+					<atext linktext="glibc-2.13." />
+					<atext linktext="glibc-2.14." />
+				</page>
+			</check>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/glibc-${PKGVERSION}.tar.bz2
+			mkdir glibc-build
+			]]>
+		</unpack>
+		<patch>
+			<![CDATA[ 
+
+			cd glibc-${PKGVERSION}
+			cat ${SRCDIR}/glibc-${PKGVERSION}-gcc_fix-1.patch | patch -Np1
+
+			]]>
+		</patch> 
+		<chown>
+			<![CDATA[ 
+			chown -R ${UNPRIV} glibc-build
+			]]>
+		</chown>
+		<build>
+			<![CDATA[ 
+			cd glibc-build
+			case `uname -m` in
+				i?86) 
+					echo "CFLAGS += -march=i486 -mtune=native" > configparms 
+				;;
+			esac
+			../glibc-${PKGVERSION}/configure --prefix=/tools \
+			--host=${LFS_TGT} --build=$(../glibc-2.12.2/scripts/config.guess) \
+			--disable-profile --enable-add-ons \
+			--enable-kernel=2.6.22.5 --with-headers=/tools/include \
+			libc_cv_forced_unwind=yes libc_cv_c_cleanup=yes && make
+			
+			]]>
+		</build>
+		<install>
+			<![CDATA[
+			cd glibc-build
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

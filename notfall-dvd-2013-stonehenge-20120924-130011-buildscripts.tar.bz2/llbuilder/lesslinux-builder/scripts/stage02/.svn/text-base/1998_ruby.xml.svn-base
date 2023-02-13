@@ -1,0 +1,80 @@
+<llpackages>
+	<package 
+		name="ruby"
+		version="1.9.3-p194"
+		class="user"
+		install="destdir">
+		<license>GPLv2</license>
+		<sources>
+			<file>                                                                                     
+				<pkg sha1="afb497dc10ea3d83ecbe3ccd9ed45fba1457721c">ruby-1.9.3-p194.tar.bz2</pkg>
+				<mirror>ftp://ftp.ruby-lang.org/pub/ruby/1.9/</mirror>
+			</file>
+			<manualcheck date="20120511" interval="90" page="http://ftp.ruby-lang.org/" />
+			<check>
+				<page html="http://ftp.ruby-lang.org/pub/ruby/1.9/">
+					<atext linktext="ruby-1.9.3-p195" />
+					<atext linktext="ruby-1.9.3-p196" />
+					<atext linktext="ruby-1.9.3-p2" />
+					<atext linktext="ruby-1.9.3-p3" />
+					<atext linktext="ruby-1.9.3-p4" />
+					<atext linktext="ruby-1.9.3-p5" />
+					<atext linktext="ruby-1.9.3-p6" />
+					<atext linktext="ruby-1.9.3-p7"/>
+					<atext linktext="ruby-1.9.3-p8" />
+					<atext linktext="ruby-1.9.3-p9" />
+					<atext linktext="ruby-1.9.4" />
+					<atext linktext="ruby-1.9.5" />
+					<atext linktext="ruby-1.9.6" />
+					<atext linktext="ruby-2." />
+				</page>
+			</check> -->
+		</sources>
+		<builddeps>
+			<dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>bison</dep>
+                        <dep>coreutils</dep>
+                        <dep>diffutils</dep>
+                        <dep>gcc</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <dep>groff</dep>
+                        <dep>inetutils</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>ncurses</dep>
+                        <dep>openssl</dep>
+                        <dep>pkg-config</dep>
+                        <dep>readline</dep>
+                        <dep>sed</dep>
+                        <dep>util-linux-ng</dep>
+                        <dep>zlib</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install DESTDIR=${TGTDIR}
+			paxctl -m ${TGTDIR}/usr/bin/ruby
+			]]>
+		</install>
+		<clean>
+			<![CDATA[
+			rm -rf ${PKGNAME}-${PKGVERSION}
+			]]>
+		</clean>
+	</package>
+</llpackages>

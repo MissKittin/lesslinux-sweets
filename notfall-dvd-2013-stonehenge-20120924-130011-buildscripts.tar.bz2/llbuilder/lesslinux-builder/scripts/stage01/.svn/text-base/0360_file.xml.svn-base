@@ -1,0 +1,33 @@
+<llpackages>
+	<package 
+		name="file"
+		version="5.11"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                                                                                                  
+				<pkg sha1="df8ffe8759ec8cd85a98dc98e858563ea2555f64">file-5.11.tar.gz</pkg>
+				<mirror>ftp://ftp.astron.com/pub/file/</mirror>
+			</file>
+			<manualcheck date="20120321" interval="180" page="ftp://ftp.astron.com/pub/file/" />
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[ 
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/tools
+			]]>
+		</build>
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

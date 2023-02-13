@@ -1,0 +1,65 @@
+<llpackages>
+	<package 
+		name="nasm"
+		version="2.10.05"
+		class="devel">
+		<license>GPLv2</license>
+		<sources>            
+			<file>                                                                                               
+				<pkg sha1="97299ff4e484b699a11201e035d30af515722f38">nasm-2.10.05.tar.xz</pkg>
+				<mirror>http://www.nasm.us/pub/nasm/releasebuilds/2.10.05/</mirror>
+			</file>
+			<manualcheck date="20120925" interval="180" page="http://www.nasm.us/pub/nasm/releasebuilds/" />
+			<check>
+				<page html="http://www.nasm.us/pub/nasm/releasebuilds/">
+					<atext linktext="2.10.06" />
+					<atext linktext="2.10.07" />
+					<atext linktext="2.10.08" />
+					<atext linktext="2.10.09" />
+					<atext linktext="2.11." />
+					<atext linktext="2.12." />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>coreutils</dep>
+                        <dep>diffutils</dep>
+                        <dep>gcc</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <dep>groff</dep>
+                        <dep>inetutils</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>sed</dep>
+                        <dep>util-linux-ng</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			unxz -c ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.xz | tar xf - 
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+		<clean>
+			<![CDATA[
+			rm -rf ${PKGNAME}-${PKGVERSION}
+			]]>
+		</clean>
+	</package>
+</llpackages>

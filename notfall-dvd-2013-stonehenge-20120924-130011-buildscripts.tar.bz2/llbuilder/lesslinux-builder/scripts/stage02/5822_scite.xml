@@ -1,0 +1,76 @@
+<llpackages>
+	<package 
+		name="scite"
+		version="321"
+		class="user"
+		install="destdir"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                                                                               
+				<pkg sha1="90f55c533ad2efa53f084ca0a752f613d8aa0ced">scintilla321.tgz</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+			<file>                                                                               
+				<pkg sha1="e3c9bb013e89976470722c63d1854cc35b1caadf">scite321.tgz</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+			<manualcheck date="20120715" interval="120" page="http://sourceforge.net/projects/scintilla/files/SciTE/" />
+			<check>
+				<page html="http://sourceforge.net/projects/scintilla/files/SciTE/">
+					<atext linktext="3.2.5" />
+					<atext linktext="3.2.2" />
+					<atext linktext="3.2.3" />
+					<atext linktext="3.2.4" />
+					<atext linktext="3.3." />
+					<atext linktext="3.4." />
+					<atext linktext="3.5." />
+					<atext linktext="4.0." />
+					<atext linktext="4.1." />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+                        <dep>atk</dep>
+                        <dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>cairo</dep>
+                        <dep>gcc</dep>
+                        <dep>gdk-pixbuf</dep>
+                        <dep>glib</dep>
+                        <dep>glibc</dep>
+                        <dep>gtk</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>pango</dep>
+                        <dep>pkg-config</dep>
+                </builddeps>
+		<unpack>
+			<![CDATA[ 
+			for f in scintilla scite ; do
+				tar xzf ${SRCDIR}/${f}${PKGVERSION}.tgz
+			done
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			make -C scintilla/gtk prefix=/usr
+			make -C scite/gtk prefix=/usr
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd scite/gtk
+			make prefix=/usr DESTDIR=${TGTDIR} install
+			ln -sf SciTE ${TGTDIR}/usr/bin/scite 
+			]]>
+		</install>
+		<clean>
+			<![CDATA[
+			rm -rf scintilla scite
+			]]>
+		</clean>
+	</package>
+</llpackages>

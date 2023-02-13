@@ -1,0 +1,82 @@
+<llpackages>
+	<package 
+		name="glibc_pass1"
+		version="2.15"
+		buildas="unpriv"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                                                                                                
+				<pkg sha1="0a7936be3bd0562b076b95dacb7c9daa3dbc83fc">glibc-2.15.tar.xz</pkg>
+				<mirror>http://ftp.gnu.org/gnu/glibc/</mirror>
+			</file>
+			<file>                                                                                  
+				<pkg sha1="3fd9d2ba6684ac65112a570e10095b41ca349c50">glibc-2.15-fixes-1.patch</pkg>
+				<mirror>http://www.linuxfromscratch.org/patches/lfs/development/</mirror>
+			</file>
+			<file>                                                                                            
+				<pkg sha1="41a88bf6a20926a4a1e9792ae5eb2a9854dc44af">glibc-2.15-gcc_fix-1.patch</pkg>
+				<mirror>http://www.linuxfromscratch.org/patches/lfs/development/</mirror>
+			</file>
+			<manualcheck date="20120625" interval="60" page="http://ftp.gnu.org/gnu/glibc/" />
+			<check>
+				<page html="http://ftp.gnu.org/gnu/glibc/">
+					<atext linktext="glibc-2.15.1." />
+					<atext linktext="glibc-2.15.2." />
+					<atext linktext="glibc-2.15.3." />
+					<atext linktext="glibc-2.15.4." />
+					<atext linktext="glibc-2.16." />
+					<atext linktext="glibc-2.17." />
+				</page>
+			</check>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			unxz -c ${SRCDIR}/glibc-${PKGVERSION}.tar.xz | tar xvf -
+			mkdir glibc-build
+			]]>
+		</unpack>
+		<patch>
+			<![CDATA[ 
+
+			cd glibc-${PKGVERSION}
+			sed -i 's#$ac_includes_default#\n\n#' sysdeps/i386/configure
+			sed -i 's#/var/db#/tools/var/db#' Makeconfig
+			cat ${SRCDIR}/glibc-${PKGVERSION}-gcc_fix-1.patch | patch -Np1
+
+			]]>
+		</patch> 
+		<chown>
+			<![CDATA[ 
+			chown -R ${UNPRIV} glibc-build
+			]]>
+		</chown>
+		<build>
+			<![CDATA[ 
+			cd glibc-build
+			case `uname -m` in
+				i?86) 
+					echo "CFLAGS += -march=i486 -mtune=native" > configparms 
+				;;
+			esac
+			../glibc-${PKGVERSION}/configure --prefix=/tools \
+			--host=${LFS_TGT} --build=$(../glibc-2.15/scripts/config.guess) \
+			--disable-profile --enable-add-ons \
+			--enable-kernel=2.6.25 --with-headers=/tools/include \
+			libc_cv_forced_unwind=yes\
+			libc_cv_c_cleanup=yes \
+			libc_cv_ctors_header=yes && make
+			
+			]]>
+		</build>
+		<install>
+			<![CDATA[
+			cd glibc-build
+			make install
+			echo 'main(){}' > dummy.c
+			$LFS_TGT-gcc dummy.c
+			readelf -l a.out | grep ': /tools'
+			]]>
+		</install>
+	</package>
+</llpackages>

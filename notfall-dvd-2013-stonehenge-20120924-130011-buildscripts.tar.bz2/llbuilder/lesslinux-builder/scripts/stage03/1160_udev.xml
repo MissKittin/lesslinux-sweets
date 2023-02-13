@@ -1,0 +1,41 @@
+<llpackages>
+	<package 
+		name="udev"
+		version="182"
+		class="user">
+	</package>
+	<scripts>
+		<scriptdata location="/etc/rc.d/0421-udev.sh" mode="0755" group="0" owner="0">
+			<![CDATA[#!/static/bin/ash
+	
+#lesslinux provides udev
+#lesslinux license BSD
+
+PATH=/static/bin:/static/sbin:/bin:/sbin:/usr/bin:/usr/sbin
+export PATH
+
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors
+
+case $1 in 
+    start)
+	printf "${bold}===> Starting UDEVD ${normal}\n"
+	mkdir -p /run/udev
+	echo > /proc/sys/kernel/hotplug
+	[ "$security" = "smack" ] && \
+		echo netmgr > /proc/self/attr/current
+	[ -f /sbin/udevd     ] && /sbin/udevd --daemon
+	[ -f /lib/udev/udevd ] && /lib/udev/udevd --daemon	
+	[ -f /lib/udev/udev/udevd ] && /lib/udev/udev/udevd --daemon
+    ;;
+    stop)
+	true
+        # echo "FIXME: properly stop udev"
+    ;;
+esac
+
+			]]>
+		</scriptdata>
+	</scripts>
+</llpackages>

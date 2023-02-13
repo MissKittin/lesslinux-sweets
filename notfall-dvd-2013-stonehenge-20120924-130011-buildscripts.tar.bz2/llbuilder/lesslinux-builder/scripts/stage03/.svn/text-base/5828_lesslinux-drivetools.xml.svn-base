@@ -1,0 +1,21 @@
+<llpackages>
+	<package name="lesslinux-drivetools" class="user" />
+	<dirs>
+		<dir mode="0750">/etc/sudoers.lax.d</dir>
+		<dir mode="0750">/etc/sudoers.strict.d</dir>
+	</dirs>
+	<scripts>
+		<scriptdata location="/etc/sudoers.lax.d/drivetools" mode="0440" group="0" owner="0">
+		<![CDATA[
+surfer  ALL = NOPASSWD: /usr/bin/llpm_drives
+surfer  ALL = NOPASSWD: /sbin/blkid
+		]]>
+		</scriptdata>
+		<scriptdata location="/etc/sudoers.strict.d/drivetools" mode="0440" group="0" owner="0">
+		<![CDATA[
+surfer  ALL = NOPASSWD: /usr/bin/llpm_drives
+surfer  ALL = NOPASSWD: /sbin/blkid
+		]]>
+		</scriptdata>
+	</scripts>
+</llpackages>

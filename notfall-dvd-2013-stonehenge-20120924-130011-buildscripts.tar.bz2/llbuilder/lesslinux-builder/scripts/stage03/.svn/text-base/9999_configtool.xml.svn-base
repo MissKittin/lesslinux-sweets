@@ -1,0 +1,239 @@
+<llpackages>
+	<scripts>
+	<scriptdata location="/etc/rc.d/0502-debug.sh" mode="0755" group="0" owner="0">
+		<![CDATA[#!/static/bin/ash
+	
+#lesslinux provides debug-049
+#lesslinux debug 5
+
+PATH=/static/bin:/static/sbin:/bin:/sbin:/usr/bin:/usr/sbin
+export PATH
+
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors
+
+now=`date '+%Y%M%d-%H%M%S' ` 
+
+case $1 in
+    start)
+        startup_time=` cat /var/run/lesslinux/startup_time `
+	debugdir=/lesslinux/debug
+	if [ -d /lesslinux/cdrom/debug ] && touch /lesslinux/cdrom/debug/is_writable ; then
+	    debugdir=/lesslinux/cdrom/debug
+	elif [ -d /lesslinux/debug_device/debug ] ; then
+	    debugdir=/lesslinux/debug_device/debug
+	fi
+	Xorg -configure :3
+	cp /usr/var/log/Xorg.3.log ${debugdir}/${startup_time}/${now}_Xorg_3_log.txt
+	cp /xorg.conf.new ${debugdir}/${startup_time}/${now}_xorg_conf_new.txt
+	sleep 2
+    ;;
+esac
+#		]]>
+	</scriptdata>
+	<scriptdata location="/etc/rc.d/0900-installer.sh" mode="0755" group="0" owner="0">
+	<![CDATA[#!/static/bin/ash
+
+#lesslinux provides installer
+#lesslinux license BSD
+
+PATH=/usr/bin:/usr/sbin:/bin:/sbin:/static/bin:/static/sbin
+export PATH
+
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors
+
+XINITRC=/usr/local/xconfgui/xinitrc_installer
+
+case $1 in 
+    start)
+	[ -z "$installer" ] && exit 0
+	printf "$bold===> Starting installer interface $normal\n"
+	# cp -f /etc/X11/xorg.conf.xorg /etc/X11/xorg.conf
+	# FIXME: the xorg.conf.vesa should be copied by providing the appropriate boot parameter 
+	# cp -f /etc/X11/xorg.conf.vesa /etc/X11/xorg.conf
+	if [ -n "$xorgscreen" ] ; then
+	    /usr/bin/xinit "$XINITRC" -- /usr/bin/Xorg -screen "$xorgscreen" -br -dpi "$dpi"
+	else
+	    /usr/bin/xinit "$XINITRC" -- /usr/bin/Xorg -br -dpi "$dpi"
+	fi
+	### FIXME: Choose one of those as fallback?
+	### /usr/bin/xinit "$XINITRC" -- /usr/bin/Xorg -screen Screen_TFT_1024x768 -br -dpi "$dpi"
+	### /usr/bin/xinit "$XINITRC" -- /usr/bin/Xorg -screen default_screen -br -dpi "$dpi"
+    ;;
+esac
+
+# The End  ]]>
+	</scriptdata>
+	<scriptdata location="/etc/rc.d/0504-runtimeconf.sh" mode="0755" group="0" owner="0">
+	<![CDATA[#!/static/bin/ash
+		
+#lesslinux provides runtimeconf
+#lesslinux license BSD
+
+PATH=/usr/bin:/usr/sbin:/bin:/sbin:/static/bin:/static/sbin
+export PATH
+
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors
+
+XINITRC=/usr/local/xconfgui/xinitrc_runtimeconf
+
+case $1 in 
+    start)
+	printf "$bold===> Starting configuration interface $normal\n"
+	if echo "$skipservices" | grep '|monitortest|' || [ -n "$xvnc" ]; then
+	    touch /var/run/lesslinux/skip_monitortest
+	elif fbset > /dev/null 2>&1 && cat /proc/cmdline | grep -qv ' vga=' && [ -z "$xvnc" ] ; then
+	    touch /var/run/lesslinux/skip_monitortest
+	    touch /var/run/lesslinux/xconfgui_xorg
+	    touch /var/run/lesslinux/xconfgui_skip_monitor
+	elif lspci -n | grep -iq '15ad:0405' && [ -z "$xvnc" ] ; then 
+	    touch /var/run/lesslinux/skip_monitortest
+	    touch /var/run/lesslinux/xconfgui_xorg
+	    touch /var/run/lesslinux/xconfgui_skip_monitor
+	    touch /var/run/lesslinux/vmware_detected
+	fi
+	
+	if [ -f /var/run/lesslinux/skip_monitortest ] ; then
+	    echo "===> Skipping monitor test"
+	else
+	    ## First start the monitor test with the normal Xorg server
+	    ## If an alternative xorg.conf has been copied this is used 
+	    ## The cheatcode for using a certain section in xorg.conf is 
+	    ## already active
+	    if [ -n "$xorgscreen" ] ; then
+		/usr/bin/xinit /usr/local/xconfgui/monitortest -- /usr/bin/Xorg -screen "$xorgscreen" -br -dpi "$dpi"
+	    else
+		/usr/bin/xinit /usr/local/xconfgui/monitortest -- /usr/bin/Xorg -br -dpi "$dpi"
+	    fi
+	fi
+	
+	if [ -f /var/run/lesslinux/xconfgui_xorg ] && [ -z "$xvnc" ] ; then
+	    ## The usage of the Xorg.conf copied above seems to have succeeded, use it!
+	    ## Some fine adjustments can be made later
+	    if fbset > /dev/null 2>&1 && cat /proc/cmdline | grep -qv ' vga=' ; then
+	        /usr/bin/xinit "$XINITRC" -- /usr/bin/Xorg -br -dpi "$dpi"
+	    elif [ -n "$xorgscreen" ] ; then
+	        /usr/bin/xinit "$XINITRC" -- /usr/bin/Xorg -screen "$xorgscreen" -br -dpi "$dpi"
+	    else
+	        /usr/bin/xinit "$XINITRC" -- /usr/bin/Xorg -br -dpi "$dpi"
+	    fi
+	else
+	    if [ -z "$xvnc" ] ; then
+	        ## The usage of the Xorg.conf copied above seems to have failed, fall back to the
+	        ## VESA configuration instead for runtimeconf, try 1024x768
+	        cp -f /etc/X11/xorg.conf.vesa /etc/X11/xorg.conf
+	        /usr/bin/xinit "$XINITRC" -- /usr/bin/Xorg -screen Screen_TFT_1024x768 -br -dpi "$dpi"
+	        ### Maybe this is better?
+	        ### /usr/bin/xinit "$XINITRC" -- /usr/bin/Xorg -screen default_screen -br -dpi "$dpi"
+	    else
+		# xvnc=|local/remote|resolution|depth|
+		vncmode=` echo "$xvnc" | awk -F '|' '{print $2}' `
+		vncres=` echo "$xvnc" | awk -F '|' '{print $3}' `
+		vncdepth=` echo "$xvnc" | awk -F '|' '{print $4}' `
+		if [ "$vncmode" = "remote" ] ; then 
+			/usr/bin/xinit "$XINITRC" -- /usr/bin/Xvnc -geometry "$vncres" -depth "$vncdepth" -dpi "$dpi"
+		elif [ "$vncmode" = "reverse" ] ; then
+			revhost=` echo "$xvnc" | awk -F '|' '{print $5}' `
+			/usr/bin/xinit "$XINITRC" -- /usr/bin/Xvnc -interface 127.0.0.1 -geometry "$vncres" -depth "$vncdepth" -dpi "$dpi" &
+			sleep 5
+			/usr/bin/vncconnect -display :0 "$revhost"
+			while ps waux | grep -q /usr/bin/xinit ; do
+				sleep 10
+			done
+		else
+			/usr/bin/xinit "$XINITRC" -- /usr/bin/Xvnc -interface 127.0.0.1 -geometry "$vncres" -depth "$vncdepth" -dpi "$dpi"
+		fi
+	    fi
+	fi
+	# FIXME! Move blobsearch to a separate function
+	# FIXME! Newer files should win!
+	if [ -d "/lesslinux/cryptpart/${contdir}/blob" ] ; then
+		mkdir -p /lesslinux/blob
+		find "/lesslinux/cryptpart/${contdir}/blob" -maxdepth 1 | while read fname ; do
+			[ -f "$fname" -o -d "$fname" ] && \
+				ln -sf "$fname" /lesslinux/blob/` basename "$fname" ` 
+		done
+	fi
+    ;;
+esac
+
+# The end	]]>
+	</scriptdata>
+	<scriptdata location="/etc/rc.d/0505-debug.sh" mode="0755" group="0" owner="0">
+		<![CDATA[#!/static/bin/ash
+	
+#lesslinux provides debug-050
+#lesslinux debug 5
+
+PATH=/static/bin:/static/sbin:/bin:/sbin:/usr/bin:/usr/sbin
+export PATH
+
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors
+
+now=`date '+%Y%M%d-%H%M%S' ` 
+
+case $1 in
+    start)
+        startup_time=` cat /var/run/lesslinux/startup_time `
+	debugdir=/lesslinux/debug
+	if [ -d /lesslinux/cdrom/debug ] && touch /lesslinux/cdrom/debug/is_writable ; then
+	    debugdir=/lesslinux/cdrom/debug
+	elif [ -d /lesslinux/debug_device/debug ] ; then
+	    debugdir=/lesslinux/debug_device/debug
+	fi
+	cat /proc/bus/pci/devices > ${debugdir}/${startup_time}/${now}_pcidevices.txt
+	cat /proc/devices > ${debugdir}/${startup_time}/${now}_devicenodes.txt
+	cat /proc/modules > ${debugdir}/${startup_time}/${now}_modules.txt
+	cat /proc/mounts > ${debugdir}/${startup_time}/${now}_mounts.txt
+	cat /proc/swaps > ${debugdir}/${startup_time}/${now}_swaps.txt
+	cp /usr/var/log/Xorg.0.log ${debugdir}/${startup_time}/${now}_Xorg_0_log.txt
+	cp /usr/var/log/Xorg.1.log ${debugdir}/${startup_time}/${now}_Xorg_1_log.txt
+	Xorg -configure :3
+	cp /usr/var/log/Xorg.3.log ${debugdir}/${startup_time}/${now}_Xorg_3_log.txt
+	cp /xorg.conf.new ${debugdir}/${startup_time}/${now}_xorg_conf_new.txt
+	dmesg > ${debugdir}/${startup_time}/${now}_dmesg.txt
+	sleep 2
+    ;;
+esac
+#		]]>
+		</scriptdata>
+	</scripts>  
+	<package name="xconfgui" version="20120624-00" allowfail="yes">
+		<sources>
+			<file>                                                                                          
+				<pkg sha1="59bdc54c7d36258862afdb8c2e38322e62d3fe6b">xconfgui-20120624-00.tar.bz2</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+		</sources>
+		<unpack>
+		<![CDATA[ 
+		tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+		]]>
+		</unpack>
+		<install>
+		<![CDATA[ 
+		cd ${PKGNAME} 
+		mkdir -m 0755 -p ${SQUASHFS}/usr/local/xconfgui
+		for i in configtest conftest.rb 5in1install.rb 5in1windows.rb \
+		    installer.rb monitortest monitortest.rb \
+		    runtimeconf.rb trigger_configtest \
+		    xinitrc xinitrc_installer \
+		    xinitrc_runtimeconf ; do
+			install -m 0755 $i ${SQUASHFS}/usr/local/xconfgui
+		done
+		for i in testbild.png ; do
+			install -m 0644 $i ${SQUASHFS}/usr/local/xconfgui
+		done 
+		mkdir ${SQUASHFS}/usr/var/
+		]]>
+		</install>
+	</package>
+	
+</llpackages>

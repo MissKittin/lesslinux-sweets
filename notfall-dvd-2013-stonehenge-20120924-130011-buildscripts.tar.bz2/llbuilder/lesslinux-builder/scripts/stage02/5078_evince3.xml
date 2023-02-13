@@ -1,0 +1,122 @@
+<llpackages>
+	<package 
+		name="evince3"
+		version="3.4.0"
+		class="user"
+		install="destdir">
+		<license>GPLv2</license>
+		<sources>  
+			<file>   
+				<pkg sha1="7159f4b1486fc07b5be93c3034965395d41c458a">evince-3.4.0.tar.xz</pkg>
+				<mirror>http://ftp.gnome.org/pub/gnome/sources/evince/2.32/</mirror>
+			</file>
+			<check>
+				<page html="http://ftp.gnome.org/pub/gnome/sources/evince/3.4/">
+					<atext linktext="evince-3.4.1." />
+					<atext linktext="evince-3.4.2." />
+					<atext linktext="evince-3.4.3." />
+					<atext linktext="evince-3.4.4." />
+				</page>
+				<page html="http://ftp.gnome.org/pub/gnome/sources/evince/">
+					<atext linktext="3.6" />
+					<atext linktext="3.7" />
+					<atext linktext="3.8" />
+					<atext linktext="4." />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+                        <dep>Python</dep>
+                        <dep>atk</dep>
+                        <dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>cairo</dep>
+                        <dep>coreutils</dep>
+                        <dep>diffutils</dep>
+                        <dep>expat</dep>
+                        <dep>findutils</dep>
+                        <dep>fontconfig</dep>
+                        <dep>freetype</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>gconf3</dep>
+                        <dep>gdk-pixbuf</dep>
+                        <dep>gettext</dep>
+                        <dep>glib</dep>
+                        <dep>glibc</dep>
+                        <dep>gnome-doc-utils</dep>
+                        <dep>gnome-icon-theme</dep>
+                        <dep>gobject-introspection1</dep>
+                        <dep>grep</dep>
+                        <dep>gtk3</dep>
+                        <dep>inetutils</dep>
+                        <dep>intltool</dep>
+                        <dep>jpegsrc</dep>
+                        <dep>libICE</dep>
+                        <dep>libSM</dep>
+                        <dep>libX11</dep>
+                        <dep>libXau</dep>
+                        <dep>libXcomposite</dep>
+                        <dep>libXcursor</dep>
+                        <dep>libXdamage</dep>
+                        <dep>libXdmcp</dep>
+                        <dep>libXext</dep>
+                        <dep>libXfixes</dep>
+                        <dep>libXi</dep>
+                        <dep>libXrandr</dep>
+                        <dep>libXrender</dep>
+                        <dep>libffi</dep>
+                        <dep>libgnome-keyring</dep>
+                        <dep>libpng15</dep>
+                        <dep>libwnck3</dep>
+                        <dep>libxcb</dep>
+                        <dep>libxml2</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>openssl</dep>
+                        <dep>p5-xml</dep>
+                        <dep>pango</dep>
+                        <dep>perl</dep>
+                        <dep>pixman</dep>
+                        <dep>pkg-config</dep>
+                        <dep>poppler</dep>
+                        <dep>pygobject</dep>
+                        <dep>sed</dep>
+                        <dep>tiff</dep>
+                        <dep>util-linux-ng</dep>
+                        <dep>which</dep>
+                        <dep>xproto-base</dep>
+                        <dep>xz</dep>
+                        <dep>zlib</dep>
+                </builddeps>
+		<unpack>
+			<![CDATA[ 
+			unxz -c ${SRCDIR}/evince-${PKGVERSION}.tar.xz | tar xf - 
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd evince-${PKGVERSION}
+			export PKG_CONFIG_PATH=/usr/compat.new/lib/pkgconfig
+			./configure --prefix=/usr/compat.new --sysconfdir=/etc/compat.new --disable-nautilus
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd evince-${PKGVERSION}
+			make install DESTDIR=${TGTDIR}
+			# /sbin/paxctl -m /usr/bin/evince
+			# /sbin/paxctl -m /usr/bin/evince-previewer
+			# /sbin/paxctl -m /usr/bin/evince-thumbnailer
+			]]>
+		</install>
+		<clean>
+			<![CDATA[
+			rm -rf evince-${PKGVERSION}
+			]]>
+		</clean>
+	</package>
+</llpackages>

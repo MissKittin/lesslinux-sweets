@@ -1,0 +1,42 @@
+<llpackages>
+	<package 
+		name="faenza"
+		version="20110322"
+		class="user"
+		install="destdir" >
+		<license>GPLv2</license>
+		<sources>
+			<file>                                                                                           
+				<pkg sha1="8bf92a8b626f28734028fd09ca5efef1d84ec15c">faenza.zip</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+		</sources>
+		<builddeps>
+                        <dep>glibc</dep>
+			<dep>bash</dep>
+                        <dep>rsync</dep>
+			<dep>tar</dep>
+			<dep>unzip</dep>
+			<dep>gzip</dep>
+                </builddeps>
+		<unpack>
+			<![CDATA[ 
+			unzip ${SRCDIR}/${PKGNAME}.zip
+			tar xvzf Faenza.tar.gz
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			find Faenza -type f -exec touch {} \; 
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			mkdir -p ${TGTDIR}/usr/share/icons/Faenza/
+			rsync -avHP Faenza/ ${TGTDIR}/usr/share/icons/Faenza/
+			]]>
+		</install>
+	</package>
+</llpackages>

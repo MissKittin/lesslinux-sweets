@@ -1,0 +1,74 @@
+<llpackages>
+	<package 
+		name="ntfs-3g_ntfsprogs"
+		version="2012.1.15"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                                                
+				<pkg sha1="8d55cf49afde172fefa369a0a85289e09c4d7bbb">ntfs-3g_ntfsprogs-2012.1.15.tgz</pkg>
+				<mirror>http://tuxera.com/opensource/</mirror>
+			</file>
+			<manualcheck date="20120715" interval="60" page="http://tuxera.com/" />
+			<!-- <check>
+				<page html="http://www.tuxera.com/community/ntfs-3g-download/">
+					<atext linktext="ntfs-3g_ntfsprogs-2011.4.2" />
+					<atext linktext="ntfs-3g_ntfsprogs-2011.4.3" />
+					<atext linktext="ntfs-3g_ntfsprogs-2011.5" />
+					<atext linktext="ntfs-3g_ntfsprogs-2011.6" />
+					<atext linktext="ntfs-3g_ntfsprogs-2011.7" />
+					<atext linktext="ntfs-3g_ntfsprogs-2011.8" />
+					<atext linktext="ntfs-3g_ntfsprogs-2011.9" />
+				</page>
+			</check> -->
+		</sources>
+		<builddeps>
+                        <dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>coreutils</dep>
+                        <dep>diffutils</dep>
+                        <dep>findutils</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>glibc</dep>
+                        <dep>gnutls</dep>
+                        <dep>grep</dep>
+                        <dep>inetutils</dep>
+                        <dep>libgcrypt</dep>
+                        <dep>libtasn1</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>pkg-config</dep>
+                        <dep>sed</dep>
+                        <dep>util-linux-ng</dep>
+                        <dep>zlib</dep>
+                </builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tgz
+			mv ${PKGNAME}-${PKGVERSION} ${PKGNAME}-${PKGVERSION}.static
+			tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tgz
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --sysconfdir=/etc --prefix=/usr --enable-crypto && make
+			cd ../${PKGNAME}-${PKGVERSION}.static
+			./configure --sysconfdir=/etc --prefix=/usr --enable-crypto --enable-really-static && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			cd ../${PKGNAME}-${PKGVERSION}.static
+			strip src/ntfs-3g
+			install -m 0755 src/ntfs-3g /static/sbin/ntfs-3g.static
+			]]>
+		</install>
+	</package>
+</llpackages>

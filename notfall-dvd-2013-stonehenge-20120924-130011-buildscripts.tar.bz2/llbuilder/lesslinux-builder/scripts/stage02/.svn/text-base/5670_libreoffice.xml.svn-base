@@ -1,0 +1,69 @@
+<llpackages>
+	<package 
+		name="wpa_supplicant"
+		version="0.7.3"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>         
+				<pkg sha1="ca51db8931fabf386352c87422f3e62fb44c3fe3">wpa_supplicant-0.7.3.tar.gz</pkg>
+				<mirror>http://hostap.epitest.fi/releases/</mirror>
+			</file>
+			<!-- <file>      
+				<pkg sha1="ea641b046a04876827b76cda246689d0de0ed94e">wpa_supplicant-0.7.1.tar.gz</pkg>
+				<mirror>http://hostap.epitest.fi/releases/</mirror>
+			</file> -->
+			<check>
+				<page html="http://hostap.epitest.fi/releases/">
+					<atext linktext="wpa_supplicant-0.7.4.t" />
+					<atext linktext="wpa_supplicant-0.7.5.t" />
+					<atext linktext="wpa_supplicant-0.7.6.t" />
+					<atext linktext="wpa_supplicant-0.7.7." />
+					<atext linktext="wpa_supplicant-0.8." />
+					<atext linktext="wpa_supplicant-0.9." />
+					<atext linktext="wpa_supplicant-1." />
+				</page>
+			</check>
+		</sources>
+		<!-- <builddeps>
+			<dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>coreutils</dep>
+                        <dep>gcc</dep>
+                        <dep>glibc</dep>
+                        <dep>gnutls</dep>
+                        <dep>libgcrypt</dep>
+                        <dep>libgpg-error</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+		</builddeps> -->
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}/wpa_supplicant
+			cp -v defconfig .config
+			echo 'BINDIR=/usr/sbin' >> .config
+			echo 'LIBDIR=/usr/lib' >> .config
+			echo "CONFIG_TLS=gnutls" >> .config 
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}/wpa_supplicant
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

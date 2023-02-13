@@ -1,0 +1,51 @@
+<pkgdesc name='syslinux' version='4.06-pre3'>
+    <subpackage name='skel'>
+        <directory group='0' path='/etc' owner='0'/>
+        <directory group='0' path='/etc/syslinux' owner='0'/>
+        <directory group='0' path='/static' owner='0'/>
+        <directory group='0' path='/static/sbin' owner='0'/>
+        <directory group='0' path='/usr' owner='0'/>
+        <directory group='0' path='/usr/sbin' owner='0'/>
+        <directory group='0' path='/usr/share' owner='0'/>
+        <directory group='0' path='/usr/share/syslinux' owner='0'/>
+    </subpackage>
+    <subpackage name='minimal'/>
+    <subpackage name='bin'>
+        <file group='0' mode='100755' path='/static/sbin/extlinux' fileout='ELF 32-bit LSB executable, Intel 80386, version 1 (GNU/Linux), statically linked, for GNU/Linux 2.6.25, not stripped' owner='0'/>
+        <file group='0' mode='100755' path='/usr/sbin/extlinux' fileout='ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.25, not stripped' owner='0'/>
+        <file group='0' mode='100755' path='/usr/sbin/syslinux' fileout='ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.25, not stripped' owner='0'/>
+        <file group='0' mode='100755' path='/usr/share/syslinux/isohybrid' fileout='ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.25, not stripped' owner='0'/>
+    </subpackage>
+    <subpackage name='doc'/>
+    <subpackage name='config'>
+        <file group='0' mode='100644' path='/etc/syslinux/mbr.bin' fileout='data' owner='0'/>
+    </subpackage>
+    <subpackage name='devel'/>
+    <subpackage name='localization'/>
+    <subpackage name='tzdata'/>
+    <subpackage name='uncategorized'>
+        <file group='0' mode='100644' path='/usr/share/syslinux/ifcpu.c32' fileout='data' owner='0'/>
+	<file group='0' mode='100644' path='/usr/share/syslinux/chain.c32' fileout='data' owner='0'/>
+        <file group='0' mode='100755' path='/usr/share/syslinux/isohybrid.pl' fileout='a /usr/bin/perl script text executable' owner='0'/>
+        <file group='0' mode='100644' path='/usr/share/syslinux/isolinux.bin' fileout='data' owner='0'/>
+        <file group='0' mode='100644' path='/usr/share/syslinux/mbr.bin' fileout='data' owner='0'/>
+        <file group='0' mode='100644' path='/usr/share/syslinux/menu.c32' fileout='data' owner='0'/>
+        <file group='0' mode='100644' path='/usr/share/syslinux/pxelinux.bin' fileout='data' owner='0'/>
+        <file group='0' mode='100644' path='/usr/share/syslinux/pxelinux.gpxe' fileout='ASCII text' owner='0'/>
+        <file group='0' mode='100644' path='/usr/share/syslinux/reboot.c32' fileout='data' owner='0'/>
+        <file group='0' mode='100644' path='/usr/share/syslinux/vesamenu.c32' fileout='data' owner='0'/>
+    </subpackage>
+    <subpackage name='ignore'/>
+    <vanished>
+        <subpackage name='config'/>
+        <subpackage name='doc'/>
+        <subpackage name='minimal'/>
+        <subpackage name='devel'/>
+        <subpackage name='localization'/>
+        <subpackage name='bin'/>
+        <subpackage name='ignore'/>
+        <subpackage name='uncategorized'/>
+        <subpackage name='tzdata'/>
+        <subpackage name='skel'/>
+    </vanished>
+</pkgdesc>

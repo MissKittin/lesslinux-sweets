@@ -1,0 +1,52 @@
+<llpackages>
+	<package 
+		name="kaspersky-bases"
+		version="20101202"
+		class="user"
+		providedeps="no"
+		strip="no"
+		>
+		<license>proprietary</license>
+		<sources>
+			<file>                            
+				<pkg sha1="160bec6093d79e044f2c261f72bf405ef3540508">kaspersky-bases-20101202.tar.bz2</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+		</sources>
+		<builddeps>
+			<dep>bash</dep>
+			<dep>qt-everywhere-opensource-src</dep>
+			<dep>kaspersky</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			
+			tar xvf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			echo 'Nothing to do!'
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			
+			mkdir -m 0755 /opt/kaspersky/kav4ws/var/bases/
+			cd bases 
+			for i in *.??? *.?? ; do
+				install -m 0644 $i /opt/kaspersky/kav4ws/var/bases/
+			done
+			
+			]]>
+		</install>
+		<clean>
+			<![CDATA[
+			rm -rf bases
+			]]>
+		</clean>
+	</package>
+</llpackages>

@@ -1,0 +1,109 @@
+<llpackages>
+	<package 
+		name="openbox"
+		version="3.5.0"
+		class="user"
+		install="destdir"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                                                                                                    
+				<pkg sha1="3c3b8d2bc4f4e229871254e92d6b18639be00302">openbox-3.5.0.tar.gz</pkg>
+				<mirror>http://openbox.org/dist/openbox/</mirror>
+			</file>
+			<file>                                                                                                    
+				<pkg sha1="7602d2a1f39467ce36ec3cae9245644d6ae64e88">lesslinux-openbox-20120924-00.tar.bz2</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+			<manualcheck date="20120827" interval="90" page="http://openbox.org/wiki/Openbox:Download" />
+			<!-- <check>
+				<page html="http://archive.xfce.org/src/apps/midori/0.3/">
+					<atext linktext="midori-0.3.7." />
+					<atext linktext="midori-0.3.8." />
+					<atext linktext="midori-0.3.9." />
+					<atext linktext="midori-0.3.10." />
+					<atext linktext="midori-0.3.11." />
+					<atext linktext="midori-0.3.12." />
+				</page>
+				<page html="http://archive.xfce.org/src/apps/midori/">
+					<atext linktext="0.4" />
+					<atext linktext="0.5" />
+					<atext linktext="0.6" /> 
+				</page>
+			</check> -->
+		</sources>
+		<builddeps>
+                        <dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>coreutils</dep>
+                        <dep>diffutils</dep>
+                        <dep>expat</dep>
+                        <dep>fontconfig</dep>
+                        <dep>freetype</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>gettext</dep>
+                        <dep>glib</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <dep>imake</dep>
+                        <dep>imlib2</dep>
+                        <dep>inetutils</dep>
+                        <dep>libICE</dep>
+                        <dep>libSM</dep>
+                        <dep>libX11</dep>
+                        <dep>libXau</dep>
+                        <dep>libXcursor</dep>
+                        <dep>libXdmcp</dep>
+                        <dep>libXext</dep>
+                        <dep>libXft</dep>
+                        <dep>libXrandr</dep>
+                        <dep>libXrender</dep>
+                        <dep>libxcb</dep>
+                        <dep>libxml2</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>pango</dep>
+                        <dep>pkg-config</dep>
+                        <dep>sed</dep>
+                        <dep>startup-notification</dep>
+                        <dep>util-linux-ng</dep>
+                        <dep>xorg-cf-files</dep>
+                        <dep>xproto-base</dep>
+                </builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			tar xjf ${SRCDIR}/lesslinux-openbox-20120924-00.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --sysconfdir=/etc && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			mkdir -p ${TGTDIR}/usr/share/lesslinux/openbox
+			for f in substitute_menu.rb llpm_xrandr.rb ; do
+				install -m 0755 lesslinux-openbox/${f} ${TGTDIR}/usr/share/lesslinux/openbox
+			done
+			for f in menu_thin menu menu_translations ; do
+				install -m 0644 lesslinux-openbox/${f}.xml ${TGTDIR}/usr/share/lesslinux/openbox
+			done
+			cd ${PKGNAME}-${PKGVERSION}
+			make install DESTDIR=${TGTDIR}
+			]]>
+		</install>
+		<clean>
+			<![CDATA[
+			rm -rf ${PKGNAME}-${PKGVERSION}
+			rm -rf lesslinux-openbox
+			]]>
+		</clean>
+	</package>
+</llpackages>

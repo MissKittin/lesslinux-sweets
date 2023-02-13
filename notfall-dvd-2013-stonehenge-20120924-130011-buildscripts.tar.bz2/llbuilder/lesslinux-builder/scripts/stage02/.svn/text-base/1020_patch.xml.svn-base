@@ -1,0 +1,74 @@
+<llpackages>
+	<package 
+		name="patch"
+		version="2.6.1"
+		class="user"
+		install="destdir"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>    
+				<pkg sha1="a50deb8cb6daa5e2997e7a9a36adb78980f95332">patch-2.6.1.tar.gz</pkg>
+				<mirror>ftp://ftp.gnu.org/gnu/patch/</mirror>
+			</file>
+			<file>  
+				<pkg sha1="c6e7b69a51c282c910dcc30365bd7a428f244a45">patch-2.6.1-test_fix-1.patch</pkg>
+				<mirror>http://www.linuxfromscratch.org/patches/lfs/development/</mirror>
+			</file>
+			<check>
+				<page html="http://ftp.gnu.org/gnu/patch/">
+					<atext linktext="patch-2.6.2.tar.gz" />
+					<atext linktext="patch-2.6.3.tar.gz" />
+					<atext linktext="patch-2.7.tar.gz" />
+					<atext linktext="patch-2.7.0.tar.gz" />
+					<atext linktext="patch-2.7.1.tar.gz" />
+					<atext linktext="patch-3.0.tar.gz" />
+					<atext linktext="patch-3.0.0.tar.gz" />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>coreutils</dep>
+                        <dep>diffutils</dep>
+                        <dep>gcc</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <dep>inetutils</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>sed</dep>
+                        <dep>util-linux-ng</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			]]>
+		</unpack>
+		<patch>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			cat  ${SRCDIR}/${PKGNAME}-${PKGVERSION}-test_fix-1.patch | patch -p1
+			]]>
+		</patch>
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr && make
+			]]>
+		</build>
+		<test>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make check
+			]]>
+		</test>
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install DESTDIR=${TGTDIR}
+			]]>
+		</install>
+	</package>
+</llpackages>

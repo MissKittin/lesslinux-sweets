@@ -1,0 +1,134 @@
+<llpackages>
+	<package 
+		name="glibc"
+		version="2.12.2"
+		class="lib"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                                                                                     
+				<pkg sha1="3ef6d36eee2dc7c4351f215f689e6a04c161a35e">glibc-2.12.2.tar.bz2</pkg>
+				<mirror>http://ftp.gnu.org/gnu/glibc/</mirror>
+			</file>
+			<file>                             
+				<pkg sha1="41a88bf6a20926a4a1e9792ae5eb2a9854dc44af">glibc-2.12.2-gcc_fix-1.patch</pkg>
+				<mirror>http://www.linuxfromscratch.org/patches/lfs/development/</mirror>
+			</file>
+			<check>
+				<page html="http://ftp.gnu.org/gnu/glibc/">
+					<atext linktext="glibc-2.12.3." />
+					<atext linktext="glibc-2.12.4." />
+					<atext linktext="glibc-2.12.5." />
+					<atext linktext="glibc-2.12.6." />
+					<atext linktext="glibc-2.13." />
+					<atext linktext="glibc-2.14." />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>linux_headers</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			mkdir glibc-build
+			tar xjf ${SRCDIR}/glibc-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch>
+			<![CDATA[ 
+			
+cd glibc-${PKGVERSION}
+DL=$(readelf -l /bin/sh | sed -n 's@.*interpret.*/tools\(.*\)]$@\1@p')
+sed -i "s|libs -o|libs -L/usr/lib -Wl,-dynamic-linker=$DL -o|" scripts/test-installation.pl
+unset DL
+sed -i 's|@BASH@|/bin/bash|' elf/ldd.bash.in	
+cat ${SRCDIR}/glibc-${PKGVERSION}-gcc_fix-1.patch | patch -Np1
+
+			]]>
+		</patch>
+		<build>
+			<![CDATA[ 
+			cd glibc-build
+			case `uname -m` in
+			i?86) 
+				echo "CFLAGS += -march=i486 -mtune=generic -O3 -pipe" > configparms
+			;;
+			esac
+			../glibc-${PKGVERSION}/configure --prefix=/usr \
+				--disable-profile --enable-add-ons \
+				--enable-kernel=2.6.22.5 --libexecdir=/usr/lib/glibc
+			make
+			]]>
+		</build>
+		<test>
+			<![CDATA[
+			cd glibc-build
+			cp -v ../glibc-${PKGVERSION}/iconvdata/gconv-modules iconvdata
+			make -k check 2>&1 | tee glibc-check-log
+			grep Error glibc-check-log
+			]]>
+		</test>
+		<install>
+			<![CDATA[
+			cd glibc-build
+			touch /etc/ld.so.conf
+			make install
+			mkdir -pv /usr/lib/locale
+			localedef -i cs_CZ -f UTF-8 cs_CZ.UTF-8
+			localedef -i de_DE -f ISO-8859-1 de_DE
+			localedef -i de_DE@euro -f ISO-8859-15 de_DE@euro
+			localedef -i de_DE -f UTF-8 de_DE.UTF-8
+			localedef -i en_HK -f ISO-8859-1 en_HK
+			localedef -i en_PH -f ISO-8859-1 en_PH
+			localedef -i en_US -f ISO-8859-1 en_US
+			localedef -i en_US -f UTF-8 en_US.UTF-8
+			localedef -i es_ES -f UTF-8 es_ES.UTF-8
+			localedef -i es_MX -f ISO-8859-1 es_MX
+			localedef -i es_MX -f UTF-8 es_MX.UTF-8
+			localedef -i fa_IR -f UTF-8 fa_IR
+			localedef -i fr_FR -f ISO-8859-1 fr_FR
+			localedef -i fr_FR@euro -f ISO-8859-15 fr_FR@euro
+			localedef -i fr_FR -f UTF-8 fr_FR.UTF-8
+			localedef -i it_IT -f UTF-8 it_IT.UTF-8
+			localedef -i ja_JP -f EUC-JP ja_JP
+			localedef -i pl_PL -f UTF-8 pl_PL.UTF-8
+			localedef -i ru_RU -f UTF-8 ru_RU.UTF-8
+			localedef -i tr_TR -f UTF-8 tr_TR.UTF-8
+			localedef -i zh_CN -f GB18030 zh_CN.GB18030
+			cat > /etc/nsswitch.conf << "EOF"
+# Begin /etc/nsswitch.conf
+
+passwd: files
+group: files
+shadow: files
+
+hosts: files dns
+networks: files
+
+protocols: files
+services: files
+ethers: files
+rpc: files
+
+# End /etc/nsswitch.conf
+EOF
+
+			cat > /etc/ld.so.conf << "EOF"
+# Begin /etc/ld.so.conf
+
+/usr/local/lib
+/opt/lib
+
+# End /etc/ld.so.conf
+EOF
+
+			]]>
+		</install>
+		<clean>
+			<![CDATA[
+			rm -rf ${PKGNAME}-${PKGVERSION}
+			rm -rf ${PKGNAME}-build
+			]]>
+		</clean>
+	</package>
+</llpackages>

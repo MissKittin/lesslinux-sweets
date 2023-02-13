@@ -1,0 +1,64 @@
+<llpackages>
+	<package 
+		name="libpng12"
+		version="1.2.50"
+		class="lib"
+		install="destdir">
+		<license>GPLv2</license>
+		<sources>
+			<file>                                                                       
+				<pkg sha1="c4d1881a376836a45688446624fd5d834ea118f0">libpng-1.2.50.tar.bz2</pkg>
+				<mirror>http://downloads.sourceforge.net/project/libpng/libpng12/1.2.50/</mirror>
+			</file>
+			<manualcheck date="20120715" interval="120" page="http://sourceforge.net/projects/libpng/files/libpng12/" />
+			<check>
+				<page html="http://sourceforge.net/projects/libpng/files/libpng12/">
+					<atext linktext="1.2.51" />
+					<atext linktext="1.2.52" />
+					<atext linktext="1.2.53" />
+					<atext linktext="1.2.54" />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>coreutils</dep>
+                        <dep>diffutils</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <dep>inetutils</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>sed</dep>
+                        <dep>util-linux-ng</dep>
+                        <dep>zlib</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/libpng-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd libpng-${PKGVERSION}
+			./configure --prefix=/usr/compat.old && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd libpng-${PKGVERSION}
+			make install DESTDIR=${TGTDIR} 
+			]]>
+		</install>
+		<clean>
+			<![CDATA[
+			rm -rf libpng-${PKGVERSION}
+			]]>
+		</clean>
+	</package>
+</llpackages>

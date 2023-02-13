@@ -1,0 +1,57 @@
+<llpackages>
+	<package 
+		name="man-pages"
+		version="3.42"
+		class="doc"
+		install="destdir"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                                                                                            
+				<pkg sha1="622c782cd142d100c19e13dcdb009438381a46e4">man-pages-3.42.tar.bz2</pkg>
+				<mirror>http://www.kernel.org/pub/linux/docs/man-pages/Archive</mirror>
+			</file>
+			<manualcheck date="20120824" interval="90" page="http://www.kernel.org/pub/linux/docs/man-pages/Archive" />
+			<check>
+				<page html="http://www.kernel.org/pub/linux/docs/man-pages/">
+					<atext linktext="man-pages-3.54." />
+					<atext linktext="man-pages-3.43." />
+					<atext linktext="man-pages-3.44." />
+					<atext linktext="man-pages-3.45." />
+					<atext linktext="man-pages-3.50." />
+					<atext linktext="man-pages-3.51." />
+					<atext linktext="man-pages-3.52." />
+					<atext linktext="man-pages-3.53." />
+					<atext linktext="man-pages-4." />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>linux_headers</dep>
+			<dep>glibc</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[ 
+			echo 'Nothing to do!'
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install DESTDIR=${TGTDIR}
+			]]>
+		</install>
+		<clean>
+			<![CDATA[
+			rm -rf ${PKGNAME}-${PKGVERSION}
+			]]>
+		</clean>
+	</package>
+</llpackages>

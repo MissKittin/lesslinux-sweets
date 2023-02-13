@@ -1,0 +1,42 @@
+<llpackages>
+	<package 
+		name="make"
+		version="3.82"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                              
+				<pkg sha1="b8a8a99e4cb636a213aad3816dda827a92b9bbed">make-3.82.tar.bz2</pkg>
+				<mirror>http://ftp.gnu.org/gnu/make/</mirror>
+			</file>
+			<check>
+				<page html="http://ftp.gnu.org/gnu/make/">
+					<atext linktext="make-3.82.1." />
+					<atext linktext="make-3.82.2." />
+					<atext linktext="make-3.83." />
+					<atext linktext="make-3.84." />
+					<atext linktext="make-3.85." />
+					<atext linktext="make-4." />
+				</page>
+			</check>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[ 
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/tools && make
+			]]>
+		</build>
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

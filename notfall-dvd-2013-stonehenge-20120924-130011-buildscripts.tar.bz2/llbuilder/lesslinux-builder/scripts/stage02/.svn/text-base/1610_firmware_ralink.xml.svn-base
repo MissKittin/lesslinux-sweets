@@ -1,0 +1,60 @@
+<llpackages>
+	<package 
+		name="firmware_ralink"
+		version="20120102"
+		class="user"
+		install="destdir">
+		<license>proprietary</license>
+		<sources>
+			<file>
+				<!-- git clone git://git.kernel.org/pub/scm/linux/kernel/git/dwmw2/linux-firmware.git -->                                                              
+				<pkg sha1="0d9df089b74a38ee287eed6171b1c68fcd169573">linux-firmware-20120102.tar.bz2</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+			<manualcheck date="20120625" interval="90" page="http://distfiles.lesslinux.org/" />
+		</sources>
+		<builddeps>
+                        <dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>coreutils</dep>
+                        <dep>gcc</dep>
+                        <dep>glibc</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+			<dep>rsync</dep>
+                </builddeps>
+		<unpack>
+			<![CDATA[ 
+			
+			tar xjf ${SRCDIR}/linux-firmware-${PKGVERSION}.tar.bz2
+			
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			echo 'Nothing to build!'
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			
+			mkdir -p ${TGTDIR}/lib/firmware 
+			for f in rt2561.bin rt2561s.bin rt2661.bin rt2860.bin rt2870.bin rt3071.bin rt73.bin ; do
+				install -m 0755 linux-firmware/$f ${TGTDIR}/lib/firmware/
+			done
+			ln -sf rt2870.bin ${TGTDIR}/lib/firmware/rt3070.bin
+			ln -sf rt2860.bin ${TGTDIR}/lib/firmware/rt3090.bin
+			install -m 0644 linux-firmware/LICENCE.ralink-firmware.txt ${TGTDIR}/lib/firmware/
+			chown -R 0:0 ${TGTDIR}/lib/firmware/
+			
+			]]>
+		</install>
+		<clean>
+			<![CDATA[
+			rm -rf linux-firmware
+			]]>
+		</clean>
+	</package>
+</llpackages>

@@ -1,0 +1,82 @@
+<llpackages>
+	<package 
+		name="readline"
+		version="6.2"
+		class="lib"
+		install="destdir">
+		<license>GPLv2</license>
+		<sources>
+			<file>                                     
+				<pkg sha1="a9761cd9c3da485eb354175fcc2fe35856bc43ac">readline-6.2.tar.gz</pkg>
+				<mirror>http://ftp.gnu.org/gnu/readline/</mirror>
+			</file>
+			<file>                                     
+				<pkg sha1="b721a06ba9db6b6ce342444fcd8bfef25bd9e189">readline-6.2-fixes-1.patch</pkg>
+				<mirror>http://www.linuxfromscratch.org/patches/lfs/development/</mirror>
+			</file>
+			<manualcheck date="20120624" interval="120" page="http://ftp.gnu.org/gnu/readline/" />
+			<check>
+				<page html="http://ftp.gnu.org/gnu/readline/">
+					<atext linktext="readline-6.2.1." />
+					<atext linktext="readline-6.3." />
+					<atext linktext="readline-6.4." />
+					<atext linktext="readline-7." />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>linux_headers</dep>
+			<dep>glibc</dep>
+			<dep>man-pages</dep>
+			<dep>readjust</dep>
+			<dep>zlib</dep>
+			<dep>binutils</dep>
+			<dep>gmp</dep>
+			<dep>mpfr</dep>
+			<dep>mpc</dep>
+			<dep>gcc</dep>
+			<dep>sed</dep>
+			<dep>util-linux-ng</dep>
+			<dep>coreutils</dep>
+			<dep>ncurses</dep>
+			<dep>ncurses-8bit</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			]]>
+		</unpack>
+		<patch>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			sed -i '/MV.*old/d' Makefile.in
+			sed -i '/{OLDSUFF}/c:' support/shlib-install
+			cat ${SRCDIR}/${PKGNAME}-${PKGVERSION}-fixes-1.patch | patch -p1
+			]]>
+		</patch>
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --libdir=/lib && make SHLIB_LIBS=-lncurses
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install DESTDIR=${TGTDIR}
+			mv -v ${TGTDIR}/lib/lib{readline,history}.a ${TGTDIR}/usr/lib
+			rm -v ${TGTDIR}/lib/lib{readline,history}.so
+			ln -sfv ../../lib/libreadline.so.6.1 ${TGTDIR}/usr/lib/libreadline.so
+			ln -sfv ../../lib/libhistory.so.6.1 ${TGTDIR}/usr/lib/libhistory.so
+			mkdir -pv ${TGTDIR}/usr/share/doc/${PKGNAME}-${PKGVERSION}
+			install -v -m644 doc/*.{ps,pdf,html,dvi} ${TGTDIR}/usr/share/doc/${PKGNAME}-${PKGVERSION}
+			]]>
+		</install>
+		<clean>
+			<![CDATA[
+			rm -rf ${PKGNAME}-${PKGVERSION}
+			]]>
+		</clean>
+	</package>
+</llpackages>

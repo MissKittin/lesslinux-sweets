@@ -1,0 +1,36 @@
+<llpackages>
+	<package 
+		name="lesslinux-isoburner"
+		version="20091026"
+		class="user"
+		>
+	</package>
+	<scripts>
+	<scriptdata location="/etc/rc.d/0509-isoburner.sh" mode="0755" group="0" owner="0">
+		<![CDATA[#!/static/bin/ash
+		
+#lesslinux provides isoburner
+#lesslinux license BSD
+#lesslinux description
+# Allow surfer to use wrapper for isoburner
+
+PATH=/static/bin:/static/sbin:/bin:/sbin:/usr/bin:/usr/sbin
+export PATH
+
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors
+
+case $1 in 
+    start)
+	printf "$bold===> Adjusting sudo for some wrappers $normal\n"
+	echo '' >> /etc/sudoers
+	echo '# added by /etc/rc.d/0509-isoburner.sh' >> /etc/sudoers
+	echo 'surfer  ALL = NOPASSWD: /usr/bin/isoburner.rb' >> /etc/sudoers
+    ;;
+esac
+
+		]]>
+		</scriptdata>
+	</scripts>
+</llpackages>

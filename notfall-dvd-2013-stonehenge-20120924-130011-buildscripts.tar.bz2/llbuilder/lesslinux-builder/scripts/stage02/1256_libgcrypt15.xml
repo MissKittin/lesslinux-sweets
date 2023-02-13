@@ -1,0 +1,59 @@
+<llpackages>
+	<package 
+		name="libgcrypt15"
+		version="1.5.0"
+		class="lib"
+		install="destdir"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>    
+				<pkg sha1="3e776d44375dc1a710560b98ae8437d5da6e32cf">libgcrypt-1.5.0.tar.bz2</pkg>
+				<mirror>ftp://ftp.gnupg.org/gcrypt/libgcrypt/</mirror>
+			</file>
+			<manualcheck date="20120625" interval="120" page="ftp://ftp.gnupg.org/gcrypt/libgcrypt/" />
+		</sources>
+		<builddeps>
+			<dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>coreutils</dep>
+                        <dep>diffutils</dep>
+                        <dep>findutils</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <dep>inetutils</dep>
+                        <dep>libgpg-error</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>sed</dep>
+                        <dep>util-linux-ng</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/libgcrypt-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd libgcrypt-${PKGVERSION}
+			# ./configure --prefix=/usr/compat.new --sysconfdir=/etc/compat.new
+			./configure --prefix=/usr --sysconfdir=/etc && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd libgcrypt-${PKGVERSION}
+			make install DESTDIR=${TGTDIR} 
+			]]>
+		</install>
+		<clean>
+			<![CDATA[
+			rm -rf libgcrypt-${PKGVERSION}
+			]]>
+		</clean>
+	</package>
+</llpackages>

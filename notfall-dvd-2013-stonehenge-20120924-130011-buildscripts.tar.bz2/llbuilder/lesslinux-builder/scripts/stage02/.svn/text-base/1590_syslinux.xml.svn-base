@@ -1,0 +1,96 @@
+<llpackages>
+	<package 
+		name="syslinux"
+		version="4.06-pre11"
+		class="user"
+		install="destdir">
+		<license>GPLv2</license>
+		<sources>
+			<file>                  
+				<pkg sha1="de1138a3cf08018daad71cc803b6b93ec57a6d03">syslinux-4.06-pre11.tar.xz</pkg>
+				<mirror>http://www.kernel.org/pub/linux/utils/boot/syslinux/</mirror>
+			</file>
+			<manualcheck date="20120725" interval="21" page="http://www.kernel.org/pub/linux/utils/boot/syslinux/" />
+			<check>
+				<page html="http://www.kernel.org/pub/linux/utils/boot/syslinux/">
+					<atext linktext="syslinux-4.06." />
+					<atext linktext="syslinux-4.07." />
+					<atext linktext="syslinux-4.08." />
+					<atext linktext="syslinux-4.09." />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>Python</dep>
+                        <dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>coreutils</dep>
+                        <dep>findutils</dep>
+                        <dep>gcc</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <dep>gzip</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>nasm</dep>
+                        <dep>perl</dep>
+                        <dep>sed</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			unxz -c ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.xz | tar xf -
+			]]>
+		</unpack>
+		<build>
+			<![CDATA[
+			
+			cd ${PKGNAME}-${PKGVERSION}
+			make clean
+			make 
+			mv extlinux/extlinux ../extlinux.dynamic
+			mv mtools/syslinux   ../syslinux.dynamic
+			make -C linux clean
+			make -C extlinux clean
+			make -C utils clean
+			make -C utils LDFLAGS=-static
+			make -C utils isohybrid.pl 
+			make -C utils isohybrid
+			make -C linux LDFLAGS=-static
+			make -C extlinux LDFLAGS=-static
+			
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			mkdir -p ${TGTDIR}/usr/share/syslinux
+			mkdir -p ${TGTDIR}/static/sbin
+			mkdir -p ${TGTDIR}/usr/sbin
+			mkdir -p ${TGTDIR}/etc/syslinux
+			install -m 0755 syslinux.dynamic 	  			  ${TGTDIR}/usr/sbin/syslinux
+			install -m 0755 extlinux.dynamic                                  ${TGTDIR}/usr/sbin/extlinux
+			install -m 0755 ${PKGNAME}-${PKGVERSION}/extlinux/extlinux        ${TGTDIR}/static/sbin/extlinux
+			install -m 0644 ${PKGNAME}-${PKGVERSION}/core/isolinux.bin        ${TGTDIR}/usr/share/syslinux
+			install -m 0644 ${PKGNAME}-${PKGVERSION}/core/pxelinux.bin        ${TGTDIR}/usr/share/syslinux
+			install -m 0644 ${PKGNAME}-${PKGVERSION}/gpxe/pxelinux.gpxe       ${TGTDIR}/usr/share/syslinux
+			install -m 0644 ${PKGNAME}-${PKGVERSION}/com32/menu/menu.c32      ${TGTDIR}/usr/share/syslinux
+			install -m 0644 ${PKGNAME}-${PKGVERSION}/com32/menu/vesamenu.c32  ${TGTDIR}/usr/share/syslinux
+			install -m 0644 ${PKGNAME}-${PKGVERSION}/com32/modules/ifcpu.c32  ${TGTDIR}/usr/share/syslinux
+			install -m 0644 ${PKGNAME}-${PKGVERSION}/com32/modules/reboot.c32 ${TGTDIR}/usr/share/syslinux
+			install -m 0644 ${PKGNAME}-${PKGVERSION}/com32/chain/chain.c32    ${TGTDIR}/usr/share/syslinux
+			install -m 0644 ${PKGNAME}-${PKGVERSION}/mbr/mbr.bin              ${TGTDIR}/usr/share/syslinux
+			install -m 0644 ${PKGNAME}-${PKGVERSION}/mbr/mbr.bin              ${TGTDIR}/etc/syslinux
+			install -m 0755 ${PKGNAME}-${PKGVERSION}/utils/isohybrid          ${TGTDIR}/usr/share/syslinux
+			install -m 0755 ${PKGNAME}-${PKGVERSION}/utils/isohybrid.pl       ${TGTDIR}/usr/share/syslinux
+			]]>
+		</install>
+		<clean>
+			<![CDATA[
+			
+			rm -rf ${PKGNAME}-${PKGVERSION}
+			rm syslinux.dynamic extlinux.dynamic
+			
+			]]>
+		</clean>
+	</package>
+</llpackages>

@@ -1,0 +1,65 @@
+<llpackages>
+	<package 
+		name="avira-skel"
+		version="20111124-00"
+		class="user"
+		install="destdir">
+		<license>proprietary</license>
+		<sources>
+			<file>                                                                                                   
+				<pkg sha1="2bccb250eb6b098f512950230f9bd26862465a28">avira-skel-20111124-00.tar.bz2</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+		</sources>
+		<builddeps>
+			<dep>bash</dep>
+			<dep>qt-everywhere-opensource-src</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xvjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			echo 'Nothing to do!'
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}
+			mkdir -m 0755 -p ${TGTDIR}/etc/avira
+			mkdir -p -m 0755 ${TGTDIR}/usr/share/lesslinux/cbavgui
+			mkdir -p -m 0755 ${TGTDIR}/usr/bin
+			# install -m 0644 header.png /usr/share/lesslinux/cbavgui
+			# install -m 0644 bck_rescuecd_final.png /usr/share/lesslinux/cbavgui
+			install -m 0644 bck_decleaner.png ${TGTDIR}/usr/share/lesslinux/cbavgui/bck_rescuecd_final.png
+			install -m 0644 shutdown24.png ${TGTDIR}/usr/share/lesslinux/cbavgui
+			install -m 0644 shutdown48.png ${TGTDIR}/usr/share/lesslinux/cbavgui
+			install -m 0644 eine_initiative_von.png ${TGTDIR}/usr/share/lesslinux/cbavgui
+			install -m 0644 avirashop.png ${TGTDIR}/usr/share/lesslinux/cbavgui
+			install -m 0644 avirashop24.png ${TGTDIR}/usr/share/lesslinux/cbavgui
+			install -m 0755 cbavgui.rb ${TGTDIR}/usr/bin
+			install -m 0755 cbavlogviewer.sh ${TGTDIR}/usr/bin
+			install -m 0755 cbavffwrapper.sh ${TGTDIR}/usr/bin
+			install -m 0755 cbavevince.sh ${TGTDIR}/usr/bin
+			install -m 0755 cbavdisclaimer.sh ${TGTDIR}/usr/bin
+			install -m 0755 cbavdisclaimer.rb ${TGTDIR}/usr/bin
+			install -m 0755 run_and_save_exit ${TGTDIR}/usr/share/lesslinux/cbavgui
+			install -m 0755 avupdate ${TGTDIR}/usr/share/lesslinux/cbavgui
+			install -m 0644 scancl.conf ${TGTDIR}/etc/avira
+			install -m 0644 avupdate.conf ${TGTDIR}/etc/avira
+			install -m 0644 avupdate.conf.cbavgui ${TGTDIR}/etc/avira
+			# Take the key from the overlay!
+			# install -m 0644 rescue_cd.key /etc/avira
+			# ln -sf /etc/avira/rescue_cd.key /etc/avira/hbedv.key
+			install -m 0755 mount_drives_rw.rb ${TGTDIR}/usr/bin
+			install -m 0755 cbavcdinstaller.sh ${TGTDIR}/usr/bin
+			mkdir -p ${TGTDIR}/opt/avira
+			touch ${TGTDIR}/opt/avira/.intentionally_empty
+			]]>
+		</install>
+	</package>
+</llpackages>

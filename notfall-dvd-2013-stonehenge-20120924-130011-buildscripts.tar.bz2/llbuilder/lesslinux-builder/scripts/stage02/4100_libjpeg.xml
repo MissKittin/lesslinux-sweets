@@ -1,0 +1,69 @@
+<llpackages>
+	<package 
+		name="jpegsrc"
+		version="v8d"
+		class="lib"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                                    
+				<pkg sha1="f080b2fffc7581f7d19b968092ba9ebc234556ff">jpegsrc.v8d.tar.gz</pkg>
+				<mirror>ftp://ftp.uu.net/graphics/jpeg/</mirror>
+				<mirror>http://www.ijg.org/files/</mirror>
+			</file>
+			<manualcheck date="20120621" interval="90" page="http://www.ijg.org/files/" />
+			<check>
+				<page html="http://www.ijg.org/files/">
+					<atext linktext="jpegsrc.v8e." />
+					<atext linktext="jpegsrc.v8f." />
+					<atext linktext="jpegsrc.v8g." />
+					<atext linktext="jpegsrc.v8h." />
+					<atext linktext="jpegsrc.v8i." />
+					<atext linktext="jpegsrc.v9" />
+					<atext linktext="jpegsrc.v10" />
+					<atext linktext="jpegsrc.v11" />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>coreutils</dep>
+                        <dep>diffutils</dep>
+                        <dep>gcc</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <dep>inetutils</dep>
+                        <dep>make</dep>
+                        <dep>sed</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}.${PKGVERSION}.tar.bz2
+			else 
+				tar xzf ${SRCDIR}/${PKGNAME}.${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd jpeg-8d
+			./configure --prefix=/usr && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd jpeg-8d
+			make install
+			]]>
+		</install>
+		<clean>
+			<![CDATA[
+			rm -rf jpeg-8d
+			]]>
+		</clean>
+	</package>
+</llpackages>

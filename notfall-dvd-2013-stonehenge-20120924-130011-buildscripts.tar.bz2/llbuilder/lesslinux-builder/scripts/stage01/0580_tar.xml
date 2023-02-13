@@ -1,0 +1,54 @@
+<llpackages>
+	<package 
+		name="tar"
+		version="1.26"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                                                              
+				<pkg sha1="70f298c3cd997b694864c55e6d8655324c87a0cc">tar-1.26.tar.bz2</pkg>
+				<mirror>http://ftp.gnu.org/gnu/tar/</mirror>
+			</file>
+			<!-- <file>     
+				<pkg sha1="76b86fda3a9816a70b5e5e780a25202767a52ab8">tar-1.23-overflow_fix-1.patch</pkg>
+				<mirror>http://ftp.gnu.org/gnu/tar/</mirror>
+			</file> -->
+			<check>
+				<page html="http://ftp.gnu.org/gnu/tar/">
+					<atext linktext="tar-1.26.1." />
+					<atext linktext="tar-1.27." />
+					<atext linktext="tar-1.28." />
+					<atext linktext="tar-1.29." />
+					<atext linktext="tar-2." />
+				</page>
+			</check>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<!-- <patch>
+			<![CDATA[
+
+			cd ${PKGNAME}-${PKGVERSION}
+			sed -i /SIGPIPE/d src/tar.c
+
+			]]>
+		</patch> -->
+		<build>
+			<![CDATA[ 
+			export FORCE_UNSAFE_CONFIGURE=1
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/tools && make
+			]]>
+		</build>
+		<install>
+			<![CDATA[
+			export FORCE_UNSAFE_CONFIGURE=1
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

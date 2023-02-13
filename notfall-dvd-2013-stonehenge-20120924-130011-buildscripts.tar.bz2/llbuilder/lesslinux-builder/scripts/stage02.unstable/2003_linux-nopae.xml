@@ -1,0 +1,108 @@
+<llpackages>
+	<package 
+		name="linux-nopae"
+		version="3.4.11"
+		class="kernel"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                                   
+				<pkg sha1="a97573fca7d0e5327ca1f46f73a46eda9ad4f935"
+				>config-3.4-lesslinux-nopae-20120611-1255</pkg> 
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+			<file>
+				<pkg sha1="660d8a1c2c694b1dbb361ef7fcbd62846ba742a5">lesslinux-fblogo-20100922.ppm</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+			<file>                                                                                                 
+				<pkg sha1="4b225a1fd01056c54d1caf690de13f92bfed1156">linux-3.4.tar.xz</pkg>
+				<mirror>http://www.kernel.org/pub/linux/kernel/v3.x/</mirror>
+			</file>
+			<file>                                                                                                                           
+				<pkg sha1="a92b235010de000987c87a433a020694da5561be">patch-3.4.11.xz</pkg>
+				<mirror>http://www.kernel.org/pub/linux/kernel/v3.x/</mirror>
+			</file>
+			<manualcheck date="20120917" interval="60" page="http://www.kernel.org/" />
+			<check>
+				<page html="http://www.kernel.org/pub/linux/kernel/v3.x/">
+					<atext linktext="patch-3.4.13." />
+					<atext linktext="patch-3.4.14." />
+					<atext linktext="patch-3.4.12." />
+					<atext linktext="patch-3.5." />
+					<atext linktext="patch-3.6." />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>coreutils</dep>
+                        <dep>diffutils</dep>
+                        <dep>findutils</dep>
+                        <dep>gcc</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <dep>gzip</dep>
+                        <dep>inetutils</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>perl</dep>
+                        <dep>sed</dep>
+                        <dep>which</dep>
+			<dep>ruby</dep>
+			<dep>installkernel-debian</dep>
+			<dep>xz</dep>
+			<dep>bzip2</dep>
+			<dep>gzip</dep>
+			<dep>lesslinux-modextract</dep>
+			<dep>module-init-tools</dep>
+			<dep>linux-pax</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			unxz -c ${SRCDIR}/linux-3.4.tar.xz | tar xf -
+			]]>
+		</unpack>
+		<patch>
+			<![CDATA[ 
+			cd linux-3.4
+			unxz -c ${SRCDIR}/patch-${PKGVERSION}.xz | patch -p1
+			cp -v ${SRCDIR}/lesslinux-fblogo-20100922.ppm drivers/video/logo/logo_linux_clut224.ppm
+			cp -v ${SRCDIR}/config-3.4-lesslinux-nopae-20120611-1255 .config
+			sed -i 's/lesslinux-000/lesslinux-nopae-000/g' .config
+			cd ..
+			mv linux-3.4 linux-${PKGVERSION}
+			]]>
+		</patch>
+		<build>
+			<![CDATA[ 
+			cd linux-${PKGVERSION}
+			make oldconfig
+			make clean
+			make
+			make bzImage
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd linux-${PKGVERSION}
+			make modules_install
+			make firmware_install
+			make install
+			find /lib/modules/${PKGVERSION}-lesslinux-nopae-000 -type f -name '*.ko' -exec strip --strip-unneeded {} \; 
+			true
+			
+			]]>
+		</install>
+		<clean>
+			  <![CDATA[
+			  
+			  rm -rf linux-${PKGVERSION}
+			  
+			  ]]>
+		</clean>
+	</package>
+</llpackages>
+

@@ -1,0 +1,114 @@
+<llpackages>
+	<package 
+		name="Thunar"
+		version="1.4.0"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>               
+				<pkg sha1="104b25b38130e008df2116e83e6ab20cd33e4561">Thunar-1.4.0.tar.bz2</pkg>
+				<mirror>http://archive.xfce.org/src/xfce/thunar/1.4/</mirror>
+			</file>
+			<manualcheck date="20120611" interval="180" page="http://archive.xfce.org/src/xfce/thunar" />
+			<check>
+				<page html="http://archive.xfce.org/src/xfce/thunar/1.4/">
+					<atext linktext="thunar-1.4.2" />
+					<atext linktext="thunar-1.4.3" />
+					<atext linktext="thunar-1.4.4" />
+					<atext linktext="thunar-1.4.1" />
+				</page>
+				<page html="http://archive.xfce.org/src/xfce/thunar/">
+					<atext linktext="1.5" />
+					<atext linktext="1.6" />
+					<atext linktext="1.7" />
+					<atext linktext="2.0" />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+                        <dep>atk</dep>
+                        <dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>cairo</dep>
+                        <dep>coreutils</dep>
+                        <dep>dbus-glib</dep>
+                        <dep>dbus</dep>
+                        <dep>diffutils</dep>
+                        <dep>exo</dep>
+                        <dep>expat</dep>
+                        <dep>fontconfig</dep>
+                        <dep>freetype</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>gdk-pixbuf</dep>
+                        <dep>gettext</dep>
+                        <dep>glib</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <dep>gtk</dep>
+                        <dep>imake</dep>
+                        <dep>inetutils</dep>
+                        <dep>intltool</dep>
+                        <dep>libICE</dep>
+                        <dep>libSM</dep>
+                        <dep>libX11</dep>
+                        <dep>libXau</dep>
+                        <dep>libXdmcp</dep>
+                        <dep>libXrender</dep>
+                        <dep>libexif</dep>
+                        <dep>libnotify</dep>
+                        <dep>libpng14</dep><dep>libpng15</dep>
+                        <dep>libpthread-stubs</dep>
+                        <dep>libxcb</dep>
+                        <dep>libxfce4ui</dep>
+                        <dep>libxfce4util</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>p5-xml</dep>
+                        <dep>pango</dep>
+                        <dep>pcre</dep>
+                        <dep>perl</dep>
+                        <dep>pixman</dep>
+                        <dep>pkg-config</dep>
+                        <dep>sed</dep>
+                        <dep>startup-notification</dep>
+                        <dep>tar</dep>
+                        <dep>util-linux-ng</dep>
+                        <dep>xfce4-panel</dep>
+                        <dep>xfconf</dep>
+                        <dep>xorg-cf-files</dep>
+                        <dep>xproto-base</dep>
+                </builddeps>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --sysconfdir=/etc && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			paxctl -m /usr/bin/Thunar
+			paxctl -m /usr/libexec/xfce4/panel-plugins/thunar-tpa
+			]]>
+		</install>
+		<clean>
+			<![CDATA[
+			rm -rf ${PKGNAME}-${PKGVERSION}
+			]]>
+		</clean>
+	</package>
+</llpackages>

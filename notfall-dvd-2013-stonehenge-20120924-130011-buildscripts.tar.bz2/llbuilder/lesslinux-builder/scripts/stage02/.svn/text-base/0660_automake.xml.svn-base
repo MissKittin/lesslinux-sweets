@@ -1,0 +1,72 @@
+<llpackages>
+	<package 
+		name="automake"
+		version="1.12.3"
+		class="devel"
+		install="destdir"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>    
+				<pkg sha1="d08297e9eb36c82e1baa4e7ad9d27fc1f7e91537">automake-1.12.3.tar.xz</pkg>
+				<mirror>http://ftp.gnu.org/gnu/automake/</mirror>
+			</file>
+			<manualcheck date="20120821" interval="120" page="http://ftp.gnu.org/gnu/automake/" />
+			<check>
+				<page html="http://ftp.gnu.org/gnu/automake/">
+					<atext linktext="automake-1.12.6" />
+					<atext linktext="automake-1.12.7" />
+					<atext linktext="automake-1.12.4" />
+					<atext linktext="automake-1.12.5" />
+					<atext linktext="automake-1.13" />
+					<atext linktext="automake-1.14" />
+					<atext linktext="automake-1.15" />
+					<atext linktext="automake-1.20" />
+					<atext linktext="automake-2" />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>autoconf</dep>
+                        <dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>coreutils</dep>
+                        <dep>gcc</dep>
+                        <dep>grep</dep>
+                        <dep>inetutils</dep>
+                        <dep>m4</dep>
+                        <dep>perl</dep>
+                        <dep>sed</dep>
+                        <dep>util-linux-ng</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			unxz -c ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.xz | tar xf - 
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --docdir=/usr/share/doc/${PKGNAME}-${PKGVERSION} && make
+			]]>
+		</build>
+		<test>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make check
+			]]>
+		</test>
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install DESTDIR=${TGTDIR} 
+			]]>
+		</install>
+		<clean>
+			<![CDATA[
+			rm -rf ${PKGNAME}-${PKGVERSION}
+			]]>
+		</clean>
+	</package>
+</llpackages>

@@ -1,0 +1,95 @@
+<llpackages>
+	<package 
+		name="samba"
+		version="3.4.17"
+		class="user"
+		install="destdir">
+		<license>GPLv2</license>
+		<sources>
+			<file>                                                                                            
+				<pkg sha1="2690e4c5c34b17df76e1b9a613a257c1b6ff5fc3">samba-3.4.17.tar.gz</pkg>
+				<mirror>http://www.samba.org/samba/ftp/</mirror>
+			</file>
+			<manualcheck date="20120624" interval="120" page="http://ftp.samba.org/pub/samba/old-versions/" />
+			<check>
+				<page html="http://ftp.samba.org/pub/samba/old-versions/">
+					<atext linktext="samba-3.4.18." />
+					<atext linktext="samba-3.4.19." />
+					<atext linktext="samba-3.4.20." />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>Python</dep>
+                        <dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>coreutils</dep>
+                        <dep>diffutils</dep>
+                        <dep>gamin</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <dep>inetutils</dep>
+                        <dep>libcap</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>perl</dep>
+                        <dep>pkg-config</dep>
+                        <dep>pygobject</dep>
+                        <dep>readline</dep>
+                        <dep>sed</dep>
+                        <dep>util-linux-ng</dep>
+                        <dep>zlib</dep>
+			<dep>talloc</dep>
+			<!-- soft -->
+			 <dep>attr</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}/source3
+			./configure \
+				--prefix=/usr \
+				--sysconfdir=/etc \
+				--localstatedir=/var \
+				--with-piddir=/var/run \
+				--with-pammodulesdir=/lib/security \
+				--with-fhs --enable-swat=no \
+				--with-cifsmount && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}/source3
+			make install DESTDIR=${TGTDIR}
+			
+mkdir -p ${TGTDIR}/etc/samba
+mv -v ${TGTDIR}/usr/lib/samba/libsmbclient.so ${TGTDIR}/usr/lib
+ln -v -sf ../libsmbclient.so ${TGTDIR}/usr/lib/samba
+ln -v -sf libsmbclient.so ${TGTDIR}/usr/lib/libsmbclient.so.0
+chmod -v 644 ${TGTDIR}/usr/include/lib{smbclient,msrpc}.h
+install -v -m755 nsswitch/libnss_win{s,bind}.so ${TGTDIR}/lib
+ln -v -sf libnss_winbind.so ${TGTDIR}/lib/libnss_winbind.so.2
+ln -v -sf libnss_wins.so ${TGTDIR}/lib/libnss_wins.so.2
+install -v -m644 ../examples/smb.conf.default ${TGTDIR}/etc/samba
+			
+			]]>
+		</install>
+		<clean>
+			<![CDATA[
+			rm -rf ${PKGNAME}-${PKGVERSION}
+			]]>
+		</clean>
+	</package>
+</llpackages>

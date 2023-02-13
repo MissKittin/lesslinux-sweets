@@ -1,0 +1,53 @@
+<llpackages>
+	<package 
+		name="poppler-data"
+		version="0.4.5"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                                                   
+				<pkg sha1="7033721324156de5dc635930b99ee973d9cf8f76">poppler-data-0.4.5.tar.gz</pkg>
+				<mirror>http://poppler.freedesktop.org/</mirror>
+			</file>
+			<check>
+				<page html="http://poppler.freedesktop.org/">
+					<atext linktext="poppler-data-0.4.6." />
+					<atext linktext="poppler-data-0.4.7." />
+					<atext linktext="poppler-data-0.4.8." />
+					<atext linktext="poppler-data-0.5." />
+					<atext linktext="poppler-data-0.6." />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>bash</dep>
+                        <dep>make</dep>
+			<dep>poppler</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --sysconfdir=/etc
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

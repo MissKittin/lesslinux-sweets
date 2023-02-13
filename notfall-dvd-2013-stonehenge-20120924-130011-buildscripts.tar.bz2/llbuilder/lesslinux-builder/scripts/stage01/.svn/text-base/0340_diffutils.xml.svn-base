@@ -1,0 +1,40 @@
+<llpackages>
+	<package 
+		name="diffutils"
+		version="3.2"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                                                  
+				<pkg sha1="e145a54a8ff67fa6272de48ec0e2f4897f05dce7">diffutils-3.2.tar.gz</pkg>
+				<mirror>http://ftp.gnu.org/gnu/diffutils/</mirror>
+			</file>
+			<manualcheck date="20120625" interval="180" page="http://ftp.gnu.org/gnu/diffutils/" />
+			<check>
+				<page html="http://ftp.gnu.org/gnu/diffutils/">
+					<atext linktext="diffutils-3.3.tar." />
+					<atext linktext="diffutils-3.4.tar." />
+					<atext linktext="diffutils-4.0.tar." />
+				</page>
+			</check>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[ 
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/tools
+			]]>
+		</build>
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

@@ -1,0 +1,62 @@
+<llpackages>
+	<package 
+		name="partclone"
+		version="0.2.38"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                            
+				<pkg sha1="31656fd1d0dc517b8937ff5bdcb4ff5bd91817d3">partclone_0.2.38.tar.gz</pkg>
+				<mirror>http://downloads.sourceforge.net/project/partclone/testing/src/</mirror>
+			</file>
+			<!-- <check>
+				<page html="http://sourceforge.net/projects/partclone/files/">
+					<atext linktext="partclone_0.2.17." />
+					<atext linktext="partclone_0.2.18." />
+					<atext linktext="partclone_0.2.19." />
+					<atext linktext="partclone_0.3." />
+					<atext linktext="partclone_0.4." />
+					<atext linktext="partclone_1." />
+				</page>
+			</check> -->
+		</sources>
+		<builddeps>
+                        <dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>coreutils</dep>
+                        <dep>diffutils</dep>
+                        <dep>e2fsprogs</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>gettext</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <dep>inetutils</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>ntfs-3g_ntfsprogs</dep>
+                        <dep>pkg-config</dep>
+                        <dep>sed</dep>
+                        <dep>util-linux-ng</dep>
+                </builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/${PKGNAME}_${PKGVERSION}.tar.gz
+			]]>
+		</unpack>
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --enable-extfs --sysconfdir=/etc && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

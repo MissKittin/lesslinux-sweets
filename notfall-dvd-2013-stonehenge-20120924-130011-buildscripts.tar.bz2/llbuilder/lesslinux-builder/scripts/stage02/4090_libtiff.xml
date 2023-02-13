@@ -1,0 +1,81 @@
+<llpackages>
+	<package 
+		name="tiff"
+		version="4.0.2"
+		class="lib"
+		install="destdir">
+		<license>GPLv2</license>
+		<sources>
+			<file>                     
+				<pkg sha1="d84b7b33a6cfb3d15ca386c8c16b05047f8b5352">tiff-4.0.2.tar.gz</pkg>
+				<mirror>ftp://ftp.remotesensing.org/pub/libtiff/</mirror>
+			</file>
+			<manualcheck date="20120625" interval="120" page="ftp://ftp.remotesensing.org/pub/libtiff/" />
+			<check>
+				<page html="http://www.remotesensing.org/libtiff/">
+					<atext linktext="v4.0.3" />
+					<atext linktext="v4.0.4" />
+					<atext linktext="v4.0.5" />
+					<atext linktext="v4.0.6" />
+					<atext linktext="v4.0.7" />
+					<atext linktext="v4.0.8" />
+					<atext linktext="v4.1" />
+					<atext linktext="v4.2" />
+					<atext linktext="v5" />
+					<atext linktext="v6" />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>Mesa</dep>
+                        <dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>coreutils</dep>
+                        <dep>diffutils</dep>
+                        <dep>findutils</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <dep>inetutils</dep>
+                        <dep>libX11</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>sed</dep>
+                        <dep>util-linux-ng</dep>
+                        <dep>xproto-base</dep>
+                        <dep>zlib</dep>
+			<!-- soft -->
+			 <dep>imake</dep>
+			 <dep>jpegsrc</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else 
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install DESTDIR=${TGTDIR} 
+			]]>
+		</install>
+		<clean>
+			<![CDATA[
+			rm -rf ${PKGNAME}-${PKGVERSION}
+			]]>
+		</clean>
+	</package>
+</llpackages>

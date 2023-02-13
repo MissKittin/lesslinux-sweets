@@ -1,0 +1,55 @@
+<llpackages>
+	<package 
+		name="clamav_signatures"
+		version="20120920"
+		class="user"
+		install="destdir">
+		<license>GPLv2</license>
+		<sources>
+			<file>                                                                                                        
+				<pkg sha1="477d75833947bf334ba33bdba0e04c64471b2660">clamav-daily-v15385.cvd</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+			<file>                                                                                     
+				<pkg sha1="4b657e8cf0f1d8e000c974ef8013806756607f59">clamav-main-v54.cvd</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+			<manualcheck date="20120621" interval="30" page="http://www.clamav.net/lang/en/" />
+		</sources>
+		<builddeps>
+			<dep>bash</dep>
+			<dep>clamav</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			
+			echo 'Nothing to unpack'
+			
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			
+			echo 'Nothing to build'
+			
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			
+			mkdir -p ${TGTDIR}/opt/share/clamav
+			chown -R 60002:60002 ${TGTDIR}/opt/share/clamav
+			install -m 0644 -o clamav -g clamav ${SRCDIR}/clamav-main-v54.cvd ${TGTDIR}/opt/share/clamav/main.cvd
+			install -m 0644 -o clamav -g clamav ${SRCDIR}/clamav-daily-v15385.cvd ${TGTDIR}/opt/share/clamav/daily.cvd
+			
+			]]>
+		</install>
+		<clean>
+			<![CDATA[
+			echo 'Nothing to clean'
+			]]>
+		</clean>
+	</package>
+</llpackages>

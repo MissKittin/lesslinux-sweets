@@ -1,0 +1,138 @@
+<llpackages>
+	<package 
+		name="gcc_pass1"
+		version="4.7.1"
+		buildas="unpriv"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                                                                                  
+				<pkg sha1="3ab74e63a8f2120b4f2c5557f5ffec6907337137">gcc-4.7.1.tar.bz2</pkg>
+				<mirror>ftp://ftp.mpi-sb.mpg.de/pub/gnu/mirror/gcc.gnu.org/pub/gcc/releases/gcc-4.7.1/</mirror>
+			</file>
+			<file>                                                                       
+				<pkg sha1="f632d43943ff9f13c184fa13b9a6e8c7f420f4dd">mpfr-3.1.1.tar.bz2</pkg>
+				<mirror>http://www.mpfr.org/mpfr-current/</mirror>
+			</file>
+			<file>                                   
+				<pkg sha1="12a662456033e21aed3e318aef4177f4000afe3b">gmp-5.0.5.tar.bz2</pkg>
+				<mirror>http://ftp.sunet.se/pub/gnu/gmp/</mirror>
+			</file>
+			<file>                                
+				<pkg sha1="20af7cc481433c019285a2c1757ac65e244e1e06">mpc-1.0.tar.gz</pkg>
+				<mirror>http://www.multiprecision.org/mpc/download/</mirror>
+			</file>
+			<!-- <file>                                                                         
+				<pkg sha1="cc0cf646f8bd9b08ff4e8d06a6e49f07688a0ab3">gcc-4.6.2-cross_compile-1.patch</pkg>
+				<mirror>http://www.linuxfromscratch.org/patches/lfs/development/</mirror>
+			</file> -->
+			<manualcheck date="20120821" interval="120" page="http://ftp.gnu.org/gnu/gcc/" />
+			<check>
+				<page html="http://ftp.gnu.org/gnu/gcc/">
+					<atext linktext="gcc-4.7.4" />
+					<atext linktext="gcc-4.7.2" />
+					<atext linktext="gcc-4.7.3" />
+					<atext linktext="gcc-4.8." />
+					<atext linktext="gcc-4.9." />
+				</page>
+				<page html="http://ftp.sunet.se/pub/gnu/gmp/">
+					<atext linktext="gmp-5.0.9.tar.bz2" />
+					<atext linktext="gmp-5.0.6.tar.bz2" />
+					<atext linktext="gmp-5.0.7.tar.bz2" />
+					<atext linktext="gmp-5.0.8.tar.bz2" />
+					<atext linktext="gmp-5.1.tar.bz2" />
+					<atext linktext="gmp-5.1.0.tar.bz2" />
+					<atext linktext="gmp-5.1.1.tar.bz2" />
+					<atext linktext="gmp-5.1.2.tar.bz2" />
+					<atext linktext="gmp-5.1.3.tar.bz2" />
+				</page>
+				<page html="http://www.mpfr.org/mpfr-current/">
+					<atext linktext="mpfr-3.1.4.tar.bz2" />
+					<atext linktext="mpfr-3.1.2.tar.bz2" />
+					<atext linktext="mpfr-3.1.3.tar.bz2" />
+					<atext linktext="mpfr-3.2." />
+					<atext linktext="mpfr-3.3." />
+					<atext linktext="mpfr-3.4." />
+					<atext linktext="mpfr-4." />
+					<atext linktext="mpfr-5." />
+				</page>
+				<page html="http://www.multiprecision.org/index.php?prog=mpc&amp;page=download">
+					<atext linktext="Version 1.0.1" />
+					<atext linktext="Version 1.0.2" />
+					<atext linktext="Version 1.1" />
+					<atext linktext="Version 2." />
+				</page>
+			</check>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/gcc-${PKGVERSION}.tar.bz2
+			tar xjf ${SRCDIR}/mpfr-3.1.1.tar.bz2
+			tar xjf ${SRCDIR}/gmp-5.0.5.tar.bz2
+			tar zxf ${SRCDIR}/mpc-1.0.tar.gz
+
+			mv -v mpc-1.0 gcc-${PKGVERSION}/mpc
+			mv -v gmp-5.0.5 gcc-${PKGVERSION}/gmp
+			mv -v mpfr-3.1.1 gcc-${PKGVERSION}/mpfr
+			mkdir -v gcc-build
+			]]>
+		</unpack>
+		<patch>
+			<![CDATA[ 
+			cd gcc-${PKGVERSION}
+			for file in $(find gcc/config -name linux64.h -o -name linux.h -o -name sysv4.h)
+			do
+				cp -uv $file{,.orig}
+				sed -e 's@/lib\(64\)\?\(32\)\?/ld@/tools&@g' \
+				-e 's@/usr@/tools@g' $file.orig > $file
+				echo '
+#undef STANDARD_STARTFILE_PREFIX_1
+#undef STANDARD_STARTFILE_PREFIX_2
+#define STANDARD_STARTFILE_PREFIX_1 "/tools/lib/"
+#define STANDARD_STARTFILE_PREFIX_2 ""' >> $file
+				touch $file.orig
+			done
+			]]>
+		</patch>
+		<chown>
+			<![CDATA[ 
+			chown -R ${UNPRIV} gcc-build
+			chown -R ${UNPRIV} gcc-${PKGVERSION}
+			]]>
+		</chown>
+		<build>
+			<![CDATA[ 
+			cd gcc-build
+			../gcc-${PKGVERSION}/configure         \
+			--target=$LFS_TGT          \
+			--prefix=/tools            \
+			--with-sysroot=$CHROOTDIR        \
+			--with-newlib              \
+			--without-headers          \
+			--with-local-prefix=/tools \
+			--with-native-system-header-dir=/tools/include \
+			--disable-nls              \
+			--disable-shared           \
+			--disable-multilib         \
+			--disable-decimal-float    \
+			--disable-threads          \
+			--disable-libmudflap       \
+			--disable-libssp           \
+			--disable-libgomp          \
+			--disable-libquadmath      \
+			--enable-languages=c       \
+			--with-mpfr-include=$(pwd)/../gcc-${PKGVERSION}/mpfr/src \
+			--with-mpfr-lib=$(pwd)/mpfr/src/.libs
+			make
+			]]>
+		</build>
+		<install>
+			<![CDATA[
+			cd gcc-build
+			make install
+			ln -vs libgcc.a `$LFS_TGT-gcc -print-libgcc-file-name | sed 's/libgcc/&_eh/'`
+			# ln -vs libgcc.a `$LFS_TGT-gcc -print-libgcc-file-name | sed 's/libgcc/&_s/'`
+			]]>
+		</install>
+	</package>
+</llpackages>

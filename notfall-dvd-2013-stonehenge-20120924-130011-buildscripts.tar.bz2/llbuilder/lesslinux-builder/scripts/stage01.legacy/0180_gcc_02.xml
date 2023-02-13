@@ -1,0 +1,147 @@
+<llpackages>
+	<package 
+		name="gcc_pass2"
+		version="4.5.2"
+		buildas="unpriv"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>        
+				<pkg sha1="ad5c440526c98fd17a74eab80c031af6b64d9c90">gcc-4.5.2.tar.bz2</pkg>
+				<mirror>ftp://ftp.mpi-sb.mpg.de/pub/gnu/mirror/gcc.gnu.org/pub/gcc/releases/gcc-4.5.2/</mirror>
+			</file>
+			<file>                           
+				<pkg sha1="779bc28d8e3b330d189af660a236f7a2f51698fe">gcc-4.5.0-startfiles_fix-1.patch</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+			<file>  
+				<pkg sha1="8ae8bc72ac26a0f17ad9f57c520264c056c64770">mpfr-3.0.0.tar.bz2</pkg>
+				<mirror>http://www.mpfr.org/mpfr-current/</mirror>
+			</file>
+			<file>  
+				<pkg sha1="6340edc7ceb95f9015a758c7c0d196eb0f441d49">gmp-5.0.1.tar.bz2</pkg>
+				<mirror>http://ftp.sunet.se/pub/gnu/gmp/</mirror>
+			</file>
+			<file>  
+				<pkg sha1="339550cedfb013b68749cd47250cd26163b9edd4">mpc-0.8.2.tar.gz</pkg>
+				<mirror>http://www.multiprecision.org/mpc/download/</mirror>
+			</file>
+			<check>
+				<page html="http://ftp.gnu.org/gnu/gcc/">
+					<atext linktext="gcc-4.5.3" />
+					<atext linktext="gcc-4.5.4" />
+					<atext linktext="gcc-4.5.5" />
+					<atext linktext="gcc-4.6." />
+					<atext linktext="gcc-4.7." />
+				</page>
+				<page html="http://ftp.sunet.se/pub/gnu/gmp/">
+					<atext linktext="gmp-5.0.2.tar.bz2" />
+					<atext linktext="gmp-5.0.3.tar.bz2" />
+					<atext linktext="gmp-5.0.4.tar.bz2" />
+					<atext linktext="gmp-5.0.5.tar.bz2" />
+					<atext linktext="gmp-5.1.tar.bz2" />
+					<atext linktext="gmp-5.1.0.tar.bz2" />
+					<atext linktext="gmp-5.1.1.tar.bz2" />
+					<atext linktext="gmp-5.1.2.tar.bz2" />
+					<atext linktext="gmp-5.1.3.tar.bz2" />
+				</page>
+				<page html="http://www.mpfr.org/mpfr-current/">
+					<atext linktext="mpfr-3.0.1.tar.bz2" />
+					<atext linktext="mpfr-3.0.2.tar.bz2" />
+					<atext linktext="mpfr-3.0.3.tar.bz2" />
+					<atext linktext="mpfr-3.1." />
+					<atext linktext="mpfr-3.2." />
+					<atext linktext="mpfr-3.3." />
+					<atext linktext="mpfr-4." />
+					<atext linktext="mpfr-5." />
+				</page>
+				<page html="http://www.multiprecision.org/index.php?prog=mpc&amp;page=download">
+					<atext linktext="Version 0.8.3" />
+					<atext linktext="Version 0.8.4" />
+					<atext linktext="Version 0.9" />
+					<atext linktext="Version 1." />
+				</page>
+			</check>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/gcc-${PKGVERSION}.tar.bz2
+			tar xjf ${SRCDIR}/mpfr-3.0.0.tar.bz2
+			tar xjf ${SRCDIR}/gmp-5.0.1.tar.bz2
+			tar zxf ${SRCDIR}/mpc-0.8.2.tar.gz
+
+			mv -v mpc-0.8.2 gcc-${PKGVERSION}/mpc
+			mv -v gmp-5.0.1 gcc-${PKGVERSION}/gmp
+			mv -v mpfr-3.0.0 gcc-${PKGVERSION}/mpfr
+			mkdir -v gcc-build
+			]]>
+		</unpack>
+		<patch>
+			<![CDATA[
+			cd gcc-${PKGVERSION}
+			cat ${SRCDIR}/gcc-4.5.0-startfiles_fix-1.patch | patch -p1
+			
+			cp -v gcc/Makefile.in{,.orig}
+			sed 's@\./fixinc\.sh@-c true@' gcc/Makefile.in.orig > gcc/Makefile.in
+			cp -v gcc/Makefile.in{,.tmp}
+			sed 's/^T_CFLAGS =$/& -fomit-frame-pointer/' gcc/Makefile.in.tmp > gcc/Makefile.in
+			for file in $(find gcc/config -name linux64.h -o -name linux.h -o -name sysv4.h)
+			do
+				cp -uv $file{,.orig}
+				sed -e 's@/lib\(64\)\?\(32\)\?/ld@/tools&@g' -e 's@/usr@/tools@g' $file.orig > $file
+				echo '
+#undef STANDARD_INCLUDE_DIR
+#define STANDARD_INCLUDE_DIR 0
+#define STANDARD_STARTFILE_PREFIX_1 ""
+#define STANDARD_STARTFILE_PREFIX_2 ""' >> $file
+				touch $file.orig
+			done
+			
+			case $(uname -m) in
+			x86_64)
+				for file in $(find gcc/config -name t-linux64) ; do \
+					cp -v $file{,.orig}
+					sed '/MULTILIB_OSDIRNAMES/d' $file.orig > $file
+				done
+			;;
+			esac
+			
+			]]>
+		</patch>
+		<chown>
+			<![CDATA[ 
+			chown -R ${UNPRIV} gcc-build
+			chown -R ${UNPRIV} gcc-${PKGVERSION}
+			]]>
+		</chown>
+		<build>
+			<![CDATA[ 
+			
+			cd gcc-build
+			CC="$LFS_TGT-gcc -B/tools/lib/" \
+			AR=$LFS_TGT-ar RANLIB=$LFS_TGT-ranlib \
+			../gcc-${PKGVERSION}/configure --prefix=/tools \
+			--with-local-prefix=/tools --enable-clocale=gnu \
+			--enable-shared --enable-threads=posix \
+			--enable-__cxa_atexit --enable-languages=c,c++ \
+			--disable-libstdcxx-pch --disable-multilib \
+			--disable-bootstrap \
+			--with-gmp-include=$(pwd)/gmp --with-gmp-lib=$(pwd)/gmp/.libs
+			
+			make LD_LIBRARY_PATH=$(pwd)/$(../gcc-4.5.2/config.guess)/libgcc
+			
+			]]>
+		</build>
+		<install>
+			<![CDATA[
+			
+			cd gcc-build
+			make install
+			ln -vs gcc /tools/bin/cc
+			ln -sv /tools/lib/libgcc_s.so{,.1} ${CHROOTDIR}/usr/lib
+			ln -sv /tools/lib/libstdc++.so{,.6} ${CHROOTDIR}/usr/lib
+
+			]]>
+		</install>
+	</package>
+</llpackages>

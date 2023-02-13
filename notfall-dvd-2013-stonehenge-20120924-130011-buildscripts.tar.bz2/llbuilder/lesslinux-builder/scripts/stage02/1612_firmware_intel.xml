@@ -1,0 +1,78 @@
+<llpackages>
+	<package 
+		name="firmware_intel"
+		version="20120625"
+		class="user"
+		install="destdir">
+	<!-- <package 
+		name="firmware_intel"
+		version="20090625"
+		class="user"
+		>-->
+		<license>proprietary</license>
+		<sources>
+			<file>
+				<!-- git clone git://git.kernel.org/pub/scm/linux/kernel/git/dwmw2/linux-firmware.git -->                                                              
+				<pkg sha1="d2e7fd213c936cce524e4911186690677feaa63f">linux-firmware-20120625.tar.bz2</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+			<manualcheck date="20120625" interval="60" page="git://git.kernel.org/pub/scm/linux/kernel/git/dwmw2/linux-firmware.git" />
+		</sources>
+		<builddeps>
+			<dep>bash</dep>
+			<dep>unzip</dep>
+			<dep>coreutils</dep>
+                        <dep>diffutils</dep>
+			<dep>rsync</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[
+			
+			tar xjf ${SRCDIR}/linux-firmware-${PKGVERSION}.tar.bz2
+			
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			echo 'Nothing to do!'
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			mkdir -p ${TGTDIR}/lib/firmware
+			for f in iwlwifi-1000-3.ucode \
+				iwlwifi-1000-5.ucode \
+				iwlwifi-100-5.ucode \
+				iwlwifi-105-6.ucode \
+				iwlwifi-135-6.ucode \
+				iwlwifi-2000-6.ucode \
+				iwlwifi-2030-6.ucode \
+				iwlwifi-3945-2.ucode \
+				iwlwifi-4965-2.ucode \
+				iwlwifi-5000-1.ucode \
+				iwlwifi-5000-2.ucode \
+				iwlwifi-5000-5.ucode \
+				iwlwifi-5150-2.ucode \
+				iwlwifi-6000-4.ucode \
+				iwlwifi-6000g2a-5.ucode \
+				iwlwifi-6000g2b-5.ucode \
+				iwlwifi-6000g2b-6.ucode \
+				iwlwifi-6050-4.ucode \
+				iwlwifi-6050-5.ucode ; do
+				install -m 0755 linux-firmware/$f ${TGTDIR}/lib/firmware
+			done
+			chown -R 0:0 ${TGTDIR}/lib/firmware/
+			cd ${TGTDIR}/lib/firmware
+			ln -sf iwlwifi-6000g2a-{5,4}.ucode
+			ln -sf iwlwifi-6000g2b-{5,4}.ucode
+			]]>
+		</install>
+		<clean>
+			  <![CDATA[
+			rm -rf linux-firmware
+			]]>
+		</clean>
+	</package>
+</llpackages>

@@ -1,0 +1,40 @@
+<llpackages>
+	<package 
+		name="llbank-desktop-files"
+		version="20111218"
+		class="user"
+		install="destdir">
+		<license>GPLv2</license>
+		<sources>
+			<file>                                                                          
+				<pkg sha1="8b80827e8ae34b4e2d3fc920d0675dc0a2950061">llbank-desktop-files-20111218.tar.bz2</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			echo 'Nothing to do!'
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			mkdir -p ${TGTDIR}/usr/share/applications/
+			mkdir -p ${TGTDIR}/usr/share/desktop-directories/
+			cd llbank-desktop-files
+			for i in llbank*.desktop ; do
+				install -m 0644 $i ${TGTDIR}/usr/share/applications/
+			done
+			for i in llbank*.directory ; do
+				install -m 0644 $i ${TGTDIR}/usr/share/desktop-directories/
+			done
+			]]>
+		</install>
+	</package>
+</llpackages>

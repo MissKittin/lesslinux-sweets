@@ -1,0 +1,73 @@
+<llpackages>
+	<package 
+		name="testdisk"
+		version="6.13"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                                                                                                       
+				<pkg sha1="b08ace0257e3e437b6fc140360d75807ca4d46ae">testdisk-6.13.tar.bz2</pkg>
+				<mirror>http://www.cgsecurity.org/</mirror>
+			</file>
+			<manualcheck date="20120715" interval="60" page="http://www.cgsecurity.org/" />
+			<!-- <file>                   
+				<pkg sha1="ce5849d25c5ad042e511dc9e084e44f937bbafec">photorec_611_exif_bound_checking_v2.patch</pkg>
+				<mirror>http://www.cgsecurity.org/</mirror>
+			</file> -->
+ 		</sources>
+		<builddeps>
+			<dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>coreutils</dep>
+                        <dep>diffutils</dep>
+                        <dep>e2fsprogs</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <dep>inetutils</dep>
+                        <dep>jpegsrc</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>ncurses</dep>
+                        <dep>ntfs-3g_ntfsprogs</dep>
+                        <dep>openssl</dep>
+                        <dep>pkg-config</dep>
+                        <dep>sed</dep>
+                        <dep>util-linux-ng</dep>
+                        <dep>zlib</dep>
+			<dep>qt-everywhere-opensource-src</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<!-- <patch>
+			<![CDATA[ 
+			
+			cd ${PKGNAME}-${PKGVERSION}
+			cat ${SRCDIR}/photorec_611_exif_bound_checking_v2.patch | patch -p1
+			
+			]]>
+		</patch> -->
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --sysconfdir=/etc --prefix=/usr --without-ntfs --enable-qt && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

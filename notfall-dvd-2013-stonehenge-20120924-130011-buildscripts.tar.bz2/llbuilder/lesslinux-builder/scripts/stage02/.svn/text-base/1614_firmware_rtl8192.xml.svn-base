@@ -1,0 +1,57 @@
+<llpackages>
+	<package 
+		name="firmware_rtl8192"
+		version="20120102"
+		class="user"
+		install="destdir">
+		<license>proprietary</license>
+		<sources>
+			<file>
+				<!-- git clone git://git.kernel.org/pub/scm/linux/kernel/git/dwmw2/linux-firmware.git -->                                                              
+				<pkg sha1="0d9df089b74a38ee287eed6171b1c68fcd169573">linux-firmware-20120102.tar.bz2</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+			<manualcheck date="20120625" interval="90" page="http://distfiles.lesslinux.org/" />
+		</sources>
+		<builddeps>
+			<dep>bash</dep>
+			<dep>unzip</dep>
+			<dep>coreutils</dep>
+                        <dep>diffutils</dep>
+			<dep>rsync</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[
+			
+			tar xjf ${SRCDIR}/linux-firmware-${PKGVERSION}.tar.bz2
+			
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			echo 'Nothing to do!'
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			mkdir -p ${TGTDIR}/lib/firmware/rtlwifi
+			mkdir -p ${TGTDIR}/lib/firmware/RTL8192E
+			for f in boot data main ; do
+				install -m 0755 linux-firmware/RTL8192E/${f}.img ${TGTDIR}/lib/firmware/RTL8192E
+			done
+			for f in 8192cfw 8192cufw 8192defw 8192sefw 8712u ; do
+				install -m 0755 linux-firmware/rtlwifi/rtl${f}.bin ${TGTDIR}/lib/firmware/rtlwifi
+			done
+			install -m 0644 linux-firmware/LICENCE.rtlwifi_firmware.txt ${TGTDIR}/lib/firmware
+			chown -R 0:0 ${TGTDIR}/lib/firmware/
+			]]>
+		</install>
+		<clean>
+			<![CDATA[
+			rm -rf linux-firmware
+			]]>
+		</clean>
+	</package>
+</llpackages>

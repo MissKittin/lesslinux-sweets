@@ -1,0 +1,64 @@
+<llpackages>
+	<package 
+		name="uClibc"
+		version="0.9.33.2"
+		class="devel"
+		install="destdir"
+		providedeps="no"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                                                   
+				<pkg sha1="6a32581a015a079e6d5cddc81916b1d8b0c1d9c1">uClibc-0.9.33.config</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+			<file>                                                                                                                             
+				<pkg sha1="7b9f7c9c29b49eda4500dfd5faeb1411ec0c9508">uClibc-0.9.33.2.tar.xz</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+			<manualcheck date="20120102" interval="90" page="http://www.uclibc.org/" />
+		</sources>
+		<builddeps>
+                        <dep>cross-gcc</dep>
+                        <dep>cross-linux-headers</dep>
+                        <dep>cross-binutils</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			unxz -c ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.xz | tar xf -
+			]]>
+		</unpack>
+		<patch>
+			<![CDATA[ 
+			
+			cp ${SRCDIR}/${PKGNAME}-0.9.33.config ${PKGNAME}-${PKGVERSION}/.config 
+			sed -i 's%/usr/local/crosstools-20110911/i486-linux-uclibc/include%/usr/local/crosstools/i486-linux-uclibc/include%g' ${PKGNAME}-${PKGVERSION}/.config
+			sed -i 's%/usr/local/crosstools-20110911/bin/i486-linux-uclibc-%/usr/local/crosstools/bin/i486-linux-uclibc-%g' ${PKGNAME}-${PKGVERSION}/.config 
+			
+			]]>
+		</patch>
+		<build>
+			<![CDATA[ 
+			
+			cd ${PKGNAME}-${PKGVERSION}
+			make
+			
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			
+			cd ${PKGNAME}-${PKGVERSION}
+			mkdir -p ${TGTDIR}/usr/local/crosstools/i486-linux-uclibc
+			make install PREFIX=${TGTDIR}/usr/local/crosstools/i486-linux-uclibc/
+			
+			]]>
+		</install>
+		<clean>
+			<![CDATA[
+			rm -rf ${PKGNAME}-${PKGVERSION}
+			]]>
+		</clean>
+	</package>
+</llpackages>

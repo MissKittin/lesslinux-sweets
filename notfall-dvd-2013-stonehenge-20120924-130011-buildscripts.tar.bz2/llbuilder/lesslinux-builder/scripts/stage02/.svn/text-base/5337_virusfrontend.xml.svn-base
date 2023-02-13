@@ -1,0 +1,49 @@
+<llpackages>
+	<package 
+		name="virusfrontend"
+		version="20110127"
+		class="user"
+		>
+		<license>proprietary</license>
+		<sources>
+			<file>                                      
+				<pkg sha1="ac83a4361f5d1a3d830d3a637ccbaa299a183954">virusfrontend-20110127.tar.bz2</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+		</sources>
+		<builddeps>
+			<dep>bash</dep>
+			<dep>qt-everywhere-opensource-src</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xvjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			echo 'Nothing to do!'
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}
+			mkdir -m 0755 -p /usr/share/lesslinux/avfrontend
+			install -m 0755 avfrontend-kaspersky.sh /usr/bin
+			install -m 0755 avfrontend-clamav.sh /usr/bin
+			install -m 0755 avfrontend-avira.sh /usr/bin
+			install -m 0755 virusfrontend /usr/share/lesslinux/avfrontend
+			install -m 0644 virusfrontend_de.qm /usr/share/lesslinux/avfrontend
+			install -m 0644 virusfrontend_pl.qm /usr/share/lesslinux/avfrontend
+			install -m 0644 kaspersky.xml /usr/share/lesslinux/avfrontend
+			install -m 0644 clamav.xml /usr/share/lesslinux/avfrontend
+			install -m 0644 clamav.de.xml /usr/share/lesslinux/avfrontend
+			install -m 0644 clamav.pl.xml /usr/share/lesslinux/avfrontend
+			install -m 0644 avira.xml /usr/share/lesslinux/avfrontend
+			install -m 0644 avira.de.xml /usr/share/lesslinux/avfrontend
+			]]>
+		</install>
+	</package>
+</llpackages>

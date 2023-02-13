@@ -1,0 +1,70 @@
+<pkgdesc version='0.97.5' name='clamav'>
+    <subpackage name='skel'>
+        <softlink path='/opt/lib/libclamav.so' owner='0' group='0'/>
+        <softlink path='/opt/lib/libclamav.so.6' owner='0' group='0'/>
+        <softlink path='/opt/lib/libclamunrar.so' owner='0' group='0'/>
+        <softlink path='/opt/lib/libclamunrar.so.6' owner='0' group='0'/>
+        <softlink path='/opt/lib/libclamunrar_iface.so' owner='0' group='0'/>
+        <softlink path='/opt/lib/libclamunrar_iface.so.6' owner='0' group='0'/>
+        <directory path='/etc' owner='0' group='0'/>
+        <directory path='/opt' owner='0' group='0'/>
+        <directory path='/opt/bin' owner='0' group='0'/>
+        <directory path='/opt/include' owner='0' group='0'/>
+        <directory path='/opt/lib' owner='0' group='0'/>
+        <directory path='/opt/lib/pkgconfig' owner='0' group='0'/>
+        <directory path='/opt/sbin' owner='0' group='0'/>
+        <directory path='/opt/share' owner='0' group='0'/>
+        <directory path='/opt/share/clamav' owner='0' group='0'/>
+        <directory path='/opt/share/man' owner='0' group='0'/>
+        <directory path='/opt/share/man/man1' owner='0' group='0'/>
+        <directory path='/opt/share/man/man5' owner='0' group='0'/>
+        <directory path='/opt/share/man/man8' owner='0' group='0'/>
+    </subpackage>
+    <subpackage name='minimal'>
+	<file mode='100755' path='/opt/lib/libclamav.so.6.1.14' owner='0' group='0' fileout='ELF 32-bit LSB shared object, Intel 80386, version 1 (GNU/Linux), dynamically linked, not stripped'/>
+        <file mode='100755' path='/opt/lib/libclamunrar.so.6.1.14' owner='0' group='0' fileout='ELF 32-bit LSB shared object, Intel 80386, version 1 (SYSV), dynamically linked, not stripped'/>
+        <file mode='100755' path='/opt/lib/libclamunrar_iface.so.6.1.14' owner='0' group='0' fileout='ELF 32-bit LSB shared object, Intel 80386, version 1 (SYSV), dynamically linked, not stripped'/>
+    </subpackage>
+    <subpackage name='bin'>
+        <file mode='100755' path='/opt/bin/clambc' owner='0' group='0' fileout='ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.25, not stripped'/>
+        <file mode='100755' path='/opt/bin/clamconf' owner='0' group='0' fileout='ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.25, not stripped'/>
+        <file mode='100755' path='/opt/bin/clamdscan' owner='0' group='0' fileout='ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.25, not stripped'/>
+        <file mode='100755' path='/opt/bin/clamdtop' owner='0' group='0' fileout='ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.25, not stripped'/>
+        <file mode='100755' path='/opt/bin/clamscan' owner='0' group='0' fileout='ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.25, not stripped'/>
+        <file mode='100755' path='/opt/bin/freshclam' owner='0' group='0' fileout='ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.25, not stripped'/>
+        <file mode='100755' path='/opt/bin/sigtool' owner='0' group='0' fileout='ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.25, not stripped'/>
+        <file mode='100755' path='/opt/sbin/clamd' owner='0' group='0' fileout='ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.25, not stripped'/>
+    </subpackage>
+    <subpackage name='doc'>
+        <file mode='100644' path='/opt/share/man/man1/clamconf.1' owner='0' group='0' fileout='troff or preprocessor input text'/>
+        <file mode='100644' path='/opt/share/man/man1/clamdscan.1' owner='0' group='0' fileout='troff or preprocessor input text'/>
+        <file mode='100644' path='/opt/share/man/man1/clamdtop.1' owner='0' group='0' fileout='troff or preprocessor input text'/>
+        <file mode='100644' path='/opt/share/man/man1/clamscan.1' owner='0' group='0' fileout='troff or preprocessor input text'/>
+        <file mode='100644' path='/opt/share/man/man1/freshclam.1' owner='0' group='0' fileout='troff or preprocessor input text'/>
+        <file mode='100644' path='/opt/share/man/man1/sigtool.1' owner='0' group='0' fileout='troff or preprocessor input text'/>
+        <file mode='100644' path='/opt/share/man/man5/clamav-milter.conf.5' owner='0' group='0' fileout='troff or preprocessor input text'/>
+        <file mode='100644' path='/opt/share/man/man5/clamd.conf.5' owner='0' group='0' fileout='troff or preprocessor input text'/>
+        <file mode='100644' path='/opt/share/man/man5/freshclam.conf.5' owner='0' group='0' fileout='troff or preprocessor input text'/>
+        <file mode='100644' path='/opt/share/man/man8/clamav-milter.8' owner='0' group='0' fileout='troff or preprocessor input text'/>
+        <file mode='100644' path='/opt/share/man/man8/clamd.8' owner='0' group='0' fileout='troff or preprocessor input text'/>
+    </subpackage>
+    <subpackage name='config'>
+        <file mode='100644' path='/etc/clamd.conf' owner='0' group='0' fileout='Lisp/Scheme program text'/>
+        <file mode='100644' path='/etc/freshclam.conf' owner='0' group='0' fileout='ASCII English text'/>
+    </subpackage>
+    <subpackage name='devel'>
+        <file mode='100755' path='/opt/bin/clamav-config' owner='0' group='0' fileout='POSIX shell script text executable'/>
+        <file mode='100644' path='/opt/include/clamav.h' owner='0' group='0' fileout='ASCII C program text'/>
+        <file mode='100755' path='/opt/lib/libclamav.la' owner='0' group='0' fileout='libtool library file'/>
+        <file mode='100755' path='/opt/lib/libclamunrar.la' owner='0' group='0' fileout='libtool library file'/>
+        <file mode='100755' path='/opt/lib/libclamunrar_iface.la' owner='0' group='0' fileout='libtool library file'/>
+        <file mode='100644' path='/opt/lib/pkgconfig/libclamav.pc' owner='0' group='0' fileout='ASCII text'/>
+    </subpackage>
+    <subpackage name='localization'/>
+    <subpackage name='tzdata'/>
+    <subpackage name='uncategorized'>
+        <file mode='100644' path='/opt/share/clamav/keep_this_directory' owner='0' group='0' fileout='empty'/>
+        <file mode='100644' path='/opt/share/man/man1/clambc.1' owner='0' group='0' fileout='troff or preprocessor input text'/>
+    </subpackage>
+    <subpackage name='ignore'/>
+</pkgdesc>

@@ -1,0 +1,54 @@
+<pkgdesc name='dhcpcd' version='5.5.5'>
+    <subpackage name='skel'>
+        <directory group='0' path='/etc' owner='0'/>
+        <directory group='0' path='/etc/dhcpcd' owner='0'/>
+        <directory group='0' path='/lib' owner='0'/>
+        <directory group='0' path='/lib/dhcpcd' owner='0'/>
+        <directory group='0' path='/lib/dhcpcd/dhcpcd-hooks' owner='0'/>
+        <directory group='0' path='/sbin' owner='0'/>
+        <directory group='0' path='/share' owner='0'/>
+        <directory group='0' path='/share/man' owner='0'/>
+        <directory group='0' path='/share/man/man5' owner='0'/>
+        <directory group='0' path='/share/man/man8' owner='0'/>
+        <directory group='0' path='/var' owner='0'/>
+        <directory group='0' path='/var/lib' owner='0'/>
+        <directory group='0' path='/var/lib/dhcpcd' owner='0'/>
+    </subpackage>
+    <subpackage name='minimal'/>
+    <subpackage name='bin'>
+        <file group='0' mode='100555' path='/sbin/dhcpcd' fileout='ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.25, not stripped' owner='0'/>
+    </subpackage>
+    <subpackage name='doc'>
+        <file group='0' mode='100444' path='/share/man/man5/dhcpcd.conf.5' fileout='troff or preprocessor input text' owner='0'/>
+        <file group='0' mode='100444' path='/share/man/man8/dhcpcd-run-hooks.8' fileout='troff or preprocessor input text' owner='0'/>
+        <file group='0' mode='100444' path='/share/man/man8/dhcpcd.8' fileout='troff or preprocessor input text' owner='0'/>
+    </subpackage>
+    <subpackage name='config'>
+        <file group='0' mode='100644' path='/etc/dhcpcd/dhcpcd.conf' fileout='ASCII English text' owner='0'/>
+    </subpackage>
+    <subpackage name='devel'/>
+    <subpackage name='localization'/>
+    <subpackage name='tzdata'/>
+    <subpackage name='uncategorized'>
+        <file group='0' mode='100444' path='/lib/dhcpcd/dhcpcd-hooks/01-test' fileout='ASCII text' owner='0'/>
+        <file group='0' mode='100444' path='/lib/dhcpcd/dhcpcd-hooks/02-dump' fileout='ASCII text' owner='0'/>
+        <file group='0' mode='100444' path='/lib/dhcpcd/dhcpcd-hooks/10-mtu' fileout='ASCII English text' owner='0'/>
+        <file group='0' mode='100444' path='/lib/dhcpcd/dhcpcd-hooks/20-resolv.conf' fileout='ASCII English text' owner='0'/>
+        <file group='0' mode='100444' path='/lib/dhcpcd/dhcpcd-hooks/29-lookup-hostname' fileout='ASCII English text' owner='0'/>
+        <file group='0' mode='100444' path='/lib/dhcpcd/dhcpcd-hooks/30-hostname' fileout='ASCII English text' owner='0'/>
+        <file group='0' mode='100555' path='/lib/dhcpcd/dhcpcd-run-hooks' fileout='POSIX shell script text executable' owner='0'/>
+    </subpackage>
+    <subpackage name='ignore'/>
+    <vanished>
+        <subpackage name='config'/>
+        <subpackage name='doc'/>
+        <subpackage name='minimal'/>
+        <subpackage name='devel'/>
+        <subpackage name='localization'/>
+        <subpackage name='bin'/>
+        <subpackage name='ignore'/>
+        <subpackage name='uncategorized'/>
+        <subpackage name='tzdata'/>
+        <subpackage name='skel'/>
+    </vanished>
+</pkgdesc>

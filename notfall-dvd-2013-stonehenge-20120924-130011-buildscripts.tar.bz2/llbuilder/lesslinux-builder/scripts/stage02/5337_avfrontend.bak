@@ -1,0 +1,41 @@
+<llpackages>
+	<package 
+		name="kaspersky-wrapper"
+		version="20091022"
+		class="user"
+		>
+		<license>proprietary</license>
+		<sources>
+			<file>                   
+				<pkg sha1="bdc94f4da88e728170226c55228570fa4946c094">kaspersky-wrapper-20091022.tar.bz2</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+		</sources>
+		<builddeps>
+			<dep>bash</dep>
+			<dep>qt-everywhere-opensource-src</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xvjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			echo 'Nothing to do!'
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}
+			mkdir -m 0755 -p /opt/computerbild/avfrontend
+			install -m 0755 run-kaspersky-gui.sh /usr/bin
+			install -m 0755 virusfrontend /opt/computerbild/avfrontend
+			install -m 0644 virusfrontend_de.qm /opt/computerbild/avfrontend
+			install -m 0644 kaspersky.xml /opt/computerbild/avfrontend
+			]]>
+		</install>
+	</package>
+</llpackages>

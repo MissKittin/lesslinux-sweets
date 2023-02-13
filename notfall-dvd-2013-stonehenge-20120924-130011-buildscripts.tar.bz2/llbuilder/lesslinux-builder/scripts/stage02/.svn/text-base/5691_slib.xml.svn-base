@@ -1,0 +1,39 @@
+<llpackages>
+	<package 
+		name="slib"
+		version="3b3"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                                                                                                    
+				<pkg sha1="5bfa35af2669137beac14e016181bbbfb0bbe67f">slib-3b3.zip</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+		</sources> 
+		<builddeps>
+                        <dep>bash</dep>
+			<dep>guile</dep>
+			<dep>rsync</dep>
+                </builddeps>
+		<unpack>
+			<![CDATA[ 
+			unzip ${SRCDIR}/${PKGNAME}-${PKGVERSION}.zip
+			]]>
+		</unpack>
+		<build>
+			<![CDATA[
+			echo 'Nothing to do...'
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			rsync -avHP slib/ /usr/share/guile/slib/
+			touch /usr/share/guile/slib/*
+			chown -R root:root /usr/share/guile/slib/
+			chmod 0644 /usr/share/guile/slib/*
+			]]>
+		</install>
+	</package>
+</llpackages>

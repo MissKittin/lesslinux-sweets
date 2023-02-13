@@ -1,0 +1,48 @@
+<llpackages>
+	<package 
+		name="strace"
+		version="4.7"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                         
+				<pkg sha1="af917d27abf54b43fecf10373b320a2d42dfba4e">strace-4.7.tar.xz</pkg>
+				<mirror>http://downloads.sourceforge.net/project/strace/strace/4.7/</mirror>
+			</file>
+			<!-- <file>  
+				<pkg sha1="32773d2f5b4453b9c596ab6ebf44eb7e38185345">strace-4.5.19-linux-2.6.31.patch</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file> -->
+			<check>
+				<page html="http://sourceforge.net/projects/strace/files/">
+					<atext linktext="strace-4.7.1." />
+					<atext linktext="strace-4.8." />
+					<atext linktext="strace-5.0." />
+				</page>
+			</check>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			unxz -c ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.xz | tar xf -
+			]]>
+		</unpack>
+		<!-- <patch>
+			<![CDATA[ 
+			cd ${PKGNAME}-${PKGVERSION}
+			cat ${SRCDIR}/${PKGNAME}-${PKGVERSION}-linux-2.6.31.patch | patch -p1
+			]]>
+		</patch> -->
+		<build>
+			<![CDATA[ 
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/tools --enable-static && make LDFLAGS="-static"
+			]]>
+		</build>
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			install -m 0755 strace /tools/bin
+			]]>
+		</install>
+	</package>
+</llpackages>
