@@ -1,0 +1,38 @@
+<llpackages>
+	<package 
+		name="kaspersky"
+		version="5.7-26"
+		class="user"
+		providedeps="no"
+		strip="no"
+		>
+		<license>proprietary</license>
+		<sources>
+			<file>                 
+				<pkg sha1="5d3b3eb0a7b13178471b52455271d07d2a4ec499">kav4ws_5.7-26.tar.bz2</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+		</sources>
+		<builddeps>
+			<dep>bash</dep>
+			<dep>qt-everywhere-opensource-src</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			echo 'Nothing to do!'
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			echo 'Nothing to do!'
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			tar -C / -xvjf ${SRCDIR}/kav4ws_${PKGVERSION}.tar.bz2
+			]]>
+		</install>
+	</package>
+</llpackages>

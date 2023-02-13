@@ -1,0 +1,78 @@
+<llpackages>
+	<package 
+		name="alsa-lib"
+		version="1.0.23"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>         
+				<pkg sha1="8abcd773f1686a182c08fd53f0d7b353cfcf9f56">alsa-lib-1.0.23.tar.bz2</pkg>
+				<mirror>ftp://ftp.alsa-project.org/pub/lib/</mirror>
+			</file>
+			<file>         
+				<pkg sha1="b7d376cd3e664ba13b6dfb8278546f1b61189a14">alsa-driver-1.0.23.tar.bz2</pkg>
+				<mirror>ftp://ftp.alsa-project.org/pub/driver/</mirror>
+			</file>
+			<check>
+				<page html="http://ftp.silug.org/pub/alsa/lib/">
+					<atext linktext="alsa-lib-1.0.24." />
+					<atext linktext="alsa-lib-1.0.25." />
+					<atext linktext="alsa-lib-1.1." />
+					<atext linktext="alsa-lib-1.2." />
+					<atext linktext="alsa-lib-2." />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>Python</dep>
+                        <dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>coreutils</dep>
+                        <dep>diffutils</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <dep>inetutils</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>pygobject</dep>
+                        <dep>sed</dep>
+                        <dep>util-linux-ng</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			tar xjf ${SRCDIR}/alsa-driver-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			cd ../alsa-driver-${PKGVERSION}
+			install -m 0744 snddevices /usr/sbin
+			]]>
+		</install>
+		<clean>
+			<![CDATA[
+			rm -rf ${PKGNAME}-${PKGVERSION}
+			rm -rf  alsa-driver-${PKGVERSION}
+			]]>
+		</clean>
+	</package>
+</llpackages>

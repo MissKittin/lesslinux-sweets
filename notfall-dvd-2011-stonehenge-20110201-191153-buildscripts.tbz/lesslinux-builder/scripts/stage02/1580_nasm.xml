@@ -1,0 +1,50 @@
+<llpackages>
+	<package 
+		name="nasm"
+		version="2.09.04"
+		class="devel"
+		>
+		<license>GPLv2</license>
+		<sources>            
+			<file>                                                                      
+				<pkg sha1="87fb3f1d277f57cfd86408faa28685df0c887f59">nasm-2.09.04.tar.bz2</pkg>
+				<mirror>http://www.nasm.us/pub/nasm/releasebuilds/2.09.04/</mirror>
+			</file>
+		</sources>
+		<builddeps>
+			<dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>coreutils</dep>
+                        <dep>diffutils</dep>
+                        <dep>gcc</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <dep>groff</dep>
+                        <dep>inetutils</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>sed</dep>
+                        <dep>util-linux-ng</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

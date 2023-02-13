@@ -1,0 +1,68 @@
+<llpackages>
+	<package 
+		name="dbus-glib"
+		version="0.92"
+		class="lib"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>
+				<pkg sha1="69aa860251a2c916907ac7b34d5a40196cf073ff">dbus-glib-0.92.tar.gz</pkg>
+				<mirror>http://dbus.freedesktop.org/releases/dbus-glib/</mirror>
+			</file>
+			<check>
+				<page html="http://dbus.freedesktop.org/releases/dbus-glib/">
+					<atext linktext="dbus-glib-0.93.tar.gz" />
+					<atext linktext="dbus-glib-0.94.tar.gz" />
+					<atext linktext="dbus-glib-0.95.tar.gz" />
+					<atext linktext="dbus-glib-0.96.tar.gz" />
+					<atext linktext="dbus-glib-1." />
+					<atext linktext="dbus-glib-2." />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>coreutils</dep>
+                        <dep>dbus</dep>
+                        <dep>diffutils</dep>
+                        <dep>expat</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>gettext</dep>
+                        <dep>glib</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <dep>inetutils</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>pkg-config</dep>
+                        <dep>sed</dep>
+                        <dep>util-linux-ng</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --sysconfdir=/etc --prefix=/usr && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

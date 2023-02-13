@@ -1,0 +1,69 @@
+<llpackages>
+	<package 
+		name="linux_headers"
+		version="2.6.37"
+		class="devel"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                                                
+				<pkg sha1="eba83c89e71a86060ef6ff76aefff660aef819e2">linux-2.6.37.tar.bz2</pkg>
+				<mirror>http://www.eu.kernel.org/pub/linux/kernel/v2.6/</mirror>
+			</file>
+			<!-- <file>                                                   
+				<pkg sha1="e70de463a1b3a287ef47f4950c3acb8f5b43ed99">patch-2.6.36.2.bz2</pkg>
+				<mirror>http://www.eu.kernel.org/pub/linux/kernel/v2.6/</mirror>
+			</file> -->
+			<check>
+				<page html="http://www.eu.kernel.org/pub/linux/kernel/v2.6/">
+					<atext linktext="patch-2.6.37.1." />
+					<atext linktext="patch-2.6.37.2." />
+					<atext linktext="patch-2.6.37.3." />
+					<atext linktext="patch-2.6.37.4." />
+					<atext linktext="patch-2.6.38." />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/linux-2.6.37.tar.bz2
+			]]>
+		</unpack>
+		<!-- <patch>
+			<![CDATA[ 
+			
+			cd linux-2.6.36
+			bunzip2 -c ${SRCDIR}/patch-${PKGVERSION}.bz2 | patch -p1
+			cd ..
+			mv -v linux-2.6.36 linux-${PKGVERSION}
+			
+			]]>
+		</patch> -->
+		<build>
+			<![CDATA[ 
+			
+			cd linux-${PKGVERSION}
+			make mrproper && make headers_check
+			
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			
+			cd linux-${PKGVERSION}
+			make INSTALL_HDR_PATH=dest headers_install
+			find dest/include \( -name .install -o -name ..install.cmd \) -delete
+			cp -rv dest/include/* /usr/include
+			
+			]]>
+		</install>
+		<clean>
+			<![CDATA[
+			rm -rf linux-${PKGVERSION}
+			]]>
+		</clean>
+	</package>
+</llpackages>

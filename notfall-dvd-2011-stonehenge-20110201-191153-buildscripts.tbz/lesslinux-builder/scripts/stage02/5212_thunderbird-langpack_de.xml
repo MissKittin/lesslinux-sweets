@@ -1,0 +1,133 @@
+<llpackages>
+	<package 
+		name="thunderbird-langpack-de-es-pl-ru"
+		version="3.1.7"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<!-- <file>
+				<pkg sha1="b7273ab0c854ab2d79aad5b63c949c7c5784c579">thunderbird-2.0.0.23-source-de-20090917.tar.bz2</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>-->
+			<!-- <file>
+				<pkg sha1="e83623327be0b28f8e600fb2ceaa70680c64dbe7">thunderbird-2.0.0.22-source-de-20090705.tar.bz2</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file> -->
+			<file> 
+				<pkg sha1="6110e9cf405dcf3ef2e299a8ea4ad0d9d32c4ec5">thunderbird-3.1.source-neutral-de-es-pl-ru-20100628.tar.bz2</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+			<file>  
+				<pkg sha1="e64dc04bee9902da167cc7c9d17961acc13a9b66">mozconfig-thunderbird-neutral-3.1-20100628-de</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+			<check>
+				<page html="http://releases.mozilla.org/pub/mozilla.org/thunderbird/releases/">
+					<atext linktext="3.1.8" />
+					<atext linktext="3.1.9" />
+					<atext linktext="3.1.10" />
+					<atext linktext="3.2" />
+					<atext linktext="3.3" />
+					<atext linktext="4." />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>GConf</dep>
+                        <dep>ORBit2</dep>
+                        <dep>Python</dep>
+                        <dep>alsa-lib</dep>
+                        <dep>atk</dep>
+                        <dep>autoconf</dep>
+                        <dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>cairo</dep>
+                        <dep>coreutils</dep>
+                        <dep>dbus-glib</dep>
+                        <dep>dbus</dep>
+                        <dep>diffutils</dep>
+                        <dep>findutils</dep>
+                        <dep>fontconfig</dep>
+                        <dep>freetype</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>gdk-pixbuf</dep>
+                        <dep>glib</dep>
+                        <dep>glibc</dep>
+                        <dep>gnome-vfs</dep>
+                        <dep>grep</dep>
+                        <dep>gtk+</dep>
+                        <dep>inetutils</dep>
+                        <dep>libICE</dep>
+                        <dep>libIDL</dep>
+                        <dep>libSM</dep>
+                        <dep>libX11</dep>
+                        <dep>libXau</dep>
+                        <dep>libXext</dep>
+                        <dep>libXrender</dep>
+                        <dep>libXt</dep>
+                        <dep>libnotify</dep>
+                        <dep>libpthread-stubs</dep>
+                        <dep>libxcb</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>pango</dep>
+                        <dep>perl</dep>
+                        <dep>pixman</dep>
+                        <dep>pkg-config</dep>
+                        <dep>pygobject</dep>
+                        <dep>sed</dep>
+                        <dep>tar</dep>
+                        <dep>unzip</dep>
+                        <dep>util-linux-ng</dep>
+                        <dep>wireless_tools</dep>
+                        <dep>xproto-base</dep>
+                        <dep>zip</dep>
+			<dep>thunderbird-source</dep>
+			<!-- soft -->
+			 <dep>imake</dep>
+			 <dep>makedepend</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/thunderbird-3.1.source-neutral-de-es-pl-ru-20100628.tar.bz2
+			rm comm-1.9.2/.mozconfig
+			cp ${SRCDIR}/mozconfig-thunderbird-neutral-3.1-20100628-de comm-1.9.2/.mozconfig
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd comm-1.9.2
+			make -f client.mk clean
+			make -f client.mk configure
+			make -f client.mk build
+			cd tb-build/mail/locales
+			for packlang in de es-ES pl ru ; do
+				make langpack-${packlang}
+			done
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+
+			mkdir -m 0755 /usr/share/mozilla-localization
+			for packlang in de es-ES pl ru ; do
+				rm -rf /opt/thunderbird31/lib/thunderbird-${PKGVERSION}/extensions/langpack-${packlang}'@thunderbird.mozilla.org'
+				install -m 0644 comm-1.9.2/tb-build/mozilla/dist/install/thunderbird-3.1.${packlang}.langpack.xpi /usr/share/mozilla-localization
+				mkdir -p /opt/thunderbird31/lib/thunderbird-${PKGVERSION}/extensions/langpack-${packlang}'@thunderbird.mozilla.org'
+				( cd /opt/thunderbird31/lib/thunderbird-${PKGVERSION}/extensions/langpack-${packlang}'@thunderbird.mozilla.org'
+				unzip /usr/share/mozilla-localization/thunderbird-3.1.${packlang}.langpack.xpi )
+			done
+			
+			]]>
+		</install>
+		<clean>
+			 <![CDATA[
+			rm -rf comm-1.9.2
+			]]>
+		</clean>
+	</package>
+</llpackages>

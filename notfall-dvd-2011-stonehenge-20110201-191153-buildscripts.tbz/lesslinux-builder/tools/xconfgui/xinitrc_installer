@@ -1,0 +1,28 @@
+#!/static/bin/ash
+	
+PATH=/static/bin:/static/sbin:/bin:/sbin:/usr/bin:/usr/sbin
+export PATH
+
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors
+. /etc/lesslinux/branding/branding.en.sh
+[ -f "/etc/lesslinux/branding/branding.${lang}.sh" ] && . /etc/lesslinux/branding/branding.${lang}.sh
+
+#if [ -n "$xkbmap" ] ; then
+#	/usr/bin/setxkbmap -layout "$xkbmap"
+#fi
+
+if [ "$lang" = "ru" ] ; then
+	setxkbmap -rules xorg -model pc105 -layout us,ru -variant ,winkeys -option grp:alt_shift_toggle,grp_led:scroll
+else
+	setxkbmap -rules xorg -model pc105 -layout "$xkbmap"
+fi
+if  [ -n "$xrandr" ] ; then
+	/usr/bin/xrandr --size "$xrandr"
+fi
+
+/usr/bin/Esetroot -scale /etc/lesslinux/branding/desktop.png
+/usr/bin/matchbox-window-manager -force_dialogs "Install: $brandlong" &
+/usr/bin/ruby /usr/local/xconfgui/installer.rb
+

@@ -1,0 +1,60 @@
+<llpackages>
+	<package 
+		name="strace"
+		version="4.5.20"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>
+				<pkg sha1="3f5c8874610d7e3d13fc1c8b2e5fb5513468c45a">strace-4.5.20.tar.bz2</pkg>
+				<mirror>http://downloads.sourceforge.net/project/strace/strace/4.5.20/</mirror>
+			</file>
+			<!-- <file>  
+				<pkg sha1="32773d2f5b4453b9c596ab6ebf44eb7e38185345">strace-4.5.19-linux-2.6.31.patch</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file> -->
+			<check>
+				<page html="http://sourceforge.net/projects/strace/files/strace/">
+					<atext linktext="4.5.21." />
+					<atext linktext="4.6." />
+					<atext linktext="5.0." />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>linux_headers</dep>
+			<dep>glibc</dep>
+			<dep>man-pages</dep>
+			<dep>readjust</dep>
+			<dep>zlib</dep>
+			<dep>binutils</dep>
+			<dep>gmp</dep>
+			<dep>mpfr</dep>
+			<dep>mpc</dep>
+			<dep>gcc</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<!-- <patch>
+			<![CDATA[ 
+			cd ${PKGNAME}-${PKGVERSION}
+			cat ${SRCDIR}/${PKGNAME}-${PKGVERSION}-linux-2.6.31.patch | patch -p1
+			]]>
+		</patch> -->
+		<build>
+			<![CDATA[ 
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr && make LDFLAGS="-static"
+			]]>
+		</build>
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			install -m 0755 strace /usr/bin
+			]]>
+		</install>
+	</package>
+</llpackages>

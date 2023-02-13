@@ -1,0 +1,48 @@
+<llpackages>
+	<package 
+		name="dropbear"
+		version="0.52"
+		class="user"
+		>
+	</package>
+	<dirs>
+		<dir mode="0755">/etc/dropbear</dir>
+	</dirs>
+	<scripts>
+		<scriptdata location="/etc/rc.d/0150-dropbear.sh" mode="0755" group="0" owner="0">
+		<![CDATA[#!/static/bin/ash
+
+#lesslinux provides dropbear
+#lesslinux license BSD
+
+PATH=/static/bin:/static/sbin:/bin:/sbin:/usr/bin:/usr/sbin
+export PATH
+
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors
+		
+case $1 in
+    start)
+	if cat /proc/cmdline | grep 'security=smack' > /dev/null 2>&1 ; then
+	    exit 0
+	else
+	    printf "$bold===> Starting dropbear SSH $normal\n"
+	    for i in rsa dss ; do
+	        if [ '!' -f /etc/dropbear/dropbear_"$i"_host_key ] ; then
+	            dropbearkey -t $i -f /etc/dropbear/dropbear_"$i"_host_key
+		fi
+	    done
+	    dropbear -p "$dropbearport"
+	fi
+    ;;
+    stop)
+        printf "$bold===> Stopping dropbear SSH $normal\n"
+	kill ` pidof dropbear ` 
+    ;;
+esac
+		
+# The end	]]>
+		</scriptdata>
+	</scripts>
+</llpackages>

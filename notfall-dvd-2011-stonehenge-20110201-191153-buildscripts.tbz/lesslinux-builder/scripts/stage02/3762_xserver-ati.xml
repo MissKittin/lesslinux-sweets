@@ -1,0 +1,75 @@
+<llpackages>
+	<package 
+		name="xf86-video-ati"
+		version="6.13.2"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>  
+			<file>  
+				<!-- Check config of Xserver before updating to 6.13.1 -->
+				<pkg sha1="f9d379a884a833829ab1942de4ad4f4766cdcd46">xf86-video-ati-6.13.2.tar.bz2</pkg>
+				<mirror>http://xorg.freedesktop.org/archive/individual/driver/</mirror>
+			</file>
+			<check>
+				<page html="http://xorg.freedesktop.org/archive/individual/driver/">
+					<atext linktext="xf86-video-ati-6.13.3" />
+					<atext linktext="xf86-video-ati-6.13.4" />
+					<atext linktext="xf86-video-ati-6.13.5" />
+					<atext linktext="xf86-video-ati-6.14." />
+					<atext linktext="xf86-video-ati-7." />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>Mesa</dep>
+                        <dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>coreutils</dep>
+                        <dep>diffutils</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <dep>inetutils</dep>
+                        <dep>libdrm</dep>
+                        <dep>libpciaccess</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>pixman</dep>
+                        <dep>pkg-config</dep>
+                        <dep>sed</dep>
+                        <dep>util-linux-ng</dep>
+                        <dep>xorg-server</dep>
+                        <dep>xproto-base</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --sysconfdir=/etc && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+		<clean>
+			<![CDATA[
+			rm -rf ${PKGNAME}-${PKGVERSION}
+			]]>
+		</clean>
+	</package>
+</llpackages>

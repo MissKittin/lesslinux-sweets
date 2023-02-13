@@ -1,0 +1,126 @@
+<llpackages>
+	<package 
+		name="linux-pax"
+		version="2.6.36.3"
+		class="kernel"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>
+				<pkg sha1="b546ab66458d7d614151d80adbc03b4d28977ae2">linux-2.6.36.tar.bz2</pkg>
+				<mirror>http://www.eu.kernel.org/pub/linux/kernel/v2.6/</mirror>
+			</file>
+			<file>  
+				<pkg sha1="d36497bb043d541f887e1ec56517da3216ad65d5"
+				>config-2.6.36-lesslinux-pax-101119-0811</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+			<file>                                                 
+				<pkg sha1="6f29913e87c2c9a56018af6ec585dd69450ae28a"
+				>pax-linux-2.6.36.3-test20.patch</pkg>
+				<mirror>http://www.grsecurity.net/~paxguy1/</mirror>
+			</file>
+			<file>                                                   
+				<pkg sha1="e556a85a866003939d78068c63bd2c7920e27cc5">patch-2.6.36.3.bz2</pkg>
+				<mirror>http://www.eu.kernel.org/pub/linux/kernel/v2.6/</mirror>
+			</file>
+			<file>
+				<pkg sha1="660d8a1c2c694b1dbb361ef7fcbd62846ba742a5">lesslinux-fblogo-20100922.ppm</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+			<check>
+				<page html="http://www.eu.kernel.org/pub/linux/kernel/v2.6/">
+					<atext linktext="patch-2.6.36.4." />
+					<atext linktext="patch-2.6.36.5." />
+					<atext linktext="patch-2.6.36.6." />
+					<atext linktext="patch-2.6.36.7." />
+				</page>
+				<page html="http://www.grsecurity.net/~paxguy1/">
+					<atext linktext="pax-linux-2.6.36.3-test21." />
+					<atext linktext="pax-linux-2.6.36.3-test22." />
+					<atext linktext="pax-linux-2.6.36.3-test23." />
+					<atext linktext="pax-linux-2.6.36.4." />
+					<atext linktext="pax-linux-2.6.36.5." />
+					<atext linktext="pax-linux-2.6.36.6." />
+					<atext linktext="pax-linux-2.6.36.7." />
+					<atext linktext="pax-linux-2.6.37.1." />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>coreutils</dep>
+                        <dep>diffutils</dep>
+                        <dep>findutils</dep>
+                        <dep>gcc</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <dep>gzip</dep>
+                        <dep>inetutils</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>perl</dep>
+                        <dep>sed</dep>
+                        <dep>which</dep>
+			<dep>ruby</dep>
+			<dep>installkernel-debian</dep>
+			<dep>xz</dep>
+			<dep>bzip2</dep>
+			<dep>gzip</dep>
+			<dep>lesslinux-modextract</dep>
+			<dep>module-init-tools</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/linux-2.6.36.tar.bz2
+			]]>
+		</unpack>
+		<patch>
+			<![CDATA[ 
+			cd linux-2.6.36
+			bunzip2 -c ${SRCDIR}/patch-${PKGVERSION}.bz2 | patch -p1
+			cat ${SRCDIR}/pax-linux-${PKGVERSION}-test20.patch | patch -p1
+			cp -v ${SRCDIR}/config-2.6.36-lesslinux-pax-101119-0811 .config
+			sed -i 's/lesslinux-pax-000/lesslinux-pax-009/g' .config
+			cp -v ${SRCDIR}/lesslinux-fblogo-20100922.ppm drivers/video/logo/logo_linux_clut224.ppm
+			echo 'CONFIG_DRM_RADEON_KMS=y' >> .config
+			echo 'CONFIG_DRM_I915_KMS=y' >> .config
+			echo 'CONFIG_DEVTMPFS=y' >> .config
+			echo '# CONFIG_DEVTMPFS_MOUNT is not set' >> .config
+			cd ..
+			mv linux-2.6.36 linux-${PKGVERSION}
+			]]>
+		</patch>
+		<build>
+			<![CDATA[ 
+			cd linux-${PKGVERSION}
+			make oldconfig
+			make clean
+			make
+			make bzImage
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd linux-${PKGVERSION}
+			make modules_install
+			make firmware_install
+			make install
+			find /lib/modules/${PKGVERSION}-lesslinux-pax-009 -type f -name '*.ko' -exec strip --strip-unneeded {} \; 
+			### /usr/bin/modextract.rb ${PKGVERSION}-lesslinux-pax-000
+			true
+			
+			]]>
+		</install>
+		<clean>
+			  <![CDATA[
+			  
+			  rm -rf linux-${PKGVERSION}
+			  
+			  ]]>
+		</clean>
+	</package>
+</llpackages>
+

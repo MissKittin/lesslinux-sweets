@@ -1,0 +1,122 @@
+<llpackages>
+	<package 
+		name="gnash"
+		version="0.8.8"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>
+				<pkg sha1="d349e0321e7fe9abcd265d63ce282cd2a7ce59d3">gnash-0.8.8.tar.bz2</pkg>
+				<mirror>http://ftp.gnu.org/pub/gnu/gnash/0.8.8/</mirror>
+			</file>
+			<check>
+				<page html="http://ftp.gnu.org/pub/gnu/gnash/">
+					<atext linktext="0.8.9" />
+					<atext linktext="0.8.10" />
+					<atext linktext="0.8.11" />
+					<atext linktext="0.9." />
+					<atext linktext="1." />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+                        <dep>GConf</dep>
+                        <dep>SDL</dep>
+                        <dep>agg</dep>
+                        <dep>atk</dep>
+                        <dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>boost</dep>
+                        <dep>cairo</dep>
+                        <dep>coreutils</dep>
+                        <dep>curl</dep>
+                        <dep>diffutils</dep>
+                        <dep>expat</dep>
+                        <dep>findutils</dep>
+                        <dep>fontconfig</dep>
+                        <dep>freetype</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>gdk-pixbuf</dep>
+                        <dep>gettext</dep>
+                        <dep>giflib</dep>
+                        <dep>glib</dep>
+                        <dep>glibc</dep>
+                        <dep>gnome-vfs</dep>
+                        <dep>grep</dep>
+                        <dep>gst-ffmpeg</dep>
+                        <dep>gst-plugins-bad</dep>
+                        <dep>gst-plugins-base</dep>
+                        <dep>gst-plugins-good</dep>
+                        <dep>gst-plugins-ugly</dep>
+                        <dep>gstreamer</dep>
+                        <dep>gtk+</dep>
+                        <dep>inetutils</dep>
+                        <dep>jpegsrc</dep>
+                        <dep>libICE</dep>
+                        <dep>libSM</dep>
+                        <dep>libX11</dep>
+                        <dep>libXau</dep>
+                        <dep>libXext</dep>
+                        <dep>libXrender</dep>
+                        <dep>libXv</dep>
+                        <dep>libpng12</dep><dep>libpng14</dep>
+                        <dep>libpthread-stubs</dep>
+                        <dep>libtool</dep>
+                        <dep>libxcb</dep>
+                        <dep>libxml2</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>openssl</dep>
+                        <dep>pango</dep>
+                        <dep>perl</dep>
+                        <dep>pixman</dep>
+                        <dep>pkg-config</dep>
+                        <dep>sed</dep>
+                        <dep>speex</dep>
+                        <dep>util-linux-ng</dep>
+                        <dep>xproto-base</dep>
+                        <dep>zip</dep>
+                        <dep>zlib</dep>
+                </builddeps>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/opt --sysconfdir=/etc --enable-renderer=agg --enable-gui=gtk --bindir=/opt/bin --sbindir=/opt/sbin
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			mkdir -m 0755 -p /usr/lib/browserplugins
+			# install -m 0755 ./plugin/.libs/libgnashplugin.so /usr/lib/browserplugins
+			install -m 0755 ./plugin/npapi/.libs/libgnashplugin.so /usr/lib/browserplugins
+			paxctl -m /opt/bin/gtk-gnash
+			paxctl -m /opt/bin/gprocessor
+			paxctl -m /usr/bin/gtk-gnash
+			paxctl -m /opt/bin/findmicrophones
+			paxctl -m /opt/bin/findwebcams
+			ldconfig
+			]]>
+		</install>
+		<clean>
+			<![CDATA[
+			rm -rf ${PKGNAME}-${PKGVERSION}
+			]]>
+		</clean>
+	</package>
+</llpackages>

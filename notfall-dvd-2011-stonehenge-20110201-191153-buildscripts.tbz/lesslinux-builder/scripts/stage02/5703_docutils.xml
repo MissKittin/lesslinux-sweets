@@ -1,0 +1,54 @@
+<llpackages>
+	<package 
+		name="docutils"
+		version="0.7"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                                                                  
+				<pkg sha1="e82988f826844ef8d8bf28fa286a19de211349cd">docutils-0.7.tar.gz</pkg>
+				<mirror>http://downloads.sourceforge.net/project/docutils/docutils/0.7/</mirror>
+			</file>
+			<check>
+				<page html="http://sourceforge.net/projects/docutils/files/docutils/">
+					<atext linktext="0.7.1" />
+					<atext linktext="0.7.2" />
+					<atext linktext="0.7.3" />
+					<atext linktext="0.8" />
+					<atext linktext="0.9" />
+					<atext linktext="1.0" />
+					<atext linktext="1.1" />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+                        <dep>Python</dep>
+                        <dep>bash</dep>
+                        <dep>pygobject</dep>
+                </builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			]]>
+		</unpack>
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			python setup.py config
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			python setup.py install
+			]]>
+		</install>
+		<clean>
+			<![CDATA[
+			rm -rf ${PKGNAME}-${PKGVERSION}
+			]]>
+		</clean>
+	</package>
+</llpackages>

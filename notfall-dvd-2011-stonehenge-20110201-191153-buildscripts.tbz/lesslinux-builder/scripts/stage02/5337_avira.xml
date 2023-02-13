@@ -1,0 +1,64 @@
+<llpackages>
+	<package 
+		name="avira-skel"
+		version="20100823-00"
+		class="user"
+		>
+		<license>proprietary</license>
+		<sources>
+			<file>                         
+				<pkg sha1="c277d98553b2824162a76bf8329f6f87df867b3e">avira-skel-20100823-00.tar.bz2</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+		</sources>
+		<builddeps>
+			<dep>bash</dep>
+			<dep>qt-everywhere-opensource-src</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xvjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			echo 'Nothing to do!'
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}
+			mkdir -m 0755 -p /etc/avira
+			mkdir -p -m 0755 /usr/share/lesslinux/cbavgui
+			# install -m 0644 header.png /usr/share/lesslinux/cbavgui
+			# install -m 0644 bck_rescuecd_final.png /usr/share/lesslinux/cbavgui
+			install -m 0644 bck_decleaner.png /usr/share/lesslinux/cbavgui/bck_rescuecd_final.png
+			install -m 0644 shutdown24.png /usr/share/lesslinux/cbavgui
+			install -m 0644 shutdown48.png /usr/share/lesslinux/cbavgui
+			install -m 0644 eine_initiative_von.png /usr/share/lesslinux/cbavgui
+			install -m 0644 avirashop.png /usr/share/lesslinux/cbavgui
+			install -m 0644 avirashop24.png /usr/share/lesslinux/cbavgui
+			install -m 0755 cbavgui.rb /usr/bin
+			install -m 0755 cbavlogviewer.sh /usr/bin
+			install -m 0755 cbavffwrapper.sh /usr/bin
+			install -m 0755 cbavevince.sh /usr/bin
+			install -m 0755 cbavdisclaimer.sh /usr/bin
+			install -m 0755 cbavdisclaimer.rb /usr/bin
+			install -m 0755 run_and_save_exit /usr/share/lesslinux/cbavgui
+			install -m 0755 avupdate /usr/share/lesslinux/cbavgui
+			install -m 0644 scancl.conf /etc/avira
+			install -m 0644 avupdate.conf /etc/avira
+			install -m 0644 avupdate.conf.cbavgui /etc/avira
+			# Take the key from the overlay!
+			# install -m 0644 rescue_cd.key /etc/avira
+			# ln -sf /etc/avira/rescue_cd.key /etc/avira/hbedv.key
+			install -m 0755 mount_drives_rw.rb /usr/bin
+			install -m 0755 cbavcdinstaller.sh /usr/bin
+			mkdir /opt/avira
+			touch /opt/avira/.intentionally_empty
+			]]>
+		</install>
+	</package>
+</llpackages>

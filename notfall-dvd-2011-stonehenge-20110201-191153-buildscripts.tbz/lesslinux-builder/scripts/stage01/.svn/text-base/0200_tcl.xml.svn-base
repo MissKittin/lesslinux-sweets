@@ -1,0 +1,42 @@
+<llpackages>
+	<package 
+		name="tcl"
+		version="8.5.9"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>  
+				<pkg sha1="ae87c5e58ba20760d9bc77117d219bbf1b6a5557">tcl8.5.9-src.tar.gz</pkg>
+				<mirror>http://downloads.sourceforge.net/project/tcl/Tcl/8.5.9/</mirror>
+			</file>
+			<check>
+				<page html="http://sourceforge.net/projects/tcl/files/">
+					<atext linktext="tcl8.5.10-src.tar.gz" />
+					<atext linktext="tcl8.5.11-src.tar.gz" />
+					<atext linktext="tcl8.6.0-src.tar.gz" />
+				</page>
+			</check>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/tcl${PKGVERSION}-src.tar.gz
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[ 
+			cd tcl${PKGVERSION}/unix
+			./configure --prefix=/tools && make
+			]]>
+		</build>
+		<install>
+			<![CDATA[
+			cd tcl${PKGVERSION}/unix
+			make install && \
+				chmod -v u+w /tools/lib/libtcl8.5.so &&\
+				make install-private-headers && \
+				ln -sfv tclsh8.5 /tools/bin/tclsh
+			]]>
+		</install>
+	</package>
+</llpackages>

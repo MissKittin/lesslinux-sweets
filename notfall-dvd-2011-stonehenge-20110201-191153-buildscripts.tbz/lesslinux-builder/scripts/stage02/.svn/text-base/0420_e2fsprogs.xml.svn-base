@@ -1,0 +1,76 @@
+<llpackages>
+	<package 
+		name="e2fsprogs"
+		version="1.41.14"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                                                               
+				<pkg sha1="24f9364fa3d4c0d7d00cb627b819d0e51055d6c5">e2fsprogs-1.41.14.tar.gz</pkg>
+				<mirror>http://downloads.sourceforge.net/project/e2fsprogs/e2fsprogs/1.41.14/</mirror>
+			</file>
+			<check>
+				<page html="http://sourceforge.net/projects/e2fsprogs/files/e2fsprogs/">
+					<atext linktext="1.41.15." />
+					<atext linktext="1.41.16." />
+					<atext linktext="1.41.17." />
+					<atext linktext="1.42." />
+					<atext linktext="1.43." />
+					<atext linktext="1.44." />
+					<atext linktext="2.0." />
+					<atext linktext="2.00." />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>linux_headers</dep>
+			<dep>glibc</dep>
+			<dep>man-pages</dep>
+			<dep>readjust</dep>
+			<dep>zlib</dep>
+			<dep>binutils</dep>
+			<dep>gmp</dep>
+			<dep>mpfr</dep>
+			<dep>mpc</dep>
+			<dep>gcc</dep>
+			<dep>sed</dep>
+			<dep>pkg-config</dep>
+			<dep>ncurses</dep>
+			<dep>ncurses-8bit</dep>
+			<dep>util-linux-ng</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			mkdir ${PKGNAME}-${PKGVERSION}/build
+			]]>
+		</unpack>
+		<build>
+			<![CDATA[ 
+			
+			cd ${PKGNAME}-${PKGVERSION}/build
+			../configure --prefix=/usr --with-root-prefix="" \
+			--enable-elf-shlibs --disable-libblkid --disable-libuuid \
+			--disable-uuidd --disable-fsck
+			
+			]]>
+		</build>
+		<test>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}/build
+			make check
+			]]>
+		</test>
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}/build
+			make install
+			make install-libs
+			chmod -v u+w /usr/lib/{libcom_err,libe2p,libext2fs,libss}.a
+			gunzip -v /usr/share/info/libext2fs.info.gz
+			install-info --dir-file=/usr/share/info/dir /usr/share/info/libext2fs.info
+			]]>
+		</install>
+	</package>
+</llpackages>

@@ -1,0 +1,64 @@
+<llpackages>
+	<package 
+		name="libpng15"
+		version="1.5.0"
+		class="lib"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                                                             
+				<pkg sha1="ad82610ec8418da48bf526ff2c5a5cb0f6f108e2">libpng-1.5.0.tar.bz2</pkg>
+				<mirror>http://downloads.sourceforge.net/project/libpng/libpng15/1.5.0/</mirror>
+			</file>
+			<check>
+				<page html="http://sourceforge.net/projects/libpng/files/libpng15/">
+					<atext linktext="1.5.1" />
+					<atext linktext="1.5.2" />
+					<atext linktext="1.5.3" />
+					<atext linktext="1.5.4" />
+				</page>
+				<page html="http://sourceforge.net/projects/libpng/files/">
+					<atext linktext="1.6" />
+					<atext linktext="1.7" />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>coreutils</dep>
+                        <dep>diffutils</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <dep>inetutils</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>sed</dep>
+                        <dep>util-linux-ng</dep>
+                        <dep>zlib</dep>
+			<dep>libpng12</dep>
+			<dep>libpng14</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/libpng-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd libpng-${PKGVERSION}
+			./configure --prefix=/usr && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd libpng-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

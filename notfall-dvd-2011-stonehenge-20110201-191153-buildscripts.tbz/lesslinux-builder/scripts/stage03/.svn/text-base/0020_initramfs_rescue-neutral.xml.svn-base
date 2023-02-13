@@ -1,0 +1,101 @@
+<llpackages>
+	<links>
+		<!-- blue theme used in Sicher Surfen 2009 -->
+		<!-- <softlink target="/usr/share/themes/Xfce/gtk-2.0/gtkrc">/root/.gtkrc</softlink>
+		<softlink target="/usr/share/themes/Xfce/gtk-2.0/gtkrc">/root/.gtkrc-2.0</softlink> -->
+		<!-- green theme used in Notfall-CD 2.0 -->
+		<softlink target="/usr/share/themes/Xfce-dawn/gtk-2.0/gtkrc">/root/.gtkrc</softlink>
+		<softlink target="/usr/share/themes/Xfce-dawn/gtk-2.0/gtkrc">/root/.gtkrc-2.0</softlink>
+	</links>
+	<scripts>
+		<scriptdata location="/etc/lesslinux/xinitrc" mode="0755" group="0" owner="0">
+		<![CDATA[#!/static/bin/ash	
+
+PATH=/bin:/sbin:/usr/bin:/usr/sbin:/static/bin:/static/sbin:/opt/bin:/opt/sbin
+		
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors		
+
+for i in /etc/xinitrc.d/[0-9][0-9][0-9][0-9]-*.?? ; do
+	provides="` cat $i | grep '#lesslinux provides' | awk '{print $3}' `"
+	if echo "$skipservices" | grep -q '|'$provides'|' ; then
+		echo "Skipping $provides"
+	else
+		$i start
+	fi
+done
+
+# Uncomment to debug
+# /usr/bin/Terminal &
+# /usr/bin/xterm &
+		
+# Replace changed wicd icon path
+sed -i 's/=wicd-client/=wicd-gtk/g' /home/surfer/Desktop/005_wicd.desktop
+sed -i 's+/usr/sbin/testdisk+testdisk+g' /home/surfer/Desktop/730_testdisk.desktop
+
+# Add an icon for the LessLinux web page
+
+if [ -f /home/surfer/.lesslinux/lesslinux_link_created ] ; then
+    echo 'LessLinux Link already exists'
+else
+cat >> /home/surfer/Desktop/lesslinux.desktop << LLWWW
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Type=Application
+Name=LessLinux
+Comment=Visit the LessLinux website
+Comment[de]=Zur LessLinux-Webseite
+Categories=Application;
+Exec=/usr/bin/firefox http://www.lesslinux.de/ 
+Icon=www
+Terminal=false
+StartupNotify=true
+
+
+LLWWW
+    mkdir /home/surfer/.lesslinux
+    touch /home/surfer/.lesslinux/lesslinux_link_created
+fi
+
+if [ -d /AntiVir ] && [ -d /AntiVirUpdate ] ; then
+	cp /usr/share/applications/031_avfrontend.desktop Desktop/030_avfrontend.desktop
+else
+	cp /usr/share/applications/030_avfrontend.desktop Desktop/030_avfrontend.desktop
+fi
+
+if  [ -n "$xrandr" ] && [ -z "$xvnc" ] ; then
+	/usr/bin/xrandr --size "$xrandr"
+fi
+
+# setxkbmap -rules xorg -model pc105 -layout "$xkbmap"
+setxkbmap -layout "$xkbmap"
+/usr/bin/xfce4-session
+		
+		]]>
+		</scriptdata>
+	</scripts> 
+	<package name="initramfs-rescue-neutral" version="20110110" allowfail="yes">
+		<sources>
+			<file>                                           
+				<pkg sha1="df19152fd9319176e430e46a4dbdb3c9255cb06d">surfer-neutral-20110110.tgz</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+		</sources>
+		<unpack>
+		<![CDATA[ 
+	
+echo 'nothing to do!'
+
+		]]>
+		</unpack>
+		<install>
+		<![CDATA[ 
+		
+install -m 0644 ${SRCDIR}/surfer-neutral-${PKGVERSION}.tgz ${INITRAMFS}/etc/lesslinux/skel/surfer.tgz
+		
+		]]>
+		</install>
+	</package>
+</llpackages>

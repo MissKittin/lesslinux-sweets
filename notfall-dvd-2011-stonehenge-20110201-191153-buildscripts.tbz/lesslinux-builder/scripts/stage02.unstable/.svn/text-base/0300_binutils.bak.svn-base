@@ -1,0 +1,65 @@
+<llpackages>
+	<package 
+		name="binutils"
+		version="2.21"
+		class="devel"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                 
+				<pkg sha1="ef93235588eb443e4c4a77f229a8d131bccaecc6">binutils-2.21.tar.bz2</pkg>
+				<mirror>http://ftp.gnu.org/gnu/binutils/</mirror>
+			</file>
+			<check>
+				<page html="http://ftp.gnu.org/gnu/binutils/">
+					<atext linktext="binutils-2.21.1." />
+					<atext linktext="binutils-2.21.2" />
+					<atext linktext="binutils-2.22." />
+					<atext linktext="binutils-2.23." />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>linux_headers</dep>
+			<dep>glibc</dep>
+			<dep>man-pages</dep>
+			<dep>readjust</dep>
+			<dep>zlib</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			mkdir binutils-build
+			]]>
+		</unpack>
+		<patch>			
+			<![CDATA[ 
+			cd ${PKGNAME}-${PKGVERSION}
+			## cat ${SRCDIR}/${PKGNAME}-2.19-pt-pax-flags-200811041810.patch | patch -p1
+			rm -fv etc/standards.info
+			sed -i.bak '/^INFO/s/standards.info //' etc/Makefile.in
+			
+			]]>
+		</patch>
+		<build>
+			<![CDATA[ 
+			cd ${PKGNAME}-build
+			../${PKGNAME}-${PKGVERSION}/configure --prefix=/usr --enable-shared
+			make tooldir=/usr
+			]]>
+		</build>
+		<test>
+			<![CDATA[ 
+			cd ${PKGNAME}-build
+			make check
+			]]>
+		</test>
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-build
+			make tooldir=/usr install
+			cp -v ../${PKGNAME}-${PKGVERSION}/include/libiberty.h /usr/include
+			]]>
+		</install>
+	</package>
+</llpackages>

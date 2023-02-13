@@ -1,0 +1,37 @@
+<llpackages>
+	<package 
+		name="rescuetool"
+		version="20110125-00"
+		class="user"
+		>
+	</package>
+	<scripts>
+	<scriptdata location="/etc/rc.d/0625-rescuetool.sh" mode="0755" group="0" owner="0">
+		<![CDATA[#!/static/bin/ash
+		
+#lesslinux provides rescue
+#lesslinux license BSD
+
+PATH=/static/bin:/static/sbin:/bin:/sbin:/usr/bin:/usr/sbin
+export PATH
+
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors
+
+case $1 in 
+    start)
+	printf "$bold===> Adjusting sudo for rescue tool $normal\n"
+	echo '' >> /etc/sudoers
+	echo '# added by /etc/rc.d/0625-rescuetool.sh' >> /etc/sudoers
+	echo 'surfer  ALL = NOPASSWD: /opt/computerbild/rescuetool/fakestart.sh' >> /etc/sudoers
+	echo 'surfer  ALL = NOPASSWD: /opt/computerbild/rescuetool/kexec-wrapper.sh' >> /etc/sudoers
+	echo 'surfer  ALL = NOPASSWD: /opt/computerbild/rescuetool/assi-wrapper.sh' >> /etc/sudoers
+	echo 'surfer  ALL = NOPASSWD: /usr/bin/chvt' >> /etc/sudoers
+    ;;
+esac
+
+		]]>
+		</scriptdata>
+	</scripts>
+</llpackages>

@@ -1,0 +1,87 @@
+<llpackages>
+	<package 
+		name="exo"
+		version="0.3.107"
+		class="lib"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>         
+				<pkg sha1="5121f433b14c5840706cedbc220284a4516e83df">exo-0.3.107.tar.bz2</pkg>
+				<mirror>http://mocha.xfce.org/archive/xfce/4.6.2/src/</mirror>
+			</file>
+			<!-- <check>
+				<page html="http://www.xfce.org/archive/xfce/">
+					<atext linktext="xfce-4.6.3" />
+					<atext linktext="xfce-4.6.4" />
+					<atext linktext="xfce-4.6.5" />
+					<atext linktext="xfce-4.8." />
+				</page>
+			</check> -->
+		</sources>
+		<builddeps>
+			<dep>Python</dep>
+                        <dep>atk</dep>
+                        <dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>cairo</dep>
+                        <dep>coreutils</dep>
+                        <dep>dbus</dep>
+                        <dep>diffutils</dep>
+                        <dep>fontconfig</dep>
+                        <dep>freetype</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>gdk-pixbuf</dep>
+                        <dep>gettext</dep>
+                        <dep>glib</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <dep>gtk+</dep>
+                        <dep>hal</dep>
+                        <dep>inetutils</dep>
+                        <dep>intltool</dep>
+                        <dep>libX11</dep>
+                        <dep>libXau</dep>
+                        <dep>libXrender</dep>
+                        <dep>libpng12</dep><dep>libpng14</dep>
+                        <dep>libpthread-stubs</dep>
+                        <dep>libsmbios</dep>
+                        <dep>libxcb</dep>
+                        <dep>libxfce4util</dep>
+                        <dep>libxml2</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>p5-uri</dep>
+                        <dep>pango</dep>
+                        <dep>perl</dep>
+                        <dep>pixman</dep>
+                        <dep>pkg-config</dep>
+                        <dep>sed</dep>
+                        <dep>util-linux-ng</dep>
+                        <dep>xproto-base</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --sysconfdir=/etc --prefix=/usr && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			paxctl -m /usr/bin/exo-desktop-item-edit
+			paxctl -m /usr/bin/exo-open
+			paxctl -m /usr/libexec/exo-helper-0.3
+			]]>
+		</install>
+	</package>
+</llpackages>

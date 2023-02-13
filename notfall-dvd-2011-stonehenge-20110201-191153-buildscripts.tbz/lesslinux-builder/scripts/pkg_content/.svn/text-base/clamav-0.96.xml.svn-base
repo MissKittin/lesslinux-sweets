@@ -1,0 +1,84 @@
+<pkgdesc name='clamav' version='0.96'>
+    <subpackage name='skel'>
+        <softlink group='0' path='/opt/lib/libclamav.so' owner='0'/>
+        <softlink group='0' path='/opt/lib/libclamav.so.6' owner='0'/>
+        <softlink group='0' path='/opt/lib/libclamunrar.so' owner='0'/>
+        <softlink group='0' path='/opt/lib/libclamunrar.so.6' owner='0'/>
+        <softlink group='0' path='/opt/lib/libclamunrar_iface.so' owner='0'/>
+        <softlink group='0' path='/opt/lib/libclamunrar_iface.so.6' owner='0'/>
+        <directory group='0' mode='40755' path='/' owner='0'/>
+        <directory group='0' mode='40755' path='/opt/bin' owner='0'/>
+        <directory group='0' mode='40755' path='/opt/include' owner='0'/>
+        <directory group='0' mode='40755' path='/opt/lib' owner='0'/>
+        <directory group='0' mode='40755' path='/opt/lib/pkgconfig' owner='0'/>
+        <directory group='0' mode='40755' path='/opt/sbin' owner='0'/>
+        <directory group='0' mode='40755' path='/opt/share' owner='0'/>
+        <directory group='60002' mode='40775' path='/opt/share/clamav' owner='60002'/>
+        <directory group='0' mode='40755' path='/opt/share/man' owner='0'/>
+        <directory group='0' mode='40755' path='/opt/share/man/man1' owner='0'/>
+        <directory group='0' mode='40755' path='/opt/share/man/man5' owner='0'/>
+        <directory group='0' mode='40755' path='/opt/share/man/man8' owner='0'/>
+    </subpackage>
+    <subpackage name='minimal'/>
+    <subpackage name='bin'>
+        <file group='0' mode='100755' path='/opt/sbin/clamd' owner='0'/>
+        <file group='0' mode='100755' path='/opt/lib/libclamav.so.6.1.2' owner='0'/>
+        <file group='0' mode='100755' path='/opt/lib/libclamunrar_iface.so.6.1.2' owner='0'/>
+        <file group='0' mode='100755' path='/opt/lib/libclamunrar.so.6.1.2' owner='0'/>
+        <file group='0' mode='100755' path='/opt/bin/freshclam' owner='0'/>
+        <file group='0' mode='100755' path='/opt/bin/sigtool' owner='0'/>
+        <file group='0' mode='100755' path='/opt/bin/clamdscan' owner='0'/>
+        <file group='0' mode='100755' path='/opt/bin/clamdtop' owner='0'/>
+        <file group='0' mode='100755' path='/opt/bin/clamconf' owner='0'/>
+        <file group='0' mode='100755' path='/opt/bin/clambc' owner='0'/>
+        <file group='0' mode='100755' path='/opt/bin/clamscan' owner='0'/>
+    </subpackage>
+    <subpackage name='doc'>
+        <file group='0' mode='100644' path='/opt/share/man/man5/clamd.conf.5' owner='0'/>
+        <file group='0' mode='100644' path='/opt/share/man/man5/freshclam.conf.5' owner='0'/>
+        <file group='0' mode='100644' path='/opt/share/man/man1/clamscan.1' owner='0'/>
+        <file group='0' mode='100644' path='/opt/share/man/man1/clamconf.1' owner='0'/>
+        <file group='0' mode='100644' path='/opt/share/man/man1/sigtool.1' owner='0'/>
+        <file group='0' mode='100644' path='/opt/share/man/man1/clamdtop.1' owner='0'/>
+        <file group='0' mode='100644' path='/opt/share/man/man1/clamdscan.1' owner='0'/>
+        <file group='0' mode='100644' path='/opt/share/man/man1/freshclam.1' owner='0'/>
+        <file group='0' mode='100644' path='/opt/share/man/man8/clamd.8' owner='0'/>
+        <file group='0' mode='100644' path='/opt/share/man/man8/clamav-milter.8' owner='0'/>
+    </subpackage>
+    <subpackage name='config'>
+        <file group='0' mode='100644' path='/etc/clamd.conf' owner='0'/>
+        <file group='0' mode='100644' path='/etc/freshclam.conf' owner='0'/>
+    </subpackage>
+    <subpackage name='devel'>
+        <file group='0' mode='100644' path='/opt/include/clamav.h' owner='0'/>
+        <file group='0' mode='100755' path='/opt/lib/libclamunrar_iface.la' owner='0'/>
+        <file group='0' mode='100755' path='/opt/lib/libclamav.la' owner='0'/>
+        <file group='0' mode='100755' path='/opt/lib/libclamunrar.la' owner='0'/>
+        <file group='0' mode='100644' path='/opt/lib/pkgconfig/libclamav.pc' owner='0'/>
+        <file group='0' mode='100755' path='/opt/bin/clamav-config' owner='0'/>
+    </subpackage>
+    <subpackage name='localization'/>
+    <subpackage name='tzdata'/>
+    <subpackage name='uncategorized'>
+        <file group='0' mode='100644' path='/opt/share/clamav/keep_this_directory' owner='0'/>
+    </subpackage>
+    <subpackage name='ignore'>
+        <file group='0' mode='100600' path='/var/cache/ldconfig/aux-cache' owner='0'/>
+        <file group='0' mode='100644' path='/etc/group' owner='0'/>
+        <file group='0' mode='100644' path='/etc/passwd' owner='0'/>
+        <file group='0' mode='100644' path='/etc/ld.so.cache' owner='0'/>
+        <file group='0' mode='100644' path='/etc/shadow' owner='0'/>
+    </subpackage>
+    <vanished>
+        <subpackage name='config'/>
+        <subpackage name='doc'/>
+        <subpackage name='minimal'/>
+        <subpackage name='devel'/>
+        <subpackage name='localization'/>
+        <subpackage name='bin'/>
+        <subpackage name='ignore'/>
+        <subpackage name='uncategorized'/>
+        <subpackage name='tzdata'/>
+        <subpackage name='skel'/>
+    </vanished>
+</pkgdesc>

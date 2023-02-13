@@ -1,0 +1,120 @@
+<llpackages>
+	<package 
+		name="netbook-launcher-efl"
+		version="0.3.2"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                                                                                          
+				<pkg sha1="34963df13a29257d5ec1b7873ce3234a48314c4a">netbook-launcher-efl-0.3.2.tar.gz</pkg>
+				<mirror>http://edge.launchpad.net/launch-lite-proj/0.3/0.3.2/+download/</mirror>
+			</file>
+			<file>                                                                                          
+				<pkg sha1="50ada36aa843098f1ec7f9928e26c812a7c4ee38">netbook-launcher-efl_0.3.2-0ubuntu4.diff.gz</pkg>
+				<mirror>http://archive.ubuntu.com/ubuntu/pool/main/n/netbook-launcher-efl/</mirror>
+			</file>
+			
+			<!-- <check>
+				<page html="http://sourceforge.net/projects/xchat/files/">
+					<atext linktext="xchat-2.8.9." />
+					<atext linktext="xchat-2.8.10." />
+					<atext linktext="xchat-2.8.11." />
+					<atext linktext="xchat-2.8.12." />
+					<atext linktext="xchat-2.9." />
+					<atext linktext="xchat-2.10." />
+					<atext linktext="xchat-3." />
+				</page>
+			</check> -->
+		</sources> 
+		<builddeps>
+                        <dep>GConf</dep>
+                        <dep>ORBit2</dep>
+                        <dep>atk</dep>
+                        <dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>cairo</dep>
+                        <dep>coreutils</dep>
+                        <dep>curl</dep>
+                        <dep>dbus-glib</dep>
+                        <dep>dbus</dep>
+                        <dep>diffutils</dep>
+                        <dep>ecore</dep>
+                        <dep>edje</dep>
+                        <dep>eet</dep>
+                        <dep>efreet</dep>
+                        <dep>eina</dep>
+                        <dep>elementary</dep>
+                        <dep>embryo</dep>
+                        <dep>evas</dep>
+                        <dep>fontconfig</dep>
+                        <dep>freetype</dep>
+                        <dep>fribidi</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>gdk-pixbuf</dep>
+                        <dep>gettext</dep>
+                        <dep>glib</dep>
+                        <dep>glibc</dep>
+                        <dep>gnome-menus</dep>
+                        <dep>gnutls</dep>
+                        <dep>grep</dep>
+                        <dep>gtk+</dep>
+                        <dep>inetutils</dep>
+                        <dep>intltool</dep>
+                        <dep>libX11</dep>
+                        <dep>libXau</dep>
+                        <dep>libXdmcp</dep>
+                        <dep>libXrender</dep>
+                        <dep>libcanberra</dep>
+                        <dep>liblauncher</dep>
+                        <dep>libnotify</dep>
+                        <dep>libpng14</dep>
+                        <dep>libpthread-stubs</dep>
+                        <dep>libunique</dep>
+                        <dep>libwnck</dep>
+                        <dep>libxcb</dep>
+                        <dep>linux_headers</dep>
+                        <dep>lua</dep>
+                        <dep>make</dep>
+                        <dep>p5-xml</dep>
+                        <dep>pango</dep>
+                        <dep>perl</dep>
+                        <dep>pixman</dep>
+                        <dep>pkg-config</dep>
+                        <dep>sed</dep>
+                        <dep>startup-notification</dep>
+                        <dep>util-linux-ng</dep>
+                        <dep>xproto-base</dep>
+                </builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			]]>
+		</unpack>
+		<patch>
+			<![CDATA[ 
+			cd ${PKGNAME}-${PKGVERSION}
+			gunzip -c ${SRCDIR}/${PKGNAME}_${PKGVERSION}-0ubuntu4.diff.gz | patch -p1
+			]]>
+		</patch>
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --sysconfdir=/etc && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+		<clean>
+			<![CDATA[
+			rm -rf ${PKGNAME}-${PKGVERSION}
+			]]>
+		</clean>
+	</package>
+</llpackages>

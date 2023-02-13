@@ -1,0 +1,63 @@
+<llpackages>
+	<package 
+		name="iptables"
+		version="1.4.10"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>
+				<pkg sha1="8190b8c9714a3eec825317e8ac1deeb3d11c6d29">iptables-1.4.10.tar.bz2</pkg>
+				<mirror>ftp://ftp.netfilter.org/pub/iptables/</mirror>
+			</file>
+			<check>
+				<page html="http://www.netfilter.org/projects/iptables/downloads.html">
+					<atext linktext="iptables-1.4.11.t" />
+					<atext linktext="iptables-1.4.12.t" />
+					<atext linktext="iptables-1.4.13.t" />
+					<atext linktext="iptables-1.5." />
+					<atext linktext="iptables-1.6." />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>coreutils</dep>
+                        <dep>diffutils</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <dep>inetutils</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>pkg-config</dep>
+                        <dep>sed</dep>
+                        <dep>util-linux-ng</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

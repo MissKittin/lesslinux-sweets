@@ -1,0 +1,77 @@
+<llpackages>
+	<package 
+		name="nautilus-dropbox"
+		version="0.6.7"
+		class="user"
+		>
+	</package>
+	<scripts>
+		<scriptdata location="/etc/rc.d/0710-dropbox.sh" mode="0755" group="0" owner="0">
+		<![CDATA[#!/static/bin/ash
+		
+#lesslinux provides dropbox
+#lesslinux license BSD
+
+PATH=/bin:/sbin:/usr/bin:/usr/sbin:/static/bin:/static/sbin
+export PATH
+
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors
+
+case $1 in 
+    start)
+	blobdir=""
+	for d in cdrom isoloop toram ; do
+		[ -d /lesslinux/${d}/lesslinux/blob ] && blobdir=/lesslinux/${d}/lesslinux/blob
+	done
+	if [ -f "${blobdir}/dropbox-dist.sqs" ] ; then
+		mount -o loop "${blobdir}/dropbox-dist.sqs" /usr/share/dropbox/.dropbox-dist
+		exit 0
+	fi
+	mount -t tmpfs tmpfs -o mode=0755,size=50M,uid=1000 /usr/share/dropbox/.dropbox-dist
+	if ls "$blobdir" | grep -Eq 'dropbox-lnx\.x86(.*?)\.tar\.gz' ; then
+		dbarch=` ls "$blobdir" | grep -Eq 'dropbox-lnx\.x86(.*?)\.tar\.gz' | tail -n1 ` 
+		tar -C /usr/share/dropbox -xzf "${blobdir}/${dbarch}"
+		exit 0
+	fi
+    ;;
+    stop)
+	su surfer dropbox stop
+	sleep 1
+	killall dropbox
+	umount /home/surfer/.dropbox-dist
+    ;;
+esac
+
+		]]>
+		</scriptdata>
+		<scriptdata location="/etc/xinitrc.d/0710-dropbox.sh" mode="0755" group="0" owner="0">
+		<![CDATA[#!/static/bin/ash
+		
+#lesslinux provides dropbox
+#lesslinux license BSD
+
+PATH=/bin:/sbin:/usr/bin:/usr/sbin:/static/bin:/static/sbin
+export PATH
+
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors
+
+case $1 in 
+    start)
+	ln -sf /usr/share/dropbox/.dropbox-dist /home/surfer/.dropbox-dist
+	# copy dropbox icon if dropbox found
+	if [ -x /home/surfer/.dropbox-dist/dropboxd ] ; then
+		cp /usr/share/applications/dropbox.desktop /home/surfer/Desktop
+	else
+		rm /home/surfer/Desktop/dropbox.desktop
+	fi
+    ;;
+esac
+
+		]]>
+		</scriptdata>
+	</scripts>
+</llpackages>

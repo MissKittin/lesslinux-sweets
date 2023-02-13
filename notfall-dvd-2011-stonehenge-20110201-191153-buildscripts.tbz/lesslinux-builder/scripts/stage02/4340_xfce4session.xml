@@ -1,0 +1,108 @@
+<llpackages>
+	<package 
+		name="xfce4-session"
+		version="4.6.2"
+		class="lib"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>               
+				<pkg sha1="2a5778a1543f97845f118a186e2dbb8a8ea3ff4b">xfce4-session-4.6.2.tar.bz2</pkg>
+				<mirror>http://mocha.xfce.org/archive/xfce-4.6.2/src/</mirror>
+			</file>  
+			<!-- <file>             
+				<pkg sha1="2d26323e7aed9e38268b5efde62bd568fe0120c6">xfce4-session-4.6.1.patch</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file> -->
+			<!-- <check>
+				<page html="http://www.xfce.org/archive/xfce/">
+					<atext linktext="xfce-4.6.3" />
+					<atext linktext="xfce-4.6.4" />
+					<atext linktext="xfce-4.6.5" />
+					<atext linktext="xfce-4.8" />
+				</page>
+			</check> -->
+		</sources>
+		<builddeps>
+			<dep>atk</dep>
+                        <dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>cairo</dep>
+                        <dep>coreutils</dep>
+                        <dep>dbus-glib</dep>
+                        <dep>dbus</dep>
+                        <dep>diffutils</dep>
+                        <dep>fontconfig</dep>
+                        <dep>freetype</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>gdk-pixbuf</dep>
+                        <dep>gettext</dep>
+                        <dep>glib</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <dep>gtk+</dep>
+                        <dep>iceauth</dep>
+                        <dep>inetutils</dep>
+                        <dep>intltool</dep>
+                        <dep>libICE</dep>
+                        <dep>libSM</dep>
+                        <dep>libX11</dep>
+                        <dep>libXau</dep>
+                        <dep>libXrender</dep>
+                        <dep>libglade</dep>
+                        <dep>libpng12</dep><dep>libpng14</dep>
+                        <dep>libpthread-stubs</dep>
+                        <dep>libwnck</dep>
+                        <dep>libxcb</dep>
+                        <dep>libxfce4util</dep>
+                        <dep>libxfcegui4</dep>
+                        <dep>libxml2</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>p5-xml</dep>
+                        <dep>pango</dep>
+                        <dep>perl</dep>
+                        <dep>pixman</dep>
+                        <dep>pkg-config</dep>
+                        <dep>sed</dep>
+                        <dep>startup-notification</dep>
+                        <dep>util-linux-ng</dep>
+                        <dep>xfconf</dep>
+                        <dep>xproto-base</dep>
+			<!-- soft -->
+			 <dep>imake</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<!-- <patch>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			patch -p1 < ${SRCDIR}/${PKGNAME}-${PKGVERSION}.patch
+			]]>
+		</patch> -->
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --sysconfdir=/etc && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			paxctl -m /usr/bin/xfce4-session
+			paxctl -m /usr/bin/xfce4-session-logout
+			paxctl -m /usr/bin/xfce4-session-settings
+			]]>
+		</install>
+	</package>
+</llpackages>

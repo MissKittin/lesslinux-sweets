@@ -1,0 +1,65 @@
+<llpackages>
+	<package 
+		name="atk"
+		version="1.32.0"
+		class="lib"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>             
+				<pkg sha1="876e88e4259d07bb7905d66c085a50a47e37f9e4">atk-1.32.0.tar.bz2</pkg>
+				<mirror>http://ftp.gnome.org/pub/gnome/sources/atk/1.32/</mirror>
+			</file>
+			<check>
+				<page html="http://ftp.gnome.org/pub/gnome/sources/atk/1.32/">
+					<atext linktext="atk-1.32.1." />
+					<atext linktext="atk-1.32.2." />
+					<atext linktext="atk-1.32.3." />
+				</page>
+				<page html="http://ftp.gnome.org/pub/gnome/sources/atk/">
+					<atext linktext="1.34" />
+					<atext linktext="2." />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>coreutils</dep>
+                        <dep>diffutils</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>gettext</dep>
+                        <dep>glib</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <dep>inetutils</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>perl</dep>
+                        <dep>pkg-config</dep>
+                        <dep>sed</dep>
+                        <dep>util-linux-ng</dep>
+			<dep>gobject-introspection</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

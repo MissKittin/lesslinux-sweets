@@ -1,0 +1,126 @@
+<llpackages>
+	<package 
+		name="linux-pax"
+		version="2.6.37"
+		class="kernel"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                                                  
+				<pkg sha1="eba83c89e71a86060ef6ff76aefff660aef819e2">linux-2.6.37.tar.bz2</pkg>
+				<mirror>http://www.eu.kernel.org/pub/linux/kernel/v2.6/</mirror>
+			</file>
+			<file>                                   
+				<pkg sha1="1200f8214ecca558ca9db897430dbca2fc5061e3"
+				>config-2.6.37-lesslinux-pax-110110-2120</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+			<file>                                                             
+				<pkg sha1="da392b2396126c2fe18632c0fc5ae2fce205c4d5"
+				>pax-linux-2.6.37-test9.patch</pkg>
+				<mirror>http://www.grsecurity.net/~paxguy1/</mirror>
+			</file>
+			<!-- <file>                                                   
+				<pkg sha1="e70de463a1b3a287ef47f4950c3acb8f5b43ed99">patch-2.6.36.2.bz2</pkg>
+				<mirror>http://www.eu.kernel.org/pub/linux/kernel/v2.6/</mirror>
+			</file> -->
+			<file>
+				<pkg sha1="660d8a1c2c694b1dbb361ef7fcbd62846ba742a5">lesslinux-fblogo-20100922.ppm</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+			<check>
+				<page html="http://www.eu.kernel.org/pub/linux/kernel/v2.6/">
+					<atext linktext="patch-2.6.37.1." />
+					<atext linktext="patch-2.6.37.2." />
+					<atext linktext="patch-2.6.37.3." />
+					<atext linktext="patch-2.6.37.4." />
+				</page>
+				<page html="http://www.grsecurity.net/~paxguy1/">
+					<atext linktext="pax-linux-2.6.37-test10." />
+					<atext linktext="pax-linux-2.6.37-test11." />
+					<atext linktext="pax-linux-2.6.37-test12." />
+					<atext linktext="pax-linux-2.6.37.1-" />
+					<atext linktext="pax-linux-2.6.37.2-" />
+					<atext linktext="pax-linux-2.6.37.3-" />
+					<atext linktext="pax-linux-2.6.37.4-" />
+					<atext linktext="pax-linux-2.6.38" />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>coreutils</dep>
+                        <dep>diffutils</dep>
+                        <dep>findutils</dep>
+                        <dep>gcc</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <dep>gzip</dep>
+                        <dep>inetutils</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>perl</dep>
+                        <dep>sed</dep>
+                        <dep>which</dep>
+			<dep>ruby</dep>
+			<dep>installkernel-debian</dep>
+			<dep>xz</dep>
+			<dep>bzip2</dep>
+			<dep>gzip</dep>
+			<dep>lesslinux-modextract</dep>
+			<dep>module-init-tools</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/linux-2.6.37.tar.bz2
+			]]>
+		</unpack>
+		<patch>
+			<![CDATA[ 
+			cd linux-2.6.37
+			#### bunzip2 -c ${SRCDIR}/patch-${PKGVERSION}.bz2 | patch -p1
+			cat ${SRCDIR}/pax-linux-${PKGVERSION}-test9.patch | patch -p1
+			cp -v ${SRCDIR}/config-2.6.37-lesslinux-pax-110110-2120 .config
+			sed -i 's/lesslinux-pax-000/lesslinux-pax-005/g' .config
+			cp -v ${SRCDIR}/lesslinux-fblogo-20100922.ppm drivers/video/logo/logo_linux_clut224.ppm
+			echo 'CONFIG_DRM_RADEON_KMS=y' >> .config
+			echo 'CONFIG_DRM_I915_KMS=y' >> .config
+			echo 'CONFIG_DEVTMPFS=y' >> .config
+			echo '# CONFIG_DEVTMPFS_MOUNT is not set' >> .config
+			#### cd ..
+			#### mv linux-2.6.36 linux-${PKGVERSION}
+			]]>
+		</patch>
+		<build>
+			<![CDATA[ 
+			cd linux-${PKGVERSION}
+			make oldconfig
+			make clean
+			make
+			make bzImage
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd linux-${PKGVERSION}
+			make modules_install
+			make firmware_install
+			make install
+			find /lib/modules/${PKGVERSION}-lesslinux-pax-005 -type f -name '*.ko' -exec strip --strip-unneeded {} \; 
+			### /usr/bin/modextract.rb ${PKGVERSION}-lesslinux-pax-000
+			true
+			
+			]]>
+		</install>
+		<clean>
+			  <![CDATA[
+			  
+			  rm -rf linux-${PKGVERSION}
+			  
+			  ]]>
+		</clean>
+	</package>
+</llpackages>
+

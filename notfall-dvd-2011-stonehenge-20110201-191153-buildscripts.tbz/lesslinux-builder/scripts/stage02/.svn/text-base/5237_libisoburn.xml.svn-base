@@ -1,0 +1,72 @@
+<llpackages>
+	<package 
+		name="libisoburn"
+		version="1.0.0.pl00"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                                             
+				<pkg sha1="65a4528eb18efa3a1381e4a9b5e2d5ee76705c92">libisoburn-1.0.0.pl00.tar.gz</pkg>
+				<mirror>http://files.libburnia-project.org/releases/</mirror>
+			</file>
+			<check>
+				<page html="http://files.libburnia-project.org/releases/">
+					<atext linktext="libisoburn-1.0.0.pl01" />
+					<atext linktext="libisoburn-1.0.0.pl02" />
+					<atext linktext="libisoburn-1.0.1." />
+					<atext linktext="libisoburn-1.0.2." />
+					<atext linktext="libisoburn-1.0.3." />
+					<atext linktext="libisoburn-1.1." />
+					<atext linktext="libisoburn-1.2." />
+					<atext linktext="libisoburn-2." />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>coreutils</dep>
+                        <dep>diffutils</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <dep>inetutils</dep>
+                        <dep>libburn</dep>
+                        <dep>libisofs</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>pkg-config</dep>
+                        <dep>readline</dep>
+                        <dep>sed</dep>
+                        <dep>util-linux-ng</dep>
+                        <dep>zlib</dep>
+			<!-- soft -->
+			 <dep>attr</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-1.0.0
+			./configure --sysconfdir=/etc --prefix=/usr && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-1.0.0
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

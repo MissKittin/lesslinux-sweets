@@ -1,0 +1,88 @@
+<llpackages>
+	<package 
+		name="nautilus-dropbox"
+		version="0.6.7"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                                                                               
+				<pkg sha1="77ce777bd342eaf7ada3e3a4f6664f66ca4189fb">nautilus-dropbox-0.6.7.tar.bz2</pkg>
+				<mirror>http://www.dropbox.com/download?dl=packages/</mirror>
+			</file>
+			<file>                                                                               
+				<pkg sha1="f9c199fb29af1784644a00cdd12bd64a5609e3c5">dropboxstart-20110113.sh</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+		</sources>
+		<builddeps>
+                        <dep>Python</dep>
+                        <dep>atk</dep>
+                        <dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>cairo</dep>
+                        <dep>coreutils</dep>
+                        <dep>diffutils</dep>
+                        <dep>docutils</dep>
+                        <dep>expat</dep>
+                        <dep>fontconfig</dep>
+                        <dep>freetype</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>gdk-pixbuf</dep>
+                        <dep>glib</dep>
+                        <dep>glibc</dep>
+                        <dep>gobject-introspection</dep>
+                        <dep>grep</dep>
+                        <dep>gtk+</dep>
+                        <dep>inetutils</dep>
+                        <dep>libX11</dep>
+                        <dep>libXau</dep>
+                        <dep>libXdmcp</dep>
+                        <dep>libXrender</dep>
+                        <dep>libpng12</dep><dep>libpng14</dep>
+                        <dep>libpthread-stubs</dep>
+                        <dep>libxcb</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>nautilus</dep>
+                        <dep>pango</dep>
+                        <dep>pixman</dep>
+                        <dep>pkg-config</dep>
+                        <dep>pycairo</dep>
+                        <dep>pygobject</dep>
+                        <dep>pygtk</dep>
+                        <dep>sed</dep>
+                        <dep>util-linux-ng</dep>
+                        <dep>xproto-base</dep>
+                </builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --sysconfdir=/etc && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			install -m 0755 ${SRCDIR}/dropboxstart-20110113.sh /usr/bin/dropboxstart
+			sed -i 's%dropbox start -i%dropboxstart%g' /usr/share/applications/dropbox.desktop
+			mkdir -p /usr/share/dropbox/.dropbox-dist
+			touch /usr/share/dropbox/.dropbox-dist/intentionally_empty 
+			]]>
+		</install>
+		<clean>
+			<![CDATA[
+			rm -rf ${PKGNAME}-${PKGVERSION}
+			]]>
+		</clean>
+	</package>
+</llpackages>

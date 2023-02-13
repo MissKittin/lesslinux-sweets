@@ -1,0 +1,73 @@
+<llpackages>
+	<package 
+		name="xf86-video-tdfx"
+		version="1.4.3"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>  
+			<file>                                  
+				<pkg sha1="d091d3c93b500b361c083bc1b54c4f5d5fac0943">xf86-video-tdfx-1.4.3.tar.bz2</pkg>
+				<mirror>http://xorg.freedesktop.org/archive/individual/driver/</mirror>
+			</file>
+			<check>
+				<page html="http://xorg.freedesktop.org/archive/individual/driver/">
+					<atext linktext="xf86-video-tdfx-1.4.4.tar.bz2" />
+					<atext linktext="xf86-video-tdfx-1.4.5.tar.bz2" />
+					<atext linktext="xf86-video-tdfx-1.4.6.tar.bz2" />
+					<atext linktext="xf86-video-tdfx-1.5.tar.bz2" />
+					<atext linktext="xf86-video-tdfx-1.5.0.tar.bz2" />
+					<atext linktext="xf86-video-tdfx-1.5.1.tar.bz2" />
+					<atext linktext="xf86-video-tdfx-2.0.tar.bz2" />
+					<atext linktext="xf86-video-tdfx-2.0.0.tar.bz2" />
+					<atext linktext="xf86-video-tdfx-2.0.1.tar.bz2" />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>Mesa</dep>
+                        <dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>coreutils</dep>
+                        <dep>diffutils</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <dep>inetutils</dep>
+                        <dep>libdrm</dep>
+                        <dep>libpciaccess</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>pixman</dep>
+                        <dep>pkg-config</dep>
+                        <dep>sed</dep>
+                        <dep>util-linux-ng</dep>
+                        <dep>xorg-server</dep>
+                        <dep>xproto-base</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --sysconfdir=/etc && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

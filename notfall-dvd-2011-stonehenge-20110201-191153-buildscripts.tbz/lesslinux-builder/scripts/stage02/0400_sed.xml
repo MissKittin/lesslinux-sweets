@@ -1,0 +1,62 @@
+<llpackages>
+	<package 
+		name="sed"
+		version="4.2.1"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>    
+				<pkg sha1="ace93d23eabc00d3a8187ecf07d3a02b1b297810">sed-4.2.1.tar.bz2</pkg>
+				<mirror>http://ftp.gnu.org/gnu/sed/</mirror>
+			</file>
+			<check>
+				<page html="http://ftp.gnu.org/gnu/sed/">
+					<atext linktext="sed-4.2.2.tar.bz2" />
+					<atext linktext="sed-4.2.3.tar.bz2" />
+					<atext linktext="sed-4.3.tar.bz2" />
+					<atext linktext="sed-4.3.0.tar.bz2" />
+					<atext linktext="sed-4.3.1.tar.bz2" />
+					<atext linktext="sed-5.0.tar.bz2" />
+					<atext linktext="sed-5.0.0.tar.bz2" />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>linux_headers</dep>
+			<dep>glibc</dep>
+			<dep>man-pages</dep>
+			<dep>readjust</dep>
+			<dep>zlib</dep>
+			<dep>binutils</dep>
+			<dep>gmp</dep>
+			<dep>mpfr</dep>
+			<dep>mpc</dep>
+			<dep>gcc</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --bindir=/bin --enable-html--htmldir=/usr/share/doc/sed-${PKGVERSION} && make
+			]]>
+		</build>
+		<test>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make check
+			]]>
+		</test>
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

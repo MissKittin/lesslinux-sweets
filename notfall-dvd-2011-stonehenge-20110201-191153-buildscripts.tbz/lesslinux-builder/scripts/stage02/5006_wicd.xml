@@ -1,0 +1,66 @@
+<llpackages>
+	<package 
+		name="wicd"
+		version="1.7.0"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>        
+				<pkg sha1="1cd087f53538b1f6e1cfad9735c87741e05698f6">wicd-1.7.0.tar.bz2</pkg>
+				<mirror>http://downloads.sourceforge.net/project/wicd/wicd-stable/wicd-1.7.0/</mirror>
+			</file>
+			<file>          
+				<pkg sha1="f26feda99cb52c15a2831b4078d88297923d4bed">wicd-1.7.0.wicd-cli.patch</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+			<!-- <check>
+				<page html="http://sourceforge.net/projects/wicd/files/">
+					<atext linktext="wicd-1.7.1.tar.bz2" />
+					<atext linktext="wicd-1.7.2.tar.bz2" />
+					<atext linktext="wicd-1.7.3.tar.bz2" />
+					<atext linktext="wicd-1.8.0.tar.bz2" />
+					<atext linktext="wicd-1.8.1.tar.bz2" />
+					<atext linktext="wicd-2.0.tar.bz2" />
+					<atext linktext="wicd-2.0.0.tar.bz2" />
+					<atext linktext="wicd-2.0.1.tar.bz2" />
+				</page>
+			</check> -->
+		</sources>
+		<builddeps>
+			<dep>Python</dep>
+                        <dep>bash</dep>
+                        <dep>pkg-config</dep>
+                        <dep>pygobject</dep>
+			<dep>pygtk</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch>
+		<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			cat ${SRCDIR}/${PKGNAME}-${PKGVERSION}.wicd-cli.patch | patch -p1
+		]]>
+		</patch>
+		<build>
+		<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			python setup.py configure
+		]]>
+		</build>
+		<test />
+		<install>
+		<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			python setup.py install
+		]]>
+		</install>
+	</package>
+</llpackages>

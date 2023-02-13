@@ -1,0 +1,106 @@
+<llpackages>
+	<package 
+		name="gnumeric"
+		version="1.10.12"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                                                                    
+				<pkg sha1="db9bbe630a997e4f1c70a7459f5126882d49eb2c">gnumeric-1.10.12.tar.bz2</pkg>
+				<mirror>http://ftp.gnome.org/pub/GNOME/sources/gnumeric/1.10/</mirror>
+			</file>
+			<check>
+				<page html="http://ftp.gnome.org/pub/GNOME/sources/gnumeric/1.10/">
+					<atext linktext="gnumeric-1.10.13." />
+					<atext linktext="gnumeric-1.10.14." />
+					<atext linktext="gnumeric-1.10.15." />
+				</page>
+				<page html="http://ftp.gnome.org/pub/GNOME/sources/gnumeric/">
+					<atext linktext="1.11" />
+					<atext linktext="1.12" />
+					<atext linktext="1.13" />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>GConf</dep>
+                        <dep>ORBit2</dep>
+                        <dep>Python</dep>
+                        <dep>atk</dep>
+                        <dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>bison</dep>
+                        <dep>cairo</dep>
+                        <dep>coreutils</dep>
+                        <dep>diffutils</dep>
+                        <dep>flex</dep>
+                        <dep>fontconfig</dep>
+                        <dep>freetype</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>gdk-pixbuf</dep>
+                        <dep>gettext</dep>
+                        <dep>glib</dep>
+                        <dep>glibc</dep>
+                        <dep>goffice</dep>
+                        <dep>grep</dep>
+                        <dep>gtk+</dep>
+                        <dep>inetutils</dep>
+                        <dep>intltool</dep>
+                        <dep>libX11</dep>
+                        <dep>libXau</dep>
+                        <dep>libXrender</dep>
+                        <dep>libffi</dep>
+                        <dep>libglade</dep>
+                        <dep>libgsf</dep>
+                        <dep>libpng12</dep><dep>libpng14</dep>
+                        <dep>libpthread-stubs</dep>
+                        <dep>libxcb</dep>
+                        <dep>libxml2</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>p5-xml</dep>
+                        <dep>pango</dep>
+                        <dep>perl</dep>
+                        <dep>pixman</dep>
+                        <dep>pkg-config</dep>
+                        <dep>pygobject</dep>
+                        <dep>scrollkeeper</dep>
+                        <dep>sed</dep>
+                        <dep>util-linux-ng</dep>
+                        <dep>xproto-base</dep>
+                        <dep>zlib</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --sysconfdir=/etc
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			paxctl -m /usr/bin/gnumeric
+			]]>
+		</install>
+		<clean>
+			<![CDATA[
+			rm -rf ${PKGNAME}-${PKGVERSION}
+			]]>
+		</clean>
+	</package>
+</llpackages>

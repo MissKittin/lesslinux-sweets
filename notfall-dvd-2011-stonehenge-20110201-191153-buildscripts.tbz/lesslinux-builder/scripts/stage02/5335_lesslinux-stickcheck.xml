@@ -1,0 +1,58 @@
+<llpackages>
+	<package 
+		name="stickcheck"
+		version="20091014"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                 
+				<pkg sha1="7d4b7ce5113c23cfe96b5d300249b376a8ef3fa0">stickcheck-20091014.tar.bz2</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+		</sources>
+		<builddeps>
+			<dep>bash</dep>
+			<dep>qt-everywhere-opensource-src</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			echo 'Nothing to do!'
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd stickcheck
+			install -m 0755 get_drive_details.rb /usr/bin
+			install -m 0755 stickcheck /usr/bin
+			install -m 0755 gstickcheck /usr/bin
+
+# Icon erstellen
+			
+cat >> /usr/share/applications/stickcheck.desktop << STICON
+
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Type=Application
+Name=Sticktest
+Comment=
+Categories=CB-Other;
+Exec=/usr/bin/gstickcheck -n
+Icon=gnome-dev-harddisk
+Terminal=false
+StartupNotify=true
+
+STICON
+			
+			]]>
+		</install>
+	</package>
+</llpackages>

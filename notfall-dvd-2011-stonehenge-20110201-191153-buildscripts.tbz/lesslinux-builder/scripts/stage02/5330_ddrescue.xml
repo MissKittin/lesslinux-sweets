@@ -1,0 +1,55 @@
+<llpackages>
+	<package 
+		name="ddrescue"
+		version="1.14"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                          
+				<pkg sha1="7079b5ae73133c8d6c1e982fbac1eea58531da97">ddrescue-1.14.tar.gz</pkg>
+				<mirror>http://ftp.gnu.org/gnu/ddrescue/</mirror>
+			</file>
+			<check>
+				<page html="http://ftp.gnu.org/gnu/ddrescue/">
+					<atext linktext="ddrescue-1.15." />
+					<atext linktext="ddrescue-1.16." />
+					<atext linktext="ddrescue-1.17." />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>coreutils</dep>
+                        <dep>gcc</dep>
+                        <dep>glibc</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>sed</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --sysconfdir=/etc --prefix=/usr && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

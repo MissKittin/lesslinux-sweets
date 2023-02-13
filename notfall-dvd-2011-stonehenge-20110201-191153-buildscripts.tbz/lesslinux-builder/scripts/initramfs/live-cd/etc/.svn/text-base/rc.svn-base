@@ -1,0 +1,17 @@
+#!/static/bin/ash
+
+. /etc/rc.conf
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors
+
+printf "$bold \n"
+printf "$bold WELCOME TO LESSLINUX -- a distribution aimed to be light, embeddable, small\n"
+printf "$bold and scalable. Please note: this release is still alpha software. If you are\n"
+printf "$bold interested in the project take a look at: www.LESSLINUX.com\n"
+printf "\n"
+printf "$bold Running scripts in /etc/rc.d\n" 
+
+for i in /etc/rc.d/[0-9][0-9][0-9][0-9]-*.sh 
+do
+    $i start
+done

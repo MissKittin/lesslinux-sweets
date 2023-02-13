@@ -1,0 +1,63 @@
+<llpackages>
+	<package 
+		name="mpfr"
+		version="3.0.0"
+		class="devel"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>  
+				<pkg sha1="8ae8bc72ac26a0f17ad9f57c520264c056c64770">mpfr-3.0.0.tar.bz2</pkg>
+				<mirror>http://www.mpfr.org/mpfr-current/</mirror>
+			</file>
+			<check>
+				<page html="http://www.mpfr.org/mpfr-current/">
+					<atext linktext="mpfr-3.0.1.tar.bz2" />
+					<atext linktext="mpfr-3.0.2.tar.bz2" />
+					<atext linktext="mpfr-3.0.3.tar.bz2" />
+					<atext linktext="mpfr-3.1." />
+					<atext linktext="mpfr-3.2." />
+					<atext linktext="mpfr-3.3." />
+					<atext linktext="mpfr-4." />
+					<atext linktext="mpfr-5." />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>linux_headers</dep>
+			<dep>glibc</dep>
+			<dep>man-pages</dep>
+			<dep>readjust</dep>
+			<dep>zlib</dep>
+			<dep>binutils</dep>
+			<dep>gmp</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --enable-thread-safe --docdir=/usr/share/doc/${PKGNAME}-${PKGVERSION} && make
+			]]>
+		</build>
+		<test>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make check
+			]]>
+		</test>
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			make html
+			make install-html
+			
+			]]>
+		</install>
+	</package>
+</llpackages>

@@ -1,0 +1,236 @@
+<llpackages>
+	<package 
+		name="firefox-unstable"
+		version="4.0b10"
+		class="user"
+		>
+		<!-- FIXME: correctly generate distribution.ini -->
+		<!--
+		
+# Partner Distribution Configuration File
+# Mozilla Firefox for Computerbild.de
+
+[Global]
+id=computerbild
+version=1.0
+about=Mozilla Firefox for Computerbild.de
+
+[Preferences]
+app.distributor="Computerbild"
+app.distributor.channel="Smart Pax"
+app.partner.computerbild="computerbild"
+		
+		-->
+		<license>GPLv2</license>
+		<!-- official branding -->
+		<sources>
+			<!-- <file>  
+				<pkg sha1="83b2625eb74e81b473ac40ac52505e5fc9a497eb">firefox-3.5.3.source.tar.bz2</pkg>
+				<mirror>ftp://ftp.mozilla.org/pub/mozilla.org/firefox/releases/3.5.3/source/</mirror>
+			</file>-->
+			<file>                                                                                                   
+				<pkg sha1="009da818242fc52ed30b30371c299d58d51fb532">firefox-4.0b10.source.tar.bz2</pkg>
+				<mirror>http://ftp.mozilla.org/pub/mozilla.org/firefox/releases/4.0b10/source/</mirror>
+			</file>
+			<!-- <file>
+				<pkg sha1="941e2194c592b8fc3d0a61d058740ac0f263711d">mozconfig-firefox-3.5.4-20091028</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file> -->
+			<file> 
+				<pkg sha1="e86bf7a9e2ea02ab5a4d0ac665fae993676f8c99">mozconfig-firefox-4.0-20100902</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+			<check>
+				<page html="http://releases.mozilla.org/pub/mozilla.org/firefox/releases/">
+					<atext linktext="4.0b11" />
+					<atext linktext="4.0b12" />
+					<atext linktext="4.0b13" />
+					<atext linktext="4.0rc" />
+					<atext linktext="4.0." />
+					<atext linktext="4.0/" />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+                        <dep>GConf</dep>
+                        <dep>Mesa</dep>
+                        <dep>ORBit2</dep>
+                        <dep>Python</dep>
+                        <dep>alsa-lib</dep>
+                        <dep>atk</dep>
+                        <dep>autoconf</dep>
+                        <dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>cairo</dep>
+                        <dep>coreutils</dep>
+                        <dep>dbus-glib</dep>
+                        <dep>dbus</dep>
+                        <dep>diffutils</dep>
+                        <dep>findutils</dep>
+                        <dep>fontconfig</dep>
+                        <dep>freetype</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>gdk-pixbuf</dep>
+                        <dep>glib</dep>
+                        <dep>glibc</dep>
+                        <dep>gnome-vfs</dep>
+                        <dep>grep</dep>
+                        <dep>gtk+</dep>
+                        <dep>imake</dep>
+                        <dep>inetutils</dep>
+                        <dep>libICE</dep>
+                        <dep>libIDL</dep>
+                        <dep>libSM</dep>
+                        <dep>libX11</dep>
+                        <dep>libXau</dep>
+                        <dep>libXext</dep>
+                        <dep>libXrender</dep>
+                        <dep>libXt</dep>
+                        <dep>libart_lgpl</dep>
+                        <dep>libbonobo</dep>
+                        <dep>libbonoboui</dep>
+                        <dep>libcanberra</dep>
+                        <dep>libgnome-keyring</dep>
+                        <dep>libgnome</dep>
+                        <dep>libgnomecanvas</dep>
+                        <dep>libgnomeui</dep>
+                        <dep>libnotify</dep>
+                        <dep>libpng12</dep><dep>libpng14</dep>
+                        <dep>libpthread-stubs</dep>
+                        <dep>libxcb</dep>
+                        <dep>libxml2</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>makedepend</dep>
+                        <dep>pango</dep>
+                        <dep>perl</dep>
+                        <dep>pixman</dep>
+                        <dep>pkg-config</dep>
+                        <dep>popt</dep>
+                        <dep>pygobject</dep>
+                        <dep>sed</dep>
+                        <dep>tar</dep>
+                        <dep>unzip</dep>
+                        <dep>util-linux-ng</dep>
+                        <dep>which</dep>
+                        <dep>wireless_tools</dep>
+                        <dep>xorg-cf-files</dep>
+                        <dep>xproto-base</dep>
+                        <dep>yasm</dep>
+                        <dep>zip</dep>
+                        <dep>zlib</dep>
+                </builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/firefox-${PKGVERSION}.source.tar.bz2
+			]]>
+		</unpack>
+		<patch>
+		<![CDATA[
+			cp ${SRCDIR}/mozconfig-firefox-4.0-20100902 mozilla-central/.mozconfig
+		]]>
+		</patch>
+		<build>
+			<![CDATA[
+			cd mozilla-central
+			make -f client.mk clean
+			make -f client.mk configure
+			make -f client.mk build
+			cd ff-build
+			make package
+			cd ../..
+			mkdir mozilla-bin
+			tar -C mozilla-bin -xjf mozilla-central/ff-build/dist/firefox-${PKGVERSION}.en-US.linux-*.tar.bz2
+			
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			
+rm -rf /opt/firefox40
+mkdir -p /opt/firefox40
+rsync -avHP mozilla-bin/firefox/ /opt/firefox40/
+mkdir /opt/firefox40/plugins
+touch /opt/firefox40/plugins/.intentionally_empty
+
+echo -n '' > /usr/bin/firefox40
+cat >> /usr/bin/firefox40 << FFRUN
+#!/bin/sh
+
+PATH=/static/bin:/static/sbin:\$PATH
+export PATH
+
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+
+langopts=""
+echo "\$LANGUAGE" | grep '^de' >/dev/null && langopts="-contentLocale de-DE -UILocale de-DE"
+echo "\$LANGUAGE" | grep '^pl' >/dev/null && langopts="-contentLocale pl-PL -UILocale pl-PL"
+echo "\$LANGUAGE" | grep '^es' >/dev/null && langopts="-contentLocale es-ES -UILocale es-ES"
+echo "\$LANGUAGE" | grep '^ru' >/dev/null && langopts="-contentLocale ru-RU -UILocale ru-RU"
+
+[ "\$security" '!=' "smack" ] && exec /opt/firefox40/firefox \$langopts \$@
+
+if [ "\$#" -lt 1 ] ; then
+    exec sudo /opt/firefox40/firefox_smack
+else
+    if ps waux | grep 'surfer   /opt/.*/firefox-bin' | grep -v grep ; then
+        /opt/firefox40/firefox \$@
+    else
+        sudo /opt/firefox40/firefox_smack &
+	sleep 5
+	exec /opt/firefox40/firefox \$@
+    fi
+fi
+FFRUN
+
+#### rm /usr/bin/firefox
+#### ln -sf /usr/bin/firefox40 /usr/bin/firefox
+chmod a+rx /usr/bin/firefox40
+
+echo -n '' > /opt/firefox40/firefox_smack
+cat >> /opt/firefox40/firefox_smack << FFSMACK
+#!/static/bin/ash
+
+langopts=""
+echo "\$LANGUAGE" | grep '^de' >/dev/null && langopts="-contentLocale de-DE -UILocale de-DE"
+echo "\$LANGUAGE" | grep '^pl' >/dev/null && langopts="-contentLocale pl-PL -UILocale pl-PL"
+echo "\$LANGUAGE" | grep '^es' >/dev/null && langopts="-contentLocale es-ES -UILocale es-ES"
+echo "\$LANGUAGE" | grep '^ru' >/dev/null && langopts="-contentLocale ru-RU -UILocale ru-RU"
+
+/static/sbin/newsmack internet /static/bin/su surfer -c "/opt/firefox40/firefox \$langopts"
+
+FFSMACK
+
+chmod a+rx /opt/firefox40/firefox_smack
+/sbin/paxctl -m -r /opt/firefox40/firefox-bin
+			
+## echo '// Read LessLinux defaults' >> /opt/firefox40/lib/firefox-${PKGVERSION}/greprefs/all.js
+## echo '// oops, this is buggy in 3.6.6' >> /opt/firefox40/lib/firefox-${PKGVERSION}/greprefs/all.js
+## echo '// pref("general.config.filename", "lesslinux.cfg");' >> /opt/firefox40/lib/firefox-${PKGVERSION}/greprefs/all.js
+## echo '// pref("general.config.obscure_value", 0);' >> /opt/firefox40/lib/firefox-${PKGVERSION}/greprefs/all.js
+##			
+## mkdir /opt/firefox40/lib/firefox-${PKGVERSION}/lesslinux
+##			
+## echo '//' >> /opt/firefox40/lib/firefox-${PKGVERSION}/lesslinux/lesslinux.cfg
+## echo 'pref("xpinstall.enabled", false);' >> /opt/firefox40/lib/firefox-${PKGVERSION}/lesslinux/lesslinux.cfg
+## echo 'lockPref("xpinstall.enabled", false);' >> /opt/firefox40/lib/firefox-${PKGVERSION}/lesslinux/lesslinux.cfg
+##			
+## ln -sf /opt/firefox40/lib/firefox-${PKGVERSION}/lesslinux/lesslinux.cfg /opt/firefox40/lib/firefox-${PKGVERSION}/lesslinux.cfg
+chown -R 0:0 /opt/firefox40
+			
+## mkdir /opt/firefox40/lib/firefox-${PKGVERSION}/plugins
+## touch /opt/firefox40/lib/firefox-${PKGVERSION}/plugins/.intentionally_empty
+			
+			]]>
+		</install>
+		<clean>
+			 <![CDATA[
+			rm -rf mozilla-central
+			rm -rf mozilla-bin
+			]]>
+		</clean>
+	</package>
+</llpackages>

@@ -1,0 +1,54 @@
+<llpackages>
+	<package 
+		name="dejavu-fonts-ttf"
+		version="2.32"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>      
+				<pkg sha1="30865ca2c5c0b983eff6fe32d75aacc32d08a5a2">dejavu-fonts-ttf-2.32.tar.bz2</pkg>
+				<mirror>http://downloads.sourceforge.net/project/dejavu/dejavu/2.32/</mirror>
+			</file>
+			<check>
+				<page html="http://sourceforge.net/projects/dejavu/files/">
+					<atext linktext="dejavu-fonts-ttf-2.33.tar.bz2" />
+					<atext linktext="dejavu-fonts-ttf-2.34.tar.bz2" />
+					<atext linktext="dejavu-fonts-ttf-2.35.tar.bz2" />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>bash</dep>
+			<dep>mkfontdir</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xvjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			echo 'Nothing to do!'
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			mkdir -vp /usr/lib/X11/fonts/truetype
+			ln -sf /usr/lib/X11/fonts/truetype /usr/share/fonts/X11/truetype
+			mkdir -vp /etc/fonts/conf.avail
+			mkdir -vp /etc/fonts/conf.d
+			install -m 0644 ttf/*.ttf /usr/lib/X11/fonts/truetype
+			install -m 0644 fontconfig/*.conf /etc/fonts/conf.avail/
+			for i in 20-unhint-small-dejavu-sans.conf 20-unhint-small-dejavu-serif.conf \
+				57-dejavu-sans-mono.conf 20-unhint-small-dejavu-sans-mono.conf \
+				57-dejavu-sans.conf 57-dejavu-serif.conf ; do
+				ln -sf /etc/fonts/conf.avail/$i /etc/fonts/conf.d/$i 
+			done
+			]]>
+		</install>
+	</package>
+</llpackages>

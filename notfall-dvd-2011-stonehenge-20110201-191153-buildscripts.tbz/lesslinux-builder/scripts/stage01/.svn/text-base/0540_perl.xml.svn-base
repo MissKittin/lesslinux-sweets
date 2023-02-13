@@ -1,0 +1,65 @@
+<llpackages>
+	<package 
+		name="perl"
+		version="5.12.3"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                                               
+				<pkg sha1="86d77c6cbc7a60068dc14c88ffd0729324d1174f">perl-5.12.3.tar.bz2</pkg>
+				<mirror>http://www.cpan.org/src/5.0/</mirror>
+			</file>
+			<file>  
+				<pkg sha1="67c2e4e4d63f88b83cd8042dad04c07a4054037b">perl-5.12.2-libc-1.patch</pkg>
+				<mirror>http://www.linuxfromscratch.org/patches/lfs/development/</mirror>
+			</file>
+			<check>
+				<page html="http://www.cpan.org/src/5.0/">
+					<atext linktext="perl-5.12.4." />
+					<atext linktext="perl-5.12.5." />
+					<atext linktext="perl-5.12.6." />
+					<atext linktext="perl-5.14." />
+					<atext linktext="perl-5.16." />
+					<atext linktext="perl-6." />
+				</page>
+			</check>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			
+			]]>
+		</unpack>
+		<patch>
+			<![CDATA[ 
+			
+			cd ${PKGNAME}-${PKGVERSION}
+			cat ${SRCDIR}/${PKGNAME}-5.12.2-libc-1.patch | patch -p1
+			
+			]]>
+		</patch>
+		<build>
+			<![CDATA[ 
+			
+			cd ${PKGNAME}-${PKGVERSION}
+			
+			sh Configure -des -Dprefix=/tools -Dstatic_ext='Data/Dumper Fcntl IO'
+			make perl utilities ext/Errno/pm_to_blib
+			
+			]]>
+		</build>
+		<install>
+			<![CDATA[
+
+			cd ${PKGNAME}-${PKGVERSION}
+			
+			cp -v perl pod/pod2man /tools/bin
+			mkdir -pv /tools/lib/perl5/${PKGVERSION}
+			cp -Rv lib/* /tools/lib/perl5/${PKGVERSION}
+			ln -sv /tools/bin/perl ${CHROOTDIR}/usr/bin
+
+			]]>
+		</install>
+	</package>
+</llpackages>

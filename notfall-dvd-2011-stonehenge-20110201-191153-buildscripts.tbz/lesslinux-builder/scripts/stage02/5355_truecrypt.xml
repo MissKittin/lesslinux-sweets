@@ -1,0 +1,124 @@
+<llpackages>
+	<package 
+		name="truecrypt"
+		version="7.0a"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>    
+				<pkg sha1="42be0f333e6791e7a122b3e1183e014cd3860198">truecrypt-7.0a.tar.gz</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+			<file>                         
+				<pkg sha1="96b4ff827d5ed96019dba817e9d6695a9b0c15a0">wxWidgets-2.8.11.tar.gz</pkg>
+				<mirror>http://downloads.sourceforge.net/project/wxwindows/wxAll/2.8.11/</mirror>
+			</file>
+			<!-- <file>                         
+				<pkg sha1="5b0e985afd77153e8e4b9e14987d4b1a9de53acc">wxWidgets-2.8.10-glib.patch</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file> -->
+			<file>  
+				<pkg sha1="417d38d4cdab6b75b26082c8a94bb981e4e6dd80">truecrypt-6.3a-pkcs.patch</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+			<file>    
+				<pkg sha1="8bbb22898c84e35efb29524a4daca3ca16082141">truecrypt-6.3a-exo-open.patch</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+		</sources>
+		<builddeps>
+                        <dep>atk</dep>
+                        <dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>cairo</dep>
+                        <dep>coreutils</dep>
+                        <dep>diffutils</dep>
+                        <dep>findutils</dep>
+                        <dep>fontconfig</dep>
+                        <dep>freetype</dep>
+                        <dep>fuse</dep>
+                        <dep>gcc</dep>
+                        <dep>gdk-pixbuf</dep>
+                        <dep>glib</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <dep>gtk+</dep>
+                        <dep>inetutils</dep>
+                        <dep>libICE</dep>
+                        <dep>libSM</dep>
+                        <dep>libX11</dep>
+                        <dep>libXau</dep>
+                        <dep>libXrender</dep>
+                        <dep>libpthread-stubs</dep>
+                        <dep>libxcb</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>nasm</dep>
+                        <dep>pango</dep>
+                        <dep>pixman</dep>
+                        <dep>pkg-config</dep>
+                        <dep>sed</dep>
+                        <dep>util-linux-ng</dep>
+                        <dep>xproto-base</dep>
+                </builddeps>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			tar xzf ${SRCDIR}/wxWidgets-2.8.11.tar.gz
+			]]>
+		</unpack>
+		<patch>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}-source
+			cat ${SRCDIR}/${PKGNAME}-6.3a-pkcs.patch | patch -p1
+			cat ${SRCDIR}/${PKGNAME}-6.3a-exo-open.patch | patch -p1
+			]]>
+		</patch>
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}-source
+			PWD=` pwd `
+			UPPER=` dirname $PWD ` 
+			make WX_ROOT=${UPPER}/wxWidgets-2.8.11 wxbuild
+			make WX_ROOT=${UPPER}/wxWidgets-2.8.11 WXSTATIC=1
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}-source
+			install -m 0755 Main/truecrypt /usr/bin
+			paxctl -m /usr/bin/truecrypt
+			
+cat >> /usr/share/applications/truecrypt.desktop << TCDESKTOP
+
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Type=Application
+Name=TrueCrypt
+Comment=
+Categories=Utility;
+Exec=/usr/bin/truecrypt
+Icon=dialog-password
+Terminal=false
+StartupNotify=true
+
+TCDESKTOP
+
+
+			]]>
+		</install>
+		<clean>
+			<![CDATA[
+			rm -rf ${PKGNAME}-${PKGVERSION}-source
+			rm -rf wxWidgets-2.8.11
+			]]>
+		</clean>
+	</package>
+</llpackages>

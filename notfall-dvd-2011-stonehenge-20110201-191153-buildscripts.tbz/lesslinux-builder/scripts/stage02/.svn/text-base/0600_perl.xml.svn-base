@@ -1,0 +1,100 @@
+<llpackages>
+	<package 
+		name="perl"
+		version="5.12.3"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                                               
+				<pkg sha1="86d77c6cbc7a60068dc14c88ffd0729324d1174f">perl-5.12.3.tar.bz2</pkg>
+				<mirror>http://www.cpan.org/src/5.0/</mirror>
+			</file>
+			<!-- <file>  
+				<pkg sha1="67c2e4e4d63f88b83cd8042dad04c07a4054037b">perl-5.12.1-libc-1.patch</pkg>
+				<mirror>http://www.linuxfromscratch.org/patches/lfs/development/</mirror>
+			</file> -->
+			<check>
+				<page html="http://www.cpan.org/src/5.0/">
+					<atext linktext="perl-5.12.4." />
+					<atext linktext="perl-5.12.5." />
+					<atext linktext="perl-5.12.6." />
+					<atext linktext="perl-5.14." />
+					<atext linktext="perl-5.16." />
+					<atext linktext="perl-6." />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>bash</dep>
+			<dep>binutils</dep>
+			<dep>bison</dep>
+			<dep>coreutils</dep>
+			<dep>gcc</dep>
+			<dep>glibc</dep>
+			<dep>grep</dep>
+			<dep>inetutils</dep>
+			<dep>linux_headers</dep>
+			<dep>sed</dep>
+			<dep>util-linux-ng</dep>
+			<dep>zlib</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<!-- <patch>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			sed -i -e "s|BUILD_ZLIB\s*= True|BUILD_ZLIB = False|"           \
+				-e "s|INCLUDE\s*= ./zlib-src|INCLUDE    = /usr/include|" \
+				-e "s|LIB\s*= ./zlib-src|LIB        = /usr/lib|"         \
+				cpan/Compress-Raw-Zlib/config.in
+			exit 0
+			]]>
+		</patch> -->
+		<patch>
+			<![CDATA[
+
+cd ${PKGNAME}-${PKGVERSION}
+sed -i -e "s|BUILD_ZLIB\s*= True|BUILD_ZLIB = False|"            \
+	-e "s|INCLUDE\s*= ./zlib-src|INCLUDE    = /usr/include|" \
+	-e "s|LIB\s*= ./zlib-src|LIB        = /usr/lib|"         \
+	cpan/Compress-Raw-Zlib/config.in
+	
+			]]>
+		</patch>
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			sh Configure -des -Dprefix=/usr \
+				-Dvendorprefix=/usr           \
+				-Dman1dir=/usr/share/man/man1 \
+				-Dman3dir=/usr/share/man/man3 \
+				-Dpager="/usr/bin/less -isR" \
+                                -Duseshrplib \
+			&& make
+				
+			]]>
+		</build>
+		<test>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make test
+			]]>
+		</test>
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			# ln -sf /usr/bin/perl /bin/perl
+			]]>
+		</install>
+		<clean>
+			<![CDATA[
+			rm -rf ${PKGNAME}-${PKGVERSION}
+			]]>
+		</clean>
+	</package>
+</llpackages>

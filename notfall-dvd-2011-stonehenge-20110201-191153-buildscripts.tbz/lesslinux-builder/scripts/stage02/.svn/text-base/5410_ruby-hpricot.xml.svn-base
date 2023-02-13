@@ -1,0 +1,50 @@
+<llpackages>
+	<package 
+		name="ruby-hpricot-git"
+		version="20091117"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file> 
+
+				<pkg sha1="02037f9fc274b8f9c029e4011d434bec4b518370">ruby-hpricot-git-20091117.tar.bz2</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+		</sources>
+		 <builddeps>
+                        <dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>coreutils</dep>
+                        <dep>gcc</dep>
+                        <dep>glibc</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>ruby</dep>
+                </builddeps>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd hpricot
+			ruby setup.rb config
+			ruby setup.rb setup
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd hpricot
+			ruby setup.rb install
+			]]>
+		</install>
+	</package>
+</llpackages>

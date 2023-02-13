@@ -1,0 +1,100 @@
+<llpackages>
+	<package 
+		name="xorg-server"
+		version="1.9.3"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                         
+				<pkg sha1="4f275aa4dc76ca0b727d1b87c9bd0e85f78c91be">xorg-server-1.9.3.tar.bz2</pkg>
+				<mirror>http://xorg.freedesktop.org/archive/individual/xserver/</mirror>
+			</file>
+			<check>
+				<page html="http://xorg.freedesktop.org/archive/individual/xserver/">
+					<atext linktext="xorg-server-1.9.4." />
+					<atext linktext="xorg-server-1.9.5." />
+					<atext linktext="xorg-server-1.9.6." />
+					<atext linktext="xorg-server-1.9.7." />
+					<atext linktext="xorg-server-1.10." />
+					<atext linktext="xorg-server-2." />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>Mesa</dep>
+                        <dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>bison</dep>
+                        <dep>coreutils</dep>
+                        <dep>diffutils</dep>
+                        <dep>findutils</dep>
+                        <dep>flex</dep>
+                        <dep>freetype</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <dep>inetutils</dep>
+                        <dep>libX11</dep>
+                        <dep>libXau</dep>
+                        <dep>libXdamage</dep>
+                        <dep>libXdmcp</dep>
+                        <dep>libXext</dep>
+                        <dep>libXfixes</dep>
+                        <dep>libXfont</dep>
+                        <dep>libXi</dep>
+                        <dep>libXmu</dep>
+                        <dep>libXrender</dep>
+                        <dep>libXxf86vm</dep>
+                        <dep>libdrm</dep>
+                        <dep>libfontenc</dep>
+                        <dep>libpciaccess</dep>
+                        <dep>libpthread-stubs</dep>
+                        <dep>libxcb</dep>
+                        <dep>libxkbfile</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>openssl</dep>
+                        <dep>perl</dep>
+                        <dep>pixman</dep>
+                        <dep>pkg-config</dep>
+                        <dep>sed</dep>
+                        <dep>util-linux-ng</dep>
+                        <dep>xf86dgaproto</dep>
+                        <dep>xproto-base</dep>
+                        <dep>xtrans</dep>
+			<dep>udev</dep>
+			<dep>recordproto</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --sysconfdir=/etc --disable-xinerama && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			/sbin/paxctl -m -r /usr/bin/Xorg
+			]]>
+		</install>
+		<clean>
+			<![CDATA[
+			rm -rf ${PKGNAME}-${PKGVERSION}
+			]]>
+		</clean>
+	</package>
+</llpackages>

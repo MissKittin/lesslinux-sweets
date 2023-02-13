@@ -1,0 +1,77 @@
+<llpackages>
+	<package 
+		name="tar"
+		version="1.25"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>   
+				<pkg sha1="0f0c090e51d127cbeffbb9aeeb90db1181d82aed">tar-1.25.tar.bz2</pkg>
+				<mirror>http://ftp.gnu.org/gnu/tar/</mirror>
+			</file>
+			<!-- <file>     
+				<pkg sha1="76b86fda3a9816a70b5e5e780a25202767a52ab8">tar-1.23-overflow_fix-1.patch</pkg>
+				<mirror>http://ftp.gnu.org/gnu/tar/</mirror>
+			</file> -->
+			<check>
+				<page html="http://ftp.gnu.org/gnu/tar/">
+					<atext linktext="tar-1.25.1." />
+					<atext linktext="tar-1.26." />
+					<atext linktext="tar-1.27." />
+					<atext linktext="tar-1.28." />
+					<atext linktext="tar-2." />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>bison</dep>
+                        <dep>coreutils</dep>
+                        <dep>diffutils</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>gettext</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <dep>inetutils</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>sed</dep>
+                        <dep>util-linux-ng</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<!-- <patch>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			cat ${SRCDIR}/${PKGNAME}-${PKGVERSION}-overflow_fix-1.patch | patch -p1
+			]]>
+		</patch> -->
+		<build>
+			<![CDATA[
+			export FORCE_UNSAFE_CONFIGURE=1
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --bindir=/bin --libexecdir=/usr/sbin && make
+			]]>
+		</build>
+		<test>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			sed -i '35 i\
+AT_UNPRIVILEGED_PREREQ' tests/remfiles01.at
+			make check
+			]]>
+		</test>
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

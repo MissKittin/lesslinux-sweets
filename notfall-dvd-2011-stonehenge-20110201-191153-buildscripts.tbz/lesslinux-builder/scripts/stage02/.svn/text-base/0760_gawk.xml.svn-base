@@ -1,0 +1,64 @@
+<llpackages>
+	<package 
+		name="gawk"
+		version="3.1.8"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>    
+				<pkg sha1="da1091cc39089c320f53d21fd2112bd7ce407de5">gawk-3.1.8.tar.bz2</pkg>
+				<mirror>http://ftp.gnu.org/gnu/gawk/</mirror>
+			</file>
+			<check>
+				<page html="http://ftp.gnu.org/gnu/gawk/">
+					<atext linktext="gawk-3.1.9.tar." />
+					<atext linktext="gawk-3.1.10.tar." />
+					<atext linktext="gawk-3.2." />
+					<atext linktext="gawk-3.3." />
+					<atext linktext="gawk-4.0." />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>bison</dep>
+                        <dep>coreutils</dep>
+                        <dep>diffutils</dep>
+                        <dep>gcc</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <dep>inetutils</dep>
+                        <dep>linux_headers</dep>
+                        <dep>sed</dep>
+                        <dep>util-linux-ng</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --libexecdir=/usr/lib && make
+			]]>
+		</build>
+		<test>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make check
+			]]>
+		</test>
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			mkdir -v /usr/share/doc/${PKGNAME}-${PKGVERSION}
+			cp    -v doc/{awkforai.txt,*.{eps,pdf,jpg}} /usr/share/doc/${PKGNAME}-${PKGVERSION}
+			]]>
+		</install>
+	</package>
+</llpackages>

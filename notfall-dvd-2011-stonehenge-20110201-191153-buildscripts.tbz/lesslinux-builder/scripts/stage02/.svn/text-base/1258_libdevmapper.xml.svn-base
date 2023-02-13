@@ -1,0 +1,63 @@
+<llpackages>
+	<package 
+		name="device-mapper"
+		version="2.02.82"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                                                                                          
+				<pkg sha1="fa6258c307b5da807747d2b58d3cbc9b3ac99fa1">LVM2.2.02.82.tgz</pkg>
+				<mirror>ftp://sources.redhat.com/pub/lvm2/</mirror>
+			</file>
+			<check>
+				<page html="http://mirrors.kernel.org/sources.redhat.com/lvm2/">
+					<atext linktext="LVM2.2.02.83.t" />
+					<atext linktext="LVM2.2.02.84.t" />
+					<atext linktext="LVM2.2.02.85.t" />
+					<atext linktext="LVM2.2.02.86" />
+					<atext linktext="LVM2.2.03" />
+					<atext linktext="LVM2.2.04" />
+					<atext linktext="LVM2.3" />
+					<atext linktext="LVM2.4" />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>coreutils</dep>
+                        <dep>diffutils</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <dep>inetutils</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>pkg-config</dep>
+                        <dep>sed</dep>
+                        <dep>util-linux-ng</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/LVM2.${PKGVERSION}.tgz
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd LVM2.${PKGVERSION}
+			./configure --prefix=/usr --sysconfdir=/etc --enable-dmeventd --enable-cmdlib
+			make device-mapper
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd LVM2.${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

@@ -1,0 +1,49 @@
+<llpackages>
+	<package 
+		name="gzip"
+		version="1.4"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>    
+				<pkg sha1="1d398dac6a7920a7de6e2685fe472a840eb2ce6e">gzip-1.4.tar.gz</pkg>
+				<mirror>http://ftp.gnu.org/gnu/gzip/</mirror>
+			</file>
+			<check>
+				<page html="http://ftp.gnu.org/gnu/gzip/">
+					<atext linktext="gzip-1.4.1.tar.gz" />
+					<atext linktext="gzip-1.5.tar.gz" />
+					<atext linktext="gzip-1.6.tar.gz" />
+					<atext linktext="gzip-2.0.tar.gz" />
+				</page>
+			</check>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			]]>
+		</unpack>
+		<!-- <patch>
+			<![CDATA[ 
+			cd ${PKGNAME}-${PKGVERSION}
+			#for file in gzip.c lib/utimens.{c,h}
+			#do
+			#	cp -v $file{,.orig}
+			#	sed 's/futimens/gl_&/' $file.orig > $file
+			#done
+			]]>
+		</patch> -->
+		<build>
+			<![CDATA[ 
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/tools && make
+			]]>
+		</build>
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

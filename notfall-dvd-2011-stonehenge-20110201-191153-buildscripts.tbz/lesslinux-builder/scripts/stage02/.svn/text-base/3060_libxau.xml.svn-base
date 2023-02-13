@@ -1,0 +1,63 @@
+<llpackages>
+	<package 
+		name="libXau"
+		version="1.0.6"
+		class="devel"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file> 
+				<pkg sha1="0e1ab449f98026e4599f6e0d7491810d36c8fe4d">libXau-1.0.6.tar.bz2</pkg>
+				<mirror>http://xorg.freedesktop.org/archive/individual/lib/</mirror>
+			</file>
+			<check>
+				<page html="http://xorg.freedesktop.org/archive/individual/lib/">
+					<atext linktext="libXau-1.0.7.tar.bz2" />
+					<atext linktext="libXau-1.0.8.tar.bz2" />
+					<atext linktext="libXau-1.0.9.tar.bz2" />
+					<atext linktext="libXau-1.1.tar.bz2" />
+					<atext linktext="libXau-1.1.0.tar.bz2" />
+					<atext linktext="libXau-1.2.tar.bz2" />
+					<atext linktext="libXau-1.2.0.tar.bz2" />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>coreutils</dep>
+                        <dep>diffutils</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <dep>inetutils</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>pkg-config</dep>
+                        <dep>sed</dep>
+                        <dep>util-linux-ng</dep>
+                        <dep>xproto-base</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

@@ -1,0 +1,127 @@
+<llpackages>
+	<package 
+		name="gnucash"
+		version="2.4.0"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                    
+				<pkg sha1="dd89e3c3d87b0c0c4f3f5ffd886363783d5d5576">gnucash-2.4.0.tar.bz2</pkg>
+				<mirror>http://downloads.sourceforge.net/project/gnucash/gnucash%20%28stable%29/2.4.0/</mirror>
+			</file>
+			<check>
+				<page html="http://sourceforge.net/projects/gnucash/files/gnucash%20%28stable%29/">
+					<atext linktext="2.4.1" />
+					<atext linktext="2.4.2" />
+					<atext linktext="2.4.3" />
+					<atext linktext="2.4.4" />
+					<atext linktext="2.5." />
+					<atext linktext="2.6." />
+					<atext linktext="3.0." />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+                        <dep>GConf</dep>
+                        <dep>ORBit2</dep>
+                        <dep>atk</dep>
+                        <dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>cairo</dep>
+                        <dep>coreutils</dep>
+                        <dep>dbus-glib</dep>
+                        <dep>dbus</dep>
+                        <dep>diffutils</dep>
+                        <dep>enchant</dep>
+                        <dep>expat</dep>
+                        <dep>fontconfig</dep>
+                        <dep>freetype</dep>
+                        <dep>gawk</dep>
+                        <dep>gcc</dep>
+                        <dep>gdk-pixbuf</dep>
+                        <dep>gettext</dep>
+                        <dep>glib</dep>
+                        <dep>glibc</dep>
+                        <dep>gmp</dep>
+                        <dep>gnome-vfs</dep>
+                        <dep>goffice</dep>
+                        <dep>grep</dep>
+                        <dep>gtk+</dep>
+                        <dep>gtkhtml</dep>
+                        <dep>guile</dep>
+                        <dep>inetutils</dep>
+                        <dep>intltool</dep>
+                        <dep>iso-codes</dep>
+                        <dep>libICE</dep>
+                        <dep>libSM</dep>
+                        <dep>libX11</dep>
+                        <dep>libXau</dep>
+                        <dep>libXcomposite</dep>
+                        <dep>libXcursor</dep>
+                        <dep>libXdamage</dep>
+                        <dep>libXdmcp</dep>
+                        <dep>libXext</dep>
+                        <dep>libXfixes</dep>
+                        <dep>libXrandr</dep>
+                        <dep>libXrender</dep>
+                        <dep>libart_lgpl</dep>
+                        <dep>libbonobo</dep>
+                        <dep>libbonoboui</dep>
+                        <dep>libcanberra</dep>
+                        <dep>libdbi</dep>
+                        <dep>libgcrypt</dep>
+                        <dep>libglade</dep>
+                        <dep>libgnome-keyring</dep>
+                        <dep>libgnome</dep>
+                        <dep>libgnomecanvas</dep>
+                        <dep>libgnomeui</dep>
+                        <dep>libgpg-error</dep>
+                        <dep>libgsf</dep>
+                        <dep>libogg</dep>
+                        <dep>libpng12</dep><dep>libpng14</dep>
+                        <dep>libpthread-stubs</dep>
+                        <dep>libtool</dep>
+                        <dep>libvorbis</dep>
+                        <dep>libxcb</dep>
+                        <dep>libxml2</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>p5-xml</dep>
+                        <dep>pango</dep>
+                        <dep>perl</dep>
+                        <dep>pixman</dep>
+                        <dep>pkg-config</dep>
+                        <dep>popt</dep>
+                        <dep>sed</dep>
+                        <dep>slib</dep>
+                        <dep>util-linux-ng</dep>
+                        <dep>which</dep>
+                        <dep>xproto-base</dep>
+                        <dep>zlib</dep>
+                </builddeps>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/opt --sysconfdir=/etc --disable-deprecated-warning-flags && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+		<clean>
+			<![CDATA[
+			rm -rf ${PKGNAME}-${PKGVERSION}
+			]]>
+		</clean>
+	</package>
+</llpackages>

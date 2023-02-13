@@ -1,0 +1,76 @@
+<llpackages>
+	<package 
+		name="ffmpeg"
+		version="0.6.1"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>      
+				<pkg sha1="24ada1d35fc000980090e773101e101ca45f85e5">ffmpeg-0.6.1.tar.bz2</pkg>
+				<mirror>http://ffmpeg.org/releases/</mirror>
+			</file>
+			<check>
+				<page html="http://ffmpeg.org/releases/">
+					<atext linktext="ffmpeg-0.6.2." />
+					<atext linktext="ffmpeg-0.6.3." />
+					<atext linktext="ffmpeg-0.6.4." />
+					<atext linktext="ffmpeg-0.7." />
+					<atext linktext="ffmpeg-0.8." />
+					<atext linktext="ffmpeg-1." />
+				</page>
+			</check>
+		</sources>
+		<builddeps>
+			<dep>alsa-lib</dep>
+                        <dep>bash</dep>
+                        <dep>binutils</dep>
+                        <dep>bzip2</dep>
+                        <dep>coreutils</dep>
+                        <dep>diffutils</dep>
+                        <dep>gcc</dep>
+                        <dep>glibc</dep>
+                        <dep>grep</dep>
+                        <dep>libXext</dep>
+                        <dep>libXv</dep>
+                        <dep>libXvMC</dep>
+                        <dep>linux_headers</dep>
+                        <dep>make</dep>
+                        <dep>sed</dep>
+                        <dep>xproto-base</dep>
+                        <dep>zlib</dep>
+			<!-- soft -->
+			<dep>yasm</dep>
+			<dep>lzo</dep>
+		</builddeps>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --enable-gpl --enable-shared --enable-postproc --enable-swscale
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+		<clean>
+			<![CDATA[
+			rm -rf ${PKGNAME}-${PKGVERSION}
+			]]>
+		</clean>
+	</package>
+</llpackages>
