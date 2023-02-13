@@ -1,0 +1,38 @@
+<llpackages>
+	<package 
+		name="dmidecode"
+		version="2.10"
+		class="lib"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>           
+				<pkg sha1="5366792a6df3266c9ecf7955f123027443370593">dmidecode-2.10.tar.bz2</pkg>
+				<mirror>http://mirrors.zerg.biz/nongnu/dmidecode/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make PREFIX=/usr
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make PREFIX=/usr install
+			]]>
+		</install>
+	</package>
+</llpackages>

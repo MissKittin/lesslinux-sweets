@@ -1,0 +1,38 @@
+<llpackages>
+	<package 
+		name="libpciaccess"
+		version="0.10.6"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>               
+				<pkg sha1="d8f2fc4d8a7e2934384476f0ae400e021ebc585b">libpciaccess-0.10.6.tar.bz2</pkg>
+				<mirror>http://xorg.freedesktop.org/archive/individual/lib/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --sysconfdir=/etc && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

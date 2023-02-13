@@ -1,0 +1,39 @@
+<llpackages>
+	<package 
+		name="SDL"
+		version="1.2.13"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>         
+				<pkg sha1="51fcaa3e1d5c01fd813ea08688780f86b19cf539">SDL-1.2.13.tar.gz</pkg>
+				<mirror>http://www.libsdl.org/release/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --sysconfdir=/etc
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

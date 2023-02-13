@@ -1,0 +1,39 @@
+<llpackages>
+	<package 
+		name="libX11"
+		version="1.1.5"
+		class="devel"
+		>
+		<license>GPLv2</license>
+		<sources>  
+			<!-- <file>    
+				<pkg sha1="8e58c3d9070cd164a960dc89b20cf0e35bade8c8">libX11-1.2.1.tar.bz2</pkg>
+				<mirror>http://xorg.freedesktop.org/archive/individual/lib/</mirror>
+			</file> -->
+			<file>    
+				<pkg sha1="b703cb7c97e5aa35bf04a8df798e128ae16cf0d0">libX11-1.1.5.tar.bz2</pkg>
+				<mirror>http://xorg.freedesktop.org/archive/individual/lib/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --without-xcb
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

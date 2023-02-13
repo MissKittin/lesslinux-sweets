@@ -1,0 +1,34 @@
+<llpackages>
+	<package 
+		name="binutils_pass1"
+		version="2.19.1"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>
+				<pkg sha1="88c91e36cde93433e4c4c2b2e3417777aad84526">binutils-2.19.1.tar.bz2</pkg>
+				<mirror>http://ftp.gnu.org/gnu/binutils/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/binutils-${PKGVERSION}.tar.bz2
+			mkdir binutils-build
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[ 
+			cd binutils-build
+			../binutils-${PKGVERSION}/configure --target=${LFS_TGT} --prefix=/tools --disable-nls --disable-werror
+			make
+			]]>
+		</build>
+		<install>
+			<![CDATA[
+			cd binutils-build
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

@@ -1,0 +1,35 @@
+<llpackages>
+	<package 
+		name="p5-xml-simple"
+		version="2.18"
+		class="lib"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file> 
+				<pkg sha1="81d38dd9fd955b0322ac64099f2d116c296267d1">XML-Simple-2.18.tar.gz</pkg>
+				<mirror>http://search.cpan.org/CPAN/authors/id/G/GR/GRANTM/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/XML-Simple-${PKGVERSION}.tar.gz
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd XML-Simple-${PKGVERSION}
+			/usr/bin/perl Makefile.PL 
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd XML-Simple-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

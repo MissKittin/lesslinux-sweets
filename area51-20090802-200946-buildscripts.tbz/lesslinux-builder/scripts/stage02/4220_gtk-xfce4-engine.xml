@@ -1,0 +1,38 @@
+<llpackages>
+	<package 
+		name="gtk-xfce-engine"
+		version="2.6.0"
+		class="lib"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>           
+				<pkg sha1="a7be2f330833d150c5fb37f68a4c2138348b5446">gtk-xfce-engine-2.6.0.tar.bz2</pkg>
+				<mirror>http://www.xfce.org/archive/xfce-4.6.0/src/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

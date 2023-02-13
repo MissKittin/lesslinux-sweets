@@ -1,0 +1,39 @@
+<llpackages>
+	<package 
+		name="boost"
+		version="1_39_0"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>         
+				<pkg sha1="fc0f98aea163f2edd8d74e18eafc4704d7d93d07">boost_1_39_0.tar.gz</pkg>
+				<mirror>http://downloads.sourceforge.net/sourceforge/boost/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}_${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}_${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}_${PKGVERSION}
+			sh bootstrap.sh --prefix=/usr
+			./bjam -a
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}_${PKGVERSION}
+			./bjam install
+			]]>
+		</install>
+	</package>
+</llpackages>

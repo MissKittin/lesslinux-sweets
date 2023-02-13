@@ -1,0 +1,34 @@
+<llpackages>
+	<package 
+		name="ruby"
+		version="1.8.6-20090331"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>             
+				<pkg sha1="d83ae65e78dc42e7a4743efa3cf15b7f84f3331c">ruby-stable-snapshot-20090331.tar.gz</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/ruby-stable-snapshot-20090331.tar.gz
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}
+			./configure --prefix=/usr && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

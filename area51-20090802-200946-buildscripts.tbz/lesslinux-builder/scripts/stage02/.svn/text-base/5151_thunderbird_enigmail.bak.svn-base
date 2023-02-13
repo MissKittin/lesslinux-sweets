@@ -1,0 +1,46 @@
+<llpackages>
+	<package 
+		name="enigmail"
+		version="0.96a-cvs20090705"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file> 
+				<pkg sha1="e83623327be0b28f8e600fb2ceaa70680c64dbe7">thunderbird-2.0.0.22-source-de-20090705.tar.bz2</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+			<file> 
+				<pkg sha1="e8b42a050e1a5ed851bac5d17b9efc85955aebbf">enigmail-0.96a-cvs20090705.tar.bz2</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/thunderbird-2.0.0.22-source-de-20090705.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd mozilla
+			# make -f client.mk clean
+			make -f client.mk build
+			cd mailnews/extensions/
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			cd enigmail
+			./makemake -r
+			cd ../../../../thunderbird-obj/mailnews/extensions/enigmail
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd thunderbird-obj/mailnews/extensions/enigmail
+			make install
+			make xpi
+			]]>
+		</install>
+	</package>
+</llpackages>

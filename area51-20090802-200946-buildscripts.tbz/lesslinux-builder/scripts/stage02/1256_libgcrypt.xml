@@ -1,0 +1,35 @@
+<llpackages>
+	<package 
+		name="libgcrypt"
+		version="1.4.4"
+		class="lib"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>
+				<pkg sha1="3987f0efcbb7048c136d5c859e88eee1763a14f6">libgcrypt-1.4.4.tar.bz2</pkg>
+				<mirror>ftp://ftp.gnupg.org/gcrypt/libgcrypt/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

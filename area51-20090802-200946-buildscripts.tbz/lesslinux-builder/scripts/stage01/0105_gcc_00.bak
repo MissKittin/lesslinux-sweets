@@ -1,0 +1,60 @@
+<llpackages>
+	<package 
+		name="gcc_pass0"
+		version="4.3.3"
+		buildas="unpriv"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<!-- <file>
+				<pkg sha1="bb20efc7750fe0d6172c5945572bf036fe59d3dd">gcc-4.2.4.tar.bz2</pkg>
+				<mirror>ftp://ftp.mpi-sb.mpg.de/pub/gnu/mirror/gcc.gnu.org/pub/gcc/releases/gcc-4.2.4/</mirror>
+			</file> -->
+			<file>
+				<pkg sha1="62db1f8b3c4d4c36821bb499d2204093e6ca73bd">gcc-4.3.3.tar.gz</pkg>
+				<mirror>ftp://ftp.mpi-sb.mpg.de/pub/gnu/mirror/gcc.gnu.org/pub/gcc/releases/gcc-4.3.3/</mirror>
+			</file>
+			<file>
+				<pkg sha1="6493015d9b5101b0a5ae62d28e64ebcc55b15f89">mpfr-2.4.0.tar.bz2</pkg>
+				<mirror>http://www.mpfr.org/mpfr-current/</mirror>
+			</file>
+			<file>
+				<pkg sha1="bb721f94fbeeb8c609104540b408da6707c370ec">gmp-4.2.4.tar.bz2</pkg>
+				<mirror>http://ftp.sunet.se/pub/gnu/gmp/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/gcc-${PKGVERSION}.tar.gz
+			tar xjf ${SRCDIR}/mpfr-2.4.0.tar.bz2
+			tar xjf ${SRCDIR}/gmp-4.2.4.tar.bz2
+			mv -v gmp-4.2.4 gcc-${PKGVERSION}/gmp
+			mv -v mpfr-2.4.0 gcc-${PKGVERSION}/mpfr
+			mkdir -v gcc-build
+			]]>
+		</unpack>
+		<patch />
+		<chown>
+			<![CDATA[ 
+			chown -R ${UNPRIV} gcc-build
+			chown -R ${UNPRIV} gcc-${PKGVERSION}
+			]]>
+		</chown>
+		<build>
+			<![CDATA[ 
+			cd gcc-build
+			CC="gcc -B/usr/bin/" ../gcc-${PKGVERSION}/configure --prefix=/tools \
+			--with-local-prefix=/tools --disable-nls --disable-shared --disable-libssp \
+			--enable-languages=c && make
+			]]>
+		</build>
+		<install>
+			<![CDATA[
+			cd gcc-build
+			make install
+			ln -vs libgcc.a `gcc -print-libgcc-file-name | sed 's/libgcc/&_eh/'`
+			ln -vs gcc /tools/bin/cc
+			]]>
+		</install>
+	</package>
+</llpackages>

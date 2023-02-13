@@ -1,0 +1,39 @@
+<llpackages>
+	<package 
+		name="dbus-python"
+		version="0.83.0"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>
+				<pkg sha1="c2a6edaf69b52066e8fb205ebee96a1aae141944">dbus-python-0.83.0.tar.gz</pkg>
+				<mirror>http://dbus.freedesktop.org/releases/dbus-python/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

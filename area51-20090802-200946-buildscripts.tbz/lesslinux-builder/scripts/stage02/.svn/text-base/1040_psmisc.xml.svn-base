@@ -1,0 +1,36 @@
+<llpackages>
+	<package 
+		name="psmisc"
+		version="22.7"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>             
+				<pkg sha1="8226ecc284c8cd1e151523df56a1ba9f9c0fa3f5">psmisc-22.7.tar.gz</pkg>
+				<mirror>http://dfn.dl.sourceforge.net/sourceforge/psmisc/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --exec-prefix="" && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			mv -v /bin/pstree* /usr/bin
+			ln -sv killall /bin/pidof
+			]]>
+		</install>
+	</package>
+</llpackages>

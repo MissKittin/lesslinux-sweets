@@ -1,0 +1,51 @@
+<llpackages>
+	<package 
+		name="ncurses"
+		version="5.7"
+		class="lib"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>
+				<pkg sha1="8233ee56ed84ae05421e4e6d6db6c1fe72ee6797">ncurses-5.7.tar.gz</pkg>
+				<mirror>ftp://ftp.gnu.org/gnu/ncurses/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --with-shared --without-debug --enable-widec && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			chmod -v 644 /usr/lib/libncurses++w.a
+			mv -v /usr/lib/libncursesw.so.5* /lib
+			ln -sfv ../../lib/libncursesw.so.5 /usr/lib/libncursesw.so
+			for lib in curses ncurses form panel menu
+			do
+			#	rm -vf /usr/lib/lib${lib}.so ; \
+			#	echo "INPUT(-l${lib}w)" >/usr/lib/lib${lib}.so ; \
+				ln -sfv lib${lib}w.a /usr/lib/lib${lib}.a ; \
+			done
+			ln -sfv libncurses++w.a /usr/lib/libncurses++.a
+			rm -vf /usr/lib/libcursesw.so
+			echo "INPUT(-lncursesw)" >/usr/lib/libcursesw.so
+			ln -sfv libncurses.so /usr/lib/libcurses.so
+			ln -sfv libncursesw.a /usr/lib/libcursesw.a
+			ln -sfv libncurses.a /usr/lib/libcurses.a
+			mkdir -v       /usr/share/doc/ncurses-${PKGVERSION}
+			cp -v -R doc/* /usr/share/doc/ncurses-${PKGVERSION}
+			]]>
+		</install>
+	</package>
+</llpackages>

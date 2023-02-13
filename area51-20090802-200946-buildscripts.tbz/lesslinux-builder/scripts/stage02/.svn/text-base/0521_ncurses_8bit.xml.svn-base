@@ -1,0 +1,38 @@
+<llpackages>
+	<package 
+		name="ncurses-8bit"
+		version="5.7"
+		class="lib"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>
+				<pkg sha1="8233ee56ed84ae05421e4e6d6db6c1fe72ee6797">ncurses-5.7.tar.gz</pkg>
+				<mirror>ftp://ftp.gnu.org/gnu/ncurses/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/ncurses-${PKGVERSION}.tar.gz
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ncurses-${PKGVERSION}
+			./configure --prefix=/usr --with-shared --without-debug && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ncurses-${PKGVERSION}
+			for i in ncurses form panel menu ; do
+				install -m 0755 lib/lib${i}.so.5.7 /usr/lib
+				ln -s /usr/lib/lib${i}.so.5.7 /usr/lib/lib${i}.so.5
+				ln -s /usr/lib/lib${i}.so.5 /usr/lib/lib${i}.so
+			done
+			]]>
+		</install>
+	</package>
+</llpackages>

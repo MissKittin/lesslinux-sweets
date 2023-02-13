@@ -1,0 +1,48 @@
+<llpackages>
+	<package 
+		name="gmp"
+		version="4.3.1"
+		class="devel"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<!-- <file>
+				<pkg sha1="bb721f94fbeeb8c609104540b408da6707c370ec">gmp-4.2.4.tar.bz2</pkg>
+				<mirror>http://ftp.sunet.se/pub/gnu/gmp/</mirror>
+			</file> -->
+			<file>
+				<pkg sha1="acbd1edc61230b1457e9742136994110e4f381b2">gmp-4.3.1.tar.bz2</pkg>
+				<mirror>http://ftp.sunet.se/pub/gnu/gmp/</mirror>
+			</file>
+			
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			# export CFLAGS='ABI=32'
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --enable-cxx --enable-mpbsd && make
+			]]>
+		</build>
+		<test>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make check 2>&1 | tee gmp-check-log
+			awk '/tests passed/{total+=$2} ; END{print total}' gmp-check-log
+			]]>
+		</test>
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			mkdir -v /usr/share/doc/gmp-${PKGVERSION}
+			cp    -v doc/{isa_abi_headache,configuration} doc/*.html /usr/share/doc/gmp-${PKGVERSION}
+			]]>
+		</install>
+	</package>
+</llpackages>

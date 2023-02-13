@@ -1,0 +1,34 @@
+<llpackages>
+	<package 
+		name="libXrender"
+		version="0.9.4"
+		class="lib"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>    
+				<pkg sha1="8e0726d495db177e3089be9e1d5c41395277b0db">libXrender-0.9.4.tar.bz2</pkg>
+				<mirror>http://xorg.freedesktop.org/archive/individual/lib/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

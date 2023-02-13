@@ -1,0 +1,32 @@
+<llpackages>
+	<package 
+		name="util-linux-ng"
+		version="2.14.2"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>  
+				<pkg sha1="8d5ba161627dcf9295cc649c46ea15c333ff6b68">util-linux-ng-2.14.2.tar.bz2</pkg>
+				<mirror>http://www.kernel.org/pub/linux/utils/util-linux-ng/v2.14/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[ 
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/tools && make -C disk-utils mkswap && make -C mount mount umount && make -C text-utils more
+			]]>
+		</build>
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			cp -v mount/{,u}mount text-utils/more /tools/bin
+			]]>
+		</install>
+	</package>
+</llpackages>

@@ -1,0 +1,42 @@
+<llpackages>
+	<package 
+		name="mpfr"
+		version="2.4.1"
+		class="devel"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>  
+				<pkg sha1="1f965793526cafefb30cda64cebf3712cb75b488">mpfr-2.4.1.tar.bz2</pkg>
+				<mirror>http://www.mpfr.org/mpfr-current/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --enable-thread-safe && make
+			]]>
+		</build>
+		<test>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make check
+			]]>
+		</test>
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			make html
+			mkdir -p /usr/share/doc/${PKGNAME}-${PKGVERSION}
+			find . -name \*.html -type f -exec cp \{} /usr/share/doc/${PKGNAME}-${PKGVERSION} \; 
+			]]>
+		</install>
+	</package>
+</llpackages>

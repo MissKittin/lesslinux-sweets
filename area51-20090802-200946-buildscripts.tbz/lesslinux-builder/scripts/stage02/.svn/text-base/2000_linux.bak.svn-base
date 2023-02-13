@@ -1,0 +1,53 @@
+<llpackages>
+	<package 
+		name="linux"
+		version="2.6.29-rc8"
+		class="kernel"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>
+				<pkg sha1="4f40f8bf3fd110b0cc6e1fea5f539c98f9959e94">linux-2.6.28.tar.bz2</pkg>
+				<mirror>http://www.eu.kernel.org/pub/linux/kernel/v2.6/</mirror>
+			</file>
+			<file>
+				<pkg sha1="118727ea29bd6bb0e68739d6703a1384167daed7">patch-2.6.29-rc8.bz2</pkg>
+				<mirror>http://www.eu.kernel.org/pub/linux/kernel/v2.6/testing/</mirror>
+			</file>
+			<file>
+				<pkg sha1="08f622114a2da6363dfab578bf390ee8f8993a41">config-2.6.29-rc8-lesslinux-090316-1041</pkg>
+				<mirror>http://distfiles.lesslinux.org/kernel/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/linux-2.6.28.tar.bz2
+			]]>
+		</unpack>
+		<patch>
+			<![CDATA[ 
+			cd linux-2.6.28
+			bunzip2 -c ${SRCDIR}/patch-${PKGVERSION}.bz2 | patch -p1
+			cp ${SRCDIR}/config-${PKGVERSION}-lesslinux-090316-1041 .config 
+			cd ..
+			mv -v linux-2.6.28 linux-${PKGVERSION}
+			]]>
+		</patch>
+		<build>
+			<![CDATA[ 
+			cd linux-${PKGVERSION}
+			make oldconfig
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd linux-${PKGVERSION}
+			make bzImage
+			make modules_install
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

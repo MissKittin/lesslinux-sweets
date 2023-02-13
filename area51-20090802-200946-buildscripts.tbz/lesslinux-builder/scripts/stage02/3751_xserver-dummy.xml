@@ -1,0 +1,38 @@
+<llpackages>
+	<package 
+		name="xf86-video-dummy"
+		version="0.3.1"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                      
+				<pkg sha1="79a71e2e7f232325229f79ce2259c677516eee84">xf86-video-dummy-0.3.1.tar.bz2</pkg>
+				<mirror>http://xorg.freedesktop.org/archive/individual/driver/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --sysconfdir=/etc && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

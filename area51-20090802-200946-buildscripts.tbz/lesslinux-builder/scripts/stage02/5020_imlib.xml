@@ -1,0 +1,39 @@
+<llpackages>
+	<package 
+		name="imlib2"
+		version="1.4.2"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file> 
+				<pkg sha1="c3fb5de49e1e493544879f41262ec1ca525fc670">imlib2-1.4.2.tar.bz2</pkg>
+				<mirror>http://dfn.dl.sourceforge.net/sourceforge/enlightenment/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

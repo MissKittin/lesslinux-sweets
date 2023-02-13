@@ -1,0 +1,39 @@
+<llpackages>
+	<package 
+		name="Terminal"
+		version="0.2.12"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>           
+				<pkg sha1="f6d0fc380fff6ac6fba7842fd4cfc46e2e5c6e40">Terminal-0.2.12.tar.bz2</pkg>
+				<mirror>http://mocha.xfce.org/archive/xfce-4.6.1/src/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --sysconfdir=/etc
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

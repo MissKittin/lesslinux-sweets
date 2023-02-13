@@ -1,0 +1,38 @@
+<llpackages>
+	<package 
+		name="dbus-glib"
+		version="0.80"
+		class="lib"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>          
+				<pkg sha1="927e43f2d429cff5472ab726882347ec06e53f6b">dbus-glib-0.80.tar.gz</pkg>
+				<mirror>http://dbus.freedesktop.org/releases/dbus-glib/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --sysconfdir=/etc --prefix=/usr && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

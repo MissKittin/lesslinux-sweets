@@ -1,0 +1,38 @@
+<llpackages>
+	<package 
+		name="xf86-input-synaptics"
+		version="1.1.1"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                  
+				<pkg sha1="74488a3d3ffc747e36761abac96cc96fee786c48">xf86-input-synaptics-1.1.1.tar.bz2</pkg>
+				<mirror>http://xorg.freedesktop.org/archive/individual/driver/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --sysconfdir=/etc && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

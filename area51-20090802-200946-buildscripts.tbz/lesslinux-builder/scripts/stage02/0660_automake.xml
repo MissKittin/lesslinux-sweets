@@ -1,0 +1,39 @@
+<llpackages>
+	<package 
+		name="automake"
+		version="1.11"
+		class="devel"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>  
+				<pkg sha1="1ae8c15d91b8eb8728c35cf0901a02782830e9de">automake-1.11.tar.bz2</pkg>
+				<mirror>http://ftp.gnu.org/gnu/automake/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --docdir=/usr/share/doc/${PKGNAME}-${PKGVERSION} && make
+			]]>
+		</build>
+		<test>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make check
+			]]>
+		</test>
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

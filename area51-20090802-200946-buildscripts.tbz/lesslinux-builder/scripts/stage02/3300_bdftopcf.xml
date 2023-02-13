@@ -1,0 +1,35 @@
+<llpackages>
+	<package 
+		name="bdftopcf"
+		version="1.0.0"
+		class="devel"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>    
+				<pkg sha1="ad179054f9a3cabda4d29893b29ba3b6d5fb61c4">bdftopcf_1.0.0.orig.tar.gz</pkg>
+				<mirror>http://archive.ubuntu.com/ubuntu/pool/main/b/bdftopcf/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/${PKGNAME}_${PKGVERSION}.orig.tar.gz
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

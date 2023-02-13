@@ -1,0 +1,33 @@
+<llpackages>
+	<package 
+		name="ttf-bitstream-vera"
+		version="1.10"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>              
+				<pkg sha1="c3e8505a58d52e198a02960a2bd295e4c7a14242">ttf-bitstream-vera-1.10.tar.bz2</pkg>
+				<mirror>http://ftp.gnome.org/pub/GNOME/sources/ttf-bitstream-vera/1.10/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			echo 'Nothing to do!'
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			echo 'Nothing to do!'
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			mkdir -vp /usr/lib/X11/fonts/truetype
+			tar -C /usr/lib/X11/fonts/truetype -xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</install>
+	</package>
+</llpackages>

@@ -1,0 +1,39 @@
+<llpackages>
+	<package 
+		name="giflib"
+		version="4.1.6"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>         
+				<pkg sha1="22680f604ec92065f04caf00b1c180ba74fb8562">giflib-4.1.6.tar.bz2</pkg>
+				<mirror>http://downloads.sourceforge.net/sourceforge/giflib/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --sysconfdir=/etc
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

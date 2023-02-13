@@ -1,0 +1,36 @@
+<llpackages>
+	<package 
+		name="ffswitchers"
+		version="20090709"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>        
+				<pkg sha1="638af59e7a9280f3869818cf1843dfc1794b294b">ffswitchers-20090709.tar.bz2</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			# Ouch, wrong suffix!
+			tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			echo 'Nothing to do!'
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}
+			for i in ll_ff_prevent_install ll_ff_allow_install ; do
+				install -m 0755 $i /usr/bin
+			done
+			]]>
+		</install>
+	</package>
+</llpackages>

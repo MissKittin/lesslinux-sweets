@@ -1,0 +1,46 @@
+<llpackages>
+	<package 
+		name="file"
+		version="5.00"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>
+				<pkg sha1="e58033dfefa44782aa34155751ce88c86c4c1244">file-5.00.tar.gz</pkg>
+				<mirror>ftp://ftp.astron.com/pub/file/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			]]>
+		</unpack>
+		<patch>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			sed -i -e '197,+1d' \
+				-e '189,+1d' \
+				-e 's/token$/tokens/' doc/file.man
+			]]>
+		</patch>
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr && make
+			]]>
+		</build>
+		<test>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make check
+			]]>
+		</test>
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

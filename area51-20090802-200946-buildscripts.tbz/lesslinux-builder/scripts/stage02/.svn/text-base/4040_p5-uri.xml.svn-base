@@ -1,0 +1,35 @@
+<llpackages>
+	<package 
+		name="p5-uri"
+		version="1.37"
+		class="lib"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>  
+				<pkg sha1="7f0c8e8888e7995bfeb349e607dca696ffb69429">URI-1.37.tar.gz</pkg>
+				<mirror>http://search.cpan.org/CPAN/authors/id/G/GA/GAAS/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/URI-${PKGVERSION}.tar.gz
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd URI-${PKGVERSION}
+			/usr/bin/perl Makefile.PL 
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd URI-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

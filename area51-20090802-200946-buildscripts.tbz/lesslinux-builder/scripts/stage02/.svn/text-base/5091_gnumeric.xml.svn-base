@@ -1,0 +1,39 @@
+<llpackages>
+	<package 
+		name="gnumeric"
+		version="1.9.9"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>       
+				<pkg sha1="a7e0ae7a6f0621766a4741d90171d11ea615ccd2">gnumeric-1.9.9.tar.bz2</pkg>
+				<mirror>http://ftp.gnome.org/pub/GNOME/sources/gnumeric/1.9/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --sysconfdir=/etc
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

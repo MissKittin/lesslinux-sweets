@@ -1,0 +1,34 @@
+<llpackages>
+	<package 
+		name="e2fsprogs"
+		version="1.41.5"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>  
+				<pkg sha1="0c08a74e0d137fd0bdb1aa3a8cc54d18a4fc553d">e2fsprogs-1.41.5.tar.gz</pkg>
+				<mirror>http://dfn.dl.sourceforge.net/sourceforge/e2fsprogs/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			mkdir ${PKGNAME}-${PKGVERSION}/build
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[ 
+			cd ${PKGNAME}-${PKGVERSION}/build
+			../configure --prefix=/tools && make
+			]]>
+		</build>
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}/build
+			make install-libs
+			chmod -v u+w /tools/lib/{libblkid,libcom_err,libe2p,libext2fs,libss,libuuid}.a
+			]]>
+		</install>
+	</package>
+</llpackages>

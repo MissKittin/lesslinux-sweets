@@ -1,0 +1,40 @@
+<llpackages>
+	<package 
+		name="connman"
+		version="0.19"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>
+				  
+				<pkg sha1="ac0e420b69a2bc348289f9120536b4c9fa39a885">connman-0.19.tar.bz2</pkg>
+				<mirror>http://www.kernel.org/pub/linux/network/connman/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --enable-ethernet --enable-wifi --enable-tools
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

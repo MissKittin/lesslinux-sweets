@@ -1,0 +1,39 @@
+<llpackages>
+	<package 
+		name="alsa-plugins"
+		version="1.0.20"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>     
+				<pkg sha1="dc9972416e9b50e6a5cc4f31abd0fb668efba937">alsa-plugins-1.0.20.tar.bz2</pkg>
+				<mirror>ftp://ftp.alsa-project.org/pub/plugins/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

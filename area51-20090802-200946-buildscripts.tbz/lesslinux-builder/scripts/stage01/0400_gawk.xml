@@ -1,0 +1,32 @@
+<llpackages>
+	<package 
+		name="gawk"
+		version="3.1.6"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>
+				<pkg sha1="fb45bded207af6a8e46cd63fcbb6fb064ecee607">gawk-3.1.6.tar.bz2</pkg>
+				<mirror>http://ftp.gnu.org/gnu/gawk/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[ 
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/tools ac_cv_func_working_mktime=yes && make
+			]]>
+		</build>
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

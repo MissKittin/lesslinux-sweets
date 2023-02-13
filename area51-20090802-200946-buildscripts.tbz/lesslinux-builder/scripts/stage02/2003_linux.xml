@@ -1,0 +1,99 @@
+<llpackages>
+	<package 
+		name="linux-pax"
+		version="2.6.29.6"
+		class="kernel"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>
+				<pkg sha1="0640a2f4bea3fc272541f322b74ea365ad7f2349">linux-2.6.29.tar.bz2</pkg>
+				<mirror>http://www.eu.kernel.org/pub/linux/kernel/v2.6/</mirror>
+			</file>
+			<file>  
+				<pkg sha1="b6320ec850ba692f5465baddbd7efcc068a5fdb8">patch-2.6.29.6.bz2</pkg>
+				<mirror>http://www.eu.kernel.org/pub/linux/kernel/v2.6/</mirror>
+			</file>
+			<!--<file>  
+				<pkg sha1="d7cbe1ab3a016c0123a510e118888d719fb30579">patch-2.6.29.5.bz2</pkg>
+				<mirror>http://www.eu.kernel.org/pub/linux/kernel/v2.6/</mirror>
+			</file>-->
+			<!--<file>
+				<pkg sha1="7bdd162dd922a54d1b73eb4ab86bdee6dd27f68a">patch-2.6.29.4.bz2</pkg>
+				<mirror>http://www.eu.kernel.org/pub/linux/kernel/v2.6/</mirror>
+			</file>-->
+			<!-- <file>
+				<pkg sha1="be05194cd24b210629f8412409d7931dcd96a11c">config-2.6.29.3-lesslinux-pax-090518-1700</pkg>
+				<mirror>http://distfiles.lesslinux.org/kernel/</mirror>
+			</file> -->
+			<!--<file> 
+				<pkg sha1="95f0abaff225ed98dd2c1b0666e18ec535ef5bc8">config-2.6.29.4-lesslinux-pax-090604-0941</pkg>
+				<mirror>http://distfiles.lesslinux.org/kernel/</mirror>
+			</file>-->
+			<!-- <file> 
+				<pkg sha1="83dec607c5ab60b6de81f037d7efe0744821902d">config-2.6.29.5-lesslinux-pax-090626-1500</pkg>
+				<mirror>http://distfiles.lesslinux.org/kernel/</mirror>
+			</file> -->
+			<!-- <file>
+				<pkg sha1="6bc268edfa0008eab0417b349cc412e9ce58bf75">config-2.6.29.6-lesslinux-pax-090727-1049</pkg>
+				<mirror>http://distfiles.lesslinux.org/kernel/</mirror>
+			</file> -->
+			<file>  
+				<pkg sha1="419df29bebd4b05812f14f29b9d243b6198f03d6">config-2.6.29.6-lesslinux-pax-090730-1110</pkg>
+				<mirror>http://distfiles.lesslinux.org/kernel/</mirror>
+			</file>
+			<!--<file>    
+				<pkg sha1="efa51ebbe8b7f6d6f401db8665663810acd8e75c">pax-linux-2.6.29.4-test29.patch</pkg>
+				<mirror>http://www.grsecurity.net/~paxguy1/</mirror>
+			</file>-->  
+			<!--<file>    
+				<pkg sha1="efa51ebbe8b7f6d6f401db8665663810acd8e75c">pax-linux-2.6.29.4-test29.patch</pkg>
+				<mirror>http://www.grsecurity.net/~paxguy1/</mirror>
+			</file>-->
+			<!-- <file>    
+				<pkg sha1="80a5c37526d3a825aaf013d61a0bb825ad7f6c3c">pax-linux-2.6.29.5-test32.patch</pkg>
+				<mirror>http://www.grsecurity.net/~paxguy1/</mirror>
+			</file> -->
+			<!-- <file>      
+				<pkg sha1="0c67fa96498195d601651958f61c65d6e4d40329">pax-linux-2.6.29.6-test35.patch</pkg>
+				<mirror>http://www.grsecurity.net/~paxguy1/</mirror>
+			</file> -->
+			<file>        
+				<pkg sha1="1a26d4d299d11538f2e48e84e7c66dd331b70da4">pax-linux-2.6.29.6-test36.patch</pkg>
+				<mirror>http://www.grsecurity.net/~paxguy1/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/linux-2.6.29.tar.bz2
+			]]>
+		</unpack>
+		<patch>
+			<![CDATA[ 
+			cd linux-2.6.29
+			bunzip2 -c ${SRCDIR}/patch-${PKGVERSION}.bz2 | patch -p1
+			cat ${SRCDIR}/pax-linux-2.6.29.6-test36.patch | patch -p1
+			cp -v ${SRCDIR}/config-2.6.29.6-lesslinux-pax-090730-1110 .config
+			cd ..
+			mv linux-2.6.29 linux-${PKGVERSION}
+			]]>
+		</patch>
+		<build>
+			<![CDATA[ 
+			cd linux-${PKGVERSION}
+			make oldconfig
+			make clean
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd linux-${PKGVERSION}
+			make bzImage
+			make modules_install
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

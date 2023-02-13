@@ -1,0 +1,44 @@
+<llpackages>
+	<package 
+		name="diffutils"
+		version="2.8.1"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>
+				<pkg sha1="a4c467c3a6a08cde9f3d94d02067ec26436e7dc5">diffutils-2.8.1.tar.gz</pkg>
+				<mirror>http://ftp.gnu.org/gnu/diffutils/</mirror>
+			</file>
+			<file>
+				<pkg sha1="2d88d693ab572f04990a3a28deb5e743e288b9da">diffutils-2.8.1-i18n-1.patch</pkg>
+				<mirror>http://www.linuxfromscratch.org/patches/lfs/development/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			]]>
+		</unpack>
+		<patch>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			cat ${SRCDIR}/${PKGNAME}-${PKGVERSION}-i18n-1.patch | patch -p1
+			touch man/diff.1
+			]]>
+		</patch>
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

@@ -1,0 +1,39 @@
+<llpackages>
+	<package 
+		name="ffmpeg"
+		version="0.5"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>
+				<pkg sha1="f930971bc0ac3d11a4ffbb1af439425c24f6f5b1">ffmpeg-0.5.tar.bz2</pkg>
+				<mirror>http://ffmpeg.org/releases/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --enable-gpl --enable-shared --enable-postproc --enable-swscale
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

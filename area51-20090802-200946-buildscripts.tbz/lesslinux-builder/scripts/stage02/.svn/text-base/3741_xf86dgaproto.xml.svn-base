@@ -1,0 +1,38 @@
+<llpackages>
+	<package 
+		name="xf86dgaproto"
+		version="2.0.3"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>               
+				<pkg sha1="29848f51d906b12025dab55d42a53e8c2f96a3ef">xf86dgaproto-2.0.3.tar.bz2</pkg>
+				<mirror>http://xorg.freedesktop.org/archive/individual/proto/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --sysconfdir=/etc && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

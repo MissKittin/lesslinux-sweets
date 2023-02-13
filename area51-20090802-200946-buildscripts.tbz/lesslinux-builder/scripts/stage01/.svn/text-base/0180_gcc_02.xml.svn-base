@@ -1,0 +1,103 @@
+<llpackages>
+	<package 
+		name="gcc_pass2"
+		version="4.3.3"
+		buildas="unpriv"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>
+				<pkg sha1="62db1f8b3c4d4c36821bb499d2204093e6ca73bd">gcc-4.3.3.tar.gz</pkg>
+				<mirror>ftp://ftp.mpi-sb.mpg.de/pub/gnu/mirror/gcc.gnu.org/pub/gcc/releases/gcc-4.3.3/</mirror>
+			</file>
+			<!-- <file>
+				<pkg sha1="6493015d9b5101b0a5ae62d28e64ebcc55b15f89">mpfr-2.4.0.tar.bz2</pkg>
+				<mirror>http://www.mpfr.org/mpfr-current/</mirror>
+			</file> -->
+			<file>  
+				<pkg sha1="1f965793526cafefb30cda64cebf3712cb75b488">mpfr-2.4.1.tar.bz2</pkg>
+				<mirror>http://www.mpfr.org/mpfr-current/</mirror>
+			</file>
+			<!-- <file>
+				<pkg sha1="bb721f94fbeeb8c609104540b408da6707c370ec">gmp-4.2.4.tar.bz2</pkg>
+				<mirror>http://ftp.sunet.se/pub/gnu/gmp/</mirror>
+			</file> -->
+			<file>
+				<pkg sha1="acbd1edc61230b1457e9742136994110e4f381b2">gmp-4.3.1.tar.bz2</pkg>
+				<mirror>http://ftp.sunet.se/pub/gnu/gmp/</mirror>
+			</file>
+			<file>
+				<pkg sha1="779bc28d8e3b330d189af660a236f7a2f51698fe">gcc-4.3.3-startfiles_fix-1.patch</pkg>
+				<mirror>http://www.linuxfromscratch.org/patches/lfs/development/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/gcc-${PKGVERSION}.tar.gz
+			tar xjf ${SRCDIR}/mpfr-2.4.1.tar.bz2
+			tar xjf ${SRCDIR}/gmp-4.3.1.tar.bz2
+			mv -v gmp-4.3.1 gcc-${PKGVERSION}/gmp
+			mv -v mpfr-2.4.1 gcc-${PKGVERSION}/mpfr
+			mkdir -v gcc-build
+			]]>
+		</unpack>
+		<patch>
+			<![CDATA[
+			cd gcc-${PKGVERSION}
+			cat ${SRCDIR}/gcc-${PKGVERSION}-startfiles_fix-1.patch | patch -p1
+			cp -v gcc/Makefile.in{,.orig}
+			sed 's@\./fixinc\.sh@-c true@' gcc/Makefile.in.orig > gcc/Makefile.in
+			cp -v gcc/Makefile.in{,.tmp}
+			sed 's/^XCFLAGS =$/& -fomit-frame-pointer/' gcc/Makefile.in.tmp > gcc/Makefile.in
+			for file in $(find gcc/config -name linux64.h -o -name linux.h -o -name sysv4.h)
+			do
+				cp -uv $file{,.orig}
+				sed -e 's@/lib\(64\)\?\(32\)\?/ld@/tools&@g' -e 's@/usr@/tools@g' $file.orig > $file
+				echo '
+				#undef STANDARD_INCLUDE_DIR
+				#define STANDARD_INCLUDE_DIR 0
+				#define STANDARD_STARTFILE_PREFIX_1 ""
+				#define STANDARD_STARTFILE_PREFIX_2 ""' >> $file
+				touch $file.orig
+			done
+			case $(uname -m) in
+			x86_64)
+				for file in $(find gcc/config -name t-linux64)
+				do
+					cp -v $file{,.orig}
+					sed '/MULTILIB_OSDIRNAMES/d' $file.orig > $file
+				done
+				;;
+			esac
+			
+			]]>
+		</patch>
+		<chown>
+			<![CDATA[ 
+			chown -R ${UNPRIV} gcc-build
+			chown -R ${UNPRIV} gcc-${PKGVERSION}
+			]]>
+		</chown>
+		<build>
+			<![CDATA[ 
+			cd gcc-build
+			CC="$LFS_TGT-gcc -B/tools/lib/" \
+			AR=$LFS_TGT-ar RANLIB=$LFS_TGT-ranlib \
+			../gcc-${PKGVERSION}/configure --prefix=/tools \
+			--with-local-prefix=/tools --enable-clocale=gnu \
+			--enable-shared --enable-threads=posix \
+			--enable-__cxa_atexit --enable-languages=c,c++ \
+			--disable-libstdcxx-pch --disable-multilib \
+			--disable-bootstrap && make
+			]]>
+		</build>
+		<install>
+			<![CDATA[
+			cd gcc-build
+			make install && ln -vsf gcc /tools/bin/cc
+			ln -sv /tools/lib/libgcc_s.so{,.1} ${CHROOTDIR}/usr/lib
+			ln -sv /tools/lib/libstdc++.so{,.6} ${CHROOTDIR}/usr/lib
+			]]>
+		</install>
+	</package>
+</llpackages>

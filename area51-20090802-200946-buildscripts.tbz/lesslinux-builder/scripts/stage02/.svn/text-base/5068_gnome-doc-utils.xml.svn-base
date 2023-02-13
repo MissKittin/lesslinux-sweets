@@ -1,0 +1,39 @@
+<llpackages>
+	<package 
+		name="gnome-doc-utils"
+		version="0.16.1"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>           
+				<pkg sha1="b2f8623de2d0989ad2b6b8147cd8dba62895faa9">gnome-doc-utils-0.16.1.tar.bz2</pkg>
+				<mirror>ftp://ftp.sunet.se/pub/X11/GNOME/desktop/2.26/2.26.2/sources/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --sysconfdir=/etc
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

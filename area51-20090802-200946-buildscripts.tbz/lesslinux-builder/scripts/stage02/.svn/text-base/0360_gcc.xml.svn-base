@@ -1,0 +1,58 @@
+<llpackages>
+	<package 
+		name="gcc"
+		version="4.3.3"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>
+				<pkg sha1="62db1f8b3c4d4c36821bb499d2204093e6ca73bd">gcc-4.3.3.tar.gz</pkg>
+				<mirror>ftp://ftp.mpi-sb.mpg.de/pub/gnu/mirror/gcc.gnu.org/pub/gcc/releases/gcc-4.3.3/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			mkdir ${PKGNAME}-build
+			]]>
+		</unpack>
+		<patch>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			sed -i 's/install_to_$(INSTALL_DEST) //' libiberty/Makefile.in
+			case `uname -m` in
+				i?86)
+					sed -i 's/^XCFLAGS =$/& -fomit-frame-pointer/' gcc/Makefile.in
+				;;
+			esac
+			sed -i 's@\./fixinc\.sh@-c true@' gcc/Makefile.in
+			]]>
+		</patch>
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-build
+			../${PKGNAME}-${PKGVERSION}/configure --prefix=/usr \
+				--libexecdir=/usr/lib --enable-shared \
+				--enable-threads=posix --enable-__cxa_atexit \
+				--enable-clocale=gnu --enable-languages=c,c++ \
+				--disable-multilib --disable-bootstrap
+			make
+			]]>
+		</build>
+		<test>
+			<![CDATA[
+			cd ${PKGNAME}-build
+			make -k check
+			../${PKGNAME}-${PKGVERSION}/contrib/test_summary
+			]]>
+		</test>
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-build
+			make install
+			ln -sfv ../usr/bin/cpp /lib
+			ln -sfv gcc /usr/bin/cc
+			]]>
+		</install>
+	</package>
+</llpackages>

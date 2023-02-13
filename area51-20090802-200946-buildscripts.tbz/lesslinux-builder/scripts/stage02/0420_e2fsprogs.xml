@@ -1,0 +1,49 @@
+<llpackages>
+	<package 
+		name="e2fsprogs"
+		version="1.41.5"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>
+				<pkg sha1="0c08a74e0d137fd0bdb1aa3a8cc54d18a4fc553d">e2fsprogs-1.41.5.tar.gz</pkg>
+				<mirror>http://dfn.dl.sourceforge.net/sourceforge/e2fsprogs/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			mkdir ${PKGNAME}-${PKGVERSION}/build
+			]]>
+		</unpack>
+		<patch>
+			<![CDATA[ 
+			cd ${PKGNAME}-${PKGVERSION}
+			sed -i 's@/bin/rm@/tools&@' lib/blkid/test_probe.in
+			]]>
+		</patch>
+		<build>
+			<![CDATA[ 
+			cd ${PKGNAME}-${PKGVERSION}/build
+			../configure --prefix=/usr --with-root-prefix="" --enable-elf-shlibs && make
+			]]>
+		</build>
+		<test>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}/build
+			make check
+			]]>
+		</test>
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}/build
+			make install
+			make install-libs
+			chmod -v u+w /usr/lib/{libblkid,libcom_err,libe2p,libext2fs,libss,libuuid}.a
+			gunzip -v /usr/share/info/libext2fs.info.gz
+			install-info --dir-file=/usr/share/info/dir /usr/share/info/libext2fs.info
+			]]>
+		</install>
+	</package>
+</llpackages>

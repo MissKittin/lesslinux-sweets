@@ -1,0 +1,45 @@
+<llpackages>
+	<package 
+		name="libnl"
+		version="1.1"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>
+				<pkg sha1="54c7d02f93b09b43338e5cbf42f1373e83566577">libnl_1.1.orig.tar.gz</pkg>
+				<mirror>http://ftp.de.debian.org/debian/pool/main/libn/libnl/</mirror>
+			</file>
+			<file>
+				<pkg sha1="21d702bf04087faea2645d9912f7c3d8f2c23379">libnl-1.1.patch</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/${PKGNAME}_${PKGVERSION}.orig.tar.gz
+			]]>
+		</unpack>
+		<patch>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			patch -p1 < ${SRCDIR}/${PKGNAME}-${PKGVERSION}.patch
+			]]>
+		
+		</patch>
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

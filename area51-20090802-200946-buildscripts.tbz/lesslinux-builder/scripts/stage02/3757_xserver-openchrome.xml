@@ -1,0 +1,38 @@
+<llpackages>
+	<package 
+		name="xf86-video-openchrome"
+		version="0.2.903"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                          
+				<pkg sha1="7889ed015a0ec2447dfe729ed10fb9dd2fd9024d">xf86-video-openchrome-0.2.903.tar.bz2</pkg>
+				<mirror>http://xorg.freedesktop.org/archive/individual/driver/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --sysconfdir=/etc && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

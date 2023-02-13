@@ -1,0 +1,39 @@
+<llpackages>
+	<package 
+		name="GConf"
+		version="2.26.0"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>           
+				<!-- 2.26.2 requires polkit-dbus! -->
+				<pkg sha1="317fd4504cc4104b7b914326cbb3b73d61234b4c">GConf-2.26.0.tar.bz2</pkg>
+				<mirror>ftp://ftp.gnome.org/pub/GNOME/sources/GConf/2.26/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --sysconfdir=/etc --prefix=/usr --enable-inotify && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

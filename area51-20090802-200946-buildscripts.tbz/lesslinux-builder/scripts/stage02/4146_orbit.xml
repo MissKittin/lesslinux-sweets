@@ -1,0 +1,38 @@
+<llpackages>
+	<package 
+		name="ORBit2"
+		version="2.14.17"
+		class="lib"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>           
+				<pkg sha1="d1f38e9df5efc219f3a5cfb4d0a0cbc1b381fe1c">ORBit2-2.14.17.tar.bz2</pkg>
+				<mirror>http://ftp.gnome.org/pub/gnome/sources/ORBit2/2.14/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

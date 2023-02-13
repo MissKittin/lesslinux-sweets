@@ -1,0 +1,39 @@
+<llpackages>
+	<package 
+		name="qt-x11-opensource-src"
+		version="4.5.2"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file> 
+				<pkg sha1="54b94d41adcabcedc7653de78657bcdd3cc0898c">qt-x11-opensource-src-4.5.2.tar.gz</pkg>
+				<mirror>http://get.qtsoftware.com/qt/source/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			yes yes | ./configure --prefix=/usr --sysconfdir=/etc -gtkstyle  -opensource -release -silent
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

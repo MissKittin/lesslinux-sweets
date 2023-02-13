@@ -1,0 +1,39 @@
+<llpackages>
+	<package 
+		name="gnupg"
+		version="1.4.9"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>           
+				<pkg sha1="826f4bef1effce61c3799c8f7d3cc8313b340b55">gnupg-1.4.9.tar.bz2</pkg>
+				<mirror>ftp://ftp.gnupg.org/gcrypt/gnupg/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --sysconfdir=/etc
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

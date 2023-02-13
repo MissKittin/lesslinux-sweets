@@ -1,0 +1,47 @@
+<llpackages>
+	<package 
+		name="zlib"
+		version="1.2.3"
+		class="lib"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>
+				<pkg sha1="967e280f284d02284b0cd8872a8e2e04bfdc7283">zlib-1.2.3.tar.bz2</pkg>
+				<mirror>http://www.zlib.net/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[ 
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --shared --libdir=/lib
+			make
+			]]>
+		</build>
+		<test>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make check
+			]]>
+		</test>
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			rm -v /lib/libz.so
+			ln -sfv ../../lib/libz.so.1.2.3 /usr/lib/libz.so
+			make clean
+			./configure --prefix=/usr
+			make
+			make install
+			chmod -v 644 /usr/lib/libz.a
+			]]>
+		</install>
+	</package>
+</llpackages>

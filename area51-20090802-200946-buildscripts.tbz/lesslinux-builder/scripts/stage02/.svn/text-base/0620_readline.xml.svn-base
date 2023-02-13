@@ -1,0 +1,51 @@
+<llpackages>
+	<package 
+		name="readline"
+		version="6.0"
+		class="lib"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>  
+				<pkg sha1="1e511b091514ef631c539552316787c75ace5262">readline-6.0.tar.gz</pkg>
+				<mirror>http://ftp.gnu.org/gnu/readline/</mirror>
+			</file>
+			<!-- <file>
+				<pkg sha1="cad67abe3507dcd9e2cf63d6e8698441b94bac26">readline-5.2-fixes-6.patch</pkg>
+				<mirror>http://www.linuxfromscratch.org/patches/lfs/development/</mirror>
+			</file> -->
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			]]>
+		</unpack>
+		<patch>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			sed -i '/MV.*old/d' Makefile.in
+			sed -i '/{OLDSUFF}/c:' support/shlib-install
+			# cat ${SRCDIR}/${PKGNAME}-${PKGVERSION}-fixes-6.patch | patch -p1
+			]]>
+		</patch>
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --libdir=/lib && make SHLIB_LIBS=-lncurses
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			mv -v /lib/lib{readline,history}.a /usr/lib
+			rm -v /lib/lib{readline,history}.so
+			ln -sfv ../../lib/libreadline.so.5 /usr/lib/libreadline.so
+			ln -sfv ../../lib/libhistory.so.5 /usr/lib/libhistory.so
+			mkdir   -v /usr/share/doc/${PKGNAME}-${PKGVERSION}
+			install -v -m644 doc/*.{ps,pdf,html,dvi} /usr/share/doc/${PKGNAME}-${PKGVERSION}
+			]]>
+		</install>
+	</package>
+</llpackages>

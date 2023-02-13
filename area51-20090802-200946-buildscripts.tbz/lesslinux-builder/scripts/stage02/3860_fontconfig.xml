@@ -1,0 +1,34 @@
+<llpackages>
+	<package 
+		name="fontconfig"
+		version="2.6.0"
+		class="lib"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>    				
+				<pkg sha1="93752566b8327485b153bd156049614f779b4c57">fontconfig-2.6.0.tar.gz</pkg>
+				<mirror>http://fontconfig.org/release/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --sysconfdir=/etc --localstatedir=/var --prefix=/usr && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

@@ -1,0 +1,38 @@
+<llpackages>
+	<package 
+		name="libglade"
+		version="2.6.4"
+		class="lib"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>           
+				<pkg sha1="8465851733b8a0efbe57c43efc0f140d8e2d2edb">libglade-2.6.4.tar.bz2</pkg>
+				<mirror>http://ftp.gnome.org/pub/gnome/sources/libglade/2.6/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

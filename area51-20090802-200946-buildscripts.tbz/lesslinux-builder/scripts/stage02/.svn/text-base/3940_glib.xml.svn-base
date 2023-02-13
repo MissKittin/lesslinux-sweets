@@ -1,0 +1,35 @@
+<llpackages>
+	<package 
+		name="glib"
+		version="2.20.2"
+		class="lib"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>    
+  
+				<pkg sha1="2c1f27bc4fb942ba93ccf934635879ffe0524f45">glib-2.20.2.tar.bz2</pkg>
+				<mirror>http://ftp.gnome.org/pub/gnome/sources/glib/2.20/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

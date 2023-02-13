@@ -1,0 +1,38 @@
+<llpackages>
+	<package 
+		name="sudo"
+		version="1.7.1"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>            
+				<pkg sha1="f76ad5ff5dac253c14dfedfdbddd99b4cf7f54a2">sudo-1.7.1.tar.gz</pkg>
+				<mirror>http://www.sudo.ws/sudo/dist/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --with-pam=no && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

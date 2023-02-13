@@ -1,0 +1,38 @@
+<llpackages>
+	<package 
+		name="xdelta"
+		version="3.0v"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>             
+				<pkg sha1="6422cfe1809fae6fcb39b72e871d948255ce95be">xdelta3.0v2.tar.gz</pkg>
+				<mirror>http://xdelta.googlecode.com/files/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}${PKGVERSION}2.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}${PKGVERSION}2.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}${PKGVERSION}2.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}${PKGVERSION}
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}${PKGVERSION}
+			install -m 0755 xdelta3 /usr/bin/ 
+			]]>
+		</install>
+	</package>
+</llpackages>

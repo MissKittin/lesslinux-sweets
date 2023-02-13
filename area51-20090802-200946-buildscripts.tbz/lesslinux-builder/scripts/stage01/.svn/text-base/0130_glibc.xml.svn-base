@@ -1,0 +1,53 @@
+<llpackages>
+	<package 
+		name="glibc_pass1"
+		version="2.9-20090518"
+		buildas="unpriv"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<!-- <file>
+				<pkg sha1="7495016a6d642c650f9c6b78fe7c41c31757f3ad">glibc-2.8-20090216.tar.bz2</pkg>
+				<mirror>ftp://sources.redhat.com/pub/glibc/snapshots/</mirror>
+			</file> -->
+			<file>  
+				<pkg sha1="ced139f7fe5b8debaeb42f3290466dad49c7a4cb">glibc-2.9-20090518.tar.bz2</pkg>
+				<mirror>ftp://sources.redhat.com/pub/glibc/snapshots/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/glibc-${PKGVERSION}.tar.bz2
+			mkdir glibc-build
+			]]>
+		</unpack>
+		<patch />
+		<chown>
+			<![CDATA[ 
+			chown -R ${UNPRIV} glibc-build
+			chown -R ${UNPRIV} glibc-${PKGVERSION}
+			]]>
+		</chown>
+		<build>
+			<![CDATA[ 
+			cd glibc-build
+			case `uname -m` in
+				i?86) 
+					echo "CFLAGS += -march=i486 -mtune=native" > configparms 
+				;;
+			esac
+			../glibc-${PKGVERSION}/configure --prefix=/tools \
+			--host=${LFS_TGT} --build=$(../glibc-${PKGVERSION}/scripts/config.guess) \
+			--disable-profile --enable-add-ons \
+			--enable-kernel=2.6.0 --with-headers=/tools/include \
+			libc_cv_forced_unwind=yes libc_cv_c_cleanup=yes && make
+			]]>
+		</build>
+		<install>
+			<![CDATA[
+			cd glibc-build
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

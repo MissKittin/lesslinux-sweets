@@ -1,0 +1,35 @@
+<llpackages>
+	<package 
+		name="mkfontscale"
+		version="1.0.6"
+		class="devel"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>        
+				<pkg sha1="7bb7caa5a365d1e31a25ed9e837ca744aaa83db0">mkfontscale-1.0.6.tar.bz2</pkg>
+				<mirror>http://xorg.freedesktop.org/archive/individual/app/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

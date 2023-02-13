@@ -1,0 +1,38 @@
+<llpackages>
+	<package 
+		name="jpegsrc"
+		version="v6b"
+		class="lib"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>         
+				<pkg sha1="7079f0d6c42fad0cfba382cf6ad322add1ace8f9">jpegsrc.v6b.tar.gz</pkg>
+				<mirror>ftp://ftp.uu.net/graphics/jpeg/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}.${PKGVERSION}.tar.bz2
+			else 
+				tar xzf ${SRCDIR}/${PKGNAME}.${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd jpeg-6b
+			./configure --prefix=/usr && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd jpeg-6b
+			make install-lib
+			]]>
+		</install>
+	</package>
+</llpackages>

@@ -1,0 +1,39 @@
+<llpackages>
+	<package 
+		name="sed"
+		version="4.2"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>  
+				<pkg sha1="ee7af3cd1ebbc6cdf17a7d1abbce00db0c7b5a0d">sed-4.2.tar.bz2</pkg>
+				<mirror>http://ftp.gnu.org/gnu/sed/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --bindir=/bin --enable-html && make
+			]]>
+		</build>
+		<test>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make check
+			]]>
+		</test>
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

@@ -1,0 +1,59 @@
+<llpackages>
+	<package 
+		name="linux-pax"
+		version="2.6.29.3"
+		class="kernel"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>
+				<pkg sha1="0640a2f4bea3fc272541f322b74ea365ad7f2349">linux-2.6.29.tar.bz2</pkg>
+				<mirror>http://www.eu.kernel.org/pub/linux/kernel/v2.6/</mirror>
+			</file>
+			<file>
+				<pkg sha1="e91011f48e0daa6fadbf4589e267254f69952cf7">patch-2.6.29.3.bz2</pkg>
+				<mirror>http://www.eu.kernel.org/pub/linux/kernel/v2.6/</mirror>
+			</file>
+			<file>
+				<pkg sha1="960870c4945fade8e89b2caa7ab588ba8b37c199">config-2.6.29.2-lesslinux-pax-090429-1036</pkg>
+				<mirror>http://distfiles.lesslinux.org/kernel/</mirror>
+			</file>
+			<file>    
+				<pkg sha1="2a9967bee255e5aa52c6a0f1249dd2056f1be3f8">pax-linux-2.6.29.3-test21.patch</pkg>
+				<mirror>http://www.grsecurity.net/~paxguy1/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/linux-2.6.29.tar.bz2
+			]]>
+		</unpack>
+		<patch>
+			<![CDATA[ 
+			cd linux-2.6.29
+			bunzip2 -c ${SRCDIR}/patch-${PKGVERSION}.bz2 | patch -p1
+			cat ${SRCDIR}/pax-linux-2.6.29.3-test21.patch | patch -p1
+			cp -v ${SRCDIR}/config-2.6.29.2-lesslinux-pax-090429-1036 .config 
+			cd ..
+			mv linux-2.6.29 linux-${PKGVERSION}
+			]]>
+		</patch>
+		<build>
+			<![CDATA[ 
+			cd linux-${PKGVERSION}
+			make oldconfig
+			make clean
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd linux-${PKGVERSION}
+			make bzImage
+			make modules_install
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

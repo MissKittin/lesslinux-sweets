@@ -1,0 +1,41 @@
+<llpackages>
+	<package 
+		name="patch"
+		version="2.5.9"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>
+				<pkg sha1="9a69f7191576549255f046487da420989d2834a6">patch-2.5.9.tar.gz</pkg>
+				<mirror>ftp://alpha.gnu.org/gnu/diffutils/</mirror>
+			</file>
+			<file>
+				<pkg sha1="d2f13b01bc87bbb50ea6022bab938d5f828421f7">patch-2.5.9-fixes-1.patch</pkg>
+				<mirror>http://www.linuxfromscratch.org/patches/lfs/development/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			]]>
+		</unpack>
+		<patch>
+			<![CDATA[ 
+			cd ${PKGNAME}-${PKGVERSION}
+			cat ${SRCDIR}/${PKGNAME}-${PKGVERSION}-fixes-1.patch | patch -p1
+			]]>
+		</patch>
+		<build>
+			<![CDATA[ 
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/tools && make
+			]]>
+		</build>
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

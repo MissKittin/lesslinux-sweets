@@ -1,0 +1,39 @@
+<llpackages>
+	<package 
+		name="which"
+		version="2.20"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>           
+				<pkg sha1="3bcd6d87aa5231917ba7123319eedcae90cfa0fd">which-2.20.tar.gz</pkg>
+				<mirror>http://ftp.gnu.org/gnu/which/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --sysconfdir=/etc
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

@@ -1,0 +1,35 @@
+<llpackages>
+	<package 
+		name="popt"
+		version="1.15"
+		class="lib"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>   
+				<pkg sha1="d9bc3067a4e7e62ac0bd9818e8cd649ee0dd12dc">popt-1.15.tar.gz</pkg>
+				<mirror>http://rpm5.org/files/popt/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

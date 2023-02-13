@@ -1,0 +1,38 @@
+<llpackages>
+	<package 
+		name="dosfstools"
+		version="2.11"
+		class="bin"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>            
+				<pkg sha1="b0d8714475ca7c7a96a46adf7c4839d69ce2f412">dosfstools-2.11.src.tar.gz</pkg>
+				<mirror>ftp://ftp.uni-erlangen.de/pub/Linux/LOCAL/dosfstools/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.src.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.src.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

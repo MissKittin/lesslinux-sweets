@@ -1,0 +1,38 @@
+<llpackages>
+	<package 
+		name="xf86-video-vesa"
+		version="2.2.0"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                              
+				<pkg sha1="b2d0f33f811bc1a651d4ecbc84979f82281e8a59">xf86-video-vesa-2.2.0.tar.bz2</pkg>
+				<mirror>http://xorg.freedesktop.org/archive/individual/driver/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --sysconfdir=/etc && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

@@ -1,0 +1,35 @@
+<llpackages>
+	<package 
+		name="libXext"
+		version="1.0.4"
+		class="lib"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file> 
+				<!-- some libs from Xorg 7.4 do not compile with higher versions -->
+				<pkg sha1="dbadb6b71d303f75980ea66ef76096a9d17243c4">libXext-1.0.4.tar.bz2</pkg>
+				<mirror>http://xorg.freedesktop.org/archive/individual/lib/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

@@ -1,0 +1,34 @@
+<llpackages>
+	<package 
+		name="unzip"
+		version="5.52"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>  
+				<pkg sha1="1831bd59b9e607a69052f83b263384895e2d4a19">unzip552.tar.gz</pkg>
+				<mirror>http://switch.dl.sourceforge.net/sourceforge/infozip/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/unzip552.tar.gz
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make -f unix/Makefile linux
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make prefix=/usr install
+			]]>
+		</install>
+	</package>
+</llpackages>

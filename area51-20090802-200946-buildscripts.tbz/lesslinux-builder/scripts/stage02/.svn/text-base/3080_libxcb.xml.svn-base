@@ -1,0 +1,35 @@
+<llpackages>
+	<package 
+		name="libxcb"
+		version="1.2"
+		class="devel"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>    
+				<pkg sha1="12be595ce1e26da3b63e6a17a47ab9392259f10f">libxcb-1.2.tar.bz2</pkg>
+				<mirror>http://xcb.freedesktop.org/dist/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

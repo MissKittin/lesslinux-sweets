@@ -1,0 +1,38 @@
+<llpackages>
+	<package 
+		name="parted"
+		version="1.8.8"
+		class="lib"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>            
+				<pkg sha1="038eaa1656cc1d07ea413526a2e00adb977197f2">parted-1.8.8.tar.bz2</pkg>
+				<mirror>http://ftp.gnu.org/gnu/parted/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr  --sysconfdir=/etc --with-readline=no --enable-Werror=no && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

@@ -1,0 +1,32 @@
+<llpackages>
+	<package 
+		name="ncurses"
+		version="5.7"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>
+				<pkg sha1="8233ee56ed84ae05421e4e6d6db6c1fe72ee6797">ncurses-5.7.tar.gz</pkg>
+				<mirror>ftp://ftp.gnu.org/gnu/ncurses/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[ 
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/tools --with-shared --without-debug --without-ada --enable-overwrite && make
+			]]>
+		</build>
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

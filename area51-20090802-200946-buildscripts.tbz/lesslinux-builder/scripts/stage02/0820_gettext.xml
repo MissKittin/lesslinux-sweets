@@ -1,0 +1,39 @@
+<llpackages>
+	<package 
+		name="gettext"
+		version="0.17"
+		class="lib"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>
+				<pkg sha1="c51803d9f745f6ace36bd09c0486d5735ce399cf">gettext-0.17.tar.gz</pkg>
+				<mirror>http://ftp.gnu.org/gnu/gettext/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --docdir=/usr/share/doc/${PKGNAME}-${PKGVERSION} && make
+			]]>
+		</build>
+		<test>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make check
+			]]>
+		</test>
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

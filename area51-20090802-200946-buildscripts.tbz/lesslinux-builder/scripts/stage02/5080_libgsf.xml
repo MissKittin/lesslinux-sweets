@@ -1,0 +1,39 @@
+<llpackages>
+	<package 
+		name="libgsf"
+		version="1.14.15"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>          
+				<pkg sha1="813f039274a08104da2eabb3074f59d254e96bed">libgsf-1.14.15.tar.bz2</pkg>
+				<mirror>http://ftp.gnome.org/pub/gnome/sources/libgsf/1.14/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --sysconfdir=/etc
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

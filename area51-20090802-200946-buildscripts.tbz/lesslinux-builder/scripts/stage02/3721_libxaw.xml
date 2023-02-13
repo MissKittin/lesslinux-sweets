@@ -1,0 +1,34 @@
+<llpackages>
+	<package 
+		name="libXaw"
+		version="1.0.5"
+		class="lib"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>    
+				<pkg sha1="fb436a6ed72aa577b4b73397465f1e06844b954f">libXaw-1.0.5.tar.bz2</pkg>
+				<mirror>http://xorg.freedesktop.org/archive/individual/lib/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

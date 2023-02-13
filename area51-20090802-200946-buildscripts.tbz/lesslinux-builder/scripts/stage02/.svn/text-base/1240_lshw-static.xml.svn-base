@@ -1,0 +1,36 @@
+<llpackages>
+	<package 
+		name="lshw"
+		version="B.02.14"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file> 
+				<pkg sha1="2d8ee3ee0e182a92b14384dfee3ecfdd57c295cb">lshw-B.02.14.tar.bz2</pkg>
+				<mirror>http://distfiles.lesslinux.org/lshw/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}/src
+			make static
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}/src
+			cp -v lshw-static /usr/sbin
+			chmod 0755 /usr/sbin/lshw-static
+			chown 0:0 /usr/sbin/lshw-static
+			]]>
+		</install>
+	</package>
+</llpackages>

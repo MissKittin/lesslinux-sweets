@@ -1,0 +1,35 @@
+<llpackages>
+	<package 
+		name="adobe-flashplugin"
+		version="9"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>  
+				<pkg sha1="c838e8216c2e6a0027991d567d9d951ffc26d797">install_flash_player_9_linux.tar.gz</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/install_flash_player_9_linux.tar.gz
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			echo 'Nothing to do!'
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cp install_flash_player_9_linux/libflashplayer.so /opt/firefox/lib/firefox-3.0.11/plugins
+			# cp install_flash_player_9_linux/libflashplayer.so /opt/firefox/lib/firefox-devel-3.0.11/plugins
+			chmod 0755 /opt/firefox/lib/firefox-3.0.11/plugins/libflashplayer.so
+			# chmod 0755 /opt/firefox/lib/firefox-devel-3.0.11/plugins/libflashplayer.so
+			]]>
+		</install>
+	</package>
+</llpackages>

@@ -1,0 +1,2112 @@
+<llpackages>
+	<dirs>
+		<dir mode="0755">/bin</dir>
+		<dir mode="0755">/sbin</dir>
+		<dir mode="0755">/lib</dir>
+		<dir mode="0755">/usr</dir>
+		<dir mode="0755">/var</dir>
+		<dir mode="0755">/var/log</dir>
+		<dir mode="0755">/var/run</dir>
+		<dir mode="0755">/var/run/lesslinux</dir>
+		<dir mode="1777">/var/lock</dir>
+		<!-- do not forget to touch messages, lastlog, wtmp -->
+		<!-- system specific dirs -->
+		<dir mode="0755">/proc</dir>
+		<dir mode="0755">/sys</dir>
+		<!-- /dev is contained in an initramfs file with just some devices -->
+		<dir mode="0700">/root</dir>
+		<dir mode="1777">/tmp</dir>
+		<dir mode="0755">/home</dir>
+		<!-- contents of /home should be either added via initrd or 
+			mounted from an encrypted container -->
+		<!-- subdirs for busybox are later added via rsync -->
+		<dir mode="0755">/static</dir>
+		<dir mode="0755">/static/bin</dir>
+		<dir mode="0755">/static/share</dir>
+		<dir mode="0755">/static/share/udhcpc</dir>
+		<!-- /etc contains lots of stuff to work with -->
+		<dir mode="0755">/etc</dir>
+		<dir mode="0755">/etc/modprobe.d</dir>
+		<dir mode="0755">/etc/smack</dir>
+		<dir mode="0755">/etc/lesslinux</dir>
+		<dir mode="0755">/etc/lesslinux/skel</dir>
+		<dir mode="0755">/etc/lesslinux/updater</dir>
+		<dir mode="0755">/etc/lesslinux/branding</dir>
+		<dir mode="0755">/etc/lesslinux/branding/computerbild</dir>
+		<dir mode="0755">/etc/rc.lang</dir>
+		<dir mode="0755">/etc/rc.lang/de</dir>
+		<dir mode="0755">/etc/rc.lang/en</dir>
+		<dir mode="0755">/etc/rc.confd</dir>
+		<dir mode="0755">/etc/rc.subr</dir>
+		<dir mode="0755">/etc/rc.templates</dir>
+		<dir mode="0755">/etc/rc.d</dir>
+		<!-- old file /etc/rc.conf renamed to /etc/rc.defaults -->
+	</dirs>
+	<!-- empty files -->
+	<files>
+		<file mode="0664" owner="0" group="43">/var/log/wtmp</file>
+		<file mode="0664" owner="0" group="43">/var/log/lastlog</file>
+		<!-- Notiz: Gruppe wheel anlegen -->
+		<file mode="0640" owner="0" group="0">/var/log/messages</file>
+	</files>
+	<links>
+		<softlink target="/static/bin/busybox">/linuxrc</softlink>
+		<softlink target="/static/bin/busybox">/init</softlink>
+		<softlink target="/usr/share/themes/Xfce/gtk-2.0/gtkrc">/root/.gtkrc</softlink>
+		<softlink target="/usr/share/themes/Xfce/gtk-2.0/gtkrc">/root/.gtkrc-2.0</softlink>
+	</links>
+	<scripts>
+		<scriptdata location="/etc/mdev.conf" mode="0644" group="0" owner="0">
+		<![CDATA[
+null 0:0 666
+zero 0:0 664
+urandom 0:0 664
+random 0:0 0664
+tty 0:0 0666
+pty.* 0:0 0666
+		]]>
+		</scriptdata>
+		<scriptdata location="/etc/shells" mode="0644" group="0" owner="0">
+		<![CDATA[
+/bin/sh
+/static/bin/ash
+/bin/bash
+		]]>
+		</scriptdata>
+		<scriptdata location="/etc/lesslinux/overlay_save" mode="0644" group="0" owner="0">
+		<![CDATA[# files to save in the container in the folder .overlay
+# to change the defaults here, add this file to the list before shutting down
+/etc/passwd
+/etc/shadow
+/etc/wicd/wired-settings.conf
+/etc/wicd/wireless-settings.conf
+/etc/wicd/manager-settings.conf
+/etc/rc.local
+]]>
+		</scriptdata>
+		<scriptdata location="/etc/lesslinux/updater/updater.sh" mode="0700" group="0" owner="0">
+		<![CDATA[#!/static/bin/ash
+
+# FIXME: Remove dependency on zenity!
+
+this_version=` cat /etc/lesslinux/updater/version.txt `
+
+/usr/bin/zenity --question --text "Bevor Sie COMPUTERBILD Sicher surfen 2009 aktualisieren stellen Sie sicher, dass eine Internetverbindung hergestellt ist.\n\nSind Sie bereit für die Suche nach Updates?" || exit 1
+
+# Importiere den Schlüssel
+/usr/bin/gpg --import /etc/lesslinux/updater/updatekey.asc
+
+# Update-Ordner erstellen (muss nicht groß sein)
+/bin/mkdir -m 0700 /tmp/lesslinux.update
+
+# Download des Update-Scriptes, erfordert setzen de
+for fname in updater.tbz updater.tbz.asc ; do
+    echo internet > /proc/self/attr/current
+    /static/bin/wget -O /tmp/lesslinux.update/${fname} http://download.lesslinux.org/updater/${this_version}/${fname}
+    retval=$?
+    echo _ > /proc/self/attr/current
+    if [ "$retval" -gt 0 ] ; then
+	/usr/bin/zenity --error --text 'Die Updates konnten nicht überspielt werden!'
+	exit 1
+    fi
+done
+
+# Prüfung der Signatur
+if /usr/bin/gpg --verify /tmp/lesslinux.update/updater.tbz.asc ; then
+    echo "===> Signatur OK, fahre fort"
+    # Signatur war gut? Na dann starten wir das Script...
+    cd /tmp/lesslinux.update
+    tar xjf updater.tbz
+    /static/bin/ash RUNME.sh
+else
+    /usr/bin/zenity --error --text 'Das Signaturprüfung des Update-Scriptes ist fehlgeschlagen!'
+    exit 1
+fi
+
+		]]>
+		</scriptdata>
+		<scriptdata location="/etc/lesslinux/updater/update_wrapper.sh" mode="0755" group="0" owner="0">
+		<![CDATA[#!/static/bin/ash
+		
+/usr/bin/llaskpass-mount.rb | sudo -S /etc/lesslinux/updater/updater.sh
+
+		]]>
+		</scriptdata>
+		<scriptdata location="/etc/lesslinux/updater/updatekey.asc" mode="0600" group="0" owner="0">
+		<![CDATA[
+		
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+Version: GnuPG v1.4.6 (GNU/Linux)
+
+mQGiBEpWE3ARBAC2h0Yy6WM+fr7uJUbkOJmjQlS9Xr9FOpbcH7MtsIphgYGFzZw7
+10CnG72ni4IW0epW+IpbP1kAdPm9u1GPC/c2s1/QyLJZFXx4rZa2I9d8MfHWraDi
+bRwJd0VF8XvlsS3bK7XcCBezjDK2P3pvR7V7MS36ZPVHAAmif/VjRpKBfwCgjooF
+c9Aq/rdJMXW74MzUnKPdT1UD/iHV9wvjcGgxzev0BISfvxg49ON8pUpJGpkTnt+f
+S0r++4TC6VKnWsAzTe+uFKySrI5COyKTpFpLp9lU4qWQrq/Nzxu4neiCP7cUovWs
+Ry3BJ6zPr5pLmQcSByA+TqSeOgvRlPDSYD8DyMCqboaexL4tO8BW7QgzJOfZ0YgR
+8ZTvA/0WMxmmUdG2Yy3U5sXprSAtG1Ns2pHopP+8aqvD++GALArXtw//lxtetnO8
+8aOd9/aA8TnLw1s4Ix44W0CNpXta9AP7CNB5QqGWOc8PuNUVq4nOLBtgmuS2C6WV
+DS3xKYbZOyKLGE9N2giuq5bLbHGJNol7Mj//JrVMqe/0CZzS5rQqTWF0dGlhcyBT
+Y2hsZW5rZXIgPG1zQG1hdHRpYXNzY2hsZW5rZXIuZGU+iGAEExECACAFAkpWE3AC
+GwMGCwkIBwMCBBUCCAMEFgIDAQIeAQIXgAAKCRAKTy8oGnVeptYfAJ4yeLhZes2k
+Gj7e2IEXOMgeoujRvgCfTsSEJgEPw2hXDde6+Z97WKszS765Ag0ESlYTcxAIALUF
+qpzbSSSBy0GUS7auc2KD6JTkV5aYzviDK4Y0fP8kMal9CniMZtH73osOCAeyxBRe
+5emcjpcmV9IgK6de8i8eeiRTzikJvgM4Ce1lKMeSIeodNDDj0Ca6QaSzcuQT4JN5
+/DPdbUctY1iQaJAVBQTZnDQk7ubXNA4kcK/Zr0LNiu9OW3/NNc2iQWgJCZtdX4nU
+FsThlzifcCJagamNN64vU5wAYSoPCHqDOGyzT349oaMrkjCMWNRUYkbbSIprlusJ
+2xVEeVSRMP6E2azYvlKm5nA8fj4RKYq6cvEmJhJd9HpgWIWEXtFXoDmqqyzu92Eg
+d5Znkk5bdxSbpxdb/fMAAwYIAJ366rBB8AdfiuTafGQgXUnkAFVCpmTsV1Imbi3Z
+cNuuu6EXJ8lO8K5sU1NDGcHns3QyDKwkhkYQdQEvrOHcdF61Ej83FEQuhoPzgoKg
+M1LncyK9UiF/dDGCExRXWDLrW+Q0FkB1jQs3Pyz4CE9wIOg+g22yD1/E7hCKlNzH
+qdTO+UdBq8z3veBVmIIQ07dp/cv7LO9dpxbGIGAnJ6XsWtLPAic77n5Y9ZsnpgW6
+fJi83ai5PqWF5xHQVNFpxG1Sr0X+Qwp29zqGxnfkd0mfTxsj6xBe+eO92pxBuvzE
+go5YzT081VQUkOsq9OY+fHqaXj91FfinIfwfhBbck3xhUY+ISQQYEQIACQUCSlYT
+cwIbDAAKCRAKTy8oGnVeps1UAKCIYALgjkWkAPG2sU7oTE4UROopjwCfYbxKMj6s
+TnG6ymmwTvBX9Hic9ms=
+=O/iU
+-----END PGP PUBLIC KEY BLOCK-----
+		
+		]]>
+		</scriptdata>
+		<scriptdata location="/static/bin/x_user_start" mode="0755" group="0" owner="0">
+		<![CDATA[#!/static/bin/ash		
+		PATH=/bin:/sbin:/usr/bin:/usr/sbin:/static/bin:/static/sbin
+		
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors
+
+if echo "$skipservices" | grep '|x|' ; then
+	sleep 60
+	exit
+fi
+		
+if [ -d /home/surfer ] ; then
+	echo "/home/surfer exists"
+	chown -R 1000:1000 /home/surfer
+else
+	mkdir /home/surfer
+	chown -R 1000:1000 /home/surfer
+fi
+cd /home/surfer
+su surfer -c /static/bin/xstart
+		
+# The end	]]>
+		</scriptdata>
+		<scriptdata location="/static/bin/xstart" mode="0755" group="0" owner="0">
+		<![CDATA[#!/static/bin/ash	
+		
+PATH=/bin:/sbin:/usr/bin:/usr/sbin:/static/bin:/static/sbin
+		
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors
+		
+DBUS_LAUNCH=/usr/bin/dbus-launch
+VESA_MODE=0x0117
+LANG=de_DE.UTF-8 ; export LANG	
+screen="default_screen"
+xorg_conf="/etc/X11/xorg.conf"
+driver="xvesa"
+vesapref=""
+dpi=75
+
+if [ -f /var/run/lesslinux/xorg_vars ] ; then
+    . /var/run/lesslinux/xorg_vars
+fi
+
+# Find our xinitrc
+if [ -x /home/surfer/.xinitrc ] ; then
+    XINITRC="/home/surfer/.xinitrc"
+else
+    XINITRC="/etc/lesslinux/xinitrc"
+fi
+
+# Determine if we have to use dbus-launch
+if which "$DBUS_LAUNCH" ; then
+    if ps waux | grep 'dbus-daemon --config' ; then
+        true
+    else
+        XINITRC="$DBUS_LAUNCH $XINITRC"
+    fi
+fi
+
+# Determine which Xserver to use
+if [ "$driver" = "xorg" ] ; then
+    /usr/bin/xinit $XINITRC -- /usr/bin/Xorg -nolisten tcp -screen "$screen" -dpi "$dpi"
+else
+    # dump vesa modes
+    Xvesa -listmodes > /tmp/.vesamodes 2>&1
+    # Search suitable modes
+    resolutions="640x480x16 640x480x24 800x600x16 800x600x24 1024x600x16 1024x600x24 1024x768x16 1024x768x24 ${xmode}x16 ${xmode}x24 ${xmode} ${vesapref}"
+    tryvesa=0x0117
+    for i in $resolutions ; do
+        mode=` grep " $i " /tmp/.vesamodes | awk -F ':' '{print $1}' | tail -n1 `
+        [ -n "$mode" ] && tryvesa="$mode"
+    done
+    /usr/bin/xinit $XINITRC -- /usr/bin/Xvesa -nolisten tcp +kb -keybd keyboard -mouse mouse,/dev/input/mice -mode "$tryvesa"
+fi
+		
+# sleep for debugging reasons:
+echo '===> Shutdown of X-Server, sleeping 5 seconds'
+sleep 5
+		
+# The end	]]>
+		</scriptdata>
+		<scriptdata location="/etc/lesslinux/xinitrc" mode="0755" group="0" owner="0">
+		<![CDATA[#!/static/bin/ash	
+		PATH=/bin:/sbin:/usr/bin:/usr/sbin:/static/bin:/static/sbin
+		
+		# /usr/bin/xterm &
+		setxkbmap -rules xorg -model pc105 -layout de
+		
+		if mount | grep '/home' | grep '/dev/mapper' ; then
+			echo '/home seems to be on container, no need to delete Thunderbird'
+		else
+			echo '/home does not seem to be on container, deleting Thunderbird'
+			rm /home/surfer/Desktop/020_thunderbird.desktop
+			rm /home/surfer/.config/xfce4/panel/launcher-12473156652.rc
+			sed -i 's/<item name="launcher" id="12473156652"\/>/<!-- weg damit -->/g' /home/surfer/.config/xfce4/panel/panels.xml
+			if [ -f /etc/lesslinux/surfer.hash ] ; then
+			    echo 'Hash for surfer exists, keeping mount tools'
+			else
+			    echo 'Hash for surfer missing, deleting mount tools'
+			    rm /home/surfer/Desktop/030_mmmm.desktop
+			    rm /home/surfer/.config/xfce4/panel/launcher-12473151760.rc
+			    mv /home/surfer/.config/xfce4/panel/launcher-9.rc /home/surfer/.config/xfce4/panel/launcher-9.bak
+			    cat /home/surfer/.config/xfce4/panel/launcher-9.bak | head -n 13 > /home/surfer/.config/xfce4/panel/launcher-9.rc
+			    sed -i 's/<item name="launcher" id="12473151760"\/>/<!-- weg damit -->/g' /home/surfer/.config/xfce4/panel/panels.xml
+			fi
+		fi
+		setxkbmap -rules xorg -model pc105 -layout de
+		/usr/bin/xfce4-session
+		
+		]]>
+		</scriptdata>
+		<scriptdata location="/static/share/udhcpc/default.script" mode="0755" group="0" owner="0">
+		<![CDATA[#!/static/bin/ash
+
+# udhcpc script edited by Tim Riker <Tim@Rikers.org>
+# modifications by Mattias Schlenker <ms@mattiasschlenker.de>
+
+PATH=/static/bin:/static/sbin:/bin:/sbin:/usr/bin:/usr/sbin
+export PATH
+
+[ -z "$1" ] && echo "Error: should be called from udhcpc" && exit 1
+
+RESOLV_CONF="/etc/resolv.conf"
+[ -n "$broadcast" ] && BROADCAST="broadcast $broadcast"
+[ -n "$subnet" ] && NETMASK="netmask $subnet"
+
+case "$1" in
+        deconfig)
+                ifconfig $interface 0.0.0.0
+                ;;
+
+        renew|bound)
+                ifconfig $interface $ip $BROADCAST $NETMASK
+
+                if [ -n "$router" ] ; then
+                        echo "deleting routers"
+                        while route del default gw 0.0.0.0 dev $interface ; do
+                                :
+                        done
+
+                        for i in $router ; do
+                                route add default gw $i dev $interface
+                        done
+                fi
+
+                echo -n > $RESOLV_CONF
+                [ -n "$domain" ] && echo search $domain >> $RESOLV_CONF
+                for i in $dns ; do
+                        echo adding dns $i
+                        echo nameserver $i >> $RESOLV_CONF
+                done
+                ;;
+esac
+
+exit 0
+
+		]]>
+		</scriptdata>
+		<scriptdata location="/etc/group" mode="0644" group="0" owner="0">
+		<![CDATA[root:x:0:
+surfer:x:1000:
+audio:x:60001:surfer
+clamav:x:60002:
+users:x:60003:surfer
+]]>
+		</scriptdata>
+		<scriptdata location="/etc/passwd" mode="0644" group="0" owner="0">
+		<![CDATA[root:x:0:0:root:/root:/static/bin/ash
+toro:x:0:0:root:/root:/bin/bash
+surfer:x:1000:1000:Anonymous:/home/surfer:/bin/bash
+messagebus:x:60000:60000:messagebus:/dev/null:/bin/false
+clamav:x:60002:60002:ClamAV:/dev/null:/bin/false
+]]>
+		</scriptdata>
+		<scriptdata location="/etc/shadow" mode="0600" group="0" owner="0">
+		<![CDATA[root:!:10933:0:99999:7:::
+toro:!:10933:0:99999:7:::
+surfer:!:10933:1000:99999:7:::
+messagebus:!:10933:60000:99999:7:::
+clamav:!:10933:60002:99999:7:::
+]]>
+		</scriptdata>
+		<scriptdata location="/etc/rc.templates/shadow" mode="0644" group="0" owner="0">
+		<![CDATA[root:%ROOTHASH%:10933:0:99999:7:::
+toro:%ROOTHASH%:10933:0:99999:7:::
+surfer:%USERHASH%:10933:1000:99999:7:::
+messagebus:!:10933:60000:99999:7:::
+clamav:!:10933:60002:99999:7:::
+]]>
+		</scriptdata>
+		<!--<scriptdata location="/etc/inittab" mode="0644" group="0" owner="0">
+		<![CDATA[::sysinit:/etc/rc
+tty1::respawn:/static/sbin/getty -l /static/bin/login 38400 tty1
+tty2::respawn:/static/sbin/getty -l /static/bin/login 38400 tty2
+tty3::respawn:/static/sbin/getty -l /static/bin/login 38400 tty3
+tty4::respawn:/static/bin/ash
+tty5::askfirst:/static/bin/ash
+tty6::respawn:/static/bin/x_user_start
+::ctrlaltdel:/static/sbin/reboot
+::shutdown:/etc/rc.shutdown]]>
+		</scriptdata>-->
+		<scriptdata location="/etc/inittab" mode="0644" group="0" owner="0">
+		<![CDATA[::sysinit:/etc/rc
+tty1::respawn:/static/sbin/getty -l /static/bin/login 38400 tty1
+tty2::respawn:/static/sbin/getty -l /static/bin/login 38400 tty2
+tty3::respawn:/static/sbin/getty -l /static/bin/login 38400 tty3
+tty6::respawn:/static/bin/x_user_start
+::ctrlaltdel:/static/sbin/reboot
+::shutdown:/etc/rc.shutdown]]>
+		</scriptdata>
+		<scriptdata location="/etc/rc" mode="0744" group="0" owner="0">
+		<![CDATA[#!/static/bin/ash
+
+PATH=/static/bin:/static/sbin:/bin:/sbin:/usr/bin:/usr/sbin
+export PATH
+
+if [ '!' -L /proc/mounts ] ; then
+    mount -t proc none /proc > /dev/null 2>&1
+fi
+
+# set this to prevent faults if not set in /etc/rc.defaults
+ultraquiet=0
+
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors
+
+printf "${bold}Systemstart von COMPUTERBILD Sicher surfen 2009${normal}\n\n"
+[ "$ultraquiet" -gt 0 ] && dmesg -n1
+
+for i in /etc/rc.d/[0-9][0-9][0-9][0-9]-*.??
+do
+    provides="` cat $i | grep '#lesslinux provides' | awk '{print $3}' `"
+    patience="` cat $i | grep '#lesslinux patience' | awk '{print $2}' `"
+    if [ -z "$provides" ] ; then
+	[ "$ultraquiet" -gt 0 ] && \
+		$i start > /dev/null 2>&1 && printf "... " || \
+		$i start
+    else
+        if echo "$skipservices" | grep '|'$provides'|' > /dev/null 2>&1 ; then 
+	    [ "$ultraquiet" -gt 0 ] || printf "$bold---> Skipping $provides \n" 
+        else
+	    if [ -f "/etc/rc.confd/$provides.$hwenv.modules" ] ; then
+		[ "$ultraquiet" -gt 0 ] && \
+			/etc/rc.subr/loadmodules.sh "/etc/rc.confd/$provides.$hwenv.modules" > /dev/null 2>&1 ||
+			/etc/rc.subr/loadmodules.sh "/etc/rc.confd/$provides.$hwenv.modules"
+            elif [ -f "/etc/rc.confd/$provides.default.modules" ] ; then
+		[ "$ultraquiet" -gt 0 ] && \
+			/etc/rc.subr/loadmodules.sh "/etc/rc.confd/$provides.default.modules" > /dev/null 2>&1 || \
+			/etc/rc.subr/loadmodules.sh "/etc/rc.confd/$provides.default.modules"
+	    fi
+	    [ "$ultraquiet" -gt 0 ] && [ -n "$patience" ] && \
+		printf "\n${bold}Bitte etwas Geduld...${normal}\n"
+	    [ "$ultraquiet" -gt 0 ] && \
+		$i start > /dev/null 2>&1 && printf "[${bold}${provides}${normal}] " || \
+		$i start
+        fi
+    fi
+done
+
+# Running local startup script -- containers and encrypted home should be available right now:
+if [ -f "/etc/rc.local" ] ; then
+	# printf "\n${bold}===> Running local startup scripts${normal}\n"
+	printf "\n${bold}===> Starte Befehle in /etc/rc.local ${normal}\n"
+	/etc/rc.local
+fi
+
+printf "$normal\n"
+#		]]>
+		</scriptdata>
+		<scriptdata location="/etc/rc.shutdown" mode="0744" group="0" owner="0">
+		<![CDATA[#!/static/bin/ash
+		
+PATH=/static/bin:/static/sbin:/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin:/usr/local/sbin
+export PATH
+
+# set this to prevent faults if not set in /etc/rc.defaults
+ultraquiet=0
+
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors
+
+# define some common functions
+
+free_loop() {
+    for i in /dev/loop[0-9]* ; do
+	losetup -d "$i" > /dev/null 2>&1
+    done
+}
+
+# Clear the terminal with empty newlines
+for i in ` seq 50 ` ; do echo "" ; done
+
+if ls /dev/mapper/lesslinux_crypt > /dev/null 2>&1 ; then
+    [ "$ultraquiet" -gt 0 ] || printf "$bold---> Saving some settings $normal\n" 
+    cat /etc/lesslinux/overlay_save | while read filename
+	do
+	    case $filename in
+		'#'*|'')
+		    true
+		;;
+		*)
+		    test -f "$filename" && tar -C / -cf - "$filename" 2>/dev/null | tar -C /home/.overlay -xf - 2>/dev/null
+		;;
+	    esac
+	done
+fi
+
+printf "${bold}Stoppe verbleibende Prozesse...${normal}\n"
+
+[ "$ultraquiet" -gt 0 ] || printf "$bold---> Running rc scripts in reverse order $normal\n" 
+
+for i in ` ls /etc/rc.d/[0-9][0-9][0-9][0-9]-*.?? | tac `
+do
+    provides="` cat $i | grep '#lesslinux provides' | awk '{print $3}' `"
+    if [ -z "$provides" ] ; then
+        [ "$ultraquiet" -gt 0 ] && $i stop > /dev/null 2>&1
+	[ "$ultraquiet" -gt 0 ] || $i stop
+    else
+        if echo "$skipservices" | grep '|'$provides'|' > /dev/null 2>&1 ; then 
+	    [ "$ultraquiet" -gt 0 ] || printf "$bold---> Skipping $provides \n" 
+        else
+	    [ "$ultraquiet" -gt 0 ] && $i stop > /dev/null 2>&1
+	    [ "$ultraquiet" -gt 0 ] || $i stop
+        fi
+    fi
+done
+
+# finding and closing cryptdevices
+if [ -d "/dev/mapper" ] ; then 
+    for i in 1 2 3 4 5 6 ; do
+	for j in /dev/mapper/* ; do
+		if [ "$j" '!=' "/dev/mapper/control" ] ; then
+			mountpoint=` mount | grep $j | awk '{print $3}' `
+			[ "$i" -lt 4 ] && mountpoint -q "$mountpoint" && fuser -km "$mountpoint" > /dev/null 2>&1
+			[ "$i" -gt 3 ] && mountpoint -q "$mountpoint" && fuser -km -9 "$mountpoint" > /dev/null 2>&1
+			umount "$j" > /dev/null 2>&1
+			cryptsetup luksClose "$j" > /dev/null 2>&1
+		fi
+	done
+    done
+fi
+
+# Free some loop devices not used anymore
+free_loop
+
+# After freeing loop devices we might do one round of unmounting
+mntpnts=` mount | grep '^/' | awk '{print $3}' `
+for i in $mntpnts ; do
+    umount $i > /dev/null 2>&1
+done
+
+# Free some loop devices not used anymore
+free_loop
+
+# Now forcibly kill all processes residing in mountpoints of our loop devices
+# remember to unmount subdirectories!
+lomntpnts=` mount | grep '^/dev/loop' | awk '{print $3}'` 
+for i in $lomntpnts ; do
+	mntsubdirs=` mount | awk '{print $3}' | grep '^'$i | sort -r `
+	for j in $mntsubdirs ; do
+		umount $j > /dev/null 2>&1
+		mountpoint -q $j && fuser -km -9 $j > /dev/null 2>&1
+		umount $j > /dev/null 2>&1
+	done
+done
+
+# Free some loop devices not used anymore
+free_loop
+
+# Now get weird, five rounds of killing and umounting everything
+for n in 1 2 3 4 5 ; do
+    mntpnts=` mount | grep '^/' | awk '{print $3}' ` 
+    for i in $mntpnts ; do
+	mntsubdirs=` mount | awk '{print $3}' | grep '^'$i | sort -r `
+	for j in $mntsubdirs ; do
+	    mountpoint -q $j && fuser -km -9 $j > /dev/null 2>&1
+	    umount $j > /dev/null 2>&1
+	done
+	free_loop
+	sleep 1
+    done
+done
+
+[ "$ultraquiet" -gt 0 ] || printf "$bold---> Still mounted $normal \n"
+[ "$ultraquiet" -gt 0 ] || cat /proc/mounts
+
+# debug
+# sleep 60
+
+for i in ` seq 60 ` ; do
+    [ "$ultraquiet" -gt 0 ] && printf "\n"
+done
+
+printf "\n${bold}Der Computer wird in 10 Sekunden abgeschaltet.${normal}\n\n"
+sleep 10
+
+# THE END		]]>
+		</scriptdata>
+		<scriptdata location="/etc/rc.lang/en/welcome.msg" mode="0755" group="0" owner="0">
+		<![CDATA[printf "$bold \n"
+printf "$bold WELCOME TO LESSLINUX -- a distribution aimed to be light, embeddable, small\n"
+printf "$bold and scalable. Please note: this release is still alpha software. If you are\n"
+printf "$bold interested in the project take a look at: www.LESSLINUX.com\n"
+printf "\n"
+printf "$bold Running scripts in /etc/rc.d\n"]]>
+		</scriptdata>
+		<scriptdata location="/etc/rc.lang/de/welcome.msg" mode="0755" group="0" owner="0">
+		<![CDATA[printf "$bold \n"
+printf "$bold WILLKOMMEN BEI LESSLINUX -- a distribution aimed to be light, embeddable, small\n"
+printf "$bold and scalable. Please note: this release is still alpha software. If you are\n"
+printf "$bold interested in the project take a look at: www.LESSLINUX.com\n"
+printf "\n"
+printf "$bold Running scripts in /etc/rc.d\n"]]>
+		</scriptdata>
+		<scriptdata location="/etc/rc.defaults" mode="0755" group="0" owner="0">
+		<![CDATA[# set some defaults...
+
+# Network
+nonet='0'
+staticnet='|eth0|192.168.1.123|255.255.255.0|192.168.1.252|192.168.1.252|'
+hostname='lesslinux.test'
+dhcp='1'
+loadmodules=''
+hwenv='default'
+searchiso='|lesslinux|18|'
+contdir="lesslinux"
+dropbearport=22222
+xmode=""
+# An insanely high threshold disables loading to RAM
+toram="9999999999999999999"
+# How many 5 second interval shall we wait for usbdevices?
+usbwait="10"
+# Skip check of sha11sums
+skipcheck=0
+# Mount USB-Stick in ro or rw mode?
+hwmode=ro
+# hardware identifier for hw protocol
+hwid=unknown
+# Loglevel for syslogd
+sysloglevel=8
+# General
+lang=de
+halt=poweroff
+ultraquiet=0
+tmpsize=512
+homesize=512
+security=none
+allowsudosu=0
+
+# Eject CD if mountumass was successful
+ejectcdonumass=0
+
+# Defaults for X11
+dpi=80
+
+#		]]>
+		</scriptdata>
+		<scriptdata location="/etc/rc.subr/extractbootparams" mode="0755" group="0" owner="0">
+		<![CDATA[# extract bootparameters
+
+# FIXME: This script should just contain the extraction of variables needed
+# for more than one bootscript! All others should be extracted in the
+# respective script! (Mattias)
+
+for i in `cat /proc/cmdline`
+do
+   # echo $i
+   case "$i" in
+     skipservices=*)
+	skipservices=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     skipmodules=*)
+	skipmodules=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     loadmodules=*)
+	loadmodules=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     staticnet=*)
+        # |iface|ip|mask|dns|gateway|
+	staticnet=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     hostname=*)
+	hostname=`echo "$i" | awk -F '=' '{print $2}'`
+     ;; 
+     dhcp=*)
+        dhcp=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     verbose=*)
+        verbose=`echo "$i" | awk -F '=' '{print $2}'` 
+     ;;
+     hwenv=*)
+	hwenv=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;	
+     searchiso=*)
+        searchiso=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     contdir=*)
+	contdir=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     dropbearport=*)
+	dropbearport=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     xmode=*)
+	xmode=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     toram=*)
+	toram=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     usbwait=*)
+	usbwait=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     skipcheck=*)
+	skipcheck=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     hwid=*)
+	hwid=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     sysloglevel=*)
+	auxloglevel=`echo "$i" | awk -F '=' '{print $2}'`
+	if [ "$auxloglevel" -gt 0 ] && [ "$auxloglevel" -lt 9 ] ; then
+            sysloglevel="$auxloglevel"
+        fi
+     ;;
+     halt=*)
+	halt=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     lang=*)
+	lang=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     keymap=*)
+	keymap=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     xkbmap=*)
+	xkbmap=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     ultraquiet=*)
+	ultraquiet=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     tmpsize=*)
+	tmp_tmpsize=`echo "$i" | awk -F '=' '{print $2}'`
+	[ "$tmp_tmpsize" -gt 0 ] 2> /dev/null && tmpsize="$tmp_tmpsize"
+     ;;
+     homesize=*)
+	tmp_homesize=`echo "$i" | awk -F '=' '{print $2}'`
+	[ "$tmp_homesize" -gt 0 ] 2> /dev/null && homesize="$tmp_homesize"
+     ;;
+     security=*)
+	security=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     ejectcdonumass=*)
+	ejectcdonumass=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+     allowsudosu=*)
+        allowsudosu=`echo "$i" | awk -F '=' '{print $2}'`
+     ;;
+   esac     
+done
+
+# Adjust some settings depending each other
+
+if [ -z "$keymap" ] ; then
+	[ "$lang" = "de" ] && keymap=/lib/kbd/keymaps/i386/qwertz/de-latin1.map.gz
+	[ "$lang" = "en" ] && keymap=/lib/kbd/keymaps/i386/qwerty/us.map.gz
+	[ "$lang" = "us" ] && keymap=/lib/kbd/keymaps/i386/qwerty/us.map.gz
+	[ "$lang" = "pl" ] && keymap=/lib/kbd/keymaps/i386/qwerty/pl.map.gz
+fi
+
+if [ -z "$xkbmap" ] ; then
+	xkbmap=us
+	[ "$lang" = "de" ] && xkbmap=de
+	[ "$lang" = "en" ] && xkbmap=us
+	[ "$lang" = "us" ] && xkbmap=us
+	[ "$lang" = "pl" ] && xkbmap=pl
+fi
+
+# end extract bootparams]]>
+		</scriptdata>
+		<scriptdata location="/etc/rc.subr/colors" mode="0755" group="0" owner="0">
+		<![CDATA[failed='\033[31;1m[FAILED]\033[0m\n'
+success='\033[32;1m[  OK  ]\033[0m\n'
+later='\033[33;1m[LATER ]\033[0m\n'
+bold='\033[1m'
+normal='\033[0m'
+#		]]>
+		</scriptdata>
+		<scriptdata location="/etc/rc.subr/loadmodules.sh" mode="0755" group="0" owner="0">
+		<![CDATA[#!/static/bin/ash
+
+PATH=/static/bin:/static/sbin:/bin:/sbin:/usr/bin:/usr/sbin
+export PATH
+
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors
+
+cat $1 | awk '{print $1}' | while read modname
+do
+    case $modname in
+        '#'*|'')
+	    true
+	;;
+	*)
+            if echo "$skipmodules" | grep '|'$modname'|' > /dev/null 2>&1 ; then
+		printf "$bold---> Skipping blacklisted module $modname \n"
+            else
+		# FIXME should not ne hardcoded:
+		if [ "$modname" = "loop" ] ; then
+		    insmod /static/modules/$modname.ko max_loop=64 > /dev/null 2>&1
+		else
+		    insmod /static/modules/$modname.ko > /dev/null 2>&1
+		fi
+	    fi
+        ;;
+    esac
+done
+mdev -s
+		
+#		]]>
+		</scriptdata>
+		<scriptdata location="/etc/rc.d/0000-filesystems.sh" mode="0755" group="0" owner="0">
+		<![CDATA[#!/static/bin/ash
+
+#lesslinux provides systemfs
+
+PATH=/static/bin:/static/sbin:/bin:/sbin:/usr/bin:/usr/sbin
+export PATH
+
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors
+
+# Mount some initial filesystems
+case $1 in
+    start)
+    printf "$bold===> Mounting some filesystems$normal\n"
+    # Mount /proc
+    if mountpoint /proc > /dev/null 2>&1 ; then
+        true
+	# do nothing
+    else
+	mount -t proc none /proc > /dev/null 2>&1
+    fi
+    # Mount /sys
+    if mountpoint /sys > /dev/null 2>&1 ; then
+        true
+    else     
+        mount -t sysfs sysfs /sys > /dev/null 2>&1
+    fi
+    # Mount /dev/pts
+    if mountpoint /dev/pts > /dev/null 2>&1 ; then
+        printf "$bold---> Skipping /dev/pts, already mounted $normal\n"
+    else
+        printf "$bold---> Setting up /dev/pts                                         "
+        if mount -t devpts devpts /dev/pts > /dev/null 2>&1 ; then
+            printf "$success"
+        else
+            printf "$failed"
+        fi
+    fi
+    # Mount /dev/shm
+    if mountpoint /dev/shm > /dev/null 2>&1 ; then
+        printf "$bold---> Skipping /dev/shm, already mounted $normal\n"
+    else
+        printf "$bold---> Setting up /dev/shm                                         "
+        if mount -t tmpfs devshm /dev/shm > /dev/null 2>&1 ; then
+            printf "$success"
+        else
+            printf "$failed"
+        fi
+    fi
+    # Mount /proc/bus/usb
+    if mountpoint /proc/bus/usb > /dev/null 2>&1 ; then
+	printf "$bold---> Skipping /proc/bus/usb, already mounted $normal\n"
+    else
+	printf "$bold---> Setting up /proc/bus/usb                                    "
+	if mount -t usbfs usbfs /proc/bus/usb > /dev/null 2>&1 ; then
+            printf "$success"
+        else
+            printf "$later"
+        fi
+    fi
+    # Mount /tmp
+    mountpoint -q /tmp || mount -t tmpfs tmpfs -o noexec,nosuid,nodev,size=${tmpsize}m /tmp
+    mountpoint -q /home || mount -t tmpfs tmpfs -o mode=0755,noexec,nosuid,nodev,size=${homesize}m /home
+    tar -C /home -xzf /etc/lesslinux/skel/surfer.tgz 
+    # Change some modes
+    chmod 0666 /dev/tty
+    chmod 0666 /dev/pty*
+  ;;
+esac    
+#		]]>
+		</scriptdata>
+		<scriptdata location="/etc/rc.d/0010-mdev.sh" mode="0755" group="0" owner="0">
+		<![CDATA[#!/static/bin/ash
+	
+#lesslinux provides mdev
+
+PATH=/static/bin:/static/sbin:/bin:/sbin:/usr/bin:/usr/sbin
+export PATH
+
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors
+
+# Mount some initial filesystems
+case $1 in
+    start)
+	printf "$bold---> Using mdev to setup dynamic /dev                            "
+        # mdev needs a shell at /bin/sh
+	[ '!' -f /bin/sh ] && ln /static/bin/busybox /bin/sh
+	echo /static/sbin/mdev > /proc/sys/kernel/hotplug
+	sleep 1
+        if mdev -s ; then
+            printf "$success"
+        else
+            printf "$failed"
+        fi
+	chmod 0666 /dev/null
+	chmod 0664 /dev/urandom
+	chmod 0664 /dev/random
+	chmod 0664 /dev/zero
+    ;;
+esac
+#		]]>
+		</scriptdata>
+		<scriptdata location="/etc/rc.d/0020-loopback.sh" mode="0755" group="0" owner="0">
+		<![CDATA[#!/static/bin/ash
+
+#lesslinux provides lonet
+
+PATH=/static/bin:/static/sbin:/bin:/sbin:/usr/bin:/usr/sbin
+export PATH
+
+. /etc/rc.subr/colors
+
+# Start Loopback Networking (and never stop it!)
+
+case $1 in 
+    start)
+	printf "$bold===> Setting up loopback networking $normal \n"
+	ifconfig lo 127.0.0.1 
+    ;;
+esac
+#		]]>
+		</scriptdata>
+		<scriptdata location="/etc/rc.d/0030-syslogd.sh" mode="0755" group="0" owner="0">
+		<![CDATA[#!/static/bin/ash
+
+#lesslinux provides syslogd
+
+PATH=/static/bin:/static/sbin:/bin:/sbin:/usr/bin:/usr/sbin
+export PATH
+
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors
+
+# Start syslogd
+
+case $1 in 
+    start)
+	printf "$bold===> Starting syslogd $normal \n"
+	syslogd -l "$sysloglevel" -D &
+    ;;
+esac
+#		]]>
+		</scriptdata>
+		
+		<scriptdata location="/etc/rc.d/0040-roothash.sh" mode="0755" group="0" owner="0">
+		<![CDATA[#!/static/bin/ash
+
+#lesslinux provides roothash
+
+PATH=/static/bin:/static/sbin:/bin:/sbin:/usr/bin:/usr/sbin
+export PATH
+
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors
+
+# Replace the hash for the root password
+
+# cleanpwhash=`echo $rootpwhash | tr '$' '\$' | sed '/\//s//\\\\\//' `
+# cat shadow.templ | sed "/%PWHASH%/s//${cleanpwhash}/g"
+
+case $1 in
+    start)
+    if [ "$nologin" -gt 0 ] ; then
+        printf "$bold===> Skipping MD5 hash for root password $normal\n"
+    else      
+        printf "$bold===> Replacing MD5 hash for root password 	                 "
+	rootpwhash='!'
+	clean_rootpwhash='!'
+	userpwhash='!'
+	clean_userpwhash='!'
+	if [ -f /etc/lesslinux/root.hash ] ; then
+		rootpwhash=` cat /etc/lesslinux/root.hash `
+		chmod 0600 /etc/lesslinux/root.hash
+		chown root:root /etc/lesslinux/root.hash
+	fi
+	if [ -f /etc/lesslinux/surfer.hash ] ; then
+		userpwhash=` cat /etc/lesslinux/surfer.hash `
+		chmod 0600 /etc/lesslinux/surfer.hash
+		chown root:root /etc/lesslinux/surfer.hash
+	fi
+        clean_rootpwhash=`echo $rootpwhash | tr '$' '\$' | sed '/\//s//\\\\\//g' `
+	clean_userpwhash=`echo $userpwhash | tr '$' '\$' | sed '/\//s//\\\\\//g' `
+        if cat /etc/rc.templates/shadow | sed "/%ROOTHASH%/s//$clean_rootpwhash/g" | sed "/%USERHASH%/s//$clean_userpwhash/g" > /etc/shadow
+            then
+            chown root:root /etc/shadow > /dev/null 2>&1
+            chmod 0600 /etc/shadow > /dev/null 2>&1
+	    # busybox getty needs a login binary at /bin/login
+	    # ln /static/bin/busybox /bin/login
+	    # chmod 0755 /bin/login
+            printf "$success"
+        else
+            printf "$failed"
+            printf "$bold---> Shell login as root might not be possible...$normal\n"
+        fi
+    fi
+  ;;
+esac
+#		]]>
+		</scriptdata>
+		<scriptdata location="/etc/rc.d/0050-loadmodules.sh" mode="0755" group="0" owner="0">
+		<![CDATA[#!/static/bin/ash
+
+#lesslinux provides loadmodules
+
+PATH=/static/bin:/static/sbin:/bin:/sbin:/usr/bin:/usr/sbin
+export PATH
+
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors
+
+# Load some additional modules that might not be loaded by the other scripts
+
+case $1 in
+    start)
+	# write blacklist first
+	for i in ` echo "$skipmodules" | sed 's/|/ /g' ` ; do
+	    echo "blacklist $i" >> /etc/modprobe.d/blacklist
+	done
+        if [ -z "$loadmodules" ] ; then
+	    printf "$bold===> No additional modules to load $normal\n"
+	else
+	    printf "$bold===> Load some additional modules $normal\n"
+	    for i in ` echo "$loadmodules" | sed 's/|/ /g' ` 
+	    do
+		# FIXME should not be hardcoded:
+		if [ "$i" = "loop" ] ; then
+		    insmod /static/modules/$i.ko max_loop=64 > /dev/null 2>&1
+		else
+		    insmod /static/modules/$i.ko > /dev/null 2>&1
+		fi
+	    done
+	    mdev -s
+	fi
+    ;;
+esac
+
+#		]]>
+		</scriptdata>
+		<scriptdata location="/etc/modprobe.d/blacklist" mode="0644" group="0" owner="0">
+		<![CDATA[# module blacklist
+blacklist eepro100
+blacklist evbug
+blacklist eth1394
+blacklist de4x5
+blacklist snd_intel8x0m
+blacklist prism54
+blacklist bcm43xx
+blacklist garmin_gps
+# appended by /etc/rc.d/0050-loadmodules.sh
+
+]]>
+		</scriptdata>
+		<!--<scriptdata location="/etc/rc.d/0060-earlynet.sh" mode="0755" group="0" owner="0">
+		<![CDATA[#!/static/bin/ash
+
+#lesslinux provides earlynet
+
+PATH=/static/bin:/static/sbin:/bin:/sbin:/usr/bin:/usr/sbin
+export PATH
+
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors
+
+# Start Networking
+
+case $1 in 
+  start)
+    if [ "$nonet" -gt 0 ] ; then
+      printf "$bold===> Skipping networking $normal\n"
+    else
+      if [ "$dhcp" -gt 0 ] ; then
+          printf "$bold===> Setting up networking (DHCP) $normal\n"
+	  for i in 0 1 2 3 4 5 6 7 8 9
+          do
+	      udhcpc -q -i eth$i > /dev/null 2>&1 &
+	  done
+      else
+	  # staticnet=|iface|ip|mask|dns|gateway|
+	  netif=` echo "$staticnet" | awk -F '|' '{print $2}' `
+	  ip=` echo "$staticnet" | awk -F '|' '{print $3}' `
+	  mask=` echo "$staticnet" | awk -F '|' '{print $4}' `
+	  dns=` echo "$staticnet" | awk -F '|' '{print $5}' `
+	  gw=` echo "$staticnet" | awk -F '|' '{print $6}' ` 
+          printf "$bold===> Setting up networking (static)                              "
+          ifconfig $netif inet $ip netmask $mask
+          echo "nameserver $dns" > /etc/resolv.conf
+          route add default gw $gw
+          if ifconfig $netif > /dev/null 2>&1 ; then
+              printf "$success"
+          else       
+              printf "$failed"
+          fi
+      fi
+    fi
+  ;;
+  stop)
+    printf "$bold===> Stopping ethernet networking                                "
+    if ifconfig $netif down > /dev/null 2>&1 ; then
+      printf "$success"
+    else
+      printf "$failed"
+    fi  
+  ;;
+esac    
+
+printf "$normal"
+
+# END		]]>
+		</scriptdata>-->
+		<!--<modlist provides="earlynet" hwenv="default">
+			<module>af_packet</module>
+			<module>mii</module>
+			<module>libphy</module>
+			<module>e1000</module>
+			<module>pcnet32</module>
+			<module>forcedeth</module>
+			<module>8139too</module>
+			<module>atl1c</module>
+			<module>atl1e</module>
+			<module>atl1</module>
+			<module>atl2</module>
+			<module>ssb</module>
+			<module>b44</module>
+			<module>bnx2</module>
+			<module>8390</module>
+			<module>ne2k-pci</module>
+			<module>r8169</module>
+			<module>sb1000</module>
+			<module>sis900</module>
+			<module>slhc</module>
+			<module>tg3</module>
+			<module>tlan</module>
+			<module>via-rhine</module>
+			<module>via-velocity</module>
+			<module>wd</module>
+			<module>znet</module>
+			<module>3c59x</module>
+			<module>skge</module>
+			<module>sky2</module>
+			<module>e100</module>
+		</modlist>
+		<modlist provides="earlynet" hwenv="vmware">
+			<module>af_packet</module>
+			<module>mii</module>
+			<module>libphy</module>
+			<module>e1000</module>
+			<module>pcnet32</module>
+		</modlist>-->
+		<scriptdata location="/etc/rc.d/0062-hostname.sh" mode="0755" group="0" owner="0">
+		<![CDATA[#!/static/bin/ash
+		
+#lesslinux provides hostname
+#lesslinux license BSD
+
+PATH=/static/bin:/static/sbin:/bin:/sbin:/usr/bin:/usr/sbin
+export PATH
+
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors
+		
+case $1 in
+    start)
+        currhost=` hostname `
+	if [ -z "$currhost" -o '?' = "$currhost" -o '(none)' = "$currhost" ] ; then
+	    printf "$bold===> Setting hostname                                            "
+	    if hostname "$hostname" > /dev/null 2>&1 ; then
+	        printf "$success"
+            else       
+                printf "$failed"
+            fi
+	fi
+	currhost="$hostname"
+	if [ -f /etc/hosts ] ; then
+	    if grep "$currhost" /etc/hosts > /dev/null 2>&1 ; then
+		printf "$bold---> Hostname already in /etc/hosts $normal\n"
+	    else
+		echo "127.0.0.1 $currhost" >> /etc/hosts
+	    fi
+	else
+	    echo "127.0.0.1 localhost $currhost" > /etc/hosts
+	fi
+    ;;
+esac
+
+# END		]]>
+		</scriptdata>
+		<scriptdata location="/etc/rc.d/0080-smack.sh" mode="0755" group="0" owner="0">
+		<![CDATA[#!/static/bin/ash
+		
+#lesslinux provides smack
+#lesslinux license BSD
+		
+PATH=/static/bin:/static/sbin:/bin:/sbin:/usr/bin:/usr/sbin
+export PATH
+
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors		
+		
+case $1 in 
+    start)	
+        if [ "$security" = "smack" ] ; then
+	    printf "$bold===> Enable Simple Mandatory Access Control Kernel$normal\n"
+	    # bend some softlinks for the patched tools
+	    for i in id ls stat find adduser login su crontab ps ; do
+	        ln -sf /static/bin/busybox_smack /static/bin/$i
+	    done
+	    for i in sulogin crond newsmack smackcipso smackenabled smackload ; do
+	        ln -sf /static/bin/busybox_smack /static/sbin/$i
+	    done
+	    # Set some security labels (we need /usr/bin/attr or /static/bin/attr here!)
+	    printf "$bold===> xattr on tmpfs root filesystem might be set here\n"
+	    # Mount smackfs
+	    mkdir /smack > /dev/null 2>&1
+	    mount -t smackfs smackfs /smack
+	    # load the appropriate rules and users
+	    if [ -f /etc/smack/accesses ] ; then
+		smackload < /etc/smack/accesses
+	    fi
+            if [ -f /etc/smack/cipso ] ; then
+                smackcipso < /etc/smack/cipso
+            fi
+            if [ -f /etc/smack/ambient ] ; then
+                cat /etc/smack/ambient > /smack/ambient
+            fi
+            if [ -f /etc/smack/nltype ] ; then
+                cat /etc/smack/nltype > /smack/nltype
+            fi
+	    if [ -f /etc/smack/netlabel ] ; then
+                echo '127.0.0.1/32 @' > /smack/netlabel
+		echo '0.0.0.0/0 outgoing' > /smack/netlabel
+            fi
+	fi
+    ;;
+esac
+
+# END		]]>
+		</scriptdata>
+		<!-- ACHTUNG: /etc/smack/accesses darf nicht auf Newline enden -->
+		<scriptdata location="/etc/smack/accesses" mode="0644" group="0" owner="0">
+		<![CDATA[internet	_		rwxa
+_ 		internet	rwxa
+internet	usrbin		r---
+_		usrbin		r-x-
+netmgr		usrbin		r-x-
+_		netmgr		rwx-
+internet	outgoing	rw--
+netmgr		outgoing	rw--
+outgoing	internet	rw--
+outgoing	netmgr          rw--]]>
+		</scriptdata>
+		<scriptdata location="/etc/smack/user" mode="0644" group="0" owner="0">
+		<![CDATA[root _ +
+surfer _ internet
+]]>
+		</scriptdata>
+		<scriptdata location="/etc/smack/netlabel" mode="0644" group="0" owner="0">
+		<![CDATA[127.0.0.1/32 @
+0.0.0.0/0 outgoing
+]]>
+		</scriptdata>
+		<scriptdata location="/etc/rc.d/0112-mountcdrom.sh" mode="0755" group="0" owner="0">
+		<![CDATA[#!/static/bin/ash
+
+#lesslinux provides mountcdrom
+#lesslinux license BSD
+
+PATH=/static/bin:/static/sbin:/bin:/sbin:/usr/bin:/usr/sbin
+export PATH
+
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors
+				
+case $1 in
+    start)
+        if [ -f /var/run/lesslinux/cdfound ] ; then
+	    printf "$bold===> Skip search for LESSLINUX CDROM $normal\n"
+	else
+	    printf "$bold===> Searching for LESSLINUX CDROM $normal\n"
+            volid=` echo "$searchiso" | awk -F '|' '{print $2}' `
+	    bytecount=` echo "$searchiso" | awk -F '|' '{print $3}' `
+	    ddoffset=36905
+	    cddevices="` ls /dev/sr[0-9] 2> /dev/null `"
+	    for i in ` seq $usbwait ` ; do
+	        if [ -z "$cddevices" ] ; then
+	            for i in /dev/sr[0-9] ; do
+	                if [ -b "$i" ] ; then
+		            cddevices=$cddevices" "$i
+		        fi
+		    done
+		    test -z "$cddevices" && printf "---> Still searching CDROM \n"
+		    sleep 5 && mdev -s
+		fi
+	    done
+            for i in $cddevices ; do
+                ddvolid=` dd if=$i bs=1 skip=$ddoffset count=$bytecount 2> /dev/null `
+	        if [ "$volid" = "$ddvolid" ] ; then
+	            mkdir -p /lesslinux/cdrom
+		    echo -n "$i" > /var/run/lesslinux/install_source
+		    mount $i /lesslinux/cdrom && touch /var/run/lesslinux/cdfound
+	            exit 0
+	        fi
+	    done
+	fi
+    ;;
+esac
+		
+# The end	]]>
+		</scriptdata>
+		<modlist provides="mountcdrom" hwenv="default">
+			<module>crc16</module>
+			<module>crc7</module>
+			<module>crc-ccitt</module>
+			<module>crc-itu-t</module>
+			<module>crc-t10dif</module>
+			<module>libcrc32c</module>
+			<module>zlib_deflate</module>
+			<module>zlib_inflate</module>
+			<module>scsi_mod</module>
+			<module>cdrom</module>
+			<module>sr_mod</module>
+			<module>sg</module>
+			<module>sd_mod</module>
+			<module>mbcache</module>
+			<module>libata</module>
+			<module>pata_acpi</module>
+			<module>ata_piix</module>
+			<module>ata_generic</module>
+			<module>isofs</module>
+			<module>usbcore</module>
+			<module>ehci-hcd</module>
+			<module>uhci-hcd</module>
+			<module>ohci-hcd</module>
+			<module>usb-storage</module>
+			<module>ahci</module>
+			<module>pata_amd</module>
+			<module>pata_ali</module>
+			<module>pata_atiixp</module>
+			<module>pata_atiixp</module>
+			<module>pata_cmd640</module>
+			<module>pata_cmd64x</module>
+			<module>pata_cs5520</module>
+			<module>pata_cs5530</module>
+			<module>pata_cs5535</module>
+			<module>pata_cs5536</module>
+			<module>pata_cypress</module>
+			<module>pata_efar</module>
+			<module>pata_sis</module>
+			<module>pata_via</module>
+			<module>pata_marvell</module>
+			<module>sata_mv</module>
+			<module>sata_nv</module>
+			<module>sata_promise</module>
+			<module>sata_qstor</module>
+			<module>sata_sil</module>
+			<module>sata_sil24</module>
+			<module>sata_sis</module>
+			<module>sata_uli</module>
+			<module>sata_via</module>
+			<module>sata_vsc</module>
+			<!-- and again -->
+			<module>ahci</module>
+			<module>pata_amd</module>
+			<module>pata_ali</module>
+			<module>pata_atiixp</module>
+			<module>pata_atiixp</module>
+			<module>pata_cmd640</module>
+			<module>pata_cmd64x</module>
+			<module>pata_cs5520</module>
+			<module>pata_cs5530</module>
+			<module>pata_cs5535</module>
+			<module>pata_cs5536</module>
+			<module>pata_cypress</module>
+			<module>pata_efar</module>
+			<module>pata_sis</module>
+			<module>pata_via</module>
+			<module>pata_marvell</module>
+			<module>sata_mv</module>
+			<module>sata_nv</module>
+			<module>sata_promise</module>
+			<module>sata_qstor</module>
+			<module>sata_sil</module>
+			<module>sata_sil24</module>
+			<module>sata_sis</module>
+			<module>sata_uli</module>
+			<module>sata_via</module>
+			<module>sata_vsc</module>
+			<module>sd_mod</module>
+			<module>mbcache</module>
+			<module>jbd</module>
+			<module>ext3</module>
+			<module>fat</module>
+			<module>vfat</module>
+			<!-- and again -->
+			<module>usbcore</module>
+			<module>ehci-hcd</module>
+			<module>uhci-hcd</module>
+			<module>ohci-hcd</module>
+			<module>libusual</module>
+			<module>usb-storage</module>
+			<module>sd_mod</module>
+		</modlist>
+		<modlist provides="mountcdrom" hwenv="vmware">
+			<module>crc16</module>
+			<module>crc7</module>
+			<module>crc-ccitt</module>
+			<module>crc-itu-t</module>
+			<module>crc-t10dif</module>
+			<module>libcrc32c</module>
+			<module>zlib_deflate</module>
+			<module>zlib_inflate</module>
+			<module>scsi_mod</module>
+			<module>cdrom</module>
+			<module>sr_mod</module>
+			<module>sg</module>
+			<module>sd_mod</module>
+			<module>libata</module>
+			<module>pata_acpi</module>
+			<module>ata_piix</module>
+			<module>ata_generic</module>
+			<module>isofs</module>
+		</modlist>
+		<!--<scriptdata location="/etc/rc.d/0104-loadata.sh" mode="0755" group="0" owner="0">
+		<![CDATA[#!/static/bin/ash
+		
+#lesslinux provides loadata
+#lesslinux license BSD
+
+PATH=/static/bin:/static/sbin:/bin:/sbin:/usr/bin:/usr/sbin
+export PATH
+
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors
+
+case $1 in 
+    start)
+	printf "$bold===> Load additional ATA and SATA drivers $normal\n"
+    ;;
+esac
+		]]>
+		</scriptdata>
+		<modlist provides="loadata" hwenv="default">
+			<module>ahci</module>
+			<module>pata_amd</module>
+			<module>pata_ali</module>
+			<module>pata_atiixp</module>
+			<module>pata_atiixp</module>
+			<module>pata_cmd640</module>
+			<module>pata_cmd64x</module>
+			<module>pata_cs5520</module>
+			<module>pata_cs5530</module>
+			<module>pata_cs5535</module>
+			<module>pata_cs5536</module>
+			<module>pata_cypress</module>
+			<module>pata_efar</module>
+			<module>pata_sis</module>
+			<module>pata_via</module>
+			<module>pata_marvell</module>
+			<module>sata_mv</module>
+			<module>sata_nv</module>
+			<module>sata_promise</module>
+			<module>sata_qstor</module>
+			<module>sata_sil</module>
+			<module>sata_sil24</module>
+			<module>sata_sis</module>
+			<module>sata_uli</module>
+			<module>sata_via</module>
+			<module>sata_vsc</module>
+			<module>sd_mod</module>
+			<module>mbcache</module>
+			<module>nls_cp437</module>
+			<module>nls_cp1250</module>
+			<module>nls_iso8859-1</module>
+			<module>nls_iso8859-15</module>
+			<module>nls_utf8</module>
+			<module>jbd</module>
+			<module>ext3</module>
+			<module>fat</module>
+			<module>vfat</module>
+		</modlist>-->
+		<scriptdata location="/etc/rc.d/0110-mountumass.sh" mode="0755" group="0" owner="0">
+		<![CDATA[#!/static/bin/ash
+		
+#lesslinux provides mountumass
+#lesslinux patience
+#lesslinux license BSD
+
+PATH=/static/bin:/static/sbin:/bin:/sbin:/usr/bin:/usr/sbin
+export PATH
+
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors
+
+case $1 in 
+    start)
+        if [ -f /var/run/lesslinux/cdfound ] ; then
+	    printf "$bold===> Skip search for LESSLINUX USB/HDD $normal\n"
+	else
+	    printf "$bold===> Searching for LESSLINUX USB/HDD $normal\n"
+	    for i in ` seq $usbwait ` ; do
+		parts=` fdisk -l | grep -E ' FAT| Linux' | awk '{ print $1}' `
+		mkdir -p /lesslinux/cdrom
+		for i in $parts ; do
+		    mount -o "$hwmode" "$i" /lesslinux/cdrom
+		    if [ -f /lesslinux/cdrom/$contdir/mount.txt ] ; then
+			echo -n "$i" > /var/run/lesslinux/install_source
+			touch /var/run/lesslinux/usbfound
+			touch /var/run/lesslinux/cdfound
+			exit 0
+		    else
+			umount /lesslinux/cdrom
+		    fi
+		done
+		[ '!' -f /var/run/lesslinux/cdfound ] && sleep 5 && mdev -s
+	    done
+	fi
+    ;;
+esac
+
+# The end	]]>
+		</scriptdata>
+		<modlist provides="mountumass" hwenv="default">
+			<module>crc16</module>
+			<module>crc7</module>
+			<module>crc-ccitt</module>
+			<module>crc-itu-t</module>
+			<module>crc-t10dif</module>
+			<module>libcrc32c</module>
+			<module>zlib_deflate</module>
+			<module>zlib_inflate</module>
+			<module>scsi_mod</module>
+			<module>sg</module>
+			<module>sd_mod</module>
+			<module>mbcache</module>
+			<module>usbcore</module>
+			<module>libusual</module>
+			<module>ehci-hcd</module>
+			<module>uhci-hcd</module>
+			<module>ohci-hcd</module>
+			<module>usb-storage</module>
+			<module>sd_mod</module>
+			<module>nls_cp437</module>
+			<module>nls_cp1250</module>
+			<module>nls_iso8859-1</module>
+			<module>nls_iso8859-15</module>
+			<module>nls_utf8</module>
+			<module>jbd</module>
+			<module>ext3</module>
+			<module>fat</module>
+			<module>vfat</module>
+		</modlist>
+		<scriptdata location="/etc/rc.d/0114-ejectcdrom.sh" mode="0755" group="0" owner="0">
+		<![CDATA[#!/static/bin/ash
+		
+#lesslinux provides eject
+#lesslinux license BSD
+
+PATH=/static/bin:/static/sbin:/bin:/sbin:/usr/bin:/usr/sbin
+export PATH
+
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors
+
+case $1 in 
+    start)
+        if [ "$ejectonumass" -gt 0 ] ; then
+	    volid=` echo "$searchiso" | awk -F '|' '{print $2}' `
+	    bytecount=` echo "$searchiso" | awk -F '|' '{print $3}' `
+	    ddoffset=36905
+	    cddevices="` ls /dev/sr[0-9] 2> /dev/null `"
+	    for cddev in $cddevices ; do 
+	        ddvolid=` dd if=$cddev bs=1 skip=$ddoffset count=$bytecount 2> /dev/null `
+	        [ "$volid" = "$ddvolid" ] && \
+		    [ -f /var/run/lesslinux/usbfound ] && \
+		    /static/bin/eject $cddev
+	    done
+	fi
+    ;;
+esac
+		]]>
+		</scriptdata>
+		<scriptdata location="/etc/rc.d/0140-mountcontainer.sh" mode="0755" group="0" owner="0">
+		<![CDATA[#!/static/bin/ash
+
+#lesslinux provides mountcontainer
+#lesslinux patience
+#lesslinux license BSD
+
+PATH=/static/bin:/static/sbin:/bin:/sbin:/usr/bin:/usr/sbin
+export PATH
+
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors
+		
+mem_avail=` cat /proc/meminfo | grep MemTotal | awk '{print $2}' `
+mediadir=cdrom
+		
+case $1 in
+    start)
+        [ '!' -f  /var/run/lesslinux/cdfound ] && \
+	    printf "$bold===> Prerequisite for LESSLINUX containers not available         $failed $normal\n" && \
+	    exit 1
+	if mountpoint /lesslinux/cdrom > /dev/null 2>&1 ; then
+            printf "$bold===> Searching for LESSLINUX containers $normal\n"
+ 	    if [ "$mem_avail" -gt "$toram" ] 2> /dev/null ; then
+	        printf "$bold===> Copying LESSLINUX containers to RAM $normal\n"
+	        mkdir -p /lesslinux/toram/$contdir
+	        cp /lesslinux/cdrom/$contdir/* /lesslinux/toram/$contdir/
+	        # Check SHA1
+	        if [ "$skipcheck" -lt 1 ] ; then
+		    if ( cd /lesslinux/toram/$contdir/ ; sha1sum -c squash.sha ) ; then
+		        printf "$bold---> Check of squash containers succeeded $normal\n"
+	            else
+                        printf "$bold---> Check of squash containers...                               $failed $normal\n"
+	                printf "$bold     Press ENTER to continue $normal \n"
+	                read nix
+	            fi
+		    if ( cd /lesslinux/cdrom/boot/isolinux/ ; sha1sum -c /lesslinux/toram/$contdir/boot.sha ) ; then
+	                printf "$bold---> Check of boot files succeeded $normal\n"
+	            else
+                        printf "$bold---> Check of boot files...                                      $failed $normal\n"
+	                printf "$bold     Press ENTER to continue $normal \n"
+	                read nix
+	            fi
+	        fi
+	        umount /lesslinux/cdrom
+	        mediadir=toram
+	    else
+		if [ "$skipcheck" -lt 1 ] ; then
+	            if ( cd /lesslinux/cdrom/$contdir/ ; sha1sum -c squash.sha ) ; then
+	                printf "$bold---> Check of squash containers succeeded $normal\n"
+	            else
+                        printf "$bold---> Check of squash containers...                               $failed $normal\n"
+	                printf "$bold     Press ENTER to continue $normal \n"
+	                read nix
+	            fi
+	            if ( cd /lesslinux/cdrom/boot/isolinux/ ; sha1sum -c /lesslinux/cdrom/$contdir/boot.sha ) ; then
+	                printf "$bold---> Check of boot files succeeded $normal\n"
+	            else
+                        printf "$bold---> Check of boot files...                                      $failed $normal\n"
+	                printf "$bold     Press ENTER to continue $normal \n"
+	                read nix
+	            fi
+	        fi
+	    fi
+	fi
+	cat /lesslinux/$mediadir/$contdir/mount.txt | while read fs
+	do
+	    mdev -s
+	    case $fs in
+		'#'*|'')
+			true
+		;;
+		*)
+		    container=` echo $fs | awk '{print $1}' `
+		    if [ -n "$container" ] ; then
+		        mountpoint=` echo $fs | awk '{print $2}' `
+			mkdir -p $mountpoint > /dev/null 2>&1
+			if [ "$security" = "smack" ] ; then
+				if [ "$container" = "opt.sqs" ] ; then
+					smackopts=',smackfsdef=internet,smackfsroot=internet'
+				elif [ "$container" = "usrbin.sqs" ] ; then
+					smackopts=',smackfsdef=usrbin,smackfsroot=usrbin'
+				else
+					smackopts=''
+				fi
+				mount -o loop,ro,"$smackopts" /lesslinux/$mediadir/$contdir/$container $mountpoint
+			else
+				mount -o loop,ro /lesslinux/$mediadir/$contdir/$container $mountpoint
+			fi
+		    fi
+		;;
+	    esac
+	done
+	mount -t tmpfs -o mode=0755 tmpfs /lib/modules
+	release=` uname -r `
+	mkdir /lib/modules/$release
+	modcontainer=` grep -E "^${release}"' ' /lesslinux/$mediadir/$contdir/modules.txt | awk '{print $2}' `
+	mount -o loop,ro /lesslinux/$mediadir/$contdir/$modcontainer /lib/modules/$release
+    ;;
+esac
+		
+# The end	]]>
+		</scriptdata>
+		<modlist provides="mountcontainer" hwenv="default">
+			<module>loop</module>
+			<module>squashfs</module>
+		</modlist>
+		<!--<scriptdata location="/etc/rc.d/0148-iptables.sh" mode="0755" group="0" owner="0">
+		<![CDATA[#!/static/bin/ash
+		
+#lesslinux provides fw-old
+#lesslinux license BSD
+#lesslinux description
+# Start iptables firewall with very simple rules
+
+PATH=/static/bin:/static/sbin:/bin:/sbin:/usr/bin:/usr/sbin
+export PATH
+
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors
+
+case $1 in
+    start)
+	#any="0/0"
+	#iptables --flush
+	#printf "$bold===> Starting firewall $normal\n"
+	#for i in `seq 0 9 ` ; do
+	#	# FIXME: read interfaces from /proc/net/dev rather than guessing
+	#	for j in ` echo "${iptables_open}" | sed 's/|/ /g' ` ; do
+	#		iptables -A INPUT -i eth${i} -p tcp -s ${any} -d ${any} --destination-port ${incoming} -syn -j ACCEPT
+	#	done
+	#	iptables -A INPUT -i eth${i} -m state --state ESTABLISHED,RELATED -j ACCEPT
+	#	iptables -A INPUT -i eth${i} -j DROP
+	#done
+    ;;
+    stop)
+	#printf "$bold===> Stopping firewall $normal\n"
+	#iptables --flush
+    ;;
+esac
+
+# The end       ]]>		
+		</scriptdata>-->
+		<scriptdata location="/etc/rc.d/0160-keymap.sh" mode="0755" group="0" owner="0">
+		<![CDATA[#!/static/bin/ash
+		
+#lesslinux provides keymap
+#lesslinux license BSD
+#lesslinux description
+# Set keymap according to choice of language
+
+PATH=/static/bin:/static/sbin:/bin:/sbin:/usr/bin:/usr/sbin
+export PATH
+
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors
+		
+case $1 in
+    start)
+	printf "$bold===> Setting keymap                                              "
+	if [ -n "$keymap" ] && loadkeys "$keymap" > /dev/null 2>&1 ; then
+	    printf "$success"
+	else
+	    printf "$failed"
+	fi
+    ;;
+esac
+
+# END		]]>
+		</scriptdata>
+		<scriptdata location="/etc/rc.d/0170-modload.sh" mode="0755" group="0" owner="0">
+		<![CDATA[#!/static/bin/ash
+		
+#lesslinux provides modload
+#lesslinux license BSD
+#lesslinux description
+# Load modules for USB and PCI devices
+
+PATH=/bin:/sbin:/usr/bin:/usr/sbin:/static/bin:/static/sbin
+export PATH
+
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors
+		
+case $1 in
+    start)
+	printf "$bold===> Loading additional drivers $normal"
+	mountpoint /proc/bus/usb || mount -t usbfs usbfs /proc/bus/usb
+	/usr/bin/llmodloader.rb
+	modprobe -v sr_mod
+	mdev -s
+    ;;
+esac
+
+# END		]]>
+		</scriptdata>
+		<scriptdata location="/etc/rc.d/0171-iptables.sh" mode="0755" group="0" owner="0">
+		<![CDATA[#!/static/bin/ash
+		
+#lesslinux provides firewall
+#lesslinux license BSD
+#lesslinux description
+# Start iptables firewall with very simple rules
+
+PATH=/bin:/sbin:/usr/bin:/usr/sbin:/static/bin:/static/sbin
+export PATH
+
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors
+
+case $1 in
+    start)
+	printf "$bold===> Starting firewall $normal\n"
+	# Module laden
+	modprobe ip_tables
+	modprobe ip_conntrack
+	modprobe ip_conntrack_irc
+	modprobe ip_conntrack_ftp
+
+	# Tabelle flushen
+	iptables -F
+	iptables -t nat -F
+	iptables -t mangle -F
+	iptables -X
+	iptables -t nat -X
+	iptables -t mangle -X
+
+	# Default-Policies setzen
+	iptables -P INPUT DROP
+	iptables -P OUTPUT DROP
+	iptables -P FORWARD DROP
+
+	# MY_REJECT-Chain
+	iptables -N MY_REJECT
+
+	# MY_REJECT fuellen
+	iptables -A MY_REJECT -p tcp -m limit --limit 7200/h -j LOG --log-prefix "REJECT TCP "
+	iptables -A MY_REJECT -p tcp -j REJECT --reject-with tcp-reset
+	iptables -A MY_REJECT -p udp -m limit --limit 7200/h -j LOG --log-prefix "REJECT UDP "
+	iptables -A MY_REJECT -p udp -j REJECT --reject-with icmp-port-unreachable
+	iptables -A MY_REJECT -p icmp -m limit --limit 7200/h -j LOG --log-prefix "DROP ICMP "
+	iptables -A MY_REJECT -p icmp -j DROP
+	iptables -A MY_REJECT -m limit --limit 7200/h -j LOG --log-prefix "REJECT OTHER "
+	iptables -A MY_REJECT -j REJECT --reject-with icmp-proto-unreachable
+
+	# MY_DROP-Chain
+	iptables -N MY_DROP
+	iptables -A MY_DROP -m limit --limit 7200/h -j LOG --log-prefix "PORTSCAN DROP "
+	iptables -A MY_DROP -j DROP
+
+	# Alle verworfenen Pakete protokollieren
+	iptables -A INPUT -m state --state INVALID -m limit --limit 7200/h -j LOG --log-prefix "INPUT INVALID "
+	iptables -A OUTPUT -m state --state INVALID -m limit --limit 7200/h -j LOG --log-prefix "OUTPUT INVALID "
+	iptables -A FORWARD -m state --state INVALID -m limit --limit 7200/h -j LOG --log-prefix "FORWARD INVALID "
+
+	# Korrupte Pakete zurueckweisen
+	iptables -A INPUT -m state --state INVALID -j DROP
+	iptables -A OUTPUT -m state --state INVALID -j DROP
+	iptables -A FORWARD -m state --state INVALID -j DROP
+
+	# Stealth Scans etc.
+	iptables -A INPUT -p tcp --tcp-flags ALL NONE -j MY_DROP
+	iptables -A FORWARD -p tcp --tcp-flags ALL NONE -j MY_DROP
+	iptables -A INPUT -p tcp --tcp-flags SYN,FIN SYN,FIN -j MY_DROP
+	iptables -A FORWARD -p tcp --tcp-flags SYN,FIN SYN,FIN -j MY_DROP
+	iptables -A INPUT -p tcp --tcp-flags SYN,RST SYN,RST -j MY_DROP
+	iptables -A FORWARD -p tcp --tcp-flags SYN,RST SYN,RST -j MY_DROP
+	iptables -A INPUT -p tcp --tcp-flags FIN,RST FIN,RST -j MY_DROP
+	iptables -A FORWARD -p tcp --tcp-flags FIN,RST FIN,RST -j MY_DROP
+	iptables -A INPUT -p tcp --tcp-flags ACK,FIN FIN -j MY_DROP
+	iptables -A FORWARD -p tcp --tcp-flags ACK,FIN FIN -j MY_DROP
+	iptables -A INPUT -p tcp --tcp-flags ACK,PSH PSH -j MY_DROP
+	iptables -A FORWARD -p tcp --tcp-flags ACK,PSH PSH -j MY_DROP
+	iptables -A INPUT -p tcp --tcp-flags ACK,URG URG -j MY_DROP
+	iptables -A FORWARD -p tcp --tcp-flags ACK,URG URG -j MY_DROP
+
+	# Loopback-Netzwerk-Kommunikation zulassen
+	iptables -A INPUT -i lo -j ACCEPT
+	iptables -A OUTPUT -o lo -j ACCEPT
+
+	# Maximum Segment Size (MSS) fuer das Forwarding an PMTU anpassen
+	iptables -A FORWARD -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu
+
+	# Connection-Tracking aktivieren
+	iptables -A OUTPUT -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+	iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+
+	# Default-Policies mit REJECT
+	iptables -A INPUT -j MY_REJECT
+	iptables -A OUTPUT -j MY_REJECT
+	iptables -A FORWARD -j MY_REJECT
+
+	# Routing
+	echo 0 > /proc/sys/net/ipv4/ip_forward 2> /dev/null
+
+	echo 1 > /proc/sys/net/ipv4/tcp_syncookies 2> /dev/null
+	for i in /proc/sys/net/ipv4/conf/*; do echo 0 > $i/accept_source_route 2> /dev/null; done
+	for i in /proc/sys/net/ipv4/conf/*; do echo 0 > $i/accept_redirects 2> /dev/null; done
+	for i in /proc/sys/net/ipv4/conf/*; do echo 2 > $i/rp_filter 2> /dev/null; done
+	for i in /proc/sys/net/ipv4/conf/*; do echo 1 > $i/log_martians 2> /dev/null; done
+	for i in /proc/sys/net/ipv4/conf/*; do echo 0 > $i/bootp_relay 2> /dev/null; done
+	for i in /proc/sys/net/ipv4/conf/*; do echo 0 > $i/proxy_arp 2> /dev/null; done
+
+	echo 1 > /proc/sys/net/ipv4/icmp_ignore_bogus_error_responses 2> /dev/null
+	echo 1 > /proc/sys/net/ipv4/icmp_echo_ignore_broadcasts 2> /dev/null
+
+	# Max. 500/Sekunde (5/Jiffie) senden
+	echo 5 > /proc/sys/net/ipv4/icmp_ratelimit
+
+	# Speicherallozierung und -timing f�r IP-De/-Fragmentierung
+	echo 262144 > /proc/sys/net/ipv4/ipfrag_high_thresh
+	echo 196608 > /proc/sys/net/ipv4/ipfrag_low_thresh
+	echo 30 > /proc/sys/net/ipv4/ipfrag_time
+
+	# TCP-FIN-Timeout zum Schutz vor DoS-Attacken setzen
+	echo 30 > /proc/sys/net/ipv4/tcp_fin_timeout
+
+	# Maximal 3 Antworten auf ein TCP-SYN
+	echo 3 > /proc/sys/net/ipv4/tcp_retries1
+
+	# TCP-Pakete maximal 15x wiederholen
+	echo 15 > /proc/sys/net/ipv4/tcp_retries2
+    ;;
+    stop)
+	printf "$bold===> Stopping firewall $normal\n"
+	iptables -F
+	iptables -t nat -F
+	iptables -t mangle -F
+	iptables -X
+	# iptables -t nat -X
+	iptables -t mangle -X
+	# echo 0 > /proc/sys/net/ipv4/ip_forward
+
+	# Default-Policies setzen
+	iptables -P INPUT ACCEPT
+	iptables -P OUTPUT ACCEPT
+	iptables -P FORWARD ACCEPT
+    ;;
+esac
+
+# The end       ]]>		
+		</scriptdata>
+		<scriptdata location="/etc/rc.d/0172-alsaprepare.sh" mode="0755" group="0" owner="0">
+		<![CDATA[#!/static/bin/ash
+		
+#lesslinux provides alsaprepare
+#lesslinux license BSD
+#lesslinux description
+# Load some alsa modules
+
+PATH=/bin:/sbin:/usr/bin:/usr/sbin:/static/bin:/static/sbin
+export PATH
+
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors
+		
+case $1 in
+    start)
+	printf "$bold===> Preparing sound $normal"
+	# Load modules
+	for i in snd_pcm_oss snd_mixer_oss snd_hda_codec snd_pcm snd_timer ; do
+	    modprobe -v $i
+	done
+	mdev -s
+	# Make nodes, not war
+	mkdir -m 0755 /dev/snd
+	# crw-rw----+  1 root audio 116,  0 2009-06-11 09:38 controlC0
+	mknod /dev/snd/controlC0	c 116  0
+	# crw-rw----+  1 root audio 116,  4 2009-06-11 09:38 hwC0D0
+	mknod /dev/snd/hwC0D0		c 116  4
+	# crw-rw----+  1 root audio 116, 24 2009-06-11 09:38 pcmC0D0c
+	mknod /dev/snd/pcmC0D0c		c 116 24
+	# crw-rw----+  1 root audio 116, 16 2009-06-25 09:59 pcmC0D0p
+	mknod /dev/snd/pcmC0D0p		c 116 16
+	# crw-rw----+  1 root audio 116, 17 2009-06-11 09:38 pcmC0D1p
+	mknod /dev/snd/pcmC0D1p		c 116 17
+	# crw-rw----+  1 root audio 116, 26 2009-06-11 09:38 pcmC0D2c
+	mknod /dev/snd/pcmC0D2c		c 116 26
+	# crw-rw----+  1 root audio 116,  1 2009-06-11 09:38 seq
+	mknod /dev/snd/seq		c 116 1
+	# crw-rw----+  1 root audio 116, 33 2009-06-11 09:38 timer
+	mknod /dev/snd/timer		c 116 33
+	mknod /dev/mixer		c  14  0
+	chown root:audio /dev/snd/* /dev/mixer
+	chmod 0660 /dev/snd/* /dev/mixer
+    ;;
+esac
+
+# END		]]>
+		</scriptdata>
+		
+		
+		<scriptdata location="/etc/rc.d/0180-xprepare.sh" mode="0755" group="0" owner="0">
+		<![CDATA[#!/static/bin/ash
+		
+#lesslinux provides xprepare
+#lesslinux license BSD
+#lesslinux description
+# Prepare some modules needed by Xserver
+
+PATH=/static/bin:/static/sbin:/bin:/sbin:/usr/bin:/usr/sbin
+export PATH
+
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors
+		
+case $1 in
+    start)
+	printf "$bold===> Preparing start of X-Server	                         "
+	# FIXME: Mount some overlay filesystems for xkbcomp and stuff here
+	mount -t tmpfs -o mode=0755 tmpfs /usr/var
+	mkdir /usr/var/log/
+	mkdir -p /usr/var/run/dbus
+	mount -t tmpfs -o mode=0755 tmpfs /usr/share/X11/xkb/compiled
+	mkdir -p /etc/dbus-1/session.d/
+	printf "$success"
+    ;;
+    stop)
+	umount /usr/var > /dev/null 2>&1
+	umount /usr/share/X11/xkb/compiled > /dev/null 2>&1
+    ;;
+esac
+
+# END		]]>
+		</scriptdata>
+		<modlist provides="xprepare" hwenv="default">
+			<module>psmouse</module>
+			<module>usbcore</module>
+			<module>ehci-hcd</module>
+			<module>uhci-hcd</module>
+			<module>ohci-hcd</module>
+			<module>hid</module>
+			<module>usbhid</module>
+		</modlist>
+		<modlist provides="xprepare" hwenv="vmware">
+			<module>psmouse</module>
+		</modlist>
+		<scriptdata location="/etc/rc.d/0189-hwinfo.sh" mode="0755" group="0" owner="0">
+		<![CDATA[#!/static/bin/ash
+		
+#lesslinux provides hwinfo
+#lesslinux license BSD
+
+PATH=/static/bin:/static/sbin:/bin:/sbin:/usr/bin:/usr/sbin
+export PATH
+
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors
+
+case $1 in 
+    start)
+	printf "$bold===> Preparing hardware information $normal\n"
+	now=` date +%Y%m%d-%H%M `
+	mkdir /tmp/hwinfo
+        lshw-static -xml -sanitize > /tmp/hwinfo/lshw.xml
+	lshw-static -html -sanitize > /tmp/hwinfo/lshw.html
+	lshw-static -short -sanitize > /tmp/hwinfo/lshw.txt
+	Xvesa -listmodes 2> /tmp/hwinfo/vesamodes.txt
+	cat /proc/cpuinfo > /tmp/hwinfo/cpuinfo.txt
+	cat /proc/meminfo > /tmp/hwinfo/meminfo.txt
+	lsmod > /tmp/hwinfo/lsmod.txt
+	( cd /tmp && tar cjf hwinfo_${now}.tbz hwinfo )
+    ;;
+esac
+
+# The end	]]>
+		</scriptdata>
+	</scripts>
+	<package name="busybox" version="1.13.2" allowfail="yes">
+		<sources>
+			<!--<file>
+				<pkg sha1="8db5134f70b058b4bf401838ef71965f02a258e9">busybox-1.13.3-static-ulibc-i686.tar.bz2</pkg>
+				<mirror>http://distfiles.lesslinux.org/busybox/</mirror>
+			</file>-->
+			<file>
+				<pkg sha1="3c66476ca9b0e7a43614bcbf4e715e5763bffd30">busybox-1.13.2-static-ulibc-i686.tar.gz</pkg>
+				<mirror>http://distfiles.lesslinux.org/busybox/</mirror>
+			</file>
+			<file>
+				<pkg sha1="1c79e0eb88281bf4f734ab934a2d9f1d1b00de60">busybox-1.7.2-smack-static-ulibc-i686.tar.gz</pkg>
+				<mirror>http://distfiles.lesslinux.org/busybox/</mirror>
+			</file>
+			<file>  
+				<pkg sha1="b2cf429624be03fcc4c291277f069550c2263085">surfer-20090730.tgz</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+			<file>
+				<pkg sha1="4b68431d95106288d21f43db97c516900d524176">desktop-cb-20090713.jpg</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+			<file>
+				<pkg sha1="b795e19b88381434eb64c03beeff39e510d6d5f0">desktop-cb-20090713.png</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+		</sources>
+		<unpack>
+		<![CDATA[ 
+		tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}-static-ulibc-i686.tar.gz
+		tar xzf ${SRCDIR}/${PKGNAME}-1.7.2-smack-static-ulibc-i686.tar.gz
+		]]>
+		</unpack>
+		<install>
+		<![CDATA[ 
+		# rsync -avHP ${PKGNAME}-${PKGVERSION}-static-ulibc-i686/_install/ ${INITRAMFS}/static/
+		rsync -avHP ${PKGNAME}-${PKGVERSION}/_install/ ${INITRAMFS}/static/
+		rsync -avHP ${PKGNAME}-1.7.2-smack-static-ulibc-i686/_install/bin/busybox ${INITRAMFS}/static/bin/busybox_smack
+		install -m 0644 ${SRCDIR}/surfer-20090730.tgz ${INITRAMFS}/etc/lesslinux/skel/surfer.tgz
+		install -m 0644 ${SRCDIR}/desktop-cb-20090713.jpg ${INITRAMFS}/etc/lesslinux/branding/computerbild/desktop-cb-20090707.jpg
+		install -m 0644 ${SRCDIR}/desktop-cb-20090713.png ${INITRAMFS}/etc/lesslinux/branding/computerbild/desktop.png
+		ln -s desktop-cb-20090707.jpg ${INITRAMFS}/etc/lesslinux/branding/computerbild/desktop.jpg
+		date '+area51-%Y%m%d-%H%M%S' > ${INITRAMFS}/etc/lesslinux/updater/version.txt
+		]]>
+		</install>
+	</package>
+</llpackages>

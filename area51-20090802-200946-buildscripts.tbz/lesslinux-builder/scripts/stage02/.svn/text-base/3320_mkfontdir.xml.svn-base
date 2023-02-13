@@ -1,0 +1,35 @@
+<llpackages>
+	<package 
+		name="mkfontdir"
+		version="1.0.4"
+		class="devel"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>      
+				<pkg sha1="1e52e7c42c783435ea72e69bd4adb976e62a9d96">mkfontdir-1.0.4.tar.bz2</pkg>
+				<mirror>http://xorg.freedesktop.org/archive/individual/app/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

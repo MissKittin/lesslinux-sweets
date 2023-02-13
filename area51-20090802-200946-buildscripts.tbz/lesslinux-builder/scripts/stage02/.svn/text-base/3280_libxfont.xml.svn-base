@@ -1,0 +1,35 @@
+<llpackages>
+	<package 
+		name="libXfont"
+		version="1.3.3"
+		class="devel"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>      
+				<pkg sha1="bfbdd25239ef6cd515bb7afe888f0556454b34c7">libXfont-1.3.3.tar.bz2</pkg>
+				<mirror>http://xorg.freedesktop.org/archive/individual/lib/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

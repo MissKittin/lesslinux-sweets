@@ -1,0 +1,39 @@
+<llpackages>
+	<package 
+		name="abiword"
+		version="2.7.5"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>         
+				<pkg sha1="d64e48c36a14b9dbf3702dcccc5ae421f681f963">abiword-2.7.5.tar.gz</pkg>
+				<mirror>http://www.abisource.com/downloads/abiword/2.7.5/source/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --sysconfdir=/etc
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

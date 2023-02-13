@@ -1,0 +1,38 @@
+<llpackages>
+	<package 
+		name="wireless_tools"
+		version="29"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>
+				<pkg sha1="22040ac1497f4c5f8ddeca365591b01ae3475710">wireless_tools.29.tar.gz</pkg>
+				<mirror>http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}.${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}.${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}.${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}.${PKGVERSION}
+			make PREFIX=/usr
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}.${PKGVERSION}
+			make PREFIX=/usr install
+			]]>
+		</install>
+	</package>
+</llpackages>

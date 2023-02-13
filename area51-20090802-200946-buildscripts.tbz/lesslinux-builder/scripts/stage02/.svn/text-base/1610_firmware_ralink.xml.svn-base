@@ -1,0 +1,57 @@
+<llpackages>
+	<package 
+		name="firmware_ralink"
+		version="20090609"
+		class="user"
+		>
+		<license>proprietary</license>
+		<sources>
+			<file>
+				<pkg sha1="f5996f92373b69e3523da3dbc5565279ad960d44">RT2870_Firmware_V8.zip</pkg>
+				<mirror>http://www.ralinktech.com.tw/data/drivers/</mirror>
+			</file>
+			<file>
+				<pkg sha1="88fa25ab729c7e3b5486d8ee6bb5dc9fc10335be">RT2860_Firmware_V11.zip</pkg>
+				<mirror>http://www.ralinktech.com.tw/data/drivers/</mirror>
+			</file>
+			<file>
+				<pkg sha1="51541bec5cf2fe6ff46e46a0bb157b774d2ff050">RT71W_Firmware_V1.8.zip</pkg>
+				<mirror>http://www.ralinktech.com.tw/data/</mirror>
+			</file>
+			<file>
+				<pkg sha1="8a50899160d1ef1cd9770e4f0426930fb2b42a1b">RT61_Firmware_V1.2.zip</pkg>
+				<mirror>http://www.ralinktech.com.tw/data/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			for i in RT2870_Firmware_V8 RT2860_Firmware_V11 RT71W_Firmware_V1.8 RT61_Firmware_V1.2 ; do
+				mkdir ${i}_zip
+				cd ${i}_zip 
+				unzip ${SRCDIR}/${i}.zip
+				cd ..
+			done
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			echo 'Nothing to build!'
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			mkdir /lib/firmware
+			for i in RT2870_Firmware_V8 RT2860_Firmware_V11 RT71W_Firmware_V1.8 RT61_Firmware_V1.2 ; do
+				cd ${i}_zip/${i}
+				for j in *.bin ; do
+					install -m 0755 ${j} /lib/firmware/
+				done
+				cd ../..
+			done
+			chown -R 0:0 /lib/firmware/
+			]]>
+		</install>
+	</package>
+</llpackages>

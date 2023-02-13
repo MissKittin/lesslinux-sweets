@@ -1,0 +1,41 @@
+<llpackages>
+	<package 
+		name="xfce4-panel"
+		version="4.6.1"
+		class="lib"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>             
+				<pkg sha1="613c66f6402feba7983a7effb008f091182350d2">xfce4-panel-4.6.1.tar.bz2</pkg>
+				<mirror>http://www.xfce.org/archive/xfce-4.6.1/src/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --sysconfdir=/etc && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			/sbin/paxctl -m /usr/bin/xfce4-panel
+			/sbin/paxctl -m /usr/libexec/xfce4/panel-plugins/xfce4-menu-plugin
+			/sbin/paxctl -m /usr/libexec/xfce4/panel-plugins/thunar-tpa
+			]]>
+		</install>
+	</package>
+</llpackages>

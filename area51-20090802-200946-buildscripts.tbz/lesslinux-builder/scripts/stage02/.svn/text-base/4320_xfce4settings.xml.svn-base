@@ -1,0 +1,38 @@
+<llpackages>
+	<package 
+		name="xfce4-settings"
+		version="4.6.1"
+		class="lib"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>             
+				<pkg sha1="ab117c3923571e2437095fd165ac4bf392e658e0">xfce4-settings-4.6.1.tar.bz2</pkg>
+				<mirror>http://www.xfce.org/archive/xfce-4.6.1/src/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --sysconfdir=/etc && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

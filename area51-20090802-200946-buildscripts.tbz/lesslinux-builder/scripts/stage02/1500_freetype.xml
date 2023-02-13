@@ -1,0 +1,35 @@
+<llpackages>
+	<package 
+		name="freetype"
+		version="2.3.9"
+		class="lib"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>   
+				<pkg sha1="db08969cb5053879ff9e973fe6dd2c52c7ea2d4e">freetype-2.3.9.tar.bz2</pkg>
+				<mirror>http://heanet.dl.sourceforge.net/sourceforge/freetype/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

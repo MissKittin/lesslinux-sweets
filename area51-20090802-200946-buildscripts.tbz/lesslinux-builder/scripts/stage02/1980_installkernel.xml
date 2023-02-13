@@ -1,0 +1,33 @@
+<llpackages>
+	<package 
+		name="installkernel-debian"
+		version="2007"
+		class="devel"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>
+				<pkg sha1="5045a29a91b0ba952b36f84d3ac2339416972f80">installkernel-debian-2007.tar.gz</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			echo 'nothing to do!'
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			install installkernel /sbin/
+			]]>
+		</install>
+	</package>
+</llpackages>

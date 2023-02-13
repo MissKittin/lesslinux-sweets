@@ -1,0 +1,47 @@
+<llpackages>
+	<package 
+		name="thunderbird-source-de"
+		version="2.0.0.22"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file> 
+				<pkg sha1="e83623327be0b28f8e600fb2ceaa70680c64dbe7">thunderbird-2.0.0.22-source-de-20090705.tar.bz2</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/thunderbird-${PKGVERSION}-source-de-20090705.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd mozilla
+			# make -f client.mk clean
+			make -f client.mk build
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd mozilla
+			make -f client.mk install
+			
+			echo '#!/bin/sh' > /usr/bin/thunderbird
+			echo 'exec sudo /opt/thunderbird/bin/thunderbird_smack' >> /usr/bin/thunderbird
+			
+			chmod a+rx /usr/bin/thunderbird
+			
+			echo '#!/static/bin/ash' > /opt/thunderbird/bin/thunderbird_smack
+			echo '/static/sbin/newsmack internet /static/bin/su surfer -c /opt/thunderbird/bin/thunderbird' >>  /opt/thunderbird/bin/thunderbird_smack
+			
+			chmod a+rx /opt/thunderbird/bin/thunderbird_smack
+			
+			/sbin/paxctl -m /opt/thunderbird/lib/thunderbird-${PKGVERSION}/thunderbird-bin
+			]]>
+		</install>
+	</package>
+</llpackages>

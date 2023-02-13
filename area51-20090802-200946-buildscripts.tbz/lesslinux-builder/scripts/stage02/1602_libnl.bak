@@ -1,0 +1,40 @@
+<llpackages>
+	<package 
+		name="libnl-git"
+		version="20090610-1408"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>  <!-- git clone git://git.kernel.org/pub/scm/libs/netlink/libnl.git -->
+				<pkg sha1="659bff6060abfaf91fb1ee81d3e5303b2c032b71">libnl-git-20090610-1408.tar.bz2</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd libnl
+			autoconf
+			./configure --prefix=/usr
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd libnl
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

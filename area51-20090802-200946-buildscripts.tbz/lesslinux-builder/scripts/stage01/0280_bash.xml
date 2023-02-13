@@ -1,0 +1,36 @@
+<llpackages>
+	<package 
+		name="bash"
+		version="4.0"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>
+				<pkg sha1="2bbed30879f9f424c091a846a48111c27d0b2370">bash-4.0.tar.gz</pkg>
+				<mirror>http://ftp.gnu.org/gnu/bash/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[ 
+			cd ${PKGNAME}-${PKGVERSION}
+			# ./configure --prefix=/tools --without-bash-malloc ac_cv_func_working_mktime=yes && make
+			./configure --prefix=/tools --without-bash-malloc && make
+			]]>
+		</build>
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			ln -vfs bash /tools/bin/sh
+			make install
+			ln -sv /tools/bin/bash ${CHROOTDIR}/bin/
+			ln -sv /bin/bash ${CHROOTDIR}/bin/sh
+			]]>
+		</install>
+	</package>
+</llpackages>

@@ -1,0 +1,72 @@
+<llpackages>
+	<!--<scripts> -->
+	<!--	<scriptdata location="/etc/rc.d/0190-luksmount.sh" mode="0755" group="0" owner="0">
+		<![CDATA[#!/static/bin/ash
+		
+#lesslinux provides luksmount
+#lesslinux license BSD
+
+PATH=/static/bin:/static/sbin:/bin:/sbin:/usr/bin:/usr/sbin
+export PATH
+
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors
+		
+case $1 in
+    start)
+	printf "$bold===> Searching for encrypted container $normal\n"
+	parts=` fdisk -l | grep -E ' FAT| Linux' | awk '{ print $1}' `
+	mkdir -p /lesslinux/usbhdd
+	for i in $parts ; do
+	    if cat /proc/mounts | awk '{ print $1 }' | grep "$i" 2>&1 > /dev/null ; then
+	        printf "$bold $i already mounted $normal\n"
+	    else
+	        mount -o rw "$i" /lesslinux/usbhdd
+	        if [ -f /lesslinux/usbhdd/$cryptcontainer ] ; then
+		    touch /var/run/lesslinux/cryptfound
+		    loopdev=` losetup -f `
+		    if [ losetup "$loopdev" /lesslinux/usbhdd/$cryptcontainer ] ; then
+			printf "$bold You will now be prompted for the password for the encrypted container:" 
+			if cryptsetup luksOpen "$loopdev" cryptcontainer && mdev -s && mount /dev/mapper/cryptcontainer /home ; then
+			    printf "                                                               $success"
+			else
+			    cryptsetup luksClose cryptcontainer 
+			    printf "                                                               $failed"
+			end
+			# FIXME: mount --bind for some of the files saved on the cryptcontainer
+		    else
+		        umount /lesslinux/usbhdd
+		    fi
+	        else
+		    umount /lesslinux/usbhdd
+		fi
+	    fi
+	done
+    stop)
+	# FIXME: correctly unmount container
+	# FIXME: might want to kill some processes here 
+        umount /dev/mapper/cryptcontainer
+	cryptsetup luksClose cryptcontainer
+    ;;
+esac
+
+# END		]]>
+		</scriptdata> -->
+		<!-- <modlist provides="luksmount" hwenv="default">
+			<module>usbcore</module>
+			<module>ehci-hcd</module>
+			<module>uhci-hcd</module>
+			<module>ohci-hcd</module>
+			<module>libusual</module>
+			<module>usb-storage</module>
+			<module>sd_mod</module>
+			<module>dm-mod</module>
+			<module>dm-crypt</module>
+		</modlist> -->
+	<!-- </scripts> -->
+	<package 
+		name="cryptsetup"
+		version="1.0.6"
+		class="user" />
+</llpackages>

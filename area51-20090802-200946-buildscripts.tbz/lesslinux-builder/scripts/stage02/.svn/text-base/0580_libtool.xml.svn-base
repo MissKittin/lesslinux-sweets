@@ -1,0 +1,39 @@
+<llpackages>
+	<package 
+		name="libtool"
+		version="2.2.6"
+		class="devel"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>
+				<pkg sha1="7b547877b1b78b547343e4678a531aece8949904">libtool-2.2.6a.tar.gz</pkg>
+				<mirror>http://ftp.gnu.org/gnu/libtool/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}a.tar.gz
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr && make
+			]]>
+		</build>
+		<test>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make check
+			]]>
+		</test>
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

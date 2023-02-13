@@ -1,0 +1,38 @@
+<llpackages>
+	<package 
+		name="libIDL"
+		version="0.8.13"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>           
+				<pkg sha1="14cab91ecd9428b86dfe4d831b1b0a325be16a5e">libIDL-0.8.13.tar.bz2</pkg>
+				<mirror>http://ftp.gnome.org/pub/gnome/sources/libIDL/0.8/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --enable-inotify && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

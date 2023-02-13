@@ -1,0 +1,49 @@
+<llpackages>
+	<package 
+		name="linux_headers"
+		version="2.6.29.4"
+		class="devel"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>
+				<pkg sha1="0640a2f4bea3fc272541f322b74ea365ad7f2349">linux-2.6.29.tar.bz2</pkg>
+				<mirror>http://www.eu.kernel.org/pub/linux/kernel/v2.6/</mirror>
+			</file>
+			<!-- <file>  
+				<pkg sha1="c4545626f9185245f82c8a8eb576d02b7b32d5e6">patch-2.6.29.2.bz2</pkg>
+				<mirror>http://www.eu.kernel.org/pub/linux/kernel/v2.6/testing/</mirror>
+			</file> -->
+			<file>  
+				<pkg sha1="7bdd162dd922a54d1b73eb4ab86bdee6dd27f68a">patch-2.6.29.4.bz2</pkg>
+				<mirror>http://www.eu.kernel.org/pub/linux/kernel/v2.6/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/linux-2.6.29.tar.bz2
+			]]>
+		</unpack>
+		<patch>
+			<![CDATA[ 
+			cd linux-2.6.29
+			bunzip2 -c ${SRCDIR}/patch-${PKGVERSION}.bz2 | patch -p1
+			cd ..
+			mv -v linux-2.6.29 linux-${PKGVERSION}
+			]]>
+		</patch>
+		<build>
+			<![CDATA[ 
+			cd linux-${PKGVERSION}
+			make mrproper && make headers_check
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd linux-${PKGVERSION}
+			make INSTALL_HDR_PATH=dest headers_install && cp -rv dest/include/* /usr/include/
+			]]>
+		</install>
+	</package>
+</llpackages>

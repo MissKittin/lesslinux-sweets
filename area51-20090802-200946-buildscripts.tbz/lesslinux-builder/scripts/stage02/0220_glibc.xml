@@ -1,0 +1,117 @@
+<llpackages>
+	<package 
+		name="glibc"
+		version="2.9-20090518"
+		class="lib"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>  
+				<pkg sha1="ced139f7fe5b8debaeb42f3290466dad49c7a4cb">glibc-2.9-20090518.tar.bz2</pkg>
+				<mirror>ftp://sources.redhat.com/pub/glibc/snapshots/</mirror>
+			</file>
+			<file>
+				<pkg sha1="5a9b7eab27683f51f80a1d7e6fb2dcfdc738f352">glibc-libidn-2.9.tar.bz2</pkg>
+				<mirror>http://ftp.gnu.org/gnu/glibc/</mirror>
+			</file>
+			<file>
+				<pkg sha1="038597c7001fed849863b467f25499058baa7191">glibc-2.9-ildoubl_test-1.patch</pkg>
+				<mirror>http://www.linuxfromscratch.org/patches/lfs/development/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			mkdir glibc-build
+			tar xjf ${SRCDIR}/glibc-${PKGVERSION}.tar.bz2
+			cd glibc-${PKG_VERSION}
+			tar xjf ${SRCDIR}/glibc-libidn-2.9.tar.bz2
+			mv glibc-libidn-2.9 libidn
+			]]>
+		</unpack>
+		<patch>
+			<![CDATA[ 
+			cd glibc-${PKGVERSION}
+			cat ${SRCDIR}/glibc-2.9-ildoubl_test-1.patch | patch -p1
+			sed -i '/vi_VN.TCVN/d' localedata/SUPPORTED
+			DL=$(readelf -l /bin/sh | grep interpreter | awk '{print $4}' | sed -e 's@/tools@@' -e 's@]$@@')
+			sed -i "s|libs -o|libs -L/usr/lib -Wl,-dynamic-linker=$DL -o|" scripts/test-installation.pl
+			unset DL
+			sed -i 's|@BASH@|/bin/bash|' elf/ldd.bash.in
+			]]>
+		</patch>
+		<build>
+			<![CDATA[ 
+			cd glibc-build
+			case `uname -m` in
+			i?86) 
+				echo "CFLAGS += -march=i486 -mtune=native" > configparms
+			;;
+			esac
+			../glibc-${PKGVERSION}/configure --prefix=/usr \
+				--disable-profile --enable-add-ons \
+				--enable-kernel=2.6.0 --libexecdir=/usr/lib/glibc
+			make
+			cp -v ../glibc-${PKGVERSION}/iconvdata/gconv-modules iconvdata
+			]]>
+		</build>
+		<test>
+			<![CDATA[
+			cd glibc-build
+			make -k check 2>&1 | tee glibc-check-log
+			grep Error glibc-check-log
+			]]>
+		</test>
+		<install>
+			<![CDATA[
+			cd glibc-build
+			touch /etc/ld.so.conf
+			make install
+			mkdir -pv /usr/lib/locale
+			localedef -i cs_CZ -f UTF-8 cs_CZ.UTF-8
+			localedef -i de_DE -f ISO-8859-1 de_DE
+			localedef -i de_DE@euro -f ISO-8859-15 de_DE@euro
+			localedef -i de_DE -f UTF-8 de_DE.UTF-8
+			localedef -i en_HK -f ISO-8859-1 en_HK
+			localedef -i en_PH -f ISO-8859-1 en_PH
+			localedef -i en_US -f ISO-8859-1 en_US
+			localedef -i en_US -f UTF-8 en_US.UTF-8
+			localedef -i es_MX -f ISO-8859-1 es_MX
+			localedef -i fa_IR -f UTF-8 fa_IR
+			localedef -i fr_FR -f ISO-8859-1 fr_FR
+			localedef -i fr_FR@euro -f ISO-8859-15 fr_FR@euro
+			localedef -i fr_FR -f UTF-8 fr_FR.UTF-8
+			localedef -i it_IT -f ISO-8859-1 it_IT
+			localedef -i ja_JP -f EUC-JP ja_JP
+			localedef -i tr_TR -f UTF-8 tr_TR.UTF-8
+			localedef -i zh_CN -f GB18030 zh_CN.GB18030
+			cat > /etc/nsswitch.conf << "EOF"
+# Begin /etc/nsswitch.conf
+
+passwd: files
+group: files
+shadow: files
+
+hosts: files dns
+networks: files
+
+protocols: files
+services: files
+ethers: files
+rpc: files
+
+# End /etc/nsswitch.conf
+EOF
+
+			cat > /etc/ld.so.conf << "EOF"
+# Begin /etc/ld.so.conf
+
+/usr/local/lib
+/opt/lib
+
+# End /etc/ld.so.conf
+EOF
+
+			]]>
+		</install>
+	</package>
+</llpackages>

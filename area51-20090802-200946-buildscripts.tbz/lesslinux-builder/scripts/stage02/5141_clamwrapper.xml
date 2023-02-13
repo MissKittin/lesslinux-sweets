@@ -1,0 +1,44 @@
+<llpackages>
+	<package 
+		name="clamwrapper"
+		version="20090710-01"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>  
+				<pkg sha1="a3df17c8105c9b2e9ea36e586d32790906de8742">clamwrapper-20090710-01.tar.bz2</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			echo 'Nothing to do...'
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			mkdir -m 0755 /opt/bin
+			mkdir -m 0755 /opt/sbin
+			install -m 0755 clam_wrapper /opt/bin/
+			install -m 0755 clam_terminal /opt/bin/
+			install -m 0755 clam_update /opt/sbin/
+			install -m 0755 /usr/bin/Terminal /opt/bin/
+			install -m 0755 /usr/bin/zenity /opt/bin/
+			install -m 4755 /usr/bin/sudo /bin/
+			]]>
+		</install>
+	</package>
+</llpackages>

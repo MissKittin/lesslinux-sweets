@@ -1,0 +1,47 @@
+<llpackages>
+	<package 
+		name="module-init-tools"
+		version="3.8"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>  
+			<file>
+				<pkg sha1="28cb40b5a94d6d10df144b821350dd87a749707e">module-init-tools-3.8.tar.bz2</pkg>
+				<mirror>http://www.kernel.org/pub/linux/utils/kernel/module-init-tools/</mirror>
+			</file>
+			<!-- <file>
+				<pkg sha1="ce1ab358502865e336bbcf5cb728af1cc8d9ed1f">module-init-tools-3.6.tar.bz2</pkg>
+				<mirror>http://www.kernel.org/pub/linux/utils/kernel/module-init-tools/</mirror>
+			</file>
+			<file>
+				<pkg sha1="558162b0ceda21c896866b7a1da2ecfc0fa80909">module-init-tools-3.6-man_pages-1.patch</pkg>
+				<mirror>http://www.linuxfromscratch.org/patches/lfs/development/</mirror>
+			</file> -->
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch>
+			<![CDATA[
+			# cd ${PKGNAME}-${PKGVERSION}
+			# cat ${SRCDIR}/${PKGNAME}-${PKGVERSION}-man_pages-1.patch | patch -p1
+			]]>
+		</patch>
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/ --enable-zlib --mandir=/usr/share/man && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make INSTALL=install install
+			]]>
+		</install>
+	</package>
+</llpackages>

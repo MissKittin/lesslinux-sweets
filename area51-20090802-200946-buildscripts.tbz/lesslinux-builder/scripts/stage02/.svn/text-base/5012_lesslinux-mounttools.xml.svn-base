@@ -1,0 +1,36 @@
+<llpackages>
+	<package 
+		name="lesslinux-mounttools"
+		version="20090728"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>       
+				<pkg sha1="4d75b7ce33f6cc4e0d3840e337b05c87675601be">lesslinux-mounttools-20090728.tar.bz2</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			echo 'Nothing to do!'
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd mounttools
+			for i in llmounttool.sh llaskpass-mount.rb mmmm.rb ; do
+			    install -m 0755 "$i" /usr/bin/
+			    touch /usr/bin/"$i"
+			done
+			]]>
+		</install>
+	</package>
+</llpackages>

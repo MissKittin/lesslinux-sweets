@@ -1,0 +1,46 @@
+<llpackages>
+	<package 
+		name="inetutils"
+		version="1.6"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>
+				<pkg sha1="481060bd8b93d0efa0a0f2ab5ac5c491773a21af">inetutils-1.6.tar.gz</pkg>
+				<mirror>http://ftp.gnu.org/gnu/inetutils/</mirror>
+			</file>
+			<file>
+				<pkg sha1="03d1387979533042576111c0160b1049b15c441b">inetutils-1.6-no_server_man_pages-1.patch</pkg>
+				<mirror>http://www.linuxfromscratch.org/patches/lfs/development/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			]]>
+		</unpack>
+		<patch>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			cat ${SRCDIR}/${PKGNAME}-${PKGVERSION}-no_server_man_pages-1.patch | patch -p1
+			# sed -i 's@<sys/types.h>@<sys/types.h>\n#include <stdlib.h>@' libicmp/icmp_timestamp.c
+			]]>
+		</patch>
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --libexecdir=/usr/sbin --localstatedir=/var --disable-ifconfig \
+				--disable-logger --disable-syslogd --disable-whois --disable-servers && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			mv -v /usr/bin/ping /bin
+			]]>
+		</install>
+	</package>
+</llpackages>

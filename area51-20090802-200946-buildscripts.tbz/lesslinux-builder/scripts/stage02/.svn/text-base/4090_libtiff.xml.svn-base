@@ -1,0 +1,38 @@
+<llpackages>
+	<package 
+		name="tiff"
+		version="3.8.2"
+		class="lib"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>       
+				<pkg sha1="549e67b6a15b42bfcd72fe17cda7c9a198a393eb">tiff-3.8.2.tar.gz</pkg>
+				<mirror>ftp://ftp.remotesensing.org/pub/libtiff/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else 
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

@@ -1,0 +1,42 @@
+<llpackages>
+	<package 
+		name="syslinux"
+		version="3.82"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>   
+				<pkg sha1="e949b13e0ef016ec39f7dafacac722936756f41b">syslinux-3.82.tar.bz2</pkg>
+				<mirror>http://www.eu.kernel.org/pub/linux/boot/syslinux/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			# cd ${PKGNAME}-${PKGVERSION}
+			# make
+			echo 'Nothing to do'
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			mkdir /usr/share/syslinux
+			install -m 0755 linux/syslinux /usr/sbin
+			install -m 0755 extlinux/extlinux /usr/sbin
+			install mbr/mbr.bin /usr/share/syslinux
+			]]>
+		</install>
+	</package>
+</llpackages>

@@ -1,0 +1,39 @@
+<llpackages>
+	<package 
+		name="wv"
+		version="1.2.1"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>         
+				<pkg sha1="3228e1af5fc022246926c04c369601e1c1473450">wv-1.2.1.tar.gz</pkg>
+				<mirror>http://surfnet.dl.sourceforge.net/sourceforge/wvware/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --sysconfdir=/etc
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

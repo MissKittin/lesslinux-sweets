@@ -1,0 +1,38 @@
+<llpackages>
+	<package 
+		name="gnome-vfs"
+		version="2.24.1"
+		class="lib"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>             
+				<pkg sha1="0e7b548ffe7b9eddaef3a43cdda47de538715f8b">gnome-vfs-2.24.1.tar.bz2</pkg>
+				<mirror>http://ftp.gnome.org/pub/gnome/sources/gnome-vfs/2.24/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --sysconfdir=/etc --prefix=/usr && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

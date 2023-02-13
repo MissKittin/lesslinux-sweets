@@ -1,0 +1,35 @@
+<llpackages>
+	<package 
+		name="xtrans"
+		version="1.2.3"
+		class="devel"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>  
+				<pkg sha1="ae6dbeddfbd1a2fca8b783dbcea20fd53b425ffa">xtrans-1.2.3.tar.bz2</pkg>
+				<mirror>http://xorg.freedesktop.org/archive/individual/lib/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

@@ -1,0 +1,45 @@
+<llpackages>
+	<package 
+		name="libusb"
+		version="0.1.12"
+		class="lib"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>          
+				<pkg sha1="599a5168590f66bc6f1f9a299579fd8500614807">libusb-0.1.12.tar.gz</pkg>
+				<mirror>http://freefr.dl.sourceforge.net/sourceforge/libusb/</mirror>
+			</file>
+			   
+			<file>          
+				<pkg sha1="c577f606549867ff1157f8c56670351b4a0821a5">usbids-20090321.txt</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			cp ${SRCDIR}/usbids-20090321.txt /var/lib/misc/usb.ids
+			gzip -c ${SRCDIR}/usbids-20090321.txt > /usr/share/usb.ids.gz
+			]]>
+		</install>
+	</package>
+</llpackages>

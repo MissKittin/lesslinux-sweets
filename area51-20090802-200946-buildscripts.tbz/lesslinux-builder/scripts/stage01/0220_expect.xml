@@ -1,0 +1,48 @@
+<llpackages>
+	<package 
+		name="expect"
+		version="5.43.0"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>
+				<pkg sha1="ba903a7d04b4faa13c8b9db75e1537f55f28e82b">expect-5.43.0-spawn-1.patch</pkg>
+				<mirror>http://www.linuxfromscratch.org/patches/lfs/development/</mirror>
+			</file>
+			<file>
+				<pkg sha1="268c90379acd02d365f525e9d83017a75f62aa98">expect-5.43.0-tcl_8.5.5_fix-1.patch</pkg>
+				<mirror>http://www.linuxfromscratch.org/patches/lfs/development/</mirror>
+			</file>
+			<file>
+				<pkg sha1="854440d937c1d05103bf2d02f911005b739fa1e9">expect-5.43.0.tar.gz</pkg>
+				<mirror>http://expect.nist.gov/src/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/expect-${PKGVERSION}.tar.gz
+			]]>
+		</unpack>
+		<patch>
+			<![CDATA[ 
+			cd expect-5.43
+			cat ${SRCDIR}/expect-${PKGVERSION}-spawn-1.patch | patch -p1
+			cat ${SRCDIR}/expect-${PKGVERSION}-tcl_8.5.5_fix-1.patch | patch -p1
+			cp -v configure{,.orig}
+			sed 's:/usr/local/bin:/bin:' configure.orig > configure
+			]]>
+		</patch>
+		<build>
+			<![CDATA[ 
+			cd expect-5.43
+			./configure --prefix=/tools --with-tcl=/tools/lib --with-tclinclude=/tools/include --with-x=no && make
+			]]>
+		</build>
+		<install>
+			<![CDATA[
+			cd expect-5.43
+			make SCRIPTS="" install
+			]]>
+		</install>
+	</package>
+</llpackages>

@@ -1,0 +1,43 @@
+<llpackages>
+	<package 
+		name="gnash"
+		version="0.8.5"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>           
+				<pkg sha1="26304322728d10dda1a0da2951946d981a507ca6">gnash-0.8.5.tar.bz2</pkg>
+				<mirror>http://ftp.gnu.org/pub/gnu/gnash/0.8.5/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/opt --sysconfdir=/etc --enable-renderer=agg --enable-gui=gtk --bindir=/opt/bin --sbindir=/opt/sbin
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			install -m 0755 ./plugin/.libs/libgnashplugin.so /opt/firefox/lib/firefox-3.0.12/plugins/
+			paxctl -m /opt/bin/gtk-gnash
+			paxctl -m /usr/bin/gtk-gnash
+			ldconfig
+			]]>
+		</install>
+	</package>
+</llpackages>

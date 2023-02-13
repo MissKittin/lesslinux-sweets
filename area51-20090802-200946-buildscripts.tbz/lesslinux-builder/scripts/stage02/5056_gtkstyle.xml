@@ -1,0 +1,38 @@
+<llpackages>
+	<package 
+		name="gtkstyle"
+		version="cvs20090706"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file> 
+				<pkg sha1="f803db9d79fffdb000f01dcc80fc72df2776575e">gtkstyle-cvs20090706.tar.bz2</pkg>
+				<mirror>http://get.qtsoftware.com/qt/source/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}
+			qmake && make 
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

@@ -1,0 +1,41 @@
+<llpackages>
+	<package 
+		name="vlc"
+		version="1.0.0"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>     
+				<pkg sha1="fff08528d97d26f6f7faeafba94b445e0e3562e8">vlc-1.0.0.tar.bz2</pkg>
+				<mirror>http://download.videolan.org/pub/videolan/vlc/1.0.0/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --disable-glx --disable-skins2
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			/sbin/paxctl -m /usr/bin/vlc
+			/sbin/paxctl -m /usr/bin/vlc-wrapper
+			]]>
+		</install>
+	</package>
+</llpackages>

@@ -1,0 +1,34 @@
+<llpackages>
+	<package 
+		name="xinit"
+		version="1.1.1"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>    
+				<pkg sha1="577a111efc9b5a8ec6cc294ae7c35048eebde704">xinit-1.1.1.tar.bz2</pkg>
+				<mirror>http://xorg.freedesktop.org/archive/individual/app/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

@@ -1,0 +1,46 @@
+<llpackages>
+	<package 
+		name="zenity"
+		version="2.26.0"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>
+				<pkg sha1="4dbce1e3058eb9f7166045ea4d7b468499239774">zenity-2.26.0.tar.bz2</pkg>
+				<mirror>ftp://ftp.gnome.org/pub/gnome/sources/zenity/2.26/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch>
+		<![CDATA[
+		
+		sed -i 's/name=\"focus_on_map\">False/name=\"focus_on_map\">True/g' zenity-2.26.0/src/zenity.glade
+		sed -i 's/name=\"focus_on_map\">false/name=\"focus_on_map\">true/g' zenity-2.26.0/src/zenity.glade
+		
+		]]>
+		</patch>
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --sysconfdir=/etc
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

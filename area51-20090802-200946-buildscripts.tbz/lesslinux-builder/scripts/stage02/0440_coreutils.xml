@@ -1,0 +1,63 @@
+<llpackages>
+	<package 
+		name="coreutils"
+		version="7.4"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>    
+				<pkg sha1="cfb399b1d121abde8c1b68b2651a645b7170547f">coreutils-7.4.tar.gz</pkg>
+				<mirror>http://ftp.gnu.org/gnu/coreutils/</mirror>
+			</file>
+			<!-- <file>
+				<pkg sha1="ecddf5bafede04807f44c82ca5421b8a59e2ce06">coreutils-6.12-old_build_kernel-1.patch</pkg>
+				<mirror>http://www.linuxfromscratch.org/patches/lfs/development/</mirror>
+			</file>
+			<file>
+				<pkg sha1="42cc795e56b96994a4dc9e8f2a8dd72b6a25665f">coreutils-6.12-uname-1.patch</pkg>
+				<mirror>http://www.linuxfromscratch.org/patches/lfs/development/</mirror>
+			</file>
+			<file>
+				<pkg sha1="49d537e71bc4b0c50c13c2a850c369fca1b177de">coreutils-6.12-i18n-2.patch</pkg>
+				<mirror>http://www.linuxfromscratch.org/patches/lfs/development/</mirror>
+			</file> -->
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			]]>
+		</unpack>
+		<patch>
+			<![CDATA[
+			echo 'Skipping patches'
+			# cd ${PKGNAME}-${PKGVERSION}
+			#case `uname -m` in
+			#i?86 | x86_64) 
+			#	cat ${SRCDIR}/${PKGNAME}-${PKGVERSION}-uname-1.patch | patch -p1
+			#	;;
+			#esac
+			#cat ${SRCDIR}/${PKGNAME}-${PKGVERSION}-old_build_kernel-1.patch | patch -p1
+			#cat ${SRCDIR}/${PKGNAME}-${PKGVERSION}-i18n-2.patch | patch -p1
+			]]>
+		</patch>
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --enable-no-install-program=kill,uptime && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			mv -v /usr/bin/{cat,chgrp,chmod,chown,cp,date,dd,df,echo} /bin
+			mv -v /usr/bin/{false,ln,ls,mkdir,mknod,mv,pwd,readlink,rm} /bin
+			mv -v /usr/bin/{rmdir,stty,sync,true,uname} /bin
+			mv -v /usr/bin/chroot /usr/sbin
+			mv -v /usr/bin/{head,sleep,nice} /bin
+			]]>
+		</install>
+	</package>
+</llpackages>

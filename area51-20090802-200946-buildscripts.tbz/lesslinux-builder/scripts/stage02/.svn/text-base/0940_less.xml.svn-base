@@ -1,0 +1,34 @@
+<llpackages>
+	<package 
+		name="less"
+		version="429"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>   
+				<pkg sha1="78a2fd4777918d0f551236bd7872d84b9129a7d1">less-429.tar.gz</pkg>
+				<mirror>http://www.greenwoodsoftware.com/less/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --sysconfdir=/etc && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

@@ -1,0 +1,34 @@
+<llpackages>
+	<package 
+		name="setxkbmap"
+		version="1.0.4"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>    
+				<pkg sha1="fa5eaae6804d3ee7fe5c1a95902eb0737facfb82">setxkbmap-1.0.4.tar.bz2</pkg>
+				<mirror>http://xorg.freedesktop.org/archive/individual/app/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

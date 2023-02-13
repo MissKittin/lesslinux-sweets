@@ -1,0 +1,39 @@
+<llpackages>
+	<package 
+		name="xf86-video-intel"
+		version="2.4.3"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                        
+				<pkg sha1="8335294c9b76b1f9daad5082d2290555ba2dbce5">xf86-video-intel-2.4.3.tar.bz2</pkg>
+				<!-- <pkg sha1="f863ee65b4b7779077af9f819b07033264284628">xf86-video-intel-2.7.1.tar.bz2</pkg> -->
+				<mirror>http://xorg.freedesktop.org/archive/individual/driver/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --sysconfdir=/etc && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

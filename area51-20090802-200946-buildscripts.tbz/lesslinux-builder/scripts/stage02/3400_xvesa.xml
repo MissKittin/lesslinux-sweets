@@ -1,0 +1,48 @@
+<llpackages>
+	<package 
+		name="xvesa"
+		version="1.5.3"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>       
+				<pkg sha1="177529b6d7191a73df6abf2990cd7708398a8d81">xorg-server-1.5.3.tar.bz2</pkg>
+				<mirror>http://xorg.freedesktop.org/archive/individual/xserver/</mirror>
+			</file>
+			
+			<!-- <file>        
+				<pkg sha1="8a26839ed6a321175205ac68b72572652d2b534a">xorg-server-1.5.1-kdrive.patch</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file> -->
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/xorg-server-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch>
+			<![CDATA[ 
+			cd xorg-server-${PKGVERSION}
+			# patch -p1 < ${SRCDIR}/xorg-server-${PKGVERSION}-kdrive.patch
+			]]>
+		</patch>
+		<build>
+			<![CDATA[
+			cd xorg-server-${PKGVERSION}
+			./configure --prefix=/usr --enable-kdrive --disable-dri \
+			    --disable-xorg --disable-xorgcfg --disable-glx \
+			    --disable-xinerama && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd xorg-server-${PKGVERSION}
+			make install
+			chmod +s /usr/bin/Xvesa
+			chmod +s /usr/bin/Xfbdev
+			]]>
+		</install>
+	</package>
+</llpackages>

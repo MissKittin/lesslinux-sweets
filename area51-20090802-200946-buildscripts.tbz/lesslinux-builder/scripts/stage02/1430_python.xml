@@ -1,0 +1,36 @@
+<llpackages>
+	<package 
+		name="Python"
+		version="2.6.2"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>   
+				<pkg sha1="dacb8c44413893fc5755d91db26042234658c8e0">Python-2.6.2.tgz</pkg>
+				<mirror>http://python.org/ftp/python/2.6.2/</mirror>
+			</file>
+		</sources> 
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tgz
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			/sbin/paxctl -m /usr/bin/python
+			]]>
+		</install>
+	</package>
+</llpackages>

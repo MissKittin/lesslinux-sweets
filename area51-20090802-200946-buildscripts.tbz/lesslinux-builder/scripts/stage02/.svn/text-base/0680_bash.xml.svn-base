@@ -1,0 +1,48 @@
+<llpackages>
+	<package 
+		name="bash"
+		version="4.0"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>
+				<pkg sha1="2bbed30879f9f424c091a846a48111c27d0b2370">bash-4.0.tar.gz</pkg>
+				<mirror>http://ftp.gnu.org/gnu/bash/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			]]>
+		</unpack>
+		<patch>
+			<![CDATA[
+			echo 'No patching needed'
+			# cd ${PKGNAME}-${PKGVERSION}
+			# sed -i "s|htmldir = @htmldir@|htmldir = /usr/share/doc/${PKGNAME}-${PKGVERSION}|" Makefile.in
+			]]>
+		</patch>
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --bindir=/bin --without-bash-malloc --with-installed-readline && make
+			]]>
+		</build>
+		<!--<test />-->
+		<test>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			sed -i 's/LANG/LC_ALL/' tests/intl.tests
+			sed -i 's@tests@& </dev/tty@' tests/run-test
+			make tests
+			]]>
+		</test>
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

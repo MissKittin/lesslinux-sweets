@@ -1,0 +1,35 @@
+<llpackages>
+	<package 
+		name="device-mapper"
+		version="1.02.28"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>   
+				<pkg sha1="0d1b4e27b5afa5f68b8bc6e1905f9430470045b7">device-mapper.1.02.28.tgz</pkg>
+				<mirror>ftp://sources.redhat.com/pub/dm/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/${PKGNAME}.${PKGVERSION}.tgz
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}.${PKGVERSION}
+			./configure --prefix=/usr
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}.${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

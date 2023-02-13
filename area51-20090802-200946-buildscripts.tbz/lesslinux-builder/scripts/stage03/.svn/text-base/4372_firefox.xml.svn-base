@@ -1,0 +1,263 @@
+<llpackages>
+	<dirs>
+		<dir mode="0755">/etc/lesslinux</dir>
+		<dir mode="0755">/etc/lesslinux/firefox</dir>
+	</dirs>
+	<scripts>
+		<scriptdata location="/etc/lesslinux/firefox/firefox_common.cfg" mode="0644" group="0" owner="0">
+		<![CDATA[// START /etc/lesslinux/firefox/firefox_common.cfg
+pref("startup.homepage_welcome_url", "file:///etc/lesslinux/branding/computerbild/firstrun.html");
+// END /etc/lesslinux/firefox/firefox_common.cfg
+		]]>
+		</scriptdata>
+		<scriptdata location="/etc/lesslinux/firefox/force_startpage.cfg" mode="0644" group="0" owner="0">
+		<![CDATA[// START /etc/lesslinux/firefox/force_startpage.cfg
+pref("browser.startup.homepage", "file:///etc/lesslinux/branding/computerbild/achtung_alt.html");
+lockPref("browser.startup.homepage", "file:///etc/lesslinux/branding/computerbild/achtung_alt.html");
+// END /etc/lesslinux/firefox/force_startpage.cfg
+		]]>
+		</scriptdata>
+		<scriptdata location="/etc/lesslinux/firefox/prevent_xpi.cfg" mode="0644" group="0" owner="0">
+		<![CDATA[// START /etc/lesslinux/firefox/prevent_xpi.cfg
+pref("xpinstall.enabled", false);
+lockPref("xpinstall.enabled", false);
+// END /etc/lesslinux/firefox/prevent_xpi.cfg
+		]]>
+		</scriptdata>
+		<scriptdata location="/etc/lesslinux/branding/computerbild/firstrun.html" mode="0644" group="0" owner="0">
+		<![CDATA[<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>COMPUTERBILD Sicher surfen 2009</title>
+		<style type="text/css">
+		body { 
+		background-color: whitesmoke;
+		font-size: 13px;
+		}
+		div.layoutbox {
+		width: 600px;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 40px;
+		margin-bottom: 40px;
+		border-style: solid;
+		border-color: lightgray;
+		border-width: 1px;
+		background-color: white;
+		padding: 10px;
+		}
+		</style>
+	</head>
+	<body>
+		<div class="layoutbox">
+			<h2>Willkommen bei COMPUTERBILD Sicher surfen 2009</h2>
+			<ul>
+				<li><p>Um eine Internetverbindung herzustellen, klicken Sie doppelt auf das Symbol "Netzwerk" auf der Arbeitsoberfläche. Anschließend startet das Programm, mit dem Sie Einstellungen für Ihr WLAN- oder Kabelnetzwerk vornehmen können. Andere Verbindungstypen funktionieren bisher nicht.</p></li>
+				<li><p>Mit der Schaltfläche "Suche nach Updates" in der Menüleiste können Sie Aktualisierungen überspielen. Der Eintrag erscheint nur beim Komplettstart!</p></li>
+				<li><p>Wenn Sie Musik hören oder Videos anschauen wollen, müssen Sie nach dem Systemstart den Ton einschalten. Klicken Sie dazu auf das Lautsprechersymbol unten rechts in der Menüleiste.</p></li>
+				<li><p>Wenn Sie Musik hören oder Videos anschauen wollen, müssen Sie nach dem Systemstart den Ton einschalten. Klicken Sie dazu auf das Lautsprechersymbol unten rechts in der Menüleiste.</p></li>
+			</ul>
+			<p>
+			Wenn Sie mehr zu den Startoptionen, zu Passwörtern oder den verwendeten Sicherheitstechnologien wissen möchten, lesen Sie den  Artikel zur CD in COMPUTERBILD 19/2009. 
+			</p>
+		</div>
+	</body>
+</html>
+
+]]>
+		</scriptdata>
+		<scriptdata location="/etc/lesslinux/branding/computerbild/about.html" mode="0644" group="0" owner="0">
+		<![CDATA[<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>COMPUTERBILD Sicher surfen 2009</title>
+		<style type="text/css">
+		body { 
+		background-color: whitesmoke;
+		font-size: 13px;
+		}
+		div.layoutbox {
+		width: 600px;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 40px;
+		margin-bottom: 40px;
+		border-style: solid;
+		border-color: lightgray;
+		border-width: 1px;
+		background-color: white;
+		padding: 10px;
+		}
+		</style>
+	</head>
+	<body>
+		<div class="layoutbox">
+			<h2>Über COMPUTERBILD Sicher surfen 2009</h2>
+			<h3>Lizenz und Warenzeichen</h3>
+			<p>
+			COMPUTERBILD Sicher surfen verwendet viele unter der GNU General Public License
+			und weiteren Open Source Lizenzen vertriebene Software-Komponenten. Aus Platzgründen 
+			ist es nicht möglich, die betreffenden Quelltexte auf CD beizulegen. Sie	
+			können jedoch Quellcodes und verwendete Patches bei der Redaktion
+			COMPUTERBILD oder dem verantwortlichen Entwickler Mattias Schlenker direkt 
+			(Email: <a href="mailto:gpl@lesslinux.org">gpl@lesslinux.org</a>) anfordern.
+			</p>
+			<p>Falls Sie sich für die technischen Hintergründe und den Aufbau des Systems  
+			interessieren, sollten Sie einen Blick auf die Webseite
+			<a href="http://www.lesslinux.org/">www.lesslinux.org</a> 
+			beziehungsweise <a href="http://blog.lesslinux.org/">blog.lesslinux.org</a> werfen. 
+			Dort erhalten Sie auch Versionen der Quelltexte und Build-Scripte, die <i>keine 
+			Warenzeichen der Axel Springer AG</i> enthalten und so als Basis für eigene
+			Erweiterungen des Live-Systems dienen können.
+			</p>
+			<h3>Verwendete Komponenten</h3>
+			<p>COMPUTERBILD Sicher surfen und LessLinux basieren nicht auf bekannten 
+			Desktop-Distributionen und verwenden kein gängiges Paketmanagementsystem. 
+			Jedes Image wird von Grund auf neu gebaut und vom Buildsystem zusammen gefügt.
+			Wesentliche Komponenten (neben Linux-Kernel, glibc und Xorg) sind:</p>
+			<ul>
+				<li><p><b>BusyBox</b> (<a href="http://www.busybox.net/">Projektseite</a>): 
+				Vereint viele Linux-Befehle in einem Binary und hält so die Zahl der enthaltenen Programme 
+				und damit die Größe des Gesamtsystems gering.</p></li>
+				<li><p><b>XFCE</b> (<a href="http://www.xfce.org/">Projektseite</a>): 
+				Die schlanke Desktop-Umgebung überzeugt mit konsistenter Nutzerführung und ansprechender
+				grafischer Gestaltung.</p></li>
+				<li><p><b>Ruby</b> (<a href="http://www.ruby-lang.org/">Projektseite</a>): 
+				Eine objektorientierte Scriptsprache und Bindungen an die Gtk+-Bibliothek erleichterten
+				sowohl die Entwicklung der Build-Umgebung als auch die Prgrammierung von Installer
+				und kleineren enthaltenen Werkzeugen.</p></li>
+				<li><p><b>SMACK</b> (<a href="http://schaufler-ca.com/">Projektseite</a>):
+				Casey Schauflers <i>Simple Mandatory Access Control Kernel</i> stellt eine einfacher als SELinux
+				zu konfigurierende &#151; aber dennoch sehr effiziente &#151; 
+				Mandatory Access Control Erweiterung bereit.</p></li>
+			</ul>
+			<h3>Support</h3>
+			<p>
+			Sollten Fragen zum Betrieb des Systems auftauchen, kontaktieren Sie bitte zunächst die Redaktion COMPUTERBILD auf den im Heft 
+			angegebenen Wegen oder werfen Sie einen Blick in das <a href="http://forum.computerbild.de/">COMPUTERBILD-Leserforum</a>
+			(Unterforen Linux und Heft-CD/DVD). Auch die Entwickler dieses Systems suchen regelmäßig das Forum auf und beantworten dort auftauchende
+			Fragen. Ebenso gibt die Redaktion Fragen, die sie nicht beantworten kann, zeitnah an die Entwickler weiter.</p>
+			<p>
+			Eine Veranlassung, die Entwickler von COMPUTERBILD Sicher surfen direkt zu kontaktieren besteht daher in der Regel nicht.
+			Sollten Sie es dennoch für notwendig erachten, verwenden Sie bitte die Email-Adresse 
+			<a href="mailto:support@lesslinux.org">support@lesslinux.org</a> und legen Sie die Datei <tt>/tmp/hwinfo_<i>zeitstempel</i>.tbz</tt>
+			bei. Sollten Sie Screenshots von einem auffälligen Verhalten machen wollen, verwenden Sie die Tastenkombination <tt>[Strg]+[F12]</tt>. 
+			Die Screenshots werden ohne weitere Benachrichtigung in <tt>/tmp</tt> abgespeichert.
+			</p>
+			<p>Viel Spaß mit COMPUTERBILD Sicher surfen wünschen</p>
+			<p><i>Die Redaktion COMPUTERBILD und<br />Mattias Schlenker</i></p>
+
+		</div>
+	</body>
+</html>
+
+]]>
+		</scriptdata>
+		<scriptdata location="/etc/lesslinux/branding/computerbild/achtung_alt.html" mode="0644" group="0" owner="0">
+		<![CDATA[<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>COMPUTERBILD Sicher surfen 2009</title>
+		<style type="text/css">
+		body { 
+		background-color: whitesmoke;
+		font-size: 13px;
+		}
+		div.layoutbox {
+		width: 600px;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 40px;
+		margin-bottom: 40px;
+		border-style: solid;
+		border-color: red;
+		border-width: 3px;
+		background-color: white;
+		padding: 10px;
+		}
+		</style>
+	</head>
+	<body>
+		<div class="layoutbox">
+			<h2>Update erforderlich</h2>
+			<p>
+				Diese Version von COMPUTERBILD Sicher surfen ist älter als ein halbes Jahr und enthält möglicherweise Sicherheitslücken.
+				Bitte verwenden Sie die Update-Funktion, um Sicherheits-Aktualisierungen zu installieren!
+			</p>
+			<ul>
+				<li><p>Um eine Internetverbindung herzustellen, doppelklicken Sie das Symbol <b>Netzwerk</b> auf dem 
+				Schreibtisch. Dies öffnet das Programm <i>wicd</i>, in dem Sie Einstellungen für WLAN oder Ethernet 
+				vornehmen können. Andere Verbindungstypen werden nicht unterstützt.</p></li>
+				<li><p>Mit der Schaltfläche <b>Suche nach Updates</b> (nur angezeigt, wenn Sie im Startmenü 
+				<i>Komplettstart</i> ausgewählt haben) in der Menüleiste können Sie nach Aktualisierungen
+				suchen.</p></li>
+			</ul>
+			<p>
+			Bitte beachten Sie auch die Hinweise im Heft <b>COMPUTERBILD 18/2009</b> zum Start des Systems, dem Zugriff 
+			auf Laufwerken und der Funktion der enthaltenen Sicherheitstechnologien.
+			</p>
+		</div>
+	</body>
+</html>
+]]>
+		</scriptdata>
+		<scriptdata location="/etc/rc.d/0210-firefox.sh" mode="0755" group="0" owner="0">
+		<![CDATA[#!/static/bin/ash
+		
+#lesslinux provides ffprep
+#lesslinux license BSD
+
+PATH=/static/bin:/static/sbin:/bin:/sbin:/usr/bin:/usr/sbin
+export PATH
+
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors
+
+expiration=20100301
+ffversion=3.0.12
+
+case $1 in 
+    start)
+	printf "$bold===> Preparing Firefox $normal\n"
+	if mountpoint -q /opt/firefox/lib/firefox-$ffversion/lesslinux ; then
+	    echo "tmpfs for firefox already mounted"
+	else
+	    mount -t tmpfs -o mode=0755,size=1m,nodev,nosuid,noexec tmpfs /opt/firefox/lib/firefox-$ffversion/lesslinux
+	    tar -C / -cf /tmp/.ff-$ffversion.tar /etc/lesslinux/firefox
+	    mount -t tmpfs -o mode=0755,size=1m,nodev,nosuid,noexec tmpfs /etc/lesslinux/firefox
+	    tar -C / -xf /tmp/.ff-$ffversion.tar
+	    rm /tmp/.ff-$ffversion.tar
+	    ln -sf /etc/lesslinux/firefox/firefox_common.cfg /opt/firefox/lib/firefox-$ffversion/lesslinux/lesslinux.cfg 
+	    idate=` date '+%Y%m%d' `
+	    if [ "$idate" -gt "$expiration" ] ; then
+	        cat /etc/lesslinux/firefox/prevent_xpi.cfg /etc/lesslinux/firefox/force_startpage.cfg > /etc/lesslinux/firefox/firefox_defaults.cfg
+		ln -sf /etc/lesslinux/firefox/force_startpage.cfg /etc/lesslinux/firefox/firefox_allow_xpi.cfg
+	    else
+		ln -sf /etc/lesslinux/firefox/prevent_xpi.cfg /etc/lesslinux/firefox/firefox_defaults.cfg
+		ln -sf /etc/lesslinux/firefox/firefox_common.cfg /etc/lesslinux/firefox/firefox_allow_xpi.cfg
+	    fi
+	    ln -sf /etc/lesslinux/firefox/firefox_defaults.cfg /opt/firefox/lib/firefox-$ffversion/lesslinux/lesslinux.cfg
+	    chown -R 1000:1000 /etc/lesslinux/firefox
+	fi
+    ;;
+    stop)
+	printf "$bold===> Unmounting Firefox overlay $normal\n"
+	umount /opt/firefox/lib/firefox-$ffversion/lesslinux > /dev/null 2>&1
+	umount /etc/lesslinux/firefox > /dev/null 2>&1
+    ;;
+esac
+
+		]]>
+		</scriptdata>
+	</scripts>
+	<package 
+		name="firefox-source-de"
+		version="3.0.12"
+		class="user"
+		>
+	</package>
+</llpackages>

@@ -1,0 +1,39 @@
+<llpackages>
+	<package 
+		name="m4"
+		version="1.4.13"
+		class="devel"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>  
+				<pkg sha1="7ba1834ebf96d0520d526c1c9f5764cc869a9f42">m4-1.4.13.tar.bz2</pkg>
+				<mirror>http://ftp.gnu.org/gnu/m4/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --enable-threads && make
+			]]>
+		</build>
+		<test>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make check
+			]]>
+		</test>
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

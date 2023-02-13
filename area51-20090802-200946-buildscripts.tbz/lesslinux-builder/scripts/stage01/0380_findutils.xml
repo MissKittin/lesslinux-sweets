@@ -1,0 +1,32 @@
+<llpackages>
+	<package 
+		name="findutils"
+		version="4.4.1"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>             
+				<pkg sha1="01c494cdabb8fc19d4b5d95a58bf99e2e0ab305d">findutils-4.4.1.tar.gz</pkg>
+				<mirror>http://ftp.gnu.org/gnu/findutils/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[ 
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/tools
+			]]>
+		</build>
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

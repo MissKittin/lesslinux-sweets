@@ -1,0 +1,62 @@
+<llpackages>
+	<package 
+		name="linux"
+		version="2.6.29.5"
+		class="kernel"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>
+				<pkg sha1="0640a2f4bea3fc272541f322b74ea365ad7f2349">linux-2.6.29.tar.bz2</pkg>
+				<mirror>http://www.eu.kernel.org/pub/linux/kernel/v2.6/</mirror>
+			</file>
+			<file>  
+				<pkg sha1="d7cbe1ab3a016c0123a510e118888d719fb30579">patch-2.6.29.5.bz2</pkg>
+				<mirror>http://www.eu.kernel.org/pub/linux/kernel/v2.6/</mirror>
+			</file>
+			<!--<file>  
+				<pkg sha1="7bdd162dd922a54d1b73eb4ab86bdee6dd27f68a">patch-2.6.29.4.bz2</pkg>
+				<mirror>http://www.eu.kernel.org/pub/linux/kernel/v2.6/</mirror>
+			</file>-->
+			<!-- <file>
+				<pkg sha1="e91011f48e0daa6fadbf4589e267254f69952cf7">patch-2.6.29.3.bz2</pkg>
+				<mirror>http://www.eu.kernel.org/pub/linux/kernel/v2.6/</mirror>
+			</file> -->
+			<file>
+				<pkg sha1="78118e39a10f1beb950fe1d69e4886a137246c0c">config-2.6.29.5-lesslinux-090624-1418</pkg>
+				<mirror>http://distfiles.lesslinux.org/kernel/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/linux-2.6.29.tar.bz2
+			]]>
+		</unpack>
+		<patch>
+			<![CDATA[ 
+			cd linux-2.6.29
+			bunzip2 -c ${SRCDIR}/patch-${PKGVERSION}.bz2 | patch -p1
+			cd ..
+			mv -v linux-2.6.29 linux-${PKGVERSION}
+			cp ${SRCDIR}/config-2.6.29.5-lesslinux-090624-1418 linux-${PKGVERSION}/.config 
+			]]>
+		</patch>
+		<build>
+			<![CDATA[ 
+			cd linux-${PKGVERSION}
+			make oldconfig
+			make clean
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd linux-${PKGVERSION}
+			make bzImage
+			make modules_install
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

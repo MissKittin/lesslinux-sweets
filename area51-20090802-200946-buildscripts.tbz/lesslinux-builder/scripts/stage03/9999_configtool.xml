@@ -1,0 +1,158 @@
+<llpackages>
+	<scripts>
+	<scriptdata location="/etc/rc.d/0396-installer.sh" mode="0755" group="0" owner="0">
+	<![CDATA[#!/static/bin/ash
+
+#lesslinux provides installer
+#lesslinux license BSD
+
+PATH=/static/bin:/static/sbin:/bin:/sbin:/usr/bin:/usr/sbin
+export PATH
+
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors
+
+XINITRC=/usr/local/xconfgui/xinitrc_installer
+
+case $1 in 
+    start)
+	printf "$bold===> Starting configuration interface $normal\n"
+	# dump vesa modes
+	Xvesa -listmodes > /tmp/.vesamodes 2>&1
+	# Search suitable modes
+	resolutions="640x480x16 800x480x16 800x600x16 1024x768x16"
+	tryvesa=0x0111
+	for i in $resolutions ; do
+		mode=` grep " $i " /tmp/.vesamodes | awk -F ':' '{print $1}' `
+		[ -n "$mode" ] && tryvesa="$mode"
+	done
+	LANG=de_DE.UTF-8 ; export LANG
+	/usr/bin/xinit "$XINITRC" -- /usr/bin/Xvesa -br +kb -keybd keyboard -mouse mouse,/dev/input/mice -mode "$tryvesa" 2> /dev/null
+    ;;
+esac
+
+# The End  ]]>
+	</scriptdata>
+	<scriptdata location="/etc/rc.d/0398-runtimeconf.sh" mode="0755" group="0" owner="0">
+	<![CDATA[#!/static/bin/ash
+		
+#lesslinux provides runtimeconf
+#lesslinux license BSD
+
+PATH=/static/bin:/static/sbin:/bin:/sbin:/usr/bin:/usr/sbin
+export PATH
+
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors
+
+XINITRC=/usr/local/xconfgui/xinitrc_runtimeconf
+
+case $1 in 
+    start)
+	printf "$bold===> Starting configuration interface $normal\n"
+	# dump vesa modes
+	Xvesa -listmodes > /tmp/.vesamodes 2>&1
+	# Search suitable modes
+	resolutions="640x480x16 800x480x16 800x600x16 1024x768x16"
+	tryvesa=0x0111
+	for i in $resolutions ; do
+		mode=` grep " $i " /tmp/.vesamodes | awk -F ':' '{print $1}' `
+		[ -n "$mode" ] && tryvesa="$mode"
+	done
+	LANG=de_DE.UTF-8 ; export LANG
+	if echo "$skipservices" | grep '|monitortest|' ; then
+            echo "===> Skipping monitor test"
+	else
+	    # First start the monitor test with the normal Xorg server
+	    /usr/bin/xinit /usr/local/xconfgui/monitortest -- /usr/bin/Xorg -br -dpi "$dpi"
+	fi
+	# Second start the Xvesa server with the generic xinitrc script
+	if [ -f /var/run/lesslinux/xconfgui_xorg ] ; then
+	    /usr/bin/xinit "$XINITRC" -- /usr/bin/Xorg -br -dpi "$dpi"
+	else
+	    /usr/bin/xinit "$XINITRC" -- /usr/bin/Xvesa -br +kb -keybd keyboard -mouse mouse,/dev/input/mice -mode "$tryvesa"
+	fi
+    ;;
+esac
+
+# The end	]]>
+	</scriptdata>
+	<scriptdata location="/etc/rc.d/0400-xconfgui.sh" mode="0755" group="0" owner="0">
+	<![CDATA[#!/static/bin/ash
+		
+#lesslinux provides xconfgui
+#lesslinux license BSD
+
+PATH=/static/bin:/static/sbin:/bin:/sbin:/usr/bin:/usr/sbin
+export PATH
+
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors
+
+XINITRC=/usr/local/xconfgui/xinitrc
+
+case $1 in 
+    start)
+	printf "$bold===> Starting configuration interface $normal\n"
+	# dump vesa modes
+	Xvesa -listmodes > /tmp/.vesamodes 2>&1
+	# Search suitable modes
+	resolutions="640x480x16 800x480x16 800x600x16 1024x768x16"
+	tryvesa=0x0111
+	for i in $resolutions ; do
+		mode=` grep " $i " /tmp/.vesamodes | awk -F ':' '{print $1}' `
+		[ -n "$mode" ] && tryvesa="$mode"
+	done
+	LANG=de_DE.UTF-8 ; export LANG
+	if echo "$skipservices" | grep '|monitortest|' ; then
+            echo "===> Skipping monitor test"
+	else
+	    # First start the monitor test with the normal Xorg server
+	    /usr/bin/xinit /usr/local/xconfgui/monitortest -- /usr/bin/Xorg -br -dpi "$dpi"
+	fi
+	# Second start the Xvesa server with the generic xinitrc script
+	if [ -f /var/run/lesslinux/xconfgui_xorg ] ; then
+	    /usr/bin/xinit "$XINITRC" -- /usr/bin/Xorg -br -dpi "$dpi"
+	else
+	    /usr/bin/xinit "$XINITRC" -- /usr/bin/Xvesa -br +kb -keybd keyboard -mouse mouse,/dev/input/mice -mode "$tryvesa"
+	fi
+    ;;
+esac
+
+# The end	]]>
+	</scriptdata>
+	</scripts>  
+	<package name="xconfgui" version="20090730-01" allowfail="yes">
+		<sources>
+			<file>                       
+				<pkg sha1="fa11b801896510d899833ba1246d201d6067456e">xconfgui-20090730-01.tar.bz2</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+		</sources>
+		<unpack>
+		<![CDATA[ 
+		tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+		]]>
+		</unpack>
+		<install>
+		<![CDATA[ 
+		rsync -avHP ${PKGNAME}-${PKGVERSION}/ ${SQUASHFS}/
+		chmod a+x ${SQUASHFS}/usr/local/xconfcgui/*
+		chown 0:0 ${SQUASHFS}/usr
+		chown 0:0 ${SQUASHFS}/usr/local
+		chown -R 0:0 ${SQUASHFS}/usr/local/xconfgui
+		# FIXME FIXME FIXME - obsolete here
+		chown -R 0:0 ${SQUASHFS}/usr/share/icons
+		chown -R 0:0 ${SQUASHFS}/opt/firefox
+		chown -R 0:0 ${SQUASHFS}/lib/firmware
+		# END FIXME FIXME FIXME
+		mkdir ${SQUASHFS}/usr/var/
+		# mkdir -p ${SQUASHFS}/etc/dbus-1/session.d
+		]]>
+		</install>
+	</package>
+	
+</llpackages>

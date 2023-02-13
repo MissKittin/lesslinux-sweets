@@ -1,0 +1,51 @@
+<llpackages>
+	<package 
+		name="flex"
+		version="2.5.35"
+		class="devel"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>
+				<pkg sha1="c507095833aaeef2d6502e12638e54bf7ad2f24a">flex-2.5.35.tar.bz2</pkg>
+				<mirror>http://prdownloads.sourceforge.net/flex/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr && make
+			]]>
+		</build>
+		<test>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make check
+			]]>
+		</test>
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			ln -sv libfl.a /usr/lib/libl.a
+			cat > /usr/bin/lex << "EOF"
+#!/bin/sh
+# Begin /usr/bin/lex
+
+exec /usr/bin/flex -l "$@"
+
+# End /usr/bin/lex
+EOF
+			chmod -v 755 /usr/bin/lex
+			mkdir -v /usr/share/doc/${PKGNAME}-${PKGVERSION}
+			cp    -v doc/flex.pdf /usr/share/doc/${PKGNAME}-${PKGVERSION}
+			]]>
+		</install>
+	</package>
+</llpackages>

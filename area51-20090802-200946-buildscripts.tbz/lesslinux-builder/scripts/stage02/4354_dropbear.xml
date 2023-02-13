@@ -1,0 +1,38 @@
+<llpackages>
+	<package 
+		name="dropbear"
+		version="0.52"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>             
+				<pkg sha1="8c1745a9b64ffae79f28e25c6fe9a8b96cac86d8">dropbear-0.52.tar.bz2</pkg>
+				<mirror>http://matt.ucc.asn.au/dropbear/releases/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr && make PROGRAMS="dropbear dbclient dropbearkey dropbearconvert scp"
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make PROGRAMS="dropbear dbclient dropbearkey dropbearconvert scp" install
+			]]>
+		</install>
+	</package>
+</llpackages>

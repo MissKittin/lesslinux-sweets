@@ -1,0 +1,38 @@
+<llpackages>
+	<package 
+		name="iptables"
+		version="1.4.3"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>          
+				<pkg sha1="c7ae0541bf91501da5c459670f4f2b9ba526185c">clamav-0.95.tar.gz</pkg>
+				<mirror>http://dfn.dl.sourceforge.net/sourceforge/clamav/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

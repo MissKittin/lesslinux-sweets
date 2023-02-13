@@ -1,0 +1,34 @@
+<llpackages>
+	<package 
+		name="libXpm"
+		version="3.5.7"
+		class="lib"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>    
+				<pkg sha1="215208091051530867efae0a4c1cedb7385d5f0e">libXpm-3.5.7.tar.bz2</pkg>
+				<mirror>http://xorg.freedesktop.org/archive/individual/lib/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

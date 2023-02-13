@@ -1,0 +1,38 @@
+<llpackages>
+	<package 
+		name="xorg-server"
+		version="1.5.3"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>               
+				<pkg sha1="177529b6d7191a73df6abf2990cd7708398a8d81">xorg-server-1.5.3.tar.bz2</pkg>
+				<mirror>http://xorg.freedesktop.org/archive/individual/xserver/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --sysconfdir=/etc --disable-glx --disable-dri --disable-xinerama && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

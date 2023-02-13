@@ -1,0 +1,38 @@
+<llpackages>
+	<package 
+		name="wicd"
+		version="1.6.2"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>    
+				<pkg sha1="7c180d85a50bdbfc208214c94cfaa793bbc7d0f6">wicd-1.6.2.tar.bz2</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			python setup.py configure
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			python setup.py install
+			]]>
+		</install>
+	</package>
+</llpackages>

@@ -1,0 +1,42 @@
+<llpackages>
+	<package 
+		name="pciutils"
+		version="3.1.2"
+		class="lib"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>            
+				<pkg sha1="00b867e529f739342c929c4fa7df3a9e223de852">pciutils-3.1.2.tar.bz2</pkg>
+				<mirror>ftp://ftp.kernel.org/pub/software/utils/pciutils/</mirror>
+			</file>
+			<!--<file>            
+				<pkg sha1="7d6db83ae8a5cfd61cb4e715b9315792b7e7b15f">pciids-20090321.bz2</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>-->
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make DNS=yes SHARED=yes PREFIX=/usr 
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make DNS=yes SHARED=yes PREFIX=/usr install
+			]]>
+		</install>
+	</package>
+</llpackages>

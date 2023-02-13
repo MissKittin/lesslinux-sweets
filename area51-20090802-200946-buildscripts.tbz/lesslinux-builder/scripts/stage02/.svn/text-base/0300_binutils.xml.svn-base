@@ -1,0 +1,54 @@
+<llpackages>
+	<package 
+		name="binutils"
+		version="2.19.1"
+		class="devel"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>
+				<pkg sha1="88c91e36cde93433e4c4c2b2e3417777aad84526">binutils-2.19.1.tar.bz2</pkg>
+				<mirror>http://ftp.gnu.org/gnu/binutils/</mirror>
+			</file>
+			<file>
+				<pkg sha1="953ef6f0777a28659ccc1df19e86ed34acd88e3f">binutils-2.19-pt-pax-flags-200811041810.patch</pkg>
+				<mirror>http://pax.grsecurity.net/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			mkdir binutils-build
+			]]>
+		</unpack>
+		<patch>			
+			<![CDATA[ 
+			cd ${PKGNAME}-${PKGVERSION}
+			cat ${SRCDIR}/${PKGNAME}-2.19-pt-pax-flags-200811041810.patch | patch -p1
+			rm -fv etc/standards.info
+			sed -i.bak '/^INFO/s/standards.info //' etc/Makefile.in
+			
+			]]>
+		</patch>
+		<build>
+			<![CDATA[ 
+			cd ${PKGNAME}-build
+			../${PKGNAME}-${PKGVERSION}/configure --prefix=/usr --enable-shared
+			make tooldir=/usr
+			]]>
+		</build>
+		<test>
+			<![CDATA[ 
+			cd ${PKGNAME}-build
+			make check
+			]]>
+		</test>
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-build
+			make tooldir=/usr install
+			cp -v ../${PKGNAME}-${PKGVERSION}/include/libiberty.h /usr/include
+			]]>
+		</install>
+	</package>
+</llpackages>

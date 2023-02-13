@@ -1,0 +1,39 @@
+<llpackages>
+	<package 
+		name="alsa-utils"
+		version="1.0.20"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>   
+				<pkg sha1="14364394d1eaff5b5719c6be834de1311c83475e">alsa-utils-1.0.20.tar.bz2</pkg>
+				<mirror>ftp://ftp.alsa-project.org/pub/utils/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --disable-xmlto 
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

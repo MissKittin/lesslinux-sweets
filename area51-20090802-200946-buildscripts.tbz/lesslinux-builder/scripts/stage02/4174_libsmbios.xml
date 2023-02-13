@@ -1,0 +1,38 @@
+<llpackages>
+	<package 
+		name="libsmbios"
+		version="2.2.16"
+		class="lib"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>             
+				<pkg sha1="fa5799ceb9a77942238435b9963c7914951eb45c">libsmbios-2.2.16.tar.bz2</pkg>
+				<mirror>http://linux.dell.com/libsmbios/download/libsmbios/libsmbios-2.2.16/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --sysconfdir=/etc --prefix=/usr && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

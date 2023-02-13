@@ -1,0 +1,47 @@
+<llpackages>
+	<package 
+		name="tar"
+		version="1.22"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>  
+				<pkg sha1="ca99a6ade7308f9293bdb04048cb335e52c63215">tar-1.22.tar.bz2</pkg>
+				<mirror>http://ftp.gnu.org/gnu/tar/</mirror>
+			</file>
+			<!-- <file>
+				<pkg sha1="8fdf4b1b1cef8413540fec87906d17b101325fe3">tar-1.21-testsuite_fix-1.patch</pkg>
+				<mirror>http://www.linuxfromscratch.org/patches/lfs/development/</mirror>
+			</file>
+			<file>
+				<pkg sha1="dcae4f35245bbdce5d3d04afec4ea422ec46df23">tar-1.21-remove_warning-1.patch</pkg>
+				<mirror>http://www.linuxfromscratch.org/patches/lfs/development/</mirror>
+			</file> -->
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch>
+			<![CDATA[
+			echo 'Nothing to do!'
+			# cd ${PKGNAME}-${PKGVERSION}
+			# cat ${SRCDIR}/${PKGNAME}-${PKGVERSION}-testsuite_fix-1.patch | patch -p1
+			# cat ${SRCDIR}/${PKGNAME}-${PKGVERSION}-remove_warning-1.patch | patch -p1
+			]]>
+		</patch>
+		<build>
+			<![CDATA[ 
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/tools && make
+			]]>
+		</build>
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

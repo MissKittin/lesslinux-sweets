@@ -1,0 +1,43 @@
+<llpackages>
+	<package 
+		name="db"
+		version="4.7.25"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>
+				<pkg sha1="737f11c8f7f9b7bd2523f6c19460bd0aacd6799f">db-4.7.25-upstream_fixes-1.patch</pkg>
+				<mirror>http://www.linuxfromscratch.org/patches/lfs/development/db-4.7.25-upstream_fixes-1.patch</mirror>
+			</file>
+			<file>
+				<pkg sha1="957c10358df1211e1dc37ea997aadef42117d6a5">db-4.7.25.tar.gz</pkg>
+				<mirror>http://download-east.oracle.com/berkeley-db/db-4.7.25.tar.gz</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			]]>
+		</unpack>
+		<patch>
+			<![CDATA[ 
+			cd ${PKGNAME}-${PKGVERSION}
+			cat ${SRCDIR}/${PKGNAME}-${PKGVERSION}-upstream_fixes-1.patch | patch -p1
+			]]>
+		</patch>
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}/build_unix
+			../dist/configure --prefix=/usr --enable-compat185 --enable-cxx && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}/build_unix
+			make install
+			chown -Rv root:root /usr/share/doc/${PKGNAME}-${PKGVERSION}
+			]]>
+		</install>
+	</package>
+</llpackages>

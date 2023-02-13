@@ -1,0 +1,34 @@
+<llpackages>
+	<package 
+		name="tangoicons"
+		version="20090323"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>          			  
+				<pkg sha1="36adf7a652475a5c7c2044130f94f575215f2aa2">ICON-UnofficialTango.tar.bz2</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			echo 'Nothing to do!'
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			echo 'Nothing to do!'
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			mkdir -p /usr/share/icons
+			tar -C /usr/share/icons -xvjf ${SRCDIR}/ICON-UnofficialTango.tar.bz2
+			chown -R 0:0 /usr/share/icons
+			]]>
+		</install>
+	</package>
+</llpackages>

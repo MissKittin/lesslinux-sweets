@@ -1,0 +1,41 @@
+<llpackages>
+	<package 
+		name="man-db"
+		version="2.5.4"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>  
+				<pkg sha1="f7730087396d30171c35d500209253795f2d05f9">man-db-2.5.4.tar.gz</pkg>
+				<mirror>http://download.savannah.gnu.org/releases/man-db/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			]]>
+		</unpack>
+		<patch>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			sed -i -e '\%\t/usr/man%d' -e '\%\t/usr/local/man%d' src/man_db.conf.in
+			]]>
+		</patch>
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --libexecdir=/usr/lib --sysconfdir=/etc --disable-setuid \
+			--enable-mb-groff --with-browser=/usr/bin/lynx --with-col=/usr/bin/col --with-vgrind=/usr/bin/vgrind \
+			--with-grap=/usr/bin/grap && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

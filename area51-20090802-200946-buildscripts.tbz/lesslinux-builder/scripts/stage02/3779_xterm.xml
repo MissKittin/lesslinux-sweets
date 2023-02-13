@@ -1,0 +1,35 @@
+<llpackages>
+	<package 
+		name="xterm"
+		version="243"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>  
+				<pkg sha1="2d21f9ac13df846053b43d9fcf6ae70eaa63715a">xterm-243.tar.gz</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --enable-wide-chars && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install && make install-ti
+			chmod +s /usr/bin/xterm
+			]]>
+		</install>
+	</package>
+</llpackages>

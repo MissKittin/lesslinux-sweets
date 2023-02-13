@@ -1,0 +1,112 @@
+<llpackages>
+	<package 
+		name="firefox-source-de"
+		version="3.0.12"
+		class="user"
+		>
+		<!-- FIXME: correctly generate distribution.ini -->
+		<!--
+		
+# Partner Distribution Configuration File
+# Mozilla Firefox for Computerbild.de
+
+[Global]
+id=computerbild
+version=1.0
+about=Mozilla Firefox for Computerbild.de
+
+[Preferences]
+app.distributor="Computerbild"
+app.distributor.channel="Smart Pax"
+app.partner.computerbild="computerbild"
+		
+		-->
+		<license>GPLv2</license>
+		<!-- <sources>
+			<file>   
+				<pkg sha1="2d298082dbd98dbae3653466dca3915a99964776">firefox-3.0.11-source-de-20090616.tar.bz2</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/firefox-${PKGVERSION}-source-de-20090616.tar.bz2
+			]]>
+		</unpack> -->
+		<!-- official branding -->
+		<sources>
+			<!-- <file>   
+				<pkg sha1="d4cd017f1c3182f03875ebf25dd34b8ea79e1c9a">firefox-3.0.11-source-de-20090704.tar.bz2</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file> -->
+			<file>
+				<pkg sha1="886c5ca8025b21f6f5a6acf8f9ca8c724f22746f">firefox-3.0.12-source-de-20090728.tar.bz2</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/firefox-${PKGVERSION}-source-de-20090728.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd mozilla
+			# make -f client.mk clean
+			make -f client.mk build
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd mozilla
+			make -f client.mk install
+
+ln -s /opt/firefox/lib/firefox-${PKGVERSION} /opt/firefox/lib/firefox
+
+echo -n '' > /usr/bin/firefox
+cat >> /usr/bin/firefox << FFRUN
+#!/bin/sh
+if [ "\$#" -lt 1 ] ; then
+    exec sudo /opt/firefox/bin/firefox_smack
+else
+    if ps waux | grep 'surfer   /opt/.*/firefox-bin' | grep -v grep ; then
+        /opt/firefox/bin/firefox \$@
+    else
+        sudo /opt/firefox/bin/firefox_smack
+	sleep 3
+	exec /opt/firefox/bin/firefox \$@
+    fi
+fi
+FFRUN
+
+chmod a+rx /usr/bin/firefox
+
+echo -n '' > /opt/firefox/bin/firefox_smack
+cat >> /opt/firefox/bin/firefox_smack << FFSMACK
+#!/static/bin/ash
+/static/sbin/newsmack internet /static/bin/su surfer -c /opt/firefox/bin/firefox
+FFSMACK
+
+chmod a+rx /opt/firefox/bin/firefox_smack
+			
+			/sbin/paxctl -m /opt/firefox/lib/firefox-${PKGVERSION}/firefox-bin
+			
+			echo '// Read LessLinux defaults' >> /opt/firefox/lib/firefox-${PKGVERSION}/greprefs/all.js
+			echo 'pref("general.config.filename", "lesslinux.cfg");' >> /opt/firefox/lib/firefox-${PKGVERSION}/greprefs/all.js
+			echo 'pref("general.config.obscure_value", 0);' >> /opt/firefox/lib/firefox-${PKGVERSION}/greprefs/all.js
+			
+			mkdir /opt/firefox/lib/firefox-${PKGVERSION}/lesslinux
+			
+			echo '//' >> /opt/firefox/lib/firefox-${PKGVERSION}/lesslinux/lesslinux.cfg
+			echo 'pref("xpinstall.enabled", false);' >> /opt/firefox/lib/firefox-${PKGVERSION}/lesslinux/lesslinux.cfg
+			echo 'lockPref("xpinstall.enabled", false);' >> /opt/firefox/lib/firefox-${PKGVERSION}/lesslinux/lesslinux.cfg
+			
+			ln -sf /opt/firefox/lib/firefox-${PKGVERSION}/lesslinux/lesslinux.cfg /opt/firefox/lib/firefox-${PKGVERSION}/lesslinux.cfg
+			
+			chown -R 0:0 /opt/firefox
+			]]>
+		</install>
+	</package>
+</llpackages>

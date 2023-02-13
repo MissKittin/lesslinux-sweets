@@ -1,0 +1,41 @@
+<llpackages>
+	<package 
+		name="wpa_supplicant"
+		version="0.6.9"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>
+				<pkg sha1="3764f7bda4e5c87caac2b9e134cb59996f073f09">wpa_supplicant-0.6.9.tar.gz</pkg>
+				<mirror>http://hostap.epitest.fi/releases/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}/wpa_supplicant
+			cp -v defconfig .config
+			echo 'BINDIR=/usr/sbin' >> .config
+			echo 'LIBDIR=/usr/lib' >> .config
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}/wpa_supplicant
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

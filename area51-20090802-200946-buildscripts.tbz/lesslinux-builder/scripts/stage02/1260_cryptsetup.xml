@@ -1,0 +1,35 @@
+<llpackages>
+	<package 
+		name="cryptsetup"
+		version="1.0.6"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file> 
+				<pkg sha1="dd45ad6a29c2e9af83c2c1525b02d7af88ab7212">cryptsetup-1.0.6.tar.bz2</pkg>
+				<mirror>http://cryptsetup.googlecode.com/files/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/cryptsetup-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd cryptsetup-${PKGVERSION}
+			./configure --prefix=/usr --enable-libdevmapper --enable-gcrypt
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd cryptsetup-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

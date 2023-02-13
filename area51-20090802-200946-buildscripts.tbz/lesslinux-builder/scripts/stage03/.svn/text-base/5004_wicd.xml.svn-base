@@ -1,0 +1,45 @@
+<llpackages>
+	<dirs>
+		<dir mode="0755">/etc/wicd/scripts</dir>
+		<dir mode="0755">/etc/wicd/scripts/postconnect</dir>
+		<dir mode="0755">/etc/wicd/scripts/disconnect</dir>
+		<dir mode="0755">/etc/wicd/scripts/preconnect</dir>
+	</dirs>
+	<scripts>
+		<scriptdata location="/etc/rc.d/0430-wicd.sh" mode="0755" group="0" owner="0">
+		<![CDATA[#!/static/bin/ash
+
+#lesslinux provides wicd
+
+PATH=/bin:/sbin:/usr/bin:/usr/sbin:/static/bin:/static/sbin
+export PATH
+
+. /etc/rc.defaults
+. /etc/rc.subr/extractbootparams
+. /etc/rc.subr/colors
+
+# Start wicd as network manager
+case $1 in
+    start)
+	printf "$bold===> Starting Network daemon (wicd) $normal\n"
+	mkdir /var/lib/wicd/configurations
+	for i in 0 1 2 3 4 5 6 7 8 9 ; do
+		for j in eth ath ra wlan ; do
+			ifconfig ${j}${i} up > /dev/null 2>&1
+		done
+	done
+	[ "$security" = "smack" ] && \
+		echo netmgr > /proc/self/attr/current
+	/usr/sbin/wicd
+    ;;
+esac
+		]]>
+		</scriptdata>
+	</scripts>
+	<package 
+		name="wicd"
+		version="1.6.2"
+		class="user"
+		>
+	</package>
+</llpackages>

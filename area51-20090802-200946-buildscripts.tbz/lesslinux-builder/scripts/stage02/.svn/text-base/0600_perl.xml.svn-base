@@ -1,0 +1,57 @@
+<llpackages>
+	<package 
+		name="perl"
+		version="5.10.0"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>
+				<pkg sha1="adf73606dd5248af7ccdd735bcaa0e628ea75b3c">perl-5.10.0.tar.gz</pkg>
+				<mirror>http://cpan.org/src/</mirror>
+			</file>
+			<file>
+				<pkg sha1="b3647660b80408eb281c333fba82432cf400fc01">perl-5.10.0-consolidated-1.patch</pkg>
+				<mirror>http://www.linuxfromscratch.org/patches/lfs/development/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			]]>
+		</unpack>
+		<patch>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			cat ${SRCDIR}/${PKGNAME}-${PKGVERSION}-consolidated-1.patch | patch -p1
+			sed -i -e "s|BUILD_ZLIB\s*= True|BUILD_ZLIB = False|"           \
+				-e "s|INCLUDE\s*= ./zlib-src|INCLUDE    = /usr/include|" \
+				-e "s|LIB\s*= ./zlib-src|LIB        = /usr/lib|"         \
+				ext/Compress/Raw/Zlib/config.in
+			]]>
+		</patch>
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			sh Configure -des -Dprefix=/usr \
+				-Dvendorprefix=/usr           \
+				-Dman1dir=/usr/share/man/man1 \
+				-Dman3dir=/usr/share/man/man3 \
+				-Dpager="/usr/bin/less -isR" && make
+			]]>
+		</build>
+		<test>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make test
+			]]>
+		</test>
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			ln -sf /usr/bin/perl /bin/perl
+			]]>
+		</install>
+	</package>
+</llpackages>

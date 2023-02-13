@@ -1,0 +1,41 @@
+<llpackages>
+	<package 
+		name="util-linux-ng"
+		version="2.14.2"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>  
+				<pkg sha1="8d5ba161627dcf9295cc649c46ea15c333ff6b68">util-linux-ng-2.14.2.tar.bz2</pkg>
+				<mirror>http://www.kernel.org/pub/linux/utils/util-linux-ng/v2.14/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			sed -e 's@etc/adjtime@var/lib/hwclock/adjtime@g' \
+			-i $(grep -rl '/etc/adjtime' .)
+			mkdir -pv /var/lib/hwclock
+			]]>
+		</patch>
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --enable-arch --enable-partx --enable-write && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

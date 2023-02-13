@@ -1,0 +1,51 @@
+<llpackages>
+	<package 
+		name="bzip2"
+		version="1.0.5"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>
+				<pkg sha1="8b02713ea0c8eb501cc8bdac4432d7f29700f767">bzip2-1.0.5.tar.gz</pkg>
+				<mirror>http://www.bzip.org/1.0.5/</mirror>
+			</file>
+			<file>
+				<pkg sha1="86fa168b260bb12651ebfa6d47939e926e067036">bzip2-1.0.5-install_docs-1.patch</pkg>
+				<mirror>http://www.linuxfromscratch.org/patches/lfs/development/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			]]>
+		</unpack>
+		<patch>
+			<![CDATA[ 
+			cd ${PKGNAME}-${PKGVERSION}
+			cat ${SRCDIR}/${PKGNAME}-${PKGVERSION}-install_docs-1.patch | patch -p1
+			]]>
+		</patch>
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make -f Makefile-libbz2_so
+			make clean
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make PREFIX=/usr install
+			cp -v bzip2-shared /bin/bzip2
+			cp -av libbz2.so* /lib
+			ln -sv ../../lib/libbz2.so.1.0 /usr/lib/libbz2.so
+			rm -v /usr/bin/{bunzip2,bzcat,bzip2}
+			ln -sv bzip2 /bin/bunzip2
+			ln -sv bzip2 /bin/bzcat
+			]]>
+		</install>
+	</package>
+</llpackages>

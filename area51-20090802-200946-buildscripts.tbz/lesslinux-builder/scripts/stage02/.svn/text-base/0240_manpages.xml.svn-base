@@ -1,0 +1,33 @@
+<llpackages>
+	<package 
+		name="man-pages"
+		version="3.21"
+		class="doc"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>  
+				<pkg sha1="a381899126dddb509501712122c6c669d44fcb4d">man-pages-3.21.tar.bz2</pkg>
+				<mirror>http://www.kernel.org/pub/linux/docs/manpages/Archive/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[ 
+			echo 'Nothing to do!'
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

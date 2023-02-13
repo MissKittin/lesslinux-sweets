@@ -1,0 +1,44 @@
+<llpackages>
+	<package 
+		name="dhcpcd"
+		version="4.0.11"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>
+				<pkg sha1="66a762c23f0c8be7529ac9b0443f7dc3d4cf7a2f">dhcpcd-4.0.11.tar.bz2</pkg>
+				<mirror>http://roy.marples.name/downloads/dhcpcd/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make PREFIX= \
+				LIBEXECDIR=/lib/dhcpcd \
+				DBDIR=/var/lib/dhcpcd \
+				SYSCONFDIR=/etc/dhcpcd
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make PREFIX= \
+				LIBEXECDIR=/lib/dhcpcd \
+				DBDIR=/var/lib/dhcpcd \
+				SYSCONFDIR=/etc/dhcpcd install
+			]]>
+		</install>
+	</package>
+</llpackages>

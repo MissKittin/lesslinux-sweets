@@ -1,0 +1,60 @@
+<llpackages>
+	<package 
+		name="udev"
+		version="142"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>  
+				<pkg sha1="2dc2dcb719675e5659965d47127fc61473770036">udev-142.tar.bz2</pkg>
+				<mirror>http://www.kernel.org/pub/linux/utils/kernel/hotplug/</mirror>
+			</file>
+			<file>
+				<pkg sha1="c33ba01996e64257bfacb25b4fd9040b7a132adf">udev-config-20081229.tar.bz2</pkg>
+				<mirror>http://www.linuxfromscratch.org/lfs/downloads/development/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			tar xjf ${SRCDIR}/${PKGNAME}-config-20081229.tar.bz2
+			]]>
+		</patch>
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			install -dv /lib/{firmware,udev/devices/{pts,shm}}
+			mknod -m0666 /lib/udev/devices/null c 1 3
+			mknod -m0600 /lib/udev/devices/kmsg c 1 11
+			ln -sv /proc/self/fd /lib/udev/devices/fd
+			ln -sv /proc/self/fd/0 /lib/udev/devices/stdin
+			ln -sv /proc/self/fd/1 /lib/udev/devices/stdout
+			ln -sv /proc/self/fd/2 /lib/udev/devices/stderr
+			ln -sv /proc/kcore /lib/udev/devices/core
+			./configure --prefix=/usr --exec-prefix= --sysconfdir=/etc && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			install -m644 -v rules/packages/64-*.rules /lib/udev/rules.d/
+			install -m644 -v rules/packages/40-pilot-links.rules /lib/udev/rules.d/
+			cd udev-config-20081229
+			make install
+			make install-doc
+			make install-extra-doc
+			cd ..
+			install -m644 -v -D docs/writing_udev_rules/index.html /usr/share/doc/${PKGNAME}-${PKGVERSION}/index.html
+			
+			]]>
+		</install>
+	</package>
+</llpackages>

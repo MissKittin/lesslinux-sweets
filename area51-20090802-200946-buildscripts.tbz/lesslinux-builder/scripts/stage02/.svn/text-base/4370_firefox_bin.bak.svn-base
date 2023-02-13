@@ -1,0 +1,37 @@
+<llpackages>
+	<package 
+		name="firefox"
+		version="3.0.8"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>
+				<pkg sha1="262f0006e5430f57f7f0f278106db821c9f81ec6">firefox-3.0.8.tar.bz2</pkg>
+				<!--<mirror>http://mozilla.cdn.cacheboy.net/firefox/releases/3.0.7/linux-i686/de/</mirror>-->
+				<mirror>http://mozilla.cdn.cacheboy.net/firefox/releases/3.0.8/linux-i686/de/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			echo 'Nothing to do!'
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			echo 'Nothing to do!'
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			mkdir -p /opt
+			tar -C /opt -xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			echo '#!/bin/sh' > /usr/bin/firefox
+			echo 'exec /opt/firefox/firefox $@' >> /usr/bin/firefox
+			chmod a+rx /usr/bin/firefox
+			]]>
+		</install>
+	</package>
+</llpackages>

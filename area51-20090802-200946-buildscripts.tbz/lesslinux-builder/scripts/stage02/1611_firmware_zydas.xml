@@ -1,0 +1,34 @@
+<llpackages>
+	<package 
+		name="firmware_zydas"
+		version="20090624"
+		class="user"
+		>
+		<license>proprietary</license>
+		<sources>
+			<file>    
+				<pkg sha1="2c181e67910885872407abac8c180f03ae068955">zd1211-firmware-1.4.tar.bz2</pkg>
+				<mirror>http://surfnet.dl.sourceforge.net/sourceforge/zd1211/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xvjf ${SRCDIR}/zd1211-firmware-1.4.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			echo 'Nothing to build!'
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			mkdir /lib/firmware
+			rsync -avHP zd1211-firmware/ /lib/firmware/zd1211/
+			chown -R 0:0 /lib/firmware/
+			]]>
+		</install>
+	</package>
+</llpackages>

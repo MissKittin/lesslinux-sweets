@@ -1,0 +1,35 @@
+<llpackages>
+	<package 
+		name="font-misc-misc"
+		version="1.0.0"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>  
+				<!-- is latest -->
+				<pkg sha1="caa36376a00568e900337efe0d9dd626c64fde63">font-misc-misc-1.0.0.tar.bz2</pkg>
+				<mirror>http://xorg.freedesktop.org/archive/individual/font/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

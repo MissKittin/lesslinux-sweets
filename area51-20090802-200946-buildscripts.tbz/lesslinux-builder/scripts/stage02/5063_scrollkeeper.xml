@@ -1,0 +1,39 @@
+<llpackages>
+	<package 
+		name="scrollkeeper"
+		version="0.3.14"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>       
+				<pkg sha1="0462799a2d96f46dec76f2fd057e2dfe8d7cb94d">scrollkeeper-0.3.14.tar.gz</pkg>
+				<mirror>http://surfnet.dl.sourceforge.net/sourceforge/scrollkeeper/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --sysconfdir=/etc
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

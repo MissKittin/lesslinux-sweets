@@ -1,0 +1,38 @@
+<llpackages>
+	<package 
+		name="libdrm"
+		version="2.4.11"
+		class="lib"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>                      
+				<pkg sha1="fcf8626a3d2d8c800cfe6c50431ef12ebe872fbf">libdrm-2.4.11.tar.bz2</pkg>
+				<mirror>http://dri.freedesktop.org/libdrm/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --sysconfdir=/etc && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

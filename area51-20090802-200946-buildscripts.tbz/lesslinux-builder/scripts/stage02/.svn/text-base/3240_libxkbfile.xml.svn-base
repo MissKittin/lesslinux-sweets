@@ -1,0 +1,35 @@
+<llpackages>
+	<package 
+		name="libxkbfile"
+		version="1.0.5"
+		class="devel"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>    
+				<pkg sha1="ef1b86972069e9503dac6d2feda11ed074c08ad5">libxkbfile-1.0.5.tar.bz2</pkg>
+				<mirror>http://xorg.freedesktop.org/archive/individual/lib/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

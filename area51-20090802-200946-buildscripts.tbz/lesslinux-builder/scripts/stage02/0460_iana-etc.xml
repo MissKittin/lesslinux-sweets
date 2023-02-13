@@ -1,0 +1,34 @@
+<llpackages>
+	<package 
+		name="iana-etc"
+		version="2.30"
+		class="skel"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>
+				<pkg sha1="218593bcb9264014c4e397d838b2c218eac9df06">iana-etc-2.30.tar.bz2</pkg>
+				<mirror>http://sethwklein.net/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

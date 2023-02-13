@@ -1,0 +1,37 @@
+<llpackages>
+	<package 
+		name="pciids"
+		version="20090312"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<!-- <file>            
+				<pkg sha1="00b867e529f739342c929c4fa7df3a9e223de852">pciutils-3.1.2.tar.bz2</pkg>
+				<mirror>ftp://ftp.kernel.org/pub/software/utils/pciutils/</mirror>
+			</file> -->
+			<file>            
+				<pkg sha1="7d6db83ae8a5cfd61cb4e715b9315792b7e7b15f">pciids-20090321.bz2</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			echo 'Nothing to do!'
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			echo 'Nothing to do!'
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			mkdir -p /var/lib/misc/
+			bunzip2 -c ${SRCDIR}/pciids-20090312.bz2 > /var/lib/misc/pci.ids
+			]]>
+		</install>
+	</package>
+</llpackages>

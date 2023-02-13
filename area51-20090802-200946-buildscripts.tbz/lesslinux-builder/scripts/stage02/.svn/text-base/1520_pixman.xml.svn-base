@@ -1,0 +1,35 @@
+<llpackages>
+	<package 
+		name="pixman"
+		version="0.14.0"
+		class="lib"
+		>
+		<license>GPLv2</license>
+		<sources>    
+			<file>       <!-- fd44f4dc0e429bb71344d33c783837fd0b8b6b5b  pixman-0.15.2.tar.bz2 -->
+				<pkg sha1="495e9de7b113365d0b7fe902f846734dfe2e1546">pixman-0.14.0.tar.bz2</pkg>
+				<mirror>http://xorg.freedesktop.org/archive/individual/lib/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

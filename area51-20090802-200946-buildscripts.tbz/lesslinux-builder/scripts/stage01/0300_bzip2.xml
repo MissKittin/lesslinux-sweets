@@ -1,0 +1,32 @@
+<llpackages>
+	<package 
+		name="bzip2"
+		version="1.0.5"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>
+				<pkg sha1="8b02713ea0c8eb501cc8bdac4432d7f29700f767">bzip2-1.0.5.tar.gz</pkg>
+				<mirror>http://www.bzip.org/1.0.5/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[ 
+			cd ${PKGNAME}-${PKGVERSION}
+			make
+			]]>
+		</build>
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make PREFIX=/tools install
+			]]>
+		</install>
+	</package>
+</llpackages>

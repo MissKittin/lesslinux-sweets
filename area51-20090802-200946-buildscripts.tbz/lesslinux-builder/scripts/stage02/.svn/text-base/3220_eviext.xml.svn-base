@@ -1,0 +1,35 @@
+<llpackages>
+	<package 
+		name="evieext"
+		version="1.0.2"
+		class="devel"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>  
+				<pkg sha1="1ab4048ffbfb6b69e88d2f0f2cab7ca60e50cc99">evieext-1.0.2.tar.bz2</pkg>
+				<mirror>http://xorg.freedesktop.org/archive/individual/proto/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

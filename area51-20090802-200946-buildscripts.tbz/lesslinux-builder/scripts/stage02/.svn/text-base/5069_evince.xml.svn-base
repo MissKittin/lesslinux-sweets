@@ -1,0 +1,40 @@
+<llpackages>
+	<package 
+		name="evince"
+		version="2.26.2"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>           
+				<pkg sha1="1a789e078b4c95f3e3387a45092ae2f222135013">evince-2.26.2.tar.bz2</pkg>
+				<mirror>ftp://ftp.sunet.se/pub/X11/GNOME/desktop/2.26/2.26.2/sources/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --prefix=/usr --sysconfdir=/etc --without-keyring
+			make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			/sbin/paxctl/paxctl -m /usr/bin/evince
+			]]>
+		</install>
+	</package>
+</llpackages>

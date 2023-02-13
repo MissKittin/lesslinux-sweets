@@ -1,0 +1,34 @@
+<llpackages>
+	<package 
+		name="matchbox-window-manager"
+		version="1.2"
+		class="lib"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>  
+				<pkg sha1="4e8ce03b54f363a85dbc8f1925d4b803036bcd46">matchbox-window-manager-1.2.tar.bz2</pkg>
+				<mirror>http://matchbox-project.org/sources/matchbox-window-manager/1.2/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --sysconfdir=/etc --prefix=/usr --enable-expat && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

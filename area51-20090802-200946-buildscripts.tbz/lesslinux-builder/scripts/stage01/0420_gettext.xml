@@ -1,0 +1,33 @@
+<llpackages>
+	<package 
+		name="gettext"
+		version="0.17"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>
+				<pkg sha1="c51803d9f745f6ace36bd09c0486d5735ce399cf">gettext-0.17.tar.gz</pkg>
+				<mirror>http://ftp.gnu.org/gnu/gettext/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[ 
+			cd ${PKGNAME}-${PKGVERSION}/gettext-tools
+			./configure --prefix=/tools --disable-shared
+			make -C gnulib-lib && make -C src msgfmt
+			]]>
+		</build>
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}/gettext-tools
+			cp -v src/msgfmt /tools/bin
+			]]>
+		</install>
+	</package>
+</llpackages>

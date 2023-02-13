@@ -1,0 +1,39 @@
+<llpackages>
+	<package 
+		name="libxfcegui4"
+		version="4.6.1"
+		class="lib"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>           
+			   
+				<pkg sha1="82bcfe74dd3b9188b9f41d8fa7dc4a8481461696">libxfcegui4-4.6.1.tar.bz2</pkg>
+				<mirror>http://www.xfce.org/archive/xfce-4.6.1/src/</mirror>
+			</file>
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			if [ -f ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2 ] ; then
+				tar xjf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.bz2
+			else
+				tar xzf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+			fi
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			./configure --sysconfdir=/etc --prefix=/usr && make
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd ${PKGNAME}-${PKGVERSION}
+			make install
+			]]>
+		</install>
+	</package>
+</llpackages>

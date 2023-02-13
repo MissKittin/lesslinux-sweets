@@ -1,0 +1,44 @@
+<llpackages>
+	<package 
+		name="firefox-source"
+		version="3.0.10"
+		class="user"
+		>
+		<license>GPLv2</license>
+		<sources>
+			<file>
+				<pkg sha1="67f74cac153d37aa6aff8d5c62042fb76e197481">firefox-3.0.10-source.tar.bz2</pkg>
+				<mirror>http://ftp.mozilla.org/pub/mozilla.org/firefox/releases/3.0.10/source/</mirror>
+			</file>
+			<file>
+				<pkg sha1="e11126bbc481adcc70ff615445516c66666722b9">mozconfig-ff-3.0.10-001</pkg>
+				<mirror>http://distfiles.lesslinux.org/</mirror>
+			</file>
+
+		</sources>
+		<unpack>
+			<![CDATA[ 
+			tar xjf ${SRCDIR}/firefox-${PKGVERSION}-source.tar.bz2
+			cp -v ${SRCDIR}/mozconfig-ff-${PKGVERSION}-001 mozilla/.mozconfig
+			]]>
+		</unpack>
+		<patch />
+		<build>
+			<![CDATA[
+			cd mozilla
+			make -f client.mk clean
+			make -f client.mk build
+			]]>
+		</build>
+		<test />
+		<install>
+			<![CDATA[
+			cd mozilla
+			make -f client.mk install
+			echo '#!/bin/sh' > /usr/bin/firefox
+			echo 'exec /opt/firefox/bin/firefox $@' >> /usr/bin/firefox
+			chmod a+rx /usr/bin/firefox
+			]]>
+		</install>
+	</package>
+</llpackages>
