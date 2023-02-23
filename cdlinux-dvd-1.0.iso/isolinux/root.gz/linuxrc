@@ -1,0 +1,37 @@
+#!/bin/bash
+###############################################################
+# mountrd	Montuje ramdiski dla CDLinux.pl
+# 10-06-2000   wrobel@task.gda.pl
+# 07-01-2006
+###############################################################
+
+export PATH=/usr/sbin:/sbin:/bin
+
+. /linuxrc.conf
+. /loadmodules
+. /script
+
+mount -t proc none /proc
+
+if [ "`grep cdboot /proc/cmdline`" ]; then
+
+	mkdir /mnt/ram4
+
+	dd if=/dev/zero of=/dev/ram4 count=6 bs=1M >/dev/null 2>/dev/null
+	mke2fs -q /dev/ram4
+
+	mount /dev/ram4 /mnt/ram4 
+
+	cd /mnt/ram4
+
+	cp -dpR /bin .
+	cp -dpR /etc .
+	cp -dpR /sbin .
+	cp -dpR /lib .
+	cp -dpR /dev .
+	cp sbin/init .
+
+	cd ..
+
+	umount /dev/ram4
+fi

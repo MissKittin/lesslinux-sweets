@@ -1,0 +1,114 @@
+#!/bin/bash
+mount -o remount,rw /
+
+MNT="/mnt"
+IMAGE="$MNT/image"
+IMAGEDUZY="$MNT/image-duzy"
+UNION="$MNT/union"
+UNIONRW="$MNT/unionrw"
+SQUASH="$MNT/squash"
+CDROMDIR="$MNT/cdrom"
+MEDIA="/media"
+CDMEDIA="$MEDIA/cdrom"
+
+
+mkdir $MNT $MEDIA >/dev/null 2>/dev/null
+mkdir $IMAGE $IMAGEDUZY $UNION $UNIONRW
+
+
+rm -rf $CDROMDIR
+  COUNT=1
+  CDFOUND=1
+  END=1
+
+#if [ "`grep satadebug /proc/cmdline`" ]; then
+#	dmesg | grep -E "(CD|DVD)"
+#fi
+
+  while [ $END -eq 1 ]; do
+          CDDRV=`dmesg | grep -E ".{3}.{0,1}:.*(CD|DVD)"  | cut -d ":" -f 1 | sort -u | grep -n "" | grep $COUNT: | colrm 1 2`
+          #CDDRV=`dmesg | grep -E "hd.*(CD|DVD).*ROM" | colrm 4 70 | sort -u | grep -n "" | grep $COUNT: | colrm 1 2`
+	  if [ -e $CDDRV  ]; then
+	  	  if [ $CDFOUND -eq 1 ]; then
+			  echo "Nie znaleziono plyty dystrybucji cdlinux.pl..."
+			  exit
+		  else
+		  	  END=0
+		  fi
+	  fi
+	  if [ $END -eq 1 ] ; then 
+	    echo "  sprawdzam: /dev/$CDDRV"
+	    
+	    mkdir $CDMEDIA${COUNT}
+	    mount -t iso9660 /dev/$CDDRV $CDMEDIA${COUNT}
+	    echo -e "/dev/${CDDRV}\t$CDMEDIA${COUNT}\tiso9660 ro,user,noauto,exec\t0\t0" >> /etc/fstab
+	    if [ -f $CDMEDIA${COUNT}/cdlinux.pl.img ] ; then 
+		    CDFOUND=0
+		    ln -s /dev/$CDDRV /dev/cdrom
+		    ln -s $CDMEDIA${COUNT} $CDROMDIR
+	    else
+		    umount $CDMEDIA${COUNT}
+	    fi	
+	    COUNT=`expr $COUNT + 1`
+	  fi
+  done
+
+if [ -e $CDROMDIR/cdlinux.duzy.img ]; then 
+  echo -en $"\n\n\\033[1;39mDystrybucja \\033[1;32mcdlinux.pl \\033[1;39mumozliwia prace w dwoch trybach:\n1. \\033[1;33mTryb normalny  \\033[1;39m- pelny zestaw programow, bez mozliwosci wyjecia plyty CD\n2. \\033[1;31mTryb specjalny \\033[1;39m- ograniczony zestaw programow, mozliwosc wyjecia plyty CD,\n                    zalecane powyzej 256MB RAM\n\n\\033[1;39mWybierz tryb pracy dystrybucji [\\033[1;33mdomyslnie 1\\033[1;39m]:"
+else
+  echo -en $"\n\n\\033[1;39mDystrybucja \\033[1;32mcdlinux.pl \\033[1;39mumozliwia prace w dwoch trybach:\n1. \\033[1;33mTryb normalny  \\033[1;39m- szybki start, bez mozliwosci wyjecia plyty CD\n2. \\033[1;31mTryb specjalny \\033[1;39m- dluzszy czas startu, mozliwosc wyjecia plyty CD,\n                    zalecane powyzej 256MB RAM\n\n\\033[1;39mWybierz tryb pracy dystrybucji [\\033[1;33mdomyslnie 1\\033[1;39m]:"
+fi
+
+  read -t 10 KEY
+  echo -en $"\\033[1;38m\n"
+		  
+  if [ -n "$KEY" ]; then
+	  if [ "$KEY" = "2" ]; then
+		  mkdir $SQUASH
+		  mount -t tmpfs -o size=220m /dev/ram5 $SQUASH
+		  echo "Kopiowanie danych..."
+		  cp_imp -B -b $CDROMDIR/cdlinux.pl.img $SQUASH/cdlinux.pl.img
+		  umount $CDROMDIR
+		  CDROMDIR="$SQUASH"
+	  fi
+  fi
+
+
+mount -t squashfs -o loop $CDROMDIR/cdlinux.pl.img $IMAGE
+UNIONSTR="$IMAGE=ro"
+if [ -e $CDROMDIR/cdlinux.duzy.img ]; then 
+	mount -t squashfs -o loop $CDROMDIR/cdlinux.duzy.img $IMAGEDUZY
+	UNIONSTR="$IMAGEDUZY=ro:$UNIONSTR"
+fi
+
+mount -t tmpfs /dev/ram2 $UNIONRW
+#echo mount -t unionfs -o dirs=$UNIONRW=rw:$UNIONSTR unionfs $UNION
+#mount -t unionfs -o dirs=$UNIONRW=rw:$UNIONSTR unionfs $UNION
+mount -t aufs -o dirs=$UNIONRW=rw:$UNIONSTR none $UNION
+
+mkdir /proc /sys /srv /opt /tmp
+
+mount -t tmpfs /dev/ram3 /tmp
+chmod a+rwxt /tmp
+
+mount -t proc none /proc 
+
+cp /etc/fstab /tmp
+cp /etc/mtab /tmp
+
+cp -dpR /dev/cdrom* /$UNION/dev/
+$UNION/bin/ls $UNION | while read DIR; do
+	if [ -d $UNION/$DIR ]; then
+		if [ ! -d /$DIR ]; then
+			mkdir /$DIR
+		fi
+		mount --rbind $UNION/$DIR /$DIR
+	fi
+done
+
+mv /tmp/fstab /etc
+mv /tmp/mtab /etc
+mount -o remount,rw /
+
+/etc/init.d/rcS
+
