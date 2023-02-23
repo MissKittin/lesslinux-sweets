@@ -1,0 +1,74 @@
+#!/usr/bin/perl
+
+# Author           : Michal Wrobel ( wrobel@task.gda.pl )
+# Created On       : 2005.06.04
+# Version          : 0.0.1
+#
+# Description      :
+# Frontend for decompressing tools working with rox-filer.
+#
+# Licensed under GPL (see /usr/share/common-licenses/GPL for more details
+# or contact # the Free Software Foundation for a copy)
+
+
+
+use strict;
+use Cwd;
+		      
+my %archive=();
+
+%archive=&readConf("/etc/cdlcenter/rox-unarchive.conf");
+%archive=(%archive, &readConf("~/.cdlcenter/rox-unarchive.conf"));
+
+my $currentdir=getcwd;
+my $tempdir="/tmp/rox-unarchive.$$";
+system("mkdir $tempdir");
+chdir($tempdir);
+
+my $extention="";
+my $outfile="";
+
+if($ARGV[0]=~/([^\/]*)\.tar\.(..)$/){
+	$extention="tar.$2";
+	$outfile=$1;
+}elsif($ARGV[0]=~/([^\/]*)\.([^\.]*)$/){
+	$extention="$2";
+	$outfile=$1;
+}
+
+my $infile=$ARGV[0];
+$infile=$currentdir."/".$infile if ($infile!~/^\//);
+my $archive=$archive{"$extention"};
+$archive=~s/INFILE/"$infile"/;
+$archive=~s/OUTFILE/$outfile/;
+
+if(!$archive){
+	$archive="7z e $infile";
+}
+print "$archive\n";
+system($archive);
+system("rox $tempdir");
+system("sleep 3");
+
+my $id=`xwininfo -tree -root | grep "$tempdir"`;
+$id=~s/^ *([^ ]*) .*/$1/;
+chop($id);
+system("xprop -spy -id $id >/dev/null 2>/dev/null");
+system("rm -rf $tempdir");
+
+
+sub readConf{
+	my ($filename) = @_;
+	open(CONF,"$filename");
+
+	my %archive=();
+	
+	while(<CONF>){
+		/^([^\s]*)\s*(.*)/;
+		$archive{"$1"}=$2;
+	}
+
+	close(CONF);
+	return %archive;
+}
+

@@ -1,0 +1,210 @@
+#! /bin/sh
+#
+# GNU_Linux cdlinux.pl - http://cdlinux.pl
+# 
+#   Author: Przemys³aw Pawe³czyk
+#    email: warpman@kv.net.pl
+#      WWW: http://warpman.kv.net.pl
+#     Date: 08 June, 2005
+# Modified:
+#
+# Script package: Biblioteka cdlinux.pl (bcdl)
+# 1. script name: bcdl-sshots
+# 2. script name: bcdl-sshots-convert
+# Description (1):
+# Program makes sceenshots enumerating them automatically.
+# The script uses ImageMagick's "import", "convert" and "display" programs. 
+#
+
+function kasuj_tmp() {
+  rm -f $TMP
+}
+
+# tworzymy plik tymczasowy dla okna dialogowego
+#
+TMP=`mktemp /tmp/bcdl-sshots-tmp.XXXXXX`
+
+# tworzymy katalogi:
+# CONFDIR na pliki konfiguracyjne
+# SSHOTDIR na pliki graficzne zdjêæ ekranowych
+#
+CONFDIR="$HOME/.cdlcenter/"
+if [ ! -d $CONFDIR ]; then
+  mkdir $CONFDIR
+fi
+
+# tworzymy pliki konfiguracyjne
+#
+sshots_conf_1=$CONFDIR"bcdl-sshots-1.conf"
+sshots_conf_2=$CONFDIR"bcdl-sshots-2.conf"
+
+# gdy program uruchamiamy po raz pierwszy
+#
+if [ ! -e $sshots_conf_1 ]
+  then
+    echo "${HOME}/zrzuty" > $sshots_conf_1
+    echo "0" > $sshots_conf_2
+fi
+
+# napisy na przyciskach OK
+#
+ok1='Wykonaj zdjêcie'
+ok2='Fragment bez opó¼nienia'
+ok3='Zakoñcz'
+
+# napisy na przyciskach Cancel
+#
+ka1='Skasuj konfiguracjê'
+ka2='Ekran z opó¼nieniem 5s'
+
+# komentarz po przerwaniu programu
+#
+ko1='Program przerwany.\n\nPliki konfiguracyjne zosta³y wyzerowane.'
+ko2='Program przerwany.\n\nPliki konfiguracyjne NIE zosta³y wyzerowane.'
+
+# komentarz do wyboru trybu zdjêcia
+#
+ko3='>>> Wybierz rodzaj zdjêcia: <<<'
+
+# okre¶lamy napisy w oknie Xwindow
+#
+ti='Biblioteka cdlinux.pl'            # ti - title
+st='Zdjêcia ekranowe ImageMagick\n\n' # st - subtitle
+di='10 50 8'                          # di - dimensions
+
+# napisy nag³ówkowe
+#
+msg1="\
+Podaj swój katalog zamiast zrzuty (lub zostaw)\n \
+i dopisz rdzeñ nazwy plików ekranowych, np.:\n\n \
+1. $HOME/zrzuty/zdjecia_kota\n \
+2. $HOME/zdjecia/zdjecia_kota"
+
+# definiujemy podstawowe parametry okna
+#
+DIALOG="/usr/bin/Xdialog --center --default-yes "
+
+# definiujemy nazwê pocz±tkow± zdjêæ ekranowych
+#
+file_name=$(cat $sshots_conf_1)
+
+# definiujemy pocz±tkowy numer zdjêæ ekranowych
+#
+file_no=$(cat $sshots_conf_2)
+
+msg2='Liczba wykonanych zdjêæ: '$file_no"\n\n"$msg1
+
+# otwieramy okno dialogowe z zapytaniem o rdzeñ nazwy plików
+#
+$DIALOG \
+--title "$ti" \
+--ok-label "$ok1" \
+--cancel-label "$ka1" \
+--inputbox "$st""$msg2" \
+0 0 \
+"$file_name" 2>$TMP
+
+retval=$?
+
+# Je¶li siê rozmy¶limy i nie naci¶niemy ani przycisku
+# "Wykonaj zdjêcie", ani "Skasuj konfiguracjê"
+# nowe dane nie zostan± zapisane do plików konfiguracyjnych
+#
+if [ $retval = 255 ] ; then
+    $DIALOG \
+    --title "$ti" \
+    --ok-label $ok3 \
+    --msgbox "$st""$ko2" 10 50 2>/dev/null
+
+    # usuwamy plik tymczasowy
+    kasuj_tmp
+
+    # koniec pie¶ni
+    exit 0
+fi
+
+# Je¶li naci¶niemy przycisk "Skasuj konfiguracjê"
+#
+if [ $retval = 1 ] ; then
+    $DIALOG \
+    --title "$ti" \
+    --ok-label $ok3 \
+    --msgbox "$st""$ko1" 10 50 2>/dev/null
+
+    # resetujemy pliki konfiguracyjne
+    echo "${HOME}/zrzuty" > $sshots_conf_1
+    echo "0" > $sshots_conf_2
+    
+    # usuwamy plik tymczasowy
+    kasuj_tmp
+
+    # koniec pie¶ni
+    exit 0
+fi
+
+# Zapisujemy nowy rdzeñ do pliku konfiguracyjnego
+#
+new_file_name=$(cat $TMP)
+echo $new_file_name > $sshots_conf_1
+
+new_dir=`echo $new_file_name | sed  -e "s/\(.*\)\/[^\/]*$/\1/"`
+if [ ! -e $new_dir ]; then
+   mkdirhier $new_dir
+fi
+
+# nale¿y wybraæ opcjê zdjêcia
+# natychmiast i z opó¼nieniem
+#
+$DIALOG \
+  --title "$ti" \
+  --ok-label "$ok2" \
+  --cancel-label "$ka2" \
+  --yesno "$st""$ko3" 10 60  2>/dev/null
+
+retval=$?
+# Je¶li siê rozmy¶limy nie zostan± zapisane nowe dane
+# do plików konfiguracyjnych
+#
+if [ $retval = 255 ] ; then
+    $DIALOG \
+    --title "$ti" \
+    --ok-label $ok3 \
+    --msgbox "$st""$ko2" 10 50 2>/dev/null
+
+    # usuwamy plik tymczasowy
+    kasuj_tmp
+
+    # koniec pie¶ni
+    exit 0
+fi
+
+# zwiêkszamy licznik i zapisujemy do pliku konfiguracyjnego
+#
+new_file_no=$(($file_no+1))
+echo $new_file_no > $sshots_conf_2
+
+# kosmetyka zapisu numeru porz±dkowego
+#
+if [ $new_file_no -lt 10 ]
+  then
+    file_no_exp="0"$new_file_no
+  else
+    file_no_exp=$new_file_no
+fi  
+
+# definiujemy nowy plik ekranowy
+#
+file_name_full=$new_file_name"_"$file_no_exp".png"
+echo "file_name_full = "$file_name_full
+
+case $retval in
+    0) import -border -frame -depth 8 -colors 256 $file_name_full && display $file_name_full;;
+    1) import -pause 5 -window root -border -frame -depth 8 -colors 256 "$file_name_full" && display "$file_name_full";;
+  255) kasuj_tmp; exit;;
+esac
+
+# usuwamy pliki tymczasowe
+#
+kasuj_tmp
+
+exit

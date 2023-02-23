@@ -1,0 +1,78 @@
+#!/usr/bin/env python
+
+import sys
+try:
+ 	import pygtk
+ 	import os
+ 	import commands
+  	pygtk.require("2.0")
+except:
+  	pass
+try:
+	import gtk
+  	import gtk.glade
+except:
+	sys.exit(1)
+
+class uEagleNeoGTK:
+	"""This is an uEagle Neo application"""
+
+	firmwareUrl='http://eagle-usb.org/ueagle-atm/non-free/ueagle-data-1.1.tar.gz'
+
+	def __init__(self):
+		
+		#Set the Glade file
+		self.gladefile = "/usr/share/cdlcenter/gueagle/ueagleneo.glade"  
+	        self.wTree = gtk.glade.XML(self.gladefile) 
+		
+		#Get the Main Window, and connect the "destroy" event
+		self.window = self.wTree.get_widget("uEagleNeo")
+
+		#Create our dictionay and connect it
+		dic = { "on_saveButton_clicked" : self.saveButton_clicked,
+			"on_cancelButton_clicked" : gtk.main_quit,
+			"on_uEagleNeo_destroy" : gtk.main_quit }
+		self.wTree.signal_autoconnect(dic)
+
+	def wgetButton_clicked(self, widget):
+    		self.windowUrl = Window( 'wn_downloader' )
+		self.windowUrl['url'].set_text(self.firmwareUrl)
+		
+
+
+	def saveButton_clicked(self, widget):
+		self.username=self.wTree.get_widget("userInput").get_text()
+		self.password=self.wTree.get_widget("passInput").get_text()
+		if self.username.find( '@' ) < 0:
+			self.username=self.username+"@neostrada.pl"
+
+		file_name="/etc/ppp/peers/neostrada"
+
+		self.writeFile(file_name,'lock\ndefaultroute\nnoipdefault\nnoauth\nholdoff 4\nmaxfail 25\npersist\nasyncmap 0\nlcp-echo-interval 2\nlcp-echo-failure 7\nname '+self.username+'\nuser '+self.username+'\nplugin pppoatm.so\n0.35');
+
+		file_name="/etc/ppp/chap-secrets"
+
+		self.writeFile(file_name,'"'+self.username+'" * "'+self.password+'" *');
+
+		commands.getoutput("modprobe ueagle-atm")
+		commands.getoutput("pppd call neostrada")
+		sys.exit()
+
+
+	def writeFile(self,file_name,string):
+		try:
+	  	        file = open(file_name, "w")
+		except IOError:
+			print "There was an error writing to", file_name
+			sys.exit()
+
+
+		file.write(string)
+		file.close
+		
+
+if __name__ == "__main__":
+	neo = uEagleNeoGTK()
+	gtk.main()
+
+
