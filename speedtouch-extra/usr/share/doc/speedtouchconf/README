@@ -1,0 +1,41 @@
+SpeedTouchConf
+
+Alcatel SpeedTouch USB Modem - Linux Configuration
+
+This project is complementary to the SpeedTouch.SourceForge.Net project, but is
+not directly related to it, and the SpeedTouchConf project should not be 
+confused with the SpeedTouch project.
+The documentation is available at SpeedTouch.SourceForge.Net but this script 
+just does that lot for you, so you shouldn't need to bother reading 
+documentation or understand anything about USB, PPP, or ADSL.
+
+To use this script, you need:
+
+   1. Save speedtouchconf-version.tar.gz, my script for configuring it all: 
+      http://sourceforge.net/project/showfiles.php?group_id=68502
+      This includes the speedtouch.sourceforge.net software.
+
+   2. Untar the file: tar xzvf speedtouchconf-version.tar.gz
+   If you are reading this README, you have already got this far.
+
+   3. Get the Microcode from Alcatel (Thomson): 
+          * Visit The Alcatel Microcode Download Page
+	    http://www.speedtouchdsl.com/dvrreg_lx.htm
+            (fill in your details, click "Continue" and select the "Binary" download link)
+          * Or copy the alcaudsl.sys file from your working Windows installation
+
+	          *** DO NOT INSTALL THE ALCATEL THOMSON SOFTWARE ***
+                             *** DO NOT EVEN UNTAR IT ***
+
+   4. Save the microcode (either speedmgmt.tar.gz, mgmt.o, *.ZIP, or alcaudsl.sys) 
+      into the speedtouchconf/ directory. Only save ONE firmware file.
+
+Then run the speedtouchconf.sh script *as root*
+Answer the questions (VPI/VCI, login ID and password), and let the script do the rest.
+
+You should be connected to the internet within about a minute or so.
+
+If you want to automatically start the connection, the script gives instructions
+about that, too.
+
+See http://speedtouchconf.sourceforge.net/troubleshooting.shtml for troubleshooting information.

@@ -1,0 +1,54 @@
+SpeedTouch Configuration for Alcatel USB Modem
+Tested on RedHat 8.0 with BT OpenWorld by Steve
+Tested on Mandrake 9.0 with BT OpenWorld by Steve
+Updated 29 Oct 2002 to create a log file for diagnosis.
+Updated 21 Nov 2002 to list Singapore Pacificnet VPI/VCI pair.
+Updated 25 Nov 2002 to use "tar -xzf" not "tar xzf" as one user reported problems.
+Also added a web page (http://www.japarker.btinternet.co.uk/speedtouch/)
+Updated 03 Dec 2002 - moved to http://speedtouchconf.sourceforge.net/
+btinternet.co.uk site deprecated.
+Updated 05 Dec 2002 - creates symlink to /etc/ppp/resolv.conf to fix DNS problems.
+Also includes speedtouch-1.1.tar.bz2, accepts microcode in current directory as
+speedmgmt.tar.gz, mgmt.o, or alcaudsl.sys. Therefore no need to edit the script.
+Updated 07 Dec 2002 - fixed a bug that it couldn't find the tarball.
+Updated 17 Dec 2002 - added uname -a to logfile, added tests for gcc, make
+Updated 23 Dec 2002 - specified GPLv2 after reading http://www.infoworld.com/articles/hn/xml/02/11/06/021106hngnudelay.xml?s=IDGNS
+Version 08 Jan 2003 missing a "fi" - fixed 15/1/2003
+16 Jan 2003 - fixed another stupid bug.
+19 Jan 2003 - Actually did some decent testing, and got it working again. Also added a comment about the timeout messages.
+20 Jan 2003 - Just some extra checks.
+23 Feb 2003 - Allows for init.d being /etc/init.d/ or /etc/rc.d/init.d
+Also some basic checks for the kernel-level driver. First tidy-up of the kernel testing code, too.
+07 Mar 2003 - Some SuSE (LSB) tidyups; skip debian-specific notes for non-debian users
+11th August 2003 - Changed to stop if gcc/make/etc are not installed. Also bundled the 1.2beta2 driver.
+18th August 2003 - Tidied up the output a little bit to make it clearer.
+9th September 2003 - Fixed speedtouch-init for RedHat 9
+11th September 2003 - Added 2.6 support; tidied up the kernel checks a bit.
+27th October 2003 - Changed 1.1 and 1.2-beta2 versions of modem_run to report different error codes for each error (instead of "-1==255" for everything). Hopefully this should assist debugging. All GPL-licensed, of course.
+... missed a few updates ...
+7th Dec 2003 - No longer checks for /etc/issue - it didn't work anyway and
+not all distro's have it. Now checks for start-stop-deamon as that's what
+matters. Removes defaultrouter if found; removes speedtch module if found.
+21 Dec 2003 - Fixed for microcode already loaded (still may have problems with existing ppp processes). Fixed defaultrouter notices. 
+28 Jan 2004 - Tidied up required binary checks, added SuSE9 support (pusb_linux.c needs replacing).
+18,19 Feb 2004 - Attempts at Silver "400" modem support, dealing with SuSE9 stuff better
+03 March 2004 - Replaced 1.2beta2 with 1.2beta3 which deals with SuSE9 and others mixing 2.4 kernel with 2.6 headers (!); re-patched for silver "400" modem. The Feb 04 releases which tried to do this with 1.2beta2 have been hidden from public view, as this version should be used instead.
+04 March 2004 - Changed "-m 1" to "-m" in speedtouch-init to match new modem_run settings
+15 March 2004 - Added "-e 1" to pppoa3 (moving towards Linux 2.6 support - still unsupported until tested). Extra checks for multi-line "pppd --version" output. Fixed 242/250 result codes becoming zero.
+19 March 2004 - speedtouch-1.2 released, supports all current modems (including silver (rev 4) modem).
+22 Apr 2004 - Added "240" note about silver modem firmware. Added link to speedtouchconf.sf.net copy of rev4fw.zip. Added "-o" option to unzip to force overwrite of any existing files. Added check for Mandrake before assuming no "lspci" means "lspcidrake" must exist.
+22 May 2004 - Added reported VPI/VCI for Netherlands. Added support for "2.4.2b3" and similar pppd versions. Added i18n! Italian translation by Andrea Lusuardi
+10 Jun 2004 - Added Polish (Neostrada) VPI/VCI. Added driver 1.3 from Debian package - Debian 2.6.5
+has been reported to work, so hopefully this will help FC2, Mdk10 users too. Untested.
+12 June 2004 - Added Italian translation thanks to Andrea.
+19 June 2004 - Added Spanish translation (es.po) - thanks to Sebastian. Added checks for usbcore (FC2).
+init script adds /usr/local/sbin to start of PATH (not end of PATH) so we know what we're getting.
+03 Nov 2004 - Added some stuff to hopefully work better with Mandrake 10.
+10 Nov 2004 - More updates
+25 Jan 2005 - Portugese translation supplied by João M. S. Silva
+Removed the need for the "bc" package (Mandrake no longer install it by default)17 Feb 2005 - Fixes for usbdevfs, LOAD_USBINTERFACE. Thanks to Geoff Horn, John Gregory. Tested on whiteboxlinux.org (2.4) and FC3 (2.6) kernels.
+18 Feb 2005 - Added usbdevfs fixes to speedtouch-init, and awareness of modprobe.local.conf. Defaults to /etc/init.d if /etc/SuSE-release found.
+20 Feb 2005 - modprobe.local.conf from the 18/2/05 version should be modprobe.conf.local. Fixed PREFIX for modules. Check if /proc/bus/usb is mounted before trying to mount it.
+21 Feb 2005 - fix for getbus() being called as get_usb().
+23 Feb 2005 - fix the get_usb() function itself, and fix chkconfig syntax
+06 Mar 2005 - Added fix for N_HDLC as a kernel-builtin (not a module) as reported on Xandros 3

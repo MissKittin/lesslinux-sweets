@@ -1,0 +1,362 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+# Author           : Mariusz Ceier ( mceier@gmail.com )
+# Created On       : 11.04.2007
+# Last Modified By : Mariusz Ceier ( mceier@gmail.com )
+# Last Modified On : 18.04.2007
+# Version          : 0.1
+#
+# Description      :
+# Konfiguracja polaczenia PPP dla modemu speedtouch
+#
+# Licensed under GPL (see /usr/share/common-licenses/GPL for more details
+# or contact # the Free Software Foundation for a copy)
+
+import sys,os,stat
+
+try:
+    import pygtk
+    pygtk.require('2.0')
+except ImportError:
+    pass
+
+import gettext
+gettext.install('gspeedtouch')
+import gtk,gobject
+import locale
+
+# custom exception
+class MessageExcept(Exception):
+    def __init__(self,val):
+        self.value = val
+    def getval(self):
+        return self.value
+
+# Configuration main window
+class MainWindow:
+    # Constructor
+    def __init__(self):
+        
+        # Initialisation of variables and window
+        self.do_connect = False
+        self.peerfilename = "usbmodem"
+        self.configfilename="/etc/ppp/peers/%s" % (self.peerfilename)
+        self.chapfilename="/etc/ppp/chap-secrets"
+        self.papfilename="/etc/ppp/pap-secrets"
+        self.dialfilename="/etc/init.d/dial"
+        self.dialsymlink="/etc/rc5.d/S96dial"
+
+        self.messages=locale.getlocale(locale.LC_MESSAGES)
+        self.wnd = gtk.Window(gtk.WINDOW_TOPLEVEL)
+        if not self.wnd:
+            return
+        self.wnd.connect("delete_event",self.delete_event)
+        self.wnd.connect("destroy",self.destroy_event)
+        self.wnd.set_border_width(10)
+        self.wnd.set_title(
+            _("PPP Connection Configuration for SpeedTouch"))
+        self.wnd.table = gtk.Table()
+        # Widgets inside table
+        self.widgets = [
+                [
+                    [
+                        gtk.Label(_("Username:")),1,2,1,2
+                    ]
+                ],
+                [
+                    [
+                        gtk.Entry(),2,3,1,2
+                    ]
+                ],
+                [
+                    [
+                        gtk.Label(_("Password:")),1,2,2,3
+                    ]
+                ],
+                [
+                    [
+                        gtk.Entry(),2,3,2,3
+                    ]
+                ],
+                [
+                    [
+                        gtk.CheckButton(_("Connect")),1,3,3,4
+                    ]
+                ],
+                [   
+                    [
+                        gtk.Button(stock=gtk.STOCK_OK),1,2,4,5
+                    ],
+                    [ "clicked",self.ok_clicked ]
+                ],
+                [
+                    [
+                        gtk.Button(stock=gtk.STOCK_CANCEL),2,3,4,5
+                    ],
+                    [ "clicked",self.cancel_clicked ]
+                ]
+            ]
+        for w in self.widgets:
+            self.wnd.table.attach(*w[0])
+            for k in w[1:]:
+                w[0][0].connect(*k)
+        self.expand = gtk.Expander()
+        self.expand.set_label(_("Advanced"))
+        table = gtk.Table()
+        self.expand.add(table)
+        info_view=gtk.Button(_("Help"))
+        info_view.connect("clicked",self.showvpvc);
+        table.attach(info_view,1,3,1,2)
+        table.attach(gtk.Label("VPI.VCI:"),1,2,2,3)
+        self.vpi_entry=gtk.Entry()
+        self.vpi_entry.set_text("0.35")
+        self.login=self.widgets[1][0][0]
+        self.connect = self.widgets[4][0][0]
+        self.password=self.widgets[3][0][0]
+        self.password.set_visibility(False)
+        self.password.set_invisible_char('*')
+        table.attach(self.vpi_entry,2,3,2,3)
+        self.pppoa=gtk.RadioButton(None,label="PPPoA")
+        self.pppoe=gtk.RadioButton(self.pppoa,"PPPoE")
+        self.pppoa.set_active(True)
+        self.pppoe.set_active(False)
+        table.attach(self.pppoa,1,2,3,4)
+        table.attach(self.pppoe,2,3,3,4)
+        self.wnd.table.set_row_spacings(10)
+        self.vbox = gtk.VBox()
+        self.aspect=gtk.AspectFrame()
+        self.aspect.add(self.wnd.table)
+        self.vbox.add(self.aspect)
+        self.aspect1=gtk.AspectFrame()
+        self.aspect1.add(self.expand)
+        self.vbox.add(self.aspect1)
+        self.size_group=gtk.SizeGroup(gtk.SIZE_GROUP_BOTH)
+        self.size_group.add_widget(self.aspect)
+        self.size_group.add_widget(self.aspect1)
+        self.wnd.add(self.vbox)
+        self.wnd.show_all()
+        return
+
+    # shows VP and VC
+    def showvpvc(self,event,data=None):
+        try:
+            if self.wnd2:
+                return
+        except AttributeError:
+            pass
+        except:
+            return
+        info=getVPIVCIInfo()
+        self.wnd2 = gtk.Window();
+        info_str = info.decode(self.messages[1])
+        info_table = gtk.Table();
+        y=int(1)
+        for info_line in info.splitlines():
+            info_label = gtk.Label()
+            info_label.set_markup("<tt>" + info_line + "</tt>");
+            info_label.set_justify(gtk.JUSTIFY_LEFT)
+            info_label.set_max_width_chars(80);
+            info_table.attach(info_label,1,2,y,y+1)
+            y=y+1
+        self.wnd2.add(info_table);
+        self.wnd2.connect("delete_event",
+            lambda w,x: gtk.Widget.destroy(self.wnd2));
+        self.wnd2.show_all()
+        return True
+
+    # show message dialog with error
+    def blad(self,text):
+        message = gtk.MessageDialog(self.wnd,gtk.DIALOG_MODAL,
+                gtk.MESSAGE_ERROR,gtk.BUTTONS_OK)
+#        text_str = text.decode(self.messages[1])
+#        message.set_markup(text_str)
+        message.set_markup(text)
+        message.connect("response",lambda w,x: gtk.Widget.destroy(message));
+        message.show_all()
+
+    def ok_clicked(self,event,data=None):
+        try:
+            if len(self.login.get_text())==0:
+                raise MessageExcept(_("Please enter login!!!"))
+            if len(self.password.get_text())==0:
+                raise MessageExcept(_("Please enter password!!!"))
+            vpvc_dot = self.vpi_entry.get_text().find('.')
+            if (vpvc_dot==-1):
+                raise MessageExcept(_("VPI.VCI Entry Format Error!!!"))
+            else:
+                vp = int(self.vpi_entry.get_text()[0:vpvc_dot])
+                if (vp<0):
+                    raise MessageExcept(_("Negative value for VPI!!!"))
+                vc = int(self.vpi_entry.get_text()[vpvc_dot+1:])
+                if (vc<0):
+                    raise MessageExcept(_("Negative value for VCI!!!"))
+        except MessageExcept,message:
+            self.blad(message.getval())
+            return False
+        except ValueError:
+            self.blad(_("Invalid value for VPI or VCI!!!"))
+            return False
+        try:
+            pppfile = open(self.configfilename,"w")
+            pppfile.write("noipdefault\ndefaultroute\n")
+            pppfile.write("user \"%s\"\n" % (self.login.get_text()))
+            pppfile.write("noauth\nupdetach\nusepeerdns\n")
+            if self.pppoa.get_active():
+                pppfile.write("plugin pppoatm.so\n")
+                pppfile.write("%i.%i\n" % (vp,vc))
+            else:
+                pppfile.write("plugin rp-pppoe.so\nnas0\n")
+            pppfile.close()
+        except IOError,err:
+            self.blad(_("Input output error") + "!!!")
+            #self.blad(_("Input output error") + ": " + err[1] + "!!!")
+            return False
+        try:
+            chapfile = open(self.chapfilename,"a+")
+            chapfile.write("\"%s\" \"*\" \"%s\"\n" % 
+                (self.login.get_text(),self.password.get_text()));
+            chapfile.close()
+            papfile = open(self.papfilename,"a+")
+            papfile.write("\"%s\" \"*\" \"%s\"\n" % 
+                (self.login.get_text(),self.password.get_text()));
+            papfile.close()
+        except IOError,err:
+            self.blad(_("Input output error") + "!!!")
+            #self.blad(_("Input output error") + ": " + err[1] + "!!!")
+            return False
+        if self.pppoa.get_active():
+            try:
+                dialfile=open(self.dialfilename,"w")
+                dialfile.write("""#!/bin/bash
+### if you compiled the speedtouch driver as a
+### module, uncomment this modprobe
+#modprobe speedtch
+count=0
+while [[ $((count++)) -lt 40 ]]
+do
+  if dmesg | grep 'ADSL line is up'
+  then
+    pppd call %s
+    exit 0
+  fi
+  sleep 1
+done
+echo "The SpeedTouch firmware did not load"
+""" % (self.peerfilename));
+                dialfile.close()
+            except IOError,err:
+                #self.blad(_("Input output error") + ": " + err[1] + "!!!")
+                self.blad(_("Input output error") + "!!!")
+                return False
+        elif self.pppoe.get_active():
+            try:
+                dialfile=open(self.dialfilename,"w")
+                dialfile.write("""#!/bin/bash
+### if you compiled the speedtouch driver as a
+### module, uncomment this modprobe
+#modprobe speedtch
+count=0
+while [[ $((count++)) -lt 40 ]]
+do
+  if dmesg | grep 'ADSL line is up'
+  then
+    br2684ctl -b -c 0 -a %i.%i
+    sleep 2
+    ip addr add 192.168.0.1/32 dev nas0
+    ip link set nas0 up
+    sleep 5
+    pppd call %s
+    exit 0
+  fi
+  sleep 1
+done
+echo "Error" 1>&2
+echo "The SpeedTouch firmware did not load"
+""" % (vp,vc,self.peerfilename));
+                dialfile.close()
+            except IOError,err:
+                self.blad(_("Input output error") + "!!!")
+                #self.blad(_("Input output error") + ": " + err[1] + "!!!")
+                return False
+        os.chmod(self.dialfilename,stat.S_IRWXU|stat.S_IRGRP|stat.S_IROTH)
+        try:
+            os.symlink(self.dialfilename,self.dialsymlink)
+        except:
+            pass        
+        os.chmod(self.papfilename,stat.S_IRUSR|stat.S_IWUSR);
+        os.chmod(self.chapfilename,stat.S_IRUSR|stat.S_IWUSR);
+        os.chmod(self.configfilename,stat.S_IRUSR|stat.S_IWUSR);
+        self.do_connect=self.connect.get_active()
+        gtk.Widget.destroy(self.wnd)
+        return True
+    def cancel_clicked(self,event,data=None):
+        gtk.Widget.destroy(self.wnd)
+        return True
+    def delete_event(self,event,data=None):
+        gtk.Widget.destroy(self.wnd)
+        return True
+    def destroy_event(self,widget):
+        gtk.main_quit()
+        return True
+    def getconnect(self):
+        return self.do_connect
+    def getdialfilename(self):
+        return self.dialfilename
+    def main(self):
+        gtk.main()
+        return
+
+def getVPIVCIInfo():
+    return """Country             Provider                    ATM Protocol    VPI     VCI
+.ar, Argentina      Arnet                        PPPoE           0       33  
+.ar, Argentina      Speedy                       PPPoE           8       35  
+.at, Austria        Tele2UTA                     PPPoA           8       48  
+.au, Australia      Telstra                      PPPoE           8       35  
+.be, Belgium        Belgacom                     PPPoE           8       35  
+.bh, Bahrain        Telecom Company Batelco      PPPoA           8       35  
+.br, Brazil         Brasil Telecom (brturbo)     PPPoE           0       35  
+.br, Brazil         do rio grande do sul sao     PPPoE           1       32  
+.br, Brazil         Speedy da Telefonica         PPPoE           8       35  
+.br, Brazil         Velox da Telemar             PPPoE           0       33  
+.ch, Switzerland    Sunrise and Bluewin          PPPoE           8       35  
+.cl, Chile          Speedy [Telefonica Terra]    PPPoE           8       32  
+.cz, Czech          ?                            PPPoA or PPPoE  8       48  
+.de, Deutschland    Alice DSL                    PPPoE           1       32  
+.de, Deutschland    Mannesmann arcor             PPPoE           1       32  
+.es, Spain          Telefonica                   PPPoE           8       32  
+.fr, France         France Telecom - Wanadoo     PPPoA PC/ix86   8       35  
+.fr, France         France Telecom - Wanadoo     PPPoE Apple/MAC 8       35  
+.fr, France         Free, zone degroupee         Routed IP       8       36  
+.gr, Greece         ?                            PPPoA           8       35  
+.it, Italy          Telecom Italia-Alice,Tele2   PPPoA           8       35  
+.nl, Netherlands    bbned                        PPPoE?          0       35  
+.nl, Netherlands    BaByXL/TISCALI               PPPoE?          0       34  
+.nl, Netherlands    Versatel                     PPPoA           0       32  
+.nl, Netherlands    ?                            PPPoA ?         8       48  
+.nz, New Zealand    ?                            PPPoA           0       100 
+.pl, Poland         Netia-Net24                  PPPoE           8       35  
+.pl, Poland         TPSA                         PPPoA           0       35  
+.pt, Portugal       Clix or Telepac              PPPoE/Bridging  0       35  
+.qa, Qatar          Qtel                         PPPoA           8       35  
+.ro, Romania        Romtelecom                   PPPoE/Bridging  0       35  
+.tr, Turkey         ?                            PPPoA or PPPoE  8       35  
+.uk, Britain        Most ISP's                   PPPoA or PPPoE  0       38  
+.uk, Britain        Karoo                        PPPoA           1       50  
+.us, United States  ?                            PPPoA           8       35  
+.ve, Venezuela      CANTV.NET                    PPPoA           0       33  
+.za, South Africa   Telkom SA Ltd                PPPoE           8       35  
+"""
+
+if __name__ == "__main__":
+    locale.setlocale(locale.LC_ALL,'')
+    if len(sys.argv)>1:
+        print _("Syntax") + ": %s" % (sys.argv[0])
+        print "Version: 0.1"
+        print "Autor: Mariusz Ceier"
+    else:
+        wnd = MainWindow()
+        wnd.main()
+        if wnd.getconnect():
+            os.system(wnd.getdialfilename()+" >/dev/null 2>&1 &")
+
