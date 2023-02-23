@@ -1,0 +1,242 @@
+#!/usr/bin/perl
+# Author           : Michal Wrobel ( wrobel@task.gda.pl )
+# Created On       : 2003.06.01
+# Last Modified By : Michal Wrobel ( wrobel@task.gda.pl )
+# Last Modified On : 2007.04.23
+# Version          : 0.1.1
+#
+# Description      :
+# Menu startowe dla programow przeznaczonych dla dystrybucji cdlinux.pl
+#
+# Licensed under GPL (see /usr/share/common-licenses/GPL for more details
+# or contact # the Free Software Foundation for a copy)
+
+use Curses;
+use Curses::Widgets;  # Included to import select_colour & scankey
+use Curses::Widgets::TextField;
+use Curses::Widgets::ListBox;
+use Curses::Widgets::Label;
+
+$CENT_VERSION="       ***  CDLCENTER  ***"; # cdlixux.pl version number
+$CDL_VERSION=`cat /etc/cdlcenter/wersja`;
+chop($CDL_VERSION);
+$VERSION=$CDL_VERSION.$CENT_VERSION;
+$DIR="/usr/bin";	 					 # cdlcenter directory
+@Menu=(" Zapis ustawieñ u¿ytkownika ", " Konfiguracja sieci ", " Konfiguracja ¶rodowiska graficznego ", " Dodawanie nowego u¿ytkownika ", " Tworzenie pliku wymiany (swap) ",   " Instalacja na dysku twardym ", " Tworzenie w³asnej p³yty cdlinux.pl ");
+
+$IKSY=1 if($ENV{DISPLAY}=~/^\:0/);
+
+if(!$IKSY){
+  &curses_init;
+}else{
+  $nr=1;
+  foreach $menu (@Menu){
+    $string.="\"".$nr++."\" \"$menu\" ";
+  }
+  $WINDOW="rxvt -title \"cdlcenter\" -geometry 85x35+5+5 -fn -misc-fixed-medium-r-normal--14-110-100-100-c-70-iso8859-2 -rv -vb -e"
+}
+
+while(1){	
+  if($IKSY){
+    $answer=&x_menu-1;
+    system("$DIR/gusercopy") if($answer== 0);
+    system("$WINDOW $DIR/cdlcenter-yahade -mn") if($answer== 1);
+    system("$WINDOW $DIR/cdlcenter-yahade -mX") if($answer== 2);
+    system("$DIR/cdlcenter-hdinstall.ui") if($answer== 5);
+    system("$DIR/cdlcenter-isomaker.ui") if($answer== 6);
+    system("$DIR/cdlcenter-quickadd") if($answer== 3);
+    system("$WINDOW $DIR/cdlcenter-swap-monter.ui") if($answer== 4);
+  }else{
+    $answer=&sm_menu;
+    system("$DIR/usercopy -s -d floppy") if($answer== 0);
+    system("$DIR/cdlcenter-yahade -mn") if($answer== 1);
+    system("$DIR/cdlcenter-yahade -mX") if($answer== 2);
+    system("$DIR/cdlcenter-hdinstall.ui") if($answer== 5);
+    system("$DIR/cdlcenter-isomaker.ui") if($answer== 6);
+    system("$DIR/cdlcenter-swap-monter.ui") if($answer== 4);
+  }
+ 
+  last if(($answer==7)||($answer<0));
+}
+
+#**************** Main Subrotine's Section *************************#
+
+sub x_menu{
+  $answer=&return_command(10,"Xdialog --title 'cdlcenter' --no-ok --ok-label 'Wykonaj' --cancel-label 'Zakoñcz' --menubox '' 0 0 8 $string");
+  chop($answer);
+  return $answer;
+}
+
+sub sm_menu{
+  $mwh->refresh();
+  &curses_clear;
+  &curses_black($x/2-24,$y/2-9,47,10);
+  $list->execute($mwh);
+  $list->draw($mwh);
+  $answer=$list->getField('VALUE');
+  endwin();
+  return $answer;
+
+  sub lba_scankey{
+    my $mwh=shift;
+    $answer=$list->getField('CURSORPOS');
+    curses_comment_box($hint[$answer]);
+
+    my $key = -1;
+    while($key eq -1){
+      $key=$mwh->getch();
+    }
+    $list->input_key(' ');
+    return($key);
+  }
+}
+
+sub curses_comment_box {
+	my $message = shift;
+	my ($cwh, $y, $x, @lines, $i, $line);
+	my $label;
+
+	# Get the main screen max y & X
+	$mwh->getmaxyx($y, $x);
+
+	# Render the comment box
+	$label = Curses::Widgets::Label->new({
+		BORDER      => 1,
+		LINES       => 2,
+		COLUMNS     => $x-2,
+		Y           => $y - 4,
+		X           => 0,
+		VALUE       => $message,
+		FOREGROUND  => 'black',
+		BACKGROUND  => 'white',
+});
+	$label->draw($mwh);
+}
+
+sub curses_init {
+
+	$mwh = new Curses;
+	noecho();
+	halfdelay(5);
+	$mwh->keypad(1);
+	$mwh->syncok(1);
+	curs_set(0);
+	leaveok(1);
+
+	$mwh->erase();
+
+	# This function selects a few common colours for the foreground colour
+	$mwh->attrset(COLOR_PAIR(select_colour(qw(white green))));
+# first row on screen (former: white blue
+	$mwh->bkgd(COLOR_PAIR(select_colour(qw(black green))));
+	$mwh->standout();
+	$mwh->attrset(A_BOLD | COLOR_PAIR(select_colour(qw(yellow green))));
+	$mwh->standend();
+	$mwh->refresh();
+
+	$hint[0]=" cdlinux.pl umo¿liwia zapisanie czê¶ci ustawieñ na dyskietce.\n Dziêki temu nie musisz za ka¿dym razem konfigurowaæ sieci i karty graficznej.";
+	$hint[1]=" Wybierz tê opcjê, je¿eli chcesz ponownie skonfigurowaæ ustawienia sieciowe.";
+	$hint[2]=" Wybierz tê opcjê, je¿eli chcesz ponownie skonfigurowaæ kartê graficzn±.";
+	$hint[3]=" Je¿eli masz niewystarczaj±c± ilo¶æ pamiêci, mo¿esz skorzystaæ z pliku\n wymiany, emuluj±c pamiêæ RAM na dysku twardym.";
+	$hint[4]=" Mo¿esz zainstalowaæ cdlinux.pl na dysku twardym.\n Funkcja jest eksperymentalna, u¿ywasz jej na w³asn± odpowiedzialno¶æ.";
+	$hint[5]=" cdlinux.pl umo¿liwia stworzenie w³asnej, spersonalizowanej p³ytki.\n Aby tego dokonaæ nale¿y najpierw zainstalowaæ cdlinux.pl na dysku twardym.";
+
+	$mwh->getmaxyx($y, $x);
+	
+	$list = Curses::Widgets::ListBox->new({
+		Y           => $y/2-10,
+		X           => $x/2-25,
+		COLUMNS     => 45,
+		LINES	    => 8,
+		LISTITEMS   => [ (@Menu, " Koniec ") ],
+		MULTISEL    => 0,
+		VALUE       => 0,
+# former blue, the same as foreground
+		SELECTEDCOL => 'black',
+		TOGGLE	    => '\s',
+		FOCUSSWITCH => '\t\n',
+		INPUTFUNC   => \&lba_scankey,
+		CAPTION     => '',
+		CAPTIONCOL  => 'red',
+# former blue
+		FOREGROUND  => 'black',
+		BORDERCOL   => 'black',
+		BACKGROUND  => 'white',
+	});
+}
+
+sub curses_black{
+	my ($x, $y, $dx, $dy) = @_;
+	
+	$window_c = Curses::Widgets::Label->new({
+	BORDER      => 0,
+	LINES       => $dy,
+	COLUMNS     => $dx,
+	Y           => $y,
+	X           => $x,
+	FOREGROUND  => 'black',
+	BACKGROUND  => 'black',
+	});
+	$window_c->draw($mwh);
+}
+
+sub curses_clear{
+	$mwh->getmaxyx($y, $x);
+
+	$window_c = Curses::Widgets::Label->new({
+	BORDER      => 0,
+	LINES       => $y-6,
+	COLUMNS     => $x,
+	Y           => 1,
+	X           => 0,
+# former blue
+	FOREGROUND  => 'green',
+# former blue
+	BACKGROUND  => 'green',
+	});
+	$window_c->draw($mwh);
+	$mwh->addstr(0, 1,"cdlinux.pl ".$VERSION); 
+	curses_comment_box(<< '__EOF__');
+ cdlinux.pl umo¿liwia zapisanie czêsci ustawieñ na dyskietce.
+ Dziêki temu nie musisz za ka¿dym razem konfigurowaæ sieci i karty graficznej.
+__EOF__
+	$mwh->refresh();
+}
+
+
+
+END {
+	endwin() if(!$IKSY);
+}
+
+sub return_command{
+    my ($listp, $command) = @_;
+    
+    pipe(PARENT_READER, CHILD_WRITER);
+    # We have to fork (as opposed to using "system") so that the parent
+    # process can read from the pipe to avoid deadlock.
+    my ($pid) = fork;
+    if ($pid == 0) {	# child
+	close(PARENT_READER);
+	open(STDERR, ">&CHILD_WRITER");
+	exec($command);
+	die("no exec");
+    }
+    if ($pid > 0) {	# parent
+	close( CHILD_WRITER );
+    	if ($listp) {
+	    @dialog_result = ();
+	    while (<PARENT_READER>) {
+		$dialog_result[@dialog_result] = $_;
+	    }
+	}
+	else { $dialog_result = <PARENT_READER>; }
+	close(PARENT_READER);
+	waitpid($pid,0);
+	$res = $?;
+    }
+    return "@dialog_result";
+}
+
+
+

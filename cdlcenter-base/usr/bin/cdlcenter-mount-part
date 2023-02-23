@@ -1,0 +1,161 @@
+#!/usr/bin/perl
+
+# file modified by Przemys³aw Pawe³czyk aka warpman
+# warpman@kv.net.pl, warpman@interia.pl
+# date: 05 April, 2005
+# modifications: 
+# 1. the program resizes Xdialog window depending on number of drives
+# 2. the program automatically selects cdrom drive
+#
+
+  my @mounted;
+  $count=1;
+
+
+  $ismounted=system("/bin/mount | grep /dev/fd0");
+  if ($ismounted!=""){
+      push @mounted, "mount";
+      $filelist = "/media/floppy";
+      $string.="\"$count\" \"Zamontuj dyskietkê\" ";
+  }else{
+      push @mounted, "umount";
+      $filelist = "/media/floppy";
+      $string.="\"$count\" \"Odmontuj dyskietkê\" ";
+
+  }
+  $string .= "\"System plików: vfat\" " ;
+  $count++;   
+  
+  @filelist=($filelist);
+  
+  my @filelistdisks = glob "/media/dyski/*";
+  foreach $filelist (@filelistdisks){
+    if (`/bin/mount | grep "$filelist "`){
+      push @mounted, "umount";
+      $filelist =~ /\/media\/dyski\/(.*)/;
+      $string.="\"$count\" \"Odmontuj dysk $1\" ";
+    }else{
+      push @mounted, "mount";
+      $filelist =~ /\/media\/dyski\/(.*)/;
+      $string.="\"$count\" \"Zamontuj dysk $1\" ";
+    }
+    $fs=`grep -E "$filelist\[^0-9\]" /etc/fstab | cut -d"\t" -f 3`;
+    chop($fs);
+    $string .= "\"System plików: $fs\" " ;
+    $count++;   
+  }
+  
+  @filelist=(@filelist, @filelistdisks);
+  
+ my @filelistcdrom = glob "/media/cdrom?";
+  foreach $filelist (@filelistcdrom){
+    if (`/bin/mount | grep "$filelist "`){
+      push @mounted, "umount";
+      $filelist =~ /\/media\/(.*)/;
+      $string.="\"$count\" \"Odmontuj $1\" ";
+    }else{
+      push @mounted, "mount";
+      $filelist =~ /\/media\/(.*)/;
+      $string.="\"$count\" \"Zamontuj $1\" ";
+    }
+    $string .= "\"System plików: ISO9660\" " ;
+    $count++;   
+  }
+  
+  # line(s) inserted by warpman
+  $item_no = $count - 1;
+  $list_no = 9 + $count;
+  # end of insertion(s)
+ 
+  @filelist=(@filelist, @filelistcdrom);
+
+  if(!$string){
+	if($ENV{DISPLAY}=~/^\:0/){
+	    $disks=&return_command(1,"Xdialog --title 'B³±d' --msgbox 'Brak wykrytych partycji do zamontowania' 9 40");
+	}else{
+	    $disks=&return_command(1,"dialog --title 'B³±d' --msgbox 'Brak wykrytych partycji do zamontowania' 7 44");
+	}	
+	exit;
+  }
+
+  if($ENV{DISPLAY}=~/^\:0/){
+#	  $disks=&return_command(1,"Xdialog --title 'Montowanie dysków' --item-help --default-item 9 --ok-label 'Wykonaj' --cancel-label 'Zakoñcz' --menubox '' 20 40 8 $string");
+
+# line(s) inserted by warpman
+	  $disks=&return_command(1,"Xdialog --title 'Montowanie dysków' --item-help --default-item $item_no --ok-label 'Wykonaj' --cancel-label 'Zakoñcz' --menubox '' $list_no 40 8 $string");
+# end of insertion(s)
+
+     chop($disks);
+     $mount=$mounted[$disks-1]." ".$filelist[$disks-1]." 2>&1 1>/dev/null";
+     if($disks){
+	     if(!($blad=`$mount`)){
+		 $disks--;
+		 if($mounted[$disks] eq "mount"){
+		    if(!system("Xdialog --title 'Montowanie dysków' --yesno 'Dysk  $filelist[$disks] zosta³ zamontowany.\n\nCzy uruchomiæ ROX w tej lokalizacji?' 0 0")){
+		       system("rox $filelist[$disks]");
+		    };
+		 }else{
+		      system("Xdialog --title 'Montowanie dysków' --msgbox 'Dysk zosta³ odmontowany.' 9 40");
+		 }
+	     }else{
+		$blad=~s/\'/`/;
+		$disks=&return_command(1,"Xdialog --title 'B³±d' --msgbox '$blad' 0 0");
+	     }
+     }
+     
+  }else{
+     $disks=&return_command(1,"dialog --title 'Montowanie dysków' --item-help --ok-label 'Wykonaj' --cancel-label 'Zakoñcz' --menu '' 0 0 0 $string");
+     $mount=$mounted[$disks-1]." ".$filelist[$disks-1]." 2>&1 1>/dev/null";
+     if($disks){
+	     if(!($blad=`$mount`)){
+		 $disks--;
+		 if($mounted[$disks] eq "mount"){
+		    if(!system("dialog --yesno 'Dysk $filelist[$disks] zosta³ zamontowany.\n\nCzy uruchomiæ mc w tej lokalizacji?' 0 0")){
+		       system("/usr/bin/mc $filelist[$disks]");
+		    };
+		 }else{
+		    system("dialog --msgbox 'Dysk zosta³ odmontowany.' 9 40");
+		 }
+	     }else{
+		$blad=~s/\'/`/;
+		$disks=&return_command(1,"dialog --title 'B³±d' --msgbox '$blad' 9 60");
+	     }
+    }
+  }
+
+sub return_command{
+    my ($listp, $command) = @_;
+    
+    pipe(PARENT_READER, CHILD_WRITER);
+    # We have to fork (as opposed to using "system") so that the parent
+    # process can read from the pipe to avoid deadlock.
+    my ($pid) = fork;
+    if ($pid == 0) {	# child
+	close(PARENT_READER);
+	open(STDERR, ">&CHILD_WRITER");
+	exec($command);
+	die("no exec");
+    }
+    if ($pid > 0) {	# parent
+	close( CHILD_WRITER );
+    	if ($listp) {
+	    @dialog_result = ();
+	    while (<PARENT_READER>) {
+		$dialog_result[@dialog_result] = $_;
+	    }
+	}
+	else { $dialog_result = <PARENT_READER>; 
+	}
+	close(PARENT_READER);
+	waitpid($pid,0);
+	$res = $?;
+    }
+    if($listp){return "@dialog_result";}
+    else{
+        return "$dialog_result";
+   }
+	    
+}
+
+
+

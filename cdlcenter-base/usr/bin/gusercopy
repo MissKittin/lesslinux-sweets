@@ -1,0 +1,854 @@
+#!/usr/bin/perl -w
+# Author 			: Michal Wrobel ( wrobel@task.gda.pl)
+# Create On 			: 2005:03:20
+# Last Modified By 		: Michal Wrobel ( wrobel@task.gda.pl)
+# Last Modified By		: 2005:10:11
+# Version			: 0.2
+# 
+# Licensed under GPL ( see /usr/share/common-licenses/GPL for more details 
+# or contact the Free Software Fundation for a copy ) www.gnu.org
+# 
+
+
+use utf8;
+use Gtk2;         
+use strict;      
+use Encode qw(decode encode);
+
+use constant TRUE  => 1;
+use constant FALSE => 0;
+
+my $backup_prg_path = '/usr/bin/usercopy';
+require "/usr/lib/cdlcenter/cdlcenter-usercopy.pl";
+
+init Gtk2;        
+
+# convenience variables for true and false
+my $version = "0.2";
+
+&check_files();
+&init();
+&gtk_menu;
+# Should never get here
+exit( 0 );
+
+
+
+### Callback function to close the window
+sub FileSel2
+{
+	my ($window,$model,$action, $function) = @_;
+	my $filen;
+	my $item="plik";
+	$item="katalog" if($action eq "select-folder");
+	my $fc = Gtk2::FileChooserDialog->new("Wybierz $item", 	
+				$window,
+				$action,
+				'gtk-open' => 'accept',
+			 	'gtk-cancel' => 'cancel'
+				
+	);
+	$fc->set_current_folder($ENV{'HOME'});
+	$fc->set_modal(TRUE);
+	$fc->set_select_multiple(TRUE);
+	$fc->set('show-hidden'=>TRUE);
+		$fc->signal_connect (response => \&$function,$model);
+	$fc->show;
+}
+
+sub FileSel
+{
+	my ($window,$model,$action, $function) = @_;
+	my $filen;
+	my $item="pliku";
+	$item="katalogu" if($action eq "select-folder");
+	my $fc = Gtk2::FileChooserDialog->new("Wybór $item do zapisu ", 	
+				$window,
+				$action,
+				'OK' => 'accept',
+			 	'gtk-cancel' => 'cancel'
+				
+	);
+	$fc->set_current_folder($ENV{'HOME'});
+	$fc->set_modal(TRUE);
+	$fc->set_select_multiple(TRUE);
+	$fc->set('show-hidden'=>TRUE);
+		$fc->signal_connect (response => \&$function,$model);
+	$fc->show;
+}
+
+sub updateTree{ 
+	      my ($fc, $resp, $model) = @_;
+		my $filen;
+	      if ('accept' eq $resp) {
+		      foreach $filen ($fc->get_filenames()){
+			      my $iter=$model->append;
+			      $model->set($iter,0,$filen);
+		      }
+	      }
+	      $fc->destroy
+}
+
+sub ExecSel
+{
+	my ($window,$model,$action) = @_;
+	my $filen;
+	#my $ExecWindow = new Gtk2::Window( 'toplevel' );
+	my $ExecWindow = Gtk2::Dialog->new_with_buttons( "Podaj polecenie", $window,[qw/modal destroy-with-parent no-separator/],
+				'gtk-open' => 'accept',
+			 	'gtk-cancel' => 'cancel'
+	);
+	$ExecWindow->set_position( "center" ); 
+	$ExecWindow->set_default_size (620, 420);
+
+	my $vboxSel = new Gtk2::VBox->new(FALSE,20); 
+
+	my $ExecLabel = new Gtk2::Label( "Podaj polecenie:" );
+	my $ExecEntry = new Gtk2::Entry;
+	
+	my $hboxIn = new Gtk2::HBox->new(FALSE,0); 
+	$hboxIn->pack_start($ExecLabel, FALSE, FALSE, 15);
+	$hboxIn->pack_start($ExecEntry, TRUE, TRUE, 15);
+	
+	my $fc = Gtk2::FileChooserWidget->new('open');
+		$fc->signal_connect ("selection-changed" => sub { 
+			my ($fc, $resp) = @_;
+			$ExecEntry->set_text($fc->get_filename()||"");
+		});
+
+	
+	
+	$ExecWindow->get_child->set_border_width(30);
+	$ExecWindow->get_child->pack_start($hboxIn, FALSE, FALSE, 15);
+	$ExecWindow->get_child->pack_start($fc, TRUE, TRUE, 15);
+
+	$ExecWindow->show_all();
+		
+		$ExecWindow->signal_connect ("response" => sub { 
+			my ($fc, $resp) = @_;
+			if ('accept' eq $resp) {
+				my $iter=$model->append;
+				$model->set($iter,0,$ExecEntry->get_text);
+			}
+			$ExecWindow->destroy;
+		});
+	
+}
+
+
+sub CloseWindow
+{
+   my ($widget, $window) = @_;
+   $window->destroy;
+   return FALSE;
+}
+
+sub CloseAppWindow
+{
+   Gtk2->main_quit;
+   return FALSE;
+}
+
+sub createModSet{
+	my ($section,$window) = @_;
+	# widget creation
+	my $ModWindow = Gtk2::Dialog->new_with_buttons( "Zapamiętywanie ustawień", $window,[qw/modal destroy-with-parent no-separator/],
+				'Zapamiętaj' => 'accept',
+			 	'gtk-cancel' => 'cancel'
+	);
+	$ModWindow->set_position( "center" ); 
+	$ModWindow->set_default_size (620, 500);
+
+	# Trzy pionowe grupy + przyciski
+	my $hboxFiles = new Gtk2::HBox->new(FALSE,10); 
+	my $hboxDirs = new Gtk2::HBox->new(FALSE,10); 
+	my $hboxExec = new Gtk2::HBox->new(FALSE,10); 
+	my $hboxButt = new Gtk2::HBox->new(FALSE,10); 
+
+# PLIKI
+	# $vboxFiles - po lewej lista plikow, po prawej przyciski w grupie
+	my $vboxFilesButt = new Gtk2::VBox->new(FALSE,6);
+	my $buttFilesAdd = new Gtk2::Button( "  Dodaj  " );
+	my $buttFilesDel = new Gtk2::Button( "  Usuń   " );
+	$vboxFilesButt->pack_start($buttFilesAdd, FALSE, FALSE, 0);
+	$vboxFilesButt->pack_start($buttFilesDel, FALSE, FALSE, 0);
+	
+	my @list=&get_files(encode("iso-8859-2",$section),'F');
+	my $listModelFiles = new Gtk2::ListStore('Glib::String');
+	my $listFiles = new Gtk2::TreeView($listModelFiles);
+	$listFiles->set('headers_visible' => FALSE, 'rules_hint'=>TRUE);
+	my  $renderer = Gtk2::CellRendererText->new;
+	$renderer->set (foreground_set => TRUE);
+	my $listColFiles = Gtk2::TreeViewColumn->new_with_attributes('', $renderer, "text", 0);
+	$listColFiles-> set_sizing("autosize");
+ 	$listFiles->append_column($listColFiles);	
+	my $item="";
+	foreach $item (@list){
+		my $iter=$listModelFiles->append;
+		$listModelFiles->set($iter,0,decode("iso-8859-2",$item));
+	}
+
+	$buttFilesDel->signal_connect( "clicked" => sub(){
+	   my ($model, $iter) = $listFiles->get_selection->get_selected;
+           if ($model && $iter) {
+	   	$listModelFiles->remove($iter);
+           } else {
+               	print "nothing selected\n";
+           }
+	});	
+	
+	$buttFilesAdd->signal_connect( "clicked" => sub(){
+		&FileSel2($ModWindow, $listModelFiles,'open',\&updateTree);
+	});	
+	my $scrolledFiles = Gtk2::ScrolledWindow->new;
+	$scrolledFiles->set_policy ('automatic', 'automatic');
+	$scrolledFiles->add_with_viewport($listFiles);
+	$scrolledFiles->resize_children;
+	
+	$hboxFiles->pack_start($scrolledFiles, TRUE, TRUE, 0);
+	$hboxFiles->pack_start($vboxFilesButt, FALSE, FALSE, 0);
+	$hboxFiles->set_border_width (10);
+		
+	
+	my $frameFiles = Gtk2::Frame->new ('  Pliki  ');
+	$frameFiles->add($hboxFiles);
+	$frameFiles->set_shadow_type ('etched-out');
+
+
+#KATALOGI
+	# $vboxDirs - po lewej lista plikow, po prawej przyciski w grupie
+	my $vboxDirsButt = new Gtk2::VBox->new(FALSE,6);
+	my $buttDirsAdd = new Gtk2::Button( "  Dodaj  " );
+	my $buttDirsDel = new Gtk2::Button( "  Usuń   " );
+	$vboxDirsButt->pack_start($buttDirsAdd, FALSE, FALSE, 0);
+	$vboxDirsButt->pack_start($buttDirsDel, FALSE, FALSE, 0);
+	
+	@list=&get_files(encode("iso-8859-2",$section),'D');
+	my $listModelDirs = new Gtk2::ListStore('Glib::String');
+	my $listDirs = new Gtk2::TreeView($listModelDirs);
+	$listDirs->set('headers_visible' => FALSE, 'rules_hint'=>TRUE);
+	$renderer = Gtk2::CellRendererText->new;
+	$renderer->set (foreground_set => TRUE);
+	my $listColDirs = Gtk2::TreeViewColumn->new_with_attributes('', $renderer, "text", 0);
+	$listColDirs-> set_sizing("autosize");
+ 	$listDirs->append_column($listColDirs);	
+	foreach $item (@list){
+		my $iter=$listModelDirs->append;
+		$listModelDirs->set($iter,0,decode("iso-8859-2",$item));
+	}
+
+	$buttDirsDel->signal_connect( "clicked" => sub(){
+	   my ($model, $iter) = $listDirs->get_selection->get_selected;
+           if ($model && $iter) {
+	   	$listModelDirs->remove($iter);
+           } else {
+               	print "nothing selected\n";
+           }
+	});	
+	
+	$buttDirsAdd->signal_connect( "clicked" => sub(){
+		&FileSel2($ModWindow, $listModelDirs,'select-folder',\&updateTree);
+	});	
+	my $scrolledDirs = Gtk2::ScrolledWindow->new;
+	$scrolledDirs->set_policy ('automatic', 'automatic');
+	$scrolledDirs->add_with_viewport($listDirs);
+	$scrolledDirs->resize_children;
+	
+	$hboxDirs->pack_start($scrolledDirs, TRUE, TRUE, 0);
+	$hboxDirs->pack_start($vboxDirsButt, FALSE, FALSE, 0);
+	$hboxDirs->set_border_width (10);
+		
+	
+	my $frameDirs = Gtk2::Frame->new ('  Katalogi  ');
+	$frameDirs->add($hboxDirs);
+	$frameDirs->set_shadow_type ('etched-out');
+
+
+#KOMENDY
+	# $vboxExec - po lewej lista plikow, po prawej przyciski w grupie
+	my $vboxExecButt = new Gtk2::VBox->new(FALSE,6);
+	my $buttExecAdd = new Gtk2::Button( "  Dodaj  " );
+	my $buttExecDel = new Gtk2::Button( "  Usuń  " );
+	$vboxExecButt->pack_start($buttExecAdd, FALSE, FALSE, 0);
+	$vboxExecButt->pack_start($buttExecDel, FALSE, FALSE, 0);
+
+
+	@list=&get_files(encode("iso-8859-2",$section),'E');
+	my $listModelExec = new Gtk2::ListStore('Glib::String');
+	my $listExec = new Gtk2::TreeView($listModelExec);
+	$listExec->set('headers_visible' => FALSE, 'rules_hint'=>TRUE);
+	$renderer = Gtk2::CellRendererText->new;
+	$renderer->set (foreground_set => TRUE);
+	my $listColExec = Gtk2::TreeViewColumn->new_with_attributes('', $renderer, "text", 0);
+	$listColExec-> set_sizing("autosize");
+ 	$listExec->append_column($listColExec);	
+	foreach $item (@list){
+		my $iter=$listModelExec->append;
+		$listModelExec->set($iter,0,decode("iso-8859-2",$item));
+	}
+
+	$buttExecDel->signal_connect( "clicked" => sub(){
+	   my ($model, $iter) = $listExec->get_selection->get_selected;
+           if ($model && $iter) {
+	   	$listModelExec->remove($iter);
+           } else {
+               	print "nothing selected\n";
+           }
+	});	
+	
+	my $action='save';
+	$buttExecAdd->signal_connect( "clicked" => sub(){
+		&ExecSel($ModWindow, $listModelExec,$action);
+	});	
+		
+	my $scrolledExec = Gtk2::ScrolledWindow->new;
+	$scrolledExec->set_policy ('automatic', 'automatic');
+	$scrolledExec->add_with_viewport($listExec);
+	$scrolledExec->resize_children;
+	
+	$hboxExec->pack_start($scrolledExec, TRUE, TRUE, 0);
+	$hboxExec->pack_start($vboxExecButt, FALSE, FALSE, 0);
+	$hboxExec->set_border_width (10);
+		
+	
+	my $frameExec = Gtk2::Frame->new ('  Komendy  ');
+	$frameExec->add($hboxExec);
+	$frameExec->set_shadow_type ('etched-out');
+
+#PRZYCISKI
+#
+#	my $buttSave = new Gtk2::Button( "  Zapisz  " );
+#	my $buttCancel = new Gtk2::Button( "  Anuluj   " );
+#	$hboxButt->pack_start($buttSave, FALSE, FALSE, 0);
+#	$hboxButt->pack_start($buttCancel, FALSE, FALSE, 0);
+#	$buttCancel->signal_connect( clicked => \&CloseWindow, $window);
+#	$buttSave->signal_connect( clicked => sub{
+#		my ($widget,$window) = @_;
+#		my $iter="";
+#		my $sec_files="";
+#		while($iter = $listModelFiles->get_iter_first){
+#			$sec_files.=$listModelFiles->get($iter,0)." F,";
+#		   	$listModelFiles->remove($iter);
+#		}
+#		while($iter = $listModelDirs->get_iter_first){
+#			$sec_files.=$listModelDirs->get($iter,0)." D,";
+#		   	$listModelDirs->remove($iter);
+#		}
+#		while($iter = $listModelExec->get_iter_first){
+#			$sec_files.=$listModelExec->get($iter,0)." E,";
+#		   	$listModelExec->remove($iter);
+#		}
+#		&set_files($section, $sec_files);
+#		&CloseWindow($widget, $window);
+#	}, $window);
+#	
+#	my $vbox = new Gtk2::VBox->new(FALSE,6);
+	
+	$ModWindow->signal_connect( "response" => sub{
+		my ($window,$resp) = @_;
+		my $iter="";
+		if ('accept' eq $resp){
+		    my $sec_files="";
+		    while($iter = $listModelFiles->get_iter_first){
+			    $sec_files.=$listModelFiles->get($iter,0)." F,";
+			    $listModelFiles->remove($iter);
+		    }
+		    while($iter = $listModelDirs->get_iter_first){
+			    $sec_files.=$listModelDirs->get($iter,0)." D,";
+			    $listModelDirs->remove($iter);
+		    }
+		    while($iter = $listModelExec->get_iter_first){
+			    $sec_files.=$listModelExec->get($iter,0)." E,";
+			    $listModelExec->remove($iter);
+		    }
+		    &set_files($section, $sec_files);
+		}
+		$ModWindow->destroy;
+
+	}, $window);
+	
+	$ModWindow->get_child->pack_start($frameFiles, TRUE, TRUE, 0);
+	$ModWindow->get_child->pack_start($frameDirs, TRUE, TRUE, 0);
+	$ModWindow->get_child->pack_start($frameExec, TRUE, TRUE, 0);
+
+	
+
+	
+	#$buttonA->signal_connect( "clicked", \&FileSel );
+
+	#A nifty funky label
+
+	#Some help for the users
+	#my $tooltips = new Gtk2::Tooltips(); 
+	#$tooltips->set_tip( $buttonA, "NaciĹnij aby ustawiÄ wybranÄ rozdzielczoĹÄ", "" ); 
+	#$tooltips->set_delay( 100 );
+	#$tooltips->enable();
+
+
+
+	#Set window attributes and show it
+	$ModWindow->set_border_width( 15 );
+
+	# And action
+	$ModWindow->show_all();
+
+	
+}
+
+sub gtk_menu{
+	my $window = new Gtk2::Window( "toplevel" );
+	$window->signal_connect( "delete_event", \&CloseAppWindow );
+	#$window->set_policy( $false, $false, $true );
+	$window->set_position( "center" ); 
+	$window->set_title( "Zapis ustawień użytkownika"); 
+	$window->set_default_size (300, 200);
+	$window->set_border_width( 15 );
+
+	my $vbox = new Gtk2::VBox->new(FALSE,6);
+
+	my @butt=();
+	$butt[0] = new Gtk2::Button( " Zapisanie ustawień " );
+	$butt[1] = new Gtk2::Button( " Zarządzanie zapisem ustawień " );
+	$butt[2] = new Gtk2::Button( " Wczytanie zapisanych ustawień  " );
+	$butt[3] = new Gtk2::Button( " Koniec " );
+	
+	
+	for my $butt (@butt){
+		$vbox->pack_start($butt, TRUE, TRUE, 0);
+	}
+	
+	$butt[0]->signal_connect( "clicked", \&gtk_make_select );
+	$butt[1]->signal_connect( clicked => \&gtk_sect_menu, $window );
+	$butt[2]->signal_connect( clicked => \&gtk_reset_files, $window );
+	$butt[3]->signal_connect( "clicked", \&CloseAppWindow );
+	
+	$window->add( $vbox );
+
+	$window->show_all();
+	main Gtk2;
+}
+
+sub gtk_sect_menu{
+	my ($widget, $window) = @_;
+	my @secs_all=&get_secs_all;
+	
+	my $SectWindow = Gtk2::Dialog->new_with_buttons( "Zarządzanie zapisem ustawień", $window,[qw/modal destroy-with-parent no-separator/],
+				'Dodaj' => 10,
+				'Modyfikuj' => 'accept',
+				'Usuń' => 11,
+			 	'gtk-cancel' => 'cancel'
+	);
+	$SectWindow->set_position( "center" ); 
+	$SectWindow->set_default_size (420, 320);
+
+
+	my $listModelSect = new Gtk2::ListStore('Glib::String');
+	my $listSect = new Gtk2::TreeView($listModelSect);
+	$listSect->set('headers_visible' => FALSE, 'rules_hint'=>TRUE);
+	my  $renderer = Gtk2::CellRendererText->new;
+	$renderer->set (foreground_set => TRUE);
+	my $listColSect = Gtk2::TreeViewColumn->new_with_attributes('', $renderer, "text", 0);
+	$listColSect-> set_sizing("autosize");
+ 	$listSect->append_column($listColSect);	
+	my $item="";
+	foreach $item (@secs_all){
+		my $iter=$listModelSect->append;
+		$listModelSect->set($iter,0,decode("iso-8859-2",$item));
+	}
+
+	
+	$SectWindow->get_child->set_border_width(30);
+	$SectWindow->get_child->pack_start($listSect, TRUE, TRUE, 15);
+
+	$SectWindow->show_all();
+		
+		$SectWindow->signal_connect ("response" => sub { 
+			my ($fc, $resp) = @_;
+			my ($model, $iter) = $listSect->get_selection->get_selected;
+			my $item = $listModelSect->get($iter,0) if($iter);
+			if ('accept' eq $resp) {
+				&createModSet($item,$window);
+			}elsif($resp eq 10){
+				$item=&inputWindow($window, "Podaj nazwę ustawienia", \&addSecs);
+			}elsif($resp eq 11){
+			 	&secs_delete(encode("iso-8859-2",$item));	
+			}
+			$SectWindow->destroy;
+		})
+}
+
+sub test{
+	my @secs_all=&get_secs_all;
+	print ("@secs_all\n");
+}
+
+sub inputWindow{
+	my ($window, $text, $func, @rest) = @_;
+	my $ExecWindow = Gtk2::Dialog->new_with_buttons( "", $window,[qw/modal destroy-with-parent no-separator/],
+				'gtk-ok' => 'accept',
+			 	'gtk-cancel' => 'cancel'
+	);
+	$ExecWindow->set_position( "center" ); 
+	$ExecWindow->set_default_size (420, 120);
+
+
+	my $vboxSel = new Gtk2::VBox->new(FALSE,20); 
+
+	my $ExecLabel = new Gtk2::Label( $text );
+	my $ExecEntry = new Gtk2::Entry;
+	
+	my $hboxIn = new Gtk2::HBox->new(FALSE,0); 
+	$hboxIn->pack_start($ExecLabel, FALSE, FALSE, 15);
+	$hboxIn->pack_start($ExecEntry, TRUE, TRUE, 15);
+	$ExecWindow->get_child->set_border_width(30);
+	$ExecWindow->get_child->pack_start($hboxIn, FALSE, FALSE, 15);
+
+	$ExecWindow->show_all();
+	$ExecWindow->signal_connect ("response" => sub { 
+			my ($fc, $resp) = @_;
+			if ('accept' eq $resp) {
+				$text=$ExecEntry->get_text;
+				&$func($text,$window,@rest) if($text!~/^$/);
+			}
+			$ExecWindow->destroy;
+		});
+	
+}
+
+sub infoWindow{
+	my ($text) = @_;
+	my $window = new Gtk2::Window( "toplevel" );
+	my $ExecWindow = Gtk2::Dialog->new_with_buttons( "", $window,[qw/modal destroy-with-parent no-separator/],
+				'gtk-ok' => 'accept',
+	);
+	$ExecWindow->set_position( "center" ); 
+	$ExecWindow->set_default_size (420, 120);
+
+
+	my $vboxSel = new Gtk2::VBox->new(FALSE,20); 
+
+	my $ExecLabel = new Gtk2::Label( $text );
+	
+	my $hboxIn = new Gtk2::HBox->new(FALSE,0); 
+	$hboxIn->pack_start($ExecLabel, FALSE, FALSE, 15);
+	$ExecWindow->get_child->set_border_width(30);
+	$ExecWindow->get_child->pack_start($hboxIn, FALSE, FALSE, 15);
+
+	$ExecWindow->show_all();
+	$ExecWindow->signal_connect ("response" => sub { 
+			$ExecWindow->destroy;
+		});
+	
+}
+sub addSecs{
+	my ($text,$window) = @_;
+	if(!&set_sec(encode("iso-8859-2",$text))){
+		&createModSet($text,$window);	
+	}else{
+		my $dialog = Gtk2::MessageDialog->new($window, [qw/modal destroy-with-parent no-separator/], 'GTK_MESSAGE_WARNING','ok', 'Sekcja o tej nazwie już istnieje!!!');
+		$dialog->run();
+		$dialog->destroy();
+	}
+}
+
+sub gtk_reset_files{
+	my ($widget, $window) = @_;
+	my %menuItems=("3. Inna lokalizacja",\&gtk_hdd_restore,"2. Domyślny plik na dyskietce",\&gtk_makerestore_fdd_ctrl,"1. Domyślny plik na dysku",\&gtk_part_restore);
+	#my %menuItems=("Plik",\&gtk_hdd_restore,"Dyskietka",\&gtk_makerestore_fdd_ctrl,"Partycja dysku twardego",\&gtk_part_restore);
+ 	&gtk_listMenu($window,"Archiwizajca ustawień","Wybór lokalizjacji pliku ustawień",\%menuItems, 1);
+}
+
+sub gtk_make_select{
+	my ($widget, $window) = @_;
+	my @secs_all=&get_secs_all;
+	
+	my $SectWindow = Gtk2::Dialog->new_with_buttons( "Wybierz ustawienia do zapisu", $window,[qw/modal destroy-with-parent no-separator/],
+				'Zaznacz wszystkie' => 10,
+				'Zapisz' => 'accept',
+			 	'gtk-cancel' => 'cancel'
+	);
+	$SectWindow->set_position( "center" ); 
+	$SectWindow->set_default_size (420, 320);
+
+
+	my $listModelSect = new Gtk2::ListStore('Glib::Boolean','Glib::String' );
+	my $listSect = new Gtk2::TreeView($listModelSect);
+	$listSect->set('headers_visible' => FALSE, 'rules_hint'=>TRUE);
+	my  $renderer = Gtk2::CellRendererText->new;
+	$renderer->set (foreground_set => TRUE);
+	my  $rendererT = Gtk2::CellRendererToggle->new;
+#	$rendererT->set (foreground_set => TRUE);
+	$rendererT->signal_connect( "toggled" => sub(){
+		my ($widget,$item,$model)= @_;
+		my $iter= $model->get_iter_from_string($item);
+		my $value=$model->get($iter,0);
+		$value=$value ^ 1;
+		$model->set($iter,0,$value);
+	},$listModelSect);	
+
+	my $listColSectCH = Gtk2::TreeViewColumn->new_with_attributes('', $rendererT, "active", 0);
+	my $listColSect = Gtk2::TreeViewColumn->new_with_attributes('', $renderer, "text", 1);
+	$listColSect-> set_sizing("autosize");
+ 	$listSect->append_column($listColSectCH);	
+ 	$listSect->append_column($listColSect);	
+	my $item="";
+	foreach $item (@secs_all){
+		my $iter=$listModelSect->append;
+		if($item=~/\*$/){
+			$listModelSect->set($iter,0,TRUE);
+		}else{
+			$listModelSect->set($iter,0,FALSE);
+		}
+		$listModelSect->set($iter,1,decode("iso-8859-2",$item));
+	}
+
+	
+	$SectWindow->get_child->set_border_width(30);
+	$SectWindow->get_child->pack_start($listSect, TRUE, TRUE, 15);
+
+	$SectWindow->show_all();
+		
+		$SectWindow->signal_connect ("response" => sub { 
+			my ($fc, $resp) = @_;
+			my ($model, $iter) = $listSect->get_selection->get_selected;
+			my $item = $listModelSect->get($iter,0) if($iter);
+			if ('accept' eq $resp) {
+				$item=0;
+				my @selected_secs;	
+				while($iter= $model->get_iter_from_string($item++)){
+					push (@selected_secs, encode("iso-8859-2",$model->get($iter)),1) if($model->get($iter,0));
+				}
+				&gtk_save_user_config_file(@selected_secs);
+				my %menuItems=("3. Inna lokalizacja",\&gtk_hdd_backup,"2. Domyślny plik na dyskietce",\&gtk_makebackup_fdd_ctrl,"1. Domyślny plik na dysku",\&gtk_part_backup);
+				#my %menuItems=("Dyskietka",\&gtk_makebackup_fdd_ctrl,"Domyślny plik na dysku",\&gtk_hdd_backup,"Serwer FTP",\&gtk_ftp_backup, "Serwer SSH",\&gtk_scp_backup);
+			 	&gtk_listMenu($window,"Archiwizajca ustawień","Wybór lokalizacji pliku ustawień",\%menuItems, 1);
+				$SectWindow->destroy;
+			}elsif($resp eq 10){
+				$item=0;
+				while($iter= $model->get_iter_from_string($item++)){
+					$model->set($iter,0,TRUE);
+				}
+			}else{
+				$SectWindow->destroy;
+			}
+		})
+}
+
+sub gtk_listMenu{
+	my ($window, $title, $label, $list, $utf) = @_;
+	my @secs_all=&get_secs_all;
+	my $SectWindow = Gtk2::Dialog->new_with_buttons( $label, $window,[qw/modal destroy-with-parent no-separator/],
+			 	'gtk-ok' => 'ok',
+			 	'gtk-cancel' => 'cancel'
+	);
+	$SectWindow->set_position( "center" ); 
+	$SectWindow->set_default_size (420, 320);
+
+
+	my $listModelSect = new Gtk2::ListStore('Glib::String');
+	my $listSect = new Gtk2::TreeView($listModelSect);
+	$listSect->set('headers_visible' => FALSE, 'rules_hint'=>TRUE);
+	my  $renderer = Gtk2::CellRendererText->new;
+	$renderer->set (foreground_set => TRUE);
+	my $listColSect = Gtk2::TreeViewColumn->new_with_attributes('', $renderer, "text", 0);
+	$listColSect-> set_sizing("autosize");
+ 	$listSect->append_column($listColSect);	
+	my $item="";
+	foreach $item (sort keys %$list){
+		my $iter=$listModelSect->append;
+		if($utf) {
+			$listModelSect->set($iter,0,$item);
+		}else{
+			$listModelSect->set($iter,0,decode("iso-8859-2",$item));
+		}
+	}
+
+	$SectWindow->get_child->set_border_width(30);
+	
+	if($label){
+		my $GtkLabel = new Gtk2::Label( $label );
+		$SectWindow->get_child->pack_start($GtkLabel, FALSE, FALSE, 10);
+	}
+	
+	$SectWindow->get_child->pack_start($listSect, TRUE, TRUE, 10);
+
+	$SectWindow->show_all();
+		
+		$SectWindow->signal_connect ("response" => sub { 
+			my ($fc, $resp) = @_;
+			my ($model, $iter) = $listSect->get_selection->get_selected;
+			my $item = $listModelSect->get($iter,0);
+			if ('ok' eq $resp) {
+				my $function=$$list{$item};
+				&$function($window,$item);
+			}
+			$SectWindow->destroy;
+		})
+}
+
+sub gtk_makebackup_fdd_ctrl
+{
+	&gtk_makebackup_do ("-s -d floppy", "/etc/cdlcenter/info.txt");
+}
+
+sub gtk_makerestore_fdd_ctrl
+{
+	&gtk_makebackup_do ("-r -d floppy");
+}
+
+sub gtk_hdd_backup{
+	my ($window) = @_;
+
+	&FileSel($window, "",'select-folder',\&gtk_makebackup_hdd_ctrl);
+}
+
+
+sub gtk_hdd_restore{
+	my ($window) = @_;
+	&FileSel2($window, "",'open',\&gtk_makerestore_hdd_ctrl);
+}
+
+
+sub gtk_part_backup{
+	my ($window) = @_;
+	my @files = glob("/media/dyski/*");
+	my %menuItems=();
+	foreach my $file (@files) {
+		my $fs=`grep -E "${file}[^0-9\-]" /etc/fstab`;
+		$file=~s,.*/([^/]*)$,$1,;
+		$fs=~s,.*$file\s*([^\s]*)\s.*,$1,;
+		chop($fs);
+		$menuItems{"$file ($fs)"}=\&gtk_makebackup_part;	
+	}
+	&gtk_listMenu($window,"Archiwizajca ustawień","Wybierz dysk",\%menuItems);
+}
+
+sub gtk_part_restore{
+	my ($window) = @_;
+	my @files = glob("/media/dyski/*");
+	my %menuItems=();
+	foreach my $file (@files) {
+		my $fs=`grep -E "${file}[^0-9\-]" /etc/fstab`;
+		$file=~s,.*/([^/]*)$,$1,;
+		$fs=~s,.*$file\s*([^\s]*)\s.*,$1,;
+		chop($fs);
+		$menuItems{$file}=\&gtk_makerestore_part;	
+	}
+	&gtk_listMenu($window,"Archiwizajca ustawień","Wybierz dysk",\%menuItems);
+}
+
+sub gtk_ftp_backup{
+	my ($window) = @_;
+	&inputWindow($window, "Podaj adres serwera FTP",\&gtk_remote_backup,"ftp",2);
+}
+
+sub gtk_scp_backup{
+	my ($window) = @_;
+	&inputWindow($window, "Podaj adres serwera SSH",\&gtk_remote_backup,"ssh",2);
+}
+
+sub gtk_remote_backup{
+	my ($text,$window,$protocol,$entry, $server, $username) = @_;
+	if($entry==2){
+		&inputWindow($window, "Podaj nazwę użytkownika",\&gtk_remote_backup,$protocol,3,$text);
+	}elsif($entry==3){
+		system("/usr/share/cdlcenter/scripts/rxvt -e /home/wrobel/cdlinux/soft/usercopy-fe/cdlcenter-usercopy.new -d $protocol -u $text -a $server");
+		print("/usr/share/cdlcenter/scripts/rxvt -e /home/wrobel/cdlinux/soft/usercopy-fe/cdlcenter-usercopy.new -d $protocol -u $text -a $server\n");
+	}
+}
+
+sub gtk_ftp_backup_2{
+	my ($text,$window) = @_;
+	&inputWindow($window, "Podaj nazwę użytkownika",\&gtk_ftp_backup_3);
+}
+
+sub gtk_scp_backup_2{
+	my ($text,$window) = @_;
+	&inputWindow($window, "Podaj nazwę użytkownika",\&gtk_scp_backup_3);
+}
+sub gtk_makebackup_hdd_ctrl
+{
+	my ($fc, $resp, $model, $window) = @_;
+	my $path="";
+        if ('accept' eq $resp) {
+	      $path=$fc->get_filename();
+#	      $path=~s/(.*\/).*/$1/;
+	      &inputWindow($window, "Podaj nazwę pliku", \&gtk_makebackup_hdd_ctrl2, $path);
+#	      &gtk_makebackup_do ("-s -d hd -p $path");
+        }
+        $fc->destroy
+}
+
+sub gtk_makebackup_hdd_ctrl2
+{
+	my ($text, $window, $path) = @_;
+	$text.=".tar.bz2" if($text && $text !~ /tar.bz2$/);
+	&gtk_makebackup_do ("-s -d hd -p $path/$text", "$path/$text");
+}
+
+sub gtk_makerestore_hdd_ctrl
+{
+	my ($fc, $resp, $model) = @_;
+	my $path="";
+        if ('accept' eq $resp) {
+	      $path=$fc->get_filename();
+#	      $path=~s/(.*\/).*/$1/;
+	      &gtk_makebackup_do ("-r -d hd -p $path");
+        }
+        $fc->destroy
+}
+
+
+sub gtk_makebackup_part
+{
+	my ($window,$dir) = @_;
+	my $mounted=0;
+	$dir=~s,(.*) \([^\)]*\)$,$1,;
+	my $path="/media/dyski/$dir";
+	if(! `mount | grep $path`){
+		system("mount $path");
+		$mounted=1;
+	}
+	system("[ -d $path/cdlinux ] || mkdir $path/cdlinux");
+        &gtk_makebackup_do ("-s -d hd -p $path/cdlinux", "$path/cdlinux/konfiguracja.tar.bz2");
+	system("umount $path") if($mounted);
+}
+
+sub gtk_makerestore_part
+{
+	my ($window,$dir) = @_;
+	$dir=~s,(.*) \([^\)]*\)$,$1,;
+	my $path="/media/dyski/$dir";
+	system("[ -f $path/ls ] && mount $path; [ -d $path/cdlinux ] || mkdir $path/cdlinux");
+        &gtk_makebackup_do ("-r -d hd -p $path/cdlinux");
+}
+
+
+
+sub gtk_save_user_config_file{
+	&save_user_config_file(@_);
+}
+
+sub gtk_makebackup_do
+{
+	my ($options, $file) = @_;
+	my $exitcode=system("$backup_prg_path $options");
+	$exitcode=$exitcode>>8;
+	if($file){
+		if(-f $file){
+			&infoWindow("Ustawienia zostały zapisane");
+		}else{
+			&infoWindow("Błąd podczas zapisywania ustawień");
+		}
+	}else{
+		if($exitcode==0){
+			&infoWindow("Ustawienia zostały przywrócone");
+		}else{
+			&infoWindow("Błąd podczas przywracania ustawień");
+		}
+	}
+		
+
+}
+
+

@@ -1,0 +1,283 @@
+#!/bin/bash
+# Author           : Maciej Kosmulski ( barnim@tmc.gda.pl )
+# Created On       : 2003.07.04
+# Modified By      : Przemys³aw Pawe³czyk ( warpman@kv.net.pl 
+# Last Modified By : Michal Wrobel (wrobel@task.gda.pl)
+# Last Modified On : 2006.03.24
+# Version          : 0.8.0
+#
+# Description      :
+# Frontend dla programu cdlcenter-hdinstall.sh
+# przeznaczony dla dystrybucji cdlinux.pl
+#
+# Licensed under GPL (see /usr/share/common-licenses/GPL for more details
+# or contact # the Free Software Foundation for a copy)
+
+# usuwamy rzeczy tymczasowe
+rm -f /tmp/hdinstall.*
+TMP=`mktemp /tmp/hdinstall.XXXXXX`
+
+# tworzymy zmienne kolorów
+#col_r="\033[0;31m"	# color red
+#col_sr="\033[1;31m"	# color superred
+#col_n="\033[0m"		# color reset (neutral)
+#if [ $UID != 0 ] ; then
+#    echo -e $col_r"Musisz byæ "$col_sr"superu¿ytkownikiem"$col_r", aby uruchomiæ ten skrypt!"$col_n
+#    sleep 3
+#    exit 0;
+#fi
+
+col_g="\033[0;32m"	# color green
+col_sg="\033[1;32m"	# color supergreen
+col_c="\033[0;36m"	# color cyan
+col_cy="\033[1;36m"	# color supercyan
+col_n="\033[0m"		# color reset (neutral)
+
+MAIN_TITLE=$col_cy"Instalator "$col_sg"cdlinux.pl"$col_cy" na dysku twardym."$col_n
+
+# ustawiamy zmienne bazowe okien (X)DIALOG 
+if [ "$DISPLAY" == "" ] ; then
+
+# tworzymy zmienne dla okna znakowego
+TITLE="\Z6Instalator \Zb\Z2cdlinux.pl\ZB \Z6na dysku twardym\Zn"
+UWAGA="\Zb\Z3UWAGA !!!\Zn\ZB"
+TAK="Tak"
+NIE="Nie"
+OK="OK"
+DAL="Dalej"
+ZAK="Zakoñcz"
+PRZERW="\Z1Instalacja zosta³a przerwana!\Zn"
+FORM_1="Wybierz"
+FORM_0="Przerwij"
+fs=""
+SUPER="\Z1Musisz byæ \Zbsuperu¿ytkownikiem\ZB, aby uruchomiæ ten skrypt!\Zn"
+CDROM="P³yta z dystrybucj± cdlinux.pl musi byæ zamontowana!"
+
+# tworzymy zmienne komunikatów dla okna znakowego
+DIALOG_1=\
+"System instalacyjny jest w fazie rozwojowej.\n
+\Z1Nie odpowiadamy za szkody spowodowane jego u¿yciem.\n\n\Zn
+Czy na pewno chcesz kontynuowaæ instalacjê?"
+DIALOG_2=\
+"Podaj nazwê dysku, na którym chcesz instalowaæ \Zb\Z2cdlinux.pl\Zn.\n 
+Wpisz \Zb\Z3hda\Zn, a nie \Z1/dev/hda\Zn czy \Z1hda5\Zn.\n
+Zostanie uruchomiony \Zb\Z7cfdisk\Zn - program partycjonuj±cy."
+DIALOG_3="Wybierz partycjê:"
+DIALOG_4="Wybierz system plików:"
+DIALOG_4a="Wybierz dysk na którym zainstalowaæ GRUB:"
+DIALOG_5=\
+"Czy na pewno zainstalowaæ system plików \Z5'$fs'\Zn,\n
+na partycji \Zb\Z3'$partycja'\Zn?"
+DIALOG_6="Czy zainstalowaæ \Zb\Z7GRUB\Zn w \Zb\Z7MBR\Zn (Master Boot Record)?"
+DIALOG_7="Czy zrestartowaæ komputer po zakoñczeniu instalacji?"
+DIALOG_8="\Zb\Z3Czy na pewno chcesz kontynuowaæ instalacjê?\Zn"
+
+DIALOG="/usr/bin/dialog --aspect 40 --colors --ok-label $OK --cancel-label $ZAK "
+
+else
+
+# tworzymy zmienne dla okna graficznego
+TITLE="Instalator cdlinux.pl na dysku twardym"
+UWAGA="UWAGA !!!"
+TAK="Tak"
+NIE="Nie"
+OK="OK"
+DAL="Dalej"
+ZAK="Zakoñcz"
+PRZERW="Instalacja zosta³a przerwana!"
+FORM_1="Wybierz"
+FORM_0="Przerwij"
+fs=""
+SUPER="Musisz byæ >>> superu¿ytkownikiem <<<, aby uruchomiæ ten skrypt!"
+CDROM="P³yta z dystrybucj± cdlinux.pl musi byæ zamontowana!"
+
+# tworzymy zmienne komunikatów dla okna graficznego
+DIALOG_1=\
+"Przed przyst±pieniem do instalacji nale¿y wykonaæ\n
+kopiê zapasow± wa¿nych danych.\n\n
+Czy na pewno chcesz kontynuowaæ instalacjê?"
+DIALOG_2=\
+"Podaj nazwê dysku, na którym chcesz instalowaæ cdlinux.pl.\n 
+Wpisz hda, a nie /dev/hda czy hda5.\n
+Zostanie uruchomiony cfdisk - program partycjonuj±cy."
+DIALOG_3="Wybierz partycjê:"
+DIALOG_4="Wybierz system plików:"
+DIALOG_4a="Wybierz dysk na którym zainstalowaæ GRUB:"
+DIALOG_5=\
+"Czy na pewno zainstalowaæ system plików \"$fs\",\n
+na partycji \"$partycja\"?"
+DIALOG_6="Czy zainstalowaæ GRUB w MBR (Master Boot Record)?"
+DIALOG_7="Czy zrestartowaæ komputer po zakoñczeniu instalacji?"
+DIALOG_8="Czy na pewno chcesz kontynuowaæ instalacjê?"
+
+DIALOG="/usr/bin/Xdialog --ok-label $OK --cancel-label $ZAK "
+
+fi
+
+# u¿ytkownik musi byæ adminem 
+if [ $UID != 0 ]
+then	
+    $DIALOG \
+    --title "$UWAGA" \
+    --backtitle "$TITLE" \
+    --msgbox "$SUPER" 0 0
+    exit 0
+fi
+
+if [ ! -f /mnt/cdrom/cdlinux.pl.img ]
+then	
+    $DIALOG \
+    --title "$UWAGA" \
+    --backtitle "$TITLE" \
+    --msgbox "$CDROM" 0 0
+    exit 0
+fi
+
+
+# ³apiemy co trzeba
+trap "rm -f $TMP" INT QUIT KILL ALRM TERM STOP TSTP
+ 
+if [ -d "/tmp2" ] ; then
+    umount /tmp2 2> /dev/null
+fi
+
+# DIALOG_1: ostrze¿enie o niedoskona³o¶ci programu
+$DIALOG \
+--title "$UWAGA" \
+--ok-label "$TAK" \
+--cancel-label "$ZAK" \
+--backtitle "$TITLE" \
+--defaultno \
+--yesno "$DIALOG_1" 0 0 2>$TMP
+if [ $? -eq 1 ] ; then
+    $DIALOG \
+    --title "$UWAGA" \
+    --backtitle "$TITLE" \
+    --msgbox "$PRZERW" 0 0 
+    exit 0
+fi
+
+# DIALOG_2: wybieramy dysk do instalacji
+$DIALOG \
+--title "$TITLE" \
+--backtitle "$TITLE" \
+--ok-label "$DAL" \
+--cancel-label "$ZAK" \
+--inputbox "$DIALOG_2" 0 0 "hda" 2>$TMP
+# gdy wcisniêto anuluj -> wyjd¼
+if [ $? = 1 ] ; then
+    clear
+    exit 0
+fi
+dysk="/dev/`cat $TMP`"
+# uruchamiamy cfdisk w zale¿no¶ci od Xów lub konsoli
+if [ "$DISPLAY" == "" ] ; then
+    /sbin/cfdisk $dysk
+else
+    xterm -fg white -bg black -fn -*-200-*-2 -e cfdisk $dysk
+fi
+clear
+
+# szukamy partycji wybranego dysku
+fdisk $dysk -l | grep -i  Linux | grep -v swap | grep -n /dev/[hs]d | tr ":" " "| colrm 3 7 | colrm 10 >$TMP
+dyski="`cat $TMP`"
+
+# DIALOG_3: wybór partycji
+$DIALOG \
+--title "$TITLE" \
+--backtitle "$TITLE" \
+--ok-label "$DAL" \
+--cancel-label "$ZAK" \
+--menu "$DIALOG_3" 0 0 5 $dyski 2>$TMP 
+if [ $? = 1 ] ; then
+    clear
+    exit 0
+fi
+
+answer="`cat $TMP`"
+clear
+fdisk $dysk -l | grep -i  Linux | grep -v swap | grep -n /dev/[sh]d | colrm 3 7 | colrm 10 | grep $answer\:| colrm 1 2 >$TMP
+partycja="/dev/`cat $TMP`"
+
+fs="ext3"
+
+    if [ "$DISPLAY" == "" ] ; then
+DIALOG_5=\
+"Czy na pewno zainstalowaæ\n
+system plików ->  \Z5$fs\Zn,\n
+  na partycji ->  \Zb\Z3$partycja\Zn?"
+    else
+DIALOG_5=\
+"Czy na pewno zainstalowaæ\n
+system plików ->  $fs,\n
+  na partycji ->  $partycja?"
+    fi
+    
+    # DIALOG_5: upewnij siê po raz n-ty
+    $DIALOG \
+    --title "$UWAGA" \
+    --backtitle "$TITLE" \
+    --yesno "$DIALOG_5" 0 0 2>$TMP
+    # je¶li nie to koñcz
+    if [ $? -eq 1 ] ; then
+	$DIALOG \
+        --backtitle "$TITLE" \
+        --msgbox "$PRZERW" 0 0
+        exit 0
+    fi
+
+# DIALOG_6:instalowanie LILO
+$DIALOG \
+--title "$TITLE" \
+--backtitle "$TITLE" \
+--ok-label "$TAK" \
+--cancel-label "$NIE" \
+--yesno "$DIALOG_6" 0 0 2>$TMP
+if [ $? -eq 0 ] ; then
+	lilo="-l"
+
+B=1
+DYSKI=`hwinfo --disk | grep "Device File:" | awk '{print $3}' | while read A; do echo $B $A; B=$(($B+1)); done`
+
+# DIALOG_7: gdzie zainstalowac lilo
+$DIALOG \
+--title "$TITLE" \
+--backtitle "$TITLE" \
+--ok-label "$FORM_1" \
+--cancel-label "$ZAK" \
+--menu "$DIALOG_4a" 0 0 5 \
+$DYSKI 2>$TMP 
+
+answer="`cat $TMP`"
+
+MBR=`hwinfo --disk | grep "Device File:" | awk '{print $3}' | while read A; do if [ "$answer" == "$B" ]; then echo $A; fi; B=$(($B+1)); done`
+MBR="-m $MBR"
+fi
+
+# DIALOG_8: ostatnie pytanie czy wiesz co robisz
+$DIALOG \
+--title "$TITLE" \
+--ok-label "$TAK" \
+--cancel-label "$ZAK" \
+--backtitle "$TITLE" \
+--defaultno \
+--yesno "$DIALOG_8" 0 0 2>$TMP
+# je¶li nie to koñcz
+if [ $? -eq 1 ] ; then
+    $DIALOG \
+    --title "$TITLE" \
+    --backtitle "$TITLE" \
+    --msgbox "$PRZERW" 0 0
+    exit 0
+fi
+
+clear
+echo ""
+echo -e "\t$MAIN_TITLE\n"
+gdziejestem=$OLDPWD
+
+/usr/bin/cdlcenter-hdinstall.sh -p $partycja -f $fs $lilo $reboot -g $MBR
+
+exit 0
+
+

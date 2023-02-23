@@ -1,0 +1,132 @@
+#!/usr/bin/perl
+
+
+use Curses;
+use Curses::Widgets;  # Included to import select_colour & scankey
+use Curses::Widgets::TextField;
+use Curses::Widgets::ButtonSet;
+use Curses::Widgets::ProgressBar;
+use Curses::Widgets::TextMemo;
+use Curses::Widgets::ListBox;
+use Curses::Widgets::Calendar;
+use Curses::Widgets::ComboBox;
+use Curses::Widgets::Menu;
+use Curses::Widgets::Label;
+
+use Getopt::Std;  
+
+$VERSION=`cat /etc/cdlcenter/wersja`;
+chop($VERSION);
+
+$file=$ARGV[0];
+
+$a=open(FILE,$file);
+@data=<FILE>;
+close(FILE);
+$data=join('',@data);
+
+&curses_init;
+&curses_info_box("",$data,17);
+
+
+
+# ##############################
+#  Curses initialization
+# ##############################
+sub curses_init {
+
+	$mwh = new Curses;
+	noecho();
+	halfdelay(5);
+	$mwh->keypad(1);
+	$mwh->syncok(1);
+	curs_set(0);
+	leaveok(1);
+
+	$mwh->erase();
+
+	# This function selects a few common colours for the foreground colour
+	$mwh->attrset(COLOR_PAIR(select_colour(qw(white green))));
+	$mwh->bkgd(COLOR_PAIR(select_colour(qw(white green))));
+
+	$mwh->standout();
+	$mwh->attrset(A_BOLD | COLOR_PAIR(select_colour(qw(yellow green))));
+	$mwh->addstr(0, 1,"cdlinux.pl ".$VERSION); 
+	$mwh->standend();
+	$mwh->refresh();
+	sleep 1;
+
+
+}
+
+sub curses_info_box {
+	my $cap = shift;
+	my $message = shift;
+	my $lines = shift;
+	$lines=4 if($lines=="");
+	my ($cwh, $y, $x, @lines, $i, $line);
+	my $label;
+
+	# Get the main screen max y & X
+#	$mwh->getmaxyx($y, $x);
+	$x=80;
+	$y=25;
+
+
+	if($cap){$cap=" ".$cap." "}else{$cap=""}; 
+	
+	&curses_black($x/2-29,$y/2-$lines/2,60+2,$lines+2);
+	$window = Curses::Widgets::Label->new({
+	CAPTION	    => $cap,
+	BORDER      => 1,
+	LINES       => $lines,
+	COLUMNS     => 60,
+	Y           => $y/2 - $lines/2 - 1,
+	X           => $x/2-30,
+	VALUE       => $message,
+	FOREGROUND  => 'black',
+	BORDERCOL   => 'black',
+	BACKGROUND  => 'white',
+  	CAPTIONCOL  => 'red',
+	});
+	$window->draw($mwh);
+}
+
+sub curses_clear{
+#	$mwh->getmaxyx($y, $x);
+
+	$x=80;
+	$y=25;
+
+	$window_c = Curses::Widgets::Label->new({
+	BORDER      => 0,
+	LINES       => $y-6,
+	COLUMNS     => $x,
+	Y           => 1,
+	X           => 0,
+	FOREGROUND  => 'green',
+	BACKGROUND  => 'green',
+	});
+	$window_c->draw($mwh);
+}
+
+sub curses_black{
+	my ($x, $y, $dx, $dy) = @_;
+	
+	$window_c = Curses::Widgets::Label->new({
+	BORDER      => 0,
+	LINES       => $dy,
+	COLUMNS     => $dx,
+	Y           => $y,
+	X           => $x,
+	FOREGROUND  => 'black',
+	BACKGROUND  => 'black',
+	});
+	$window_c->draw($mwh);
+}
+
+END {
+endwin();
+}
+
+

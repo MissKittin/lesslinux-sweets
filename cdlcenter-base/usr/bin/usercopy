@@ -1,0 +1,223 @@
+#!/bin/bash
+# Author 			: Sebastian Kolos ( hans2000@poczta.fm )
+# Create On 			: 2004:03:14
+# Last Modified By 		: Michal Wrobel ( wrobel@task.gda.pl )
+# Last Modified By		: 2005:10:16
+# Version			: 0.7
+# 
+# Discripton 			:
+# Skrypt cdlceenter-usercopy s³u¿y do zapisu ustawieñ w systemie cdlinux.pl.
+# Konfiguracja znajduje sie w /etc/usercopy.pref.
+# Konfiguracja u¿ytkownika /$HOME/usercopy.pref
+# 
+# Licensed under GPL ( see /usr/share/common-licenses/GPL for more details 
+# or contact the Free Software Fundation for a copy ) www.gnu.org
+# 
+# TO DO				:
+# - 
+
+# tryb komunikatow na ttyX
+quiet="NO"
+
+# logowanie dzialan skrytu
+log="/var/log/cdlinux.log"
+tmp_dir="/tmp/konfiguracja.$$"
+tmp_file="$tmp_dir/konfiguracja.tar.bz2"
+dest_file="konfiguracja.tar.bz2"
+file_list="$tmp_dir/usercopy_file_list"
+exec_list="$tmp_dir/usercopy_exec_list"
+
+ETCCONF="/etc/cdlcenter/usercopy.conf"
+CONFFILE="$HOME/.cdlcenter/usercopy.save"
+
+# Tworzy konfig dla danego u¿ytkownika 
+# kopiuje usercopy.pref do $HOME i zmienia USER_DIR=katalog u¿ytkownika 
+make_conf(){
+    export dest
+    dest=~
+    
+    if [ -e $CONFFILE ] ; then 
+	echo "Znaleziono plik konfiguracyjny w katalogu domowym" 1>>$log 2>>$log
+    else 
+	echo "Tworzenie pliku konfguracyjnego z pliku /etc/..." 1>>$log 2>>$log
+	cat $ETCCONF | sed s/USER_DIR/$dest/ > $CONFFILE
+	echo "'Konfiguracja usercopy'" >> $CONFFILE
+	echo "$CONFFILE F" >> $CONFFILE
+    fi 
+}
+
+# $1 - YES cichy tryb pracy 
+quiet(){
+	if [ "$1" = "YES" ] ; then 
+	    log=/tmp/usercopy.log
+	    echo ""
+	    echo "Kopia wykonana : "`date` 1>>$log 2>>$log
+	fi
+}
+
+# Tworzenie katalogu tymczasowego
+mktmp(){
+    mkdir $tmp_dir  1>>$log 2>>$log
+}
+
+rmtmp(){
+    rm -rf $tmp_dir 1>/dev/null 2>/dev/null
+}
+
+# Tworzenie na podstawie pliku /$HOME/usercopy.pref archiwum
+make_arch(){
+    while read nazwa; do
+	echo $nazwa | grep -v ^\# | grep -v ^\' | grep " E" | sed "s/\(.*\) E/\1/" >> $exec_list
+	echo $nazwa | grep -v ^\# | grep -v ^\' | grep " [F|D]" | sed "s/\(.*\) [F|D]/\1/" >> $file_list
+    done < $CONFFILE
+    echo $exec_list >> $file_list  
+}
+
+# Funkcja wyswietlajaca pomoc
+help(){
+ echo "Opcje :"
+ echo "-d           - lokalizacja (ftp , ssh , hd , floppy)"
+ echo "-p           - path (np: /media/dyski/hda6/kopia)"
+ echo "-q           - cichy tryb pracy"
+ echo "-s           - zapis danych  "
+ echo "-r           - odczyt danych "
+ echo "-u           - nazwa uzytkownika do logowania na serwer ftp/ssh"
+ echo "-h           - pomoc "
+ echo ""
+ echo "Przyklad uzycia : "
+ echo "1. Zapis ustawien"
+ echo "SSH : cdlcenter-usercopy -s -d ssh -u uzytkownik -p /sciezka -a adres (ip/nazwa)"  
+ echo "HD  : cdlcenter-usercopy -s -d hd -p /media/dyski/hda1/kopia"
+ echo "FD  : cdlcenter-usercopy -s -d floppy" 
+ echo "FTP : cdlcenter-usercopy -s -d ftp -u uzytkownik -a (ip/nazwa)"
+ echo ""
+ echo "2. Odczyt ustawien"
+ echo "SSH : cdlcenter-usercopy -r -d ssh -u uzytkownik -p /sciezka -a adres (ip/nazwa)"  
+ echo "HD  : cdlcenter-usercopy -r -d hd -p /media/dyski/hda1/kopia"
+ echo "FD  : cdlcenter-usercopy -r -d floppy" 
+ echo "FTP : cdlcenter-usercopy -r -d ftp -u uzytkownik -a (ip/nazwa)"
+ echo 
+}
+
+
+##########################
+# WLASCIWA CZESC SKRYPTU #
+##########################
+
+# Pobieranie argumentow wywylania skryptu
+while getopts a:d:p:sru:qh WYBOR 2>/dev/null
+    do
+	case $WYBOR in
+	    a) address=$OPTARG;;
+	    d) where=$OPTARG;;
+	    p) path=$OPTARG;;
+	    s) save="YES";;
+	    r) restore="YES";;
+	    u) user=$OPTARG;;
+	    q) quiet "YES";;
+	    h) help;;
+	    ?) echo "Zle polecenie wpisz -h w celu uzyskania pomocy !!";
+	exit;;
+	esac	
+    done
+# czyszczenie
+
+if [ -z "$save" -a -z "$restore" ]; then
+  	help
+	exit
+fi
+
+if [ "$quiet" = "YES" ] ; then
+	quiet YES
+fi
+
+#Zapisywanie ustawien
+if [ "$save" = "YES" ] ; then 
+    
+    # Katalog tymaczasowy    
+    mktmp 
+    
+    # Tworzymy plik z konfiguracja jesli nie istnieje w katalogu domowym
+    make_conf 
+
+    # Tworzymy katalog z konfiguracja
+    make_arch 
+
+    # jeslii nie podajemy paramateru gdzie arch 
+    # zapisujemy na fdd
+    if [ "$where" = "" ]; then
+    	where="floppy"
+    fi
+       
+    tar cfj $tmp_file -T $file_list -C / 1>>$log 2>>$log
+
+    case "$where" in
+	"floppy")
+	        umount /dev/fd0 1>/dev/null 2>/dev/null
+		if [ -e $tmp_file ] ; then 
+	    	    mcopy -n -o $tmp_file a:$dest_file 1>>$log 2>>$log
+	 	fi
+	;;
+   	"ssh")
+		if [ -e $tmp_file ] ; then 
+    		    scp $tmp_file $user@$address:$path/$dest_file
+		fi
+	;;
+    	"ftp")
+		if [ -e $tmp_file ] ; then 
+    		    ncftpput -u $user $path $address $tmp_file
+		fi
+	;;
+    	"hd")
+		if [ -e $tmp_file ] ; then 
+		    if [ -d $path ]; then
+	    		    cp $tmp_file $path/$dest_file 1>>$log 2>>$log
+		    else
+	    		    cp $tmp_file $path 1>>$log 2>>$log
+	 	    fi
+		    		
+		fi
+	;;
+    esac  
+ 
+    rmtmp    
+
+# Przywracanie ustawien
+elif [ "$restore" = "YES" ] ; then
+    case "$where" in
+	"floppy")
+		mcopy -n -o a:$dest_file /tmp 1>>$log 2>>$log
+	;;
+   	"ssh")
+		scp $user@$address:$path/$dest_file /tmp 
+	;;
+    	"ftp")
+		ncftpget -u $user $address /tmp $path/$dest_file
+	;;
+    	"hd")
+		if [ -f $path ]; then
+			cp $path /tmp/$dest_file 1>>$log 2>>$log
+		else
+			cp $path/$dest_file /tmp 1>>$log 2>>$log
+		fi
+	;;
+    esac  
+    
+    if [ -e /tmp/$dest_file ] ; then
+	/bin/tar xvjf /tmp/$dest_file -C / >/tmp/list.$$ 2>>$log
+	if [ $? -ne 0 ]; then
+    		rmtmp
+		exit 1
+	fi
+	FILE=`grep usercopy_exec_list /tmp/list.$$`
+	if [ -f "/$FILE" ]; then
+		bash /$FILE
+	fi
+    	rmtmp
+	exit 0
+    else 
+    	rmtmp
+    	exit 1
+    fi
+    
+fi

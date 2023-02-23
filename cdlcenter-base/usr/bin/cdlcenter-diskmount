@@ -1,0 +1,148 @@
+#!/bin/sh
+#
+# Name             : diskmount
+# Author           : Wojtek Basa³aj ( wojtek@dracul.kill.pl )
+# Created On       : 2003.06.29
+# Last Modified By : Michal Wrobel ( wrobel@task.gda.pl )
+# Last Modified On : 2006.03.14
+# Version          : 1.0.6
+#
+# Description      :
+# The script mounts partitions found on /dev/{h,s}d*[^0-9] drives into the
+# directories MNTPLC/<partition name>. It also creates 'links' to the
+# mounted partitions on KDE's desktop of all users.
+#
+# Licensed under GPL (see /usr/share/common-licenses/GPL for more details
+# or contact # the Free Software Foundation for a copy)
+
+
+# the directory in which partitions are to be mounted
+MNTPOINT=/media
+MNTPLC=$MNTPOINT/dyski
+
+TMP=/tmp
+DEVDIR=/dev
+FSTAB=/etc/fstab
+
+MOUNT=mount
+UMOUNT=umount
+
+sleep 3
+if [ -e "/dev/fd0" ]; then
+	mkdir $MNTPOINT/floppy
+	echo -e "/dev/fd0\t${MNTPOINT}/floppy\tauto\tuser,noauto,exec\t0 0" >> "${FSTAB}"
+fi
+
+PARTITIONS=`fdisk -l /dev/{h,s}d*[^0-9] | grep '^/dev/' | awk '{ print $1 ":" $6 }' | grep -v -i ":Extended$" | sed "s,^/dev/\([^ ]*\):.*$,\1,"`
+
+if [ -z "${PARTITIONS}" ] ; then
+	echo "[I] Nie znaleziono ¿adnej partycji"
+else
+
+  # make a temporary mount point
+  TMPMNT="${TMP}/media"
+  while [ -d "${TMPMNT}" ]
+  do
+	  TMPMNT=${TMPMNT}x
+  done
+  mkdir -p "${TMPMNT}"
+
+  # get users from /etc/passwd, who have have bash access to the system
+  VALUH=
+  VALUH_=`grep '[^:]*:[^:]*:[^:]*:[^:]*:[^:]*:[^:]*:.*[^a-z]*bash$' < /etc/passwd | awk -F ':' '{ print $1 ":" $6 }'`
+  for UH in ${VALUH_}
+  do
+	  USR=`echo ${UH} | cut -d ':' -f 1`
+	  DIR=`echo ${UH} | cut -d ':' -f 2`
+	  GRP=`id "${USR}" | sed "s,^.* gid=[0-9]*(\(.*\)) .*$,\1,"`
+  done
+
+  createlink() {
+	  # params:
+	  #  $1 - username
+	  #  $2 - user's home directory
+	  #  $3 - device file
+	  #  $4 - mount point
+
+	  [ -z "$4" ] && \
+		  return 1
+
+	  USR=$1
+	  DIR=$2
+	  DEV=$3
+	  MNT=$4
+
+  }
+
+  mkdir -p "${MNTPLC}"
+  CNTMNT=0
+  CNTLNK=0
+  CNT=0
+  for P in ${PARTITIONS}
+  do
+	  "${MOUNT}" "${DEVDIR}/${P}" "${TMPMNT}" >"${DEVDIR}/null" 2>&1 && {
+		  FSTYPE=`grep " ${TMPMNT} " < /proc/mounts | cut -d ' ' -f 3`
+		  ls -1p ${TMPMNT} > /tmp/ls
+		  [ -d ${TMPMNT}/cdlinux ] && echo "${MNTPLC}/${P}" >> /tmp/cdlcenter-conf
+		  "${UMOUNT}" "${TMPMNT}"
+
+		  # add an entry to FSTAB
+		  [ ! -f "${FSTAB}" ] && \
+		      touch "${FSTAB}"
+		  grep -v "^#" < "${FSTAB}" | awk '{ print $1 }' | grep "^${DEVDIR}/${P}$" >/dev/null 2>&1 || {
+		      # partycji jeszcze nie ma w FSTAB
+		      # *** tu dac inne opcje dla vfat, na przyklad ***
+		      echo -e "${DEVDIR}/${P}\t${MNTPLC}/${P}\t${FSTYPE}\tuser,noauto,exec\t0 0" >> "${FSTAB}"
+		      if [ "$FSTYPE" = "ntfs" ]; then
+		      	echo -e "${DEVDIR}/${P}\t${MNTPLC}/${P}-rw\tntfs-3g\tuser,noauto,silent,umask=0,nonempty\t0 0" >> "${FSTAB}"
+		  	mkdir -p "${MNTPLC}/${P}-rw"
+		  	cp /tmp/ls "${MNTPLC}/${P}-rw"
+		      fi
+		  }
+
+		  MOUNTED=
+  #		echo "Mounting ${DEVDIR}/${P} at ${MNTPLC}/${P}"
+		  mkdir -p "${MNTPLC}/${P}"
+		  mv /tmp/ls "${MNTPLC}/${P}"
+  #		mkdir -p "${MNTPLC}/${P}" && {
+  #			"${MOUNT}" "${DEVDIR}/${P}" "${MNTPLC}/${P}"
+  #			MOUNTED=1
+  #			CNTMNT=$((${CNTMNT}+1))
+  #		} || \
+  #			echo "[E] error creating directory ${MNTPLC}/${P}"
+
+  #		[ -n "${MOUNTED}" ] && {
+			  # create those links here
+			  LNKERR=
+			  for UH in ${VALUH}
+			  do
+				  USR=`echo ${UH} | cut -d ':' -f 1`
+				  DIR=`echo ${UH} | cut -d ':' -f 2`
+				  createlink "${USR}" "${DIR}" "${DEVDIR}/${P}" "${MNTPLC}/${P}" || \
+					  LNKERR=1
+			  done
+
+			  [ -z "${LNKERR}" ] && {
+				  CNTLNK=$((${CNTLNK}+1))
+			  } || \
+				  echo "[E] Wyst±pi³y b³êdy podczas tworzenia dowi±zania dla urz±dzenia ${DEVDIR}/${P} zamontowanego w ${MNTPLC}/${P}"
+		  }
+
+	  #}
+	  CNT=$((${CNT}+1))
+  done
+
+  rmdir "${TMPMNT}"
+
+  #echo "Successfully mounted ${CNTMNT}/${CNT} partitions"
+  #echo "Successfully created links for ${CNTLNK}/${CNT} partitions"
+ 
+fi
+
+chmod 777 $MNTPLC/*
+
+/usr/bin/cdlcenter-swapmonter.sh -m >>/var/log/cdlinux.log 2>>/var/log/cdlinux.log &
+grep -vE "(unionfs|rootfs)" /proc/mounts > /etc/mtab
+
+
+

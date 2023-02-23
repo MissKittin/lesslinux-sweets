@@ -1,0 +1,460 @@
+#!/usr/bin/perl
+# Name             : Swap-monter UI
+# Author           : Michal Wrobel ( wrobel@task.gda.pl )
+# Created On       : 2003.08.05
+# Last Modified By : Michal Wrobel ( wrobel@task.gda.pl )
+# Last Modified On : 2004.03.07
+# Version          : 0.0.5
+#
+# Description      :
+# TUI dla Swap-monter
+#
+# Licensed under GPL (see /usr/share/common-licenses/GPL for more details
+# or contact # the Free Software Foundation for a copy)
+
+
+use Curses;
+use Curses::Widgets;  # Included to import select_colour & scankey
+use Curses::Widgets::TextField;
+use Curses::Widgets::ListBox;
+use Curses::Widgets::Label;
+
+$VERSION=`cat /etc/cdlcenter/wersja`;
+chop($VERSION);
+$VERSION.="     ***     konfiguracja pamiêci wymiany      ***";	
+
+$CDLPATH="/usr/bin/";
+$CDLPATH="~/bin/";
+
+&curses_init;
+&sm_menu;
+
+#**************** Main Subrotine's Section *************************#
+sub sm_menu{
+
+	$hint[0]=" Pamiêæ wymiany s³u¿y do zwiêkszenia dostêpnej pamiêci RAM. Czê¶æ dysku\n emuluje pamiêæ RAM, mo¿e to byæ oddzielna partycja, jak i zwyk³y plik\n\n Tworzenie plików wymiany (ang. swap file) na\n dowolnej partycji dysku twardego.";
+	$hint[1]=" Pamiêæ wymiany s³u¿y do zwiêkszenia dostêpnej pamiêci RAM. Czê¶æ dysku\n emuluje pamiêæ RAM, mo¿e to byæ oddzielna partycja, jak i zwyk³y plik\n\n Wyszukiwanie partycji oraz plików wymiany na wszystkich zamontowanych\n partycjach dysku twardego.";
+	$hint[2]=" Pamiêæ wymiany s³u¿y do zwiêkszenia dostêpnej pamiêci RAM. Czê¶æ dysku\n emuluje pamiêæ RAM, mo¿e to byæ oddzielna partycja, jak i zwyk³y plik\n\n Montowanie stworzonych wcze¶niej plików wymiany.";
+	$hint[3]=" Pamiêæ wymiany s³u¿y do zwiêkszenia dostêpnej pamiêci RAM. Czê¶æ dysku\n emuluje pamiêæ RAM, mo¿e to byæ oddzielna partycja, jak i zwyk³y plik\n\n Odmontowywanie plików lub partycji wymiany";
+	$hint[4]=" Pamiêæ wymiany s³u¿y do zwiêkszenia dostêpnej pamiêci RAM. Czê¶æ dysku\n emuluje pamiêæ RAM, mo¿e to byæ oddzielna partycja, jak i zwyk³y plik\n\n Wyj¶cie z programu.";
+
+	$mwh->getmaxyx($y, $x);
+
+	my @Menu=(" Stwórz plik wymiany na dysku twardym "," Wyszukaj pliki wymiany na partycjach ",  " Zamontuj istniej±cy plik wymiany ", " Odmontuj pamiêæ wymiany ", " Koniec ");
+	
+
+	$list = Curses::Widgets::ListBox->new({
+		Y           => $y/2-10,
+		X           => $x/2-25,
+		COLUMNS     => 45,
+		LINES	    => 5,
+		LISTITEMS   => [ @Menu ],
+		MULTISEL    => 0,
+		VALUE       => 0,
+		SELECTEDCOL => 'blue',
+		TOGGLE	    => '\s',
+		FOCUSSWITCH => '\t\n',
+		INPUTFUNC   => \&lba_scankey,
+		CAPTION     => '',
+		CAPTIONCOL  => 'red',
+		FOREGROUND  => 'blue',
+		BORDERCOL   => 'black',
+		BACKGROUND  => 'white',
+	});
+
+	while(1){	
+		&curses_black($x/2-24,$y/2-8,47,6);
+		$list->execute($mwh);
+		$list->draw($mwh);
+
+		$answer=$list->getField('VALUE');
+		
+		&sm_create if($answer== 0);
+		&sm_mount if($answer== 2);
+		&sm_search if($answer== 1);
+		&sm_umount if($answer== 3);
+		last if($answer== 4);
+		&curses_clear;
+	}
+	
+	sub lba_scankey{
+		my $mwh=shift;
+		$answer=$list->getField('CURSORPOS');
+		&curses_comment_box($hint[$answer]);
+
+		my $key = -1;
+		while($key eq -1){
+			$key=$mwh->getch();
+		}
+		$list->input_key(' ');
+
+		return($key);
+	}
+}
+
+sub sm_umount{
+
+	$hintu[0]=" Pamiêæ wymiany s³u¿y do zwiêkszenia dostêpnej pamiêci RAM. Czê¶æ dysku\n emuluje pamiêæ RAM, mo¿e to byæ oddzielna partycja, jak i zwyk³y plik\n\n Za pomoc± tej opcji mo¿esz odmontowaæ wszystkie partycje wymiany.";
+	$hintu[1]=" Pamiêæ wymiany s³u¿y do zwiêkszenia dostêpnej pamiêci RAM. Czê¶æ dysku\n emuluje pamiêæ RAM, mo¿e to byæ oddzielna partycja, jak i zwyk³y plik\n\n Za pomoc± tej opcji mo¿esz odmontowaæ wszystkie pliki wymiany.";
+
+	$mwh->getmaxyx($y, $x);
+
+	my @Menuu=(" Odmontuj wszystkie partycje wymiany "," Odmontuj wszystkie pliki wymiany ",  " Wróæ ");
+	
+
+	&curses_clear;
+	$listu = Curses::Widgets::ListBox->new({
+		Y           => $y/2-10,
+		X           => $x/2-25,
+		COLUMNS     => 45,
+		LINES	    => 3,
+		LISTITEMS   => [ @Menuu ],
+		MULTISEL    => 0,
+		VALUE       => 0,
+		SELECTEDCOL => 'blue',
+		TOGGLE	    => '\s',
+		FOCUSSWITCH => '\t\n',
+		INPUTFUNC   => \&lbau_scankey,
+		CAPTION     => '',
+		CAPTIONCOL  => 'red',
+		FOREGROUND  => 'blue',
+		BORDERCOL   => 'black',
+		BACKGROUND  => 'white',
+	});
+
+	while(1){	
+		&curses_black($x/2-24,$y/2-9,47,5);
+		$listu->execute($mwh);
+		$listu->draw($mwh);
+
+		$answeru=$listu->getField('VALUE');
+		&curses_comment_box($answeru);
+		
+		 if($answeru==0){
+		 	`$CDLPATH/cdlcenter-swapmonter.sh -u part >/dev/null 2>/dev/null`;
+			&curses_info_box("", " Wszystkie partycje wymiany zosta³y odmontowane " ,1);
+			sleep 2;
+		 }elsif($answeru==1){
+			`$CDLPATH/cdlcenter-swapmonter.sh -u file >/dev/null 2>/dev/null`;
+			&curses_info_box("", " Wszystkie pliki wymiany zosta³y odmontowane " ,1);
+			sleep 2;
+		}elsif($answeru== 2){
+			last;
+		}
+		&curses_clear;
+			
+	}
+	
+	sub lbau_scankey{
+		my $mwh=shift;
+		$answeru=$listu->getField('CURSORPOS');
+		&curses_comment_box($hintu[$answeru]);
+
+		my $key = -1;
+		while($key eq -1){
+			$key=$mwh->getch();
+		}
+		$listu->input_key(' ');
+
+		return($key);
+	}
+}
+
+
+
+sub sm_create{
+	&curses_clear;
+	&curses_info_box(" Tworzenie pliku wymiany ", "\n  Plik wymiany zostanie stworzony na podanej partycji, pod\n  warunkiem, ¿e jest juz zamontowana.\n\n  Program stworzy na podanej partycji katalog cdlinux,\n  a w nim plik swap.img.\n\n  Podaj nazwê partycji, na której ma zostaæ stworzony\n  plik wymiany (np. hda5):",12);
+
+	$mwh->getmaxyx($y, $x);
+	$tf = Curses::Widgets::TextField->new({
+			CAPTION     => '',
+			COLUMNS     => 20,
+			BACKGROUND  => 'blue',
+			FOREGROUND  => 'yellow',
+			BORDERCOL   => 'white',
+			BORDER      => 0,
+			FOCUSSWITCH => "\n\t",
+			X           => $x/2-10,
+			Y           => 13,
+		});
+
+	$tf->draw($mwh);
+	$tf->execute($mwh);
+
+	$answer=$tf->getField('VALUE');
+	$answer="/dev/".$answer if($answer !~ /^\/dev/);
+	@mount = `mount`;
+
+	&curses_clear;
+	
+	$mounted=0;
+	foreach $_ (@mount){
+		$mounted=1 if(/^$answer /);
+	}
+
+	if(!$mounted){		
+		&curses_info_box(" B³±d "," Podana partycja nie jest zamontowana.\n Proszê zamontowaæ partycjê i ponownie uruchomiæ program\n",2);
+	
+		my $key = -1;
+		while($key eq -1){
+			$key=$mwh->getch();
+		}
+		return;
+	}
+	
+	&curses_clear;
+	&curses_info_box(" Tworzenie pliku wymiany ", "\n  Plik wymiany zostanie stworzony na podanej partycji, pod\n  warunkiem, ¿e jest ju¿ zamontowana.\n\n  Program stworzy na podanej partycji  katalog cdlinux,\n  a w nim plik swap.img.\n\n  Podaj rozmiar partycji, która ma zostaæ stworzona\n (zalecamy 500MB):",12);
+
+	$mwh->getmaxyx($y, $x);
+	$tf = Curses::Widgets::TextField->new({
+			CAPTION     => '',
+			COLUMNS     => 20,
+			BACKGROUND  => 'blue',
+			FOREGROUND  => 'yellow',
+			BORDERCOL   => 'white',
+			BORDER      => 0,
+			VALUE       => "500",
+			FOCUSSWITCH => "\n\t",
+			X           => $x/2-10,
+			Y           => 13,
+		});
+
+	$tf->draw($mwh);
+	$tf->execute($mwh);
+
+	$rozmiar=$tf->getField('VALUE');
+	&curses_clear;
+
+	&curses_info_box(" Uwaga "," Tworzenie pliku wymiany... \n\n Operacja mo¿e potrwaæ kilka minut.");
+
+	`$CDLPATH/cdlcenter-swapmonter.sh -qc $answer -S $rozmiar >/dev/null 2>/dev/null`;
+	&curses_clear;
+}
+
+sub sm_mount{
+	&curses_clear;
+	&curses_info_box(" Montowanie pliku wymiany ", "  Zostanie zamontowany wcze¶niej stworzony plik wymiany.\n\n  Podaj nazwê pliku wraz ze ¶cie¿k± dostêpu:",6);
+
+	$mwh->getmaxyx($y, $x);
+	$tf = Curses::Widgets::TextField->new({
+			CAPTION     => '',
+			COLUMNS     => 40,
+			BACKGROUND  => 'blue',
+			FOREGROUND  => 'yellow',
+			BORDERCOL   => 'white',
+			BORDER      => 0,
+			FOCUSSWITCH => "\n\t",
+			X           => $x/2-20,
+			Y           => 7,
+		});
+
+	$tf->draw($mwh);
+	$tf->execute($mwh);
+
+	$answer=$tf->getField('VALUE');
+	&curses_clear;
+	if(! -f $answer ){
+		&curses_info_box(" B³±d "," Brak podanego pliku!!!\n Proszê wprowadziæ poprawn± nazwê wraz ze ¶cie¿k± dostêpu\n",2);
+		my $key = -1;
+		while($key eq -1){
+			$key=$mwh->getch();
+		}
+		return;
+	}
+
+	`$CDLPATH/cdlcenter-swapmonter.sh -qf $answer 2>/dev/null`;
+#	`./swap-monter.sh -qf $answer 2> /dev/null`;
+}
+
+sub sm_search{
+
+	&curses_clear;
+	&curses_info_box(" Wyszukiwanie plików/partycji wymiany ", " Proszê czekaæ... ",1);
+
+	@found=`$CDLPATH/cdlcenter-swapmonter.sh -s 2>/dev/null`;
+	chop(@found);
+	
+	for($i=0; $i<@found; $i++){
+		if(`swapon -s | grep $found[$i]`){
+			$foundP[$i]="Odmontuj ".$found[$i];
+		}else{
+			$foundP[$i]="Zamontuj ".$found[$i];
+		}
+	}
+
+	$mwh->getmaxyx($y, $x);
+
+	&curses_clear;
+	&curses_info_box(" Znalezione pliki/partycje wymiany ", "\n Je¿eli chcesz zamontowaæ lub odmontowaæ plik/partycjê\n wymiany najed¼ na wybran± pozycjê i naci¶nij klawisz 'm'\n\n Aby wyj¶æ naci¶nij klawisz 'Enter'\n\n",11);
+
+	$list2 = Curses::Widgets::ListBox->new({
+		Y           => 8,
+		X           => $x/2-27,
+		COLUMNS     => 54,
+		LINES	    => 4,
+		LISTITEMS   => [ @foundP ],
+		MULTISEL    => 0,
+		VALUE       => 0,
+		SELECTEDCOL => 'blue',
+		TOGGLE	    => '\s',
+		FOCUSSWITCH => '\t\n',
+		INPUTFUNC   => \&lbb_scankey,
+		CAPTION     => '',
+		CAPTIONCOL  => 'red',
+		FOREGROUND  => 'blue',
+		BORDERCOL   => 'black',
+		BACKGROUND  => 'white',
+	});
+
+	$list2->execute($mwh);
+	$list2->draw($mwh);
+	
+	$answer=$list->getField('VALUE');
+	
+	sub lbb_scankey{
+		my $mwh=shift;
+		my $key = -1;
+
+		while($key eq -1){
+			$key=$mwh->getch();
+		}
+		$answer=$list2->getField('CURSORPOS');
+		if($key eq 'm'){
+			&curses_clear;
+			if($foundP[$answer]=~/Zamontuj/){
+				`$CDLPATH/cdlcenter-swapmonter.sh -qf $found[$answer] 2>/dev/null` ;
+				&curses_info_box("$found[$answer]", " Plik lub partycja wymiany zosta³a zamontowana " ,1);
+			}else{
+				`/sbin/swapoff $found[$answer] `;
+				&curses_info_box("$found[$answer]", " Plik lub partycja wymiany zosta³a odmontowana " ,1);
+			}
+			sleep 2;
+			$key="\n";
+		}
+		$list->input_key(' ');
+		return($key);
+	}
+}
+
+
+# ##############################
+#  Curses initialization
+# ##############################
+sub curses_init {
+
+	$mwh = new Curses;
+	noecho();
+	halfdelay(5);
+	$mwh->keypad(1);
+	$mwh->syncok(1);
+	curs_set(0);
+	leaveok(1);
+
+	$mwh->erase();
+
+	# This function selects a few common colours for the foreground colour
+	$mwh->attrset(COLOR_PAIR(select_colour(qw(white blue))));
+	$mwh->bkgd(COLOR_PAIR(select_colour(qw(white blue))));
+
+	$mwh->standout();
+	$mwh->attrset(A_BOLD | COLOR_PAIR(select_colour(qw(yellow blue))));
+	$mwh->addstr(0, 1,"cdlinux.pl ".$VERSION); 
+	$mwh->standend();
+	curses_comment_box(<< '__EOF__');
+ Pamiêæ wymiany s³u¿y do zwiêkszenia dostêpnej pamiêci RAM. Czê¶æ dysku
+ emuluje pamiêæ RAM, mo¿e to byæ oddzielna partycja, jak i zwyk³y plik.
+ 
+ Za pomoc± tej opcji mo¿esz stworzyæ plik wymiany (ang. swap file) na dowolnej
+ partycji.
+__EOF__
+	$mwh->refresh();
+}
+
+sub curses_comment_box {
+	my $message = shift;
+	my ($cwh, $y, $x, @lines, $i, $line);
+	my $label;
+
+	# Get the main screen max y & X
+	$mwh->getmaxyx($y, $x);
+
+	# Render the comment box
+	$label = Curses::Widgets::Label->new({
+		BORDER      => 1,
+		LINES       => 5,
+		COLUMNS     => $x-2,
+		Y           => $y - 7,
+		X           => 0,
+		VALUE       => $message,
+		FOREGROUND  => 'blue',
+		BACKGROUND  => 'white',
+	});
+	$label->draw($mwh);
+}
+
+sub curses_info_box {
+	my $cap = shift;
+	my $message = shift;
+	my $lines = shift;
+	$lines=4 if($lines=="");
+	my ($cwh, $y, $x, @lines, $i, $line);
+	my $label;
+
+	# Get the main screen max y & X
+	$mwh->getmaxyx($y, $x);
+
+	if($cap){$cap=" ".$cap." "}else{$cap=""}; 
+	
+	&curses_black($x/2-29,3,60+2,$lines+2);
+	$window = Curses::Widgets::Label->new({
+	CAPTION	    => $cap,
+	BORDER      => 1,
+	LINES       => $lines,
+	COLUMNS     => 60,
+	Y           => 2,
+	X           => $x/2-30,
+	VALUE       => $message,
+	FOREGROUND  => 'blue',
+	BORDERCOL   => 'black',
+	BACKGROUND  => 'white',
+  	CAPTIONCOL  => 'red',
+	});
+	$window->draw($mwh);
+}
+
+sub curses_clear{
+	$mwh->getmaxyx($y, $x);
+	$window_c = Curses::Widgets::Label->new({
+	BORDER      => 0,
+	LINES       => $y-8,
+	COLUMNS     => $x,
+	Y           => 1,
+	X           => 0,
+	FOREGROUND  => 'blue',
+	BACKGROUND  => 'blue',
+	});
+	$window_c->draw($mwh);
+}
+
+sub curses_black{
+	my ($x, $y, $dx, $dy) = @_;
+	
+	$window_c = Curses::Widgets::Label->new({
+	BORDER      => 0,
+	LINES       => $dy,
+	COLUMNS     => $dx,
+	Y           => $y,
+	X           => $x,
+	FOREGROUND  => 'black',
+	BACKGROUND  => 'black',
+	});
+	$window_c->draw($mwh);
+}
+
+
+END {
+endwin();
+}
+
+

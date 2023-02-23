@@ -1,0 +1,1630 @@
+#!/usr/bin/perl
+# Author           : Michal Wrobel ( wrobel@task.gda.pl )
+# Created On       : 2003.05.04
+# Last Modified By : Michal Wrobel ( wrobel@task.gda.pl )
+# Last Modified On : 2007.05.08
+# Version          : 0.4.2
+#
+# Description      :
+# Program do wykrywania i konfiguracji przeznaczony dla dystrybucji cdlinux.pl
+#
+# Licensed under GPL (see /usr/share/common-licenses/GPL for more details
+# or contact # the Free Software Foundation for a copy)
+
+
+
+use Curses;
+use Curses::Widgets;  # Included to import select_colour & scankey
+use Curses::Widgets::TextField;
+use Curses::Widgets::ButtonSet;
+use Curses::Widgets::ProgressBar;
+use Curses::Widgets::TextMemo;
+use Curses::Widgets::ListBox;
+use Curses::Widgets::Calendar;
+use Curses::Widgets::ComboBox;
+use Curses::Widgets::Menu;
+use Curses::Widgets::Label;
+
+use Getopt::Std;  
+
+# Constants #
+use constant NOCD => 0;						# 0 for cdlinux.pl
+use constant CDDUZY => 0;					# 1 for cdlinux.pl duzy
+use constant UI => 1;						# 0 for none, 1 for Curses
+$XFREEFILE = "/etc/cdlcenter/xorg.conf.new";	        # XF86Config template file
+use constant MONITORFILE => "/usr/share/hwdata/MonitorsDB";     # Monitors database file
+use constant OUTFILE => ">/etc/X11/xorg.conf";		# XF86Config destination file
+use constant USERCOPYOLD =>"/usr/bin/cdlcenter-usercopy  -u root -r -d floppy -ngpxb";	 	# usercopy script
+use constant USERCOPY =>"/usr/bin/usercopy  -r -d floppy";	 	# usercopy script
+use constant USERCOPYCMD =>"/usr/bin/usercopy";	 	# usercopy script
+use constant DISKCONF =>"/tmp/cdlcenter-conf";	 	# usercopy disk conf
+$VERSION=`cat /etc/cdlcenter/wersja`;
+chop($VERSION);
+
+# Command Line Options: 
+# -f 	fetch configuration files from floppy
+# -x 	XFree86 configuration
+# -X    detail XFree86 configuration
+# -n	network configuration
+# -m	modules loading
+# -a 	same as -xnm
+# -t 	test mode
+# -d 	debug mode 
+# -o    timeout #
+# -h    help
+# -s    skip unimportant
+# -V    version
+
+my $opt_string = 'hVXxnmatdfo';
+getopts( "$opt_string", \my %opt ) or &usage;
+&usage if $opt{h};
+&version if $opt{V};
+$XCONF = 1 if $opt{x};
+if ($opt{X}){
+	$XCONF = 1;
+	$DXCONF = 1;
+};
+$SKIP = 1 if $opt{s};
+$NETCONF = 1 if $opt{n};
+$MODCONF = 1 if $opt{m};
+$TESTMODE = 1 if $opt{t};
+$DEBUGMODE = 1 if $opt{d};
+$TIMEOUT = 1 if $opt{o};
+
+$specVGA="";
+
+if($opt{a}){
+	$XCONF = 1;
+	$NETCONF = 1;
+	$MODCONF = 1;
+}
+
+if($opt{f}){
+	$FLOP = 1;
+	$MODCONF = 1;
+}
+
+&curses_init if (UI == 1);
+
+if($TIMEOUT && &cdl_timeout){
+	$AUTO = 1;
+	$NETCONF=0;
+	&cdl_modules if($MODCONF);
+	&cdl_x if($XCONF);
+	endwin() if(UI);
+
+	open(CONF,DISKCONF);
+	while(<CONF>){
+		chop($_);
+		system("mount $_");
+		$answer=system(USERCOPYCMD." -r -d hd -p $_/cdlinux/"." >>/var/log/cdlinux.log 2>>/var/log/cdlinux.log");
+		$answer=$answer>>8;
+		system("umount $_");
+		if($answer==0){
+			exit 0;
+		}
+	}
+	close(CONF);
+
+	if(-e "/dev/fd0"){ 
+
+		$answer=system(USERCOPY." >>/var/log/cdlinux.log 2>>/var/log/cdlinux.log");
+		$answer=$answer>>8;
+		if($answer==0){
+			exit 0;
+		}
+		
+		$answer=system(USERCOPYOLD." >>/var/log/cdlinux.log 2>>/var/log/cdlinux.log");
+		$answer=$answer>>8;
+		if($answer==0){
+			exit 0;
+		}
+	}
+	
+	$mwh->refresh() if(UI);
+	if((!$TESTMODE)&&(`cat /proc/net/dev | grep -o eth.`)){
+		#ui_system("dhclient -e >>/var/log/cdlinux.log 2>>/var/log/cdlinux&") ;	
+		$IFC=`cat /proc/net/dev | grep -o eth.`;
+		chop($IFC);
+		my $interface.="auto $IFC\n\tiface $IFC inet dhcp\n\n";
+		open(MODULES,"/etc/network/interfaces.orig");
+		my @interface=<MODULES>;
+		close(MODULES);
+		open(MODULES,">/etc/network/interfaces");
+		print MODULES "@interface";
+		print MODULES "$interface";
+		close(MODULES);
+		&ui_system("setsid /etc/init.d/networking restart >>/var/log/cdlinux.log 2>>/var/log/cdlinux.log &");
+	}
+	exit 0;
+}else{
+	$AUTO = 0;
+}
+
+&cdl_modules if($MODCONF);
+
+if(!$FLOP || !&cdl_flop){
+	&cdl_x if($XCONF);
+	&cdl_net if($NETCONF);
+}
+
+#**************** Main Subrotine's Section *************************#
+
+sub cdl_timeout{
+	return(ui_timeout("Konfiguracja cdlinux.pl", "\n Naci¶nij dowolny klawisz, aby dokonaæ rêcznej konfiguracji",10));
+	
+}
+
+
+# #####################
+#  load kernel modules
+# ####################
+sub cdl_modules{
+	
+	&info_box("Proszê czekaæ...", "\n Wykrywanie sprzêtu...") if(UI);
+
+#	my @pcidev = &getPciTable;
+#	my $pciconf, $modules;
+#
+#	for(my $devCount=$pcidev[0]; $devCount>0; $devCount--){
+#		if($pcidev[$devCount]{"module"} !~ /unknow|ignore/){
+#			if(($pcidev[$devCount]{"type"} !~ /VGA/)&& $MODCONF){   # Modules loading
+#				if($pcidev[$devCount]{"type"} =~ /audio/){
+#			    		$pcidev[$devCount]{"type"} = "KARTA D¬WIÊKOWA";
+#				}elsif($pcidev[$devCount]{"type"} =~ /Ethernet/){
+#			    		$pcidev[$devCount]{"type"} = "KARTA SIECIOWA";
+#				}
+#				
+#				$pciconf = " ".$pcidev[$devCount]{"type"}."\n ".$pcidev[$devCount]{"name"}."\n";
+#				$pciconf =~ s/\(rev.*\)\n/\n/;
+#
+#				@loadedmod = &getLoadedMod;
+#				my %is_loaded;
+#				for (@loadedmod) { $is_loaded{$_} = 1 };
+#
+#				if($is_loaded{$pcidev[$devCount]{"module"}}){
+#					&info_box("Wykryto urz±dzenie", "$pciconf\n Jest ju¿ obs³ugiwany przez system.") if(UI);
+#				}else{
+#					&info_box("Wykryto urz±dzenie", "$pciconf\n £adowanie modu³ów...") if(UI);
+#
+#					$modprobe = $pcidev[$devCount]{"module"};
+#					ui_system("modprobe -q $modprobe 2> /dev/null") if(!$TESTMODE);
+#					$modules .= "$modprobe\n" if ($modprobe);
+#				}
+#			}else { 
+#				if(!$AUTO){
+#					if(($pcidev[$devCount]{"name"} =~ /nvidia.*(geforce|quadro)/i)&&(-e "/usr/X11R6/lib/modules/drivers/nvidia_drv.so")){ #NVIDIA
+#						$specVGA = "nvidia";
+#					}elsif(($pcidev[$devCount]{"name"} =~ /radeon/i)&&($pcidev[$devCount]{"name"} !~ /(7000|7200|7500)/i)&&(-e "/usr/lib/dri/fglrx_dri.so")){ #RADEON
+#						$specVGA = "fglrx";
+#					}
+#				}
+#				if($DEBUGMODE){
+#				    &ui_debug("specVga:\n\t".$specVGA) if(UI);
+#				}
+#			}
+#		}
+#	}   
+	
+	open(PCI, 'hwinfo --pci | grep -A1 "Driver Status: .* is not active" | grep modprobe |  sed "s/.*modprobe \([^\"]*\)\".*/\1/" |');
+	while(<PCI>){
+		chop($_);
+		$skip_mod=`grep "^[[:space:]]*skip[[:space:]]*$_" /etc/discover.conf`;
+				if($DEBUGMODE){
+				    &ui_debug("PCI: :\n\t$_\n\t$skip_mod") if(UI);
+				}
+		if(!$skip_mod){
+			ui_system("modprobe -q $_ 2> /dev/null") if(!$TESTMODE);
+			$modules .= "$_\n";
+			&info_box("Wykryto urz±dzenie", "$pciconf\n £adowanie modu³u $_") if(UI);
+		}else{
+			&info_box("Wykryto urz±dzenie", " Pomijanie modu³u $_") if(UI);
+		}
+	}
+
+	if($DEBUGMODE){
+	    &ui_debug("Loaded modules:\n".$modules) if(UI);
+	}
+	ui_system("modprobe -q msdos 2> /dev/null") if(!$TESTMODE);
+	ui_system("modprobe -q vfat 2> /dev/null") if(!$TESTMODE);
+	open(MODULES,">>/etc/modules");
+	print MODULES "$modules";
+	close(MODULES);
+}
+
+# #########################
+#  X-window configuration
+# #########################
+
+sub cdl_x{
+
+	if(UI){
+		comment_box(<< '__EOF__'); 
+    cdlinux.pl konfiguruje teraz ustawienia graficznego systemu X-Window
+ Domy¶lne  ustawienia powinny  dzia³aæ na wiêkszo¶ci komputerów. W przypadku 
+ niepoprawnej  pracy proces  konfiguracji mo¿na powtórzyæ za pomoc± programu 
+ `cdlcenter`
+__EOF__
+	}
+
+
+	&curses_clear;
+	&info_box("Proszê czekaæ", "\n Wyszukiwanie karty graficznej...") if(UI);
+
+	my $card;
+	my @pcidev = &getPciTable;
+
+	my %xfree=&ui_xfree;
+	my $found=0;
+	
+	$hwinfo=ui_system("hwinfo --gfx") if(!$TESTMODE);
+	if($DEBUGMODE){
+	    &ui_debug("System: $hwinfo") if(UI);
+	}
+	if($hwinfo=~/^\s*XFree86 v4 Server Module: (.*)\n/m){
+		$xfree{"driver"}=$1;
+#		$xfree{"driver"}="i810" if($xfree{"driver"}=="intel");
+	}else{
+		$xfree{"driver"}="vesa";
+	}
+	
+	my $newconf = &completion(%xfree);
+
+	if(!$TESTMODE){	
+		open(OUT,OUTFILE);
+		print OUT $newconf;
+		close OUT;
+		if(CDDUZY){
+		 	if($xfree{"xSession"}){
+				system("update-alternatives --set x-session-manager /usr/bin/icewm-session >/dev/null 2>/dev/null");
+			}else{
+				system("update-alternatives --set x-session-manager /usr/bin/kde3 >/dev/null 2>/dev/null");
+			}
+		}
+	}
+	
+	if($DEBUGMODE){
+	    &ui_debug($newconf) if(UI);
+	    &ui_debug($xfree{"xSession"}) if(UI);
+	}
+}
+
+# #########################
+#  Network configuration
+# #########################
+sub cdl_net{
+	my %net_conf;
+	&info_box("Proszê czekaæ...", "\n Wyszukiwanie karty sieciowej...") if(UI);
+	open(DEVNET,"/proc/net/dev");
+	$interface="\n# Dodane przez cdlinux.pl\n";
+	while(<DEVNET>){
+		if(/^ *(eth.)/){
+			%net_conf=&ui_network($1); 
+			if($net_conf{"skip"}==0){
+				if($net_conf{"dhcp"}==0){
+					$ifconfig="ifconfig ".$net_conf{"eth"}." ".$net_conf{"ip"}." netmask ".$net_conf{"mask"}." up";
+					$route="route add -net 0/0 gw ".$net_conf{"gw"};
+					$dns1="nameserver ".$net_conf{"dns1"};
+					$dns2="nameserver ".$net_conf{"dns2"};
+
+					if($net_conf{"ip"}){
+						$interface.="auto ".$net_conf{"eth"}."\niface ".$net_conf{"eth"}." inet static\n\taddress ".$net_conf{"ip"};
+						$interface.="\n\tnetmask ".$net_conf{"mask"} if($net_conf{"mask"}=~/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/);
+						$interface.="\n\tgateway ".$net_conf{"gw"} if($net_conf{"gw"}=~/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/);
+						$interface.="\n\n";
+						if($DEBUGMODE){
+						    &ui_debug($interface) if(UI);
+						}
+					}	
+					if(!$TESTMODE){
+						#&ui_system($ifconfig);
+						#&ui_system($route) if($net_conf{"gw"} !~ /^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/);
+						open("RESOLV",">/etc/resolv.conf");
+						print RESOLV ("$dns1\n") if($net_conf{"dns1"} =~/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/);
+						print RESOLV ("$dns2\n") if($net_conf{"dns2"} =~/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/);
+						print RESOLV ("nameserver 153.19.250.100\n");
+						close("RESOLV");
+					}
+					$debug_info.="--\n<".$net_conf{"eth"}.">\n$ifconfig\n$route\n/etc/resolv.conf:\n";
+					$debug_info.="\t$dns1\n" if($net_conf{"dns1"} =~/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/);
+					$debug_info.="\t$dns2\n" if($net_conf{"dns2"} =~/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/);
+				}else{
+					
+					#&ui_system("dhclient -e ".$net_conf{"eth"}.">>/var/log/dhclient 2>>/var/log/dhclient&") if(!$TESTMODE);
+					$debug_info.="--\n<".$net_conf{"eth"}.">\nDHCP";
+					$interface.="auto ".$net_conf{"eth"}."\n\tiface ".$net_conf{"eth"}." inet dhcp\n\n";
+				}
+				open(MODULES,"/etc/network/interfaces.orig");
+				@interface=<MODULES>;
+				close(MODULES);
+			}
+			if(!$TESTMODE){
+				open(MODULES,">/etc/network/interfaces");
+				print MODULES "@interface";
+				print MODULES "$interface";
+				close(MODULES);
+			}
+		}
+
+        }	
+	close(DEVNET);
+	if(!$TESTMODE){
+		&ui_system("setsid /etc/init.d/networking restart >>/var/log/cdlinux.log 2>>/var/log/cdlinux.log &");
+		sleep 2;
+	}
+	if($DEBUGMODE){
+	    &ui_debug($debug_info) if(UI);
+	}
+}
+
+
+sub cdl_flop{
+	if(UI){
+		while(1){
+			if(&ui_flop){
+				endwin() if(UI);
+				open(CONF,DISKCONF);
+				while(<CONF>){
+					chop($_);
+					system("mount $_");
+					$answer=system(USERCOPYCMD." -r -d hd -p $_/cdlinux/"." >>/var/log/cdlinux.log 2>>/var/log/cdlinux.log");
+					$answer=$answer>>8;
+					system("umount $_");
+					if($answer==0){
+						exit 0;
+					}
+				}
+				close(CONF);
+				if(-e "/dev/fd0"){
+					$answer=system(USERCOPY." >>/var/log/cdlinux.log 2>>/var/log/cdlinux.log");
+					$answer=$answer>>8;
+					if(!$TESTMODE && ($answer==0)){
+						return 1;
+					}
+
+					$answer=system(USERCOPYOLD." >>/var/log/cdlinux.log 2>>/var/log/cdlinux.log");
+					$answer=$answer>>8;
+					if(!$TESTMODE && ($answer==0)){
+						return 1;
+					}
+				}
+				$mwh->refresh() if(UI);
+
+			}else{
+				return 0;
+			}
+		}
+	}else{
+		system(USERCOPY);
+		return 1;
+	}
+	return 0;
+}
+
+#**************** UI Subrotine's Section *************************#
+
+sub info_box{
+	if(UI==1){&curses_info_box(@_)};
+}
+
+sub comment_box{
+	if(UI==1){&curses_comment_box(@_)};
+}
+
+sub ui_xfree{
+	return(&curses_xfree) if(UI==1);
+}
+
+sub ui_debug{
+	&curses_debug(@_) if(UI==1);
+}
+
+sub ui_network{
+	&curses_network(@_) if(UI==1);
+}
+
+sub ui_flop{
+	&curses_flop(@_) if(UI==1);
+}
+
+sub ui_timeout{
+	return(&curses_timeout(@_)) if(UI==1);
+}
+
+sub ui_system{
+	if(UI==1){
+		return(&curses_system(@_));
+	}else{
+		return(`@_`);
+	}
+}
+
+
+#************* Hardware Detection Subrotine's Section ****************#
+
+##############################################
+# sub getLoadedMod                           #
+# ___________________________________________#
+# input - none                               #
+# output - (array) Loaded module list        #
+##############################################
+sub getLoadedMod{
+
+    # lspci command line
+    my $LSMOD_cmd = "/sbin/lsmod |";
+    my @loadedmod;
+
+    open(LSMOD, $LSMOD_cmd);
+    while(<LSMOD>){
+	/^(\w*)/;
+	push(@loadedmod,$1);
+    }
+    
+    return @loadedmod;
+    
+}
+
+##############################################
+# sub getPciTable                            #
+# ___________________________________________#
+# input - none                               #
+# output - (asso) detailed iformations about #
+#          pci devices: type, name, module   #
+# ___________________________________________#
+# Returns pci devices trable                 #
+##############################################
+sub getPciTable{
+
+# PCI devices record structure:
+#     {type}    
+#     {name}
+#     {vendid}
+#     {devid}
+
+    # lspci command line
+    my $LSPCI_cmd = "/usr/bin/lspci -x 2>/dev/null";
+    my @pcidev;
+
+    # pcitable file location
+    my $PCITABLE_loc = "/usr/share/hwdata/pcitable";
+
+    open(LSPCI,"$LSPCI_cmd |");
+    
+    my $devCount=1;
+    my $infoCount=0;
+    
+    while (<LSPCI>){
+	if($infoCount==0){
+	    /^\w\w\w\w:\w\w:\w\w.\w (.*): (.*)/;
+	    $pcidev[$devCount]{"type"} = $1;
+	    $pcidev[$devCount]{"name"} = $2;
+	}elsif($infoCount==1){
+	    /^\d\d: (\w\w) (\w\w) (\w\w) (\w\w)/;
+	    $pcidev[$devCount]{"venid"} = $2.$1;
+	    $pcidev[$devCount]{"devid"} = $4.$3;
+	}elsif(/^\n$/){
+	    $infoCount=0;
+	    $devCount++;
+	    next;
+	}
+	$infoCount++;
+    }
+    
+    my $devPattern="(";
+    $pcidev[0] = --$devCount;
+    while(1){
+	$devPattern.="0x".$pcidev[$devCount]{"venid"}."\\s0x".$pcidev[$devCount]{"devid"};
+	if($devCount-- > 0){
+	    $devPattern.="|";
+	    next;
+	}
+	$devPattern.=")";
+	last;
+    }
+    
+#print("$devPattern\n");
+    
+    open(LSPCI,"$PCITABLE_loc");
+    while(<LSPCI>){
+	if(/$devPattern/){
+	    /^0x(\w{4})\s0x(\w{4}).*"(.*)"/;
+	if($DEBUGMODE){
+	    &ui_debug("Karta:\n\t".$3) if(UI);
+	}
+    $devModules{"$1$2"}= $3;
+	}
+    }
+    close(LSPCI);
+    
+    foreach $devModule (keys(%devModules)){
+	for($devCount=$pcidev[0]; $devCount>0; $devCount--){
+	    if($devModule =~ /^$pcidev[$devCount]{"venid"}$pcidev[$devCount]{"devid"}$/){
+		$pcidev[$devCount]{"module"} = $devModules{$devModule};
+	    }
+	}
+    }
+
+    return @pcidev;
+}    
+
+
+
+sub devPrint {
+    my (@pcidev) = &getPciTable;
+    print(shift);
+
+    for($devCount=$pcidev[0]; $devCount>0; $devCount--){
+	print($pcidev[$devCount]{"name"}."\n\t".$pcidev[$devCount]{"type"}."\n\t\t".$pcidev[$devCount]{"venid"}.", ".$pcidev[$devCount]{"devid"}."\n\t\t".$pcidev[$devCount]{"module"}."\n\n");
+    }
+
+}
+sub completion {
+    my (%xfree)=@_;
+    my $newConf;
+    if($specVGA=~/nvidia/){
+	    &info_box("Wykryto kartê graficzn± nVidia", "$pciconf\n £adowanie modu³ów...") if(UI);
+	    $XFREEFILE = "/etc/cdlcenter/xorg.conf.nvidia";	    
+    }
+
+    if($specVGA=~/fglrx/){
+	    &info_box("Wykryto kartê graficzn± ATI RADEON", "$pciconf\n £adowanie modu³ów...") if(UI);
+	    $XFREEFILE = "/etc/cdlcenter/xorg.conf.ati";
+    }
+
+    open(FILE,$XFREEFILE);
+    while(<FILE>){
+	if(/Section "Files"/){
+	    $newConf .= $_ ;
+	    $newCond .= "	FontPath	\"unix/:7100\"\t# local font server\n";
+	    $newCond .=	"\tFontPath	\"unix/:7110\"\t# local TT font server\n" if(CDDUZY);
+	}elsif(/Driver\s*"keyboard"/){
+	    $newConf .= $_. "\tOption		\"CoreKeyboard\"\n".
+		"\tOption		\"XkbRules\"	\"xfree86\"\n".
+		"\tOption		\"XkbModel\"	\"pc104\"\n".
+		"\tOption		\"XkbLayout\"	\"pl\"\n";
+	}elsif(/Identifier\s*"Mouse0"/){
+		$newConf .= $_ . "\tDriver      \"mouse\"\n".
+		"\tOption      \"Protocol\" \"".$xfree{"mProtocol"}."\"\n\tOption      \"Device\" \"".$xfree{"mDevice"};
+		if($xfree{"mRoll"}){
+			$newConf .= "\"\n\tOption         \"ZAxisMapping\"        \"4 5";
+		}
+		$newConf .= "\"\nEndSection\n\n";
+	    	do{$_=<FILE>}until(/EndSection/);
+
+	}elsif(/Section\s*"Monitor"/){
+	    $newConf .= $_ . "\tIdentifier  \"Monitor0\"\n\tHorizSync\t".$xfree{"monHS"}.
+		"\n\tVertRefresh\t".$xfree{"monVR"};
+	    $newConf .=  "\n\t	Option		\"DPMS\"" if($xfree{"monDPMS"});
+	    $newConf .=  "\n\tvendorname \"".$xfree{"monVendor"}."\"\n\tmodelname \"".$xfree{"monModel"}."\"";
+#	    $newConf .=  "\n\tModeLine ".$xfree{"monModeLine"}."\nEndSection\n";
+	    $newConf .=  "\nEndSection\n";
+	    do{$_=<FILE>}until(/EndSection/);
+	}elsif((/CardDriver/)||(/fglrx/)){
+		$CardDriver=$xfree{"driver"};
+		if($specVGA=~/nvidia/){
+			&info_box("Wykryto kartê graficzn± nVidia", "$pciconf\n £adowanie modu³ów...") if(UI);
+			$modprobe = "nvidia";
+			ui_system("modprobe -q $modprobe 2> /dev/null") if(!$TESTMODE);
+			`mknod /dev/nvidia0 c 195 0`;
+			`mknod /dev/nvidia1 c 195 1`;
+			`mknod /dev/nvidia2 c 195 2`;
+			`mknod /dev/nvidia3 c 195 3`;
+			`mknod /dev/nvidiactl c 195 255`;
+			system("update-alternatives --set libGL.so.1.2 /usr/lib/opengl/nvidia/lib/libGL.so.1.0.7174 >/dev/null 2>/dev/null");
+			system("rm /etc/alternatives/libglx.a");
+			$modules .= "$modprobe\n";
+			$XFREEFILE = "/etc/cdlcenter/xorg.conf.nvidia";	    
+			$CardDriver="nvidia" 
+		}
+
+		if($specVGA=~/fglrx/){
+			&info_box("Wykryto kartê graficzn± ATI RADEON", "$pciconf\n £adowanie modu³ów...") if(UI);
+			$modprobe = "fglrx";
+			ui_system("modprobe -q $modprobe 2> /dev/null") if(!$TESTMODE);
+			system("update-alternatives --set libGL.so.1.2 /usr/lib/opengl/ati/lib/libGL.so.1.2 >/dev/null 2>/dev/null");
+			system("rm /etc/alternatives/libglx.a");
+			system("ln -s /usr/lib/opengl/xfree/lib/modules/extensions/libglx.a /etc/alternatives/libglx.a");
+			$modules .= "$modprobe\n";
+			$XFREEFILE = "/etc/cdlcenter/xorg.conf.ati";
+		}
+
+		$CardDriver="vesa" if($specVGA=~/vga/);
+		
+		s/CardDriver/$CardDriver/;
+		$newConf .= $_;
+	}elsif(/Section\s*"Screen"/){
+	    do{
+		$newConf .= $_;
+		if(/Monitor\s*"Monitor0"/){
+		    $newConf .= "\tDefaultDepth\t".$xfree{"vDepth"}."\n";
+		}
+		if(/Depth/){
+		    $newConf .= "\t\tModes\t\"".$xfree{"vModes"}."\" \n\t\tVirtual 0 0\n";
+		}	 
+		$_=<FILE>;
+	    }until(/EndSection/);
+	    $newConf .= $_;
+	}elsif(($specVGA=~/nvidia/)&&(/Load *"dri"/)){	    
+	    $newConf .= "#" . $_;
+	}else{
+	    $newConf .= $_;
+	}
+    }
+    close(FILE);
+    return($newConf);
+
+#######
+#$xfree:
+#    vModes - video Modes /dialog/
+#    vDepth - default colour depth /dialog/
+#    monModeLine - monitor Mode Line /modeline/		-
+#    monVendor - monitor vendor /Cards/			*
+#    monModel - monitor model /Cards/			*
+#    monDPMS - bool DPMS enabled /Cards/		*
+#    monVR - monitor Vertical Refresh /Cards/		*
+#    monHS - monitor Horizontal Sync /Cards/		*
+#    mProtocol - mouse protocol /mdetect/		*
+#    mDevice - mouse device /mdetect/			*
+#:$
+######    
+}
+
+
+
+#************* Curses TUI Implementation Section ****************#
+
+# ##############################
+#  Curses initialization
+# ##############################
+sub curses_init {
+	$UI_INIT=1;
+	$mwh = new Curses;
+	noecho();
+	halfdelay(5);
+	$mwh->keypad(1);
+	$mwh->syncok(1);
+	curs_set(0);
+	leaveok(1);
+
+	$mwh->erase();
+
+	# This function selects a few common colours for the foreground colour
+	$mwh->attrset(COLOR_PAIR(select_colour(qw(white green))));
+	$mwh->bkgd(COLOR_PAIR(select_colour(qw(white green))));
+
+	$mwh->standout();
+	$mwh->attrset(A_BOLD | COLOR_PAIR(select_colour(qw(yellow green))));
+	$mwh->addstr(0, 1,"cdlinux.pl ".$VERSION); 
+	$mwh->standend();
+	curses_comment_box(<< '__EOF__');
+ Witamy w dystrybucji cdlinux.pl
+ Zostanie teraz przeprowadzona krótka konfiguracja sprzêtu...
+__EOF__
+#	$key = scankey($mwh);
+	$mwh->refresh();
+	sleep 1;
+
+
+}
+
+sub curses_comment_box {
+	my $message = shift;
+	my ($cwh, $y, $x, @lines, $i, $line);
+	my $label;
+
+	# Get the main screen max y & X
+	$mwh->getmaxyx($y, $x);
+#	$x=80;
+#	$y=25;
+
+	# Render the comment box
+	$label = Curses::Widgets::Label->new({
+		BORDER      => 1,
+		LINES       => 4,
+		COLUMNS     => $x-2,
+		Y           => $y - 6,
+		X           => 0,
+		VALUE       => $message,
+		FOREGROUND  => 'black',
+		BACKGROUND  => 'white',
+	});
+	$label->draw($mwh);
+}
+
+sub curses_info_box {
+	my $cap = shift;
+	my $message = shift;
+	my $lines = shift;
+	$lines=4 if($lines=="");
+	my ($cwh, $y, $x, @lines, $i, $line);
+	my $label;
+
+	# Get the main screen max y & X
+	$mwh->getmaxyx($y, $x);
+#	$x=80;
+#	$y=25;
+
+
+	if($cap){$cap=" ".$cap." "}else{$cap=""}; 
+	
+	&curses_black($x/2-29,$y/2-$lines,60+2,$lines+2);
+	$window = Curses::Widgets::Label->new({
+	CAPTION	    => $cap,
+	BORDER      => 1,
+	LINES       => $lines,
+	COLUMNS     => 60,
+	Y           => $y/2 - $lines - 1,
+	X           => $x/2-30,
+	VALUE       => $message,
+	FOREGROUND  => 'black',
+	BORDERCOL   => 'black',
+	BACKGROUND  => 'white',
+  	CAPTIONCOL  => 'red',
+	});
+	$window->draw($mwh);
+}
+
+sub curses_timeout{
+	my($cap, $message, $time) = @_;
+	&curses_info_box($cap,$message,7);
+	$mwh->getmaxyx($y, $x);
+#	$x=80;
+#	$y=25;
+
+	
+	&curses_black($x/2-9,$y/2-3,22,3);
+        $progress = Curses::Widgets::ProgressBar->new({
+	    CAPTION     => '',
+	    CAPTIONCOL  => 'yellow',
+	    LENGTH      => 20,
+	    VALUE       => 0,
+	    FOREGROUND  => 'black',
+	    BACKGROUND  => 'white',
+	    BORDER      => 1,
+	    HORIZONTAL  => 1,
+	    X           => $x/2-10,
+	    Y           => $y/2-4,
+	    MIN         => 0,
+	    MAX         => 100,
+	    });
+        my $key=-1;
+	while ($progress->getField('VALUE') < $progress->getField('MAX')) {
+	        $progress->input(10);
+		$progress->draw($mwh);
+		sleep 1;
+		$key=$mwh->getch();
+		last if($key!=-1);
+	}
+	&curses_clear;
+	return(1) if($key==-1);
+        return(0);
+}
+
+
+sub curses_clear{
+	$mwh->getmaxyx($y, $x);
+
+#	$x=80;
+#	$y=25;
+
+	$window_c = Curses::Widgets::Label->new({
+	BORDER      => 0,
+	LINES       => $y-7,
+	COLUMNS     => $x,
+	Y           => 1,
+	X           => 0,
+	FOREGROUND  => 'green',
+	BACKGROUND  => 'green',
+	});
+	$window_c->draw($mwh);
+}
+
+sub curses_black{
+	my ($x, $y, $dx, $dy) = @_;
+	
+	$window_c = Curses::Widgets::Label->new({
+	BORDER      => 0,
+	LINES       => $dy,
+	COLUMNS     => $dx,
+	Y           => $y,
+	X           => $x,
+	FOREGROUND  => 'black',
+	BACKGROUND  => 'black',
+	});
+	$window_c->draw($mwh);
+}
+
+
+
+sub curses_debug{
+	$mwh->getmaxyx($y, $x);
+#	$x=80;
+#	$y=25;
+
+	my ($newconf) = @_;
+	$debug= Curses::Widgets::TextMemo->new({
+		Y           => 1,
+		X           => 0,
+		COLUMNS     => $x-2,
+		LINES       => $y-8,
+		FOREGROUND  => 'green',
+		BACKGROUND  => 'black',
+		FOCUSSWITCH => '\t\n',
+		VALUE       => $newconf,
+		BORDERCOL   => 'red',
+		BORDER      => 1,
+		CAPTION     => 'Debug information window',
+		CAPTIONCOL  => 'yellow',
+	});
+	$debug->execute($mwh);
+	$debug->draw($mwh);
+	&curses_clear;
+}
+
+sub curses_xfree{
+	my %xfree;
+	
+	&curses_info_box("Uwaga", " Wykrywanie myszy...\n\n Proszê czekaæ");
+	$_=ui_system("hwinfo --mouse") if(!$TESTMODE);
+	if($DEBUGMODE){
+	    &ui_debug("System: $_") if(UI);
+	}
+	/^\s*Device File: ([^\s]*).*\n/m;
+	$xfree{"mDevice"}=$1;
+	/^\s*XFree86 Protocol: ([^\s]*).*\n/m;
+	$xfree{"mProtocol"}=$1;
+	if((!$xfree{"mDevice"})||(! -e $xfree{"mDevice"})){
+		$_=ui_system("mdetect | grep dev") if(!$TESTMODE);
+		chop($_);
+		if($DEBUGMODE){
+		    &ui_debug("System: $_.") if(UI);
+		}
+		$xfree{"mDevice"}=$_;
+		if((!$xfree{"mDevice"})||(! -e $xfree{"mDevice"})){
+			$xfree{"mProtocol"}="ImPS/2";
+			$xfree{"mDevice"}="/dev/psaux";		
+			
+			if(!$AUTO){
+				curses_comment_box(<< '__EOF__');
+System nie wykry³ myszy. Musisz j± skonfigurowaæ rêcznie. 
+__EOF__
+		&curses_info_box("Konfiguracja myszy", " Wybierz port, do którego jest pod³±czona mysz.",5);
+				$net_conf{"eth"}=$eth;
+				
+				&curses_black($x/2-18,$y/2-3,41,3);
+				$button = Curses::Widgets::ButtonSet->new({
+					Y           => $y/2-4,
+					X           => $x/2-19,
+					FOREGROUND  => 'black',
+					BORDERCOL   => 'black',
+					BACKGROUND  => 'white',
+					BORDER      => 2,
+					LABELS      => [ qw( Szeregowy PS/2 USB ) ],
+					LENGTH      => 12,
+					VALUE	    => 0,
+					HORIZONTAL  => 1,
+				});
+
+				$button->execute($mwh);
+				$button->draw($mwh);
+
+				$answer=$button->getField('VALUE');
+
+				if($answer==0){
+				      &curses_clear;	
+				      my @Res =  (" /dev/ttyS0 (COM1) "," /dev/ttyS1 (COM2) "," /dev/ttyS2 (COM3) "," /dev/ttyS3 (COM4) ");
+
+
+				      $list = Curses::Widgets::ListBox->new({
+					      Y           => $y/2-10,
+					      X           => $x/2-15,
+					      COLUMNS     => 25,
+					      LINES	    => 4,
+					      LISTITEMS   => [ @Res ],
+					      MULTISEL    => 0,
+					      VALUE       => 2,
+					      SELECTEDCOL => 'black',
+					      TOGGLE	    => '\s',
+					      FOCUSSWITCH => '\t\n',
+					      INPUTFUNC   => \&lb_scankey,
+					      CAPTION     => ' Wybierz nr portu ',
+					      CAPTIONCOL  => 'red',
+					      FOREGROUND  => 'black',
+					      BORDERCOL   => 'black',
+					      BACKGROUND  => 'white',
+				      });
+
+				      &curses_black($x/2-14,$y/2-9,27,6);
+				      $list->execute($mwh);
+				      $list->draw($mwh);
+
+				      $answer=$list->getField('VALUE');
+				      $xfree{"mDevice"}="/dev/ttyS$answer";		
+
+				      &curses_clear;	
+				      my @Res =  (" MouseMan            "," Microsoft           "," IntelliMouse        "," MouseSystems        "," Logitech            ");
+
+
+				      $list = Curses::Widgets::ListBox->new({
+					      Y           => $y/2-10,
+					      X           => $x/2-15,
+					      COLUMNS     => 25,
+					      LINES	    => 5,
+					      LISTITEMS   => [ @Res ],
+					      MULTISEL    => 0,
+					      VALUE       => 2,
+					      SELECTEDCOL => 'black',
+					      TOGGLE	    => '\s',
+					      FOCUSSWITCH => '\t\n',
+					      INPUTFUNC   => \&lb_scankey,
+					      CAPTION     => ' Wybierz protokó³ ',
+					      CAPTIONCOL  => 'red',
+					      FOREGROUND  => 'black',
+					      BORDERCOL   => 'black',
+					      BACKGROUND  => 'white',
+				      });
+
+				      &curses_black($x/2-14,$y/2-9,27,7);
+				      $list->execute($mwh);
+				      $list->draw($mwh);
+
+				      $answer=$list->getField('VALUE');
+				      $Res[$answer]=~/ *([^ ]*) */;
+				      $xfree{"mProtocol"}=$1;
+				}elsif($answer==2){
+				      &curses_clear;	
+				      my @Res =  (" /dev/input/mouse0 "," /dev/input/mouse1 "," /dev/input/mouse2 "," /dev/input/mouse3 ",);
+
+
+				      $list = Curses::Widgets::ListBox->new({
+					      Y           => $y/2-10,
+					      X           => $x/2-15,
+					      COLUMNS     => 25,
+					      LINES	    => 4,
+					      LISTITEMS   => [ @Res ],
+					      MULTISEL    => 0,
+					      VALUE       => 2,
+					      SELECTEDCOL => 'black',
+					      TOGGLE	    => '\s',
+					      FOCUSSWITCH => '\t\n',
+					      INPUTFUNC   => \&lb_scankey,
+					      CAPTION     => ' Wybierz nr myszy USB ',
+					      CAPTIONCOL  => 'red',
+					      FOREGROUND  => 'black',
+					      BORDERCOL   => 'black',
+					      BACKGROUND  => 'white',
+				      });
+
+				      &curses_black($x/2-14,$y/2-9,27,6);
+				      $list->execute($mwh);
+				      $list->draw($mwh);
+
+				      $answer=$list->getField('VALUE');
+				      $xfree{"mDevice"}="/dev/input/mouse$answer";		
+				      if(!$xfree{"mProtocol"}){
+					$xfree{"mProtocol"}="usb";
+				      }
+				}else{
+				      $xfree{"mDevice"}="/dev/psaux";		
+
+				      &curses_clear;	
+				      my @Res =  (" PS/2                "," ImPS/2              "," ExplorerPS/2        "," ThinkingMousePS/2   "," NetScrollPS/2       "," NetMousePS/2        "," GlidePointPS/2      "," MouseManPlusPS/2    ");
+
+
+				      $list = Curses::Widgets::ListBox->new({
+					      Y           => $y/2-10,
+					      X           => $x/2-15,
+					      COLUMNS     => 25,
+					      LINES	    => 5,
+					      LISTITEMS   => [ @Res ],
+					      MULTISEL    => 0,
+					      VALUE       => 2,
+					      SELECTEDCOL => 'black',
+					      TOGGLE	    => '\s',
+					      FOCUSSWITCH => '\t\n',
+					      INPUTFUNC   => \&lb_scankey,
+					      CAPTION     => ' Wybierz protokó³ ',
+					      CAPTIONCOL  => 'red',
+					      FOREGROUND  => 'black',
+					      BORDERCOL   => 'black',
+					      BACKGROUND  => 'white',
+				      });
+
+				      &curses_black($x/2-14,$y/2-9,27,7);
+				      $list->execute($mwh);
+				      $list->draw($mwh);
+
+				      $answer=$list->getField('VALUE');
+				      $Res[$answer]=~/ *([^ ]*) */;
+				      $xfree{"mProtocol"}=$1;
+				}
+				
+			}
+		}
+	}
+	
+	if($DEBUGMODE){
+	    &ui_debug("Mouse:\n\"".$xfree{"mProtocol"}."\"\n\"". $xfree{"mDevice"}."\"") if(UI);
+	}
+
+	$mwh->getmaxyx($y, $x);
+#	$x=80;
+#	$y=25;
+
+
+ 	&curses_clear;	
+
+	$xfree{"mRoll"}=1;
+	if(!$AUTO){
+		&curses_info_box("Konfiguracja myszy", " Czy posiadasz rolkê w myszce?",5);
+		
+		&curses_black($x/2-9,$y/2-3,19,3);
+		$button = Curses::Widgets::ButtonSet->new({
+			Y           => $y/2-4,
+			X           => $x/2-10,
+			FOREGROUND  => 'black',
+			BORDERCOL   => 'black',
+			BACKGROUND  => 'white',
+			BORDER      => 2,
+			LABELS      => [ qw( TAK NIE ) ],
+			LENGTH      => 8,
+			HORIZONTAL  => 1,
+		});
+
+		$button->execute($mwh);
+		$button->draw($mwh);
+
+		$answer=$button->getField('VALUE');
+
+		$xfree{"mRoll"}=0 if($answer);	
+	}
+
+ 	&curses_clear;	
+	if((!$AUTO)&&($DXCONF)){
+		&curses_info_box("Konfiguracja monitora", " Wczytywanie bazy danych monitorów...",2);
+
+		push(@VendorsDB,"Pomiñ wybór monitora (brak optymalizacji)");
+
+		open(MONDB,MONITORFILE);
+		while(<MONDB>){
+			if((/^([^;#]*);([^;]*);/)&&($last ne $1)){
+				push(@VendorsDB,$1);
+				$last=$1;
+			}	
+		}
+		close(MONDB);
+
+		$list = Curses::Widgets::ListBox->new({
+			Y           => $y/2-10,
+			X           => $x/2-30,
+			COLUMNS     => 60,
+			LINES	    => 10,
+			LISTITEMS   => [ @VendorsDB ],
+			MULTISEL    => 0,
+			VALUE       => 0,
+			SELECTEDCOL => 'black',
+			TOGGLE	    => '\s',
+			FOCUSSWITCH => '\t\n',
+			INPUTFUNC   => \&lb_scankey,
+			CAPTION     => ' Wybierz monitor ',
+			CAPTIONCOL  => 'red',
+			FOREGROUND  => 'black',
+			BORDERCOL   => 'black',
+			BACKGROUND  => 'white',
+		});
+
+		$list->execute($mwh);
+		$list->draw($mwh);
+
+		$answer=$list->getField('VALUE');
+		$vendor=$VendorsDB[$answer];
+
+		if($answer!=0){
+			open(MONDB,MONITORFILE);
+			while(<MONDB>){
+				if((/^$vendor;([^;]*);/)&&($last ne $1)){
+					push(@MonitorsDB,$_);
+					$Model=$1;
+					$Model =~ s/^ *(.*) *$/$1/;
+					push(@ModelsDB,$1);
+					$last=$1;
+				}	
+			}
+			close(MONDB);
+
+			$list = Curses::Widgets::ListBox->new({
+				Y           => $y/2-10,
+				X           => $x/2-30,
+				COLUMNS     => 60,
+				LINES	    => 10,
+				LISTITEMS   => [ @ModelsDB ],
+				MULTISEL    => 0,
+				VALUE       => 0,
+				SELECTEDCOL => 'black',
+				TOGGLE	    => '\s',
+				FOCUSSWITCH => '\t\n',
+				INPUTFUNC   => \&lb_scankey,
+				CAPTION     => ' Wybierz monitor ',
+				CAPTIONCOL  => 'red',
+				FOREGROUND  => 'black',
+				BORDERCOL   => 'black',
+				BACKGROUND  => 'white',
+			});
+
+			&curses_black($x/2-29,$y/2-9,62,12);
+			$list->execute($mwh);
+			$list->draw($mwh);
+
+			$answer=$list->getField('VALUE');
+		}
+	}else{
+		$answer=0;
+	}
+	
+	if($answer == 0){
+		$hwinfo=ui_system("hwinfo --monitor; SVGATextMode >/dev/null; /etc/init.d/console-screen.sh >/dev/null") if(!$TESTMODE && !$ENV{DISPLAY});
+		if($DEBUGMODE){
+		    &ui_debug("System: $hwinfo") if(UI);
+		}
+		if($hwinfo){
+			$hwinfo=~s/"/'/gm;
+			if($hwinfo=~/^\s*Model: (.*)\n/m){
+				$xfree{"monModel"}=$1;
+			}else{
+				$xfree{"monModel"}="Generic";
+			}
+			if($hwinfo=~/^\s*Vendor: (.*)\n/m){
+				$xfree{"monVendor"}=$1;
+			}else{
+				$xfree{"monModel"}="Generic";
+			}
+			if($hwinfo=~/^\s*Hor\. Sync Range: (.*) kHz\n/m){
+				$xfree{"monHS"}=$1;
+			}else{
+				$xfree{"monHS"}="30-80";
+			}
+			if($hwinfo=~/^\s*Vert. Sync Range: (.*) Hz\n/m){
+				$xfree{"monVR"}=$1;
+			}else{
+				$xfree{"monVR"}="50-75";
+			}
+			$xfree{"monDPMS"}=1;					
+		}else{
+			$xfree{"monModel"}="Generic";
+			$xfree{"monVendor"}="Generic";
+			$xfree{"monHS"}="30-70";
+			$xfree{"monVR"}="50-75";
+			$xfree{"monDPMS"}=1;					
+		}
+					
+	}else{	
+		$MonitorsDB[$answer] =~ /^([^;#]*);([^;]*);([^;]*);([^;]*);(.*)$/;
+		$xfree{"monVendor"}=$1;
+		$xfree{"monModel"}=$2;
+		$xfree{"monHS"}=$4;	
+		$_=$5;
+		if(/(.*);(.*)/){
+			$xfree{"monVR"}=$1;
+			$xfree{"monDPMS"}=$2;
+		}else{	
+			$xfree{"monVR"}=$_;	
+		}
+	}
+	
+ 	&curses_clear;	
+	if((!$AUTO)&&($specVGA=~/fglrx/)){
+		&curses_info_box("Konfiguracja karty graficznej", " Wykryto kartê graficzn± ATI RADEON.\n Dostêpne s± dla niej dwa sterowniki: X.org oraz fglrx.\n Sugerujê zastosowanie sterowników X.org.\n\n Wybierz sterownik dla karty graficznej.",9);
+		&curses_black($x/2-9,$y/2-3,19,3);
+		$button = Curses::Widgets::ButtonSet->new({
+			Y           => $y/2-4,
+			X           => $x/2-10,
+			FOREGROUND  => 'black',
+			BORDERCOL   => 'black',
+			BACKGROUND  => 'white',
+			BORDER      => 2,
+			LABELS      => [ qw( X.org fglrx ) ],
+			LENGTH      => 8,
+			HORIZONTAL  => 1,
+		});
+
+		$button->execute($mwh);
+		$button->draw($mwh);
+
+		$answer=$button->getField('VALUE');
+
+		$specVGA="" if(!$answer);	
+		if($DEBUGMODE){
+		    &ui_debug("specVga:\n\t".$specVGA) if(UI);
+		}
+	}
+
+	if((!$AUTO)&&($specVGA=~/nvidia/)){
+		&curses_info_box("Konfiguracja karty graficznej", " Wykryto kartê graficzn± nVidia GeForce.\n Dostêpne s± dla niej dwa sterowniki: X.org oraz nvidia.\n Sugerujê zastosowanie sterowników X.org.\n\n Wybierz sterownik dla karty graficznej.",9);
+		&curses_black($x/2-9,$y/2-3,19,3);
+		$button = Curses::Widgets::ButtonSet->new({
+			Y           => $y/2-4,
+			X           => $x/2-10,
+			FOREGROUND  => 'black',
+			BORDERCOL   => 'black',
+			BACKGROUND  => 'white',
+			BORDER      => 2,
+			LABELS      => [ qw( X.org nvidia ) ],
+			LENGTH      => 8,
+			HORIZONTAL  => 1,
+		});
+
+		$button->execute($mwh);
+		$button->draw($mwh);
+
+		$answer=$button->getField('VALUE');
+
+		$specVGA="" if(!$answer);	
+		if($DEBUGMODE){
+		    &ui_debug("specVga:\n\t".$specVGA) if(UI);
+		}
+	}
+
+
+ 	&curses_clear;	
+	my @Res =  ("        800 x 600  ","       1024 x 768  " , "       1152 x 864  ", "       1280 x 800  ","       1280 x 960  ", "       1280 x 1024 ", "       1400 x 1050  ", "       1440 x 900   ", "       1600 x 1200  ", "       1792 x 1344  ",  "       1856 x 1392  ",   "       1920 x 1440  " );
+
+
+	if(!$AUTO){
+		$list = Curses::Widgets::ListBox->new({
+			Y           => $y/2-10,
+			X           => $x/2-15,
+			COLUMNS     => 25,
+			LINES	    => 10,
+			LISTITEMS   => [ @Res ],
+			MULTISEL    => 0,
+			VALUE       => [ 1 ],
+			SELECTEDCOL => 'black',
+			TOGGLE	    => '\s',
+			FOCUSSWITCH => '\t\n',
+			INPUTFUNC   => \&lb_scankey,
+			CAPTION     => ' Wybierz rozdzielczo¶æ ',
+			CAPTIONCOL  => 'red',
+			FOREGROUND  => 'black',
+			BORDERCOL   => 'black',
+			BACKGROUND  => 'white',
+		});
+
+		&curses_black($x/2-14,$y/2-9,27,12);
+		$list->execute($mwh);
+		$list->draw($mwh);
+
+		$answer=$list->getField('VALUE');
+		$xfree{"vModes"}=$Res[$answer];
+		$xfree{"vModes"}=~s/ //g;
+	}else{
+		$hwinfo=ui_system("hwinfo --monitor; SVGATextMode >/dev/null; /etc/init.d/console-screen.sh >/dev/null") if(!$TESTMODE);
+		if($hwinfo=~/^\s*Resolution: (1024.*)@.*\n/m){
+			$xfree{"vModes"}=$1;
+		}elsif($hwinfo=~/^\s*Resolution: (1280.*)@.*\n/m){
+			$xfree{"vModes"}=$1;
+		}elsif($hwinfo=~/^\s*Resolution: (.*)@.*\n/m){
+			$xfree{"vModes"}=$1;
+		}else{
+			$xfree{"vModes"}="1024x768";
+		}
+	}
+
+	
+ 	&curses_clear;	
+	
+	my @Col = ("                24   ", "                16   ", "                 8   ");
+
+	if((!$AUTO)&&($specVGA!~"fglrx")&&($XCONF)){
+		$list = Curses::Widgets::ListBox->new({
+			Y           => $y/2-10,
+			X           => $x/2-25,
+			COLUMNS     => 38,
+			LINES	    => 3,
+			LISTITEMS   => [ @Col ],
+			MULTISEL    => 0,
+			VALUE       => 1,
+			SELECTEDCOL => 'black',
+			TOGGLE	    => '\s',
+			FOCUSSWITCH => '\t\n',
+			INPUTFUNC   => \&lb_scankey,
+			CAPTION     => ' Wybierz liczbê bitów zapisu kolorów ',
+			CAPTIONCOL  => 'red',
+			FOREGROUND  => 'black',
+			BORDERCOL   => 'black',
+			BACKGROUND  => 'white',
+		});
+
+		&curses_black($x/2-24,$y/2-10,40,6);
+		$list->execute($mwh);
+		$list->draw($mwh);
+
+		$answer=$list->getField('VALUE');
+	}else{
+		$answer=0;
+	}
+	
+	$xfree{"vDepth"}=$Col[$answer];
+	$xfree{"vDepth"}=~s/ //g;
+	
+ 	&curses_clear;	
+	my @Xsession = (" KDE 3 (rozbudowany, ale wolny) ", " IceWM (prosty, ale szybki)     ");
+	if(!$AUTO && CDDUZY){
+		$list = Curses::Widgets::ListBox->new({
+			Y           => $y/2-10,
+			X           => $x/2-15,
+			COLUMNS     => 43,
+			LINES	    => 2,
+			LISTITEMS   => [ @Xsession ],
+			MULTISEL    => 0,
+			VALUE       => 1,
+			SELECTEDCOL => 'black',
+			TOGGLE	    => '\s',
+			FOCUSSWITCH => '\t\n',
+			INPUTFUNC   => \&lb_scankey,
+			CAPTION     => ' Wybierz dymy¶lne ¶rodowisko graficzne ',
+			CAPTIONCOL  => 'red',
+			FOREGROUND  => 'black',
+			BORDERCOL   => 'black',
+			BACKGROUND  => 'white',
+		});
+
+		&curses_black($x/2-14,$y/2-9,45,4);
+		$list->execute($mwh);
+		$list->draw($mwh);
+
+		$answer=$list->getField('VALUE');
+	}else{
+		$answer=0;
+	}
+	$xfree{"xSession"}=$answer;
+
+	return(%xfree);
+
+	sub lb_scankey{
+		my $mwh=shift;
+		my $key = -1;
+		while($key eq -1){
+			$key=$mwh->getch();
+		}
+		$list->input_key(' ');
+		return($key);
+	}
+
+}
+
+
+sub curses_network{
+	my $eth=pop;
+	my %net_conf;
+	
+	$mwh->getmaxyx($y, $x);
+#	$x=80;
+#	$y=25;
+
+	
+	&curses_clear;
+	&curses_comment_box(<< '__EOF__'); 
+      cdlinux.pl wykry³ kartê sieciow±, która wymaga konfiguracji
+ W przypadku  automatycznej konfiguracji sieci, wybierz opcjê "DHCP". Je¿eli 
+ provider dostarczy³ Ci numer IP Twojego komputera, wybierz opcjê "Rêcznie". 
+ Aby pozostawiæ kartê nieskonfigurowan± wybierz opcjê "Pomiñ". 
+__EOF__
+
+	&curses_info_box("Konfiguracja sieci: $eth", " Wybierz metodê konfiguracji sieci",5);
+	$net_conf{"eth"}=$eth;
+	
+	&curses_black($x/2-18,$y/2-3,41,3);
+	$button = Curses::Widgets::ButtonSet->new({
+		Y           => $y/2-4,
+		X           => $x/2-19,
+		FOREGROUND  => 'black',
+		BORDERCOL   => 'black',
+		BACKGROUND  => 'white',
+		BORDER      => 2,
+		LABELS      => [ qw( DHCP Rêcznie Pomiñ ) ],
+		LENGTH      => 12,
+		VALUE	    => 1,
+		HORIZONTAL  => 1,
+	});
+
+	$button->execute($mwh);
+	$button->draw($mwh);
+
+	$answer=$button->getField('VALUE');
+	
+	if($answer == 0){
+		$net_conf{"dhcp"}=1;
+	}elsif($answer == 1){	
+		&curses_comment_box(<< '__EOF__'); 
+      cdlinux.pl wykry³ kartê sieciow±, która wymaga konfiguracji.
+
+ Prawid³owe wype³nienie poni¿szych pól jest warunkiem dzia³ania sieci. Je¿eli
+ dane oka¿± siê b³êdne, uruchom program `cdlcenter`, ¿eby je poprawiæ.
+__EOF__
+
+
+		&curses_info_box("Konfiguracja sieci: $eth", " Proszê wype³niæ poni¿sze pola:\n\n\tAdres IP:\n\tMaska sieci:\n\tIP bramy\n\tIP serwerów DNS:\n",7);
+		@net_val=&MultiTextField($x/2-3,$y/2-5,5,15,"192.168.1.10","255.255.255.0","192.168.1.1");
+		$net_conf{"ip"}=$net_val[0];
+		$net_conf{"mask"}=$net_val[1];
+		$net_conf{"gw"}=$net_val[2];
+		$net_conf{"dns1"}=$net_val[3];
+		$net_conf{"dns2"}=$net_val[4];
+	}else{
+		$net_conf{"skip"}=1;
+	}
+
+	&curses_clear;
+	return(%net_conf);
+
+}
+
+
+sub MultiTextField{
+	my ($x, $y, $number, $length, @values)=@_;
+	our $count=$count2;
+	local $count=$count2=0;
+	my $keys=KEY_UP.KEY_DOWN.KEY_NPAGE.KEY_PPAGE."\n\t";
+	local @tf;
+	
+	for($count=0;$count<$number;$count++){
+	
+		$tf[$count] = Curses::Widgets::TextField->new({
+			CAPTION     => '',
+			COLUMNS     => $length+1,
+			MAXLENGTH   => 15,
+			VALUE       => $values[$count],
+			INPUTFUNC   =>	\&mtf_scankey,
+			BACKGROUND  => 'black',
+			FOREGROUND  => 'yellow',
+			BORDERCOL   => 'white',
+			BORDER      => 0,
+			FOCUSSWITCH => $keys,
+			X           => $x,
+			Y           => $y+$count,
+		});
+
+	}
+	
+	foreach (@tf) { $_->draw($mwh) };
+	for($count=0;$count<$number;$count++){
+		$first_char=1;
+		$new_val="";
+		if(($count2==0)&&(($count==1)||($count==4))){
+			$new_val="$1.1" if($tf[0]->getField('VALUE')=~/(.{1,3}\..{1,3}\..{1,3})\..{1,3}/);
+			$tf[2]->setField('VALUE' => $new_val);
+			$tf[2]->draw($mwh);
+		}
+		$count2=$count;
+		$tf[$count]->execute($mwh);
+		$tf[$count2]->draw($mwh); 
+	};
+
+	for($count=0;$count<$number;$count++){
+		$answer[$count]=$tf[$count]->getField('VALUE');
+	}
+	
+	return(@answer);
+
+
+	sub mtf_scankey{
+		my $mwh=shift;
+		while(1){
+			my $key = -1;
+			while($key eq -1){
+				$key=$mwh->getch();
+			}
+			
+			if(($key eq KEY_UP)||($key eq KEY_DOWN)||($key eq KEY_NPAGE)||($key eq KEY_PPAGE)||($key eq "\n")||($key eq "\t")){
+				if($tf[$count]->getField('VALUE')=~/^(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}){0,1}$/){
+					$count-=2 if($key eq KEY_UP);
+					$count=-1 if($key eq KEY_PPAGE);
+					$count=$number-2 if($key eq KEY_NPAGE);
+					$count=-1 if($count<-1);
+					return($key);
+				}else{
+					$tf[$count]->setField('VALUE' => $values[$count]);
+				}
+			}else{
+				if(($first_char)&&(!(($key eq KEY_HOME)||($key eq KEY_END)||($key eq KEY_LEFT)||($key eq KEY_RIGHT)))){
+					$tf[$count]->setField('VALUE' => "");
+					$tf[$count]->draw($mwh);
+				}
+				$first_char=0;
+				$tf[$count]->input_key($key);
+			}	
+			$tf[$count]->draw($mwh,1);
+		}
+	}
+
+}
+
+
+
+sub curses_flop{
+	$mwh->getmaxyx($y, $x);
+#	$x=80;
+#	$y=25;
+
+	curses_comment_box(<< '__EOF__');
+ cdlinux.pl  umo¿liwia  zapisanie  danych  konfiguracyjnych. Je¿eli zapisa³e¶
+ dane  na dyskietce  lub dysku  twardym  wybierz  "TAK",  w przeciwnym  razie 
+ naci¶nij Enter. Zapisywanie jest dostêpne poprzez program `cdlcenter`
+__EOF__
+
+	&curses_info_box("Przywracanie konfiguracji", " Czy wczytaæ zachowan± konfiguracjê?",5);
+	
+	&curses_black($x/2-9,$y/2-3,19,3);
+	$button = Curses::Widgets::ButtonSet->new({
+		Y           => $y/2-4,
+		X           => $x/2-10,
+		FOREGROUND  => 'black',
+		BORDERCOL   => 'black',
+		BACKGROUND  => 'white',
+		BORDER      => 2,
+		LABELS      => [ qw( TAK NIE ) ],
+		LENGTH      => 8,
+		VALUE	    => 1,
+		HORIZONTAL  => 1,
+	});
+
+	$button->execute($mwh);
+	$button->draw($mwh);
+
+	$answer=$button->getField('VALUE');
+	
+	if($answer == 0){
+		&curses_clear;
+		&curses_info_box("Przywracanie konfiguracji", " Wczytywanie ustawieñ, proszê czekaæ...",1);
+		return(1);
+	}else{
+		return(0);
+	}
+
+}
+
+sub curses_system{
+	endwin();
+	$stdo = `@_`;
+	$mwh->refresh();
+	return $stdo;
+}
+
+sub usage{
+print(<< '__EOF__');
+U¿ycie: cdlcenter-yahade [opcje]
+
+Opcje:
+ -f	Przywraca konfiguracjê zapisan± na dyskietce
+ -x 	Konfiguruje ¶rodowisko graficzne X.org
+ -n	Konfiguruje ustawienia sieciowe
+ -m	£aduje modu³y do j±dra (dla wykrytego sprzêtu)
+ -a 	Odpowiednik -xnm
+ -t 	Tryb testowy, nie s± dokonywane ¿adne zmiany w systemie
+ -d 	Tryb debug, wy¶wietla dane o wykonywanych operacjach
+ -o     Czeka 10s na naci¶niêcie klawisza, po czym konfiguruje automatycznie
+ -s     Konfiguracja ogólna, bez pytañ szczegó³owych
+ -h     Pomoc
+ -V     Informacje o b³êdach
+
+__EOF__
+exit;
+}
+
+sub version{
+print(<< '__EOF__');
+cdlcenter-yahade 0.1.0
+
+Yet Another HArdware DEtector jest integraln± cze¶ci± dytrybucji cdlinux.pl
+Szczegó³y na http://cdlinux.pl
+
+__EOF__
+exit;
+}
+
+
+END {
+endwin() if($UI_INIT==1);
+}
+
+

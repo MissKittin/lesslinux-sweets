@@ -1,0 +1,118 @@
+#!/bin/bash
+# Author           : Maciej Kosmulski ( barnim@tmc.gda.pl )
+# Created On       : 2004.02.11
+# Last Modified By : Michal Wrobel ( Michal.Wrobel@lina.pl )
+# Last Modified On : 2006.11.05
+# Version          : 0.7
+#
+# Description      :
+# Frontend dla programu cdlcenter-isomaker.sh
+# przeznaczony dla dystrybucji cdlinux.pl
+#
+# Licensed under GPL (see /usr/share/common-licenses/GPL for more details
+# or contact # the Free Software Foundation for a copy)
+
+# zmienne
+rm -f /tmp/isomaker.*
+TMP=`mktemp /tmp/isomaker.XXXXXX`
+TITLE="ISOmaker - cdlinux.pl"
+# sciezka do cdlcenter-isomaker.sh:
+path=/usr/bin
+
+rm -Rf /tmp/etc
+rm -Rf /tmp/iso
+
+if [ "$DISPLAY" == "" ] ; then
+    DIALOG="/usr/bin/dialog --aspect 60"
+else
+    DIALOG="/usr/bin/Xdialog"
+fi
+
+# sprawdzam czy root jest z CD czy z twardego dysku
+testdisk=`mount | grep " / " | awk '{ print $1 }'`
+if [ "$testdisk" == "/dev/ram1" ] || [ "$testdisk" == "/dev/ram4" ] ; then
+    $DIALOG --title "$TITLE" \
+    --backtitle "UWAGA !!!" \
+    --msgbox "Zanim uruchomisz ten program, zainstaluj system cdlinux.pl na twardym dysku!" 0 0
+    exit 0
+fi
+
+$DIALOG --title "$TITLE" \
+--backtitle "UWAGA !!!" \
+--defaultno \
+--yesno "Skrypt kasuje listy i archiwa programu apt! 
+Je¶li zale¿y Ci na nich, to przed rozpoczêciem tworzenia iso
+zrób kopie zapasowe tych plików (/var/cache/apt/archives/ i /var/lib/apt/lists)
+Czy na pewno chcesz kontynuowaæ?" 0 0 2>$TMP
+if [ $? -eq 1 ] ; then
+    $DIALOG --title "$TITLE" \
+    --backtitle "UWAGA !!!" \
+    --msgbox "Program zakoñczony przez u¿ytkownika!" 0 0
+    exit 0
+fi
+		
+$DIALOG --title "$TITLE" \
+--backtitle "UWAGA !!!" \
+--defaultno \
+--yesno "Na bie¿±cej partycji jest dostêpne "`df -h | awk '/\/$/{print $4}'`"B. 
+Utworzenie pliku z obrazem p³yty LiveCD wymaga, w zale¿no¶ci 
+od ilo¶ci zainstalowanych programów od 500MB do 1,5GB
+
+W przypadku wystarczaj±cej ilo¶ci miejsca wybierz opcjê Tak.
+Czy na pewno chcesz kontynuowaæ?" 0 0 2>$TMP
+if [ $? -eq 1 ] ; then
+    $DIALOG --title "$TITLE" \
+    --backtitle "UWAGA !!!" \
+    --msgbox "Program zakoñczony przez u¿ytkownika!" 0 0
+    exit 0
+fi
+
+$DIALOG --title "$TITLE" \
+--backtitle "Podaj nazwê pliku, który bêdzie obrazem CD:" \
+--fselect "/tmp/cdlinux-moj.iso" 0 0 \
+2>$TMP
+# gdy wcisnieto anuluj -> wyjdz
+if [ $? = 1 ] ; then
+    $DIALOG --title "$TITLE" \
+    --backtitle "UWAGA !!!" \
+    --msgbox "Program zakoñczony przez u¿ytkownika!" 0 0
+    exit 0
+fi
+ISO_NAME="`cat $TMP`"
+
+if [ -z $ISO_NAME ] ; then
+    $DIALOG --title "$TITLE" \
+    --backtitle "UWAGA !!!" \
+    --msgbox "Nie podano nazwy pliku dla obrazu CD!
+    Program zostanie zakoñczony!" 0 0
+    exit 0
+fi
+
+if [ "$DISPLAY" == "" ] ; then
+    clear
+    $path/cdlcenter-isomaker.sh $ISO_NAME
+else
+    $path/cdlcenter-isomaker.sh $ISO_NAME | $DIALOG --title $TITLE \
+    --backtitle "Tworzenie obrazu plyty ..." \
+    --no-cancel --ok-label "Dalej" --logbox - 0 0
+fi
+
+ilemb=`du -sh $ISO_NAME | awk '{ print $1 }'`
+
+WRITER_DEV=ATA:`cdrecord -scanbus dev=ATA 2>/dev/null| grep D-RW | awk '{ print $1 }'`
+
+if [ $WRITER_DEV != "ATA:" ] ; then
+	CDRECORD="
+System wykry³ nagrywarkê. 
+Mo¿esz nagraæ plik z obrazem ISO na czyst± p³ytê poleceniem:
+cdrecord -v -eject -force dev=$WRITER_DEV $ISO_NAME"
+fi
+
+
+Xdialog --title "$TITLE" \
+--backtitle "PROCES TWORZENIE OBRAZU P£YTY ZOSTA£ ZAKOÑCZONY" \
+--msgbox "Utworzony obraz p³yty zosta³ zapisany w pliku: $ISO_NAME
+Plik ma rozmiar $ilemb. Sprawd¼, czy zmie¶ci siê na p³ycie CD-ROM.
+$CDRECORD" 0 0
+
+

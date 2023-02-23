@@ -1,0 +1,494 @@
+#!/bin/bash
+ 
+# Skrypt archiwizujacy ustawienia u¿ytkowinika v 0.05
+
+# IP ,MASKA, MTU, Bcast .bash_history, XF86Config{-4},getway,
+# resolv.conf, Hosts, Hosts.allow, Hosts.deny
+# drukarki CUPS,
+
+# SEBATIAN KOLOS hans2000@poczta.fm    Licencja GNU GPL  
+
+SAVE="NO"
+RESTORE="NO"
+VERBOSE="NO"
+OSOBA=""
+DEST=""
+
+# Przypisanie stdout do zmiennej
+LOG_FILE=`tty`
+
+# Sprawdza czy dany uzytkownik istnieje 
+# czy jest katalog /home/nazwa_uzytkownika
+# $1 - nazwa_uzytkownika
+check_user(){
+	DIR=`bash -c "cd ~$1;pwd"`
+	if [ -e $DIR ] ; then
+	    echo "Katalog u¿ytkownika $DIR " 1>>$LOG_FILE 2>>$LOG_FILE
+	else 
+	    echo "Brak katalogu u¿ytkownika" 1>>$LOG_FILE 2>>$LOG_FILE
+	    exit 2
+	fi
+}
+
+# sprawdze czy katalog docelowy ma mo¿liwosc zapisu 
+check_dest(){  
+    if [ "$1" != "a:" -a "$1" != "a" -a "$1" != "a:\\" -a "$1" != "floppy" ] ; then
+	if [ ! -w $1 -o ! -e $1 ] ; then 
+	    echo "Brak mo¿liwo¶ci zapisu w miejscu docelowym $1" 1>>$LOG_FILE 2>>$LOG_FILE
+	    exit 1
+        fi
+    else
+	# Floppy test 
+	umount /dev/fd0 1>/dev/null 2>/dev/null
+	mdir 1>/dev/null 2>/tmp/fd_test
+	ANSWER=`cat /tmp/fd_test | grep Cannot | wc -l` 
+	rm /tmp/fd_test 1>/dev/null 2>/dev/null
+	# End Floppy test		
+	if [ $ANSWER -eq 1 ] ; then 	
+	    echo "Brak dyskietki w stacji" 1>>$LOG_FILE 2>>$LOG_FILE
+	    exit 1
+	fi
+    fi
+}
+
+# Tryb bez komunikatow
+# $1 - tryb pracy
+quiet(){
+	if [ "$1" = "YES" ] ; then 
+	    LOG_FILE=/tmp/usercopy.log
+	    echo ""
+	    echo "Kopia wykonana : "`date` 1>>$LOG_FILE 2>>$LOG_FILE
+	fi
+}
+
+# Tworzenie katalogu tymczasowego
+# $1 - nazwa uzytkownika
+mktmp(){
+    mkdir /tmp/"$1"_files  1>>$LOG_FILE 2>>$LOG_FILE
+    TMP_DIR=/tmp/"$1"_files
+    export TMP_DIR
+}
+
+
+# Tworzenie pliku ustawien
+# $1 - nazwa uzytkownika
+mkfile(){
+    touch /tmp/"$1"_bak  1>>$LOG_FILE 2>>$LOG_FILE
+    TMP_FILE=/tmp/"$1"_bak
+    export TMP_FILE
+}
+
+# Usuwanie katalogu tymczasowego
+# $1 - nazwa uzytkownika
+rmtmp(){
+    if [ -e $TMP_DIR ] ; then  
+	rm -r $TMP_DIR 1>>$LOG_FILE 2>>$LOG_FILE
+    fi
+    if [ -e $TMP_FILE ] ; then
+	rm -r $TMP_FILE 1>>$LOG_FILE 2>>$LOG_FILE
+    fi
+    if [ -e $TMP_DIR.tar.bz2 ] ; then
+	rm -r "$TMP_DIR".tar.bz2 1>>$LOG_FILE 2>>$LOG_FILE
+    fi
+}
+
+# Usuwanie pozostalosci po archiwizacji
+# $1 - nazwa uzytkownika
+rmall(){
+	if [ -e /tmp/"$1"_files ] ; then
+	    rm -r /tmp/"$1"_files 1>>$LOG_FILE 2>>$LOG_FILE
+	fi
+	if [ -e /tmp/"$1"_files.tar.bz2 ] ; then
+	    rm -r /tmp/"$1"_files.tar.bz2 1>>$LOG_FILE 2>>$LOG_FILE
+	fi
+	if [ -e /tmp/"$1"_bak ] ; then
+	    rm -r /tmp/"$1"_bak 1>>$LOG_FILE 2>>$LOG_FILE 
+	fi
+}
+
+# Funkcja wyswietlajaca pomoc
+help(){
+ echo ""
+ echo "Archiwizacja ustawieñ u¿ytkownika"
+ echo ""
+ echo "Parametry wymagane :"
+ echo "$0 -s lub -r -u nazwa_uzytkownika -d katalog lub floppy [opcje]"  
+ echo ""
+ echo "Opcje :"
+ echo "-q           - cichy tryb pracy"
+ echo "-u xxx       - nazwa u¿ytkownika"
+ echo "-s           - zapis danych"
+ echo "-r           - odczyt danych"
+ echo "-d xxx       - miejsce zapisu danych np. floppy /archiwum /media/dyski/kopia"
+ echo "-n           - konfiguracja sieci (ip, maska, brama...)"
+ echo "-h           - pomoc"
+ echo "-g           - konfiguracja gadu-kadu"
+ echo "-p           - konfiguracja drukarek dla CUPS"
+ echo ""
+ echo "Parametry wymagaj±ce uprawnieñ roota do przywrócenia stanu:"
+ echo ""
+ echo "-x           - konfiguracja XWindow: plik XF86Config"
+ echo "-b           - historia pow³oki Bash: plik .bash_history"
+ echo "-w           - aktywacja partycji wymiany, np. $0 -w"
+}
+
+# Kopiowanie archiwalnych plikow do miejsca przechowywania
+# Dyskietka lub dowolny katalog
+# Jesli dany plik istnieje zostanie zastapiony nowym
+# $1 - nazwa uzytkownika
+# $2 - miejsce docelowe
+cptmp(){
+    # Kompresja do archiwum tar.gz
+    cd /tmp/"$1"_files 1>>$LOG_FILE 2>>$LOG_FILE
+    COUNT=`ls -a` 
+    cd /tmp 1>>$LOG_FILE 2>>$LOG_FILE
+    if [ "$COUNT" != "" ] ; then
+	tar cjf /tmp/"$1"_files.tar.bz2 "$1"_files 1>>$LOG_FILE 2>>$LOG_FILE
+    fi
+    
+    if [ "$2" = "a:" -o "$2" = "a" -o "$2" = "a:\\" -o "$2" = "floppy" ] ; then 
+        umount /dev/fd0 1>/dev/null 2>/dev/null
+	if [ -e /tmp/"$1"_files.tar.bz2 ] ; then 
+    	    mcopy -n -o /tmp/"$1"_files.tar.bz2 a: 1>>$LOG_FILE 2>>$LOG_FILE
+        fi
+	if [ -s /tmp/"$1"_bak ] ; then
+	    mcopy -n -o /tmp/"$1"_bak a: 1>>$LOG_FILE 2>>$LOG_FILE
+	fi
+    else 
+	# -s - czy ma rozmiar > 0 
+	if [ -e /tmp/"$1"_files.tar.bz2 ] ; then
+	    cp /tmp/"$1"_files.tar.bz2 $2 1>>$LOG_FILE 2>>$LOG_FILE
+	fi
+	if [ -s /tmp/"$1"_bak ] ; then
+	    cp /tmp/"$1"_bak $2 1>>$LOG_FILE 2>>$LOG_FILE
+	fi
+    fi    
+}
+
+# $1 - nazwa uzytkownika
+# $2 - polozenie archiwum
+cptmpfrom(){
+    if [ "$2" = "a:" -o "$2" = "a" -o "$2" = "a:\\" -o "$2" = "floppy" ] ; then
+	mcopy -n -o a:"$1"_files.tar.bz2 /tmp 1>>$LOG_FILE 2>>$LOG_FILE
+	mcopy -n -o a:"$1"_bak /tmp 1>>$LOG_FILE 2>>$LOG_FILE
+    elif [ "$2" = "/" ] ; then
+	if [ -e /"$1"_files.tar.bz2 ] ; then
+	    cp /"$1"_files.tar.bz2 /tmp 1>>$LOG_FILE 2>>$LOG_FILE
+	fi
+	if [ -e /"$1"_bak ] ; then
+	    cp /"$1"_bak /tmp 1>>$LOG_FILE 2>>$LOG_FILE
+	fi
+    else
+	if [ -e "$2"/"$1"_files.tar.bz2 ] ; then
+	    cp "$2"/"$1"_files.tar.bz2 /tmp 1>>$LOG_FILE 2>>$LOG_FILE 
+	fi
+	if [ -e "$2"/"$1"_bak ] ; then
+	    cp "$2"/"$1"_bak /tmp 1>>$LOG_FILE 2>>$LOG_FILE
+	fi
+    fi
+    cd /tmp 1>>$LOG_FILE 2>>$LOG_FILE
+    if [ -e ./"$1"_files.tar.bz2 ] ; then
+	/bin/tar xjf ./"$1"_files.tar.bz2 1>>$LOG_FILE 2>>$LOG_FILE
+    fi
+}   
+
+ 
+# Funkcja zapisujaca do pliku
+# $1 - co zapisujemy 
+# $2 - wartosc 
+# $3 - nazwa pliku 
+# Format zapisu w pliku np. IP : 192.168.0.1
+save(){
+    echo "$1 : $2" >> $3
+    echo "Zapisano $1 : $2" 1>>$LOG_FILE 2>>$LOG_FILE	
+}
+
+# Funkcja pobierajaca adresy IP
+# $1 - nazwa pliku
+# $2 - numer karty
+save_net(){
+	IP=`/sbin/ifconfig | grep -m1 inet | cut -f2 -d: | cut -f1 -d" "`
+	save IP $IP $1
+	
+	NETMASK=`/sbin/ifconfig | grep -m1 Mask | cut -f4 -d: | cut -f1 -d" "`
+	save NETMASK $NETMASK $1
+	
+	MTU=`/sbin/ifconfig | grep -m1 MTU | cut -f2 -d: | cut -f1 -d" "`
+	save MTU $MTU $1
+	
+	# czy jest w tablicy routingu default gateway
+	GW=`route -n | grep ^0.0.0.0`
+	if [ "$GW" = ""  ] ; then 
+		echo "W tablicy routingu brak pozycji default gateway" 1>>$LOG_FILE 2>>$LOG_FILE
+	elif [ "$GW" != "" ] ; then
+		DEFAULT_GW=`/sbin/route -n | grep ^0.0.0.0 | awk -F" " '{ print $2 }'`
+		DEFAULT_GM=`/sbin/route -n | grep ^0.0.0.0 | awk -F" " '{ print $3 }'`
+		DEFAULT_IFACE=`/sbin/route -n | grep ^0.0.0.0 | awk -F" " '{ print $8 }'`
+		echo "Zapisano default gateway :" 1>>$LOG_FILE 2>>$LOG_FILE
+		echo "ip: $DEFAULT_GW" 1>>$LOG_FILE 2>>$LOG_FILE
+		echo "maska: $DEFAULT_GM " 1>>$LOG_FILE 2>>$LOG_FILE
+		echo "iface: $DEFAULT_IFACE" 1>>$LOG_FILE 2>>$LOG_FILE
+		echo "DEFAULT_GW: $DEFAULT_GW" >> $1
+		echo "DEFAULT_GM: $DEFAULT_GM" >> $1
+		echo "DEFAULT_IFACE: $DEFAULT_IFACE" >> $1
+	fi
+}
+
+# Funkcja ustawiajaca adres IP dla ethX
+# $1 - nazwa pliku
+# $2 - numer karty
+restore_net(){
+ IP=`cat $1 | grep -m1 IP | cut -f3 -d" "`
+ if [ "$IP" = "" ] ; then 
+	echo "W pliku nie ma pozycji IP" 1>>$LOG_FILE 2>>$LOG_FILE
+ elif [ "$IP" != "" ] ; then
+	/sbin/ifconfig eth0 $IP up
+	echo "Przywrócono IP = $IP" 1>>$LOG_FILE 2>>$LOG_FILE
+ fi  
+  
+  NETMASK=`cat $1 | grep NETMASK | cut -f3 -d" "`
+  if [ "$NETMASK" = "" ] ; then 
+	echo "W pliku nie ma pozycji maska sieci " 1>>$LOG_FILE 2>>$LOG_FILE
+  elif [ "$NETMASK" != "" ] ; then
+	/sbin/ifconfig eth0 netmask $NETMASK
+	echo "Przywrócono maskê sieci:  $NETMASK" 1>>$LOG_FILE 2>>$LOG_FILE
+  fi
+
+ MTU=`cat $1 | grep MTU | cut -f3 -d" "`
+ # Czy istnieje ta wartosc w pliku
+ if [ "$MTU" = "" ] ; then 
+	echo "W pliku nie ma pozycji MTU" 1>>$LOG_FILE 2>>$LOG_FILE 
+ elif [ "$MTU" != "" ] ; then
+	/sbin/ifconfig eth0 mtu $MTU 1>>$LOG_FILE 2>>$LOG_FILE
+	echo "Przywrócono MTU: $MTU" 1>>$LOG_FILE 2>>$LOG_FILE
+ fi
+ 
+ DEFAULT_GW=`cat $1 | grep DEFAULT_GW | cut -f3 -d" "`
+ DEFAULT_GM=`cat $1 | grep DEFAULT_GM | cut -f3 -d" "`
+ DEFAULT_IFACE=`cat $1 | grep DEFAULT_IFACE | cut -f3 -d" "`
+ if [ "$DEFAULT_GW" = ""  ] ; then 
+	echo "W pliku nie ma pozycji default gateway" 1>>$LOG_FILE 2>>$LOG_FILE
+ elif [ "$DEFAULT_GW" != ""  ] ; then
+	/sbin/route add default dev $DEFAULT_IFACE gw $DEFAULT_GW 1>>$LOG_FILE 2>>$LOG_FILE
+	echo "Przywrócono default gateway: $DEFAULT_GW" 1>>$LOG_FILE 2>>$LOG_FILE
+ fi
+}
+
+#Hisoria BASH-a
+# $1 = nazwa uzytkownika
+# $2 = katalog tymczasowy 
+save_bash(){
+	DIR=`bash -c "cd ~$1;pwd"`
+	# czy plik istnieje
+	if [ -e "$DIR"/.bash_history ] ; then
+	    cp "$DIR"/.bash_history $2 1>>$LOG_FILE 2>>$LOG_FILE
+	    echo "Archiwizacja pliku .bash_history" 1>>$LOG_FILE 2>>$LOG_FILE
+	else 
+	    echo "Brak historii basha " 1>>$LOG_FILE 2>>$LOG_FILE
+	fi
+}
+
+# $1 - nazwa uzytkownika
+# $2 - zrodlowy katalog
+restore_bash(){
+	DIR=`bash -c "cd ~$1;pwd"`
+	if [ -e /tmp/"$1"_files/.bash_history ] ; then 
+	    cp  /tmp/"$1"_files/.bash_history "$DIR"/.bash_history 1>>$LOG_FILE 2>>$LOG_FILE
+    	    echo "Przywrócono z archiwum plik .bash_history" 1>>$LOG_FILE 2>>$LOG_FILE
+	else 
+	    echo "Brak w archiwum pliku .bash_history" 1>>$LOG_FILE 2>>$LOG_FILE
+	fi
+}
+
+
+# Archiwizacja ustawien plików
+# $1 - plik do archiwizacji
+# $2 - katalog ¼ród³owy 
+# $3 - katalog tymczasowy
+save_file(){
+    if [ -e $2/$1 ] ; then
+	cp -dpR $2/$1 $3
+	echo "Archiwizacja pliku $1" 1>>$LOG_FILE 2>>$LOG_FILE
+    else 
+	echo "Brak pliku $1" 1>>$LOG_FILE 2>>$LOG_FILE
+    fi
+}
+
+save_dir(){
+    if [ -e $2/$1 ] ; then
+	tar cfz $3/$1.tar.gz $2/$1
+	echo "Archiwizacja katalogu $1" 1>>$LOG_FILE 2>>$LOG_FILE
+    else 
+	echo "Brak katalogu $1" 1>>$LOG_FILE 2>>$LOG_FILE
+    fi
+}
+# Przywracanie ustawien plików
+# $1 - plik do archiwizacji
+# $2 - katalog docelowy
+# $3 - katalog ¼ród³owy 
+restore_file(){
+	if [ -e /tmp/"$3"_files/"$1" ] ; then 
+	    cp -dpR /tmp/"$3"_files/"$1" /"$2"/"$1" 1>>$LOG_FILE 2>>$LOG_FILE
+	    echo "Przywrócono z archiwum plik $1" 1>>$LOG_FILE 2>>$LOG_FILE
+	else
+	    echo "Brak w archiwum pliku $1"  1>>$LOG_FILE 2>>$LOG_FILE
+	fi
+}	
+
+restore_dir(){
+	if [ -e "/tmp/$3_files/$1.tar.gz" ] ; then 
+	    tar xfz "/tmp/$3_files/$1.tar.gz" -C "/" 1>>$LOG_FILE 2>>$LOG_FILE
+	    echo "Przywrócono z archiwum katalog $1" 1>>$LOG_FILE 2>>$LOG_FILE
+	else
+	    echo "Brak w archiwum katalogu $1"  1>>$LOG_FILE 2>>$LOG_FILE
+	fi
+}	
+
+##########################
+# WLASCIWA CZESC SKRYPTU #
+##########################
+
+# Pobieranie argumentow wywylania skryptu
+while getopts sru:qd:ngxbhwp WYBOR 2>/dev/null
+    do
+	case $WYBOR in
+	    s) SAVE="YES";;
+	    r) RESTORE="YES";;
+	    u) OSOBA=$OPTARG;;
+	    q) quiet "YES";;
+	    d) DEST=$OPTARG;;
+	    n) NET_CHECK="YES";;
+	    g) GADU_CHECK="YES";;
+	    x) XF86_CHECK="YES";;
+	    b) BASH_CHECK="YES";;
+	    w) SWAP_ON="YES";;
+	    p) PRINTER="YES";;
+	    h) help;;
+	    ?) echo "z³e polecenie";
+	exit;;
+	esac	
+    done
+
+
+### Czy jest w³asciwa ilosc parametrow
+if [ "$OSOBA" != "" -a "$DEST" != "" ] ; then
+  if [ "$SAVE" != "" -o "$RESTORE" != "" ] ; then
+ 
+    check_user $OSOBA
+    check_dest $DEST
+	
+## Zapis ustawien uzytkownika    
+    if [ "$SAVE" = "YES" ] ; then 
+    
+	# Sprawdzanie mozliwosc zapisu w miejscu docelowym
+
+	rmall $OSOBA
+	mkfile $OSOBA
+	mktmp $OSOBA
+    
+	if [ "$NET_CHECK" = "YES" ] ; then 
+	    save_net $TMP_FILE
+	    save_file "resolv.conf" "/etc/" $TMP_DIR
+	    save_file "hosts" "/etc/" $TMP_DIR
+	    save_file "hosts.allow" "/etc/" $TMP_DIR
+	    save_file "hosts.deny" "/etc/" $TMP_DIR
+	fi
+	
+	if [ "$BASH_CHECK" = "YES" ] ; then
+	    save_bash $OSOBA $TMP_DIR  
+	fi
+	
+	if [ "$GADU_CHECK" = "YES" ] ; then
+	    save_file "userlist" "/root/.gg/" $TMP_DIR
+	    save_file "kadu.conf" "/root/.gg/" $TMP_DIR
+	    save_file "config" "/root/.gg/" $TMP_DIR
+	    save_file "prefs.js" "/root/.mozilla-thunderbird/default.irh" $TMP_DIR
+	    save_dir "Mail" "/root/.mozilla-thunderbird/default.irh" $TMP_DIR
+	fi
+
+	if [ "$XF86_CHECK" = "YES" ] ; then
+	    save_file "XF86Config" "/etc/X11/" $TMP_DIR
+	    save_file "XF86Config-4" "/etc/X11/" $TMP_DIR
+	fi
+	
+	#Zapisywanie ustawien drukarek
+	if [ "$PRINTER" = "YES" ] ; then
+	    save_file "classes.conf" "/etc/cups/" $TMP_DIR
+	    save_file "command.types" "/etc/cups/" $TMP_DIR
+	    save_file "cupsd.conf" "/etc/cups/" $TMP_DIR
+	    save_file "mime.convs" "/etc/cups/" $TMP_DIR
+	    save_file "mime.types" "/etc/cups/" $TMP_DIR
+	    save_file "printers.conf" "/etc/cups/" $TMP_DIR
+	    save_file "pstoraster.convs" "/etc/cups/" $TMP_DIR    
+	    save_file "ppd" "/etc/cups" $TMP_DIR
+	    save_file "certs" "/etc/cups" $TMP_DIR
+	fi
+	
+	cptmp $OSOBA $DEST
+	rmtmp $OSOBA    
+	rmall $OSOBA
+	
+	chmod 666 /tmp/usercopy.log 1>/dev/null 2>/dev/null    
+
+    # Przywracanie ustawien uzytkownika
+    elif [ "$RESTORE" = "YES" ] ; then 
+	cptmpfrom $OSOBA $DEST
+
+	if [ -e /tmp/"$OSOBA"_bak ] ; then
+	    if [ "$NET_CHECK" = "YES" ] ; then
+		restore_net /tmp/"$OSOBA"_bak
+	    fi
+	fi
+	
+	# przywracanie plikow
+	if [ "$NET_CHECK" = "YES" ] ; then
+	    restore_file "hosts" "/etc/" $OSOBA
+	    restore_file "hosts.allow" "/etc/" $OSOBA
+	    restore_file "hosts.deny" "/etc/" $OSOBA
+	    restore_file "resolv.conf" "/etc/" $OSOBA
+	fi
+	
+	if [ "$BASH_CHECK" = "YES" ] ; then
+	    restore_bash $OSOBA  
+	fi
+
+	if [ "$GADU_CHECK" = "YES" ] ; then
+	    restore_file "userlist" "/root/.gg/userlist" $OSOBA
+	    restore_file "kadu.conf" "/root/.gg/kadu.conf" $OSOBA
+	    restore_file "config" "/root/.gg/config" $OSOBA
+	    restore_file "prefs.js" "/root/.mozilla-thunderbird/default.irh" $OSOBA
+	    restore_dir "Mail" "/root/.mozilla-thunderbird/default.irh" $OSOBA
+	    restore_file "kmailrc" "/root/.kde/share/config" $OSOBA
+	fi
+
+
+	if [ "$XF86_CHECK" = "YES" ] ; then
+	    restore_file "XF86Config" "/etc/X11/" $OSOBA
+	    restore_file "XF86Config-4" "/etc/X11/" $OSOBA
+	fi
+	
+	#Przywracanie ustawien drukarek
+	if [ "$PRINTER" = "YES" ] ; then
+	    restore_file "classes.conf" "/etc/cups/" $OSOBA
+	    restore_file "command.types" "/etc/cups/" $OSOBA
+	    restore_file "cupsd.conf" "/etc/cups/" $OSOBA
+	    restore_file "mime.convs" "/etc/cups/" $OSOBA
+	    restore_file "mime.types" "/etc/cups/" $OSOBA
+	    restore_file "printers.conf" "/etc/cups/" $OSOBA
+	    restore_file "pstoraster.convs" "/etc/cups/" $OSOBA
+	    rm -r /etc/cups/ppd 1>>$LOG_FILE 2>>$LOG_FILE
+	    rm -r /etc/cups/certs 1>>$LOG_FILE 2>>$LOG_FILE
+	    restore_file "ppd" "/etc/cups" $OSOBA
+	    restore_file "certs" "/etc/cups" $OSOBA
+	    /etc/init.d/cupsys restart
+	fi
+	
+	# czyscimy tmp	
+	rmall $OSOBA
+    fi
+  else 
+	echo "Za ma³o parametrów $0 -h"
+  fi
+else 
+	echo "Za ma³o parametrów $0 -h"
+fi # min parametrow
