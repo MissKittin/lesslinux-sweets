@@ -65,3 +65,4 @@ If you are the author and you do not want this repository to be publicly availab
 * `5993_avg_blob.xml` https://github.com/mschlenker/lesslinux-builder/blob/master/scripts/stage03/5993_avg_blob.xml
 * `5993_chrome_blob.xml` https://github.com/mschlenker/lesslinux-builder/blob/master/scripts/stage03/5993_chrome_blob.xml
 * `mounttools2` https://github.com/mschlenker/lesslinux-builder/tree/master/tools/mounttools2
+* `pkg-sl-modem` https://github.com/leggewie/pkg-sl-modem
