@@ -56,6 +56,7 @@ If you are the author and you do not want this repository to be publicly availab
 * `cdlcenter-extra` https://sourceforge.net/projects/archiveos/files/c/cdlinuxpl/cdlinux-dvd-1.0.iso/download
 * `speedtouch` https://sourceforge.net/projects/archiveos/files/c/cdlinuxpl/cdlinux-dvd-1.0.iso/download
 * `speedtouch-extra` https://sourceforge.net/projects/archiveos/files/c/cdlinuxpl/cdlinux-dvd-1.0.iso/download
+* `TinyCore-13.1.iso` http://www.tinycorelinux.net/13.x/x86/release/TinyCore-13.1.iso
 
 # Scripts
 * `1570_clamav.xml` https://github.com/mschlenker/lesslinux-builder/blob/master/scripts/stage03/1570_clamav.xml

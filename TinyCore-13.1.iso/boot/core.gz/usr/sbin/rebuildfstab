@@ -1,0 +1,95 @@
+#!/bin/busybox ash
+. /etc/init.d/tc-functions
+useBusybox
+
+PATH="/bin:/sbin:/usr/bin:/usr/sbin"
+export PATH
+umask 022
+
+# Exit if script is already running
+[ -e /proc/partitions ] || exit
+if [ -e /var/run/rebuildfstab.pid ]; then
+ if [ -e "/proc/$(cat /var/run/rebuildfstab.pid)" ]; then
+  touch /var/run/rebuildfstab.rescan 2>/dev/null
+  exit
+ fi
+ rm -f /var/run/rebuildfstab.pid
+fi
+echo "$$" >/var/run/rebuildfstab.pid
+
+TMP="/tmp/fstab.$$.tmp"
+ADDEDBY="# Added by TC"
+DEVROOT="/dev"
+
+# Read a list of CDROM/DVD Drives
+CDROMS=""
+CDROMSF=/etc/sysconfig/cdroms
+[ -s "$CDROMSF" ] &&  CDROMS=`cat "$CDROMSF"`
+
+grep -v "$ADDEDBY" /etc/fstab > "$TMP"
+
+NTFSDRIVER=""
+checkntfs() {
+    if [ -z "$NTFSDRIVER" ]; then
+        if [ -f /usr/bin/ntfs-3g ] || [ -f /usr/local/bin/ntfs-3g ] || [ -f /bin/ntfs-3g ]; then
+            NTFSDRIVER="ntfs-3g"
+        else
+            NTFSDRIVER="ntfs3"
+        fi
+    fi
+
+    FSTYPE="$NTFSDRIVER"
+    case "$FSTYPE" in
+        ntfs3|ntfs-3g) OPTIONS="$OPTIONS",iocharset=utf8;  ;;
+        ntfs) OPTIONS="$OPTIONS,ro,umask=000";  ;;
+    esac
+}
+
+# Loop through block devices
+while read BLOCKDEV DEVNAME FSTYPE; do
+  case "$CDROMS" in *"$DEVROOT/$DEVNAME"*) FSTYPE="auto" ;; esac
+  case "$FSTYPE" in linux_raid_member|LVM2_member|zfs_member) continue;  ;; esac
+  if [ -z "$FSTYPE" ]; then
+    DEVMAJOR="$(cat $BLOCKDEV|cut -f1 -d:)"
+    case "$DEVMAJOR" in
+      2|98) FSTYPE="auto";  ;;
+      *) continue;  ;;
+    esac
+  fi
+
+  MOUNTPOINT="/mnt/$DEVNAME"
+  OPTIONS="noauto,users,exec"
+  case "$FSTYPE" in
+    ntfs) checkntfs ;;
+    vfat|msdos) OPTIONS="${OPTIONS},umask=000" ;;
+    ext2|ext3) OPTIONS="${OPTIONS},relatime" ;;
+    swap) OPTIONS="defaults"; MOUNTPOINT="none" ;;
+  esac
+  if [ "$MOUNTPOINT" != "none" ]; then
+    mkdir -p "/mnt/$DEVNAME" 2>/dev/null >/dev/null
+  fi
+  printf "%-15s %-15s %-8s %-20s %-s\n" "$DEVROOT/$DEVNAME" "$MOUNTPOINT" "$FSTYPE" "$OPTIONS" "0 0 $ADDEDBY" >>"$TMP"
+done < <(find /sys/block/*/ -name dev ! -regex '.*\(/loop\|/ram\|/zram\|\s\).*' | awk -v devroot="$DEVROOT" -v tmptab="$TMP" '
+    BEGIN {
+        while (getline < tmptab > 0) remain[$1]=1
+        FS="/|!"
+    }
+    {d=devroot"/"$(NF-1); if (! (d in devs) && ! (d in remain)) {s=s" "d; devs[d]=$0;}}
+    END {
+        FS="[ :\"=]+"
+        while ("blkid -s TYPE "s | getline) fs[$1]=$3
+        for (d in devs) print devs[d]" "gensub(/.*\//,"",1,d)" "fs[d]
+    }
+' | sort -f -k 1)
+
+
+# Clean up
+mv "$TMP" /etc/fstab
+rm -f /var/run/rebuildfstab.pid
+sync
+
+# If another copy tried to run while we were running, rescan.
+if [ -e /var/run/rebuildfstab.rescan ]; then
+  rm -f /var/run/rebuildfstab.rescan
+  exec $0 "$@"
+fi
