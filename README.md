@@ -59,6 +59,7 @@ If you are the author and you do not want this repository to be publicly availab
 * `TinyCore-13.1.iso` http://www.tinycorelinux.net/13.x/x86/release/TinyCore-13.1.iso
 * `lesslinux-notfall4-20121114.tar.bz2` https://distfiles.lesslinux.org/lesslinux-notfall4-20121114.tar.bz2
 * `xp_inst.zip` https://github.com/DestroyTheOS/SmallXP/blob/main/xp_inst.zip
+* `slimwinbat.zip` https://acmlm.rustedlogic.net/etc/files/slimwinbat.zip
 
 # Scripts
 * `1570_clamav.xml` https://github.com/mschlenker/lesslinux-builder/blob/master/scripts/stage03/1570_clamav.xml
