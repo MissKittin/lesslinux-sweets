@@ -63,6 +63,7 @@ If you are the author and you do not want this repository to be publicly availab
 * `IE4Remove.ZIP` https://www.geocities.ws/plansdowne_ca/IE4Remove.ZIP
 * `IE5Remove.ZIP` https://www.geocities.ws/plansdowne_ca/IE5Remove.ZIP
 * `Dxbye95.zip` https://www.geocities.ws/plansdowne_ca/Dxbye95.zip
+* `Dxbye98.zip` https://www.geocities.ws/plansdowne_ca/Dxbye98.zip
 
 # Scripts
 * `1570_clamav.xml` https://github.com/mschlenker/lesslinux-builder/blob/master/scripts/stage03/1570_clamav.xml
