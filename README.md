@@ -58,6 +58,7 @@ If you are the author and you do not want this repository to be publicly availab
 * `speedtouch-extra` https://sourceforge.net/projects/archiveos/files/c/cdlinuxpl/cdlinux-dvd-1.0.iso/download
 * `TinyCore-13.1.iso` http://www.tinycorelinux.net/13.x/x86/release/TinyCore-13.1.iso
 * `lesslinux-notfall4-20121114.tar.bz2` https://distfiles.lesslinux.org/lesslinux-notfall4-20121114.tar.bz2
+* `xp_inst.zip` https://github.com/DestroyTheOS/SmallXP/blob/main/xp_inst.zip
 
 # Scripts
 * `1570_clamav.xml` https://github.com/mschlenker/lesslinux-builder/blob/master/scripts/stage03/1570_clamav.xml
