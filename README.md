@@ -61,6 +61,7 @@ If you are the author and you do not want this repository to be publicly availab
 * `xp_inst.zip` https://github.com/DestroyTheOS/SmallXP/blob/main/xp_inst.zip
 * `slimwinbat.zip` https://acmlm.rustedlogic.net/etc/files/slimwinbat.zip
 * `IE4Remove.ZIP` https://www.geocities.ws/plansdowne_ca/IE4Remove.ZIP
+* `IE5Remove.ZIP` https://www.geocities.ws/plansdowne_ca/IE5Remove.ZIP
 
 # Scripts
 * `1570_clamav.xml` https://github.com/mschlenker/lesslinux-builder/blob/master/scripts/stage03/1570_clamav.xml
